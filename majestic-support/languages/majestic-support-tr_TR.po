@@ -1,0 +1,6144 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "You are not allowed"
+msgstr "İzinli değilsin"
+
+msgid "The ticket has been locked"
+msgstr "Bilet kilitlendi"
+
+msgid "Successfully"
+msgstr "Başarıyla"
+
+msgid "The ticket has not been locked"
+msgstr "Bilet kilitlenmemiş"
+
+msgid "Lock Ticket"
+msgstr "Bileti Kilitle"
+
+msgid "The ticket is locked by"
+msgstr "Bilet şu şekilde kilitlendi:"
+
+msgid "The ticket has been unlocked"
+msgstr "Biletin kilidi açıldı"
+
+msgid "The ticket has not been unlocked"
+msgstr "Biletin kilidi açılmadı"
+
+msgid "Unlock Ticket"
+msgstr "Biletin Kilidini Aç"
+
+msgid "User already an agent"
+msgstr "Kullanıcı zaten bir temsilci"
+
+msgid "The agent has not been stored"
+msgstr "Aracı depolanmadı"
+
+msgid "The agent has been stored"
+msgstr "Ajan saklandı"
+
+msgid "The agent has been deleted"
+msgstr "Temsilci silindi"
+
+msgid "The agent has not been deleted"
+msgstr "Temsilci silinmedi"
+
+msgid "The agent in use cannot delete"
+msgstr "Kullanılan aracı silemez"
+
+msgid "Agent"
+msgstr "Ajan"
+
+msgid "status has been changed"
+msgstr "durum değiştirildi"
+
+msgid "status has not been changed"
+msgstr "durum değişmedi"
+
+msgid "ID"
+msgstr "İD"
+
+msgid "User Name"
+msgstr "Kullanıcı adı"
+
+msgid "Email Address"
+msgstr "E-posta Adresi"
+
+msgid "Name"
+msgstr "İsim"
+
+msgid "Email"
+msgstr "E-posta"
+
+msgid "Previous"
+msgstr "Öncesi"
+
+msgid "Next"
+msgstr "Sonraki"
+
+msgid "Error Deleting Logo"
+msgstr "Logo Silinirken Hata oluştu"
+
+msgid "Active"
+msgstr "Aktif"
+
+msgid "Disabled"
+msgstr "Engelli"
+
+msgid "Uploaded file extension error."
+msgstr "Yüklenen dosya uzantısı hatası."
+
+msgid "Select user"
+msgstr "Kullanıcı seç"
+
+msgid "Username"
+msgstr "Kullanıcı adı"
+
+msgid "Search"
+msgstr "Aramak"
+
+msgid "Reset"
+msgstr "Sıfırla"
+
+msgid "Use search feature to select the user"
+msgstr "Kullanıcıyı seçmek için arama özelliğini kullanın"
+
+msgid "image"
+msgstr "görüntü"
+
+msgid "Add Agent"
+msgstr "Temsilci Ekle"
+
+msgid "WP User ID"
+msgstr "WP Kullanıcı Kimliği"
+
+msgid "WP Username"
+msgstr "WP Kullanıcı Adı"
+
+msgid "WP Full Name"
+msgstr "WP Tam Adı"
+
+msgid "WP Email Address"
+msgstr "WP E-posta Adresi"
+
+msgid "User"
+msgstr "Kullanıcı"
+
+msgid "Select User"
+msgstr "Kullanıcı seç"
+
+msgid "Select Role"
+msgstr "Rol Seçin"
+
+msgid "First Name"
+msgstr "İlk adı"
+
+msgid "Last Name"
+msgstr "Soy isim"
+
+msgid "Office Phone"
+msgstr "Ofis telefonu"
+
+msgid "Extension"
+msgstr "Eklenti"
+
+msgid "Mobile No"
+msgstr "Telefon numarası"
+
+msgid "Picture"
+msgstr "Resim"
+
+msgid "cross"
+msgstr "geçmek"
+
+msgid "Maximum File Size"
+msgstr "Maksimum dosya boyutu"
+
+msgid "File Extension Type"
+msgstr "Dosya Uzantısı Türü"
+
+msgid "Append Signature"
+msgstr "İmza Ekle"
+
+msgid "Append signature with a reply"
+msgstr "Yanıtla imzayı ekle"
+
+msgid "Signature"
+msgstr "İmza"
+
+msgid "Account Status"
+msgstr "hesap durumu"
+
+msgid "Select Status"
+msgstr "Durum Seç"
+
+msgid "Save"
+msgstr "Kaydetmek"
+
+msgid "Cancel"
+msgstr "İptal etmek"
+
+msgid "Close"
+msgstr "Kapalı"
+
+msgid "User Detail"
+msgstr "Kullanıcı Detayı"
+
+msgid "Append"
+msgstr "Ekle"
+
+msgid "Department Section"
+msgstr "Departman bölümü"
+
+msgid "Ticket Section"
+msgstr "Bilet Bölümü"
+
+msgid "Agent Section"
+msgstr "Temsilci Bölümü"
+
+msgid "Knowledge Base Section"
+msgstr "Bilgi Bankası Bölümü"
+
+msgid "FAQ Section"
+msgstr "SSS Bölümü"
+
+msgid "Download Section"
+msgstr "İndirme Bölümü"
+
+msgid "Announcement Section"
+msgstr "Duyuru Bölümü"
+
+msgid "Mail Section"
+msgstr "Posta Bölümü"
+
+msgid "Help Topic Section"
+msgstr "Yardım Konusu Bölümü"
+
+msgid "Premade Response Section"
+msgstr "Önceden Hazırlanmış Yanıt Bölümü"
+
+msgid "Smart Reply Section"
+msgstr "Akıllı Yanıt Bölümü"
+
+msgid "Ban Email Section"
+msgstr "E-posta Bölümünü Yasakla"
+
+msgid "Select / Deselect All"
+msgstr "Tümünü Seç / Seçimi Kaldır"
+
+msgid "Save Permissions"
+msgstr "İzinleri Kaydet"
+
+msgid "Full Name"
+msgstr "Ad Soyad"
+
+msgid "Status"
+msgstr "Durum"
+
+msgid "Created"
+msgstr "Oluşturuldu"
+
+msgid "Permissions"
+msgstr "İzinler"
+
+msgid "Action"
+msgstr "Aksiyon"
+
+msgid "Staff"
+msgstr "Kadro"
+
+msgid "change status"
+msgstr "durum değiştirmek"
+
+msgid "Edit"
+msgstr "Düzenlemek"
+
+msgid "Delete"
+msgstr "Silmek"
+
+msgid "Are you sure you want to delete"
+msgstr "Silmek istediğine emin misin"
+
+msgid "Something went wrong to try again later."
+msgstr "Daha sonra tekrar denemek için bir şeyler ters gitti."
+
+msgid "My Profile"
+msgstr "Benim profilim"
+
+msgid "Upload Image"
+msgstr "Fotoğraf yükleniyor"
+
+msgid "Phone No"
+msgstr "Telefon yok"
+
+msgid "Upload file limit exceeds"
+msgstr "Dosya yükleme sınırı aşıldı"
+
+msgid "No help topic found"
+msgstr "Yardım konusu bulunamadı"
+
+msgid "Error file size too large"
+msgstr "Hata dosyası boyutu çok büyük"
+
+msgid "Submit Ticket"
+msgstr "Bilet Gönder"
+
+msgid "Select Department"
+msgstr "Departman Seçiniz"
+
+msgid "Select Help Topic"
+msgstr "Yardım Konusunu Seçin"
+
+msgid "Select Priority"
+msgstr "Öncelik Seçin"
+
+msgid "premade"
+msgstr "önceden hazırlanmış"
+
+msgid "Add more"
+msgstr "Daha ekle"
+
+msgid "Remove"
+msgstr "Kaldırmak"
+
+msgid "Reason for edit"
+msgstr "Düzenleme nedeni"
+
+msgid "Internal Note"
+msgstr "Dahili Not"
+
+msgid "Enter valid woocommerce order#"
+msgstr "Geçerli WooCommerce siparişini girin#"
+
+msgid "Order id found"
+msgstr "Sipariş kimliği bulundu"
+
+msgid "Order id not found"
+msgstr "Sipariş kimliği bulunamadı"
+
+msgid "Select Product"
+msgstr "Ürünü seç"
+
+msgid "Dated"
+msgstr "Tarihli"
+
+msgid "Select Order ID"
+msgstr "Sipariş Kimliğini Seçin"
+
+msgid "Select license key"
+msgstr "Lisans anahtarını seçin"
+
+msgid "Assign to me"
+msgstr "Bana ata"
+
+msgid "Show All"
+msgstr "Hepsini Göster ↓"
+
+msgid "Show Less"
+msgstr "Daha az göster"
+
+msgid "My Tickets"
+msgstr "Biletlerim"
+
+msgid "Open"
+msgstr "Açık"
+
+msgid "Closed"
+msgstr "Kapalı"
+
+msgid "Answered"
+msgstr "Yanıtlandı"
+
+msgid "Overdue"
+msgstr "vadesi geçmiş"
+
+msgid "All Tickets"
+msgstr "Tüm Biletler"
+
+msgid "Ticket ID"
+msgstr "Bilet Kimliği"
+
+msgid "Or"
+msgstr "Veya"
+
+msgid "From"
+msgstr "İtibaren"
+
+msgid "Select Agent"
+msgstr "Temsilci Seçin"
+
+msgid "Select"
+msgstr "Seçme"
+
+msgid "Start Date"
+msgstr "Başlangıç ​​tarihi"
+
+msgid "End Date"
+msgstr "Bitiş tarihi"
+
+msgid "Assigned to me"
+msgstr "Beni görevlendirdi"
+
+msgid "All"
+msgstr "Tüm"
+
+msgid "Tickets"
+msgstr "Biletler"
+
+msgid "Subject"
+msgstr "Ders"
+
+msgid "Priority"
+msgstr "Öncelik"
+
+msgid "sort"
+msgstr "düzenlemek"
+
+msgid "New"
+msgstr "Yeni"
+
+msgid "Waiting Reply"
+msgstr "Cevap Bekleniyor"
+
+msgid "In Progress"
+msgstr "Devam etmekte"
+
+msgid "Replied"
+msgstr "Cevap verdi"
+
+msgid "Close and merge"
+msgstr "Kapat ve birleştir"
+
+msgid "Created via Email"
+msgstr "E-posta yoluyla oluşturuldu"
+
+msgid "The ticket is locked"
+msgstr "Bilet kilitli"
+
+msgid "The ticket marks as overdue"
+msgstr "Biletin gecikmiş olduğu belirtiliyor"
+
+msgid "Last Reply"
+msgstr "Son Yanıt"
+
+msgid "Agent Permissions"
+msgstr "Temsilci İzinleri"
+
+msgid "Agents"
+msgstr "Temsilciler"
+
+msgid "Add agent"
+msgstr "Temsilci ekle"
+
+msgid "Search by username"
+msgstr "Kullanıcı adına göre ara"
+
+msgid "Already exists"
+msgstr "Zaten var"
+
+msgid "The role has been stored"
+msgstr "Rol kaydedildi"
+
+msgid "The role has not been stored"
+msgstr "Rol kaydedilmedi"
+
+msgid "The role has been deleted"
+msgstr "Rol silindi"
+
+msgid "The role has not been deleted"
+msgstr "Rol silinmedi"
+
+msgid "The role currently in use cannot be deleted"
+msgstr "Şu anda kullanımda olan rol silinemez"
+
+msgid "Add Role"
+msgstr "Rol Ekle"
+
+msgid "Save Role"
+msgstr "Rolü Kaydet"
+
+msgid "Role Name"
+msgstr "Rol ismi"
+
+msgid "Role Permission"
+msgstr "Rol İzni"
+
+msgid "Role Permissions"
+msgstr "Rol İzinleri"
+
+msgid "Role permissions"
+msgstr "Rol izinleri"
+
+msgid "Agent permissions have been stored"
+msgstr "Aracı izinleri saklandı"
+
+msgid "Select Condition Operator"
+msgstr "Koşul Operatörünü Seçin"
+
+msgid "Select Submit Type"
+msgstr "Gönderim Türünü Seçin"
+
+msgid "Rule has been stored"
+msgstr "Kural saklandı"
+
+msgid "Rule has not been stored"
+msgstr "Kural saklanmadı"
+
+msgid "Rule has been deleted"
+msgstr "Kural silindi"
+
+msgid "Rule has not been deleted"
+msgstr "Kural silinmedi"
+
+msgid "Rule"
+msgstr "Kural"
+
+msgid "in use cannot deleted"
+msgstr "kullanımda silinemez"
+
+msgid "Condition Title"
+msgstr "Koşul Başlığı"
+
+msgid "Select Condition Title"
+msgstr "Koşul Başlığını Seçin"
+
+msgid "Condition Operator"
+msgstr "Koşul Operatörü"
+
+msgid "Condition Value"
+msgstr "Durum Değeri"
+
+msgid "Select Condition Value"
+msgstr "Koşul Değerini Seçin"
+
+msgid "Delete Condition"
+msgstr "Koşulu Sil"
+
+msgid "No Operator found"
+msgstr "Operatör bulunamadı"
+
+msgid "No Value found"
+msgstr "Değer bulunamadı"
+
+msgid "Rule Title"
+msgstr "Kural Başlığı"
+
+msgid "Condition value"
+msgstr "Durum değeri"
+
+msgid "+Add more Condition"
+msgstr "+Daha fazla Koşul ekle"
+
+msgid "Save Rule"
+msgstr "Kuralı Kaydet"
+
+msgid "Records per page"
+msgstr "Sayfa başına kayıt"
+
+msgid "Save Ordering"
+msgstr "Siparişi Kaydet"
+
+msgid "An announcement has been stored"
+msgstr "Bir duyuru saklandı"
+
+msgid "An announcement has not been stored"
+msgstr "Bir duyuru saklanmadı"
+
+msgid "An announcement has been deleted"
+msgstr "Bir duyuru silindi"
+
+msgid "An announcement has not been deleted"
+msgstr "Bir duyuru silinmedi"
+
+msgid "Announcement"
+msgstr "Duyuru"
+
+msgid "ordering has been changed"
+msgstr "sıralama değiştirildi"
+
+msgid "ordering has not changed"
+msgstr "sıralama değişmedi"
+
+msgid "Public"
+msgstr "Halk"
+
+msgid "Private"
+msgstr "Özel"
+
+msgid "Add Announcement"
+msgstr "Duyuru Ekle"
+
+msgid "Title"
+msgstr "Başlık"
+
+msgid "Parent Category"
+msgstr "aile kategorisi"
+
+msgid "Select Category"
+msgstr "Kategori seç"
+
+msgid "Description"
+msgstr "Tanım"
+
+msgid "Select Visibility"
+msgstr "Görünürlüğü Seçin"
+
+msgid "All users"
+msgstr "Tüm kullanıcılar"
+
+msgid "Only logged-in users"
+msgstr "Yalnızca oturum açmış kullanıcılar"
+
+msgid "Visible To"
+msgstr "Görünür"
+
+msgid "Save Announcement"
+msgstr "Duyuru Kaydet"
+
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Ordering"
+msgstr "Sipariş verme"
+
+msgid "Announcement Detail"
+msgstr "Duyuru Detayı"
+
+msgid "Category Name"
+msgstr "Kategori adı"
+
+msgid "Announcements"
+msgstr "Duyurular"
+
+msgid "Categories"
+msgstr "Kategoriler"
+
+msgid "Add Announcements"
+msgstr "Duyuru Ekle"
+
+msgid "Logger Email"
+msgstr "Kaydedici E-postası"
+
+msgid "Log"
+msgstr "Kayıt"
+
+msgid "Logger"
+msgstr "Ağaç kesicisi"
+
+msgid "IP Address"
+msgstr "IP adresi"
+
+msgid "Ban email has been stored"
+msgstr "Yasaklanan e-posta saklandı"
+
+msgid "Ban email has not been stored"
+msgstr "Ban e-postası saklanmadı"
+
+msgid "Ban email has been deleted"
+msgstr "Yasaklama e-postası silindi"
+
+msgid "Ban email has not been deleted"
+msgstr "Yasaklama e-postası silinmedi"
+
+msgid "Ban email does not exist"
+msgstr "Ban e-postası mevcut değil"
+
+msgid "Add Email"
+msgstr "E-posta Ekle"
+
+msgid "Save Email"
+msgstr "E-postayı Kaydet"
+
+msgid "Save Banned Email"
+msgstr "Yasaklanan E-postayı Kaydet"
+
+msgid "Emails"
+msgstr "E-postalar"
+
+msgid "Submitter"
+msgstr "Gönderen"
+
+msgid "Banned Emails"
+msgstr "Yasaklanan E-postalar"
+
+msgid "Are you sure you want to delete it?"
+msgstr "Silmek istediğinizden emin misiniz?"
+
+msgid "Premade response message has been stored"
+msgstr "Önceden hazırlanmış yanıt mesajı saklandı"
+
+msgid "Premade response message has not been stored"
+msgstr "Önceden hazırlanmış yanıt mesajı saklanmadı"
+
+msgid "Premade department message has been deleted"
+msgstr "Önceden hazırlanmış departman mesajı silindi"
+
+msgid "Premade department message has not been deleted"
+msgstr "Önceden hazırlanmış departman mesajı silinmedi"
+
+msgid "Premade response"
+msgstr "Önceden hazırlanmış yanıt"
+
+msgid "Add Premade Response"
+msgstr "Önceden Hazırlanmış Yanıt Ekle"
+
+msgid "Department"
+msgstr "Departman"
+
+msgid "Response"
+msgstr "Cevap"
+
+msgid "Save Premade Response"
+msgstr "Önceden Hazırlanmış Yanıtı Kaydet"
+
+msgid "The department under which the answer will be made is available"
+msgstr "Cevabın verileceği departman mevcut"
+
+msgid "Offline"
+msgstr "Çevrimdışı"
+
+msgid "Last Updated"
+msgstr "Son güncelleme"
+
+msgid "Not updated"
+msgstr "Güncellenmedi"
+
+msgid "Premade Response"
+msgstr "Önceden Hazırlanmış Yanıt"
+
+msgid "Latest Tickets"
+msgstr "Son Biletler"
+
+msgid "Last Month Ticket Stats"
+msgstr "Geçen Ayın Bilet İstatistikleri"
+
+msgid "Pending"
+msgstr "Askıda olması"
+
+msgid "The attachment has been removed"
+msgstr "Ek kaldırıldı"
+
+msgid "The attachment has not been removed"
+msgstr "Ek kaldırılmadı"
+
+msgid "The download has been stored"
+msgstr "İndirilenler kaydedildi"
+
+msgid "The download has not been stored"
+msgstr "İndirilen dosya kaydedilmedi"
+
+msgid "Download"
+msgstr "İndirmek"
+
+msgid "The download has been deleted"
+msgstr "İndirme silindi"
+
+msgid "The download has not been deleted"
+msgstr "İndirme silinmedi"
+
+msgid "Download All"
+msgstr "Hepsini indir"
+
+msgid "Add Download"
+msgstr "İndir Ekle"
+
+msgid "Attachments"
+msgstr "Ekler"
+
+msgid "Save Download"
+msgstr "İndirmeyi kaydet"
+
+msgid "Add More Files"
+msgstr "Daha fazla dosya ekle"
+
+msgid "Delete attachment"
+msgstr "Eki sil"
+
+msgid "grab"
+msgstr "yakalamak"
+
+msgid "Attachment"
+msgstr "EK"
+
+msgid "Downloads"
+msgstr "İndirilenler"
+
+msgid "Files"
+msgstr "Dosyalar"
+
+msgid "Majestic Support"
+msgstr "Görkemli Destek"
+
+msgid "Get Help"
+msgstr "Yardım almak"
+
+msgid "Email CC has been stored"
+msgstr "E-posta CC saklandı"
+
+msgid "Email CC has not been stored"
+msgstr "E-posta CC saklanmadı"
+
+msgid "Email CC has been deleted"
+msgstr "E-posta CC silindi"
+
+msgid "Email CC has not been deleted"
+msgstr "E-posta CC silinmedi"
+
+msgid "Email CC "
+msgstr "CC'ye e-posta gönder"
+
+msgid "Email CC"
+msgstr "CC'ye e-posta gönder"
+
+msgid "Template Type"
+msgstr "Şablon Türü"
+
+msgid "Select Template Type"
+msgstr "Şablon Türünü Seçin"
+
+msgid "Delete row"
+msgstr "Sırayı sil"
+
+msgid "Template For"
+msgstr "Şablon"
+
+msgid "Select Template For"
+msgstr "İçin Şablon Seçin"
+
+msgid "Template Title"
+msgstr "Şablon Başlığı"
+
+msgid "Add more row"
+msgstr "Daha fazla satır ekle"
+
+msgid "Save Email CC"
+msgstr "E-posta CC'yi Kaydet"
+
+msgid "Service is running, please close the pag"
+msgstr "Hizmet çalışıyor, lütfen sayfayı kapatın"
+
+msgid "Your setting is working please this."
+msgstr "Ayarınız çalışıyor, lütfen bunu yapın."
+
+msgid "Connection established but the system cannot read any email"
+msgstr "Bağlantı kuruldu ancak sistem herhangi bir e-postayı okuyamıyor"
+
+msgid "The setting has been stored."
+msgstr "Ayar kaydedildi."
+
+msgid "The setting has not been stored."
+msgstr "Ayar kaydedilmedi."
+
+msgid "Email address already exist"
+msgstr "E-posta adresi zaten mevcut"
+
+msgid "Email for email piping has been stored"
+msgstr "E-posta iletimi için e-posta saklandı"
+
+msgid "Email for email piping has not been stored"
+msgstr "E-posta iletimi için e-posta saklanmadı"
+
+msgid "The email has been deleted"
+msgstr "E-posta silindi"
+
+msgid "The email has not been deleted"
+msgstr "E-posta silinmedi"
+
+msgid "Enabled"
+msgstr "Etkinleştirilmiş"
+
+msgid "Only New Tickets"
+msgstr "Sadece Yeni Biletler"
+
+msgid "Only Replies"
+msgstr "Yalnızca Yanıtlar"
+
+msgid "Both"
+msgstr "İkisi birden"
+
+msgid "Other"
+msgstr "Diğer"
+
+msgid "Yes"
+msgstr "Evet"
+
+msgid "Please enter the hostname first"
+msgstr "Lütfen önce ana bilgisayar adını girin"
+
+msgid "Please enable email piping setting first"
+msgstr "Lütfen önce e-posta yönlendirme ayarını etkinleştirin"
+
+msgid "Enable email piping"
+msgstr "E-posta iletimini etkinleştir"
+
+msgid "Ticket Type"
+msgstr "bilet tipi"
+
+msgid "Which email type to read"
+msgstr "Hangi e-posta türünün okunacağı"
+
+msgid "Save attachments if found in an email"
+msgstr "E-postada bulunan ekleri kaydedin"
+
+msgid "Host Type"
+msgstr "Ana Bilgisayar Türü"
+
+msgid "Select your email service provider"
+msgstr "E-posta servis sağlayıcınızı seçin"
+
+msgid "Host Name"
+msgstr "Ana Bilgisayar Adı"
+
+msgid "Enabled SSL"
+msgstr "Etkin SSL"
+
+msgid "Do you have enabled SSL on your domain?"
+msgstr "Alan adınızda SSL'yi etkinleştirdiniz mi?"
+
+msgid "Host Port Number"
+msgstr "Ana Bilgisayar Bağlantı Noktası Numarası"
+
+msgid "Host port number to read an email from"
+msgstr "Bir e-postanın okunacağı ana bilgisayar bağlantı noktası numarası"
+
+msgid "Email address to read emails"
+msgstr "E-postaları okumak için e-posta adresi"
+
+msgid "Password"
+msgstr "Şifre"
+
+msgid "Password for a given email address"
+msgstr "Belirli bir e-posta adresi için şifre"
+
+msgid "check"
+msgstr "kontrol etmek"
+
+msgid "Check Settings"
+msgstr "Ayarları Kontrol Et"
+
+msgid "If the system doesn't respond in 30 seconds"
+msgstr "Sistem 30 saniye içinde yanıt vermezse"
+
+msgid "it means system unable to connect email server"
+msgstr "sistemin e-posta sunucusuna bağlanamadığı anlamına gelir"
+
+msgid "Save Settings"
+msgstr "Ayarları kaydet"
+
+msgid "Cron Job"
+msgstr "Cron İşi"
+
+msgid "Web Cron Job"
+msgstr "Web Cron İşi"
+
+msgid "Curl"
+msgstr "Kıvırmak"
+
+msgid "PHP Script"
+msgstr "PHP Komut Dosyası"
+
+msgid "Configuration of a backup job with webcron.org"
+msgstr "webcron.org ile yedekleme işinin yapılandırılması"
+
+msgid "Name of cron job"
+msgstr "Cron işinin adı"
+
+msgid "Log in to webcron.org and in the cron area, click on "
+msgstr "webcron.org'da oturum açın ve cron alanında şuraya tıklayın:"
+
+msgid "Timeout"
+msgstr "Zaman aşımı"
+
+msgid "URL you want to execute"
+msgstr "Çalıştırmak istediğiniz URL"
+
+msgid "Login"
+msgstr "Giriş yapmak"
+
+msgid "Leave this blank"
+msgstr "Bunu boş bırak"
+
+msgid "Execution time"
+msgstr "Uygulama vakti"
+
+msgid "That the grid below the other options select when and how"
+msgstr "Diğer seçeneklerin altındaki ızgaranın ne zaman ve nasıl seçileceğini belirlemesi"
+
+msgid "Alerts"
+msgstr "Uyarılar"
+
+msgid "Cron scheduling using wget"
+msgstr "Wget kullanarak Cron zamanlaması"
+
+msgid "Cron scheduling using Curl"
+msgstr "Curl kullanarak Cron planlama"
+
+msgid "Custom PHP script to run the cron job"
+msgstr "Cron işini çalıştırmak için özel PHP betiği"
+
+msgid "Sorry the cron job did not work"
+msgstr "Üzgünüm cron işi işe yaramadı"
+
+msgid "URL for use with your own scripts and third-party scripts"
+msgstr "Kendi komut dosyalarınızla ve üçüncü taraf komut dosyalarıyla kullanılacak URL"
+
+msgid "It is recommended to run the script every hour."
+msgstr "Komut dosyasının her saat başı çalıştırılması önerilir."
+
+msgid "Ticket Email Type"
+msgstr "Bilet E-posta Türü"
+
+msgid "ticket email"
+msgstr "bilet e-postası"
+
+msgid "Overall Reports"
+msgstr "Genel Raporlar"
+
+msgid "Agents Report"
+msgstr "Temsilci Raporu"
+
+msgid "Department Report"
+msgstr "Departman Raporu"
+
+msgid "Departments Report"
+msgstr "Departmanlar Raporu"
+
+msgid "Majestic Support Overall Reports"
+msgstr "Majestic Destek Genel Raporları"
+
+msgid "Tickets By Status"
+msgstr "Duruma Göre Biletler"
+
+msgid "Tickets By Departments"
+msgstr "Bölümlere Göre Biletler"
+
+msgid "Tickets By Priorities"
+msgstr "Önceliklere Göre Biletler"
+
+msgid "Tickets By Channel"
+msgstr "Kanala Göre Biletler"
+
+msgid "Direct"
+msgstr "Doğrudan"
+
+msgid "Direct reply"
+msgstr "Doğrudan yanıt"
+
+msgid "Email reply"
+msgstr "E-posta yanıtı"
+
+msgid "Tickets By staff"
+msgstr "Biletler Personele göre"
+
+msgid "Report By"
+msgstr "Tarafından rapor edildi"
+
+msgid "agent"
+msgstr "ajan"
+
+msgid "To"
+msgstr "İle"
+
+msgid "Report By Agents"
+msgstr "Temsilcilere Göre Raporlama"
+
+msgid "Ticket status by days"
+msgstr "Günlere göre bilet durumu"
+
+msgid "Date"
+msgstr "Tarih"
+
+msgid "Tickets Staff"
+msgstr "Bilet Personeli"
+
+msgid "Average Rating"
+msgstr "Ortalama puanı"
+
+msgid "Average Time"
+msgstr "Ortalama süre"
+
+msgid "Report By agent"
+msgstr "Temsilciye göre rapor et"
+
+msgid "Rating"
+msgstr "Değerlendirme"
+
+msgid "Time"
+msgstr "Zaman"
+
+msgid "Merged"
+msgstr "Birleştirilmiş"
+
+msgid "Report By department"
+msgstr "Departmana göre raporla"
+
+msgid "Tickets By Department"
+msgstr "Bölüme Göre Biletler"
+
+msgid "Department Name"
+msgstr "Bölüm Adı"
+
+msgid "User report"
+msgstr "Kullanıcı raporu"
+
+msgid "Users report"
+msgstr "Kullanıcı raporu"
+
+msgid "Users Tickets"
+msgstr "Kullanıcı Biletleri"
+
+msgid "User Report"
+msgstr "Kullanıcı Raporu"
+
+msgid "Report By Departments"
+msgstr "Departmanlara Göre Raporlama"
+
+msgid "Tickets Data"
+msgstr "Bilet Verileri"
+
+msgid "Message"
+msgstr "İleti"
+
+msgid "Assigned To"
+msgstr "Atandı"
+
+msgid "Updated"
+msgstr "Güncellenmiş"
+
+msgid "Due Date"
+msgstr "Bitiş tarihi"
+
+msgid "Closed Date"
+msgstr "Kapanış Tarihi"
+
+msgid "Closed Time"
+msgstr "Kapalı Zaman"
+
+msgid "Requester User Name"
+msgstr "Talep Eden Kullanıcı Adı"
+
+msgid "Requester Name"
+msgstr "İsteyenin Adı"
+
+msgid "Requester Email"
+msgstr "İstek Sahibinin E-postası"
+
+msgid "Requester Phone"
+msgstr "Talep Eden Kişinin Telefonu"
+
+msgid "Requester help Topic"
+msgstr "Talepte bulunan kişinin yardımı Konu"
+
+msgid "Ticket Attachment"
+msgstr "Bilet Eki"
+
+msgid "Posted By"
+msgstr "Tarafından gönderildi"
+
+msgid "Note Title"
+msgstr "Not Başlığı"
+
+msgid "Note Message"
+msgstr "Not Mesajı"
+
+msgid "Posted Date"
+msgstr "Yayınlanma Tarihi"
+
+msgid "Note Attachment"
+msgstr "Not Eki"
+
+msgid "User Time"
+msgstr "Kullanıcı Süresi"
+
+msgid "System Time"
+msgstr "Sistem zamanı"
+
+msgid "Edit Reason"
+msgstr "Nedeni Düzenle"
+
+msgid "Reply Date"
+msgstr "Yanıt Tarihi"
+
+msgid "Reply By"
+msgstr "Yanıtlayan:"
+
+msgid "Reply Attachment"
+msgstr "Yanıt Eki"
+
+msgid "Total Tracking Time"
+msgstr "Toplam Takip Süresi"
+
+msgid "Ticket Status"
+msgstr "Bilet Durumu"
+
+msgid "Select Ticket Status"
+msgstr "Bilet Durumunu Seçin"
+
+msgid "Ticket Overdue"
+msgstr "Bilet Gecikmesi"
+
+msgid "Select Ticket Overdue Status"
+msgstr "Bilet Gecikme Durumunu Seçin"
+
+msgid "Export Style"
+msgstr "Dışa Aktarma Stili"
+
+msgid "Single Header"
+msgstr "Tek Başlık"
+
+msgid "Multiple Header"
+msgstr "Çoklu Başlık"
+
+msgid "Export"
+msgstr "İhracat"
+
+msgid "FAQ has been stored"
+msgstr "SSS kaydedildi"
+
+msgid "FAQ has not been stored"
+msgstr "SSS saklanmadı"
+
+msgid "FAQ has been deleted"
+msgstr "SSS silindi"
+
+msgid "FAQ has not been deleted"
+msgstr "SSS silinmedi"
+
+msgid "FAQ"
+msgstr "SSS"
+
+msgid "Add FAQs"
+msgstr "SSS ekle"
+
+msgid "Save FAQ"
+msgstr "SSS'yi kaydet"
+
+msgid "Content"
+msgstr "İçerik"
+
+msgid "FAQ Detail"
+msgstr "SSS Detayı"
+
+msgid "FAQs"
+msgstr "SSS"
+
+msgid "Search title"
+msgstr "Arama başlığı"
+
+msgid "Search keywords"
+msgstr "Arama Kelimeleri"
+
+msgid "Sub Category Faqs"
+msgstr "Alt Kategori SSS"
+
+msgid "Add FAQ"
+msgstr "SSS Ekle"
+
+msgid "Feedback has been stored"
+msgstr "Geri bildirim kaydedildi"
+
+msgid "Feedback has not been stored"
+msgstr "Geri bildirim saklanmadı"
+
+msgid "user image"
+msgstr "kullanıcı resmi"
+
+msgid "feedback image"
+msgstr "geri bildirim resmi"
+
+msgid "Feedback"
+msgstr "Geri bildirim"
+
+msgid "Latest Feedback"
+msgstr "son bildirim"
+
+msgid "Form Feedback"
+msgstr "Geri Bildirim Formu"
+
+msgid "Submit Feedback"
+msgstr "Geri Bildirim Gönder"
+
+msgid "Help topic has been stored"
+msgstr "Yardım konusu kaydedildi"
+
+msgid "Help topic has not been stored"
+msgstr "Yardım konusu kaydedilmedi"
+
+msgid "Help topic has been deleted"
+msgstr "Yardım konusu silindi"
+
+msgid "Help topic has not been deleted"
+msgstr "Yardım konusu silinmedi"
+
+msgid "Help topic in use cannot be deleting"
+msgstr "Kullanılan yardım konusu silinemez"
+
+msgid "Help topic"
+msgstr "Yardım konusu"
+
+msgid "Add Help Topic"
+msgstr "Yardım Konusu Ekle"
+
+msgid "Help Topic"
+msgstr "Yardım Konusu"
+
+msgid "Save Help Topic"
+msgstr "Yardım Konusunu Kaydet"
+
+msgid "Help Topics"
+msgstr "Yardım konuları"
+
+msgid "The category has been stored"
+msgstr "Kategori kaydedildi"
+
+msgid "The category has not been stored"
+msgstr "Kategori kaydedilmedi"
+
+msgid "The category has been deleted"
+msgstr "Kategori silindi"
+
+msgid "The category has not been deleted"
+msgstr "Kategori silinmedi"
+
+msgid "The category in use cannot be deleting"
+msgstr "Kullanılan kategori silinemez"
+
+msgid "Knowledgebase article has been stored"
+msgstr "Bilgi Bankası makalesi saklandı"
+
+msgid "Knowledgebase article has not been stored"
+msgstr "Bilgi Bankası makalesi saklanmadı"
+
+msgid "The article has been deleted"
+msgstr "Makale silindi"
+
+msgid "The article has not been deleted"
+msgstr "Makale silinmedi"
+
+msgid "Article"
+msgstr "Madde"
+
+msgid "The parent category does not have this type."
+msgstr "Ana kategoride bu tür yoktur."
+
+msgid "Would you like to add this type to Parent Category?"
+msgstr "Bu türü Ebeveyn Kategorisine eklemek ister misiniz?"
+
+msgid "JYes"
+msgstr "JEvet"
+
+msgid "Child category has this type,"
+msgstr "Çocuk kategorisi bu türe sahiptir,"
+
+msgid "You cannot unmark it."
+msgstr "İşaretini kaldıramazsınız."
+
+msgid "Draft"
+msgstr "Taslak"
+
+msgid "Add Knowledge Base"
+msgstr "Bilgi Bankası Ekle"
+
+msgid "Meta Description"
+msgstr "Meta Açıklaması"
+
+msgid "Meta Keywords"
+msgstr "anahtar Kelimeler"
+
+msgid "Add More"
+msgstr "Daha ekle"
+
+msgid "Save Knowledge Base"
+msgstr "Bilgi Tabanını Kaydet"
+
+msgid "Please select at least one category for"
+msgstr "Lütfen en az bir kategori seçin"
+
+msgid "Add Category"
+msgstr "Kategori ekle"
+
+msgid "Category For"
+msgstr "Kategori"
+
+msgid "Knowledge Base"
+msgstr "Bilgi tabanı"
+
+msgid "Save Category"
+msgstr "Kategoriyi Kaydet"
+
+msgid "Meta Data Options"
+msgstr "Meta Veri Seçenekleri"
+
+msgid "Category Title"
+msgstr "Kategori Başlığı"
+
+msgid "category"
+msgstr "kategori"
+
+msgid "Knowledge Base Detail"
+msgstr "Bilgi Bankası Detayı"
+
+msgid "Article Attachment"
+msgstr "Makale Eki"
+
+msgid "Knowledgebase"
+msgstr "Bilgi tabanı"
+
+msgid "Knowledge Base Articles"
+msgstr "Bilgi Bankası Makaleleri"
+
+msgid "Sub Category Knowledgebase"
+msgstr "Alt Kategori Bilgi Bankası"
+
+msgid "Mail has not been marked as read"
+msgstr "Posta okundu olarak işaretlenmedi"
+
+msgid "Mail has been marked as read"
+msgstr "Posta okundu olarak işaretlendi"
+
+msgid "Message field cannot be empty"
+msgstr "Mesaj alanı boş olamaz"
+
+msgid "Mail has been sent"
+msgstr "Posta gönderildi"
+
+msgid "Mail has not been sent"
+msgstr "Posta gönderilmedi"
+
+msgid "Mail has been deleted"
+msgstr "Posta silindi"
+
+msgid "Mail has not been deleted"
+msgstr "Posta silinmedi"
+
+msgid "Mail"
+msgstr "Posta"
+
+msgid "is in use cannot be delete"
+msgstr "kullanımda silinemez"
+
+msgid "Mail cannot mark as to read"
+msgstr "Posta okunacak şekilde işaretlenemiyor"
+
+msgid "Mail cannot mark as unread"
+msgstr "Posta okunmadı olarak işaretlenemez"
+
+msgid "Mail has been marked as unread"
+msgstr "Posta okunmadı olarak işaretlendi"
+
+msgid "Inbox"
+msgstr "Gelen kutusu"
+
+msgid "Outbox"
+msgstr "Giden kutusu"
+
+msgid " )  "
+msgstr ")"
+
+msgid "Compose"
+msgstr "Oluştur"
+
+msgid "Send"
+msgstr "Göndermek"
+
+msgid "Read"
+msgstr "Okumak"
+
+msgid "Unread"
+msgstr "Okunmamış"
+
+msgid "Select Type"
+msgstr "Tür Seçin"
+
+msgid "To use this feature you must be agent"
+msgstr "Bu özelliği kullanmak için temsilci olmanız gerekir"
+
+msgid "To use this feature you must have agents addon."
+msgstr "Bu özelliği kullanmak için aracı eklentisine sahip olmanız gerekir."
+
+msgid "mark read"
+msgstr "Okuma İşareti"
+
+msgid "mark unread"
+msgstr "okunmadı olarak işaretle"
+
+msgid "Replied By"
+msgstr "Yanıtlayan"
+
+msgid "Reply"
+msgstr "Cevap vermek"
+
+msgid ")  "
+msgstr ")"
+
+msgid "Type Message"
+msgstr "Mesaj yazın"
+
+msgid "Replies"
+msgstr "Yanıtlar"
+
+msgid "Limit exceeds maximum tickets"
+msgstr "Limit maksimum biletleri aşıyor"
+
+msgid "The maximum number of open tickets limit has been exceeded."
+msgstr "Maksimum açık bilet sayısı limiti aşılmıştır."
+
+msgid "Ticket has been closed due to merged with"
+msgstr "Bilet ile birleştirildiği için kapatıldı"
+
+msgid "Ticket"
+msgstr "Bilet"
+
+msgid "has been merged into"
+msgstr "birleştirildi"
+
+msgid "Merge Ticket"
+msgstr "Bileti Birleştir"
+
+msgid "Search Ticket To Merge Into Another"
+msgstr "Başka Biriyle Birleşmek İçin Bilet Ara"
+
+msgid "Edit Last Reply"
+msgstr "Son Yanıtı Düzenle"
+
+msgid "Merge Ticket Latest Reply"
+msgstr "Bileti Birleştir Son Yanıt"
+
+msgid "Merge"
+msgstr "Birleştirmek"
+
+msgid "Ticket has been merged"
+msgstr "Bilet birleştirildi"
+
+msgid "Ticket has not been merged"
+msgstr "Bilet birleştirilmedi"
+
+msgid "Disabled form cannot be set as default"
+msgstr "Devre dışı bırakılan form varsayılan olarak ayarlanamaz"
+
+msgid "Form has been stored"
+msgstr "Form saklandı"
+
+msgid "Form has not been stored"
+msgstr "Form saklanmadı"
+
+msgid "Multiform has been deleted"
+msgstr "Çok biçimli silindi"
+
+msgid "Multiform has not been deleted"
+msgstr "Multiform silinmedi"
+
+msgid "Multiform in use"
+msgstr "Kullanımda çok biçimli"
+
+msgid " cannot deleted"
+msgstr "silinemez"
+
+msgid "Default form cannot be set as disabled"
+msgstr "Varsayılan form devre dışı olarak ayarlanamaz"
+
+msgid "Multiform"
+msgstr "Çok biçimli"
+
+msgid "default has not been changed"
+msgstr "varsayılan değiştirilmedi"
+
+msgid "default has been changed"
+msgstr "varsayılan değiştirildi"
+
+msgid "Create Ticket"
+msgstr "Bilet Oluştur"
+
+msgid "multiform"
+msgstr "çok biçimli"
+
+msgid "Default"
+msgstr "Varsayılan"
+
+msgid "Save Multiform"
+msgstr "Çok Biçimli Kaydet"
+
+msgid "Fields"
+msgstr "Alanlar"
+
+msgid "Edit Fields"
+msgstr "Alanları Düzenle"
+
+msgid "spinning wheel"
+msgstr "çıkrık"
+
+msgid "Select Languages"
+msgstr "Dilleri Seçin"
+
+msgid "Select Language"
+msgstr "Dil Seçin"
+
+msgid "Email Template has been successfully deleted"
+msgstr "E-posta Şablonu başarıyla silindi"
+
+msgid "Email template has been stored"
+msgstr "E-posta şablonu kaydedildi"
+
+msgid "Email template has not been stored"
+msgstr "E-posta şablonu saklanmadı"
+
+msgid "The internal note has been posted"
+msgstr "Dahili not yayınlandı"
+
+msgid "The internal note has not been posted"
+msgstr "Dahili not yayınlanmadı"
+
+msgid "Post Internal Note"
+msgstr "Dahili Not Gönder"
+
+msgid "The internal note is posted by"
+msgstr "Dahili not şu kişi tarafından yayınlanmıştır:"
+
+msgid "Ticket Notification"
+msgstr "Bilet Bildirimi"
+
+msgid "Once Weekly"
+msgstr "Haftada bir"
+
+msgid "Thanks for subscribing!"
+msgstr "Abone olduğun için teşekkürler!"
+
+msgid "Ticket already marked overdue"
+msgstr "Bilet zaten gecikmiş olarak işaretlendi"
+
+msgid "The ticket has been marked as overdue"
+msgstr "Biletin vadesi geçmiş olarak işaretlendi"
+
+msgid "The ticket has not been marked as overdue"
+msgstr "Biletin vadesi geçmiş olarak işaretlenmemiş olması"
+
+msgid "System"
+msgstr "Sistem"
+
+msgid "Mark overdue"
+msgstr "Gecikmiş olarak işaretle"
+
+msgid "The ticket is marked as overdue by"
+msgstr "Biletin vadesi geçmiş olarak işaretlenmesi"
+
+msgid "The ticket has been unmarked as overdue"
+msgstr "Biletin vadesi geçmiş olarak işareti kaldırıldı"
+
+msgid "The ticket has not been unmarked as overdue"
+msgstr "Biletin vadesi geçmiş olarak işareti kaldırılmadı"
+
+msgid "Unmark overdue"
+msgstr "Gecikme işaretini kaldır"
+
+msgid "The ticket is unmarked as overdue by"
+msgstr "Biletin vadesi geçmiş olarak işaretlenmemiş olması"
+
+msgid "Paid Support"
+msgstr "Ücretli Destek"
+
+msgid "Check if you want to use this product for paid support"
+msgstr "Bu ürünü ücretli destek için kullanmak isteyip istemediğinizi kontrol edin"
+
+msgid "Paid support type"
+msgstr "Ücretli destek türü"
+
+msgid "One-off Support"
+msgstr "Tek Seferlik Destek"
+
+msgid "Subscription Support"
+msgstr "Abonelik Desteği"
+
+msgid "Number of tickets"
+msgstr "Bilet sayısı"
+
+msgid "Credential Type"
+msgstr "Kimlik Bilgisi Türü"
+
+msgid "Additional Info."
+msgstr "İlave bilgi."
+
+msgid "Please insert values"
+msgstr "Lütfen değerleri girin"
+
+msgid "Visitor"
+msgstr "Ziyaretçi"
+
+msgid "By"
+msgstr "İle"
+
+msgid "Credential removed on ticket close"
+msgstr "Bilet kapanışında kimlik bilgisi kaldırıldı"
+
+msgid "Failed to retrieve data"
+msgstr "Veriler alınamadı"
+
+msgid "Reason has been stored"
+msgstr "Nedeni saklandı"
+
+msgid "Reason has not been stored"
+msgstr "Nedeni saklanmadı"
+
+msgid "Reason has been deleted"
+msgstr "Neden silindi"
+
+msgid "Reason has not been deleted"
+msgstr "Nedeni silinmedi"
+
+msgid "Reason"
+msgstr "Sebep"
+
+msgid "Are you going to close this ticket?"
+msgstr "Bu bileti kapatacak mısınız?"
+
+msgid "If you have a moment, please select a reason for closing the ticket."
+msgstr "Vaktiniz varsa lütfen bileti kapatma nedeninizi seçin."
+
+msgid "Submit & Close"
+msgstr "Gönder ve Kapat"
+
+msgid "Skip & Close"
+msgstr "Atla ve Kapat"
+
+msgid "Add Reason"
+msgstr "Neden Ekle"
+
+msgid "Save Reason"
+msgstr "Nedeni Kaydet"
+
+msgid "Ticket Close Reasons"
+msgstr "Bilet Kapatma Nedenleri"
+
+msgid "Mail Notification Widget"
+msgstr "Posta Bildirim Widget'ı"
+
+msgid "Show newly and reply mail notifications"
+msgstr "Yenileri göster ve posta bildirimlerini yanıtla"
+
+msgid "New mail from"
+msgstr "Gönderen yeni posta"
+
+msgid "Mail Notification"
+msgstr "Posta Bildirimi"
+
+msgid "Layout"
+msgstr "Düzen"
+
+msgid "Max Record"
+msgstr "Maksimum Kayıt"
+
+msgid "My Ticket Widget"
+msgstr "Bilet Widget'ım"
+
+msgid "Show unanswered tickets"
+msgstr "Cevaplanmayan biletleri göster"
+
+msgid "Order tickets"
+msgstr "Bilet siparişi ver"
+
+msgid "Close due to merge"
+msgstr "Birleşme nedeniyle kapat"
+
+msgid "Product"
+msgstr "Ürün"
+
+msgid "Order"
+msgstr "Emir"
+
+msgid "There is no ticket"
+msgstr "Bilet yok"
+
+msgid "Something went wrong"
+msgstr "Bir şeyler yanlış gitti"
+
+msgid "Transaction Key"
+msgstr "İşlem Anahtarı"
+
+msgid "Please select )"
+msgstr "Lütfen seçin )"
+
+msgid "Hide notice"
+msgstr "Bildirimi gizle"
+
+msgid "Control Panel"
+msgstr "Kontrol Paneli"
+
+msgid "Edit Announcement"
+msgstr "Duyuru Düzenle"
+
+msgid "Departments"
+msgstr "Bölümler"
+
+msgid "Add Department"
+msgstr "Departman Ekle"
+
+msgid "Edit Department"
+msgstr "Departmanı Düzenle"
+
+msgid "Staff report"
+msgstr "Personel raporu"
+
+msgid "Staff reports"
+msgstr "Personel raporları"
+
+msgid "Departments report"
+msgstr "Departmanlar raporu"
+
+msgid "Edit Download"
+msgstr "İndirmeyi Düzenle"
+
+msgid "Edit FAQ"
+msgstr "SSS'yi düzenle"
+
+msgid "Feedbacks"
+msgstr "Geri bildirimler"
+
+msgid "Edit Knowledge Base"
+msgstr "Bilgi Tabanını Düzenle"
+
+msgid "Edit Category"
+msgstr "Kategoriyi Düzenle"
+
+msgid "Send Message"
+msgstr "Mesaj gönder"
+
+msgid "Edit Role"
+msgstr "Rolü Düzenle"
+
+msgid "Staffs"
+msgstr "Personel"
+
+msgid "Add Staff"
+msgstr "Personel Ekle"
+
+msgid "Edit Staff"
+msgstr "Personeli Düzenle"
+
+msgid "Staff Permissions"
+msgstr "Personel İzinleri"
+
+msgid "Add Ticket"
+msgstr "Bilet Ekle"
+
+msgid "Edit Ticket"
+msgstr "Bileti Düzenle"
+
+msgid "Ticket Detail"
+msgstr "Bilet Detayı"
+
+msgid "Plus"
+msgstr "Artı"
+
+msgid "Equals"
+msgstr "Eşittir"
+
+msgid "Minus"
+msgstr "Eksi"
+
+msgid "stars"
+msgstr "yıldızlar"
+
+msgid "Please write appreciated review at WP Extension Directory"
+msgstr "Lütfen takdir ettiğiniz incelemeyi WP Extension Directory'ye yazın"
+
+msgid "love"
+msgstr "Aşk"
+
+msgid "I'd love to help :)"
+msgstr "yardım etmeyi çok isterim :)"
+
+msgid "sad"
+msgstr "üzgün"
+
+msgid "Not this time"
+msgstr "Bu sefer değil"
+
+msgid "happy"
+msgstr "mutlu"
+
+msgid "I've already rated you"
+msgstr "Seni zaten derecelendirdim"
+
+msgid "close"
+msgstr "kapalı"
+
+msgid "thanks"
+msgstr "teşekkürler"
+
+msgid "You are awesome !......"
+msgstr "Harikasın !......"
+
+msgid "Thanks for your support, we really appreciate it."
+msgstr "Desteğiniz için teşekkür ederiz, gerçekten minnettarız."
+
+msgid "Majestic Support Team"
+msgstr "Majestic Destek Ekibi"
+
+msgid "Remind you about this later?"
+msgstr "Bunu daha sonra hatırlatacak mısın?"
+
+msgid "Remind me in 3 days"
+msgstr "3 gün sonra hatırlat"
+
+msgid "Remind me in 10 days"
+msgstr "10 gün sonra hatırlat"
+
+msgid "Remind me in 30 days"
+msgstr "30 gün sonra hatırlat"
+
+msgid "Don't remind me about this"
+msgstr "Bana bunu hatırlatma"
+
+msgid "Dashboard"
+msgstr "Gösterge Paneli"
+
+msgid "About Us"
+msgstr "Hakkımızda"
+
+msgid "Translations"
+msgstr "Çeviriler"
+
+msgid "System Errors"
+msgstr "Sistem Hataları"
+
+msgid "slugs"
+msgstr "salyangozlar"
+
+msgid "Slugs"
+msgstr "Salyangozlar"
+
+msgid "multiforms"
+msgstr "çok biçimli"
+
+msgid "Multiforms"
+msgstr "Çoklu formlar"
+
+msgid "Ticket Close Reason"
+msgstr "Bilet Kapatma Sebebi"
+
+msgid "Smart Replies"
+msgstr "Akıllı Yanıtlar"
+
+msgid "Smart Reply"
+msgstr "Akıllı Yanıt"
+
+msgid "Add Smart Reply"
+msgstr "Akıllı Yanıt Ekle"
+
+msgid "Agent Auto Assign"
+msgstr "Temsilci Otomatik Atama"
+
+msgid "Auto Assign"
+msgstr "Otomatik atama"
+
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgid "Cron Job URLs"
+msgstr "Cron İşi URL'leri"
+
+msgid "Premium Addons"
+msgstr "Premium Eklentiler"
+
+msgid "Install Add-ons"
+msgstr "Eklentileri Yükle"
+
+msgid "Add-ons List"
+msgstr "Eklenti Listesi"
+
+msgid "Add-ons Status"
+msgstr "Eklenti Durumu"
+
+msgid "Shortcodes"
+msgstr "Kısa kodlar"
+
+msgid "Short Codes"
+msgstr "Kısa kodlar"
+
+msgid "Colors"
+msgstr "Renkler"
+
+msgid "Reports"
+msgstr "Raporlar"
+
+msgid "Overall Statistics"
+msgstr "Genel İstatistikler"
+
+msgid "Agent Reports"
+msgstr "Temsilci Raporları"
+
+msgid "Department Reports"
+msgstr "Departman Raporları"
+
+msgid "User Reports"
+msgstr "Kullanıcı Raporları"
+
+msgid "Satisfaction Report"
+msgstr "Memnuniyet Raporu"
+
+msgid "Email Piping"
+msgstr "E-posta Gönderimi"
+
+msgid "Priorities"
+msgstr "Öncelikler"
+
+msgid "Add Priority"
+msgstr "Öncelik Ekle"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Erase Data Requests"
+msgstr "Veri İsteklerini Sil"
+
+msgid "Feedback Fields"
+msgstr "Geri Bildirim Alanları"
+
+msgid "System Emails"
+msgstr "Sistem E-postaları"
+
+msgid "Premade Responses"
+msgstr "Önceden Hazırlanmış Yanıtlar"
+
+msgid "Banned Email Log List"
+msgstr "Yasaklı E-posta Günlüğü Listesi"
+
+msgid "Ban Emails"
+msgstr "E-postaları Yasakla"
+
+msgid "Emial CC"
+msgstr "CC'ye e-posta gönder"
+
+msgid "Add Emial CC"
+msgstr "E-posta CC Ekle"
+
+msgid "Add Email CC"
+msgstr "E-posta CC Ekle"
+
+msgid "Email Templates"
+msgstr "E-posta Şablonları"
+
+msgid "New Ticket"
+msgstr "Yeni Bilet"
+
+msgid "Agent Ticket"
+msgstr "Temsilci Bileti"
+
+msgid "New Agent"
+msgstr "Yeni Temsilci"
+
+msgid "Reassign Ticket"
+msgstr "Bileti Yeniden Ata"
+
+msgid "Close Ticket"
+msgstr "Bileti Kapat"
+
+msgid "Delete Ticket"
+msgstr "Bileti Sil"
+
+msgid "Mark Overdue"
+msgstr "Gecikmiş Olarak İşaretle"
+
+msgid "Ban Email"
+msgstr "E-postayı Yasakla"
+
+msgid "Ban email try to create ticket"
+msgstr "E-postayı yasakla bilet oluşturmayı dene"
+
+msgid "Department Transfer"
+msgstr "Departman Transferi"
+
+msgid "Ban Email and Close Ticket"
+msgstr "E-postayı Yasakla ve Bileti Kapat"
+
+msgid "Unban Email"
+msgstr "E-posta yasağını kaldır"
+
+msgid "Response Ticket"
+msgstr "Yanıt Bileti"
+
+msgid "Reply Ticket"
+msgstr "Bileti Yanıtla"
+
+msgid "New Ticket Admin Alert"
+msgstr "Yeni Bilet Yöneticisi Uyarısı"
+
+msgid "In Progress Ticket"
+msgstr "Devam Ediyor Bileti"
+
+msgid "Ticket priority is changed by"
+msgstr "Bilet önceliği şu şekilde değiştirildi:"
+
+msgid "New Mail Received"
+msgstr "Yeni Posta Alındı"
+
+msgid "New Mail Message Received"
+msgstr "Yeni Posta Mesajı Alındı"
+
+msgid "Feedback Email To User"
+msgstr "Kullanıcıya Geri Bildirim E-postası"
+
+msgid "User Reply On Closed Ticket"
+msgstr "Kapalı Bilette Kullanıcı Yanıtı"
+
+msgid "help"
+msgstr "yardım"
+
+msgid "Select Form"
+msgstr "Formu Seç"
+
+msgid "No Record Found"
+msgstr "Kayıt Bulunamadı"
+
+msgid "Log out"
+msgstr "Çıkış Yap"
+
+msgid "iframe"
+msgstr "iframe"
+
+msgid "Sorry"
+msgstr "Üzgünüm"
+
+msgid "There was no record found"
+msgstr "Kayıt bulunamadı"
+
+msgid "Sorry!"
+msgstr "Üzgünüm!"
+
+msgid "There was no record found..."
+msgstr "Herhangi bir kayıt bulunamadı..."
+
+msgid "Access Denied"
+msgstr "Erişim engellendi"
+
+msgid "You have no permission to access this page"
+msgstr "Bu sayfaya erişim izniniz yok"
+
+msgid "Register"
+msgstr "Kayıt olmak"
+
+msgid "User is not allowed to access this page."
+msgstr "Kullanıcının bu sayfaya erişmesine izin verilmiyor."
+
+msgid "You are already Logged In."
+msgstr "Zaten giriş yaptınız."
+
+msgid "Access Denied!"
+msgstr "Erişim engellendi!"
+
+msgid "Your account has been disabled, please contact the administrator."
+msgstr "Hesabınız devre dışı bırakıldı, lütfen yöneticiyle iletişime geçin."
+
+msgid "You are not logged In"
+msgstr "Giriş yapmadın"
+
+msgid "To access the page, please login"
+msgstr "Sayfaya erişmek için lütfen giriş yapın"
+
+msgid "User is not allowed to view this Ticket"
+msgstr "Kullanıcının bu Bileti görüntülemesine izin verilmiyor"
+
+msgid "You have already given the feedback for this ticket."
+msgstr "Bu destek talebi için zaten geri bildirimde bulundunuz."
+
+msgid "Ticket not found...!"
+msgstr "Bilet bulunamadı...!"
+
+msgid "User is not allowed to view this page"
+msgstr "Kullanıcının bu sayfayı görüntülemesine izin verilmiyor"
+
+msgid "Thank you so much for your feedback"
+msgstr "Geri bildiriminiz için çok teşekkürler"
+
+msgid "Majestic Support Control Panel"
+msgstr "Majestic Destek Kontrol Paneli"
+
+msgid "Slug"
+msgstr "Sümüklüböcek"
+
+msgid "System Error"
+msgstr "Sistem hatası"
+
+msgid "User Fields"
+msgstr "Kullanıcı Alanları"
+
+msgid "Ban list log"
+msgstr "Yasaklama listesi günlüğü"
+
+msgid "Field Ordering"
+msgstr "Saha Sıralaması"
+
+msgid "Post Installation"
+msgstr "Yükleme sonrası"
+
+msgid "Emailcc"
+msgstr "E-postacc"
+
+msgid "Help"
+msgstr "Yardım"
+
+msgid "Premium Addon"
+msgstr "Premium Eklenti"
+
+msgid "Username / password is incorrect"
+msgstr "Kullanıcı adı/şifre yanlış"
+
+msgid "Username already taken"
+msgstr "Kullanıcı adı önceden alınmış"
+
+msgid "Invalid username"
+msgstr "Geçersiz kullanıcı adı"
+
+msgid "Please enter a username"
+msgstr "Lütfen bir kullanıcı adı giriniz"
+
+msgid "Invalid email"
+msgstr "Geçersiz e-posta"
+
+msgid "Email already registered"
+msgstr "E-posta zaten kayıtlı"
+
+msgid "Please enter a password"
+msgstr "lütfen bir şifre girin"
+
+msgid "Passwords do not match"
+msgstr "Parolalar uyuşmuyor"
+
+msgid "Invalid captcha"
+msgstr "yanlış kodlama"
+
+msgid "User has been successfully registered"
+msgstr "Kullanıcı başarıyla kaydedildi"
+
+msgid "Could not subscribe to the newsletter"
+msgstr "Bültene abone olunamadı"
+
+msgid "You have successfully subscribed to the newsletter"
+msgstr "Haber bültenine başarıyla abone oldunuz"
+
+msgid "Majestic Support Pages"
+msgstr "Majestic Destek Sayfaları"
+
+msgid "Majestic Support control panel"
+msgstr "Majestic Destek kontrol paneli"
+
+msgid "Add ticket"
+msgstr "Bilet ekle"
+
+msgid "My tickets"
+msgstr "Biletlerim"
+
+msgid "List downloads"
+msgstr "İndirilenleri listele"
+
+msgid "Latest downloads"
+msgstr "En son indirilenler"
+
+msgid "Popular downloads"
+msgstr "popüler indirmeler"
+
+msgid "List knowledge base"
+msgstr "Bilgi tabanını listeleyin"
+
+msgid "Latest knowledge base"
+msgstr "En son bilgi tabanı"
+
+msgid "Popular knowledge base"
+msgstr "Popüler bilgi tabanı"
+
+msgid "List FAQ`s"
+msgstr "SSS'leri listele"
+
+msgid "Latest FAQ`s"
+msgstr "En son SSS'ler"
+
+msgid "Popular FAQ`s"
+msgstr "Popüler SSS'ler"
+
+msgid "List announcements"
+msgstr "Duyuruları listele"
+
+msgid "Latest announcements"
+msgstr "Son duyurular"
+
+msgid "Popular announcements"
+msgstr "Popüler duyurular"
+
+msgid "View"
+msgstr "Görüş"
+
+msgid "Form submission failed!"
+msgstr "Form gönderimi başarısız oldu!"
+
+msgid "You have not answered all required fields"
+msgstr "Gerekli tüm alanları yanıtlamadınız"
+
+msgid "You have not given a correct time"
+msgstr "Doğru zamanı belirtmediniz"
+
+msgid "You have not given a correct e-mail address"
+msgstr "Doğru e-posta adresi vermediniz"
+
+msgid "You have not given a correct phone number"
+msgstr "Doğru telefon numarasını vermediniz"
+
+msgid "You have not given a correct answer to the security question"
+msgstr "Güvenlik sorusuna doğru cevap vermediniz"
+
+msgid "You have not given a correct date"
+msgstr "Doğru tarih vermemişsiniz"
+
+msgid "The input value must be between "
+msgstr "Giriş değeri arasında olmalıdır"
+
+msgid " characters"
+msgstr "karakterler"
+
+msgid "The input value is longer than "
+msgstr "Giriş değeri şundan daha uzun:"
+
+msgid "The input value is shorter than "
+msgstr "Giriş değeri şundan daha kısa:"
+
+msgid "Input values could not be confirmed"
+msgstr "Giriş değerleri doğrulanamadı"
+
+msgid "Incorrect domain value"
+msgstr "Yanlış alan adı değeri"
+
+msgid "The input value is not a correct URL"
+msgstr "Giriş değeri doğru bir URL değil"
+
+msgid "The input value is incorrect"
+msgstr "Giriş değeri yanlış"
+
+msgid "The input value was not a correct number"
+msgstr "Girilen değer doğru bir sayı değildi"
+
+msgid "Your social security number was incorrect"
+msgstr "Sosyal güvenlik numaranız hatalıydı"
+
+msgid "Incorrect UK VAT Number"
+msgstr "Yanlış Birleşik Krallık KDV Numarası"
+
+msgid "The password isn't strong enough"
+msgstr "Şifre yeterince güçlü değil"
+
+msgid "You have to choose at least "
+msgstr "En azından seçmelisin"
+
+msgid " answers"
+msgstr "Yanıtlar"
+
+msgid "The input value can only contain alphanumeric characters "
+msgstr "Giriş değeri yalnızca alfasayısal karakterler içerebilir"
+
+msgid " and "
+msgstr "Ve"
+
+msgid "The file you are trying to upload is too large"
+msgstr "Yüklemeye çalıştığınız dosya çok büyük"
+
+msgid "The file you are trying to upload is of the wrong type"
+msgstr "Yüklemeye çalıştığınız dosyanın türü yanlış"
+
+msgid "Please choose between "
+msgstr "Lütfen arasından seçim yapın"
+
+msgid "Please choose at least "
+msgstr "Lütfen en azından seçin"
+
+msgid "Please choose a maximum of "
+msgstr "Lütfen maksimum seçin"
+
+msgid " item(s)"
+msgstr "öğeler)"
+
+msgid "The credit card number is not correct"
+msgstr "Kredi kartı numarası doğru değil"
+
+msgid "The CVV number was not correct"
+msgstr "CVV numarası doğru değildi"
+
+msgid "Lost your password"
+msgstr "Şifreni mi unuttun"
+
+msgid "Activated"
+msgstr "Aktif"
+
+msgid "Active Now"
+msgstr "Şimdi Aktif"
+
+msgid "Install Now"
+msgstr "Şimdi kur"
+
+msgid "Pagination default page size not saved"
+msgstr "Sayfalandırma varsayılan sayfa boyutu kaydedilmedi"
+
+msgid "Data directory cannot empty."
+msgstr "Veri dizini boş olamaz."
+
+msgid "Data directory is not proper."
+msgstr "Veri dizini uygun değil."
+
+msgid "Data directory is not writable."
+msgstr "Veri dizini yazılabilir değil."
+
+msgid "System slug not be empty."
+msgstr "Sistem bilgisi boş olmamalıdır."
+
+msgid "System slug is conflicted with post or page slug."
+msgstr "Sistem bilgisi yazı veya sayfa bilgisi ile çakışıyor."
+
+msgid "The setting has been stored"
+msgstr "Ayar kaydedildi"
+
+msgid "The setting not has been stored"
+msgstr "Ayar kaydedilmedi"
+
+msgid "Days"
+msgstr "Günler"
+
+msgid "Hours"
+msgstr "Saat"
+
+msgid "Google Recaptcha"
+msgstr "Google Recaptcha'sı"
+
+msgid "Own Captcha"
+msgstr "Captcha'ya sahip olun"
+
+msgid "Any"
+msgstr "Herhangi"
+
+msgid "Addition"
+msgstr "Ek"
+
+msgid "Subtraction"
+msgstr "Çıkarma"
+
+msgid "Recaptcha Version 2"
+msgstr "Recaptcha Sürüm 2"
+
+msgid "Recaptcha Version 3"
+msgstr "Recaptcha Sürüm 3"
+
+msgid "Show"
+msgstr "Göstermek"
+
+msgid "Hide"
+msgstr "Saklamak"
+
+msgid "Majestic Support Login Page"
+msgstr "Majestic Destek Giriş Sayfası"
+
+msgid "WordPress Default Login Page"
+msgstr "WordPress Varsayılan Giriş Sayfası"
+
+msgid "Custom"
+msgstr "Gelenek"
+
+msgid "Majestic Support Register Page"
+msgstr "Majestic Support Kayıt Sayfası"
+
+msgid "Top left"
+msgstr "Sol üst"
+
+msgid "Top right"
+msgstr "Sağ üst"
+
+msgid "Middle left"
+msgstr "Orta sol"
+
+msgid "Middle right"
+msgstr "Orta sağ"
+
+msgid "Bottom left"
+msgstr "Sol alt"
+
+msgid "Bottom right"
+msgstr "Sağ alt"
+
+msgid "Random"
+msgstr "Rastgele"
+
+msgid "Sequence"
+msgstr "Sekans"
+
+msgid "Ascending"
+msgstr "Artan"
+
+msgid "Descending"
+msgstr "Azalan"
+
+msgid "Single"
+msgstr "Bekar"
+
+msgid "Multiple"
+msgstr "Çoklu"
+
+msgid "menu"
+msgstr "Menü"
+
+msgid "Select Configuration"
+msgstr "Yapılandırmayı Seçin"
+
+msgid "General Settings"
+msgstr "Genel Ayarlar"
+
+msgid "Support Icon"
+msgstr "Destek Simgesi"
+
+msgid "Ticket Settings"
+msgstr "Bilet Ayarları"
+
+msgid "Ticket Listing"
+msgstr "Bilet Listeleme"
+
+msgid "Visitor Ticket Setting"
+msgstr "Ziyaretçi Bileti Ayarı"
+
+msgid "Email Settings"
+msgstr "e mail ayarları"
+
+msgid "Email Regarding Banned Users"
+msgstr "Yasaklanan Kullanıcılara İlişkin E-posta"
+
+msgid "Ticket Operations Email Setting"
+msgstr "Bilet İşlemleri E-posta Ayarı"
+
+msgid "Agent Menu"
+msgstr "Temsilci Menüsü"
+
+msgid "Dashboard Links"
+msgstr "Kontrol Paneli Bağlantıları"
+
+msgid "Top Menu Links"
+msgstr "Üst Menü Bağlantıları"
+
+msgid "User Menu"
+msgstr "Kullanıcı menüsü"
+
+msgid "Feedback Settings"
+msgstr "Geri Bildirim Ayarları"
+
+msgid "Push Notifications"
+msgstr "Push bildirimleri"
+
+msgid "Firebase Notifications"
+msgstr "Firebase Bildirimleri"
+
+msgid "Private Credentials"
+msgstr "Özel Kimlik Bilgileri"
+
+msgid "Envato Validation"
+msgstr "Envato Doğrulaması"
+
+msgid "MailChimp"
+msgstr "MailChimp"
+
+msgid "Easy Digital Downloads"
+msgstr "Kolay Dijital İndirmeler"
+
+msgid "Social Login"
+msgstr "Sosyal Giriş"
+
+msgid "Set the heading of your plugin"
+msgstr "Eklentinizin başlığını ayarlayın"
+
+msgid "Ticket Default Page"
+msgstr "Bilet Varsayılan Sayfası"
+
+msgid "Select Page"
+msgstr "Sayfa Seçin"
+
+msgid "Data Directory"
+msgstr "Veri Dizini"
+
+msgid "Set the name for your data directory"
+msgstr "Veri dizininizin adını ayarlayın"
+
+msgid "Date Format"
+msgstr "Tarih formatı"
+
+msgid "DD-MM-YYYY"
+msgstr "GG-AA-YYYY"
+
+msgid "MM-DD-YYYY"
+msgstr "AA-GG-YYYY"
+
+msgid "YYYY-MM-DD"
+msgstr "YYYY-AA-GG"
+
+msgid "Set the default date format"
+msgstr "Varsayılan tarih biçimini ayarlama"
+
+msgid "Pagination default page size"
+msgstr "Sayfalandırma varsayılan sayfa boyutu"
+
+msgid "Set the number of records per page"
+msgstr "Sayfa başına kayıt sayısını ayarlayın"
+
+msgid "Breadcrumbs"
+msgstr "Galeta unu"
+
+msgid "Show or hide breadcrumbs"
+msgstr "İçerik kırıntılarını göster veya gizle"
+
+msgid "Top Header"
+msgstr "Üst Başlık"
+
+msgid "Show or hide top header"
+msgstr "Üst başlığı göster veya gizle"
+
+msgid "Show count on tickets"
+msgstr "Bilet sayısını göster"
+
+msgid "Default wp role for new users"
+msgstr "Yeni kullanıcılar için varsayılan wp rolü"
+
+msgid "Select the role you want to assign to new users"
+msgstr "Yeni kullanıcılara atamak istediğiniz rolü seçin"
+
+msgid "No. of attachments"
+msgstr "Ek sayısı"
+
+msgid "Number of attachments allowed at a time"
+msgstr "Aynı anda izin verilen ek sayısı"
+
+msgid "File maximum size"
+msgstr "Maksimum dosya boyutu"
+
+msgid "File extensions"
+msgstr "Dosya uzantıları"
+
+msgid "File extensions allowed to attach"
+msgstr "Eklenmesine izin verilen dosya uzantıları"
+
+msgid "Set Login Link"
+msgstr "Giriş Bağlantısını Ayarla"
+
+msgid "Set login link default or custom"
+msgstr "Giriş bağlantısını varsayılan veya özel olarak ayarla"
+
+msgid "Set register Link"
+msgstr "Kayıt bağlantısını ayarla"
+
+msgid "Screen Tag"
+msgstr "Ekran Etiketi"
+
+msgid "Enable or disable your support icon"
+msgstr "Destek simgenizi etkinleştirin veya devre dışı bırakın"
+
+msgid "Custom Image"
+msgstr "Özel Resim"
+
+msgid "Set custom support image"
+msgstr "Özel destek resmini ayarla"
+
+msgid "custom text"
+msgstr "özel metin"
+
+msgid "Set custom support text"
+msgstr "Özel destek metnini ayarlayın"
+
+msgid "Support Icon Position"
+msgstr "Destek Simge Konumu"
+
+msgid "Screen Tag Position"
+msgstr "Ekran Etiketi Konumu"
+
+msgid "Select a position for your support icon"
+msgstr "Destek simgeniz için bir konum seçin"
+
+msgid "Online"
+msgstr "Çevrimiçi"
+
+msgid "Set your plugin offline for front end"
+msgstr "Eklentinizi ön uç için çevrimdışı olarak ayarlayın"
+
+msgid "Offline Message"
+msgstr "Çevrimdışı Mesaj"
+
+msgid "Set the offline message for your user"
+msgstr "Kullanıcınız için çevrimdışı mesajı ayarlayın"
+
+msgid "Woocommerce Category"
+msgstr "WooCommerce Kategorisi"
+
+msgid "Ticket ID Prefix"
+msgstr "Bilet Kimliği Öneki"
+
+msgid "Set a prefix for the custom ticket ID"
+msgstr "Özel bilet kimliği için bir önek ayarlayın"
+
+msgid "Ticket ID sequence"
+msgstr "Bilet kimlik sırası"
+
+msgid "Set the ticket ID sequentially or randomly, e.g., "
+msgstr "Bilet kimliğini sıralı veya rastgele ayarlayın, ör."
+
+msgid "Pad Zeros"
+msgstr "Ped Sıfırları"
+
+msgid "To pad an integer with leading zeros to a specific length"
+msgstr "Bir tamsayıyı baştaki sıfırlarla belirli bir uzunluğa kadar doldurmak için"
+
+msgid "Ticket ID Suffix"
+msgstr "Bilet Kimliği Son Eki"
+
+msgid "Set the suffix for your custom ticket ID"
+msgstr "Özel bilet kimliğiniz için son eki ayarlayın"
+
+msgid "Maximum tickets"
+msgstr "Maksimum bilet"
+
+msgid "Maximum ticket per user"
+msgstr "Kullanıcı başına maksimum bilet"
+
+msgid "Maximum open tickets"
+msgstr "Maksimum açık bilet"
+
+msgid "Maximum number of tickets opened per user"
+msgstr "Kullanıcı başına açılan maksimum bilet sayısı"
+
+msgid "Reopen ticket within days"
+msgstr "Bileti birkaç gün içinde yeniden aç"
+
+msgid "The ticket will reopen within the given number of days"
+msgstr "Bilet belirtilen gün sayısı içinde yeniden açılacaktır"
+
+msgid "Multiforms Popup For New Tickets"
+msgstr "Yeni Biletler İçin Multiforms Açılır Penceresi"
+
+msgid "User can print ticket"
+msgstr "Kullanıcı bilet yazdırabilir"
+
+msgid "Can users print a ticket from the ticket detail or not?"
+msgstr "Kullanıcılar bilet detayından bilet yazdırabilir mi, yazdıramaz mı?"
+
+msgid "Allow Users To Reply via Email On Closed Ticket"
+msgstr "Kullanıcıların Kapalı Bilette E-postayla Yanıt Vermesine İzin Ver"
+
+msgid "Select whether users can reply to closed email piping tickets or not"
+msgstr "Kullanıcıların kapalı e-posta iletim biletlerine yanıt verip veremeyeceğini seçin"
+
+msgid "Show Admin OR Agent Email On Ticket Reply"
+msgstr "Bilet Yanıtında Yönetici VEYA Temsilci E-postasını Göster"
+
+msgid "Show Anonymous Name On Ticket Reply"
+msgstr "Bilet Yanıtında Anonim İsmi Göster"
+
+msgid "Ticket auto close"
+msgstr "Bilet otomatik kapanma"
+
+msgid "Ticket auto-close if user does not respond within given days"
+msgstr "Kullanıcı belirli günler içinde yanıt vermezse bilet otomatik olarak kapatılır"
+
+msgid "Show ticket delete button"
+msgstr "Bilet silme butonunu göster"
+
+msgid "Select whether users can see the ticket delete button"
+msgstr "Kullanıcıların bilet silme butonunu görüp göremeyeceğinizi seçin"
+
+msgid "Ticket close reason Type"
+msgstr "Bilet kapatma nedeni Tür"
+
+msgid "Select whether users can save single or multiple reasons"
+msgstr "Kullanıcıların tek veya birden fazla nedeni kaydedip kaydedemeyeceğini seçin"
+
+msgid "Maximum Record For Smart Reply"
+msgstr "Akıllı Yanıt İçin Maksimum Kayıt"
+
+msgid "Set the number of replies to show"
+msgstr "Gösterilecek yanıt sayısını ayarlayın"
+
+msgid "New ticket message"
+msgstr "Yeni bilet mesajı"
+
+msgid "This message will show on the new ticket"
+msgstr "Bu mesaj yeni bilette gösterilecek"
+
+msgid "Ticket listing ordering"
+msgstr "Bilet listesi siparişi"
+
+msgid "Set default ordering for ticket listing"
+msgstr "Bilet listeleme için varsayılan sıralamayı ayarlayın"
+
+msgid "Ticket listing sorting"
+msgstr "Bilet listesi sıralaması"
+
+msgid "Set default sorting for ticket listing"
+msgstr "Bilet listeleme için varsayılan sıralamayı ayarlayın"
+
+msgid "Closed info. on admin closed tickets"
+msgstr "Kapalı bilgi. yönetici tarafından kapatılan biletlerde"
+
+msgid "Closed info. on agent closed tickets"
+msgstr "Kapalı bilgi. acentenin kapattığı biletlerde"
+
+msgid "Closed info. on user closed tickets"
+msgstr "Kapalı bilgi. Kullanıcı tarafından kapatılan biletlerde"
+
+msgid "Assigned info. on admin tickets"
+msgstr "Atanan bilgi. yönetici biletleri hakkında"
+
+msgid "Assigned info. on agent tickets"
+msgstr "Atanan bilgi. acente biletleri hakkında"
+
+msgid "Assigned info. on user tickets"
+msgstr "Atanan bilgi. kullanıcı biletleri üzerinde"
+
+msgid "Visitors can create tickets"
+msgstr "Ziyaretçiler bilet oluşturabilir"
+
+msgid "Allow visitors to create tickets or not"
+msgstr "Ziyaretçilerin bilet oluşturmasına izin ver veya verme"
+
+msgid "Visitor ticket creation message"
+msgstr "Ziyaretçi bileti oluşturma mesajı"
+
+msgid "This text will appear whenever a visitor creates a ticket"
+msgstr "Bu metin, bir ziyaretçi bilet oluşturduğunda görünecektir"
+
+msgid "Default alert email"
+msgstr "Varsayılan uyarı e-postası"
+
+msgid "Default admin email"
+msgstr "Varsayılan yönetici e-postası"
+
+msgid "Admin email address to receive emails"
+msgstr "E-postaları almak için yönetici e-posta adresi"
+
+msgid "Department Email"
+msgstr "Departman E-postası"
+
+msgid "Send email to all departments on ticket create"
+msgstr "Bilet oluşturmadaki tüm departmanlara e-posta gönder"
+
+msgid "Mail to admin"
+msgstr "Yöneticiye posta"
+
+msgid "Send an email to the admin when a banned email tries to create a ticket"
+msgstr "Yasaklanmış bir e-posta destek bildirimi oluşturmaya çalıştığında yöneticiye e-posta gönder"
+
+msgid "Admin"
+msgstr "Yönetici"
+
+msgid "New ticket"
+msgstr "Yeni bilet"
+
+msgid "Ticket reassign"
+msgstr "Biletin yeniden atanması"
+
+msgid "Ticket close"
+msgstr "Bilet kapanışı"
+
+msgid "Ticket delete"
+msgstr "Bilet silme"
+
+msgid "Ticket marked as overdue"
+msgstr "Biletin vadesi geçmiş olarak işaretlenmesi"
+
+msgid "Ticket ban email"
+msgstr "Bilet yasağı e-postası"
+
+msgid "Ticket department transfer"
+msgstr "Bilet departmanı transferi"
+
+msgid "Ticket reply User"
+msgstr "Bilet yanıtı Kullanıcı"
+
+msgid "Ticket Response Agent"
+msgstr "Bilet Yanıt Temsilcisi"
+
+msgid "Ticket ban email and close ticket"
+msgstr "Bilet yasağı e-postası ve bileti kapat"
+
+msgid "Ticket unban email"
+msgstr "Bilet yasağını kaldır e-postası"
+
+msgid "Ticket lock"
+msgstr "Bilet kilidi"
+
+msgid "Ticket unlock"
+msgstr "Bilet kilidini aç"
+
+msgid "Ticket Change Priority"
+msgstr "Bilet Değişikliği Önceliği"
+
+msgid "Mark Ticket In Progress"
+msgstr "Bileti Devam Ediyor Olarak İşaretle"
+
+msgid "Reply To A Closed Ticket By Email"
+msgstr "Kapalı Bir Bildiriyi E-postayla Yanıtlama"
+
+msgid "Send Feedback Email To User"
+msgstr "Kullanıcıya Geri Bildirim E-postası Gönder"
+
+msgid "Open Ticket"
+msgstr "Açık bilet"
+
+msgid "Department reports"
+msgstr "Departman raporları"
+
+msgid "Login/Logout Button"
+msgstr "Giriş/Çıkış Düğmesi"
+
+msgid "Ticket Total Count"
+msgstr "Bilet Toplam Sayısı"
+
+msgid "Erase Agent Data"
+msgstr "Temsilci Verilerini Sil"
+
+msgid "Export Ticket"
+msgstr "İhracat Bileti"
+
+msgid "Latest Downloads"
+msgstr "En Son İndirilenler"
+
+msgid "Latest Announcements"
+msgstr "Son Duyurular"
+
+msgid "Latest Knowledge Base"
+msgstr "En Son Bilgi Tabanı"
+
+msgid "Latest FAQs"
+msgstr "En Son SSS"
+
+msgid "Home"
+msgstr "Ev"
+
+msgid "Check Ticket Status"
+msgstr "Bilet Durumunu Kontrol Edin"
+
+msgid "Registration"
+msgstr "Kayıt"
+
+msgid "Erase User Data"
+msgstr "Kullanıcı Verilerini Sil"
+
+msgid "Feedback Email Delay Type"
+msgstr "Geri Bildirim E-postası Gecikme Türü"
+
+msgid "Select delay type for feedback email"
+msgstr "Geri bildirim e-postası için gecikme türünü seçin"
+
+msgid "Feedback Email Delay"
+msgstr "Geribildirim E-posta Gecikmesi"
+
+msgid "Success message after submitting feedback"
+msgstr "Geri bildirim gönderdikten sonra başarı mesajı"
+
+msgid "This text will appear whenever anyone submits feedback"
+msgstr "Bu metin herhangi biri geri bildirim gönderdiğinde görünecek"
+
+msgid "Login with facebook"
+msgstr "Facebook ile giriş"
+
+msgid "Facebook user can log in to Majestic Support"
+msgstr "Facebook kullanıcısı Majestic Support'a giriş yapabilir"
+
+msgid "Secret"
+msgstr "Gizli"
+
+msgid "secret key"
+msgstr "gizli anahtar"
+
+msgid "API Key"
+msgstr "API Anahtarı"
+
+msgid "The Facebook app requires an API key"
+msgstr "Facebook uygulaması bir API anahtarı gerektiriyor"
+
+msgid "Login with linkedin"
+msgstr "Linkedln ile giriş yap"
+
+msgid "Linkedin users can log in to Majestic Support"
+msgstr "Linkedin kullanıcıları Majestic Support'a giriş yapabilir"
+
+msgid "The LinkedIn app requires an API key"
+msgstr "LinkedIn uygulaması bir API anahtarı gerektirir"
+
+msgid "UTF Auto Switch"
+msgstr "UTF Otomatik Geçiş"
+
+msgid "Create User via email"
+msgstr "E-posta yoluyla Kullanıcı Oluştur"
+
+msgid "Click here to insert Install."
+msgstr "Kurulumu eklemek için burayı tıklayın."
+
+msgid "Majestic Support Desktop Notifications plugin is not active."
+msgstr "Majestic Support Masaüstü Bildirimleri eklentisi etkin değil."
+
+msgid "Find and add the Firebase API keys."
+msgstr "Firebase API anahtarlarını bulun ve ekleyin."
+
+msgid "Click here to get Firebase API keys."
+msgstr "Firebase API anahtarlarını almak için burayı tıklayın."
+
+msgid "User's API Key"
+msgstr "Kullanıcının API Anahtarı"
+
+msgid "Firebase API key for the front user"
+msgstr "Ön kullanıcı için Firebase API anahtarı"
+
+msgid "Auth Domain"
+msgstr "Kimlik Doğrulama Alanı"
+
+msgid "Firebase Auth Domain"
+msgstr "Firebase Kimlik Doğrulama Alanı"
+
+msgid "Database Url"
+msgstr "Veritabanı URL'si"
+
+msgid "Firebase Database URL"
+msgstr "Firebase Veritabanı URL'si"
+
+msgid "Project ID"
+msgstr "Proje Kimliği"
+
+msgid "Firebase Project ID"
+msgstr "Firebase Proje Kimliği"
+
+msgid "Bucket Storage"
+msgstr "Kova Depolama"
+
+msgid "Firebase Bucket Storage"
+msgstr "Firebase Kova Depolaması"
+
+msgid "Message Sender ID"
+msgstr "Mesaj Gönderen Kimliği"
+
+msgid "Firebase Message Sender ID"
+msgstr "Firebase Mesaj Gönderen Kimliği"
+
+msgid "Private Server Key"
+msgstr "Özel Sunucu Anahtarı"
+
+msgid "Firebase Server Key"
+msgstr "Firebase Sunucu Anahtarı"
+
+msgid "Logo Image for Desktop Notifications"
+msgstr "Masaüstü Bildirimleri için Logo Resmi"
+
+msgid "Remove Image"
+msgstr "Resmi Kaldır"
+
+msgid "Remove Logo"
+msgstr "Logoyu Kaldır"
+
+msgid "No Firebase Notification Logo"
+msgstr "Firebase Bildirim Logosu Yok"
+
+msgid "Secret Key"
+msgstr "Gizli anahtar"
+
+msgid "Second Level Security"
+msgstr "İkinci Seviye Güvenlik"
+
+msgid "For enhanced security, change the encryption method in %s on line %s"
+msgstr "Gelişmiş güvenlik için %s'deki şifreleme yöntemini %s satırında değiştirin"
+
+msgid "Api Key"
+msgstr "API Anahtarı"
+
+msgid "Enter Envato api key "
+msgstr "Envato API anahtarını girin"
+
+msgid "Click here to generate an api key"
+msgstr "API anahtarı oluşturmak için burayı tıklayın"
+
+msgid "License Mandatory"
+msgstr "Lisans Zorunlu"
+
+msgid "Product ID"
+msgstr "ürün kimliği"
+
+msgid "A comma-separated list of Envato product ids"
+msgstr "Envato ürün kimliklerinin virgülle ayrılmış listesi"
+
+msgid "Enter MailChimp API key "
+msgstr "MailChimp API anahtarını girin"
+
+msgid "Audience ID"
+msgstr "Kitle Kimliği"
+
+msgid "Find Audience ID in your MailChimp account"
+msgstr "MailChimp hesabınızda Hedef Kitle Kimliğini bulun"
+
+msgid "Enable double opt-in"
+msgstr "Çift katılımı etkinleştir"
+
+msgid "You must also enable double opt-in in your MailChimp account"
+msgstr "Ayrıca MailChimp hesabınızda çift katılımı etkinleştirmeniz gerekir."
+
+msgid "Welcome email"
+msgstr "Hoş geldiniz e-postası"
+
+msgid "You can enable Final Welcome Email in your MailChimp account"
+msgstr "MailChimp hesabınızda Son Hoş Geldiniz E-postasını etkinleştirebilirsiniz"
+
+msgid "Verify License On Ticket Creation"
+msgstr "Bilet Oluşturma Sırasında Lisansı Doğrulayın"
+
+msgid "Captcha Setting"
+msgstr "Captcha Ayarı"
+
+msgid "Show captcha on registration form"
+msgstr "Captcha'yı kayıt formunda göster"
+
+msgid "Select whether you want to show captcha on the registration form or not"
+msgstr "Kayıt formunda captcha'nın gösterilmesini isteyip istemediğinizi seçin"
+
+msgid "Show captcha on the visitor ticket form"
+msgstr "Ziyaretçi bileti formunda captcha'yı göster"
+
+msgid "Show captcha when a visitor wants to create a ticket"
+msgstr "Ziyaretçi bilet oluşturmak istediğinde captcha'yı göster"
+
+msgid "Captcha selection"
+msgstr "Captcha seçimi"
+
+msgid "Which captcha do you want to add?"
+msgstr "Hangi captcha'yı eklemek istiyorsunuz?"
+
+msgid "Google reCaptcha"
+msgstr "Google reCaptcha'sı"
+
+msgid "Google ReCaptcha version"
+msgstr "Google ReCaptcha sürümü"
+
+msgid "Select the Google ReCaptcha version"
+msgstr "Google ReCaptcha sürümünü seçin"
+
+msgid "Google ReCaptcha site key"
+msgstr "Google ReCaptcha site anahtarı"
+
+msgid "Please enter the site key for Google ReCaptcha from"
+msgstr "Lütfen Google ReCaptcha için site anahtarını girin"
+
+msgid "Google ReCaptcha secret key"
+msgstr "Google ReCaptcha gizli anahtarı"
+
+msgid "Please enter the secret key for Google ReCaptcha from"
+msgstr "Lütfen Google ReCaptcha'nın gizli anahtarını girin"
+
+msgid "Own captcha calculation type"
+msgstr "Kendi captcha hesaplama türü"
+
+msgid "Select the calculation type (addition or subtraction)"
+msgstr "Hesaplama türünü seçin (toplama veya çıkarma)"
+
+msgid "Own captcha operands"
+msgstr "Kendi captcha işlenenleri"
+
+msgid "Select the total number of operands to be given"
+msgstr "Verilecek toplam işlenen sayısını seçin"
+
+msgid "Positive Answer Upon Own Captcha Subtraction"
+msgstr "Kendi Captcha Çıkarma İşlemi Üzerine Olumlu Cevap"
+
+msgid "watch video"
+msgstr "video izle"
+
+msgid "Add"
+msgstr "Eklemek"
+
+msgid "Ticket via email"
+msgstr "E-posta yoluyla bilet"
+
+msgid "OR"
+msgstr "VEYA"
+
+msgid "Sorry the cron job didnot work"
+msgstr "Üzgünüm cron işi işe yaramadı"
+
+msgid "Update ticket status"
+msgstr "Bilet durumunu güncelle"
+
+msgid "You cannot use this email, it is used in email piping"
+msgstr "Bu e-postayı kullanamazsınız, e-posta aktarımında kullanılır"
+
+msgid "The department has been stored"
+msgstr "Departman saklandı"
+
+msgid "The department has not been stored"
+msgstr "Departman kaydedilmedi"
+
+msgid "The department has been deleted"
+msgstr "Departman silindi"
+
+msgid "The department has not been deleted"
+msgstr "Departman silinmedi"
+
+msgid "The department in use cannot be delete"
+msgstr "Kullanılan departman silinemez"
+
+msgid "Outgoing Email"
+msgstr "Giden E-posta"
+
+msgid "Select Email"
+msgstr "E-postayı seçin"
+
+msgid "Tickets of this department will receive emails from this email"
+msgstr "Bu departmanın biletleri bu e-postadan e-posta alacak"
+
+msgid "Receive Email"
+msgstr "E-posta alma"
+
+msgid "Default with auto assign"
+msgstr "Otomatik atamayla varsayılan"
+
+msgid "Save Department"
+msgstr "Departmanı Kaydet"
+
+msgid "Add New Email"
+msgstr "Yeni E-posta Ekle"
+
+msgid "The user of this department will receive an email with the new ticket"
+msgstr "Bu departmanın kullanıcısı yeni bileti içeren bir e-posta alacaktır"
+
+msgid "Outgoing"
+msgstr "Dışa dönük"
+
+msgid "Click here to give us feedback"
+msgstr "Bize geri bildirimde bulunmak için burayı tıklayın"
+
+msgid "Email Already Exist"
+msgstr "E-posta Zaten Mevcut"
+
+msgid "The email has been stored"
+msgstr "E-posta saklandı"
+
+msgid "The email has not been stored"
+msgstr "E-posta saklanmadı"
+
+msgid "Ticket History"
+msgstr "Bilet Geçmişi"
+
+msgid "False"
+msgstr "YANLIŞ"
+
+msgid "True"
+msgstr "Doğru"
+
+msgid "Send Email By"
+msgstr "E-posta Gönder"
+
+msgid "SMTP host type"
+msgstr "SMTP ana bilgisayar türü"
+
+msgid "SMTP host"
+msgstr "SMTP ana bilgisayarı"
+
+msgid "SMTP Authentication"
+msgstr "SMTP Kimlik Doğrulaması"
+
+msgid "SMTP Secure"
+msgstr "SMTP Güvenli"
+
+msgid "SMTP Port"
+msgstr "SMTP Bağlantı Noktası"
+
+msgid "If the system doesnot respond in 30 seconds"
+msgstr "Sistem 30 saniye içinde yanıt vermezse"
+
+msgid "Auto Response"
+msgstr "Otomatik cevap"
+
+msgid "Some values are not acceptable please retry"
+msgstr "Bazı değerler kabul edilmiyor lütfen tekrar deneyin"
+
+msgid "info"
+msgstr "bilgi"
+
+msgid "System email used for sending email"
+msgstr "E-posta göndermek için kullanılan sistem e-postası"
+
+msgid "Required Fields are not filled"
+msgstr "Zorunlu Alanlar doldurulmadı"
+
+msgid "Ban Email Try To Create Ticket"
+msgstr "E-postayı Yasakla Bilet Oluşturmayı Deneyin"
+
+msgid "Ticket Priority Is Changed By"
+msgstr "Bilet Önceliği Şu Kişiyle Değiştirildi:"
+
+msgid "Data Deleted"
+msgstr "Veriler Silindi"
+
+msgid "Body"
+msgstr "Vücut"
+
+msgid "Parameters"
+msgstr "Parametreler"
+
+msgid "Tracking ID"
+msgstr "Takip Kimliği"
+
+msgid "Ticket URL"
+msgstr "Bilet URL'si"
+
+msgid "Ticket Priority"
+msgstr "Bilet Önceliği"
+
+msgid "Department title"
+msgstr "Bölüm başlığı"
+
+msgid "Group Title"
+msgstr "Grup Başlığı"
+
+msgid "Agent name"
+msgstr "Ajan adı"
+
+msgid "Help topic title"
+msgstr "Yardım konusu başlığı"
+
+msgid "Feedback URL"
+msgstr "Geri bildirim URL'si"
+
+msgid "Ticket Subject"
+msgstr "Bilet Konusu"
+
+msgid "Ticket Tracking ID"
+msgstr "Bilet Takip Kimliği"
+
+msgid "Close Date"
+msgstr "Yakın tarih"
+
+msgid "Save Email Template"
+msgstr "E-posta Şablonunu Kaydet"
+
+msgid "Note:"
+msgstr "Not:"
+
+msgid "Features marked with"
+msgstr "İle işaretlenen özellikler"
+
+msgid "are only available with its own addon."
+msgstr "yalnızca kendi eklentisiyle kullanılabilir."
+
+msgid "Field mark as published"
+msgstr "Yayınlandığı şekliyle alan işareti"
+
+msgid "Field mark as unpublished"
+msgstr "Yayınlanmadı olarak alan işareti"
+
+msgid "Field cannot be mark as published"
+msgstr "Alan yayınlandı olarak işaretlenemez"
+
+msgid "Field mark as required"
+msgstr "Gerektiği gibi alan işareti"
+
+msgid "Field mark as not required"
+msgstr "Gerekmediği için alan işareti"
+
+msgid "Field ordering down"
+msgstr "Saha sıralaması aşağı"
+
+msgid "Field ordering up"
+msgstr "Saha düzenlemesi yapılıyor"
+
+msgid "Parent field has not been stored"
+msgstr "Ana alan saklanmadı"
+
+msgid "Please Insert At least one value for every option"
+msgstr "Lütfen her seçenek için en az bir değer girin"
+
+msgid "Child fields has not been stored"
+msgstr "Alt alanlar kaydedilmedi"
+
+msgid "Field has not been stored"
+msgstr "Alan kaydedilmedi"
+
+msgid "Field has been stored"
+msgstr "Alan depolandı"
+
+msgid "Field has been updated"
+msgstr "Alan güncellendi"
+
+msgid "Parent Field"
+msgstr "Ana Alan"
+
+msgid "Edit Field"
+msgstr "Alanı Düzenle"
+
+msgid "Field Title"
+msgstr "Alan Başlığı"
+
+msgid "User Published"
+msgstr "Kullanıcı Yayınlandı"
+
+msgid "Visitor Published"
+msgstr "Ziyaretçi Yayınlandı"
+
+msgid "Required"
+msgstr "Gerekli"
+
+msgid "User Search"
+msgstr "Kullanıcı Arama"
+
+msgid "Show On Listing"
+msgstr "İlanda Göster"
+
+msgid "Advanced"
+msgstr "Gelişmiş"
+
+msgid "Field has not been deleted"
+msgstr "Alan silinmedi"
+
+msgid "Field has been deleted"
+msgstr "Alan silindi"
+
+msgid "No response found"
+msgstr "Yanıt bulunamadı"
+
+msgid "Equal"
+msgstr "Eşit"
+
+msgid "Not Equal"
+msgstr "Eşit değil"
+
+msgid "Text Field"
+msgstr "Metin alanı"
+
+msgid "Check Box"
+msgstr "Onay Kutusu"
+
+msgid "Drop Down"
+msgstr "Yıkılmak"
+
+msgid "Text Area"
+msgstr "Metin Alanı"
+
+msgid "Radio Button"
+msgstr "Radyo düğmesi"
+
+msgid "Upload File"
+msgstr "Dosya yükleme"
+
+msgid "Multi Select"
+msgstr "Çoklu seçim"
+
+msgid "Admin Only"
+msgstr "Yalnızca Yönetici"
+
+msgid "Terms and Conditions"
+msgstr "Şartlar ve koşullar"
+
+msgid "Dependent Field"
+msgstr "Bağımlı Alan"
+
+msgid "Field Type"
+msgstr "Alan türü"
+
+msgid "Field Size"
+msgstr "Alan boyutu"
+
+msgid "Max Length"
+msgstr "Maksimum uzunluk"
+
+msgid "Columns"
+msgstr "Sütunlar"
+
+msgid "Rows"
+msgstr "Satırlar"
+
+msgid "Select Parent"
+msgstr "Ebeveyn Seç"
+
+msgid "Select Child"
+msgstr "Çocuk Seç"
+
+msgid "Select Condition"
+msgstr "Koşul Seçin"
+
+msgid "To use this feature, please fill in the above three fields."
+msgstr "Bu özelliği kullanmak için lütfen yukarıdaki üç alanı doldurun."
+
+msgid "Use the table below to add new values"
+msgstr "Yeni değerler eklemek için aşağıdaki tabloyu kullanın"
+
+msgid "Add Value"
+msgstr "Değer katmak"
+
+msgid "Terms and Conditions Text"
+msgstr "Şartlar ve Koşullar Metni"
+
+msgid "Terms and Conditions Link Type"
+msgstr "Şartlar ve Koşullar Bağlantı Türü"
+
+msgid "Direct Link"
+msgstr "Doğrudan bağlantı"
+
+msgid "Wordpress Page"
+msgstr "WordPress Sayfası"
+
+msgid "Select Link Type"
+msgstr "Bağlantı Türünü Seçin"
+
+msgid "Terms and Conditions Link"
+msgstr "Şartlar ve Koşullar Bağlantısı"
+
+msgid "Terms and Conditions Page"
+msgstr "Şartlar ve Koşullar Sayfası"
+
+msgid "Select Wordpress page"
+msgstr "Wordpress sayfasını seçin"
+
+msgid "Save Field"
+msgstr "Alanı Kaydet"
+
+msgid "User Publish"
+msgstr "Kullanıcı Yayınlama"
+
+msgid "Visitor Publish"
+msgstr "Ziyaretçi Yayını"
+
+msgid "Published"
+msgstr "Yayınlanan"
+
+msgid "Unpublished"
+msgstr "yayınlanmamış"
+
+msgid "Not required"
+msgstr "Gerekli değil"
+
+msgid "users popup"
+msgstr "kullanıcılar açılır penceresi"
+
+msgid "Can Not Unpublished"
+msgstr "Yayından Kaldırılamaz"
+
+msgid "good"
+msgstr "iyi"
+
+msgid "can not mark as not required"
+msgstr "gerekli değil olarak işaretleyemiyorum"
+
+msgid "Cannot unpublished field"
+msgstr "Yayından kaldırılan alan olamaz"
+
+msgid "Please fill required fields."
+msgstr "Lütfen gerekli alanları doldurunuz."
+
+msgid "User Data"
+msgstr "Kullanıcı bilgisi"
+
+msgid "Erasing data request has been stored"
+msgstr "Veri silme isteği saklandı"
+
+msgid "Failed while storing"
+msgstr "Depolama sırasında başarısız oldu"
+
+msgid "Erase data request withdrawn"
+msgstr "Veri silme isteği geri çekildi"
+
+msgid "Failed while performing action"
+msgstr "İşlem gerçekleştirilirken başarısız oldu"
+
+msgid "User identifying data erased"
+msgstr "Kullanıcıyı tanımlayan veriler silindi"
+
+msgid "User data Deleted"
+msgstr "Kullanıcı verileri Silindi"
+
+msgid "Export your data"
+msgstr "Verilerinizi dışa aktarın"
+
+msgid "You have filed a request to remove your data."
+msgstr "Verilerinizin kaldırılması için bir talepte bulundunuz."
+
+msgid "To withdraw erases data request"
+msgstr "Geri çekilmek için veri talebi silinir"
+
+msgid "Request the removal of data from the system."
+msgstr "Verilerin sistemden kaldırılmasını talep edin."
+
+msgid "Field Text"
+msgstr "Alan Metni"
+
+msgid "Link Type"
+msgstr "Bağlantı Türü"
+
+msgid "Link Page"
+msgstr "Bağlantı Sayfası"
+
+msgid "User Email"
+msgstr "Kullanıcı e-postası"
+
+msgid "Request Status"
+msgstr "Istek durumu"
+
+msgid "Awaiting response"
+msgstr "Yanıt bekleniyor"
+
+msgid "Erased identifying data"
+msgstr "Tanımlayıcı veriler silindi"
+
+msgid "Deleted"
+msgstr "silindi"
+
+msgid "Erase identifying data"
+msgstr "Tanımlayıcı verileri sil"
+
+msgid "Are you sure to erase identifying data"
+msgstr "Tanımlayıcı verileri sildiğinizden emin misiniz?"
+
+msgid "Delete data"
+msgstr "Verileri sil"
+
+msgid "Link"
+msgstr "Bağlantı"
+
+msgid "Direct URL"
+msgstr "Doğrudan URL"
+
+msgid "Page Title or URL"
+msgstr "Sayfa Başlığı veya URL'si"
+
+msgid "Cannot open file"
+msgstr "Dosya açılamıyor"
+
+msgid "The new theme has been applied"
+msgstr "Yeni tema uygulandı"
+
+msgid "Error applying the new theme"
+msgstr "Yeni tema uygulanırken hata oluştu"
+
+msgid "Dir is not writable"
+msgstr "Dizin yazılabilir değil"
+
+msgid "Unable to connect to the server"
+msgstr "Sunucuya bağlanılamıyor"
+
+msgid "Language is not installed"
+msgstr "Dil yüklü değil"
+
+msgid "Language directory is not writable"
+msgstr "Dil dizini yazılabilir değil"
+
+msgid "Required language is not installed but similar language like"
+msgstr "Gerekli dil yüklü değil ancak benzer bir dil"
+
+msgid "is found in your system"
+msgstr "sisteminizde bulunur"
+
+msgid "Language code"
+msgstr "Dil kodu"
+
+msgid "Empty values"
+msgstr "Boş değerler"
+
+msgid "File is not writable"
+msgstr "Dosya yazılabilir değil"
+
+msgid "File successfully downloaded"
+msgstr "Dosya başarıyla indirildi"
+
+msgid "User ID"
+msgstr "Kullanıcı kimliği"
+
+msgid "Ordering updated"
+msgstr "Sipariş güncellendi"
+
+msgid "Missing user(s) added successfully!"
+msgstr "Eksik kullanıcı(lar) başarıyla eklendi!"
+
+msgid "No missing user found!"
+msgstr "Kayıp kullanıcı bulunamadı!"
+
+msgid "How to translate Majestic Support"
+msgstr "Majestic Support nasıl tercüme edilir"
+
+msgid "arrow"
+msgstr "ok"
+
+msgid "Remove All"
+msgstr "Hepsini kaldır"
+
+msgid "How to create ticket"
+msgstr "Bilet nasıl oluşturulur?"
+
+msgid "Add Field"
+msgstr "Alan ekle"
+
+msgid "How to setup user fields"
+msgstr "Kullanıcı alanları nasıl kurulur"
+
+msgid "reset"
+msgstr "Sıfırla"
+
+msgid "Reset All"
+msgstr "Hepsini sıfırla"
+
+msgid "How to set smartreply"
+msgstr "Akıllı yanıt nasıl ayarlanır"
+
+msgid "Add Multiform"
+msgstr "Çok Biçimli Ekle"
+
+msgid "How to set multiforms"
+msgstr "Çoklu formlar nasıl ayarlanır"
+
+msgid "Add Conditions"
+msgstr "Koşul Ekle"
+
+msgid "Conditions"
+msgstr "Koşullar"
+
+msgid "How to add Shortcode"
+msgstr "Kısa Kod nasıl eklenir"
+
+msgid "How to set colors"
+msgstr "Renkler nasıl ayarlanır"
+
+msgid "Export Data"
+msgstr "Verileri Dışa Aktar"
+
+msgid "Add Email Piping"
+msgstr "E-posta Borusu Ekle"
+
+msgid "Add GDPR Field"
+msgstr "GDPR Alanı Ekle"
+
+msgid "Add Depertment"
+msgstr "Departman Ekle"
+
+msgid "Add Knowledge base"
+msgstr "Bilgi tabanı ekle"
+
+msgid "How to use Knowledge Base"
+msgstr "Bilgi Bankası nasıl kullanılır?"
+
+msgid "How to use downloads"
+msgstr "İndirilenler nasıl kullanılır?"
+
+msgid "How to create FAQ"
+msgstr "SSS nasıl oluşturulur?"
+
+msgid "How to add announcement"
+msgstr "Duyuru nasıl eklenir?"
+
+msgid "Add Help Topics"
+msgstr "Yardım Konuları Ekle"
+
+msgid "How to use help topic"
+msgstr "Yardım konusu nasıl kullanılır?"
+
+msgid "How to set SMTP"
+msgstr "SMTP nasıl ayarlanır"
+
+msgid "Add Banned Email"
+msgstr "Yasaklı E-posta Ekle"
+
+msgid "How to use email cc"
+msgstr "E-posta cc'si nasıl kullanılır?"
+
+msgid "Configuration"
+msgstr "Yapılandırma"
+
+msgid "Reasons"
+msgstr "Sebepler"
+
+msgid "About Majestic Support"
+msgstr "Majestic Destek Hakkında"
+
+msgid "Our Products"
+msgstr "Bizim ürünlerimiz"
+
+msgid "Wp Job Portal"
+msgstr "Wp İş Portalı"
+
+msgid "New Tickets"
+msgstr "Yeni Biletler"
+
+msgid "addon"
+msgstr "Ayriyeten"
+
+msgid "Answered Tickets"
+msgstr "Cevaplanan Biletler"
+
+msgid "Pending Tickets"
+msgstr "Bekleyen Biletler"
+
+msgid "Overdue Tickets"
+msgstr "Gecikmiş Biletler"
+
+msgid "Update"
+msgstr "Güncelleme"
+
+msgid "View Addone Status"
+msgstr "Eklenme Durumunu Görüntüle"
+
+msgid "Today Tickets"
+msgstr "Bugün Biletleri"
+
+msgid "Statistics"
+msgstr "İstatistik"
+
+msgid "View All Tickets"
+msgstr "Tüm Biletleri Görüntüle"
+
+msgid "Quick Links"
+msgstr "Hızlı Linkler"
+
+msgid "email template"
+msgstr "E-posta şablonu"
+
+msgid "add missing users"
+msgstr "eksik kullanıcıları ekle"
+
+msgid "user"
+msgstr "kullanıcı"
+
+msgid "Sync WP Users"
+msgstr "WP Kullanıcılarını Eşitle"
+
+msgid "Add New Smart Reply"
+msgstr "Yeni Akıllı Yanıt Ekle"
+
+msgid "Suggest a quick and most relevant reply to the customer's query."
+msgstr "Müşterinin sorusuna hızlı ve en alakalı yanıtı önerin."
+
+msgid "Add Reply"
+msgstr "Cevap ekle"
+
+msgid "Add New Agent"
+msgstr "Yeni Temsilci Ekle"
+
+msgid "Agent Add-on Not Installed"
+msgstr "Aracı Eklentisi Yüklü Değil"
+
+msgid "Don't limit yourself—install the Agent addon for maximum productivity."
+msgstr "Kendinizi sınırlamayın; maksimum üretkenlik için Agent eklentisini yükleyin."
+
+msgid "agent addone"
+msgstr "ajan eklentisi"
+
+msgid "Install Agent Addon"
+msgstr "Agent Eklentisini Yükle"
+
+msgid "Tickets By Priority"
+msgstr "Önceliğe Göre Biletler"
+
+msgid "Install Addone"
+msgstr "Eklentiyi Yükle"
+
+msgid "Add-ons"
+msgstr "Eklentiler"
+
+msgid "View Details"
+msgstr "Detayları göster"
+
+msgid "Version"
+msgstr "Sürüm"
+
+msgid "Auto Close Ticket"
+msgstr "Otomatik Kapanış Bileti"
+
+msgid "Private Note"
+msgstr "Özel Not"
+
+msgid "Max Ticket"
+msgstr "Maksimum Bilet"
+
+msgid "Max Tickets"
+msgstr "Maksimum Bilet"
+
+msgid "Merge Tickets"
+msgstr "Biletleri Birleştir"
+
+msgid "Time Tracking"
+msgstr "Zaman Takibi"
+
+msgid "User Options"
+msgstr "Kullanıcı Seçenekleri"
+
+msgid "Actions"
+msgstr "Hareketler"
+
+msgid "Ticket Actions"
+msgstr "Bilet İşlemleri"
+
+msgid "Desktop Notifications"
+msgstr "Masaüstü bildirimleri"
+
+msgid "Admin Widgets"
+msgstr "Yönetici Widget'ları"
+
+msgid "Internal Mail"
+msgstr "Dahili posta"
+
+msgid "Front-End Widgets"
+msgstr "Ön Uç Widget'lar"
+
+msgid "mailchimp"
+msgstr "posta şempanzesi"
+
+msgid "Mailchimp"
+msgstr "Posta şempanzesi"
+
+msgid "paidsupport"
+msgstr "ücretli destek"
+
+msgid "easy digital download"
+msgstr "kolay dijital indirme"
+
+msgid "Easy Digital Download"
+msgstr "Kolay Dijital İndirme"
+
+msgid "Multi Language Email Templates"
+msgstr "Çok Dilli E-posta Şablonları"
+
+msgid "Email Cc"
+msgstr "E-posta Bilgisi"
+
+msgid "Multi Forms"
+msgstr "Çoklu Formlar"
+
+msgid "Ticket Closed Reason"
+msgstr "Bilet Kapanma Sebebi"
+
+msgid "Quick Installation Guide"
+msgstr "Hızlı Kurulum Kılavuzu"
+
+msgid "How To Setup"
+msgstr "Nasıl kurulur"
+
+msgid "Ticket Creation"
+msgstr "Bilet Oluşturma"
+
+msgid "Fields Manager"
+msgstr "Saha Yöneticisi"
+
+msgid "Email Notification Problems"
+msgstr "E-posta Bildirim Sorunları"
+
+msgid "Premium Addons List"
+msgstr "Premium Eklentiler Listesi"
+
+msgid "Features"
+msgstr "Özellikler"
+
+msgid "The best support system plugin for WordPress has everything you need."
+msgstr "WordPress için en iyi destek sistemi eklentisi ihtiyacınız olan her şeye sahiptir."
+
+msgid "Addons"
+msgstr "Eklentiler"
+
+msgid "All Add-ons"
+msgstr "Tüm Eklentiler"
+
+msgid "Add New Add-ons"
+msgstr "Yeni Eklentiler Ekle"
+
+msgid "New Update Version"
+msgstr "Yeni Güncelleme Sürümü"
+
+msgid "is Available"
+msgstr "gecerli"
+
+msgid "Help icon"
+msgstr "Yardım simgesi"
+
+msgid "Videos Guidance"
+msgstr "Videolar Rehberliği"
+
+msgid "View all videos"
+msgstr "Tüm videoları görüntüle"
+
+msgid "Video icon"
+msgstr "Video simgesi"
+
+msgid "View All Videos"
+msgstr "Tüm Videoları Görüntüle"
+
+msgid "Majestic Support icon"
+msgstr "Majestic Destek simgesi"
+
+msgid "Contact Us For Support"
+msgstr "Destek İçin Bize Ulaşın"
+
+msgid "Submit ticket"
+msgstr "Bilet Gönder"
+
+msgid "Visitor ticket creation"
+msgstr "Ziyaretçi bileti oluşturma"
+
+msgid "How to set ticket auto close"
+msgstr "Biletin otomatik kapanması nasıl ayarlanır?"
+
+msgid "How to reopen closed ticket"
+msgstr "Kapatılan bilet nasıl yeniden açılır?"
+
+msgid "How to lock a ticket"
+msgstr "Bilet nasıl kilitlenir"
+
+msgid "How to add private note"
+msgstr "Özel not nasıl eklenir"
+
+msgid "View ticket history"
+msgstr "Bilet geçmişini görüntüle"
+
+msgid "How to setup custom fields"
+msgstr "Özel alanlar nasıl kurulur"
+
+msgid "Set ticket auto overdue"
+msgstr "Biletin otomatik gecikme süresini ayarla"
+
+msgid "Manually set ticket overdue"
+msgstr "Bilet gecikmesini manuel olarak ayarla"
+
+msgid "How to merge tickets"
+msgstr "Biletler nasıl birleştirilir"
+
+msgid "How to export tickets"
+msgstr "Biletler nasıl dışa aktarılır"
+
+msgid "How use help topic"
+msgstr "Yardım konusu nasıl kullanılır?"
+
+msgid "How to change department"
+msgstr "Departman nasıl değiştirilir?"
+
+msgid "How to use multi-forms"
+msgstr "Çoklu formlar nasıl kullanılır?"
+
+msgid "How to paid support"
+msgstr "Destek nasıl ödenir?"
+
+msgid "How to use premade response"
+msgstr "Önceden hazırlanmış yanıt nasıl kullanılır?"
+
+msgid "How to add private credentials"
+msgstr "Özel kimlik bilgileri nasıl eklenir?"
+
+msgid "How to ban/unban user"
+msgstr "Kullanıcı nasıl yasaklanır/yasağı kaldırılır"
+
+msgid "Agent system"
+msgstr "Temsilci sistemi"
+
+msgid "Manually assign ticket to agen"
+msgstr "Bileti manuel olarak temsilciye atayın"
+
+msgid "Manually assign ticket to agent"
+msgstr "Bileti temsilciye manuel olarak atayın"
+
+msgid "How to edit time"
+msgstr "Zaman nasıl düzenlenir"
+
+msgid "How to use time tracking"
+msgstr "Zaman takibi nasıl kullanılır?"
+
+msgid "How to use smart replies"
+msgstr "Akıllı yanıtlar nasıl kullanılır?"
+
+msgid "Configurations"
+msgstr "Yapılandırmalar"
+
+msgid "How to set max open ticket"
+msgstr "Maksimum açık bilet nasıl ayarlanır?"
+
+msgid "How to show counts"
+msgstr "Sayımlar nasıl gösterilir?"
+
+msgid "How to set Captcha"
+msgstr "Captcha nasıl ayarlanır"
+
+msgid "User options"
+msgstr "Kullanıcı seçenekleri"
+
+msgid "How to set login redirect"
+msgstr "Giriş yönlendirmesi nasıl ayarlanır"
+
+msgid "How to set fields ordering"
+msgstr "Alan sıralaması nasıl ayarlanır"
+
+msgid "How to enable social login"
+msgstr "Sosyal giriş nasıl etkinleştirilir"
+
+msgid "Setup"
+msgstr "Kurmak"
+
+msgid "How to setup"
+msgstr "Nasıl kurulur"
+
+msgid "How to enable email piping"
+msgstr "E-posta iletimi nasıl etkinleştirilir"
+
+msgid "How to solve email notification problem"
+msgstr "E-posta bildirimi sorunu nasıl çözülür?"
+
+msgid "How to translate"
+msgstr "Nasıl çevirilir"
+
+msgid "How to install addons"
+msgstr "Eklentiler nasıl yüklenir"
+
+msgid "How to Desktop Notifications"
+msgstr "Masaüstü Bildirimleri Nasıl Yapılır?"
+
+msgid "and"
+msgstr "Ve"
+
+msgid "How to use knowledge base"
+msgstr "Bilgi tabanı nasıl kullanılır?"
+
+msgid "Misc"
+msgstr "Çeşitli"
+
+msgid "How to use internal mail"
+msgstr "Dahili posta nasıl kullanılır?"
+
+msgid "Use front-end widgets"
+msgstr "Ön uç widget'ları kullanın"
+
+msgid "How to enable admin widgets"
+msgstr "Yönetici widget'ları nasıl etkinleştirilir"
+
+msgid "Majestic Support / Majestic Support Control Panel"
+msgstr "Majestic Destek / Majestic Destek Kontrol Paneli"
+
+msgid "Majestic Support / Majestic Support main control panel"
+msgstr "Majestic Support / Majestic Support ana kontrol paneli"
+
+msgid "Add new ticket form for both the user and the agent"
+msgstr "Hem kullanıcı hem de temsilci için yeni bilet formu ekleyin"
+
+msgid "Add Ticket Using Multiform"
+msgstr "Multiform Kullanarak Bilet Ekle"
+
+msgid "My tickets for both user and agent"
+msgstr "Hem kullanıcı hem de temsilci için biletlerim"
+
+msgid "Show latest downloads. Options"
+msgstr "En son indirilenleri göster. Seçenekler"
+
+msgid "i.e."
+msgstr "yani"
+
+msgid "Popular Downloads"
+msgstr "Popüler indirmeler"
+
+msgid "Show popular downloads. Options"
+msgstr "Popüler indirmeleri göster. Seçenekler"
+
+msgid "Show latest knowledge base. Options"
+msgstr "En son bilgi tabanını göster. Seçenekler"
+
+msgid "Show popular knowledge base. Options"
+msgstr "Popüler bilgi tabanını göster. Seçenekler"
+
+msgid "List FAQs"
+msgstr "SSS'leri listeleyin"
+
+msgid "Show latest FAQs. Options"
+msgstr "En son SSS'leri göster. Seçenekler"
+
+msgid "Popular FAQs"
+msgstr "Popüler SSS"
+
+msgid "Show popular FAQs. Options"
+msgstr "Popüler SSS'leri göster. Seçenekler"
+
+msgid "Show latest announcements. Options"
+msgstr "En son duyuruları göster. Seçenekler"
+
+msgid "Popular Announcements"
+msgstr "Popüler Duyurular"
+
+msgid "Show popular announcements. Options"
+msgstr "Popüler duyuruları göster. Seçenekler"
+
+msgid "Get"
+msgstr "Elde etmek"
+
+msgid "Translation"
+msgstr "Tercüme"
+
+msgid "c error"
+msgstr "c hatası"
+
+msgid "saved"
+msgstr "kaydedildi"
+
+msgid "Contribute In Translation"
+msgstr "Çeviriye Katkıda Bulunun"
+
+msgid "translate"
+msgstr "Çevirmek"
+
+msgid "Manual Download"
+msgstr "Manuel indirme"
+
+msgid "Log In"
+msgstr "Giriş yapmak"
+
+msgid "Log Out"
+msgstr "Çıkış Yap"
+
+msgid "Agent Feedback"
+msgstr "Temsilci Geri Bildirimi"
+
+msgid "Dashboard Menu"
+msgstr "Kontrol Paneli Menüsü"
+
+msgid "Open Tickets"
+msgstr "Açık Biletler"
+
+msgid "Closed Tickets"
+msgstr "Kapalı Biletler"
+
+msgid "This ticket is marked as overdue"
+msgstr "Bu biletin vadesi geçmiş olarak işaretlendi"
+
+msgid "View All Downloads"
+msgstr "Tüm İndirilenleri Görüntüle"
+
+msgid "View All Announcements"
+msgstr "Tüm Duyuruları Görüntüle"
+
+msgid "View All Knowledge Base"
+msgstr "Tüm Bilgi Tabanını Görüntüle"
+
+msgid "View All FAQs"
+msgstr "Tüm SSS'leri Görüntüle"
+
+msgid "Keep me login"
+msgstr "Oturumu açık tut"
+
+msgid "Repeat Password"
+msgstr "Şifreyi tekrar girin"
+
+msgid "Subscribe to the newsletter"
+msgstr "Bültene abone olun"
+
+msgid "has been changed"
+msgstr "değiştirildi"
+
+msgid "has not been changed"
+msgstr "değiştirilmedi"
+
+msgid "Majestic Support Settings"
+msgstr "Majestic Destek Ayarları"
+
+msgid "Step 4 of "
+msgstr "4. adım"
+
+msgid "Complete"
+msgstr "Tamamlamak"
+
+msgid "Setting you applied has been saved successfully."
+msgstr "Uyguladığınız ayar başarıyla kaydedildi."
+
+msgid "Finish"
+msgstr "Sona ermek"
+
+msgid "Settings Complete"
+msgstr "Ayarlar Tamamlandı"
+
+msgid "Ticket Setting"
+msgstr "Bilet Ayarı"
+
+msgid "Step 1 of "
+msgstr "1. adım"
+
+msgid "Enter the site title"
+msgstr "Site başlığını girin"
+
+msgid "Date format for plugin"
+msgstr "Eklenti için tarih formatı"
+
+msgid "Show Breadcrumbs"
+msgstr "İçerik Kırıntılarını Göster"
+
+msgid "Show navigation in breadcrumbs"
+msgstr "Gezintiyi kırıntılarda göster"
+
+msgid "Upload file size in KB's"
+msgstr "Dosya boyutunu KB olarak yükleyin"
+
+msgid "File Extension"
+msgstr "Dosya uzantısı"
+
+msgid "Show count on my tickets"
+msgstr "Biletlerimin sayısını göster"
+
+msgid "Next Setup"
+msgstr "Sonraki Kurulum"
+
+msgid "Sequential"
+msgstr "Ardışık"
+
+msgid "Step 3 of "
+msgstr "3. adım"
+
+msgid "Set Email Delay Time"
+msgstr "E-posta Gecikme Süresini Ayarlayın"
+
+msgid " :"
+msgstr ":"
+
+msgid "Set Email Delay"
+msgstr "E-posta Gecikmesini Ayarla"
+
+msgid "Back"
+msgstr "Geri"
+
+msgid "Step 2 of "
+msgstr "2. adım"
+
+msgid "Visitor can create ticket"
+msgstr "Ziyaretçi bilet oluşturabilir"
+
+msgid "Enable/Disable Open Ticket"
+msgstr "Açık Bileti Etkinleştirme/Devre Dışı Bırakma"
+
+msgid "Set ticket id sequential or random"
+msgstr "Bilet kimliğini sıralı veya rastgele olarak ayarlayın"
+
+msgid "Maximum Tickets"
+msgstr "Maksimum Bilet"
+
+msgid "Set Maximum Ticket Per user"
+msgstr "Kullanıcı Başına Maksimum Bileti Ayarla"
+
+msgid "Maximum Open Ticket"
+msgstr "Maksimum Açık Bilet"
+
+msgid "Reopen ticket within Days"
+msgstr "Bileti Günler İçinde Yeniden Aç"
+
+msgid "The ticket can be reopened within a given number of days"
+msgstr "Bilet belirli sayıda gün içinde yeniden açılabilir"
+
+msgid "Show Captcha to visitor on ticket form"
+msgstr "Bilet formunda ziyaretçiye Captcha'yı gösterin"
+
+msgid "Enable/Disable Captcha on Ticket Form"
+msgstr "Bilet Formunda Captcha'yı Etkinleştirme/Devre Dışı Bırakma"
+
+msgid "Own Captcha operands"
+msgstr "Kendi Captcha işlenenleri"
+
+msgid "Select the total operands to be given"
+msgstr "Verilecek toplam işlenenleri seçin"
+
+msgid "Own captcha subtraction answer positive"
+msgstr "Kendi captcha çıkarma yanıtı olumlu"
+
+msgid "Enable/Disable Own Captcha subtraction"
+msgstr "Kendi Captcha çıkarmayı Etkinleştirme/Devre Dışı Bırakma"
+
+msgid "Enable Print Ticket"
+msgstr "Bilet Yazdırmayı Etkinleştir"
+
+msgid "Enable/Disable Print Ticket"
+msgstr "Bilet Yazdırmayı Etkinleştir/Devre Dışı Bırak"
+
+msgid "Download Translation File"
+msgstr "Çeviri Dosyasını İndirin"
+
+msgid "Download & Next"
+msgstr "İndir ve Sonraki"
+
+msgid "Skip this step"
+msgstr "Bu adımı atla"
+
+msgid "Please insert activation key to proceed"
+msgstr "Devam etmek için lütfen aktivasyon anahtarını girin"
+
+msgid "Addon Installation Failed"
+msgstr "Eklenti Kurulumu Başarısız"
+
+msgid "Addon installation failed"
+msgstr "Eklenti kurulumu başarısız oldu"
+
+msgid "Addon Installation Failed, File download error"
+msgstr "Eklenti Kurulumu Başarısız Oldu, Dosya indirme hatası"
+
+msgid "Deactivate"
+msgstr "Devre dışı bırakmak"
+
+msgid "Deactivated"
+msgstr "Devre dışı bırakıldı"
+
+msgid "Activate"
+msgstr "Etkinleştir"
+
+msgid "Not Installed"
+msgstr "Yüklü değil"
+
+msgid "Addon Installed Successfully"
+msgstr "Eklenti Başarıyla Yüklendi"
+
+msgid "Ticket Auto Close"
+msgstr "Bilet Otomatik Kapatma"
+
+msgid "Canned Response"
+msgstr "Hazır Yanıt"
+
+msgid "Desktop Notification"
+msgstr "Masaüstü Bildirimi"
+
+msgid "Front-end Widgets"
+msgstr "Ön Uç Widget'lar"
+
+msgid "Multi-Language Emails"
+msgstr "Çok Dilli E-postalar"
+
+msgid "left image"
+msgstr "sol resim"
+
+msgid "right image"
+msgstr "doğru görüntü"
+
+msgid "Add-ons For Majestic Support"
+msgstr "Majestic Destek İçin Eklentiler"
+
+msgid "Save big today with an exclusive membership plan!"
+msgstr "Özel bir üyelik planıyla bugün büyük tasarruf edin!"
+
+msgid "show bundle pack"
+msgstr "paket paketini göster"
+
+msgid "buy now"
+msgstr "Şimdi satın al"
+
+msgid "Installed"
+msgstr "Kurulmuş"
+
+msgid "agent auto assign"
+msgstr "temsilci otomatik atama"
+
+msgid "private note"
+msgstr "özel not"
+
+msgid "merge tickets"
+msgstr "biletleri birleştir"
+
+msgid "helptopic"
+msgstr "yardım konusu"
+
+msgid "time tracking"
+msgstr "zaman takibi"
+
+msgid "Ticket close reason"
+msgstr "Bilet kapatma nedeni"
+
+msgid "max ticket"
+msgstr "maksimum bilet"
+
+msgid "ticket actions"
+msgstr "bilet işlemleri"
+
+msgid "email cc"
+msgstr "e-posta bilgisi"
+
+msgid "user options"
+msgstr "kullanıcı seçenekleri"
+
+msgid "admin widgets"
+msgstr "yönetici widget'ları"
+
+msgid "desktop notifications"
+msgstr "masaüstü bildirimleri"
+
+msgid "woocommerce"
+msgstr "WooCommerce"
+
+msgid "mail chimp"
+msgstr "posta şempanzesi"
+
+msgid "Mail Chimp"
+msgstr "Posta şempanzesi"
+
+msgid "internal mail"
+msgstr "dahili posta"
+
+msgid "frontend widget"
+msgstr "ön uç widget'ı"
+
+msgid "Majestic Support Add-ons Bundle Pack"
+msgstr "Majestic Support Eklenti Paketi Paketi"
+
+msgid "Basic"
+msgstr "Temel"
+
+msgid "Unlimited Agents"
+msgstr "Sınırsız Temsilci"
+
+msgid "Helptopic"
+msgstr "Yardım konusu"
+
+msgid "Show all"
+msgstr "Hepsini Göster ↓"
+
+msgid "Standard"
+msgstr "Standart"
+
+msgid "Everything in basic included and "
+msgstr "Temeldeki her şey dahil ve"
+
+msgid "Professional"
+msgstr "Profesyonel"
+
+msgid "Everything in standard included and"
+msgstr "Standarttaki her şey dahil ve"
+
+msgid "All Future Addons"
+msgstr "Gelecekteki Tüm Eklentiler"
+
+msgid "Status: "
+msgstr "Durum:"
+
+msgid "addon in no longer active"
+msgstr "eklenti artık aktif değil"
+
+msgid "Please Insert Your Activation Key"
+msgstr "Lütfen Aktivasyon Anahtarınızı Girin"
+
+msgid "XXXX-XXXX-XXXXX-XXXXX"
+msgstr "XXXX-XXXX-XXXXX-XXXXX"
+
+msgid "Proceed"
+msgstr "İlerlemek"
+
+msgid "Majestic Support Addon Installer"
+msgstr "Majestic Support Eklenti Yükleyicisi"
+
+msgid "Select All Addons"
+msgstr "Tüm Eklentileri Seç"
+
+msgid "All allowed add ons are already installed"
+msgstr "İzin verilen tüm eklentiler zaten yüklü"
+
+msgid "You are not allowed to install any add on"
+msgstr "Herhangi bir eklenti yüklemenize izin verilmiyor"
+
+msgid "Addons Installed Successfully"
+msgstr "Eklentiler Başarıyla Yüklendi"
+
+msgid "Open Dashboard"
+msgstr "Kontrol Panelini Aç"
+
+msgid "Open Plugins Page"
+msgstr "Eklentiler Sayfasını Aç"
+
+msgid "Page Not Found !!"
+msgstr "Sayfa bulunamadı !!"
+
+msgid "Priority Title Already Exist"
+msgstr "Öncelikli Unvan Zaten Mevcut"
+
+msgid "Priority has been stored"
+msgstr "Öncelik kaydedildi"
+
+msgid "Priority has not been stored"
+msgstr "Öncelik kaydedilmedi"
+
+msgid "Priority has been deleted"
+msgstr "Öncelik silindi"
+
+msgid "Priority has not been deleted"
+msgstr "Öncelik silinmedi"
+
+msgid "Default priority cannot delete"
+msgstr "Varsayılan öncelik silinemez"
+
+msgid "Priority has been make default"
+msgstr "Öncelik varsayılan haline getirildi"
+
+msgid "Priority has not been make default"
+msgstr "Öncelik varsayılan haline getirilmedi"
+
+msgid "Ticket Overdue Interval Type"
+msgstr "Bilet Gecikme Aralığı Türü"
+
+msgid "Save Priority"
+msgstr "Önceliği Kaydet"
+
+msgid "Date Interval"
+msgstr "Tarih Aralığı"
+
+msgid "Reply posted"
+msgstr "Yanıt gönderildi"
+
+msgid "Reply posted on ticket"
+msgstr "Bilette yanıt yayınlandı"
+
+msgid "Guest"
+msgstr "Misafir"
+
+msgid "Ticket is replied by"
+msgstr "Ticket'a yanıt verildi"
+
+msgid "Reply Has been Posted"
+msgstr "Yanıt Gönderildi"
+
+msgid "Reply Has Not been Posted"
+msgstr "Yanıt Yayınlanmadı"
+
+msgid "Dates"
+msgstr "Tarih"
+
+msgid "Department Statistics"
+msgstr "Bölüm İstatistikleri"
+
+msgid "answered ticket"
+msgstr "yanıtlanmış bilet"
+
+msgid "pending ticket"
+msgstr "bekleyen bilet"
+
+msgid "overdue ticket"
+msgstr "gecikmiş bilet"
+
+msgid "Time Taken"
+msgstr "Geçen süre"
+
+msgid "Merged and closed"
+msgstr "Birleştirildi ve kapatıldı"
+
+msgid "Out of"
+msgstr "Dışında"
+
+msgid "Overall Report"
+msgstr "Genel Rapor"
+
+msgid "Ticket by departments"
+msgstr "Bölümlere göre bilet"
+
+msgid "Agent Tickets"
+msgstr "Temsilci Biletleri"
+
+msgid "all ticket"
+msgstr "tüm bilet"
+
+msgid "Tickets By Status And Priorities"
+msgstr "Durum ve Önceliklere Göre Biletler"
+
+msgid "Tickets By Agents"
+msgstr "Acentelere Göre Biletler"
+
+msgid "Staff Reports"
+msgstr "Personel Raporları"
+
+msgid "Based on"
+msgstr "Dayalı"
+
+msgid "Customer Satisfaction"
+msgstr "Müşteri memnuniyeti"
+
+msgid "satisfaction image"
+msgstr "memnuniyet imajı"
+
+msgid "Excellent"
+msgstr "Harika"
+
+msgid "NA"
+msgstr "Yok"
+
+msgid "Happy"
+msgstr "Mutlu"
+
+msgid "bad"
+msgstr "kötü"
+
+msgid "Sad"
+msgstr "Üzgün"
+
+msgid "Angry"
+msgstr "Sinirli"
+
+msgid "Agent Statistics"
+msgstr "Temsilci İstatistikleri"
+
+msgid "staff image"
+msgstr "personel görseli"
+
+msgid "Average rating"
+msgstr "Ortalama puanı"
+
+msgid "Average time"
+msgstr "Ortalama süre"
+
+msgid "Tickets not assigned to the agent"
+msgstr "Acenteye atanmamış biletler"
+
+msgid "Minutes"
+msgstr "dakika"
+
+msgid "Report By Agent"
+msgstr "Temsilciye Göre Rapor Et"
+
+msgid "User Statistics"
+msgstr "Kullanıcı İstatistikleri"
+
+msgid "Users"
+msgstr "Kullanıcılar"
+
+msgid "Tickets by departments"
+msgstr "Bölümlere göre biletler"
+
+msgid "Ticket Status By Departments"
+msgstr "Bölümlere Göre Bilet Durumu"
+
+msgid "Agent detail Report"
+msgstr "Temsilci ayrıntısı Raporu"
+
+msgid "Agent Report"
+msgstr "Temsilci Raporu"
+
+msgid "Reports Statistics"
+msgstr "Rapor İstatistikleri"
+
+msgid "Slugs/Slug has been stored"
+msgstr "Sümüklü böcek/Sümüklüböcek saklandı"
+
+msgid "Prefix has not been stored"
+msgstr "Önek saklanmadı"
+
+msgid "Prefix has been stored"
+msgstr "Önek saklandı"
+
+msgid "Home Slug"
+msgstr "Ev Sümüklüböcek"
+
+msgid "Prefix"
+msgstr "Önek"
+
+msgid "This prefix will be added to the slug in case of homepage links."
+msgstr "Bu önek, ana sayfa bağlantıları olması durumunda bilgiye eklenecektir."
+
+msgid "This prefix will be added to the slug in case of conflict."
+msgstr "Bu önek, çakışma durumunda bilgi notuna eklenecektir."
+
+msgid "Search By Slug"
+msgstr "Slug'a Göre Ara"
+
+msgid "Slug List"
+msgstr "Sümüklüböcek Listesi"
+
+msgid "edit"
+msgstr "düzenlemek"
+
+msgid "This button will only save slugs on the current page"
+msgstr "Bu düğme yalnızca geçerli sayfadaki kısa bilgileri kaydedecektir"
+
+msgid "Smart Reply Title Already Exist"
+msgstr "Akıllı Yanıt Başlığı Zaten Mevcut"
+
+msgid "Smart Reply has been stored"
+msgstr "Akıllı Yanıt kaydedildi"
+
+msgid "Smart Reply has not been stored"
+msgstr "Akıllı Yanıt saklanmadı"
+
+msgid "Smart Reply has been deleted"
+msgstr "Akıllı Yanıt silindi"
+
+msgid "Smart Reply has not been deleted"
+msgstr "Akıllı Yanıt silinmedi"
+
+msgid "Enter Ticket Subject"
+msgstr "Bilet Konusunu Girin"
+
+msgid "delete"
+msgstr "silmek"
+
+msgid "Save Smart Reply"
+msgstr "Akıllı Yanıtı Kaydet"
+
+msgid "System error has been deleted"
+msgstr "Sistem hatası silindi"
+
+msgid "System error has not been deleted"
+msgstr "Sistem hatası silinmedi"
+
+msgid "Color Chooser"
+msgstr "Renk Seçici"
+
+msgid "Preset Theme"
+msgstr "Önceden Ayarlanmış Tema"
+
+msgid "Top Menu Heading Background"
+msgstr "Üst Menü Başlığı Arka Planı"
+
+msgid "Top Header Line Color"
+msgstr "Üst Başlık Çizgi Rengi"
+
+msgid "Button Hover"
+msgstr "Düğme Üzerine Gelme"
+
+msgid "Heading Text"
+msgstr "Başlık Metni"
+
+msgid "Content Background Color"
+msgstr "İçerik Arka Plan Rengi"
+
+msgid "Content Text Color"
+msgstr "İçerik Metni Rengi"
+
+msgid "Border Color"
+msgstr "Sınır rengi"
+
+msgid "Lines"
+msgstr "çizgiler"
+
+msgid "Button Color"
+msgstr "Düğme rengi"
+
+msgid "Top Header Text Color"
+msgstr "Üst Başlık Metin Rengi"
+
+msgid "Save Colors"
+msgstr "Renkleri Kaydet"
+
+msgid "Color Effect Preview"
+msgstr "Renk Efekti Önizlemesi"
+
+msgid "Submit Ticket  "
+msgstr "Bilet Gönder"
+
+msgid "Open ( 3 )"
+msgstr "Açık ( 3 )"
+
+msgid "Closed ( 2 )"
+msgstr "Kapalı (2)"
+
+msgid "Answered ( 1 )"
+msgstr "Yanıtlandı ( 1 )"
+
+msgid "All Tickets ( 5 )"
+msgstr "Tüm Biletler ( 5 )"
+
+msgid " Priority"
+msgstr "Öncelik"
+
+msgid "Can i upgrade my plan?"
+msgstr "Planımı yükseltebilir miyim?"
+
+msgid "Low"
+msgstr "Düşük"
+
+msgid "Ticket ID  :"
+msgstr "Bilet Kimliği:"
+
+msgid "Last Reply :"
+msgstr "Son Yanıt:"
+
+msgid "How can i get Subscription"
+msgstr "Aboneliği nasıl alabilirim"
+
+msgid " Department   "
+msgstr "Departman"
+
+msgid "Support"
+msgstr "Destek"
+
+msgid " Ticket ID :"
+msgstr "Bilet Kimliği:"
+
+msgid "Created :"
+msgstr "Oluşturuldu:"
+
+msgid "Matthew Frazier"
+msgstr "Matthew Frazier"
+
+msgid "How long do i have support access"
+msgstr "Ne kadar süreyle destek erişimim var"
+
+msgid " Department"
+msgstr "Departman"
+
+msgid "Note"
+msgstr "Not"
+
+msgid "Blue Jeans"
+msgstr "Mavi kot"
+
+msgid "Red"
+msgstr "Kırmızı"
+
+msgid "Mint"
+msgstr "nane"
+
+msgid "Lavender"
+msgstr "Lavanta"
+
+msgid "Orange"
+msgstr "Turuncu"
+
+msgid "Grass"
+msgstr "Çimen"
+
+msgid "Black"
+msgstr "Siyah"
+
+msgid "Support for this Envato license has expired"
+msgstr "Bu Envato lisansına yönelik desteğin süresi doldu"
+
+msgid "Record not found"
+msgstr "Kayıt bulunamadı"
+
+msgid "Banned email cannot create ticket"
+msgstr "Yasaklanan e-posta bilet oluşturulamıyor"
+
+msgid "Incorrect Captcha Code"
+msgstr "Yanlış Captcha Kodu"
+
+msgid "Please select paid support item"
+msgstr "Lütfen ücretli destek öğesini seçin"
+
+msgid "No purchase found with that code"
+msgstr "Bu kodla satın alma bulunamadı"
+
+msgid "Provide a valid license key to create a ticket."
+msgstr "Bilet oluşturmak için geçerli bir lisans anahtarı sağlayın."
+
+msgid "Your license has expired."
+msgstr "Lisansınızın süresi doldu."
+
+msgid "Your license is not active, activate your license."
+msgstr "Lisansınız aktif değil, lisansınızı aktif hale getiriniz."
+
+msgid "Due date error is not valid"
+msgstr "Son tarih hatası geçerli değil"
+
+msgid "Ticket has not been created"
+msgstr "Bilet oluşturulmadı"
+
+msgid "Your ticket has been submitted successfully"
+msgstr "Biletiniz başarıyla gönderildi"
+
+msgid "created"
+msgstr "yaratıldı"
+
+msgid "Ticket is updated by"
+msgstr "Bilet güncellendi"
+
+msgid "Ticket is created by"
+msgstr "Bilet şu kişi tarafından oluşturulur:"
+
+msgid "Ticket has been deleted"
+msgstr "Bilet silindi"
+
+msgid "Ticket has not been deleted"
+msgstr "Bilet silinmedi"
+
+msgid "in use cannot be deleted"
+msgstr "kullanımda silinemez"
+
+msgid "Ticket already closed"
+msgstr "Bilet zaten kapalı"
+
+msgid "Ticket has been closed"
+msgstr "Bilet kapatıldı"
+
+msgid "Ticket has not been closed"
+msgstr "Bilet kapatılmadı"
+
+msgid "Ticket is closed by"
+msgstr "Bilet şu tarihe kadar kapatıldı:"
+
+msgid "due to the following reasons"
+msgstr "aşağıdaki nedenlerden dolayı"
+
+msgid "Your are not allowed"
+msgstr "İzin verilmiyor"
+
+msgid "The department has been transferred"
+msgstr "Bölüm devredildi"
+
+msgid "The department has not been transferred"
+msgstr "Departman transfer edilmedi"
+
+msgid "The department is transferred by"
+msgstr "Departman tarafından transfer edildi"
+
+msgid "Assigned to agent"
+msgstr "Temsilciye atandı"
+
+msgid "Not assigned to agent"
+msgstr "Temsilciye atanmadı"
+
+msgid "Assign ticket to agent"
+msgstr "Temsilciye bilet ata"
+
+msgid "Ticket is assigned to agent by"
+msgstr "Bilet acenteye şu şekilde atanır:"
+
+msgid "The ticket already has the same priority"
+msgstr "Bilet zaten aynı önceliğe sahip"
+
+msgid "Priority has been changed"
+msgstr "Öncelik değiştirildi"
+
+msgid "Priority has not been changed"
+msgstr "Öncelik değişmedi"
+
+msgid "Change Priority"
+msgstr "Önceliği Değiştir"
+
+msgid "Email already banned"
+msgstr "E-posta zaten yasaklandı"
+
+msgid "The email has been banned"
+msgstr "E-posta yasaklandı"
+
+msgid "The email has not been banned"
+msgstr "E-posta yasaklanmadı"
+
+msgid "Email is banned by"
+msgstr "E-posta tarafından yasaklandı"
+
+msgid "The ticket has been reopened"
+msgstr "Bilet yeniden açıldı"
+
+msgid "The ticket has not been reopened"
+msgstr "Bilet yeniden açılmadı"
+
+msgid "Reopen Ticket"
+msgstr "Bileti Yeniden Aç"
+
+msgid "The ticket is reopened by"
+msgstr "Bilet şu tarihte yeniden açıldı:"
+
+msgid "The ticket reopens time limit end"
+msgstr "Bilet, zaman sınırı sonunda yeniden açılır"
+
+msgid "Email has been unbanned"
+msgstr "E-posta yasağı kaldırıldı"
+
+msgid "Email has not been unbanned"
+msgstr "E-posta yasağı kaldırılmadı"
+
+msgid "Unbanned Email"
+msgstr "Yasaklanmamış E-posta"
+
+msgid "Email is unbanned by"
+msgstr "E-postanın yasağı şu kişi tarafından kaldırıldı:"
+
+msgid "Email cannot be unbanned"
+msgstr "E-postanın yasağı kaldırılamaz"
+
+msgid "Ticket already marked in progress"
+msgstr "Bilet zaten devam ediyor olarak işaretlendi"
+
+msgid "The ticket has been marked as in progress"
+msgstr "Bilet devam ediyor olarak işaretlendi"
+
+msgid "The ticket has not been marked as in progress"
+msgstr "Bilet devam ediyor olarak işaretlenmedi"
+
+msgid "In progress ticket"
+msgstr "Devam eden bilet"
+
+msgid "The ticket is marked as in progress by"
+msgstr "Bilet şu şekilde devam ediyor olarak işaretlenir:"
+
+msgid "File upload limit exceeds"
+msgstr "Dosya yükleme sınırı aşıldı"
+
+msgid "The uploaded file extension not valid"
+msgstr "Yüklenen dosya uzantısı geçerli değil"
+
+msgid "Paid support info"
+msgstr "Ücretli destek bilgileri"
+
+msgid "Order ID"
+msgstr "Sipariş Kimliği"
+
+msgid "Product Name"
+msgstr "Ürün adı"
+
+msgid "Total Tickets"
+msgstr "Toplam Bilet"
+
+msgid "Remaining Tickets"
+msgstr "Kalan Biletler"
+
+msgid "Unlimited"
+msgstr "Sınırsız"
+
+msgid "You have not purchased any supported item"
+msgstr "Desteklenen herhangi bir öğe satın almadınız"
+
+msgid "Go to shop"
+msgstr "Dükkana git"
+
+msgid "Select Order"
+msgstr "Sipariş seç"
+
+msgid "No premade response found"
+msgstr "Önceden hazırlanmış yanıt bulunamadı"
+
+msgid "Waiting agent reply"
+msgstr "Temsilci yanıtı bekleniyor"
+
+msgid "Waiting customer reply"
+msgstr "Müşteri yanıtı bekleniyor"
+
+msgid "Close ticket"
+msgstr "Bileti kapat"
+
+msgid "Are you sure to mark this ticket non-premium?"
+msgstr "Bu bileti premium olmayan olarak işaretlediğinizden emin misiniz?"
+
+msgid "Edit Reply"
+msgstr "Yanıtı Düzenle"
+
+msgid "Edit Time"
+msgstr "Zamanı Düzenle"
+
+msgid "Add reason in the other box"
+msgstr "Nedenini diğer kutuya ekleyin"
+
+msgid "First make some selection!"
+msgstr "İlk önce biraz seçim yapın!"
+
+msgid "Reason For Editing the timer"
+msgstr "Zamanlayıcıyı Düzenleme Nedeni"
+
+msgid "Reason For Editing"
+msgstr "Düzenleme Sebebi"
+
+msgid "Resolve conflict"
+msgstr "Çatışmayı çözmek"
+
+msgid "Lock"
+msgstr "Kilit"
+
+msgid "Add New Credential"
+msgstr "Yeni Kimlik Bilgisi Ekle"
+
+msgid "Add Internal Note"
+msgstr "Dahili Not Ekle"
+
+msgid "play"
+msgstr "oynamak"
+
+msgid "pause"
+msgstr "Duraklat"
+
+msgid "stop"
+msgstr "durmak"
+
+msgid "Close on reply"
+msgstr "Yanıt üzerine kapat"
+
+msgid "Reason For Department Transfer"
+msgstr "Bölüm Transfer Nedeni"
+
+msgid "Transfer"
+msgstr "Aktar"
+
+msgid "Assign To Agent"
+msgstr "Temsilciye Ata"
+
+msgid "Assign"
+msgstr "Atamak"
+
+msgid "View all"
+msgstr "Hepsini gör"
+
+msgid "tickets by"
+msgstr "biletler"
+
+msgid "Show History"
+msgstr "Geçmişi göster"
+
+msgid "Print Ticket"
+msgstr "Bilet Yazdır"
+
+msgid "Unmark Overdue"
+msgstr "Gecikme işaretini kaldır"
+
+msgid "Mark in Progress"
+msgstr "Devam Ediyor İşareti"
+
+msgid "agent image"
+msgstr "temsilci resmi"
+
+msgid "Post A New Internal Note"
+msgstr "Yeni Bir Dahili Not Gönderin"
+
+msgid "Ticket Thread"
+msgstr "Bilet Konusu"
+
+msgid "View Image"
+msgstr "Görseli göster"
+
+msgid "smart-reply"
+msgstr "akıllı yanıt"
+
+msgid "Check Smart Reply"
+msgstr "Akıllı Yanıtı Kontrol Et"
+
+msgid "Search and get a saved smart reply on Majestic Support for a ticket."
+msgstr "Bir bilet için Majestic Support'ta kayıtlı akıllı yanıtı arayın ve alın."
+
+msgid "search"
+msgstr "aramak"
+
+msgid "Add this reply to smart reply?"
+msgstr "Bu yanıt akıllı yanıta eklensin mi?"
+
+msgid "Post Reply"
+msgstr "Cevap Gönder"
+
+msgid "Own Signature"
+msgstr "Kendi İmzası"
+
+msgid "Department Signature"
+msgstr "Departman İmzası"
+
+msgid "JNone"
+msgstr "JYok"
+
+msgid "Add Signature"
+msgstr "İmza Ekle"
+
+msgid "On Waiting"
+msgstr "Beklemede"
+
+msgid "Closed and merged"
+msgstr "Kapatıldı ve birleştirildi"
+
+msgid "Ticket Closing Reason"
+msgstr "Bilet Kapanış Nedeni"
+
+msgid "ago"
+msgstr "evvel"
+
+msgid "No Last Reply"
+msgstr "Son Yanıt Yok"
+
+msgid "Not Given"
+msgstr "Verilmedi"
+
+msgid "Closed By"
+msgstr "Tarafından kapatıldı"
+
+msgid "Closed On"
+msgstr "Kapalı"
+
+msgid "Copy"
+msgstr "Kopyala"
+
+msgid "Copied"
+msgstr "Kopyalandı"
+
+msgid "Change"
+msgstr "Değiştirmek"
+
+msgid "Assign And Transfer Ticket"
+msgstr "Bilet Atama ve Transfer Etme"
+
+msgid "Ticket assigned to"
+msgstr "Bilet şuraya atandı:"
+
+msgid "staff photo"
+msgstr "personel fotoğrafı"
+
+msgid "Total Time Taken"
+msgstr "Harcanan Toplam Süre"
+
+msgid "view ticket"
+msgstr "bileti görüntüle"
+
+msgid "Woocommerce Order"
+msgstr "WooCommerce Siparişi"
+
+msgid "Envato License"
+msgstr "Envato Lisansı"
+
+msgid "Item"
+msgstr "Öğe"
+
+msgid "Buyer"
+msgstr "Alıcı"
+
+msgid "License Type"
+msgstr "Lisans türü"
+
+msgid "License"
+msgstr "Lisans"
+
+msgid "Purchase Date"
+msgstr "Satınalma tarihi"
+
+msgid "Supported Until"
+msgstr "Şu tarihe kadar destekleniyor:"
+
+msgid "Paid Support Details"
+msgstr "Ücretli Destek Ayrıntıları"
+
+msgid "Subscription"
+msgstr "Abonelik"
+
+msgid "Subscribed On"
+msgstr "Abone Olunma Tarihi"
+
+msgid "Support Expiry"
+msgstr "Desteğin Sona Ermesi"
+
+msgid "No expiration"
+msgstr "bitiş süresi yok"
+
+msgid "Non-premium support"
+msgstr "Premium olmayan destek"
+
+msgid "Check this box if this ticket should NOT apply against the paid support"
+msgstr "Bu biletin ücretli desteğe karşı GEÇERLİ OLMAMASI gerekiyorsa bu kutuyu işaretleyin"
+
+msgid "Remaining"
+msgstr "Geriye kalan"
+
+msgid "Link ticket to paid support"
+msgstr "Bileti ücretli desteğe bağlayın"
+
+msgid "closed ticket"
+msgstr "kapalı bilet"
+
+msgid "Ticket Creator Name"
+msgstr "Bilet Oluşturucunun Adı"
+
+msgid "From Date"
+msgstr "İtibaren"
+
+msgid "To Date"
+msgstr "Bugüne kadar"
+
+msgid "Enforce delete"
+msgstr "Silmeyi zorunlu kıl"
+
+msgid "Are you sure to enforce delete"
+msgstr "Silme işlemini zorunlu kıldığınızdan emin misiniz?"
+
+msgid "Are you sure to mark this ticket non-preminum?"
+msgstr "Bu bileti premium olmayan olarak işaretlediğinizden emin misiniz?"
+
+msgid "Message Logs"
+msgstr "Mesaj Günlükleri"
+
+msgid "Edit Timer"
+msgstr "Zamanlayıcıyı Düzenle"
+
+msgid "Type Note for Department"
+msgstr "Departman için Not Yazın"
+
+msgid "Assign Ticket To Agent"
+msgstr "Bileti Temsilciye Ata"
+
+msgid "Assigning Note"
+msgstr "Not Atama"
+
+msgid "Time Track"
+msgstr "Zaman İzleme"
+
+msgid "Type Internal Note"
+msgstr "Tip Dahili Not"
+
+msgid "tickets"
+msgstr "biletler"
+
+msgid "Reopen"
+msgstr "Yeniden aç"
+
+msgid "History"
+msgstr "Tarih"
+
+msgid "Print"
+msgstr "Yazdır"
+
+msgid "Are you sure you want to delete this ticket"
+msgstr "Bu bileti silmek istediğinizden emin misiniz?"
+
+msgid "Are you sure to close this ticket"
+msgstr "Bu bileti kapatacağınızdan emin misiniz?"
+
+msgid "Unlock"
+msgstr "Kilidini aç"
+
+msgid "Mark In Progress"
+msgstr "Devam Ediyor Olarak İşaretle"
+
+msgid "Ban Email And Close Ticket"
+msgstr "E-postayı Yasakla ve Bileti Kapat"
+
+msgid "Post New Internal Note"
+msgstr "Yeni Dahili Not Gönder"
+
+msgid "Reply A Message"
+msgstr "Bir Mesajı Yanıtla"
+
+msgid "Search and get a saved smart reply on Majestic Support."
+msgstr "Majestic Support'ta kayıtlı bir akıllı yanıtı arayın ve alın."
+
+msgid "Check Reply"
+msgstr "Yanıtı Kontrol Et"
+
+msgid "Select Premade"
+msgstr "Hazır Yapım'ı seçin"
+
+msgid "Assign Ticket"
+msgstr "Bilet Ata"
+
+msgid ": "
+msgstr ":"
+
+msgid "Assigned To Agent"
+msgstr "Temsilciye Atandı"
+
+msgid "View all orders"
+msgstr "Tüm siparişleri görüntüle"
+
+msgid "Non-preminum support"
+msgstr "Premium olmayan destek"
+
+msgid "Check Status"
+msgstr "Durumu kontrol et"
+
+msgid "High"
+msgstr "Yüksek"
+
+msgid "Urgent"
+msgstr "Acil"
+
+msgid "Admin email address and email piping address cannot be the same, your email piping will not be work."
+msgstr "Yönetici e-posta adresi ve e-posta iletim adresi aynı olamaz; e-posta iletiminiz çalışmayacaktır."
+
+msgid "IMAP is either not installed or not enabled in your server. Contact to hosting company"
+msgstr "IMAP sunucunuzda yüklü değil veya etkin değil. Hosting firmasıyla iletişime geçin"
+
+msgid "180 secs If the setting is not completely increased, most sites will work with a setting of between 180 and 600"
+msgstr "180 sn Ayar tamamen artırılmazsa çoğu site 180 ile 600 arası ayarla çalışacaktır."
+
+msgid "If you have already set up alert methods in the webcron.org interface, we recommend choosing an alert type"
+msgstr "Webcron.org arayüzünde uyarı yöntemlerini zaten ayarladıysanız bir uyarı türü seçmenizi öneririz."
+
+msgid "Enter allowed number of tickets that customer can post. Enter -1 for unlimited tickets."
+msgstr "Müşterinin gönderebileceği izin verilen bilet sayısını girin. Sınırsız bilet için -1 girin."
+
+msgid "Your response would be helpful to other users, as we believe that the success of the support system is largely dependent on how well customers are treated."
+msgstr "Destek sisteminin başarısının büyük oranda müşterilere ne kadar iyi davranıldığına bağlı olduğuna inandığımızdan, yanıtınız diğer kullanıcılara faydalı olacaktır."
+
+msgid "</b> and Enter your license key and hit to authenticate. A valid key is required for updates."
+msgstr "</b> ve lisans anahtarınızı girin ve kimlik doğrulamak için tuşuna basın. Güncellemeler için geçerli bir anahtar gereklidir."
+
+msgid "We'd love to hear from you. It'll only take 2 minutes of your time, and will really help us spread the word"
+msgstr "Sizden haber almayı çok isteriz. Sadece 2 dakikanızı alacak ve bu haberi yaymamıza gerçekten yardımcı olacak."
+
+msgid "Registration has been disabled by admin, please contact the system administrator."
+msgstr "Kayıt yönetici tarafından devre dışı bırakıldı, lütfen sistem yöneticisiyle iletişime geçin."
+
+msgid "Please check confirmation email to complete your subscription for the newsletter"
+msgstr "Bülten aboneliğinizi tamamlamak için lütfen onay e-postasını kontrol edin"
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Dont forget to update the add-ons to enjoy the greatest features!"
+msgstr "Selam! Yakın zamanda eklentiler için yeni bir güncelleme başlattık. En harika özelliklerin keyfini çıkarmak için eklentileri güncellemeyi unutmayın!"
+
+msgid "Select the Majestic Support default page, and on the action system, it will redirect to the selected page. If not selected the default page, email links, and support icon might not work."
+msgstr "Majestic Support varsayılan sayfasını seçtiğinizde eylem sisteminde seçilen sayfaya yönlendirilecektir. Varsayılan sayfa seçilmezse e-posta bağlantıları ve destek simgesi çalışmayabilir."
+
+msgid "You need to rename the existing data directory in the file system before changing the data directory name"
+msgstr "Veri dizini adını değiştirmeden önce dosya sistemindeki mevcut veri dizinini yeniden adlandırmanız gerekir"
+
+msgid "Show the number of open, closed, and answered tickets in my tickets and dashboard"
+msgstr "Destek taleplerimde ve kontrol panelimde açık, kapalı ve yanıtlanmış destek taleplerinin sayısını göster"
+
+msgid "Set register link default or custom.<br /> To enable registrations, WordPress admin > General > Settings > Membership: Anyone can register"
+msgstr "Kayıt bağlantısını varsayılan veya özel olarak ayarlayın.<br /> Kayıtları etkinleştirmek için WordPress admin > Genel > Ayarlar > Üyelik: Herkes kaydolabilir"
+
+msgid "Select category to display only products of this category on the WooCommerce shop page."
+msgstr "WooCommerce mağaza sayfasında yalnızca bu kategorideki ürünleri görüntülemek için kategoriyi seçin."
+
+msgid "Show or hide the multiform popup when creating a new ticket. if you hide them, the system will open the default form."
+msgstr "Yeni bir bilet oluştururken çok biçimli açılır pencereyi gösterin veya gizleyin. bunları gizlerseniz sistem varsayılan formu açacaktır."
+
+msgid "Select whether users can see the email of administrator or agent on the ticket reply"
+msgstr "Kullanıcıların destek bildirimi yanıtında yöneticinin veya temsilcinin e-postasını görüp göremeyeceğini seçin"
+
+msgid "Select whether users can see the name of administrator or agent on ticket reply"
+msgstr "Kullanıcıların destek bildirimi yanıtında yöneticinin veya temsilcinin adını görüp göremeyeceğini seçin"
+
+msgid "By enabling this option, an admin can know who closed the ticket and when that ticket closed."
+msgstr "Bu seçeneği etkinleştirerek yönetici, bileti kimin kapattığını ve biletin ne zaman kapatıldığını bilebilir."
+
+msgid "By enabling this option, an agent can know who closed the ticket and when that ticket closed."
+msgstr "Bu seçeneği etkinleştirerek temsilci, bileti kimin kapattığını ve biletin ne zaman kapandığını bilebilir."
+
+msgid "By enabling this option, a user can know who closed the ticket and when that ticket closed."
+msgstr "Bu seçeneği etkinleştirerek kullanıcı, bileti kimin kapattığını ve biletin ne zaman kapandığını bilebilir."
+
+msgid "By enabling this option, an admin can know to whom the ticket has been assigned."
+msgstr "Bu seçeneği etkinleştirerek yönetici, biletin kime atandığını bilebilir."
+
+msgid "By enabling this option, an agent can know to whom the ticket has been assigned."
+msgstr "Bu seçeneği etkinleştirerek temsilci biletin kime atandığını bilebilir."
+
+msgid "By enabling this option, a user can know to whom the ticket has been assigned."
+msgstr "Bu seçeneği etkinleştirerek kullanıcı biletin kime atandığını bilebilir."
+
+msgid "If the ticket department email is not selected, then this email is used to send emails"
+msgstr "Bilet departmanı e-postası seçilmezse e-posta göndermek için bu e-posta kullanılır"
+
+msgid "Set the number of days or hours to send a feedback email after a ticket is closed"
+msgstr "Bilet kapatıldıktan sonra geri bildirim e-postasının gönderileceği gün veya saat sayısını ayarlayın"
+
+msgid "Majestic Support Desktop Notifications plugin is not installed. Please install the plugin to enable desktop notifications"
+msgstr "Majestic Support Masaüstü Bildirimleri eklentisi yüklü değil. Masaüstü bildirimlerini etkinleştirmek için lütfen eklentiyi yükleyin"
+
+msgid "Changing the encryption key of private credentials will cause all existing credentials to be discarded"
+msgstr "Özel kimlik bilgilerinin şifreleme anahtarının değiştirilmesi, mevcut tüm kimlik bilgilerinin silinmesine neden olur"
+
+msgid "Prevent users from submitting a ticket without a valid license for one of your product"
+msgstr "Kullanıcıların, ürünlerinizden biri için geçerli bir lisans olmadan destek bildirimi göndermesini önleyin"
+
+msgid "Selecting \\ positive"
+msgstr " pozitif seçiliyor"
+
+msgid "e.g \\ The text between [link] and [/link] will be linked to provided url or wordpress page."
+msgstr "örneğin  [link] ve [/link] arasındaki metin, sağlanan URL'ye veya wordpress sayfasına bağlanacaktır."
+
+msgid "e.g., \\ The text between [link] and [/link] will be linked to provided URL or WordPress page."
+msgstr "örneğin,  [link] ve [/link] arasındaki metin, sağlanan URL'ye veya WordPress sayfasına bağlanacaktır."
+
+msgid "Majestic support is customer service or assistance that is exceptional in nature, providing a high level of satisfaction to the customer by going above and beyond their expectations. It involves providing prompt and efficient response times, personalized attention, and a willingness to solve problems or address concerns in a timely and effective manner."
+msgstr "Majestic destek, doğası gereği olağanüstü olan ve müşterilerin beklentilerinin ötesine geçerek yüksek düzeyde memnuniyet sağlayan müşteri hizmetleri veya yardımıdır. Hızlı ve etkili yanıt süreleri, kişiye özel ilgi ve sorunları çözme veya endişeleri zamanında ve etkili bir şekilde çözme isteği sağlamayı içerir."
+
+msgid "Explore our other products and services that we offer, you might find something else that interests you or fulfills your needs even better."
+msgstr "Sunduğumuz diğer ürün ve hizmetlerimizi inceleyin, ilginizi çeken veya ihtiyaçlarınızı daha iyi karşılayan başka bir şey bulabilirsiniz."
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Don't forget to update the add-ons to enjoy the greatest features!"
+msgstr "Selam! Yakın zamanda eklentiler için yeni bir güncelleme başlattık. En harika özelliklerin keyfini çıkarmak için eklentileri güncellemeyi unutmayın!"
+
+msgid "The best support plugin for the majestic support has everything you need."
+msgstr "Görkemli destek için en iyi destek eklentisi ihtiyacınız olan her şeye sahiptir."
+
+msgid "A reputable support system that offers step-by-step YouTube video guides to help you understand."
+msgstr "Anlamanıza yardımcı olacak adım adım YouTube video kılavuzları sunan saygın bir destek sistemi."
+
+msgid "At Majestic Support, we are committed to offering prompt and helpful customer care to help you at every step."
+msgstr "Majestic Support olarak, size her adımda yardımcı olmak için hızlı ve yardımsever müşteri hizmetleri sunmaya kendimizi adadık."
+
+msgid "When WordPress language change to fr, Majestic Support language will auto change to fr"
+msgstr "WordPress dili fr olarak değiştiğinde Majestic Support dili otomatik olarak fr olarak değişecektir"
+
+msgid "Want to download translation file? Click on download. It will take sometime."
+msgstr "Çeviri dosyasını indirmek ister misiniz? İndir'e tıklayın. Biraz zaman alacak."
+
+msgid "Get trusted WordPress add-ons. Guaranteed to work fast, safe to use, beautifully coded, packed with features, and are easy to use."
+msgstr "Güvenilir WordPress eklentilerini edinin. Hızlı çalışacağı garantilidir, kullanımı güvenlidir, güzel bir şekilde kodlanmıştır, özelliklerle doludur ve kullanımı kolaydır."
+
+msgid "Add agents and assign roles and permissions to provide assistance and support for customer support tickets."
+msgstr "Müşteri destek bildirimlerine yardım ve destek sağlamak için aracılar ekleyin ve roller ve izinler atayın."
+
+msgid "Create multiple custom ticket forms with different custom fields for each request type that you support."
+msgstr "Desteklediğiniz her istek türü için farklı özel alanlara sahip birden fazla özel bilet formu oluşturun."
+
+msgid "Email piping is the process of automatically turning incoming emails into support tickets without manual data entry."
+msgstr "E-posta yönlendirme, gelen e-postaları manuel veri girişi olmadan otomatik olarak destek bildirimlerine dönüştürme işlemidir."
+
+msgid "Make the ticket assignment process automatic and assign the most qualified agent to your tickets with conditions."
+msgstr "Bilet tahsis sürecini otomatik hale getirin ve en nitelikli acenteyi koşullarıyla biletlerinize atayın."
+
+msgid "Add private notes to a ticket and share crucial information internally with your agents, this private note is not visible to the customer."
+msgstr "Bir bilete özel notlar ekleyin ve önemli bilgileri dahili olarak temsilcilerinizle paylaşın; bu özel not müşteri tarafından görülemez."
+
+msgid "Merge one or more tickets into another if you receive two support requests from the same end user about the same issue."
+msgstr "Aynı son kullanıcıdan aynı sorunla ilgili iki destek talebi alırsanız bir veya daha fazla destek talebini başka bir destek talebiyle birleştirin."
+
+msgid "The user can search for and choose the topic for which they need help using help topics"
+msgstr "Kullanıcı, yardım konularını kullanarak yardıma ihtiyaç duyduğu konuyu arayabilir ve seçebilir."
+
+msgid "Manage abandoned tickets, and set rules for tickets over time, and those tickets will be closed automatically after a certain period."
+msgstr "Terk edilmiş biletleri yönetin ve zaman içinde biletler için kurallar belirleyin; bu biletler belirli bir süre sonra otomatik olarak kapatılacaktır."
+
+msgid "Stop wasting time on repetitive inquiries, build your knowledge base, and organize your solutions into categories for users."
+msgstr "Tekrarlanan sorgularla zaman kaybetmeyi bırakın, bilgi tabanınızı oluşturun ve çözümlerinizi kullanıcılar için kategoriler halinde düzenleyin."
+
+msgid "Define rules or set a specific time interval for making tickets automatically overdue."
+msgstr "Biletlerin otomatik olarak geciktirilmesi için kuralları tanımlayın veya belirli bir zaman aralığı belirleyin."
+
+msgid "Track the amount of time spent on each customer support ticket without losing focus and enhance team productivity."
+msgstr "Odağınızı kaybetmeden her müşteri destek bildirimine harcanan süreyi takip edin ve ekip üretkenliğini artırın."
+
+msgid "Show the whole history of the ticket, including its status and any action taken in response to it."
+msgstr "Durumu ve buna yanıt olarak yapılan işlemler de dahil olmak üzere biletin tüm geçmişini gösterin."
+
+msgid "The simplest approach to effectively manage payments for premium help is through paid support."
+msgstr "Prim yardımına ilişkin ödemeleri etkili bir şekilde yönetmenin en basit yaklaşımı ücretli destektir."
+
+msgid "Customers will enter sensitive information on tickets, and this add-on is designed to help you keep that information secure."
+msgstr "Müşteriler destek taleplerine hassas bilgiler girecektir ve bu eklenti, bu bilgileri güvende tutmanıza yardımcı olmak için tasarlanmıştır."
+
+msgid "Empowers users to provide clear and concise explanations for why customer service tickets are being closed."
+msgstr "Kullanıcıların, müşteri hizmetleri biletlerinin neden kapatıldığı konusunda net ve kısa açıklamalar yapmalarına olanak tanır."
+
+msgid "Make ready-made responses to the most common questions in the tickets to swiftly address client issues."
+msgstr "Müşteri sorunlarını hızlı bir şekilde çözmek için destek bildirimlerindeki en sık sorulan sorulara hazır yanıtlar hazırlayın."
+
+msgid "Admins can limit the number of tickets that users can create as well as the number of tickets that agents can open individually."
+msgstr "Yöneticiler, kullanıcıların oluşturabileceği destek talebi sayısını ve ayrıca temsilcilerin bireysel olarak açabileceği destek talebi sayısını sınırlayabilir."
+
+msgid "To enhance the quality of your services, ask your customers to complete a survey when a ticket is closed."
+msgstr "Hizmetlerinizin kalitesini artırmak için müşterilerinizden bilet kapatıldığında bir anket doldurmalarını isteyin."
+
+msgid "Ticket action options allow you to execute additional actions on tickets."
+msgstr "Bilet eylemi seçenekleri, biletler üzerinde ek eylemler gerçekleştirmenize olanak tanır."
+
+msgid "Easily export ticket data and performance report data from your majestic support to an Excel spreadsheet with our efficient and user-friendly solution."
+msgstr "Etkin ve kullanıcı dostu çözümümüzle, görkemli desteğinizden bilet verilerini ve performans raporu verilerini bir Excel elektronik tablosuna kolayca aktarın."
+
+msgid "Send the exact copy of the email to the provided email address with Email CC or BCC."
+msgstr "E-postanın tam kopyasını, E-posta CC veya BCC ile sağlanan e-posta adresine gönderin."
+
+msgid "User options enable you to define roles for new users when they are registered."
+msgstr "Kullanıcı seçenekleri, yeni kullanıcılar kaydolduklarında onlar için rolleri tanımlamanıza olanak tanır."
+
+msgid "SMTP enables you to add  custom mail protocols to send and receive emails with the support ticket system."
+msgstr "SMTP, destek bildirim sistemiyle e-posta göndermek ve almak için özel posta protokolleri eklemenizi sağlar."
+
+msgid "Create multi-language email templates for all default email templates to send customers emails in the language that they prefer."
+msgstr "Müşterilere tercih ettikleri dilde e-posta göndermek amacıyla tüm varsayılan e-posta şablonları için çok dilli e-posta şablonları oluşturun."
+
+msgid "Downloads can be very helpful for users who are looking to obtain the necessary information to resolve issues."
+msgstr "İndirmeler, sorunları çözmek için gerekli bilgileri edinmek isteyen kullanıcılar için çok yararlı olabilir."
+
+msgid "Make an unlimited number of announcements related to the support system to encourage customer interaction."
+msgstr "Müşteri etkileşimini teşvik etmek için destek sistemi ile ilgili sınırsız sayıda duyuru yapın."
+
+msgid "With Ban Email, you can limit a users ability to create new tickets by blocking their email address."
+msgstr "E-postayı Yasakla ile, bir kullanıcının e-posta adresini engelleyerek yeni bilet oluşturma olanağını sınırlayabilirsiniz."
+
+msgid "Provide answers to common user questions with the FAQ extension before they become tickets."
+msgstr "Sık sorulan kullanıcı sorularına, bilet haline gelmeden önce SSS uzantısıyla yanıtlar sağlayın."
+
+msgid "Get immediate data on your support operations as soon as you log into your WordPress administration area."
+msgstr "WordPress yönetim alanınıza giriş yaptığınız anda destek operasyonlarınızla ilgili verileri anında alın."
+
+msgid "You will be informed of anything that occurs on your support system by the desktop notifications."
+msgstr "Destek sisteminizde meydana gelen her şeyden masaüstü bildirimleri aracılığıyla haberdar olacaksınız."
+
+msgid "The integration of the support ticket system for WooCommerce with your e- shop makes your support better and more professional."
+msgstr "WooCommerce destek bileti sisteminin e-mağazanızla entegrasyonu desteğinizi daha iyi ve daha profesyonel hale getirir."
+
+msgid "Manage your email marketing campaigns directly from your majestic support by adding new user accounts to your Mailchimp email list."
+msgstr "Mailchimp e-posta listenize yeni kullanıcı hesapları ekleyerek e-posta pazarlama kampanyalarınızı doğrudan görkemli desteğinizden yönetin."
+
+msgid "Send messages internally about support tickets and other issues between agents with internal mail."
+msgstr "Dahili posta yoluyla temsilciler arasındaki destek bildirimleri ve diğer sorunlar hakkında dahili olarak mesajlar gönderin."
+
+msgid "Frontend Widgets include several widgets that can be used to enhance the plugin's functionality in various areas of the website."
+msgstr "Ön Uç Widget'ları, web sitesinin çeşitli alanlarında eklentinin işlevselliğini geliştirmek için kullanılabilecek çeşitli widget'lar içerir."
+
+msgid "Clients won't be able to open a new ticket using the Envato Validation plugin if they don't have a valid Envato license."
+msgstr "Geçerli bir Envato lisansına sahip olmayan müşteriler, Envato Doğrulama eklentisini kullanarak yeni bir bilet açamaz."
+
+msgid "Learn about a customer's purchase directly from the support dashboard by integrating Majestic Support with your EDD store."
+msgstr "Majestic Support'u EDD mağazanızla entegre ederek bir müşterinin satın alma işlemi hakkında doğrudan destek panosundan bilgi edinin."
+
+msgid "If the colors have been saved but the user-side colors are still the same, it is advised to clear the cache."
+msgstr "Renkler kaydedilmişse ancak kullanıcı tarafındaki renkler hala aynıysa önbelleğin temizlenmesi önerilir."
+
+msgid "Error"
+msgstr "Hata"
+
+msgid "Roles"
+msgstr "Roller"
+
+msgid "Role"
+msgstr "Rol"
+
+msgid "Sr#"
+msgstr "Kıdemli #"
+
+msgid "Gmail"
+msgstr "Gmail"
+
+msgid "Yahoo"
+msgstr "yahoo"
+
+msgid "Aol"
+msgstr "Aol"
+
+msgid "Hotmail"
+msgstr "Hotmail"
+
+msgid "No"
+msgstr "HAYIR"
+
+msgid "Wget"
+msgstr "Wget"
+
+msgid "URL"
+msgstr "URL'si"
+
+msgid "----"
+msgstr "----"
+
+msgid "JNo"
+msgstr "JHayır"
+
+msgid "Visible"
+msgstr "Görünür"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Re"
+msgstr "Tekrar"
+
+msgid "Vertical"
+msgstr "Dikey"
+
+msgid "Horizontal"
+msgstr "Yatay"
+
+msgid "div"
+msgstr "div"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "General"
+msgstr "Genel"
+
+msgid "Captcha"
+msgstr "Captcha"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Linkedin"
+msgstr "LinkedIn"
+
+msgid "Kb"
+msgstr "KB"
+
+msgid "SMTP"
+msgstr "SMTP"
+
+msgid "TLS"
+msgstr "TLS"
+
+msgid "SSL"
+msgstr "SSL"
+
+msgid "50%"
+msgstr "%50"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "S.No"
+msgstr "S.Hayır"
+
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+msgid "envato"
+msgstr "envato"
+
+msgid ":"
+msgstr ":"
+
+msgid "Envato"
+msgstr "Envato"
+
+msgid "Color"
+msgstr "Renk"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Color 1"
+msgstr "Renk 1"
+
+msgid "Color 2"
+msgstr "Renk 2"
+
+msgid "Color 3"
+msgstr "Renk 3"
+
+msgid "Color 4"
+msgstr "Renk 4"
+
+msgid "Color 5"
+msgstr "Renk 5"
+
+msgid "Color 6"
+msgstr "Renk 6"
+
+msgid "Color 7"
+msgstr "Renk 7"
+
+msgid "Kylee Arroyo"
+msgstr "Kylee Arroyo"
+
+msgid "Marketing"
+msgstr "Pazarlama"
+
+msgid "XcyMfWYKp"
+msgstr "XcyMfWYKp"
+
+msgid "08-12-2022"
+msgstr "08-12-2022"
+
+msgid "Allison Carney"
+msgstr "Allison Carney"
+
+msgid "Yx4cW3Mfk"
+msgstr "Yx4cW3Mfk"
+
+msgid "05-12-2022"
+msgstr "05-12-2022"
+
+msgid "GxNDv3MfC"
+msgstr "GxNDv3MfC"
+
+msgid "01-12-2022"
+msgstr "01-12-2022"
+
+msgid ","
+msgstr ","
+
+msgid "Issue Summary"
+msgstr "Sorun özeti"
+
+msgid "Envato Purchase Code"
+msgstr "Envato Satın Alma Kodu"
+
+msgid "Internal Note Title"
+msgstr "Dahili Not Başlığı"
+
+msgid "Ticket Department Transfer"
+msgstr "Bilet Departmanı Transferi"
+
+msgid "Change Ticket Priority"
+msgstr "Bilet Önceliğini Değiştir"
+
+msgid "View Ticket"
+msgstr "Bileti Görüntüle"
+
+msgid "New Ticket Notification"
+msgstr "Yeni Bilet Bildirimi"
+
+msgid "Edit Own Time"
+msgstr "Kendi Zamanını Düzenle"
+
+msgid "View Feedback"
+msgstr "Geri Bildirimi Görüntüle"
+
+msgid "View Ticket Merge"
+msgstr "Bilet Birleştirmeyi Görüntüle"
+
+msgid "View Credentials"
+msgstr "Kimlik Bilgilerini Görüntüle"
+
+msgid "Delete Credentials"
+msgstr "Kimlik Bilgilerini Sil"
+
+msgid "Edit Credentials"
+msgstr "Kimlik Bilgilerini Düzenle"
+
+msgid "Add Credentials"
+msgstr "Kimlik Bilgilerini Ekle"
+
+msgid "Mark Non Premium"
+msgstr "Premium Değil Olarak İşaretle"
+
+msgid "Link To Paid Support"
+msgstr "Ücretli Destek Bağlantısı"
+
+msgid "Assign Role Permissions"
+msgstr "Rol İzinlerini Ata"
+
+msgid "Add User"
+msgstr "Kullanıcı Ekle"
+
+msgid "Edit User"
+msgstr "kullanıcıyı düzenle"
+
+msgid "Assign User Permissions"
+msgstr "Kullanıcı İzinlerini Ata"
+
+msgid "Delete Department"
+msgstr "Departmanı Sil"
+
+msgid "View Department"
+msgstr "Bölümü Görüntüle"
+
+msgid "View Role"
+msgstr "Rolü Görüntüle"
+
+msgid "View User"
+msgstr "Kullanıcıyı Görüntüle"
+
+msgid "View Agent Reports"
+msgstr "Temsilci Raporlarını Görüntüle"
+
+msgid "View Department Reports"
+msgstr "Departman Raporlarını Görüntüle"
+
+msgid "Manage Ticket Close Reasons"
+msgstr "Bilet Kapatma Nedenlerini Yönetin"
+
+msgid "View Category"
+msgstr "Kategoriyi Görüntüle"
+
+msgid "View Knowledge Base"
+msgstr "Bilgi Bankasını Görüntüle"
+
+msgid "Delete Category"
+msgstr "Kategoriyi Sil"
+
+msgid "Delete Knowledge Base"
+msgstr "Bilgi Bankasını Sil"
+
+msgid "View FAQ"
+msgstr "SSS'yi görüntüle"
+
+msgid "Delete FAQ"
+msgstr "SSS'yi sil"
+
+msgid "View Download"
+msgstr "Görüntüle İndir"
+
+msgid "Delete Download"
+msgstr "İndirmeyi Sil"
+
+msgid "Delete Announcement"
+msgstr "Duyuru Sil"
+
+msgid "Allow Mail System"
+msgstr "Posta Sistemine İzin Ver"
+
+msgid "Edit Help Topic"
+msgstr "Yardım Konusunu Düzenle"
+
+msgid "View Help Topic"
+msgstr "Yardım Konusunu Görüntüle"
+
+msgid "Delete Help Topic"
+msgstr "Yardım Konusunu Sil"
+
+msgid "Edit Premade Response"
+msgstr "Hazır Yanıtı Düzenle"
+
+msgid "View Premade Response"
+msgstr "Hazır Yanıtı Görüntüle"
+
+msgid "Delete Premade Response"
+msgstr "Önceden Hazırlanmış Yanıtı Sil"
+
+msgid "Edit Smart Reply"
+msgstr "Akıllı Yanıtı Düzenle"
+
+msgid "View Smart Reply"
+msgstr "Akıllı Yanıtı Görüntüle"
+
+msgid "Delete Smart Reply"
+msgstr "Akıllı Yanıtı Sil"
+
+msgid "Add Ban Email"
+msgstr "Yasaklama E-postası Ekle"
+
+msgid "Edit Ban Email"
+msgstr "Yasaklama E-postasını Düzenle"
+
+msgid "View Ban Email"
+msgstr "Yasaklama E-postasını Görüntüle"
+
+msgid "Delete Ban Email"
+msgstr "Yasaklama E-postasını Sil"
+
+msgid "View Announcement"
+msgstr "Duyuruyu Görüntüle"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Add Permissions"
+msgstr "İzin Ekle"
+
+msgid "Add Rule"
+msgstr "Kural Ekle"
+
+msgid "Contain"
+msgstr "İçermek"
+
+msgid "Matched"
+msgstr "Eşleşti"
+
+msgid "Submit Type"
+msgstr "Gönderim Türü"
+
+msgid "Addons Status"
+msgstr "Eklenti Durumu"
+
+msgid "Assign To"
+msgstr "Atamak"
+
+msgid "Agent Detail Report"
+msgstr "Temsilci Detay Raporu"
+
+msgid "User Detail Report"
+msgstr "Kullanıcı Detay Raporu"
+
+msgid "Satisfaction Reports"
+msgstr "Memnuniyet Raporları"
+
+msgid "Admin New Ticket Received"
+msgstr "Yönetici Yeni Bilet Alındı"
+
+msgid "Staff New Ticket Received"
+msgstr "Personele Yeni Bilet Alındı"
+
+msgid "New Department Received"
+msgstr "Yeni Departman Alındı"
+
+msgid "New Group Received"
+msgstr "Yeni Grup Alındı"
+
+msgid "New Agent Received"
+msgstr "Yeni Temsilci Alındı"
+
+msgid "New Help Topic Received"
+msgstr "Yeni Yardım Konusu Alındı"
+
+msgid "Admin Reassign Ticket"
+msgstr "Yönetici Bileti Yeniden Atadı"
+
+msgid "Staff Reassign Ticket"
+msgstr "Personel Yeniden Atama Bileti"
+
+msgid "Admin Close Ticket"
+msgstr "Yönetici Kapatma Bileti"
+
+msgid "Staff Close Ticket"
+msgstr "Personel Kapatma Bileti"
+
+msgid "Admin Delete Ticket"
+msgstr "Yönetici Bileti Sil"
+
+msgid "Staff Delete Ticket"
+msgstr "Personel Bilet Silme"
+
+msgid "Admin Overdue Ticket"
+msgstr "Yönetici Gecikme Bileti"
+
+msgid "Staff Overdue Ticket"
+msgstr "Personel Gecikme Bileti"
+
+msgid "Admin Email Baned"
+msgstr "Yönetici E-postası Yasaklandı"
+
+msgid "Staff Email Baned"
+msgstr "Personel E-postası Yasaklandı"
+
+msgid "Admin Ticket Transfered to Department"
+msgstr "Yönetici Bileti Departmana Aktarıldı"
+
+msgid "Staff Ticket Transfered to Department"
+msgstr "Personel Bileti Bölüme Aktarıldı"
+
+msgid "Admin Email baned and ticket closed"
+msgstr "Yönetici E-postası yasaklandı ve bilet kapatıldı"
+
+msgid "Staff Email baned and ticket closed"
+msgstr "Personel E-postası yasaklandı ve bilet kapatıldı"
+
+msgid "Admin Email Unbaned"
+msgstr "Yönetici E-postası Yasağı Kaldırıldı"
+
+msgid "Staff Email Unbaned"
+msgstr "Personel E-posta Yasağı Kaldırıldı"
+
+msgid "Admin Ticket Reply"
+msgstr "Yönetici Bileti Yanıtı"
+
+msgid "Staff Ticket Reply"
+msgstr "Personel Bilet Yanıtı"
+
+msgid "Ticket Received"
+msgstr "Bilet Alındı"
+
+msgid "Banemail try new ticket"
+msgstr "Banemail yeni bileti dene"
+
+msgid "Admin Ticket has been locked"
+msgstr "Yönetici Bileti kilitlendi"
+
+msgid "Staff Ticket has been locked"
+msgstr "Personel Bileti kilitlendi"
+
+msgid "Admin Ticket has been unlocked"
+msgstr "Yönetici Biletinin kilidi açıldı"
+
+msgid "Staff Ticket has been unlocked"
+msgstr "Personel Biletinin kilidi açıldı"
+
+msgid "Admin In progress Ticket"
+msgstr "Yönetici Devam Ediyor Bileti"
+
+msgid "Staff In progress Ticket"
+msgstr "Devam Eden Personel Bileti"
+
+msgid "Admin Ticket priority changed"
+msgstr "Yönetici Bileti önceliği değiştirildi"
+
+msgid "Staff Ticket priority changed"
+msgstr "Personel Bileti önceliği değiştirildi"
+
+msgid "New Mail has been sent"
+msgstr "Yeni Posta gönderildi"
+
+msgid "New Reply has been sent"
+msgstr "Yeni Yanıt gönderildi"
+
+msgid "Delete User Data"
+msgstr "Kullanıcı Verilerini Sil"
+
+msgid "Closed on"
+msgstr "Kapalı"
+
+msgid "Message could not be sent. Mailer Error: "
+msgstr "Mesaj gönderilemedi. Posta Göndericisi Hatası:"
+
+msgid "Test email has been sent on : "
+msgstr "Test e-postası şu tarihte gönderildi:"
+
+msgid "The system has no agents add an agent to maximize your productivity."
+msgstr "Sistemde üretkenliğinizi en üst düzeye çıkarmak için bir temsilci ekleyen hiçbir aracı yoktur."

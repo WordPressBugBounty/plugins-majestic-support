@@ -1,0 +1,6144 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "You are not allowed"
+msgstr "Du får inte"
+
+msgid "The ticket has been locked"
+msgstr "Biljetten har låsts"
+
+msgid "Successfully"
+msgstr "Framgångsrikt"
+
+msgid "The ticket has not been locked"
+msgstr "Biljetten har inte låsts"
+
+msgid "Lock Ticket"
+msgstr "Lås biljett"
+
+msgid "The ticket is locked by"
+msgstr "Biljetten är låst av"
+
+msgid "The ticket has been unlocked"
+msgstr "Biljetten har låsts upp"
+
+msgid "The ticket has not been unlocked"
+msgstr "Biljetten har inte låsts upp"
+
+msgid "Unlock Ticket"
+msgstr "Lås upp biljett"
+
+msgid "User already an agent"
+msgstr "Användaren är redan agent"
+
+msgid "The agent has not been stored"
+msgstr "Agenten har inte lagrats"
+
+msgid "The agent has been stored"
+msgstr "Agenten har lagrats"
+
+msgid "The agent has been deleted"
+msgstr "Agenten har tagits bort"
+
+msgid "The agent has not been deleted"
+msgstr "Agenten har inte tagits bort"
+
+msgid "The agent in use cannot delete"
+msgstr "Agenten som används kan inte raderas"
+
+msgid "Agent"
+msgstr "Ombud"
+
+msgid "status has been changed"
+msgstr "status har ändrats"
+
+msgid "status has not been changed"
+msgstr "status har inte ändrats"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "User Name"
+msgstr "Användarnamn"
+
+msgid "Email Address"
+msgstr "E-postadress"
+
+msgid "Name"
+msgstr "namn"
+
+msgid "Email"
+msgstr "E-post"
+
+msgid "Previous"
+msgstr "Tidigare"
+
+msgid "Next"
+msgstr "Nästa"
+
+msgid "Error Deleting Logo"
+msgstr "Fel vid borttagning av logotyp"
+
+msgid "Active"
+msgstr "Aktiva"
+
+msgid "Disabled"
+msgstr "Inaktiverad"
+
+msgid "Uploaded file extension error."
+msgstr "Uppladdat filtilläggsfel."
+
+msgid "Select user"
+msgstr "Välj användare"
+
+msgid "Username"
+msgstr "Användarnamn"
+
+msgid "Search"
+msgstr "Sök"
+
+msgid "Reset"
+msgstr "Återställa"
+
+msgid "Use search feature to select the user"
+msgstr "Använd sökfunktionen för att välja användare"
+
+msgid "image"
+msgstr "bild"
+
+msgid "Add Agent"
+msgstr "Lägg till agent"
+
+msgid "WP User ID"
+msgstr "WP användar-ID"
+
+msgid "WP Username"
+msgstr "WP användarnamn"
+
+msgid "WP Full Name"
+msgstr "WP fullständigt namn"
+
+msgid "WP Email Address"
+msgstr "WP e-postadress"
+
+msgid "User"
+msgstr "Användare"
+
+msgid "Select User"
+msgstr "Välj Användare"
+
+msgid "Select Role"
+msgstr "Välj Roll"
+
+msgid "First Name"
+msgstr "Förnamn"
+
+msgid "Last Name"
+msgstr "Efternamn"
+
+msgid "Office Phone"
+msgstr "Kontorstelefon"
+
+msgid "Extension"
+msgstr "Förlängning"
+
+msgid "Mobile No"
+msgstr "Mobilnummer"
+
+msgid "Picture"
+msgstr "Bild"
+
+msgid "cross"
+msgstr "korsa"
+
+msgid "Maximum File Size"
+msgstr "Maximal filstorlek"
+
+msgid "File Extension Type"
+msgstr "Filtilläggstyp"
+
+msgid "Append Signature"
+msgstr "Bifoga signatur"
+
+msgid "Append signature with a reply"
+msgstr "Bifoga signatur med ett svar"
+
+msgid "Signature"
+msgstr "Signatur"
+
+msgid "Account Status"
+msgstr "Konto Status"
+
+msgid "Select Status"
+msgstr "Välj Status"
+
+msgid "Save"
+msgstr "Spara"
+
+msgid "Cancel"
+msgstr "Annullera"
+
+msgid "Close"
+msgstr "Stänga"
+
+msgid "User Detail"
+msgstr "Användardetalj"
+
+msgid "Append"
+msgstr "Bifoga"
+
+msgid "Department Section"
+msgstr "Avdelningssektionen"
+
+msgid "Ticket Section"
+msgstr "Biljettsektion"
+
+msgid "Agent Section"
+msgstr "Agentsektionen"
+
+msgid "Knowledge Base Section"
+msgstr "Kunskapsbassektionen"
+
+msgid "FAQ Section"
+msgstr "FAQ-sektionen"
+
+msgid "Download Section"
+msgstr "Ladda ner avsnitt"
+
+msgid "Announcement Section"
+msgstr "Tillkännagivande avsnitt"
+
+msgid "Mail Section"
+msgstr "Mailsektionen"
+
+msgid "Help Topic Section"
+msgstr "Hjälpämnesavsnitt"
+
+msgid "Premade Response Section"
+msgstr "Förberedd svarssektion"
+
+msgid "Smart Reply Section"
+msgstr "Smart svarssektion"
+
+msgid "Ban Email Section"
+msgstr "Förbjud e-postsektionen"
+
+msgid "Select / Deselect All"
+msgstr "Välj / Avmarkera alla"
+
+msgid "Save Permissions"
+msgstr "Spara behörigheter"
+
+msgid "Full Name"
+msgstr "Fullständiga namn"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Created"
+msgstr "Skapad"
+
+msgid "Permissions"
+msgstr "Behörigheter"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Staff"
+msgstr "Personal"
+
+msgid "change status"
+msgstr "byta status"
+
+msgid "Edit"
+msgstr "Redigera"
+
+msgid "Delete"
+msgstr "Radera"
+
+msgid "Are you sure you want to delete"
+msgstr "Är du säker att du vill radera"
+
+msgid "Something went wrong to try again later."
+msgstr "Något gick fel och försök igen senare."
+
+msgid "My Profile"
+msgstr "Min profil"
+
+msgid "Upload Image"
+msgstr "Ladda upp bild"
+
+msgid "Phone No"
+msgstr "Telefonnr"
+
+msgid "Upload file limit exceeds"
+msgstr "Uppladdningsfilgränsen överskrider"
+
+msgid "No help topic found"
+msgstr "Inget hjälpämne hittades"
+
+msgid "Error file size too large"
+msgstr "Felfilstorleken är för stor"
+
+msgid "Submit Ticket"
+msgstr "Skicka biljett"
+
+msgid "Select Department"
+msgstr "Välj Avdelning"
+
+msgid "Select Help Topic"
+msgstr "Välj Hjälpämne"
+
+msgid "Select Priority"
+msgstr "Välj Prioritet"
+
+msgid "premade"
+msgstr "förhandsgjord"
+
+msgid "Add more"
+msgstr "Lägga till mer"
+
+msgid "Remove"
+msgstr "Avlägsna"
+
+msgid "Reason for edit"
+msgstr "Anledning till redigering"
+
+msgid "Internal Note"
+msgstr "Intern anteckning"
+
+msgid "Enter valid woocommerce order#"
+msgstr "Ange giltig woocommerce ordernummer"
+
+msgid "Order id found"
+msgstr "Beställnings-id hittat"
+
+msgid "Order id not found"
+msgstr "Beställnings-ID hittades inte"
+
+msgid "Select Product"
+msgstr "Välj Produkt"
+
+msgid "Dated"
+msgstr "Daterad"
+
+msgid "Select Order ID"
+msgstr "Välj Order ID"
+
+msgid "Select license key"
+msgstr "Välj licensnyckel"
+
+msgid "Assign to me"
+msgstr "Tilldela mig"
+
+msgid "Show All"
+msgstr "Visa allt"
+
+msgid "Show Less"
+msgstr "Visa mindre"
+
+msgid "My Tickets"
+msgstr "Mina biljetter"
+
+msgid "Open"
+msgstr "Öppen"
+
+msgid "Closed"
+msgstr "Stängd"
+
+msgid "Answered"
+msgstr "Svarade"
+
+msgid "Overdue"
+msgstr "Försenad"
+
+msgid "All Tickets"
+msgstr "Alla biljetter"
+
+msgid "Ticket ID"
+msgstr "Biljett-ID"
+
+msgid "Or"
+msgstr "Eller"
+
+msgid "From"
+msgstr "Från"
+
+msgid "Select Agent"
+msgstr "Välj Agent"
+
+msgid "Select"
+msgstr "Välj"
+
+msgid "Start Date"
+msgstr "Start datum"
+
+msgid "End Date"
+msgstr "Slutdatum"
+
+msgid "Assigned to me"
+msgstr "Tilldelad till mig"
+
+msgid "All"
+msgstr "Allt"
+
+msgid "Tickets"
+msgstr "Biljetter"
+
+msgid "Subject"
+msgstr "Ämne"
+
+msgid "Priority"
+msgstr "Prioritet"
+
+msgid "sort"
+msgstr "sortera"
+
+msgid "New"
+msgstr "Ny"
+
+msgid "Waiting Reply"
+msgstr "Väntar på svar"
+
+msgid "In Progress"
+msgstr "Pågående"
+
+msgid "Replied"
+msgstr "svarade"
+
+msgid "Close and merge"
+msgstr "Stäng och slå samman"
+
+msgid "Created via Email"
+msgstr "Skapad via e-post"
+
+msgid "The ticket is locked"
+msgstr "Biljetten är låst"
+
+msgid "The ticket marks as overdue"
+msgstr "Biljetten markeras som försenad"
+
+msgid "Last Reply"
+msgstr "Senaste svar"
+
+msgid "Agent Permissions"
+msgstr "Agentbehörigheter"
+
+msgid "Agents"
+msgstr "Agenter"
+
+msgid "Add agent"
+msgstr "Lägg till agent"
+
+msgid "Search by username"
+msgstr "Sök efter användarnamn"
+
+msgid "Already exists"
+msgstr "Existerar redan"
+
+msgid "The role has been stored"
+msgstr "Rollen har lagrats"
+
+msgid "The role has not been stored"
+msgstr "Rollen har inte lagrats"
+
+msgid "The role has been deleted"
+msgstr "Rollen har tagits bort"
+
+msgid "The role has not been deleted"
+msgstr "Rollen har inte tagits bort"
+
+msgid "The role currently in use cannot be deleted"
+msgstr "Rollen som används för närvarande kan inte tas bort"
+
+msgid "Add Role"
+msgstr "Lägg till roll"
+
+msgid "Save Role"
+msgstr "Spara roll"
+
+msgid "Role Name"
+msgstr "Rollnamn"
+
+msgid "Role Permission"
+msgstr "Rolltillstånd"
+
+msgid "Role Permissions"
+msgstr "Rollbehörigheter"
+
+msgid "Role permissions"
+msgstr "Rollbehörigheter"
+
+msgid "Agent permissions have been stored"
+msgstr "Agentbehörigheter har lagrats"
+
+msgid "Select Condition Operator"
+msgstr "Välj Tillståndsoperatör"
+
+msgid "Select Submit Type"
+msgstr "Välj Skicka Typ"
+
+msgid "Rule has been stored"
+msgstr "Regeln har lagrats"
+
+msgid "Rule has not been stored"
+msgstr "Regeln har inte lagrats"
+
+msgid "Rule has been deleted"
+msgstr "Regeln har tagits bort"
+
+msgid "Rule has not been deleted"
+msgstr "Regeln har inte tagits bort"
+
+msgid "Rule"
+msgstr "Regel"
+
+msgid "in use cannot deleted"
+msgstr "som används kan inte raderas"
+
+msgid "Condition Title"
+msgstr "Skick Titel"
+
+msgid "Select Condition Title"
+msgstr "Välj villkorstitel"
+
+msgid "Condition Operator"
+msgstr "Skick Operatör"
+
+msgid "Condition Value"
+msgstr "Villkor Värde"
+
+msgid "Select Condition Value"
+msgstr "Välj Villkorsvärde"
+
+msgid "Delete Condition"
+msgstr "Ta bort villkor"
+
+msgid "No Operator found"
+msgstr "Ingen operatör hittades"
+
+msgid "No Value found"
+msgstr "Inget värde hittades"
+
+msgid "Rule Title"
+msgstr "Regeltitel"
+
+msgid "Condition value"
+msgstr "Konditionsvärde"
+
+msgid "+Add more Condition"
+msgstr "+Lägg till mer skick"
+
+msgid "Save Rule"
+msgstr "Spara regel"
+
+msgid "Records per page"
+msgstr "Rekord per sida"
+
+msgid "Save Ordering"
+msgstr "Spara beställning"
+
+msgid "An announcement has been stored"
+msgstr "Ett meddelande har lagrats"
+
+msgid "An announcement has not been stored"
+msgstr "Ett meddelande har inte lagrats"
+
+msgid "An announcement has been deleted"
+msgstr "Ett meddelande har raderats"
+
+msgid "An announcement has not been deleted"
+msgstr "Ett meddelande har inte raderats"
+
+msgid "Announcement"
+msgstr "Meddelande"
+
+msgid "ordering has been changed"
+msgstr "beställningen har ändrats"
+
+msgid "ordering has not changed"
+msgstr "beställningen har inte ändrats"
+
+msgid "Public"
+msgstr "offentlig"
+
+msgid "Private"
+msgstr "Privat"
+
+msgid "Add Announcement"
+msgstr "Lägg till meddelande"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Parent Category"
+msgstr "Föräldrakategori"
+
+msgid "Select Category"
+msgstr "Välj kategori"
+
+msgid "Description"
+msgstr "Beskrivning"
+
+msgid "Select Visibility"
+msgstr "Välj Synlighet"
+
+msgid "All users"
+msgstr "Alla användare"
+
+msgid "Only logged-in users"
+msgstr "Endast inloggade användare"
+
+msgid "Visible To"
+msgstr "Synlig för"
+
+msgid "Save Announcement"
+msgstr "Spara meddelande"
+
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Ordering"
+msgstr "Beställning"
+
+msgid "Announcement Detail"
+msgstr "Tillkännagivande detalj"
+
+msgid "Category Name"
+msgstr "kategori namn"
+
+msgid "Announcements"
+msgstr "Meddelanden"
+
+msgid "Categories"
+msgstr "Kategorier"
+
+msgid "Add Announcements"
+msgstr "Lägg till meddelanden"
+
+msgid "Logger Email"
+msgstr "Logger e-post"
+
+msgid "Log"
+msgstr "Logga"
+
+msgid "Logger"
+msgstr "Logger"
+
+msgid "IP Address"
+msgstr "IP-adress"
+
+msgid "Ban email has been stored"
+msgstr "Förbudsmail har lagrats"
+
+msgid "Ban email has not been stored"
+msgstr "Banmeddelandet har inte lagrats"
+
+msgid "Ban email has been deleted"
+msgstr "Förbudsmail har tagits bort"
+
+msgid "Ban email has not been deleted"
+msgstr "Banmeddelandet har inte tagits bort"
+
+msgid "Ban email does not exist"
+msgstr "Förbudsmail finns inte"
+
+msgid "Add Email"
+msgstr "Lägg till e-post"
+
+msgid "Save Email"
+msgstr "Spara e-post"
+
+msgid "Save Banned Email"
+msgstr "Spara förbjuden e-post"
+
+msgid "Emails"
+msgstr "E-postmeddelanden"
+
+msgid "Submitter"
+msgstr "Leverantör"
+
+msgid "Banned Emails"
+msgstr "Förbjudna e-postmeddelanden"
+
+msgid "Are you sure you want to delete it?"
+msgstr "Är du säker på att du vill ta bort den?"
+
+msgid "Premade response message has been stored"
+msgstr "Förinställt svarsmeddelande har lagrats"
+
+msgid "Premade response message has not been stored"
+msgstr "Förinställt svarsmeddelande har inte lagrats"
+
+msgid "Premade department message has been deleted"
+msgstr "Förinställt avdelningsmeddelande har tagits bort"
+
+msgid "Premade department message has not been deleted"
+msgstr "Premade avdelningsmeddelande har inte raderats"
+
+msgid "Premade response"
+msgstr "Färdigt svar"
+
+msgid "Add Premade Response"
+msgstr "Lägg till färdigt svar"
+
+msgid "Department"
+msgstr "Avdelning"
+
+msgid "Response"
+msgstr "Svar"
+
+msgid "Save Premade Response"
+msgstr "Spara färdigt svar"
+
+msgid "The department under which the answer will be made is available"
+msgstr "Den avdelning under vilken svaret kommer att göras är tillgänglig"
+
+msgid "Offline"
+msgstr "Off-line"
+
+msgid "Last Updated"
+msgstr "Senast uppdaterad"
+
+msgid "Not updated"
+msgstr "Inte uppdaterad"
+
+msgid "Premade Response"
+msgstr "Färdigt svar"
+
+msgid "Latest Tickets"
+msgstr "Senaste biljetterna"
+
+msgid "Last Month Ticket Stats"
+msgstr "Förra månadens biljettstatistik"
+
+msgid "Pending"
+msgstr "I väntan på"
+
+msgid "The attachment has been removed"
+msgstr "Bilagan har tagits bort"
+
+msgid "The attachment has not been removed"
+msgstr "Bilagan har inte tagits bort"
+
+msgid "The download has been stored"
+msgstr "Nedladdningen har lagrats"
+
+msgid "The download has not been stored"
+msgstr "Nedladdningen har inte lagrats"
+
+msgid "Download"
+msgstr "Ladda ner"
+
+msgid "The download has been deleted"
+msgstr "Nedladdningen har tagits bort"
+
+msgid "The download has not been deleted"
+msgstr "Nedladdningen har inte tagits bort"
+
+msgid "Download All"
+msgstr "Ladda ner allt"
+
+msgid "Add Download"
+msgstr "Lägg till nedladdning"
+
+msgid "Attachments"
+msgstr "Bilagor"
+
+msgid "Save Download"
+msgstr "Spara nedladdning"
+
+msgid "Add More Files"
+msgstr "Lägg till fler filer"
+
+msgid "Delete attachment"
+msgstr "Ta bort bilaga"
+
+msgid "grab"
+msgstr "hugg"
+
+msgid "Attachment"
+msgstr "Anknytning"
+
+msgid "Downloads"
+msgstr "Nedladdningar"
+
+msgid "Files"
+msgstr "Filer"
+
+msgid "Majestic Support"
+msgstr "Majestätiskt stöd"
+
+msgid "Get Help"
+msgstr "Få hjälp"
+
+msgid "Email CC has been stored"
+msgstr "E-post CC har lagrats"
+
+msgid "Email CC has not been stored"
+msgstr "E-post CC har inte lagrats"
+
+msgid "Email CC has been deleted"
+msgstr "E-post CC har tagits bort"
+
+msgid "Email CC has not been deleted"
+msgstr "E-post CC har inte tagits bort"
+
+msgid "Email CC "
+msgstr "E-post CC"
+
+msgid "Email CC"
+msgstr "E-post CC"
+
+msgid "Template Type"
+msgstr "Malltyp"
+
+msgid "Select Template Type"
+msgstr "Välj Malltyp"
+
+msgid "Delete row"
+msgstr "Ta bort rad"
+
+msgid "Template For"
+msgstr "Mall för"
+
+msgid "Select Template For"
+msgstr "Välj Mall för"
+
+msgid "Template Title"
+msgstr "Mallens titel"
+
+msgid "Add more row"
+msgstr "Lägg till fler rader"
+
+msgid "Save Email CC"
+msgstr "Spara e-post CC"
+
+msgid "Service is running, please close the pag"
+msgstr "Tjänsten är igång, vänligen stäng sidan"
+
+msgid "Your setting is working please this."
+msgstr "Din inställning fungerar snälla detta."
+
+msgid "Connection established but the system cannot read any email"
+msgstr "Anslutning upprättad men systemet kan inte läsa någon e-post"
+
+msgid "The setting has been stored."
+msgstr "Inställningen har lagrats."
+
+msgid "The setting has not been stored."
+msgstr "Inställningen har inte lagrats."
+
+msgid "Email address already exist"
+msgstr "E-postadressen finns redan"
+
+msgid "Email for email piping has been stored"
+msgstr "E-post för e-postledning har lagrats"
+
+msgid "Email for email piping has not been stored"
+msgstr "E-post för e-postledning har inte lagrats"
+
+msgid "The email has been deleted"
+msgstr "E-postmeddelandet har raderats"
+
+msgid "The email has not been deleted"
+msgstr "E-postmeddelandet har inte raderats"
+
+msgid "Enabled"
+msgstr "Aktiverad"
+
+msgid "Only New Tickets"
+msgstr "Endast nya biljetter"
+
+msgid "Only Replies"
+msgstr "Endast svar"
+
+msgid "Both"
+msgstr "Både"
+
+msgid "Other"
+msgstr "Övrig"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "Please enter the hostname first"
+msgstr "Vänligen ange värdnamnet först"
+
+msgid "Please enable email piping setting first"
+msgstr "Vänligen aktivera inställningen för e-postledning först"
+
+msgid "Enable email piping"
+msgstr "Aktivera e-postledning"
+
+msgid "Ticket Type"
+msgstr "Biljetttyp"
+
+msgid "Which email type to read"
+msgstr "Vilken typ av e-post att läsa"
+
+msgid "Save attachments if found in an email"
+msgstr "Spara bilagor om de hittas i ett e-postmeddelande"
+
+msgid "Host Type"
+msgstr "Värdtyp"
+
+msgid "Select your email service provider"
+msgstr "Välj din e-postleverantör"
+
+msgid "Host Name"
+msgstr "Värdnamn"
+
+msgid "Enabled SSL"
+msgstr "Aktiverad SSL"
+
+msgid "Do you have enabled SSL on your domain?"
+msgstr "Har du aktiverat SSL på din domän?"
+
+msgid "Host Port Number"
+msgstr "Värdportnummer"
+
+msgid "Host port number to read an email from"
+msgstr "Värdportnummer att läsa ett e-postmeddelande från"
+
+msgid "Email address to read emails"
+msgstr "E-postadress för att läsa e-postmeddelanden"
+
+msgid "Password"
+msgstr "Lösenord"
+
+msgid "Password for a given email address"
+msgstr "Lösenord för en given e-postadress"
+
+msgid "check"
+msgstr "kolla upp"
+
+msgid "Check Settings"
+msgstr "Kontrollera Inställningar"
+
+msgid "If the system doesn't respond in 30 seconds"
+msgstr "Om systemet inte svarar inom 30 sekunder"
+
+msgid "it means system unable to connect email server"
+msgstr "det betyder att systemet inte kan ansluta e-postservern"
+
+msgid "Save Settings"
+msgstr "Spara inställningar"
+
+msgid "Cron Job"
+msgstr "Cron jobb"
+
+msgid "Web Cron Job"
+msgstr "Web Cron jobb"
+
+msgid "Curl"
+msgstr "Ringla"
+
+msgid "PHP Script"
+msgstr "PHP-skript"
+
+msgid "Configuration of a backup job with webcron.org"
+msgstr "Konfiguration av ett backupjobb med webcron.org"
+
+msgid "Name of cron job"
+msgstr "Namn på cron-jobbet"
+
+msgid "Log in to webcron.org and in the cron area, click on "
+msgstr "Logga in på webcron.org och klicka på i cron-området"
+
+msgid "Timeout"
+msgstr "Paus"
+
+msgid "URL you want to execute"
+msgstr "URL som du vill köra"
+
+msgid "Login"
+msgstr "Logga in"
+
+msgid "Leave this blank"
+msgstr "Lämna detta tomt"
+
+msgid "Execution time"
+msgstr "Utförandetid"
+
+msgid "That the grid below the other options select when and how"
+msgstr "Att rutnätet under de andra alternativen väljer när och hur"
+
+msgid "Alerts"
+msgstr "Varningar"
+
+msgid "Cron scheduling using wget"
+msgstr "Cron-schemaläggning med wget"
+
+msgid "Cron scheduling using Curl"
+msgstr "Cron-schemaläggning med Curl"
+
+msgid "Custom PHP script to run the cron job"
+msgstr "Anpassat PHP-skript för att köra cron-jobbet"
+
+msgid "Sorry the cron job did not work"
+msgstr "Ledsen att cron-jobbet inte fungerade"
+
+msgid "URL for use with your own scripts and third-party scripts"
+msgstr "URL för användning med dina egna skript och tredjepartsskript"
+
+msgid "It is recommended to run the script every hour."
+msgstr "Det rekommenderas att köra skriptet varje timme."
+
+msgid "Ticket Email Type"
+msgstr "E-posttyp för biljett"
+
+msgid "ticket email"
+msgstr "biljett e-post"
+
+msgid "Overall Reports"
+msgstr "Övergripande rapporter"
+
+msgid "Agents Report"
+msgstr "Agentrapport"
+
+msgid "Department Report"
+msgstr "Avdelningsberättelse"
+
+msgid "Departments Report"
+msgstr "Avdelningens rapport"
+
+msgid "Majestic Support Overall Reports"
+msgstr "Majestic Support Övergripande rapporter"
+
+msgid "Tickets By Status"
+msgstr "Biljetter efter status"
+
+msgid "Tickets By Departments"
+msgstr "Biljetter efter avdelningar"
+
+msgid "Tickets By Priorities"
+msgstr "Biljetter efter prioriteringar"
+
+msgid "Tickets By Channel"
+msgstr "Biljetter via kanal"
+
+msgid "Direct"
+msgstr "Direkt"
+
+msgid "Direct reply"
+msgstr "Direkt svar"
+
+msgid "Email reply"
+msgstr "E-postsvar"
+
+msgid "Tickets By staff"
+msgstr "Biljetter av personal"
+
+msgid "Report By"
+msgstr "Rapportera av"
+
+msgid "agent"
+msgstr "ombud"
+
+msgid "To"
+msgstr "Till"
+
+msgid "Report By Agents"
+msgstr "Rapport från agenter"
+
+msgid "Ticket status by days"
+msgstr "Biljettstatus per dagar"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Tickets Staff"
+msgstr "Biljetter Personal"
+
+msgid "Average Rating"
+msgstr "Genomsnittligt betyg"
+
+msgid "Average Time"
+msgstr "Snittid"
+
+msgid "Report By agent"
+msgstr "Rapportera av agent"
+
+msgid "Rating"
+msgstr "Betyg"
+
+msgid "Time"
+msgstr "Tid"
+
+msgid "Merged"
+msgstr "Sammanslagna"
+
+msgid "Report By department"
+msgstr "Rapport per avdelning"
+
+msgid "Tickets By Department"
+msgstr "Biljetter per avdelning"
+
+msgid "Department Name"
+msgstr "Avdelningsnamn"
+
+msgid "User report"
+msgstr "Användarrapport"
+
+msgid "Users report"
+msgstr "Användare rapporterar"
+
+msgid "Users Tickets"
+msgstr "Användarbiljetter"
+
+msgid "User Report"
+msgstr "Användarrapport"
+
+msgid "Report By Departments"
+msgstr "Rapport från avdelningar"
+
+msgid "Tickets Data"
+msgstr "Biljettdata"
+
+msgid "Message"
+msgstr "Meddelande"
+
+msgid "Assigned To"
+msgstr "Tilldelats"
+
+msgid "Updated"
+msgstr "Uppdaterad"
+
+msgid "Due Date"
+msgstr "Förfallodatum"
+
+msgid "Closed Date"
+msgstr "Stängt datum"
+
+msgid "Closed Time"
+msgstr "Stängd tid"
+
+msgid "Requester User Name"
+msgstr "Begärarens användarnamn"
+
+msgid "Requester Name"
+msgstr "Beställarens namn"
+
+msgid "Requester Email"
+msgstr "E-post för begäran"
+
+msgid "Requester Phone"
+msgstr "Telefon för begäran"
+
+msgid "Requester help Topic"
+msgstr "Begär hjälp ämne"
+
+msgid "Ticket Attachment"
+msgstr "Biljettbilaga"
+
+msgid "Posted By"
+msgstr "Postat av"
+
+msgid "Note Title"
+msgstr "Obs Titel"
+
+msgid "Note Message"
+msgstr "Notera meddelande"
+
+msgid "Posted Date"
+msgstr "Postat datum"
+
+msgid "Note Attachment"
+msgstr "Obs Bilaga"
+
+msgid "User Time"
+msgstr "Användartid"
+
+msgid "System Time"
+msgstr "System tid"
+
+msgid "Edit Reason"
+msgstr "Redigera anledning"
+
+msgid "Reply Date"
+msgstr "Svarsdatum"
+
+msgid "Reply By"
+msgstr "Svara av"
+
+msgid "Reply Attachment"
+msgstr "Svarsbilaga"
+
+msgid "Total Tracking Time"
+msgstr "Total spårningstid"
+
+msgid "Ticket Status"
+msgstr "Biljettstatus"
+
+msgid "Select Ticket Status"
+msgstr "Välj Ticket Status"
+
+msgid "Ticket Overdue"
+msgstr "Biljett försenad"
+
+msgid "Select Ticket Overdue Status"
+msgstr "Välj Status för försenad biljett"
+
+msgid "Export Style"
+msgstr "Exportera stil"
+
+msgid "Single Header"
+msgstr "Enkel rubrik"
+
+msgid "Multiple Header"
+msgstr "Flera rubriker"
+
+msgid "Export"
+msgstr "Exportera"
+
+msgid "FAQ has been stored"
+msgstr "FAQ har lagrats"
+
+msgid "FAQ has not been stored"
+msgstr "FAQ har inte lagrats"
+
+msgid "FAQ has been deleted"
+msgstr "FAQ har tagits bort"
+
+msgid "FAQ has not been deleted"
+msgstr "FAQ har inte raderats"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Add FAQs"
+msgstr "Lägg till vanliga frågor"
+
+msgid "Save FAQ"
+msgstr "Spara FAQ"
+
+msgid "Content"
+msgstr "Innehåll"
+
+msgid "FAQ Detail"
+msgstr "FAQ Detalj"
+
+msgid "FAQs"
+msgstr "Vanliga frågor"
+
+msgid "Search title"
+msgstr "Sök titel"
+
+msgid "Search keywords"
+msgstr "Sök nyckelord"
+
+msgid "Sub Category Faqs"
+msgstr "Vanliga frågor om underkategori"
+
+msgid "Add FAQ"
+msgstr "Lägg till FAQ"
+
+msgid "Feedback has been stored"
+msgstr "Feedback har lagrats"
+
+msgid "Feedback has not been stored"
+msgstr "Feedback har inte lagrats"
+
+msgid "user image"
+msgstr "användarbild"
+
+msgid "feedback image"
+msgstr "feedbackbild"
+
+msgid "Feedback"
+msgstr "Respons"
+
+msgid "Latest Feedback"
+msgstr "Senaste feedback"
+
+msgid "Form Feedback"
+msgstr "Form Feedback"
+
+msgid "Submit Feedback"
+msgstr "Skicka feedback"
+
+msgid "Help topic has been stored"
+msgstr "Hjälpämnet har lagrats"
+
+msgid "Help topic has not been stored"
+msgstr "Hjälpämnet har inte lagrats"
+
+msgid "Help topic has been deleted"
+msgstr "Hjälpämnet har tagits bort"
+
+msgid "Help topic has not been deleted"
+msgstr "Hjälpämnet har inte tagits bort"
+
+msgid "Help topic in use cannot be deleting"
+msgstr "Hjälpämnet som används kan inte tas bort"
+
+msgid "Help topic"
+msgstr "Hjälpämne"
+
+msgid "Add Help Topic"
+msgstr "Lägg till hjälpämne"
+
+msgid "Help Topic"
+msgstr "Hjälpämne"
+
+msgid "Save Help Topic"
+msgstr "Spara hjälpämne"
+
+msgid "Help Topics"
+msgstr "Hjälpsamma ämnen"
+
+msgid "The category has been stored"
+msgstr "Kategorin har lagrats"
+
+msgid "The category has not been stored"
+msgstr "Kategorin har inte lagrats"
+
+msgid "The category has been deleted"
+msgstr "Kategorin har tagits bort"
+
+msgid "The category has not been deleted"
+msgstr "Kategorien har inte tagits bort"
+
+msgid "The category in use cannot be deleting"
+msgstr "Kategorin som används kan inte tas bort"
+
+msgid "Knowledgebase article has been stored"
+msgstr "Kunskapsbasartikel har lagrats"
+
+msgid "Knowledgebase article has not been stored"
+msgstr "Kunskapsbasartikeln har inte lagrats"
+
+msgid "The article has been deleted"
+msgstr "Artikeln har tagits bort"
+
+msgid "The article has not been deleted"
+msgstr "Artikeln har inte raderats"
+
+msgid "Article"
+msgstr "Artikel"
+
+msgid "The parent category does not have this type."
+msgstr "Den överordnade kategorin har inte denna typ."
+
+msgid "Would you like to add this type to Parent Category?"
+msgstr "Vill du lägga till den här typen i överordnad kategori?"
+
+msgid "JYes"
+msgstr "JJa"
+
+msgid "Child category has this type,"
+msgstr "Barnkategorin har den här typen,"
+
+msgid "You cannot unmark it."
+msgstr "Du kan inte avmarkera den."
+
+msgid "Draft"
+msgstr "Förslag"
+
+msgid "Add Knowledge Base"
+msgstr "Lägg till kunskapsbas"
+
+msgid "Meta Description"
+msgstr "Metabeskrivning"
+
+msgid "Meta Keywords"
+msgstr "Meta nyckelord"
+
+msgid "Add More"
+msgstr "Lägga till mer"
+
+msgid "Save Knowledge Base"
+msgstr "Spara kunskapsbas"
+
+msgid "Please select at least one category for"
+msgstr "Välj minst en kategori för"
+
+msgid "Add Category"
+msgstr "Lägg till Kategori"
+
+msgid "Category For"
+msgstr "Kategori för"
+
+msgid "Knowledge Base"
+msgstr "Kunskapsbas"
+
+msgid "Save Category"
+msgstr "Spara kategori"
+
+msgid "Meta Data Options"
+msgstr "Metadataalternativ"
+
+msgid "Category Title"
+msgstr "Kategorititel"
+
+msgid "category"
+msgstr "kategori"
+
+msgid "Knowledge Base Detail"
+msgstr "Knowledge Base Detail"
+
+msgid "Article Attachment"
+msgstr "Artikelbilaga"
+
+msgid "Knowledgebase"
+msgstr "Kunskapsbas"
+
+msgid "Knowledge Base Articles"
+msgstr "Kunskapsbasartiklar"
+
+msgid "Sub Category Knowledgebase"
+msgstr "Underkategori kunskapsbas"
+
+msgid "Mail has not been marked as read"
+msgstr "Mail har inte markerats som läst"
+
+msgid "Mail has been marked as read"
+msgstr "Mail har markerats som läst"
+
+msgid "Message field cannot be empty"
+msgstr "Meddelandefältet får inte vara tomt"
+
+msgid "Mail has been sent"
+msgstr "Mail har skickats"
+
+msgid "Mail has not been sent"
+msgstr "Mail har inte skickats"
+
+msgid "Mail has been deleted"
+msgstr "Mail har tagits bort"
+
+msgid "Mail has not been deleted"
+msgstr "Mail har inte raderats"
+
+msgid "Mail"
+msgstr "Post"
+
+msgid "is in use cannot be delete"
+msgstr "är i bruk kan inte raderas"
+
+msgid "Mail cannot mark as to read"
+msgstr "Mail kan inte markeras som att läsa"
+
+msgid "Mail cannot mark as unread"
+msgstr "Mail kan inte markeras som oläst"
+
+msgid "Mail has been marked as unread"
+msgstr "Mail har markerats som oläst"
+
+msgid "Inbox"
+msgstr "Inkorg"
+
+msgid "Outbox"
+msgstr "Utkorg"
+
+msgid " )  "
+msgstr ")"
+
+msgid "Compose"
+msgstr "Komponera"
+
+msgid "Send"
+msgstr "Skicka"
+
+msgid "Read"
+msgstr "Läsa"
+
+msgid "Unread"
+msgstr "Oläst"
+
+msgid "Select Type"
+msgstr "Välj Typ"
+
+msgid "To use this feature you must be agent"
+msgstr "För att använda den här funktionen måste du vara agent"
+
+msgid "To use this feature you must have agents addon."
+msgstr "För att använda den här funktionen måste du ha agenttillägg."
+
+msgid "mark read"
+msgstr "markera läst"
+
+msgid "mark unread"
+msgstr "markera som oläst"
+
+msgid "Replied By"
+msgstr "Svarade av"
+
+msgid "Reply"
+msgstr "Svar"
+
+msgid ")  "
+msgstr ")"
+
+msgid "Type Message"
+msgstr "Skriv meddelande"
+
+msgid "Replies"
+msgstr "Svar"
+
+msgid "Limit exceeds maximum tickets"
+msgstr "Gränsen överstiger maxbiljetter"
+
+msgid "The maximum number of open tickets limit has been exceeded."
+msgstr "Gränsen för det maximala antalet öppna biljetter har överskridits."
+
+msgid "Ticket has been closed due to merged with"
+msgstr "Biljetten har stängts på grund av sammanslagning med"
+
+msgid "Ticket"
+msgstr "Biljett"
+
+msgid "has been merged into"
+msgstr "har slagits samman till"
+
+msgid "Merge Ticket"
+msgstr "Slå samman biljett"
+
+msgid "Search Ticket To Merge Into Another"
+msgstr "Sök biljett för att slå samman till en annan"
+
+msgid "Edit Last Reply"
+msgstr "Redigera senaste svar"
+
+msgid "Merge Ticket Latest Reply"
+msgstr "Slå samman biljett Senaste svar"
+
+msgid "Merge"
+msgstr "Sammanfoga"
+
+msgid "Ticket has been merged"
+msgstr "Ticket har slagits samman"
+
+msgid "Ticket has not been merged"
+msgstr "Ticket har inte slagits samman"
+
+msgid "Disabled form cannot be set as default"
+msgstr "Inaktiverat formulär kan inte ställas in som standard"
+
+msgid "Form has been stored"
+msgstr "Formulär har lagrats"
+
+msgid "Form has not been stored"
+msgstr "Formulär har inte lagrats"
+
+msgid "Multiform has been deleted"
+msgstr "Multiform har tagits bort"
+
+msgid "Multiform has not been deleted"
+msgstr "Multiform har inte tagits bort"
+
+msgid "Multiform in use"
+msgstr "Multiform i bruk"
+
+msgid " cannot deleted"
+msgstr "kan inte raderas"
+
+msgid "Default form cannot be set as disabled"
+msgstr "Standardformuläret kan inte ställas in som inaktiverat"
+
+msgid "Multiform"
+msgstr "Mångformig"
+
+msgid "default has not been changed"
+msgstr "standard har inte ändrats"
+
+msgid "default has been changed"
+msgstr "standard har ändrats"
+
+msgid "Create Ticket"
+msgstr "Skapa biljett"
+
+msgid "multiform"
+msgstr "mångformig"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Save Multiform"
+msgstr "Spara Multiform"
+
+msgid "Fields"
+msgstr "Fält"
+
+msgid "Edit Fields"
+msgstr "Redigera fält"
+
+msgid "spinning wheel"
+msgstr "snurrande hjul"
+
+msgid "Select Languages"
+msgstr "Välj Språk"
+
+msgid "Select Language"
+msgstr "Välj språk"
+
+msgid "Email Template has been successfully deleted"
+msgstr "E-postmall har tagits bort"
+
+msgid "Email template has been stored"
+msgstr "E-postmall har lagrats"
+
+msgid "Email template has not been stored"
+msgstr "E-postmall har inte lagrats"
+
+msgid "The internal note has been posted"
+msgstr "Den interna anteckningen har lagts upp"
+
+msgid "The internal note has not been posted"
+msgstr "Den interna anteckningen har inte lagts upp"
+
+msgid "Post Internal Note"
+msgstr "Post intern anteckning"
+
+msgid "The internal note is posted by"
+msgstr "Den interna anteckningen är postad av"
+
+msgid "Ticket Notification"
+msgstr "Biljettmeddelande"
+
+msgid "Once Weekly"
+msgstr "En gång i veckan"
+
+msgid "Thanks for subscribing!"
+msgstr "Tack för att du prenumererar!"
+
+msgid "Ticket already marked overdue"
+msgstr "Biljetten har redan markerats som försenad"
+
+msgid "The ticket has been marked as overdue"
+msgstr "Biljetten har markerats som försenad"
+
+msgid "The ticket has not been marked as overdue"
+msgstr "Biljetten har inte markerats som försenad"
+
+msgid "System"
+msgstr "Systemet"
+
+msgid "Mark overdue"
+msgstr "Markera försenat"
+
+msgid "The ticket is marked as overdue by"
+msgstr "Biljetten markeras som försenad av"
+
+msgid "The ticket has been unmarked as overdue"
+msgstr "Biljetten har inte markerats som försenad"
+
+msgid "The ticket has not been unmarked as overdue"
+msgstr "Biljetten har inte avmarkerats som försenad"
+
+msgid "Unmark overdue"
+msgstr "Avmarkera försenat"
+
+msgid "The ticket is unmarked as overdue by"
+msgstr "Biljetten är omärkt som försenad av"
+
+msgid "Paid Support"
+msgstr "Betald support"
+
+msgid "Check if you want to use this product for paid support"
+msgstr "Markera om du vill använda den här produkten för betald support"
+
+msgid "Paid support type"
+msgstr "Betald supporttyp"
+
+msgid "One-off Support"
+msgstr "Engångssupport"
+
+msgid "Subscription Support"
+msgstr "Prenumerationssupport"
+
+msgid "Number of tickets"
+msgstr "Antal biljetter"
+
+msgid "Credential Type"
+msgstr "Typ av behörighet"
+
+msgid "Additional Info."
+msgstr "Ytterligare info."
+
+msgid "Please insert values"
+msgstr "Vänligen infoga värden"
+
+msgid "Visitor"
+msgstr "Besökare"
+
+msgid "By"
+msgstr "Förbi"
+
+msgid "Credential removed on ticket close"
+msgstr "Autentiseringsuppgifter togs bort vid stängning av biljett"
+
+msgid "Failed to retrieve data"
+msgstr "Det gick inte att hämta data"
+
+msgid "Reason has been stored"
+msgstr "Orsaken har lagrats"
+
+msgid "Reason has not been stored"
+msgstr "Orsaken har inte lagrats"
+
+msgid "Reason has been deleted"
+msgstr "Orsaken har raderats"
+
+msgid "Reason has not been deleted"
+msgstr "Orsaken har inte raderats"
+
+msgid "Reason"
+msgstr "Anledning"
+
+msgid "Are you going to close this ticket?"
+msgstr "Kommer du att stänga denna biljett?"
+
+msgid "If you have a moment, please select a reason for closing the ticket."
+msgstr "Om du har en stund, välj en anledning till att stänga biljetten."
+
+msgid "Submit & Close"
+msgstr "Skicka och stäng"
+
+msgid "Skip & Close"
+msgstr "Hoppa över & stäng"
+
+msgid "Add Reason"
+msgstr "Lägg till skäl"
+
+msgid "Save Reason"
+msgstr "Spara skäl"
+
+msgid "Ticket Close Reasons"
+msgstr "Biljettstängning skäl"
+
+msgid "Mail Notification Widget"
+msgstr "Mail Notification Widget"
+
+msgid "Show newly and reply mail notifications"
+msgstr "Visa ny- och svarsmeddelanden"
+
+msgid "New mail from"
+msgstr "Nytt mail från"
+
+msgid "Mail Notification"
+msgstr "E-postmeddelande"
+
+msgid "Layout"
+msgstr "Layout"
+
+msgid "Max Record"
+msgstr "Max rekord"
+
+msgid "My Ticket Widget"
+msgstr "Min biljettwidget"
+
+msgid "Show unanswered tickets"
+msgstr "Visa obesvarade biljetter"
+
+msgid "Order tickets"
+msgstr "Beställ biljetter"
+
+msgid "Close due to merge"
+msgstr "Stäng på grund av sammanslagning"
+
+msgid "Product"
+msgstr "Produkt"
+
+msgid "Order"
+msgstr "Beställa"
+
+msgid "There is no ticket"
+msgstr "Det finns ingen biljett"
+
+msgid "Something went wrong"
+msgstr "Något gick fel"
+
+msgid "Transaction Key"
+msgstr "Transaktionsnyckel"
+
+msgid "Please select )"
+msgstr "Vänligen välj )"
+
+msgid "Hide notice"
+msgstr "Dölj meddelande"
+
+msgid "Control Panel"
+msgstr "Kontrollpanel"
+
+msgid "Edit Announcement"
+msgstr "Redigera meddelande"
+
+msgid "Departments"
+msgstr "Avdelningar"
+
+msgid "Add Department"
+msgstr "Lägg till avdelning"
+
+msgid "Edit Department"
+msgstr "Redigera avdelning"
+
+msgid "Staff report"
+msgstr "Personalrapport"
+
+msgid "Staff reports"
+msgstr "Personalrapporter"
+
+msgid "Departments report"
+msgstr "Avdelningarna rapporterar"
+
+msgid "Edit Download"
+msgstr "Redigera nedladdning"
+
+msgid "Edit FAQ"
+msgstr "Redigera FAQ"
+
+msgid "Feedbacks"
+msgstr "Återkopplingar"
+
+msgid "Edit Knowledge Base"
+msgstr "Redigera kunskapsbas"
+
+msgid "Edit Category"
+msgstr "Redigera kategori"
+
+msgid "Send Message"
+msgstr "Skicka meddelande"
+
+msgid "Edit Role"
+msgstr "Redigera roll"
+
+msgid "Staffs"
+msgstr "Staber"
+
+msgid "Add Staff"
+msgstr "Lägg till personal"
+
+msgid "Edit Staff"
+msgstr "Redigera personal"
+
+msgid "Staff Permissions"
+msgstr "Personalbehörigheter"
+
+msgid "Add Ticket"
+msgstr "Lägg till biljett"
+
+msgid "Edit Ticket"
+msgstr "Redigera biljett"
+
+msgid "Ticket Detail"
+msgstr "Biljettdetaljer"
+
+msgid "Plus"
+msgstr "Plus"
+
+msgid "Equals"
+msgstr "Lika"
+
+msgid "Minus"
+msgstr "Minus"
+
+msgid "stars"
+msgstr "stjärnor"
+
+msgid "Please write appreciated review at WP Extension Directory"
+msgstr "Skriv en uppskattad recension på WP Extension Directory"
+
+msgid "love"
+msgstr "kärlek"
+
+msgid "I'd love to help :)"
+msgstr "Jag hjälper gärna till :)"
+
+msgid "sad"
+msgstr "ledsen"
+
+msgid "Not this time"
+msgstr "Inte den här gången"
+
+msgid "happy"
+msgstr "Lycklig"
+
+msgid "I've already rated you"
+msgstr "Jag har redan betygsatt dig"
+
+msgid "close"
+msgstr "stänga"
+
+msgid "thanks"
+msgstr "tack"
+
+msgid "You are awesome !......"
+msgstr "Du är fantastisk !......"
+
+msgid "Thanks for your support, we really appreciate it."
+msgstr "Tack för ditt stöd, vi uppskattar det verkligen."
+
+msgid "Majestic Support Team"
+msgstr "Majestätiska supportteam"
+
+msgid "Remind you about this later?"
+msgstr "Påminn dig om detta senare?"
+
+msgid "Remind me in 3 days"
+msgstr "Påminn mig om 3 dagar"
+
+msgid "Remind me in 10 days"
+msgstr "Påminn mig om 10 dagar"
+
+msgid "Remind me in 30 days"
+msgstr "Påminn mig om 30 dagar"
+
+msgid "Don't remind me about this"
+msgstr "Påminn mig inte om detta"
+
+msgid "Dashboard"
+msgstr "instrumentbräda"
+
+msgid "About Us"
+msgstr "Om oss"
+
+msgid "Translations"
+msgstr "Översättningar"
+
+msgid "System Errors"
+msgstr "Systemfel"
+
+msgid "slugs"
+msgstr "sniglar"
+
+msgid "Slugs"
+msgstr "Sniglar"
+
+msgid "multiforms"
+msgstr "multiformer"
+
+msgid "Multiforms"
+msgstr "Multiformer"
+
+msgid "Ticket Close Reason"
+msgstr "Biljettstängning Anledning"
+
+msgid "Smart Replies"
+msgstr "Smarta svar"
+
+msgid "Smart Reply"
+msgstr "Smart svar"
+
+msgid "Add Smart Reply"
+msgstr "Lägg till smartsvar"
+
+msgid "Agent Auto Assign"
+msgstr "Agent Auto Tilldela"
+
+msgid "Auto Assign"
+msgstr "Autotilldela"
+
+msgid "Settings"
+msgstr "inställningar"
+
+msgid "Cron Job URLs"
+msgstr "Cron Job URLs"
+
+msgid "Premium Addons"
+msgstr "Premium-tillägg"
+
+msgid "Install Add-ons"
+msgstr "Installera tillägg"
+
+msgid "Add-ons List"
+msgstr "Lista över tillägg"
+
+msgid "Add-ons Status"
+msgstr "Tilläggsstatus"
+
+msgid "Shortcodes"
+msgstr "Kortkoder"
+
+msgid "Short Codes"
+msgstr "Korta koder"
+
+msgid "Colors"
+msgstr "Färger"
+
+msgid "Reports"
+msgstr "Rapporter"
+
+msgid "Overall Statistics"
+msgstr "Övergripande statistik"
+
+msgid "Agent Reports"
+msgstr "Agent rapporterar"
+
+msgid "Department Reports"
+msgstr "Avdelningsrapporter"
+
+msgid "User Reports"
+msgstr "Användarrapporter"
+
+msgid "Satisfaction Report"
+msgstr "Nöjdhetsrapport"
+
+msgid "Email Piping"
+msgstr "E-post rörledning"
+
+msgid "Priorities"
+msgstr "Prioriteringar"
+
+msgid "Add Priority"
+msgstr "Lägg till prioritet"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Erase Data Requests"
+msgstr "Radera dataförfrågningar"
+
+msgid "Feedback Fields"
+msgstr "Feedbackfält"
+
+msgid "System Emails"
+msgstr "Systemets e-postmeddelanden"
+
+msgid "Premade Responses"
+msgstr "Förberedda svar"
+
+msgid "Banned Email Log List"
+msgstr "Lista över förbjudna e-postloggar"
+
+msgid "Ban Emails"
+msgstr "Förbjud e-postmeddelanden"
+
+msgid "Emial CC"
+msgstr "E-post CC"
+
+msgid "Add Emial CC"
+msgstr "Lägg till e-post CC"
+
+msgid "Add Email CC"
+msgstr "Lägg till e-post CC"
+
+msgid "Email Templates"
+msgstr "E-postmallar"
+
+msgid "New Ticket"
+msgstr "Ny biljett"
+
+msgid "Agent Ticket"
+msgstr "Agentbiljett"
+
+msgid "New Agent"
+msgstr "Ny agent"
+
+msgid "Reassign Ticket"
+msgstr "Tilldela om biljett"
+
+msgid "Close Ticket"
+msgstr "Stäng biljett"
+
+msgid "Delete Ticket"
+msgstr "Ta bort biljett"
+
+msgid "Mark Overdue"
+msgstr "Markera försenat"
+
+msgid "Ban Email"
+msgstr "Förbjud e-post"
+
+msgid "Ban email try to create ticket"
+msgstr "Förbjud e-post försök att skapa biljett"
+
+msgid "Department Transfer"
+msgstr "Avdelningsöverföring"
+
+msgid "Ban Email and Close Ticket"
+msgstr "Förbjud e-post och stäng biljett"
+
+msgid "Unban Email"
+msgstr "Ta bort e-postmeddelandet"
+
+msgid "Response Ticket"
+msgstr "Svarsbiljett"
+
+msgid "Reply Ticket"
+msgstr "Svara Ticket"
+
+msgid "New Ticket Admin Alert"
+msgstr "Ny Ticket Admin Alert"
+
+msgid "In Progress Ticket"
+msgstr "Pågående biljett"
+
+msgid "Ticket priority is changed by"
+msgstr "Biljettprioritet ändras med"
+
+msgid "New Mail Received"
+msgstr "Nytt mail mottaget"
+
+msgid "New Mail Message Received"
+msgstr "Nytt e-postmeddelande mottaget"
+
+msgid "Feedback Email To User"
+msgstr "Feedback E-post till användare"
+
+msgid "User Reply On Closed Ticket"
+msgstr "Användarsvar på stängd biljett"
+
+msgid "help"
+msgstr "hjälp"
+
+msgid "Select Form"
+msgstr "Välj Form"
+
+msgid "No Record Found"
+msgstr "Inget rekord funnet"
+
+msgid "Log out"
+msgstr "Logga ut"
+
+msgid "iframe"
+msgstr "iframe"
+
+msgid "Sorry"
+msgstr "Förlåt"
+
+msgid "There was no record found"
+msgstr "Ingen post hittades"
+
+msgid "Sorry!"
+msgstr "Förlåt!"
+
+msgid "There was no record found..."
+msgstr "Inget register hittades..."
+
+msgid "Access Denied"
+msgstr "Tillträde beviljas ej"
+
+msgid "You have no permission to access this page"
+msgstr "Du har ingen behörighet att komma åt den här sidan"
+
+msgid "Register"
+msgstr "Registrera"
+
+msgid "User is not allowed to access this page."
+msgstr "Användare får inte komma åt denna sida."
+
+msgid "You are already Logged In."
+msgstr "Du är redan inloggad."
+
+msgid "Access Denied!"
+msgstr "Tillträde beviljas ej!"
+
+msgid "Your account has been disabled, please contact the administrator."
+msgstr "Ditt konto har inaktiverats, kontakta administratören."
+
+msgid "You are not logged In"
+msgstr "Du är inte inloggad"
+
+msgid "To access the page, please login"
+msgstr "För att komma åt sidan, vänligen logga in"
+
+msgid "User is not allowed to view this Ticket"
+msgstr "Användare får inte se denna biljett"
+
+msgid "You have already given the feedback for this ticket."
+msgstr "Du har redan gett feedback för denna biljett."
+
+msgid "Ticket not found...!"
+msgstr "Biljetten hittades inte...!"
+
+msgid "User is not allowed to view this page"
+msgstr "Användare får inte se denna sida"
+
+msgid "Thank you so much for your feedback"
+msgstr "Tack så mycket för din feedback"
+
+msgid "Majestic Support Control Panel"
+msgstr "Majestic Support Kontrollpanel"
+
+msgid "Slug"
+msgstr "Snigel"
+
+msgid "System Error"
+msgstr "Systemfel"
+
+msgid "User Fields"
+msgstr "Användarfält"
+
+msgid "Ban list log"
+msgstr "Förbudslista logg"
+
+msgid "Field Ordering"
+msgstr "Fältbeställning"
+
+msgid "Post Installation"
+msgstr "Efter installation"
+
+msgid "Emailcc"
+msgstr "E-postcc"
+
+msgid "Help"
+msgstr "Hjälp"
+
+msgid "Premium Addon"
+msgstr "Premium-tillägg"
+
+msgid "Username / password is incorrect"
+msgstr "Användarnamn/lösenord är felaktigt"
+
+msgid "Username already taken"
+msgstr "Användarnamnet har redan tagits"
+
+msgid "Invalid username"
+msgstr "Ogiltigt användarnamn"
+
+msgid "Please enter a username"
+msgstr "var vänlig ange ett användarnamn"
+
+msgid "Invalid email"
+msgstr "Ogiltig e-postadress"
+
+msgid "Email already registered"
+msgstr "Email redan registrerad"
+
+msgid "Please enter a password"
+msgstr "Vänligen ange ett lösenord"
+
+msgid "Passwords do not match"
+msgstr "Lösenorden matchar inte"
+
+msgid "Invalid captcha"
+msgstr "Ogiltigt captcha"
+
+msgid "User has been successfully registered"
+msgstr "Användaren har registrerats"
+
+msgid "Could not subscribe to the newsletter"
+msgstr "Det gick inte att prenumerera på nyhetsbrevet"
+
+msgid "You have successfully subscribed to the newsletter"
+msgstr "Du har framgångsrikt prenumererat på nyhetsbrevet"
+
+msgid "Majestic Support Pages"
+msgstr "Majestätiska stödsidor"
+
+msgid "Majestic Support control panel"
+msgstr "Majestic Support kontrollpanel"
+
+msgid "Add ticket"
+msgstr "Lägg till biljett"
+
+msgid "My tickets"
+msgstr "Mina biljetter"
+
+msgid "List downloads"
+msgstr "Lista nedladdningar"
+
+msgid "Latest downloads"
+msgstr "Senaste nedladdningarna"
+
+msgid "Popular downloads"
+msgstr "Populära nedladdningar"
+
+msgid "List knowledge base"
+msgstr "Lista kunskapsbas"
+
+msgid "Latest knowledge base"
+msgstr "Senaste kunskapsbasen"
+
+msgid "Popular knowledge base"
+msgstr "Populär kunskapsbas"
+
+msgid "List FAQ`s"
+msgstr "Lista vanliga frågor"
+
+msgid "Latest FAQ`s"
+msgstr "Senaste vanliga frågorna"
+
+msgid "Popular FAQ`s"
+msgstr "Populära vanliga frågor"
+
+msgid "List announcements"
+msgstr "Lista meddelanden"
+
+msgid "Latest announcements"
+msgstr "Senaste meddelanden"
+
+msgid "Popular announcements"
+msgstr "Populära meddelanden"
+
+msgid "View"
+msgstr "Se"
+
+msgid "Form submission failed!"
+msgstr "Det gick inte att skicka in formuläret!"
+
+msgid "You have not answered all required fields"
+msgstr "Du har inte svarat på alla obligatoriska fält"
+
+msgid "You have not given a correct time"
+msgstr "Du har inte angett rätt tid"
+
+msgid "You have not given a correct e-mail address"
+msgstr "Du har inte angett en korrekt e-postadress"
+
+msgid "You have not given a correct phone number"
+msgstr "Du har inte angett ett korrekt telefonnummer"
+
+msgid "You have not given a correct answer to the security question"
+msgstr "Du har inte gett ett korrekt svar på säkerhetsfrågan"
+
+msgid "You have not given a correct date"
+msgstr "Du har inte angett ett korrekt datum"
+
+msgid "The input value must be between "
+msgstr "Ingångsvärdet måste vara mellan"
+
+msgid " characters"
+msgstr "tecken"
+
+msgid "The input value is longer than "
+msgstr "Ingångsvärdet är längre än"
+
+msgid "The input value is shorter than "
+msgstr "Ingångsvärdet är kortare än"
+
+msgid "Input values could not be confirmed"
+msgstr "Ingångsvärden kunde inte bekräftas"
+
+msgid "Incorrect domain value"
+msgstr "Felaktigt domänvärde"
+
+msgid "The input value is not a correct URL"
+msgstr "Inmatningsvärdet är inte en korrekt URL"
+
+msgid "The input value is incorrect"
+msgstr "Inmatningsvärdet är felaktigt"
+
+msgid "The input value was not a correct number"
+msgstr "Inmatningsvärdet var inte ett korrekt tal"
+
+msgid "Your social security number was incorrect"
+msgstr "Ditt personnummer var felaktigt"
+
+msgid "Incorrect UK VAT Number"
+msgstr "Felaktigt UK VAT-nummer"
+
+msgid "The password isn't strong enough"
+msgstr "Lösenordet är inte tillräckligt starkt"
+
+msgid "You have to choose at least "
+msgstr "Du måste välja åtminstone"
+
+msgid " answers"
+msgstr "svarar"
+
+msgid "The input value can only contain alphanumeric characters "
+msgstr "Inmatningsvärdet kan endast innehålla alfanumeriska tecken"
+
+msgid " and "
+msgstr "och"
+
+msgid "The file you are trying to upload is too large"
+msgstr "Filen du försöker ladda upp är för stor"
+
+msgid "The file you are trying to upload is of the wrong type"
+msgstr "Filen du försöker ladda upp är av fel typ"
+
+msgid "Please choose between "
+msgstr "Vänligen välj mellan"
+
+msgid "Please choose at least "
+msgstr "Välj åtminstone"
+
+msgid "Please choose a maximum of "
+msgstr "Välj max"
+
+msgid " item(s)"
+msgstr "föremål"
+
+msgid "The credit card number is not correct"
+msgstr "Kreditkortsnumret är inte korrekt"
+
+msgid "The CVV number was not correct"
+msgstr "CVV-numret var inte korrekt"
+
+msgid "Lost your password"
+msgstr "förlorat ditt lösenord"
+
+msgid "Activated"
+msgstr "Aktiverad"
+
+msgid "Active Now"
+msgstr "Aktiv nu"
+
+msgid "Install Now"
+msgstr "Installera nu"
+
+msgid "Pagination default page size not saved"
+msgstr "Sidans standardstorlek har inte sparats"
+
+msgid "Data directory cannot empty."
+msgstr "Datakatalogen kan inte tömmas."
+
+msgid "Data directory is not proper."
+msgstr "Datakatalogen är inte korrekt."
+
+msgid "Data directory is not writable."
+msgstr "Datakatalogen är inte skrivbar."
+
+msgid "System slug not be empty."
+msgstr "Systemsluggen är inte tom."
+
+msgid "System slug is conflicted with post or page slug."
+msgstr "Systemslug är i konflikt med post- eller sidslug."
+
+msgid "The setting has been stored"
+msgstr "Inställningen har lagrats"
+
+msgid "The setting not has been stored"
+msgstr "Inställningen har inte lagrats"
+
+msgid "Days"
+msgstr "dagar"
+
+msgid "Hours"
+msgstr "Timmar"
+
+msgid "Google Recaptcha"
+msgstr "Google Recaptcha"
+
+msgid "Own Captcha"
+msgstr "Egen Captcha"
+
+msgid "Any"
+msgstr "Några"
+
+msgid "Addition"
+msgstr "Tillägg"
+
+msgid "Subtraction"
+msgstr "Subtraktion"
+
+msgid "Recaptcha Version 2"
+msgstr "Recaptcha version 2"
+
+msgid "Recaptcha Version 3"
+msgstr "Recaptcha version 3"
+
+msgid "Show"
+msgstr "Show"
+
+msgid "Hide"
+msgstr "Dölj"
+
+msgid "Majestic Support Login Page"
+msgstr "Majestic Support Inloggningssida"
+
+msgid "WordPress Default Login Page"
+msgstr "WordPress standardinloggningssida"
+
+msgid "Custom"
+msgstr "Beställnings"
+
+msgid "Majestic Support Register Page"
+msgstr "Majestic Support Register Page"
+
+msgid "Top left"
+msgstr "Övre vänstra"
+
+msgid "Top right"
+msgstr "Överst till höger"
+
+msgid "Middle left"
+msgstr "Mitten till vänster"
+
+msgid "Middle right"
+msgstr "Mitten höger"
+
+msgid "Bottom left"
+msgstr "Nedre vänstra"
+
+msgid "Bottom right"
+msgstr "Nere till höger"
+
+msgid "Random"
+msgstr "Slumpmässig"
+
+msgid "Sequence"
+msgstr "Sekvens"
+
+msgid "Ascending"
+msgstr "Stigande"
+
+msgid "Descending"
+msgstr "Nedåtgående"
+
+msgid "Single"
+msgstr "Enda"
+
+msgid "Multiple"
+msgstr "Flera olika"
+
+msgid "menu"
+msgstr "meny"
+
+msgid "Select Configuration"
+msgstr "Välj Konfiguration"
+
+msgid "General Settings"
+msgstr "Allmänna Inställningar"
+
+msgid "Support Icon"
+msgstr "Supportikon"
+
+msgid "Ticket Settings"
+msgstr "Biljettinställningar"
+
+msgid "Ticket Listing"
+msgstr "Biljettförteckning"
+
+msgid "Visitor Ticket Setting"
+msgstr "Besöksbiljettinställningar"
+
+msgid "Email Settings"
+msgstr "E-postinställningar"
+
+msgid "Email Regarding Banned Users"
+msgstr "E-post angående förbjudna användare"
+
+msgid "Ticket Operations Email Setting"
+msgstr "E-postinställning för biljetthantering"
+
+msgid "Agent Menu"
+msgstr "Agentmeny"
+
+msgid "Dashboard Links"
+msgstr "Länkar till instrumentpanelen"
+
+msgid "Top Menu Links"
+msgstr "Toppmenyn Länkar"
+
+msgid "User Menu"
+msgstr "Användarmeny"
+
+msgid "Feedback Settings"
+msgstr "Feedbackinställningar"
+
+msgid "Push Notifications"
+msgstr "Pushmeddelanden"
+
+msgid "Firebase Notifications"
+msgstr "Firebase-aviseringar"
+
+msgid "Private Credentials"
+msgstr "Privata inloggningsuppgifter"
+
+msgid "Envato Validation"
+msgstr "Envato-validering"
+
+msgid "MailChimp"
+msgstr "MailChimp"
+
+msgid "Easy Digital Downloads"
+msgstr "Enkla digitala nedladdningar"
+
+msgid "Social Login"
+msgstr "Social inloggning"
+
+msgid "Set the heading of your plugin"
+msgstr "Ställ in rubriken för ditt plugin"
+
+msgid "Ticket Default Page"
+msgstr "Standardsida för biljett"
+
+msgid "Select Page"
+msgstr "Välj sida"
+
+msgid "Data Directory"
+msgstr "Datakatalog"
+
+msgid "Set the name for your data directory"
+msgstr "Ställ in namnet på din datakatalog"
+
+msgid "Date Format"
+msgstr "Datumformat"
+
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-ÅÅÅÅ"
+
+msgid "MM-DD-YYYY"
+msgstr "MM-DD-ÅÅÅÅ"
+
+msgid "YYYY-MM-DD"
+msgstr "ÅÅÅÅ-MM-DD"
+
+msgid "Set the default date format"
+msgstr "Ställ in standard datumformat"
+
+msgid "Pagination default page size"
+msgstr "Paginering standard sidstorlek"
+
+msgid "Set the number of records per page"
+msgstr "Ställ in antalet poster per sida"
+
+msgid "Breadcrumbs"
+msgstr "Ströbröd"
+
+msgid "Show or hide breadcrumbs"
+msgstr "Visa eller dölj ströbröd"
+
+msgid "Top Header"
+msgstr "Topphuvud"
+
+msgid "Show or hide top header"
+msgstr "Visa eller dölj den övre rubriken"
+
+msgid "Show count on tickets"
+msgstr "Visa räkna med biljetter"
+
+msgid "Default wp role for new users"
+msgstr "Standard wp-roll för nya användare"
+
+msgid "Select the role you want to assign to new users"
+msgstr "Välj den roll du vill tilldela nya användare"
+
+msgid "No. of attachments"
+msgstr "Antal bilagor"
+
+msgid "Number of attachments allowed at a time"
+msgstr "Antal tillåtna bilagor åt gången"
+
+msgid "File maximum size"
+msgstr "Filens maximala storlek"
+
+msgid "File extensions"
+msgstr "Filtillägg"
+
+msgid "File extensions allowed to attach"
+msgstr "Filtillägg tillåts att bifoga"
+
+msgid "Set Login Link"
+msgstr "Ställ in inloggningslänk"
+
+msgid "Set login link default or custom"
+msgstr "Ställ in inloggningslänk som standard eller anpassad"
+
+msgid "Set register Link"
+msgstr "Ställ in registerlänk"
+
+msgid "Screen Tag"
+msgstr "Skärmtagg"
+
+msgid "Enable or disable your support icon"
+msgstr "Aktivera eller inaktivera din supportikon"
+
+msgid "Custom Image"
+msgstr "Anpassad bild"
+
+msgid "Set custom support image"
+msgstr "Ställ in anpassad supportbild"
+
+msgid "custom text"
+msgstr "anpassad text"
+
+msgid "Set custom support text"
+msgstr "Ställ in anpassad supporttext"
+
+msgid "Support Icon Position"
+msgstr "Stödikonens position"
+
+msgid "Screen Tag Position"
+msgstr "Skärmtaggposition"
+
+msgid "Select a position for your support icon"
+msgstr "Välj en position för din supportikon"
+
+msgid "Online"
+msgstr "Uppkopplad"
+
+msgid "Set your plugin offline for front end"
+msgstr "Ställ in ditt plugin offline för gränssnittet"
+
+msgid "Offline Message"
+msgstr "Offlinemeddelande"
+
+msgid "Set the offline message for your user"
+msgstr "Ställ in offlinemeddelandet för din användare"
+
+msgid "Woocommerce Category"
+msgstr "Woocommerce kategori"
+
+msgid "Ticket ID Prefix"
+msgstr "Biljett-ID-prefix"
+
+msgid "Set a prefix for the custom ticket ID"
+msgstr "Ange ett prefix för det anpassade biljett-ID:t"
+
+msgid "Ticket ID sequence"
+msgstr "Biljett-ID-sekvens"
+
+msgid "Set the ticket ID sequentially or randomly, e.g., "
+msgstr "Ställ in biljett-ID sekventiellt eller slumpmässigt, t.ex."
+
+msgid "Pad Zeros"
+msgstr "Pad nollor"
+
+msgid "To pad an integer with leading zeros to a specific length"
+msgstr "Att fylla ett heltal med inledande nollor till en viss längd"
+
+msgid "Ticket ID Suffix"
+msgstr "Suffix för biljett-ID"
+
+msgid "Set the suffix for your custom ticket ID"
+msgstr "Ställ in suffixet för ditt anpassade biljett-ID"
+
+msgid "Maximum tickets"
+msgstr "Maximalt antal biljetter"
+
+msgid "Maximum ticket per user"
+msgstr "Max biljett per användare"
+
+msgid "Maximum open tickets"
+msgstr "Maximalt öppna biljetter"
+
+msgid "Maximum number of tickets opened per user"
+msgstr "Maximalt antal öppnade biljetter per användare"
+
+msgid "Reopen ticket within days"
+msgstr "Öppna biljetten igen inom några dagar"
+
+msgid "The ticket will reopen within the given number of days"
+msgstr "Biljetten kommer att öppnas igen inom det angivna antalet dagar"
+
+msgid "Multiforms Popup For New Tickets"
+msgstr "Multiforms popup för nya biljetter"
+
+msgid "User can print ticket"
+msgstr "Användaren kan skriva ut biljett"
+
+msgid "Can users print a ticket from the ticket detail or not?"
+msgstr "Kan användare skriva ut en biljett från biljettdetaljen eller inte?"
+
+msgid "Allow Users To Reply via Email On Closed Ticket"
+msgstr "Tillåt användare att svara via e-post på stängd biljett"
+
+msgid "Select whether users can reply to closed email piping tickets or not"
+msgstr "Välj om användare kan svara på stängda e-postbiljett eller inte"
+
+msgid "Show Admin OR Agent Email On Ticket Reply"
+msgstr "Visa admin ELLER Agent e-post vid biljettsvar"
+
+msgid "Show Anonymous Name On Ticket Reply"
+msgstr "Visa anonymt namn på biljettsvaret"
+
+msgid "Ticket auto close"
+msgstr "Biljett stängs automatiskt"
+
+msgid "Ticket auto-close if user does not respond within given days"
+msgstr "Biljetten stängs automatiskt om användaren inte svarar inom givna dagar"
+
+msgid "Show ticket delete button"
+msgstr "Visa knapp för radering av biljett"
+
+msgid "Select whether users can see the ticket delete button"
+msgstr "Välj om användare kan se knappen för att ta bort biljett"
+
+msgid "Ticket close reason Type"
+msgstr "Biljettstängningsorsak Typ"
+
+msgid "Select whether users can save single or multiple reasons"
+msgstr "Välj om användare kan spara enstaka eller flera skäl"
+
+msgid "Maximum Record For Smart Reply"
+msgstr "Maximalt rekord för smartsvar"
+
+msgid "Set the number of replies to show"
+msgstr "Ställ in antalet svar som ska visas"
+
+msgid "New ticket message"
+msgstr "Nytt biljettmeddelande"
+
+msgid "This message will show on the new ticket"
+msgstr "Detta meddelande kommer att visas på den nya biljetten"
+
+msgid "Ticket listing ordering"
+msgstr "Biljettbeställning"
+
+msgid "Set default ordering for ticket listing"
+msgstr "Ställ in standardbeställning för biljettförteckning"
+
+msgid "Ticket listing sorting"
+msgstr "Biljettlistningssortering"
+
+msgid "Set default sorting for ticket listing"
+msgstr "Ställ in standardsortering för biljettförteckning"
+
+msgid "Closed info. on admin closed tickets"
+msgstr "Stängd info. på admin stängda biljetter"
+
+msgid "Closed info. on agent closed tickets"
+msgstr "Stängd info. på agent stängda biljetter"
+
+msgid "Closed info. on user closed tickets"
+msgstr "Stängd info. på användarstängda biljetter"
+
+msgid "Assigned info. on admin tickets"
+msgstr "Tilldelad info. på administratörsbiljetter"
+
+msgid "Assigned info. on agent tickets"
+msgstr "Tilldelad info. på agentbiljetter"
+
+msgid "Assigned info. on user tickets"
+msgstr "Tilldelad info. på användarbiljetter"
+
+msgid "Visitors can create tickets"
+msgstr "Besökare kan skapa biljetter"
+
+msgid "Allow visitors to create tickets or not"
+msgstr "Tillåt besökare att skapa biljetter eller inte"
+
+msgid "Visitor ticket creation message"
+msgstr "Meddelande om att skapa en besöksbiljett"
+
+msgid "This text will appear whenever a visitor creates a ticket"
+msgstr "Denna text kommer att visas när en besökare skapar en biljett"
+
+msgid "Default alert email"
+msgstr "Standardvarningse-post"
+
+msgid "Default admin email"
+msgstr "Standardadmin e-post"
+
+msgid "Admin email address to receive emails"
+msgstr "Admin e-postadress för att ta emot e-post"
+
+msgid "Department Email"
+msgstr "Avdelningens e-post"
+
+msgid "Send email to all departments on ticket create"
+msgstr "Skicka e-post till alla avdelningar på biljettskapande"
+
+msgid "Mail to admin"
+msgstr "Maila till admin"
+
+msgid "Send an email to the admin when a banned email tries to create a ticket"
+msgstr "Skicka ett e-postmeddelande till administratören när ett blockerat e-postmeddelande försöker skapa en biljett"
+
+msgid "Admin"
+msgstr "Administration"
+
+msgid "New ticket"
+msgstr "Ny biljett"
+
+msgid "Ticket reassign"
+msgstr "Tilldela om biljett"
+
+msgid "Ticket close"
+msgstr "Biljett stänger"
+
+msgid "Ticket delete"
+msgstr "Radera biljett"
+
+msgid "Ticket marked as overdue"
+msgstr "Biljett markerad som försenad"
+
+msgid "Ticket ban email"
+msgstr "E-post med biljettförbud"
+
+msgid "Ticket department transfer"
+msgstr "Transfer av biljettavdelningen"
+
+msgid "Ticket reply User"
+msgstr "Biljettsvar Användare"
+
+msgid "Ticket Response Agent"
+msgstr "Ticket Response Agent"
+
+msgid "Ticket ban email and close ticket"
+msgstr "Biljettförbud e-post och stäng biljett"
+
+msgid "Ticket unban email"
+msgstr "E-postmeddelande för att avbryta förbudet"
+
+msgid "Ticket lock"
+msgstr "Biljettlås"
+
+msgid "Ticket unlock"
+msgstr "Lås upp biljett"
+
+msgid "Ticket Change Priority"
+msgstr "Prioritet för biljettbyte"
+
+msgid "Mark Ticket In Progress"
+msgstr "Markera biljett på gång"
+
+msgid "Reply To A Closed Ticket By Email"
+msgstr "Svara på en stängd biljett via e-post"
+
+msgid "Send Feedback Email To User"
+msgstr "Skicka feedback via e-post till användare"
+
+msgid "Open Ticket"
+msgstr "Öppna biljett"
+
+msgid "Department reports"
+msgstr "Avdelningen rapporterar"
+
+msgid "Login/Logout Button"
+msgstr "Logga in/Logga ut knapp"
+
+msgid "Ticket Total Count"
+msgstr "Totalt antal biljetter"
+
+msgid "Erase Agent Data"
+msgstr "Radera agentdata"
+
+msgid "Export Ticket"
+msgstr "Exportbiljett"
+
+msgid "Latest Downloads"
+msgstr "Senaste nedladdningarna"
+
+msgid "Latest Announcements"
+msgstr "Senaste meddelanden"
+
+msgid "Latest Knowledge Base"
+msgstr "Senaste kunskapsbasen"
+
+msgid "Latest FAQs"
+msgstr "Senaste vanliga frågorna"
+
+msgid "Home"
+msgstr "Hem"
+
+msgid "Check Ticket Status"
+msgstr "Kontrollera biljettstatus"
+
+msgid "Registration"
+msgstr "Registrering"
+
+msgid "Erase User Data"
+msgstr "Radera användardata"
+
+msgid "Feedback Email Delay Type"
+msgstr "Feedback E-postfördröjningstyp"
+
+msgid "Select delay type for feedback email"
+msgstr "Välj fördröjningstyp för e-postmeddelande"
+
+msgid "Feedback Email Delay"
+msgstr "Feedback E-postfördröjning"
+
+msgid "Success message after submitting feedback"
+msgstr "Framgångsmeddelande efter att ha skickat feedback"
+
+msgid "This text will appear whenever anyone submits feedback"
+msgstr "Den här texten kommer att visas när någon skickar feedback"
+
+msgid "Login with facebook"
+msgstr "Logga in med Facebook"
+
+msgid "Facebook user can log in to Majestic Support"
+msgstr "Facebook-användare kan logga in på Majestic Support"
+
+msgid "Secret"
+msgstr "Hemlighet"
+
+msgid "secret key"
+msgstr "hemlig nyckel"
+
+msgid "API Key"
+msgstr "API-nyckel"
+
+msgid "The Facebook app requires an API key"
+msgstr "Facebook-appen kräver en API-nyckel"
+
+msgid "Login with linkedin"
+msgstr "Logga in med Linkedin"
+
+msgid "Linkedin users can log in to Majestic Support"
+msgstr "Linkedin-användare kan logga in på Majestic Support"
+
+msgid "The LinkedIn app requires an API key"
+msgstr "LinkedIn-appen kräver en API-nyckel"
+
+msgid "UTF Auto Switch"
+msgstr "UTF Auto Switch"
+
+msgid "Create User via email"
+msgstr "Skapa användare via e-post"
+
+msgid "Click here to insert Install."
+msgstr "Klicka här för att infoga Installera."
+
+msgid "Majestic Support Desktop Notifications plugin is not active."
+msgstr "Majestic Support Desktop Notifications-plugin är inte aktiv."
+
+msgid "Find and add the Firebase API keys."
+msgstr "Hitta och lägg till Firebase API-nycklarna."
+
+msgid "Click here to get Firebase API keys."
+msgstr "Klicka här för att hämta Firebase API-nycklar."
+
+msgid "User's API Key"
+msgstr "Användarens API-nyckel"
+
+msgid "Firebase API key for the front user"
+msgstr "Firebase API-nyckel för frontanvändaren"
+
+msgid "Auth Domain"
+msgstr "Auth Domain"
+
+msgid "Firebase Auth Domain"
+msgstr "Firebase Auth Domain"
+
+msgid "Database Url"
+msgstr "Databas URL"
+
+msgid "Firebase Database URL"
+msgstr "Firebase Database URL"
+
+msgid "Project ID"
+msgstr "Projekt-ID"
+
+msgid "Firebase Project ID"
+msgstr "Firebase projekt-id"
+
+msgid "Bucket Storage"
+msgstr "Hinkförvaring"
+
+msgid "Firebase Bucket Storage"
+msgstr "Firebase Bucket Storage"
+
+msgid "Message Sender ID"
+msgstr "Meddelande avsändar-ID"
+
+msgid "Firebase Message Sender ID"
+msgstr "Firebase Message Sender ID"
+
+msgid "Private Server Key"
+msgstr "Privat servernyckel"
+
+msgid "Firebase Server Key"
+msgstr "Firebase-servernyckel"
+
+msgid "Logo Image for Desktop Notifications"
+msgstr "Logotypbild för skrivbordsaviseringar"
+
+msgid "Remove Image"
+msgstr "Ta bort bild"
+
+msgid "Remove Logo"
+msgstr "Ta bort logotyp"
+
+msgid "No Firebase Notification Logo"
+msgstr "Ingen Firebase Notification Logo"
+
+msgid "Secret Key"
+msgstr "Hemlig nyckel"
+
+msgid "Second Level Security"
+msgstr "Säkerhet på andra nivån"
+
+msgid "For enhanced security, change the encryption method in %s on line %s"
+msgstr "För ökad säkerhet, ändra krypteringsmetoden i %s på rad %s"
+
+msgid "Api Key"
+msgstr "Api-nyckel"
+
+msgid "Enter Envato api key "
+msgstr "Ange Envato api-nyckel"
+
+msgid "Click here to generate an api key"
+msgstr "Klicka här för att skapa en api-nyckel"
+
+msgid "License Mandatory"
+msgstr "Licens obligatorisk"
+
+msgid "Product ID"
+msgstr "Serienummer"
+
+msgid "A comma-separated list of Envato product ids"
+msgstr "En kommaseparerad lista över Envato-produkt-ID"
+
+msgid "Enter MailChimp API key "
+msgstr "Ange MailChimp API-nyckel"
+
+msgid "Audience ID"
+msgstr "Målgrupps-ID"
+
+msgid "Find Audience ID in your MailChimp account"
+msgstr "Hitta målgrupps-ID i ditt MailChimp-konto"
+
+msgid "Enable double opt-in"
+msgstr "Aktivera dubbel opt-in"
+
+msgid "You must also enable double opt-in in your MailChimp account"
+msgstr "Du måste också aktivera dubbel opt-in i ditt MailChimp-konto"
+
+msgid "Welcome email"
+msgstr "Välkomstmail"
+
+msgid "You can enable Final Welcome Email in your MailChimp account"
+msgstr "Du kan aktivera Final Welcome Email i ditt MailChimp-konto"
+
+msgid "Verify License On Ticket Creation"
+msgstr "Verifiera licens vid skapande av biljetter"
+
+msgid "Captcha Setting"
+msgstr "Captcha-inställning"
+
+msgid "Show captcha on registration form"
+msgstr "Visa captcha på registreringsformuläret"
+
+msgid "Select whether you want to show captcha on the registration form or not"
+msgstr "Välj om du vill visa captcha på registreringsformuläret eller inte"
+
+msgid "Show captcha on the visitor ticket form"
+msgstr "Visa captcha på besöksbiljettformuläret"
+
+msgid "Show captcha when a visitor wants to create a ticket"
+msgstr "Visa captcha när en besökare vill skapa en biljett"
+
+msgid "Captcha selection"
+msgstr "Captcha val"
+
+msgid "Which captcha do you want to add?"
+msgstr "Vilken captcha vill du lägga till?"
+
+msgid "Google reCaptcha"
+msgstr "Google reCaptcha"
+
+msgid "Google ReCaptcha version"
+msgstr "Google ReCaptcha-version"
+
+msgid "Select the Google ReCaptcha version"
+msgstr "Välj Google ReCaptcha-versionen"
+
+msgid "Google ReCaptcha site key"
+msgstr "Google ReCaptcha webbplatsnyckel"
+
+msgid "Please enter the site key for Google ReCaptcha from"
+msgstr "Ange webbplatsnyckeln för Google ReCaptcha från"
+
+msgid "Google ReCaptcha secret key"
+msgstr "Google ReCaptcha hemlig nyckel"
+
+msgid "Please enter the secret key for Google ReCaptcha from"
+msgstr "Ange den hemliga nyckeln för Google ReCaptcha från"
+
+msgid "Own captcha calculation type"
+msgstr "Egen captcha-beräkningstyp"
+
+msgid "Select the calculation type (addition or subtraction)"
+msgstr "Välj beräkningstyp (addition eller subtraktion)"
+
+msgid "Own captcha operands"
+msgstr "Egna captcha-operander"
+
+msgid "Select the total number of operands to be given"
+msgstr "Välj det totala antalet operander som ska ges"
+
+msgid "Positive Answer Upon Own Captcha Subtraction"
+msgstr "Positivt svar vid egen Captcha-subtraktion"
+
+msgid "watch video"
+msgstr "kolla på video"
+
+msgid "Add"
+msgstr "Lägg till"
+
+msgid "Ticket via email"
+msgstr "Biljett via mail"
+
+msgid "OR"
+msgstr "ELLER"
+
+msgid "Sorry the cron job didnot work"
+msgstr "Ledsen att cron-jobbet inte fungerade"
+
+msgid "Update ticket status"
+msgstr "Uppdatera biljettstatus"
+
+msgid "You cannot use this email, it is used in email piping"
+msgstr "Du kan inte använda denna e-post, den används i e-postpiping"
+
+msgid "The department has been stored"
+msgstr "Avdelningen har förvarats"
+
+msgid "The department has not been stored"
+msgstr "Avdelningen har inte förvarats"
+
+msgid "The department has been deleted"
+msgstr "Avdelningen har tagits bort"
+
+msgid "The department has not been deleted"
+msgstr "Avdelningen har inte tagits bort"
+
+msgid "The department in use cannot be delete"
+msgstr "Den avdelning som används kan inte raderas"
+
+msgid "Outgoing Email"
+msgstr "Utgående e-post"
+
+msgid "Select Email"
+msgstr "Välj E-post"
+
+msgid "Tickets of this department will receive emails from this email"
+msgstr "Biljetter från denna avdelning kommer att få e-postmeddelanden från detta e-postmeddelande"
+
+msgid "Receive Email"
+msgstr "Ta emot e-post"
+
+msgid "Default with auto assign"
+msgstr "Standard med automatisk tilldelning"
+
+msgid "Save Department"
+msgstr "Spara avdelning"
+
+msgid "Add New Email"
+msgstr "Lägg till ny e-post"
+
+msgid "The user of this department will receive an email with the new ticket"
+msgstr "Användaren av denna avdelning kommer att få ett e-postmeddelande med den nya biljetten"
+
+msgid "Outgoing"
+msgstr "Utgående"
+
+msgid "Click here to give us feedback"
+msgstr "Klicka här för att ge oss feedback"
+
+msgid "Email Already Exist"
+msgstr "Email finns redan"
+
+msgid "The email has been stored"
+msgstr "E-postmeddelandet har lagrats"
+
+msgid "The email has not been stored"
+msgstr "E-postmeddelandet har inte lagrats"
+
+msgid "Ticket History"
+msgstr "Biljetthistorik"
+
+msgid "False"
+msgstr "Falsk"
+
+msgid "True"
+msgstr "Sann"
+
+msgid "Send Email By"
+msgstr "Skicka e-post via"
+
+msgid "SMTP host type"
+msgstr "SMTP-värdtyp"
+
+msgid "SMTP host"
+msgstr "SMTP-värd"
+
+msgid "SMTP Authentication"
+msgstr "SMTP-autentisering"
+
+msgid "SMTP Secure"
+msgstr "Säker SMTP"
+
+msgid "SMTP Port"
+msgstr "SMTP-port"
+
+msgid "If the system doesnot respond in 30 seconds"
+msgstr "Om systemet inte svarar inom 30 sekunder"
+
+msgid "Auto Response"
+msgstr "Autosvar"
+
+msgid "Some values are not acceptable please retry"
+msgstr "Vissa värden är inte acceptabla, försök igen"
+
+msgid "info"
+msgstr "info"
+
+msgid "System email used for sending email"
+msgstr "Systemets e-post som används för att skicka e-post"
+
+msgid "Required Fields are not filled"
+msgstr "Obligatoriska fält är inte ifyllda"
+
+msgid "Ban Email Try To Create Ticket"
+msgstr "Ban E-post Försök att skapa biljett"
+
+msgid "Ticket Priority Is Changed By"
+msgstr "Biljettprioritet ändras av"
+
+msgid "Data Deleted"
+msgstr "Data raderade"
+
+msgid "Body"
+msgstr "Kropp"
+
+msgid "Parameters"
+msgstr "Parametrar"
+
+msgid "Tracking ID"
+msgstr "SpårningsID"
+
+msgid "Ticket URL"
+msgstr "Biljett-URL"
+
+msgid "Ticket Priority"
+msgstr "Biljettprioritet"
+
+msgid "Department title"
+msgstr "Avdelningens titel"
+
+msgid "Group Title"
+msgstr "Gruppens titel"
+
+msgid "Agent name"
+msgstr "Agent namn"
+
+msgid "Help topic title"
+msgstr "Hjälpämnestitel"
+
+msgid "Feedback URL"
+msgstr "Feedback URL"
+
+msgid "Ticket Subject"
+msgstr "Biljettämne"
+
+msgid "Ticket Tracking ID"
+msgstr "Biljettspårnings-ID"
+
+msgid "Close Date"
+msgstr "Stängningsdatum"
+
+msgid "Save Email Template"
+msgstr "Spara e-postmall"
+
+msgid "Note:"
+msgstr "Notera:"
+
+msgid "Features marked with"
+msgstr "Funktioner markerade med"
+
+msgid "are only available with its own addon."
+msgstr "är endast tillgängliga med ett eget tillägg."
+
+msgid "Field mark as published"
+msgstr "Fältmärke som publicerat"
+
+msgid "Field mark as unpublished"
+msgstr "Fältmarkera som opublicerad"
+
+msgid "Field cannot be mark as published"
+msgstr "Fältet kan inte markeras som publicerat"
+
+msgid "Field mark as required"
+msgstr "Fältmärk efter behov"
+
+msgid "Field mark as not required"
+msgstr "Fältmarkera som ej obligatoriskt"
+
+msgid "Field ordering down"
+msgstr "Fältbeställning ner"
+
+msgid "Field ordering up"
+msgstr "Fältbeställning"
+
+msgid "Parent field has not been stored"
+msgstr "Föräldrafält har inte lagrats"
+
+msgid "Please Insert At least one value for every option"
+msgstr "Vänligen infoga minst ett värde för varje alternativ"
+
+msgid "Child fields has not been stored"
+msgstr "Underordnade fält har inte lagrats"
+
+msgid "Field has not been stored"
+msgstr "Fältet har inte lagrats"
+
+msgid "Field has been stored"
+msgstr "Fältet har lagrats"
+
+msgid "Field has been updated"
+msgstr "Fältet har uppdaterats"
+
+msgid "Parent Field"
+msgstr "Förälderfält"
+
+msgid "Edit Field"
+msgstr "Redigera fält"
+
+msgid "Field Title"
+msgstr "Fälttitel"
+
+msgid "User Published"
+msgstr "Användare publicerad"
+
+msgid "Visitor Published"
+msgstr "Besökare publicerad"
+
+msgid "Required"
+msgstr "Nödvändig"
+
+msgid "User Search"
+msgstr "Användarsökning"
+
+msgid "Show On Listing"
+msgstr "Visa på notering"
+
+msgid "Advanced"
+msgstr "Avancerad"
+
+msgid "Field has not been deleted"
+msgstr "Fältet har inte tagits bort"
+
+msgid "Field has been deleted"
+msgstr "Fältet har tagits bort"
+
+msgid "No response found"
+msgstr "Inget svar hittades"
+
+msgid "Equal"
+msgstr "Likvärdig"
+
+msgid "Not Equal"
+msgstr "Inte jämnlikt"
+
+msgid "Text Field"
+msgstr "Textfält"
+
+msgid "Check Box"
+msgstr "Kryssruta"
+
+msgid "Drop Down"
+msgstr "Falla ner"
+
+msgid "Text Area"
+msgstr "Textområde"
+
+msgid "Radio Button"
+msgstr "Radio knapp"
+
+msgid "Upload File"
+msgstr "Ladda upp fil"
+
+msgid "Multi Select"
+msgstr "Flera val"
+
+msgid "Admin Only"
+msgstr "Endast admin"
+
+msgid "Terms and Conditions"
+msgstr "Villkor"
+
+msgid "Dependent Field"
+msgstr "Beroende fält"
+
+msgid "Field Type"
+msgstr "Fälttyp"
+
+msgid "Field Size"
+msgstr "Fältstorlek"
+
+msgid "Max Length"
+msgstr "Maxlängd"
+
+msgid "Columns"
+msgstr "Kolumner"
+
+msgid "Rows"
+msgstr "Rader"
+
+msgid "Select Parent"
+msgstr "Välj Förälder"
+
+msgid "Select Child"
+msgstr "Välj Barn"
+
+msgid "Select Condition"
+msgstr "Välj Tillstånd"
+
+msgid "To use this feature, please fill in the above three fields."
+msgstr "För att använda den här funktionen, vänligen fyll i ovanstående tre fält."
+
+msgid "Use the table below to add new values"
+msgstr "Använd tabellen nedan för att lägga till nya värden"
+
+msgid "Add Value"
+msgstr "Lägg till värde"
+
+msgid "Terms and Conditions Text"
+msgstr "Allmänna villkor Text"
+
+msgid "Terms and Conditions Link Type"
+msgstr "Allmänna villkor Länktyp"
+
+msgid "Direct Link"
+msgstr "Direktlänk"
+
+msgid "Wordpress Page"
+msgstr "Wordpress sida"
+
+msgid "Select Link Type"
+msgstr "Välj Länktyp"
+
+msgid "Terms and Conditions Link"
+msgstr "Användarvillkor Länk"
+
+msgid "Terms and Conditions Page"
+msgstr "Användarvillkor Sida"
+
+msgid "Select Wordpress page"
+msgstr "Välj Wordpress-sida"
+
+msgid "Save Field"
+msgstr "Spara fält"
+
+msgid "User Publish"
+msgstr "Användare publicera"
+
+msgid "Visitor Publish"
+msgstr "Besökare publicera"
+
+msgid "Published"
+msgstr "Publicerad"
+
+msgid "Unpublished"
+msgstr "Opublicerad"
+
+msgid "Not required"
+msgstr "Inte nödvändig"
+
+msgid "users popup"
+msgstr "användares popup"
+
+msgid "Can Not Unpublished"
+msgstr "Kan inte avpubliceras"
+
+msgid "good"
+msgstr "Bra"
+
+msgid "can not mark as not required"
+msgstr "kan inte markera som ej obligatoriskt"
+
+msgid "Cannot unpublished field"
+msgstr "Fältet kan inte avpubliceras"
+
+msgid "Please fill required fields."
+msgstr "Fyll i obligatoriska fält."
+
+msgid "User Data"
+msgstr "Användardata"
+
+msgid "Erasing data request has been stored"
+msgstr "Begäran om radering av data har lagrats"
+
+msgid "Failed while storing"
+msgstr "Misslyckades under lagring"
+
+msgid "Erase data request withdrawn"
+msgstr "Radera databegäran har dragits tillbaka"
+
+msgid "Failed while performing action"
+msgstr "Det gick inte att utföra åtgärden"
+
+msgid "User identifying data erased"
+msgstr "Användaridentifieringsdata raderades"
+
+msgid "User data Deleted"
+msgstr "Användardata raderade"
+
+msgid "Export your data"
+msgstr "Exportera dina data"
+
+msgid "You have filed a request to remove your data."
+msgstr "Du har lämnat in en begäran om att ta bort dina uppgifter."
+
+msgid "To withdraw erases data request"
+msgstr "Att dra tillbaka raderar databegäran"
+
+msgid "Request the removal of data from the system."
+msgstr "Begär att data tas bort från systemet."
+
+msgid "Field Text"
+msgstr "Fälttext"
+
+msgid "Link Type"
+msgstr "Länktyp"
+
+msgid "Link Page"
+msgstr "Länksida"
+
+msgid "User Email"
+msgstr "Användarens e-post"
+
+msgid "Request Status"
+msgstr "Status för begäran"
+
+msgid "Awaiting response"
+msgstr "Väntar på svar"
+
+msgid "Erased identifying data"
+msgstr "Raderade identifieringsdata"
+
+msgid "Deleted"
+msgstr "raderade"
+
+msgid "Erase identifying data"
+msgstr "Radera identifieringsdata"
+
+msgid "Are you sure to erase identifying data"
+msgstr "Är du säker på att radera identifierande data"
+
+msgid "Delete data"
+msgstr "Ta bort data"
+
+msgid "Link"
+msgstr "Länk"
+
+msgid "Direct URL"
+msgstr "Direkt URL"
+
+msgid "Page Title or URL"
+msgstr "Sidrubrik eller URL"
+
+msgid "Cannot open file"
+msgstr "Kan inte öppna filen"
+
+msgid "The new theme has been applied"
+msgstr "Det nya temat har tillämpats"
+
+msgid "Error applying the new theme"
+msgstr "Det gick inte att tillämpa det nya temat"
+
+msgid "Dir is not writable"
+msgstr "Dir är inte skrivbar"
+
+msgid "Unable to connect to the server"
+msgstr "Kan inte ansluta till servern"
+
+msgid "Language is not installed"
+msgstr "Språket är inte installerat"
+
+msgid "Language directory is not writable"
+msgstr "Språkkatalogen är inte skrivbar"
+
+msgid "Required language is not installed but similar language like"
+msgstr "Erforderligt språk är inte installerat men liknande språk som"
+
+msgid "is found in your system"
+msgstr "finns i ditt system"
+
+msgid "Language code"
+msgstr "Språkkod"
+
+msgid "Empty values"
+msgstr "Tomma värden"
+
+msgid "File is not writable"
+msgstr "Filen är inte skrivbar"
+
+msgid "File successfully downloaded"
+msgstr "Filen har laddats ned"
+
+msgid "User ID"
+msgstr "användar ID"
+
+msgid "Ordering updated"
+msgstr "Beställning uppdaterad"
+
+msgid "Missing user(s) added successfully!"
+msgstr "Saknade användare har lagts till!"
+
+msgid "No missing user found!"
+msgstr "Ingen saknad användare hittades!"
+
+msgid "How to translate Majestic Support"
+msgstr "Hur man översätter Majestic Support"
+
+msgid "arrow"
+msgstr "pil"
+
+msgid "Remove All"
+msgstr "Ta bort alla"
+
+msgid "How to create ticket"
+msgstr "Hur man skapar biljett"
+
+msgid "Add Field"
+msgstr "Lägg till fält"
+
+msgid "How to setup user fields"
+msgstr "Hur man ställer in användarfält"
+
+msgid "reset"
+msgstr "återställa"
+
+msgid "Reset All"
+msgstr "Återställ allt"
+
+msgid "How to set smartreply"
+msgstr "Hur man ställer in smartsvar"
+
+msgid "Add Multiform"
+msgstr "Lägg till Multiform"
+
+msgid "How to set multiforms"
+msgstr "Hur man ställer in multiformer"
+
+msgid "Add Conditions"
+msgstr "Lägg till villkor"
+
+msgid "Conditions"
+msgstr "Betingelser"
+
+msgid "How to add Shortcode"
+msgstr "Hur man lägger till kortkod"
+
+msgid "How to set colors"
+msgstr "Hur man ställer in färger"
+
+msgid "Export Data"
+msgstr "Exportera data"
+
+msgid "Add Email Piping"
+msgstr "Lägg till e-poströr"
+
+msgid "Add GDPR Field"
+msgstr "Lägg till GDPR-fält"
+
+msgid "Add Depertment"
+msgstr "Lägg till avdelning"
+
+msgid "Add Knowledge base"
+msgstr "Lägg till kunskapsbas"
+
+msgid "How to use Knowledge Base"
+msgstr "Hur man använder Knowledge Base"
+
+msgid "How to use downloads"
+msgstr "Hur man använder nedladdningar"
+
+msgid "How to create FAQ"
+msgstr "Hur man skapar FAQ"
+
+msgid "How to add announcement"
+msgstr "Hur man lägger till ett meddelande"
+
+msgid "Add Help Topics"
+msgstr "Lägg till hjälpämnen"
+
+msgid "How to use help topic"
+msgstr "Hur man använder hjälpämnet"
+
+msgid "How to set SMTP"
+msgstr "Hur man ställer in SMTP"
+
+msgid "Add Banned Email"
+msgstr "Lägg till förbjuden e-post"
+
+msgid "How to use email cc"
+msgstr "Hur man använder e-post cc"
+
+msgid "Configuration"
+msgstr "Konfiguration"
+
+msgid "Reasons"
+msgstr "Skäl"
+
+msgid "About Majestic Support"
+msgstr "Om Majestic Support"
+
+msgid "Our Products"
+msgstr "Våra produkter"
+
+msgid "Wp Job Portal"
+msgstr "Wp jobbportal"
+
+msgid "New Tickets"
+msgstr "Nya biljetter"
+
+msgid "addon"
+msgstr "tillägg"
+
+msgid "Answered Tickets"
+msgstr "Besvarade biljetter"
+
+msgid "Pending Tickets"
+msgstr "Väntande biljetter"
+
+msgid "Overdue Tickets"
+msgstr "Försenade biljetter"
+
+msgid "Update"
+msgstr "Uppdatering"
+
+msgid "View Addone Status"
+msgstr "Visa Addone-status"
+
+msgid "Today Tickets"
+msgstr "Idag biljetter"
+
+msgid "Statistics"
+msgstr "Statistik"
+
+msgid "View All Tickets"
+msgstr "Se alla biljetter"
+
+msgid "Quick Links"
+msgstr "snabblänkar"
+
+msgid "email template"
+msgstr "e-postmall"
+
+msgid "add missing users"
+msgstr "lägg till saknade användare"
+
+msgid "user"
+msgstr "användare"
+
+msgid "Sync WP Users"
+msgstr "Synkronisera WP-användare"
+
+msgid "Add New Smart Reply"
+msgstr "Lägg till nytt smartsvar"
+
+msgid "Suggest a quick and most relevant reply to the customer's query."
+msgstr "Föreslå ett snabbt och mest relevant svar på kundens fråga."
+
+msgid "Add Reply"
+msgstr "Lägg till svar"
+
+msgid "Add New Agent"
+msgstr "Lägg till ny agent"
+
+msgid "Agent Add-on Not Installed"
+msgstr "Agenttillägg inte installerat"
+
+msgid "Don't limit yourself—install the Agent addon for maximum productivity."
+msgstr "Begränsa inte dig själv – installera Agent-tillägget för maximal produktivitet."
+
+msgid "agent addone"
+msgstr "agent addone"
+
+msgid "Install Agent Addon"
+msgstr "Installera Agent Addon"
+
+msgid "Tickets By Priority"
+msgstr "Biljetter efter prioritet"
+
+msgid "Install Addone"
+msgstr "Installera Addon"
+
+msgid "Add-ons"
+msgstr "Tillägg"
+
+msgid "View Details"
+msgstr "Visa detaljer"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "Auto Close Ticket"
+msgstr "Autostäng biljett"
+
+msgid "Private Note"
+msgstr "Privat anteckning"
+
+msgid "Max Ticket"
+msgstr "Max biljett"
+
+msgid "Max Tickets"
+msgstr "Max biljetter"
+
+msgid "Merge Tickets"
+msgstr "Slå samman biljetter"
+
+msgid "Time Tracking"
+msgstr "Tidsuppföljning"
+
+msgid "User Options"
+msgstr "Användaralternativ"
+
+msgid "Actions"
+msgstr "Handlingar"
+
+msgid "Ticket Actions"
+msgstr "Biljettåtgärder"
+
+msgid "Desktop Notifications"
+msgstr "Skrivbordsnotifikationer"
+
+msgid "Admin Widgets"
+msgstr "Admin-widgets"
+
+msgid "Internal Mail"
+msgstr "Intern post"
+
+msgid "Front-End Widgets"
+msgstr "Front-end-widgets"
+
+msgid "mailchimp"
+msgstr "mailchimp"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid "paidsupport"
+msgstr "betald support"
+
+msgid "easy digital download"
+msgstr "enkel digital nedladdning"
+
+msgid "Easy Digital Download"
+msgstr "Enkel digital nedladdning"
+
+msgid "Multi Language Email Templates"
+msgstr "Flerspråkiga e-postmallar"
+
+msgid "Email Cc"
+msgstr "E-post kopia"
+
+msgid "Multi Forms"
+msgstr "Flera formulär"
+
+msgid "Ticket Closed Reason"
+msgstr "Biljett stängd anledning"
+
+msgid "Quick Installation Guide"
+msgstr "Snabbinstallationsguide"
+
+msgid "How To Setup"
+msgstr "Hur man ställer in"
+
+msgid "Ticket Creation"
+msgstr "Biljettskapande"
+
+msgid "Fields Manager"
+msgstr "Fälthanterare"
+
+msgid "Email Notification Problems"
+msgstr "Problem med e-postmeddelanden"
+
+msgid "Premium Addons List"
+msgstr "Premium-tilläggslista"
+
+msgid "Features"
+msgstr "Funktioner"
+
+msgid "The best support system plugin for WordPress has everything you need."
+msgstr "Det bästa supportsystemplugin för WordPress har allt du behöver."
+
+msgid "Addons"
+msgstr "Tillägg"
+
+msgid "All Add-ons"
+msgstr "Alla tillägg"
+
+msgid "Add New Add-ons"
+msgstr "Lägg till nya tillägg"
+
+msgid "New Update Version"
+msgstr "Ny uppdateringsversion"
+
+msgid "is Available"
+msgstr "är tillgänglig"
+
+msgid "Help icon"
+msgstr "Hjälpikon"
+
+msgid "Videos Guidance"
+msgstr "Videor vägledning"
+
+msgid "View all videos"
+msgstr "Se alla videor"
+
+msgid "Video icon"
+msgstr "Videoikon"
+
+msgid "View All Videos"
+msgstr "Visa alla videor"
+
+msgid "Majestic Support icon"
+msgstr "Majestätisk supportikon"
+
+msgid "Contact Us For Support"
+msgstr "Kontakta oss för support"
+
+msgid "Submit ticket"
+msgstr "Skicka biljett"
+
+msgid "Visitor ticket creation"
+msgstr "Skapande av besöksbiljetter"
+
+msgid "How to set ticket auto close"
+msgstr "Hur man ställer in biljettautomatiken"
+
+msgid "How to reopen closed ticket"
+msgstr "Hur man öppnar stängd biljett igen"
+
+msgid "How to lock a ticket"
+msgstr "Hur man låser en biljett"
+
+msgid "How to add private note"
+msgstr "Hur man lägger till en privat anteckning"
+
+msgid "View ticket history"
+msgstr "Se biljetthistorik"
+
+msgid "How to setup custom fields"
+msgstr "Hur man ställer in anpassade fält"
+
+msgid "Set ticket auto overdue"
+msgstr "Ställ in biljetten automatiskt försenad"
+
+msgid "Manually set ticket overdue"
+msgstr "Ställ in försenad biljett manuellt"
+
+msgid "How to merge tickets"
+msgstr "Hur man slår samman biljetter"
+
+msgid "How to export tickets"
+msgstr "Hur man exporterar biljetter"
+
+msgid "How use help topic"
+msgstr "Hur använder hjälpämnet"
+
+msgid "How to change department"
+msgstr "Hur man byter avdelning"
+
+msgid "How to use multi-forms"
+msgstr "Hur man använder flera formulär"
+
+msgid "How to paid support"
+msgstr "Hur man betalar stöd"
+
+msgid "How to use premade response"
+msgstr "Hur man använder färdigt svar"
+
+msgid "How to add private credentials"
+msgstr "Hur man lägger till privata referenser"
+
+msgid "How to ban/unban user"
+msgstr "Hur man blockerar/avaktiverar användare"
+
+msgid "Agent system"
+msgstr "Agentsystem"
+
+msgid "Manually assign ticket to agen"
+msgstr "Tilldela biljett till agenten manuellt"
+
+msgid "Manually assign ticket to agent"
+msgstr "Tilldela ärende manuellt till agent"
+
+msgid "How to edit time"
+msgstr "Hur man redigerar tid"
+
+msgid "How to use time tracking"
+msgstr "Hur man använder tidsregistrering"
+
+msgid "How to use smart replies"
+msgstr "Hur man använder smarta svar"
+
+msgid "Configurations"
+msgstr "Konfigurationer"
+
+msgid "How to set max open ticket"
+msgstr "Hur man ställer in max öppen biljett"
+
+msgid "How to show counts"
+msgstr "Hur man visar räkningar"
+
+msgid "How to set Captcha"
+msgstr "Hur man ställer in Captcha"
+
+msgid "User options"
+msgstr "Användaralternativ"
+
+msgid "How to set login redirect"
+msgstr "Hur man ställer in omdirigering av inloggning"
+
+msgid "How to set fields ordering"
+msgstr "Hur man ställer in fältordning"
+
+msgid "How to enable social login"
+msgstr "Hur man aktiverar social inloggning"
+
+msgid "Setup"
+msgstr "Uppstart"
+
+msgid "How to setup"
+msgstr "Hur man ställer in"
+
+msgid "How to enable email piping"
+msgstr "Hur man aktiverar e-postpiping"
+
+msgid "How to solve email notification problem"
+msgstr "Hur man löser problem med e-postmeddelanden"
+
+msgid "How to translate"
+msgstr "Hur man översätter"
+
+msgid "How to install addons"
+msgstr "Hur man installerar tillägg"
+
+msgid "How to Desktop Notifications"
+msgstr "Hur man gör skrivbordsaviseringar"
+
+msgid "and"
+msgstr "och"
+
+msgid "How to use knowledge base"
+msgstr "Hur man använder kunskapsbasen"
+
+msgid "Misc"
+msgstr "Övrigt"
+
+msgid "How to use internal mail"
+msgstr "Hur man använder intern post"
+
+msgid "Use front-end widgets"
+msgstr "Använd front-end-widgets"
+
+msgid "How to enable admin widgets"
+msgstr "Hur man aktiverar admin-widgets"
+
+msgid "Majestic Support / Majestic Support Control Panel"
+msgstr "Majestic Support / Majestic Support Kontrollpanel"
+
+msgid "Majestic Support / Majestic Support main control panel"
+msgstr "Majestic Support / Majestic Support huvudkontrollpanel"
+
+msgid "Add new ticket form for both the user and the agent"
+msgstr "Lägg till nytt ärendeformulär för både användaren och agenten"
+
+msgid "Add Ticket Using Multiform"
+msgstr "Lägg till biljett med Multiform"
+
+msgid "My tickets for both user and agent"
+msgstr "Mina biljetter för både användare och agent"
+
+msgid "Show latest downloads. Options"
+msgstr "Visa senaste nedladdningar. alternativ"
+
+msgid "i.e."
+msgstr "dvs."
+
+msgid "Popular Downloads"
+msgstr "Populära nedladdningar"
+
+msgid "Show popular downloads. Options"
+msgstr "Visa populära nedladdningar. alternativ"
+
+msgid "Show latest knowledge base. Options"
+msgstr "Visa senaste kunskapsbasen. alternativ"
+
+msgid "Show popular knowledge base. Options"
+msgstr "Visa populär kunskapsbas. alternativ"
+
+msgid "List FAQs"
+msgstr "Lista vanliga frågor"
+
+msgid "Show latest FAQs. Options"
+msgstr "Visa de senaste vanliga frågorna. alternativ"
+
+msgid "Popular FAQs"
+msgstr "Populära vanliga frågor"
+
+msgid "Show popular FAQs. Options"
+msgstr "Visa populära vanliga frågor. alternativ"
+
+msgid "Show latest announcements. Options"
+msgstr "Visa senaste meddelanden. alternativ"
+
+msgid "Popular Announcements"
+msgstr "Populära meddelanden"
+
+msgid "Show popular announcements. Options"
+msgstr "Visa populära meddelanden. alternativ"
+
+msgid "Get"
+msgstr "Skaffa sig"
+
+msgid "Translation"
+msgstr "Översättning"
+
+msgid "c error"
+msgstr "c fel"
+
+msgid "saved"
+msgstr "sparat"
+
+msgid "Contribute In Translation"
+msgstr "Bidra i översättning"
+
+msgid "translate"
+msgstr "Översätt"
+
+msgid "Manual Download"
+msgstr "Manuell nedladdning"
+
+msgid "Log In"
+msgstr "Logga in"
+
+msgid "Log Out"
+msgstr "Logga ut"
+
+msgid "Agent Feedback"
+msgstr "Agent Feedback"
+
+msgid "Dashboard Menu"
+msgstr "Instrumentpanelens meny"
+
+msgid "Open Tickets"
+msgstr "Öppna biljetter"
+
+msgid "Closed Tickets"
+msgstr "Stängda biljetter"
+
+msgid "This ticket is marked as overdue"
+msgstr "Denna biljett är markerad som försenad"
+
+msgid "View All Downloads"
+msgstr "Visa alla nedladdningar"
+
+msgid "View All Announcements"
+msgstr "Visa alla meddelanden"
+
+msgid "View All Knowledge Base"
+msgstr "Se All Knowledge Base"
+
+msgid "View All FAQs"
+msgstr "Se alla vanliga frågor"
+
+msgid "Keep me login"
+msgstr "Håll mig inloggad"
+
+msgid "Repeat Password"
+msgstr "Repetera lösenord"
+
+msgid "Subscribe to the newsletter"
+msgstr "Prenumerera på nyhetsbrevet"
+
+msgid "has been changed"
+msgstr "har ändrats"
+
+msgid "has not been changed"
+msgstr "har inte ändrats"
+
+msgid "Majestic Support Settings"
+msgstr "Majestätiska supportinställningar"
+
+msgid "Step 4 of "
+msgstr "Steg 4 av"
+
+msgid "Complete"
+msgstr "Komplett"
+
+msgid "Setting you applied has been saved successfully."
+msgstr "Inställningen du använde har sparats."
+
+msgid "Finish"
+msgstr "Avsluta"
+
+msgid "Settings Complete"
+msgstr "Inställningar slutförda"
+
+msgid "Ticket Setting"
+msgstr "Biljettinställningar"
+
+msgid "Step 1 of "
+msgstr "Steg 1 av"
+
+msgid "Enter the site title"
+msgstr "Ange webbplatsens titel"
+
+msgid "Date format for plugin"
+msgstr "Datumformat för plugin"
+
+msgid "Show Breadcrumbs"
+msgstr "Visa Brödsmulor"
+
+msgid "Show navigation in breadcrumbs"
+msgstr "Visa navigering i brödsmulor"
+
+msgid "Upload file size in KB's"
+msgstr "Ladda upp filstorlek i KB"
+
+msgid "File Extension"
+msgstr "Filtillägg"
+
+msgid "Show count on my tickets"
+msgstr "Visa räkna med mina biljetter"
+
+msgid "Next Setup"
+msgstr "Nästa installation"
+
+msgid "Sequential"
+msgstr "Sekventiell"
+
+msgid "Step 3 of "
+msgstr "Steg 3 av"
+
+msgid "Set Email Delay Time"
+msgstr "Ställ in e-postfördröjningstid"
+
+msgid " :"
+msgstr ":"
+
+msgid "Set Email Delay"
+msgstr "Ställ in e-postfördröjning"
+
+msgid "Back"
+msgstr "Tillbaka"
+
+msgid "Step 2 of "
+msgstr "Steg 2 av"
+
+msgid "Visitor can create ticket"
+msgstr "Besökare kan skapa biljett"
+
+msgid "Enable/Disable Open Ticket"
+msgstr "Aktivera/inaktivera Open Ticket"
+
+msgid "Set ticket id sequential or random"
+msgstr "Ställ in biljett-id sekventiellt eller slumpmässigt"
+
+msgid "Maximum Tickets"
+msgstr "Maximalt antal biljetter"
+
+msgid "Set Maximum Ticket Per user"
+msgstr "Ställ in maximal biljett per användare"
+
+msgid "Maximum Open Ticket"
+msgstr "Maximal öppen biljett"
+
+msgid "Reopen ticket within Days"
+msgstr "Återöppna biljett inom några dagar"
+
+msgid "The ticket can be reopened within a given number of days"
+msgstr "Biljetten kan öppnas igen inom ett givet antal dagar"
+
+msgid "Show Captcha to visitor on ticket form"
+msgstr "Visa Captcha för besökaren på biljettformuläret"
+
+msgid "Enable/Disable Captcha on Ticket Form"
+msgstr "Aktivera/inaktivera Captcha på biljettformulär"
+
+msgid "Own Captcha operands"
+msgstr "Egna Captcha-operander"
+
+msgid "Select the total operands to be given"
+msgstr "Välj det totala antalet operander som ska ges"
+
+msgid "Own captcha subtraction answer positive"
+msgstr "Eget captcha subtraktion svar positivt"
+
+msgid "Enable/Disable Own Captcha subtraction"
+msgstr "Aktivera/inaktivera Own Captcha-subtraktion"
+
+msgid "Enable Print Ticket"
+msgstr "Aktivera Print Ticket"
+
+msgid "Enable/Disable Print Ticket"
+msgstr "Aktivera/inaktivera Print Ticket"
+
+msgid "Download Translation File"
+msgstr "Ladda ner översättningsfil"
+
+msgid "Download & Next"
+msgstr "Ladda ner & Nästa"
+
+msgid "Skip this step"
+msgstr "Hoppa över det här steget"
+
+msgid "Please insert activation key to proceed"
+msgstr "Vänligen sätt i aktiveringsnyckeln för att fortsätta"
+
+msgid "Addon Installation Failed"
+msgstr "Installation av tillägg misslyckades"
+
+msgid "Addon installation failed"
+msgstr "Installation av tillägg misslyckades"
+
+msgid "Addon Installation Failed, File download error"
+msgstr "Tilläggsinstallationen misslyckades, filnedladdningsfel"
+
+msgid "Deactivate"
+msgstr "Avaktivera"
+
+msgid "Deactivated"
+msgstr "Inaktiverad"
+
+msgid "Activate"
+msgstr "Aktivera"
+
+msgid "Not Installed"
+msgstr "Inte installerad"
+
+msgid "Addon Installed Successfully"
+msgstr "Addon har installerats framgångsrikt"
+
+msgid "Ticket Auto Close"
+msgstr "Biljett stängs automatiskt"
+
+msgid "Canned Response"
+msgstr "Canned Response"
+
+msgid "Desktop Notification"
+msgstr "Skrivbordsmeddelande"
+
+msgid "Front-end Widgets"
+msgstr "Front-end-widgets"
+
+msgid "Multi-Language Emails"
+msgstr "Flerspråkiga e-postmeddelanden"
+
+msgid "left image"
+msgstr "vänster bild"
+
+msgid "right image"
+msgstr "höger bild"
+
+msgid "Add-ons For Majestic Support"
+msgstr "Tillägg för Majestic Support"
+
+msgid "Save big today with an exclusive membership plan!"
+msgstr "Spara stort idag med en exklusiv medlemskapsplan!"
+
+msgid "show bundle pack"
+msgstr "visa paketpaket"
+
+msgid "buy now"
+msgstr "köp nu"
+
+msgid "Installed"
+msgstr "Installerad"
+
+msgid "agent auto assign"
+msgstr "agent auto tilldela"
+
+msgid "private note"
+msgstr "privat anteckning"
+
+msgid "merge tickets"
+msgstr "slå samman biljetter"
+
+msgid "helptopic"
+msgstr "hjälpämne"
+
+msgid "time tracking"
+msgstr "tidsuppföljning"
+
+msgid "Ticket close reason"
+msgstr "Biljett nära anledning"
+
+msgid "max ticket"
+msgstr "max biljett"
+
+msgid "ticket actions"
+msgstr "biljettåtgärder"
+
+msgid "email cc"
+msgstr "e-post cc"
+
+msgid "user options"
+msgstr "användaralternativ"
+
+msgid "admin widgets"
+msgstr "admin widgets"
+
+msgid "desktop notifications"
+msgstr "skrivbordsnotifikationer"
+
+msgid "woocommerce"
+msgstr "woocommerce"
+
+msgid "mail chimp"
+msgstr "mailchimp"
+
+msgid "Mail Chimp"
+msgstr "Mailchimp"
+
+msgid "internal mail"
+msgstr "internpost"
+
+msgid "frontend widget"
+msgstr "frontend-widget"
+
+msgid "Majestic Support Add-ons Bundle Pack"
+msgstr "Majestic Support Add-ons Bundle Pack"
+
+msgid "Basic"
+msgstr "Grundläggande"
+
+msgid "Unlimited Agents"
+msgstr "Obegränsat antal agenter"
+
+msgid "Helptopic"
+msgstr "Hjälpämne"
+
+msgid "Show all"
+msgstr "Visa allt"
+
+msgid "Standard"
+msgstr "Standard"
+
+msgid "Everything in basic included and "
+msgstr "Allt i basic ingår och"
+
+msgid "Professional"
+msgstr "Professionell"
+
+msgid "Everything in standard included and"
+msgstr "Allt i standard ingår och"
+
+msgid "All Future Addons"
+msgstr "Alla framtida tillägg"
+
+msgid "Status: "
+msgstr "Status:"
+
+msgid "addon in no longer active"
+msgstr "tillägget är inte längre aktivt"
+
+msgid "Please Insert Your Activation Key"
+msgstr "Vänligen sätt i din aktiveringsnyckel"
+
+msgid "XXXX-XXXX-XXXXX-XXXXX"
+msgstr "XXXX-XXXX-XXXXX-XXXX"
+
+msgid "Proceed"
+msgstr "Fortsätt"
+
+msgid "Majestic Support Addon Installer"
+msgstr "Majestic Support Addon Installer"
+
+msgid "Select All Addons"
+msgstr "Välj Alla tillägg"
+
+msgid "All allowed add ons are already installed"
+msgstr "Alla tillåtna tillägg är redan installerade"
+
+msgid "You are not allowed to install any add on"
+msgstr "Du får inte installera något tillägg"
+
+msgid "Addons Installed Successfully"
+msgstr "Tillägg installerade framgångsrikt"
+
+msgid "Open Dashboard"
+msgstr "Öppna Dashboard"
+
+msgid "Open Plugins Page"
+msgstr "Öppna Plugins-sidan"
+
+msgid "Page Not Found !!"
+msgstr "Sidan hittas inte !!"
+
+msgid "Priority Title Already Exist"
+msgstr "Prioritetstitel finns redan"
+
+msgid "Priority has been stored"
+msgstr "Prioritet har lagrats"
+
+msgid "Priority has not been stored"
+msgstr "Prioritet har inte lagrats"
+
+msgid "Priority has been deleted"
+msgstr "Prioritet har tagits bort"
+
+msgid "Priority has not been deleted"
+msgstr "Prioritet har inte tagits bort"
+
+msgid "Default priority cannot delete"
+msgstr "Standardprioritet kan inte raderas"
+
+msgid "Priority has been make default"
+msgstr "Prioritet har varit att göra standard"
+
+msgid "Priority has not been make default"
+msgstr "Prioritet har inte varit som standard"
+
+msgid "Ticket Overdue Interval Type"
+msgstr "Typ för försenad biljett"
+
+msgid "Save Priority"
+msgstr "Spara prioritet"
+
+msgid "Date Interval"
+msgstr "Datumintervall"
+
+msgid "Reply posted"
+msgstr "Svar postat"
+
+msgid "Reply posted on ticket"
+msgstr "Svar publicerat på biljetten"
+
+msgid "Guest"
+msgstr "Gäst"
+
+msgid "Ticket is replied by"
+msgstr "Biljett besvaras av"
+
+msgid "Reply Has been Posted"
+msgstr "Svar har postats"
+
+msgid "Reply Has Not been Posted"
+msgstr "Svar har inte publicerats"
+
+msgid "Dates"
+msgstr "Datum"
+
+msgid "Department Statistics"
+msgstr "Avdelningens statistik"
+
+msgid "answered ticket"
+msgstr "svarade biljett"
+
+msgid "pending ticket"
+msgstr "väntande biljett"
+
+msgid "overdue ticket"
+msgstr "försenad biljett"
+
+msgid "Time Taken"
+msgstr "Tid tagen"
+
+msgid "Merged and closed"
+msgstr "Sammanslagna och stängda"
+
+msgid "Out of"
+msgstr "Ut ur"
+
+msgid "Overall Report"
+msgstr "Övergripande rapport"
+
+msgid "Ticket by departments"
+msgstr "Biljett per avdelning"
+
+msgid "Agent Tickets"
+msgstr "Agentbiljetter"
+
+msgid "all ticket"
+msgstr "all biljett"
+
+msgid "Tickets By Status And Priorities"
+msgstr "Biljetter efter status och prioriteringar"
+
+msgid "Tickets By Agents"
+msgstr "Biljetter av ombud"
+
+msgid "Staff Reports"
+msgstr "Personalrapporter"
+
+msgid "Based on"
+msgstr "Baserat på"
+
+msgid "Customer Satisfaction"
+msgstr "Kundnöjdhet"
+
+msgid "satisfaction image"
+msgstr "tillfredsställelse bild"
+
+msgid "Excellent"
+msgstr "Excellent"
+
+msgid "NA"
+msgstr "NA"
+
+msgid "Happy"
+msgstr "Lycklig"
+
+msgid "bad"
+msgstr "dålig"
+
+msgid "Sad"
+msgstr "Ledsen"
+
+msgid "Angry"
+msgstr "Arg"
+
+msgid "Agent Statistics"
+msgstr "Agentstatistik"
+
+msgid "staff image"
+msgstr "personalens image"
+
+msgid "Average rating"
+msgstr "Genomsnittligt betyg"
+
+msgid "Average time"
+msgstr "Snittid"
+
+msgid "Tickets not assigned to the agent"
+msgstr "Biljetter är inte tilldelade agenten"
+
+msgid "Minutes"
+msgstr "Minuter"
+
+msgid "Report By Agent"
+msgstr "Rapport från agent"
+
+msgid "User Statistics"
+msgstr "Användarstatistik"
+
+msgid "Users"
+msgstr "Användare"
+
+msgid "Tickets by departments"
+msgstr "Biljetter per avdelning"
+
+msgid "Ticket Status By Departments"
+msgstr "Biljettstatus efter avdelningar"
+
+msgid "Agent detail Report"
+msgstr "Agent detalj rapport"
+
+msgid "Agent Report"
+msgstr "Agentrapport"
+
+msgid "Reports Statistics"
+msgstr "Rapporter Statistik"
+
+msgid "Slugs/Slug has been stored"
+msgstr "Sniglar/Snigel har lagrats"
+
+msgid "Prefix has not been stored"
+msgstr "Prefix har inte lagrats"
+
+msgid "Prefix has been stored"
+msgstr "Prefix har lagrats"
+
+msgid "Home Slug"
+msgstr "Hemsnigel"
+
+msgid "Prefix"
+msgstr "Prefix"
+
+msgid "This prefix will be added to the slug in case of homepage links."
+msgstr "Det här prefixet kommer att läggas till i snigeln vid länkar till hemsidan."
+
+msgid "This prefix will be added to the slug in case of conflict."
+msgstr "Det här prefixet kommer att läggas till i snigeln i händelse av konflikt."
+
+msgid "Search By Slug"
+msgstr "Sök efter snigel"
+
+msgid "Slug List"
+msgstr "Snigellista"
+
+msgid "edit"
+msgstr "redigera"
+
+msgid "This button will only save slugs on the current page"
+msgstr "Den här knappen sparar bara sniglar på den aktuella sidan"
+
+msgid "Smart Reply Title Already Exist"
+msgstr "Smart svarstitel finns redan"
+
+msgid "Smart Reply has been stored"
+msgstr "Smartsvar har lagrats"
+
+msgid "Smart Reply has not been stored"
+msgstr "Smartsvar har inte lagrats"
+
+msgid "Smart Reply has been deleted"
+msgstr "Smart svar har tagits bort"
+
+msgid "Smart Reply has not been deleted"
+msgstr "Smart svar har inte tagits bort"
+
+msgid "Enter Ticket Subject"
+msgstr "Ange biljettämne"
+
+msgid "delete"
+msgstr "radera"
+
+msgid "Save Smart Reply"
+msgstr "Spara Smart Svar"
+
+msgid "System error has been deleted"
+msgstr "Systemfel har tagits bort"
+
+msgid "System error has not been deleted"
+msgstr "Systemfelet har inte tagits bort"
+
+msgid "Color Chooser"
+msgstr "Färgväljare"
+
+msgid "Preset Theme"
+msgstr "Förinställt tema"
+
+msgid "Top Menu Heading Background"
+msgstr "Toppmenyn Rubrik Bakgrund"
+
+msgid "Top Header Line Color"
+msgstr "Färg på övre rubriklinjen"
+
+msgid "Button Hover"
+msgstr "Sväva knapp"
+
+msgid "Heading Text"
+msgstr "Rubriktext"
+
+msgid "Content Background Color"
+msgstr "Innehållsbakgrundsfärg"
+
+msgid "Content Text Color"
+msgstr "Innehåll Textfärg"
+
+msgid "Border Color"
+msgstr "Gräns ​​färg"
+
+msgid "Lines"
+msgstr "Rader"
+
+msgid "Button Color"
+msgstr "Knapp färg"
+
+msgid "Top Header Text Color"
+msgstr "Översta rubriktextfärg"
+
+msgid "Save Colors"
+msgstr "Spara färger"
+
+msgid "Color Effect Preview"
+msgstr "Förhandsgranskning av färgeffekt"
+
+msgid "Submit Ticket  "
+msgstr "Skicka biljett"
+
+msgid "Open ( 3 )"
+msgstr "Öppna ( 3 )"
+
+msgid "Closed ( 2 )"
+msgstr "Stängt ( 2 )"
+
+msgid "Answered ( 1 )"
+msgstr "Besvarade ( 1 )"
+
+msgid "All Tickets ( 5 )"
+msgstr "Alla biljetter ( 5 )"
+
+msgid " Priority"
+msgstr "Prioritet"
+
+msgid "Can i upgrade my plan?"
+msgstr "Kan jag uppgradera min plan?"
+
+msgid "Low"
+msgstr "Låg"
+
+msgid "Ticket ID  :"
+msgstr "Biljett-ID:"
+
+msgid "Last Reply :"
+msgstr "Senaste svar:"
+
+msgid "How can i get Subscription"
+msgstr "Hur kan jag få prenumeration"
+
+msgid " Department   "
+msgstr "Avdelning"
+
+msgid "Support"
+msgstr "Stöd"
+
+msgid " Ticket ID :"
+msgstr "Biljett-ID:"
+
+msgid "Created :"
+msgstr "Skapad:"
+
+msgid "Matthew Frazier"
+msgstr "Matthew Frazier"
+
+msgid "How long do i have support access"
+msgstr "Hur länge har jag tillgång till support"
+
+msgid " Department"
+msgstr "Avdelning"
+
+msgid "Note"
+msgstr "Notera"
+
+msgid "Blue Jeans"
+msgstr "Blå jeans"
+
+msgid "Red"
+msgstr "Röd"
+
+msgid "Mint"
+msgstr "Mynta"
+
+msgid "Lavender"
+msgstr "Lavendel"
+
+msgid "Orange"
+msgstr "Orange"
+
+msgid "Grass"
+msgstr "Gräs"
+
+msgid "Black"
+msgstr "Svart"
+
+msgid "Support for this Envato license has expired"
+msgstr "Support för denna Envato-licens har löpt ut"
+
+msgid "Record not found"
+msgstr "Posten hittades inte"
+
+msgid "Banned email cannot create ticket"
+msgstr "Förbjuden e-post kan inte skapa biljett"
+
+msgid "Incorrect Captcha Code"
+msgstr "Felaktig Captcha-kod"
+
+msgid "Please select paid support item"
+msgstr "Välj betald supportartikel"
+
+msgid "No purchase found with that code"
+msgstr "Inget köp hittades med den koden"
+
+msgid "Provide a valid license key to create a ticket."
+msgstr "Ange en giltig licensnyckel för att skapa en biljett."
+
+msgid "Your license has expired."
+msgstr "Din licens har gått ut."
+
+msgid "Your license is not active, activate your license."
+msgstr "Din licens är inte aktiv, aktivera din licens."
+
+msgid "Due date error is not valid"
+msgstr "Förfallodatumsfelet är inte giltigt"
+
+msgid "Ticket has not been created"
+msgstr "Biljetten har inte skapats"
+
+msgid "Your ticket has been submitted successfully"
+msgstr "Din biljett har skickats in"
+
+msgid "created"
+msgstr "skapas"
+
+msgid "Ticket is updated by"
+msgstr "Biljetten uppdateras av"
+
+msgid "Ticket is created by"
+msgstr "Biljett skapas av"
+
+msgid "Ticket has been deleted"
+msgstr "Biljetten har raderats"
+
+msgid "Ticket has not been deleted"
+msgstr "Biljetten har inte raderats"
+
+msgid "in use cannot be deleted"
+msgstr "som används kan inte raderas"
+
+msgid "Ticket already closed"
+msgstr "Biljetten är redan stängd"
+
+msgid "Ticket has been closed"
+msgstr "Biljetten har stängts"
+
+msgid "Ticket has not been closed"
+msgstr "Biljetten har inte stängts"
+
+msgid "Ticket is closed by"
+msgstr "Biljetten är stängd kl"
+
+msgid "due to the following reasons"
+msgstr "på grund av följande skäl"
+
+msgid "Your are not allowed"
+msgstr "Dina är inte tillåtna"
+
+msgid "The department has been transferred"
+msgstr "Avdelningen har flyttats"
+
+msgid "The department has not been transferred"
+msgstr "Avdelningen har inte flyttats över"
+
+msgid "The department is transferred by"
+msgstr "Avdelningen överförs av"
+
+msgid "Assigned to agent"
+msgstr "Tilldelad agent"
+
+msgid "Not assigned to agent"
+msgstr "Inte tilldelad agent"
+
+msgid "Assign ticket to agent"
+msgstr "Tilldela biljett till agenten"
+
+msgid "Ticket is assigned to agent by"
+msgstr "Biljett tilldelas agent av"
+
+msgid "The ticket already has the same priority"
+msgstr "Biljetten har redan samma prioritet"
+
+msgid "Priority has been changed"
+msgstr "Prioriteten har ändrats"
+
+msgid "Priority has not been changed"
+msgstr "Prioriteten har inte ändrats"
+
+msgid "Change Priority"
+msgstr "Ändra prioritet"
+
+msgid "Email already banned"
+msgstr "E-post är redan förbjudet"
+
+msgid "The email has been banned"
+msgstr "E-postmeddelandet har förbjudits"
+
+msgid "The email has not been banned"
+msgstr "E-postmeddelandet har inte förbjudits"
+
+msgid "Email is banned by"
+msgstr "E-post är förbjudet av"
+
+msgid "The ticket has been reopened"
+msgstr "Biljetten har öppnats igen"
+
+msgid "The ticket has not been reopened"
+msgstr "Biljetten har inte öppnats igen"
+
+msgid "Reopen Ticket"
+msgstr "Öppna biljett igen"
+
+msgid "The ticket is reopened by"
+msgstr "Biljetten öppnas igen kl"
+
+msgid "The ticket reopens time limit end"
+msgstr "Biljetten öppnar igen tidsgräns slut"
+
+msgid "Email has been unbanned"
+msgstr "E-post har tagits bort"
+
+msgid "Email has not been unbanned"
+msgstr "E-post har inte blockerats"
+
+msgid "Unbanned Email"
+msgstr "Oförbjuden e-post"
+
+msgid "Email is unbanned by"
+msgstr "E-post är avstängd av"
+
+msgid "Email cannot be unbanned"
+msgstr "E-post kan inte avföras"
+
+msgid "Ticket already marked in progress"
+msgstr "Biljett har redan markerats pågår"
+
+msgid "The ticket has been marked as in progress"
+msgstr "Biljetten har markerats som pågår"
+
+msgid "The ticket has not been marked as in progress"
+msgstr "Biljetten har inte markerats som pågående"
+
+msgid "In progress ticket"
+msgstr "Pågående biljett"
+
+msgid "The ticket is marked as in progress by"
+msgstr "Biljetten markeras som pågår av"
+
+msgid "File upload limit exceeds"
+msgstr "Filuppladdningsgränsen överskrider"
+
+msgid "The uploaded file extension not valid"
+msgstr "Det uppladdade filtillägget är inte giltigt"
+
+msgid "Paid support info"
+msgstr "Betald supportinformation"
+
+msgid "Order ID"
+msgstr "Beställnings-ID"
+
+msgid "Product Name"
+msgstr "produktnamn"
+
+msgid "Total Tickets"
+msgstr "Totalt antal biljetter"
+
+msgid "Remaining Tickets"
+msgstr "Återstående biljetter"
+
+msgid "Unlimited"
+msgstr "Obegränsat"
+
+msgid "You have not purchased any supported item"
+msgstr "Du har inte köpt något föremål som stöds"
+
+msgid "Go to shop"
+msgstr "Gå till butiken"
+
+msgid "Select Order"
+msgstr "Välj ordning"
+
+msgid "No premade response found"
+msgstr "Inget färdigt svar hittades"
+
+msgid "Waiting agent reply"
+msgstr "Väntar på svar från agenten"
+
+msgid "Waiting customer reply"
+msgstr "Väntar på kundsvar"
+
+msgid "Close ticket"
+msgstr "Stäng biljett"
+
+msgid "Are you sure to mark this ticket non-premium?"
+msgstr "Är du säker på att markera denna biljett som icke-premium?"
+
+msgid "Edit Reply"
+msgstr "Redigera svar"
+
+msgid "Edit Time"
+msgstr "Redigera tid"
+
+msgid "Add reason in the other box"
+msgstr "Lägg till anledning i den andra rutan"
+
+msgid "First make some selection!"
+msgstr "Gör först ett urval!"
+
+msgid "Reason For Editing the timer"
+msgstr "Anledning till att redigera timern"
+
+msgid "Reason For Editing"
+msgstr "Anledning till redigering"
+
+msgid "Resolve conflict"
+msgstr "Lös konflikt"
+
+msgid "Lock"
+msgstr "Låsa"
+
+msgid "Add New Credential"
+msgstr "Lägg till nya inloggningsuppgifter"
+
+msgid "Add Internal Note"
+msgstr "Lägg till intern anteckning"
+
+msgid "play"
+msgstr "spela"
+
+msgid "pause"
+msgstr "paus"
+
+msgid "stop"
+msgstr "sluta"
+
+msgid "Close on reply"
+msgstr "Stäng vid svar"
+
+msgid "Reason For Department Transfer"
+msgstr "Anledning till avdelningsövergång"
+
+msgid "Transfer"
+msgstr "Överföra"
+
+msgid "Assign To Agent"
+msgstr "Tilldela till agent"
+
+msgid "Assign"
+msgstr "Tilldela"
+
+msgid "View all"
+msgstr "Visa alla"
+
+msgid "tickets by"
+msgstr "biljetter av"
+
+msgid "Show History"
+msgstr "Visa historik"
+
+msgid "Print Ticket"
+msgstr "Skriv ut biljett"
+
+msgid "Unmark Overdue"
+msgstr "Avmarkera försenat"
+
+msgid "Mark in Progress"
+msgstr "Markering pågår"
+
+msgid "agent image"
+msgstr "agentbild"
+
+msgid "Post A New Internal Note"
+msgstr "Lägg upp en ny intern anteckning"
+
+msgid "Ticket Thread"
+msgstr "Biljetttråd"
+
+msgid "View Image"
+msgstr "Se bild"
+
+msgid "smart-reply"
+msgstr "smart-svar"
+
+msgid "Check Smart Reply"
+msgstr "Kontrollera Smart svar"
+
+msgid "Search and get a saved smart reply on Majestic Support for a ticket."
+msgstr "Sök och få ett sparat smart svar på Majestic Support för en biljett."
+
+msgid "search"
+msgstr "Sök"
+
+msgid "Add this reply to smart reply?"
+msgstr "Lägg till det här svaret till smartsvar?"
+
+msgid "Post Reply"
+msgstr "Skicka svar"
+
+msgid "Own Signature"
+msgstr "Egen signatur"
+
+msgid "Department Signature"
+msgstr "Avdelningens signatur"
+
+msgid "JNone"
+msgstr "JIngen"
+
+msgid "Add Signature"
+msgstr "Lägg till signatur"
+
+msgid "On Waiting"
+msgstr "På att vänta"
+
+msgid "Closed and merged"
+msgstr "Stängd och sammanslagen"
+
+msgid "Ticket Closing Reason"
+msgstr "Orsak till stängning av biljett"
+
+msgid "ago"
+msgstr "sedan"
+
+msgid "No Last Reply"
+msgstr "Inget senaste svar"
+
+msgid "Not Given"
+msgstr "Inte givit"
+
+msgid "Closed By"
+msgstr "Stängt av"
+
+msgid "Closed On"
+msgstr "Stängd på"
+
+msgid "Copy"
+msgstr "Kopiera"
+
+msgid "Copied"
+msgstr "Kopierade"
+
+msgid "Change"
+msgstr "Förändra"
+
+msgid "Assign And Transfer Ticket"
+msgstr "Tilldela och överför biljett"
+
+msgid "Ticket assigned to"
+msgstr "Biljett tilldelad till"
+
+msgid "staff photo"
+msgstr "personalfoto"
+
+msgid "Total Time Taken"
+msgstr "Total tid som tagits"
+
+msgid "view ticket"
+msgstr "se biljett"
+
+msgid "Woocommerce Order"
+msgstr "Woocommerce order"
+
+msgid "Envato License"
+msgstr "Envato-licens"
+
+msgid "Item"
+msgstr "Artikel"
+
+msgid "Buyer"
+msgstr "Köpare"
+
+msgid "License Type"
+msgstr "Licens typ"
+
+msgid "License"
+msgstr "Licens"
+
+msgid "Purchase Date"
+msgstr "inköpsdatum"
+
+msgid "Supported Until"
+msgstr "Stöds till"
+
+msgid "Paid Support Details"
+msgstr "Betald supportinformation"
+
+msgid "Subscription"
+msgstr "Prenumeration"
+
+msgid "Subscribed On"
+msgstr "Prenumererar på"
+
+msgid "Support Expiry"
+msgstr "Support utgång"
+
+msgid "No expiration"
+msgstr "ingen utgång"
+
+msgid "Non-premium support"
+msgstr "Icke-premiumstöd"
+
+msgid "Check this box if this ticket should NOT apply against the paid support"
+msgstr "Markera den här rutan om denna biljett INTE ska gälla mot den betalda supporten"
+
+msgid "Remaining"
+msgstr "Återstående"
+
+msgid "Link ticket to paid support"
+msgstr "Länka biljett till betald support"
+
+msgid "closed ticket"
+msgstr "stängd biljett"
+
+msgid "Ticket Creator Name"
+msgstr "Ticket Creator Name"
+
+msgid "From Date"
+msgstr "Från datum"
+
+msgid "To Date"
+msgstr "Hittills"
+
+msgid "Enforce delete"
+msgstr "Framtvinga borttagning"
+
+msgid "Are you sure to enforce delete"
+msgstr "Är du säker på att genomdriva borttagning"
+
+msgid "Are you sure to mark this ticket non-preminum?"
+msgstr "Är du säker på att markera denna biljett som icke-premium?"
+
+msgid "Message Logs"
+msgstr "Meddelandeloggar"
+
+msgid "Edit Timer"
+msgstr "Redigera timer"
+
+msgid "Type Note for Department"
+msgstr "Skriv anteckning för avdelning"
+
+msgid "Assign Ticket To Agent"
+msgstr "Tilldela biljett till agent"
+
+msgid "Assigning Note"
+msgstr "Tilldela anteckning"
+
+msgid "Time Track"
+msgstr "Tidsspår"
+
+msgid "Type Internal Note"
+msgstr "Skriv intern anteckning"
+
+msgid "tickets"
+msgstr "biljetter"
+
+msgid "Reopen"
+msgstr "Öppna igen"
+
+msgid "History"
+msgstr "Historia"
+
+msgid "Print"
+msgstr "Skriva ut"
+
+msgid "Are you sure you want to delete this ticket"
+msgstr "Är du säker på att du vill radera denna biljett"
+
+msgid "Are you sure to close this ticket"
+msgstr "Är du säker på att stänga denna biljett"
+
+msgid "Unlock"
+msgstr "Låsa upp"
+
+msgid "Mark In Progress"
+msgstr "Markering pågår"
+
+msgid "Ban Email And Close Ticket"
+msgstr "Förbjud e-post och stäng biljett"
+
+msgid "Post New Internal Note"
+msgstr "Lägg upp ny intern anteckning"
+
+msgid "Reply A Message"
+msgstr "Svara ett meddelande"
+
+msgid "Search and get a saved smart reply on Majestic Support."
+msgstr "Sök och få ett sparat smart svar på Majestic Support."
+
+msgid "Check Reply"
+msgstr "Kontrollera Svara"
+
+msgid "Select Premade"
+msgstr "Välj Premade"
+
+msgid "Assign Ticket"
+msgstr "Tilldela biljett"
+
+msgid ": "
+msgstr ":"
+
+msgid "Assigned To Agent"
+msgstr "Tilldelad till agent"
+
+msgid "View all orders"
+msgstr "Se alla beställningar"
+
+msgid "Non-preminum support"
+msgstr "Icke-premiumstöd"
+
+msgid "Check Status"
+msgstr "Kolla statusen"
+
+msgid "High"
+msgstr "Hög"
+
+msgid "Urgent"
+msgstr "Brådskande"
+
+msgid "Admin email address and email piping address cannot be the same, your email piping will not be work."
+msgstr "Administratörens e-postadress och e-postadressen kan inte vara samma, din e-postledning fungerar inte."
+
+msgid "IMAP is either not installed or not enabled in your server. Contact to hosting company"
+msgstr "IMAP är antingen inte installerat eller inte aktiverat på din server. Kontakt till webbhotell"
+
+msgid "180 secs If the setting is not completely increased, most sites will work with a setting of between 180 and 600"
+msgstr "180 sekunder Om inställningen inte höjs helt, kommer de flesta sajter att arbeta med en inställning på mellan 180 och 600"
+
+msgid "If you have already set up alert methods in the webcron.org interface, we recommend choosing an alert type"
+msgstr "Om du redan har ställt in varningsmetoder i webcron.org-gränssnittet rekommenderar vi att du väljer en varningstyp"
+
+msgid "Enter allowed number of tickets that customer can post. Enter -1 for unlimited tickets."
+msgstr "Ange tillåtet antal biljetter som kunden kan lägga upp. Ange -1 för obegränsade biljetter."
+
+msgid "Your response would be helpful to other users, as we believe that the success of the support system is largely dependent on how well customers are treated."
+msgstr "Ditt svar skulle vara till hjälp för andra användare, eftersom vi tror att framgången för supportsystemet till stor del beror på hur väl kunderna behandlas."
+
+msgid "</b> and Enter your license key and hit to authenticate. A valid key is required for updates."
+msgstr "</b> och Ange din licensnyckel och tryck för att autentisera. En giltig nyckel krävs för uppdateringar."
+
+msgid "We'd love to hear from you. It'll only take 2 minutes of your time, and will really help us spread the word"
+msgstr "Vi skulle älska att höra från dig. Det tar bara 2 minuter av din tid och kommer verkligen att hjälpa oss att sprida budskapet"
+
+msgid "Registration has been disabled by admin, please contact the system administrator."
+msgstr "Registreringen har inaktiverats av admin, kontakta systemadministratören."
+
+msgid "Please check confirmation email to complete your subscription for the newsletter"
+msgstr "Kontrollera bekräftelsemailet för att slutföra din prenumeration på nyhetsbrevet"
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Dont forget to update the add-ons to enjoy the greatest features!"
+msgstr "Hallå där! Vi har nyligen lanserat en ny uppdatering för tilläggen. Glöm inte att uppdatera tilläggen för att njuta av de bästa funktionerna!"
+
+msgid "Select the Majestic Support default page, and on the action system, it will redirect to the selected page. If not selected the default page, email links, and support icon might not work."
+msgstr "Välj Majestic Support-standardsidan, och på åtgärdssystemet omdirigeras den till den valda sidan. Om det inte är valt kan det hända att standardsidan, e-postlänkar och supportikon inte fungerar."
+
+msgid "You need to rename the existing data directory in the file system before changing the data directory name"
+msgstr "Du måste byta namn på den befintliga datakatalogen i filsystemet innan du ändrar datakatalogens namn"
+
+msgid "Show the number of open, closed, and answered tickets in my tickets and dashboard"
+msgstr "Visa antalet öppna, stängda och besvarade biljetter i mina biljetter och instrumentpanelen"
+
+msgid "Set register link default or custom.<br /> To enable registrations, WordPress admin > General > Settings > Membership: Anyone can register"
+msgstr "Ställ in registerlänk som standard eller anpassad.<br /> För att aktivera registreringar, WordPress admin > Allmänt > Inställningar > Medlemskap: Vem som helst kan registrera sig"
+
+msgid "Select category to display only products of this category on the WooCommerce shop page."
+msgstr "Välj kategori för att endast visa produkter i denna kategori på WooCommerce-butikssidan."
+
+msgid "Show or hide the multiform popup when creating a new ticket. if you hide them, the system will open the default form."
+msgstr "Visa eller dölj multiform-popupen när du skapar en ny biljett. om du döljer dem kommer systemet att öppna standardformuläret."
+
+msgid "Select whether users can see the email of administrator or agent on the ticket reply"
+msgstr "Välj om användare kan se e-postmeddelandet från administratören eller agenten i biljettsvaret"
+
+msgid "Select whether users can see the name of administrator or agent on ticket reply"
+msgstr "Välj om användare kan se namnet på administratören eller agenten på ärendesvaret"
+
+msgid "By enabling this option, an admin can know who closed the ticket and when that ticket closed."
+msgstr "Genom att aktivera det här alternativet kan en administratör veta vem som stängde biljetten och när den stängdes."
+
+msgid "By enabling this option, an agent can know who closed the ticket and when that ticket closed."
+msgstr "Genom att aktivera det här alternativet kan en agent veta vem som stängde biljetten och när den stängdes."
+
+msgid "By enabling this option, a user can know who closed the ticket and when that ticket closed."
+msgstr "Genom att aktivera det här alternativet kan en användare veta vem som stängde biljetten och när den stängdes."
+
+msgid "By enabling this option, an admin can know to whom the ticket has been assigned."
+msgstr "Genom att aktivera det här alternativet kan en administratör veta vem biljetten har tilldelats."
+
+msgid "By enabling this option, an agent can know to whom the ticket has been assigned."
+msgstr "Genom att aktivera det här alternativet kan en agent veta vem biljetten har tilldelats."
+
+msgid "By enabling this option, a user can know to whom the ticket has been assigned."
+msgstr "Genom att aktivera detta alternativ kan en användare veta vem biljetten har tilldelats."
+
+msgid "If the ticket department email is not selected, then this email is used to send emails"
+msgstr "Om biljettavdelningens e-postadress inte är vald, används denna e-post för att skicka e-post"
+
+msgid "Set the number of days or hours to send a feedback email after a ticket is closed"
+msgstr "Ställ in antalet dagar eller timmar för att skicka ett feedback-e-postmeddelande efter att en biljett har stängts"
+
+msgid "Majestic Support Desktop Notifications plugin is not installed. Please install the plugin to enable desktop notifications"
+msgstr "Majestic Support Desktop Notifications-plugin är inte installerad. Installera plugin-programmet för att aktivera skrivbordsaviseringar"
+
+msgid "Changing the encryption key of private credentials will cause all existing credentials to be discarded"
+msgstr "Om du ändrar krypteringsnyckeln för privata autentiseringsuppgifter kommer alla befintliga autentiseringsuppgifter att kasseras"
+
+msgid "Prevent users from submitting a ticket without a valid license for one of your product"
+msgstr "Förhindra användare från att skicka in en biljett utan giltig licens för en av dina produkter"
+
+msgid "Selecting \\ positive"
+msgstr "Väljer  positiv"
+
+msgid "e.g \\ The text between [link] and [/link] will be linked to provided url or wordpress page."
+msgstr ""
+
+msgid "e.g., \\ The text between [link] and [/link] will be linked to provided URL or WordPress page."
+msgstr "t.ex.  Texten mellan [länk] och [/länk] kommer att länkas till tillhandahållen URL eller WordPress-sida."
+
+msgid "Majestic support is customer service or assistance that is exceptional in nature, providing a high level of satisfaction to the customer by going above and beyond their expectations. It involves providing prompt and efficient response times, personalized attention, and a willingness to solve problems or address concerns in a timely and effective manner."
+msgstr "Majestic support är kundservice eller assistans som är exceptionell till sin natur, som ger en hög nivå av tillfredsställelse för kunden genom att gå utöver deras förväntningar. Det innebär att ge snabba och effektiva svarstider, personlig uppmärksamhet och en vilja att lösa problem eller ta itu med problem på ett snabbt och effektivt sätt."
+
+msgid "Explore our other products and services that we offer, you might find something else that interests you or fulfills your needs even better."
+msgstr "Utforska våra andra produkter och tjänster som vi erbjuder, du kanske hittar något annat som intresserar dig eller uppfyller dina behov ännu bättre."
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Don't forget to update the add-ons to enjoy the greatest features!"
+msgstr "Hallå där! Vi har nyligen lanserat en ny uppdatering för tilläggen. Glöm inte att uppdatera tilläggen för att njuta av de bästa funktionerna!"
+
+msgid "The best support plugin for the majestic support has everything you need."
+msgstr "Det bästa supportpluginet för det majestätiska stödet har allt du behöver."
+
+msgid "A reputable support system that offers step-by-step YouTube video guides to help you understand."
+msgstr "Ett välrenommerat supportsystem som erbjuder steg-för-steg YouTube-videoguider som hjälper dig att förstå."
+
+msgid "At Majestic Support, we are committed to offering prompt and helpful customer care to help you at every step."
+msgstr "På Majestic Support har vi åtagit oss att erbjuda snabb och hjälpsam kundvård för att hjälpa dig i varje steg."
+
+msgid "When WordPress language change to fr, Majestic Support language will auto change to fr"
+msgstr "När WordPress-språket ändras till fr kommer Majestic Support-språket automatiskt att ändras till fr"
+
+msgid "Want to download translation file? Click on download. It will take sometime."
+msgstr "Vill du ladda ner en översättningsfil? Klicka på nedladdning. Det kommer att ta lite tid."
+
+msgid "Get trusted WordPress add-ons. Guaranteed to work fast, safe to use, beautifully coded, packed with features, and are easy to use."
+msgstr "Få pålitliga WordPress-tillägg. Garanterat att arbeta snabbt, säkert att använda, vackert kodat, fullmatat med funktioner och är lätta att använda."
+
+msgid "Add agents and assign roles and permissions to provide assistance and support for customer support tickets."
+msgstr "Lägg till agenter och tilldela roller och behörigheter för att ge hjälp och support för kundsupportbiljetter."
+
+msgid "Create multiple custom ticket forms with different custom fields for each request type that you support."
+msgstr "Skapa flera anpassade ärendeformulär med olika anpassade fält för varje förfrågningstyp som du stöder."
+
+msgid "Email piping is the process of automatically turning incoming emails into support tickets without manual data entry."
+msgstr "E-postpiping är processen att automatiskt omvandla inkommande e-postmeddelanden till supportärenden utan manuell datainmatning."
+
+msgid "Make the ticket assignment process automatic and assign the most qualified agent to your tickets with conditions."
+msgstr "Gör biljetttilldelningsprocessen automatisk och tilldela den mest kvalificerade agenten till dina biljetter med villkor."
+
+msgid "Add private notes to a ticket and share crucial information internally with your agents, this private note is not visible to the customer."
+msgstr "Lägg till privata anteckningar till en biljett och dela viktig information internt med dina agenter, denna privata anteckning är inte synlig för kunden."
+
+msgid "Merge one or more tickets into another if you receive two support requests from the same end user about the same issue."
+msgstr "Slå samman en eller flera biljetter till en annan om du får två supportförfrågningar från samma slutanvändare om samma problem."
+
+msgid "The user can search for and choose the topic for which they need help using help topics"
+msgstr "Användaren kan söka efter och välja ämne som de behöver hjälp med att använda hjälpämnen"
+
+msgid "Manage abandoned tickets, and set rules for tickets over time, and those tickets will be closed automatically after a certain period."
+msgstr "Hantera övergivna biljetter och ställ in regler för biljetter över tid, och dessa biljetter stängs automatiskt efter en viss period."
+
+msgid "Stop wasting time on repetitive inquiries, build your knowledge base, and organize your solutions into categories for users."
+msgstr "Sluta slösa tid på repetitiva förfrågningar, bygg upp din kunskapsbas och organisera dina lösningar i kategorier för användare."
+
+msgid "Define rules or set a specific time interval for making tickets automatically overdue."
+msgstr "Definiera regler eller ställ in ett specifikt tidsintervall för att göra biljetter automatiskt försenade."
+
+msgid "Track the amount of time spent on each customer support ticket without losing focus and enhance team productivity."
+msgstr "Spåra hur mycket tid som spenderas på varje kundsupportbiljett utan att tappa fokus och förbättra teamets produktivitet."
+
+msgid "Show the whole history of the ticket, including its status and any action taken in response to it."
+msgstr "Visa hela historiken för biljetten, inklusive dess status och alla åtgärder som vidtagits som svar på den."
+
+msgid "The simplest approach to effectively manage payments for premium help is through paid support."
+msgstr "Det enklaste sättet att effektivt hantera betalningar för premiumhjälp är genom betald support."
+
+msgid "Customers will enter sensitive information on tickets, and this add-on is designed to help you keep that information secure."
+msgstr "Kunder kommer att ange känslig information på biljetter, och detta tillägg är utformat för att hjälpa dig att hålla den informationen säker."
+
+msgid "Empowers users to provide clear and concise explanations for why customer service tickets are being closed."
+msgstr "Ger användare möjlighet att ge tydliga och koncisa förklaringar till varför kundtjänstbiljetter stängs."
+
+msgid "Make ready-made responses to the most common questions in the tickets to swiftly address client issues."
+msgstr "Ge färdiga svar på de vanligaste frågorna i biljetterna för att snabbt lösa kundproblem."
+
+msgid "Admins can limit the number of tickets that users can create as well as the number of tickets that agents can open individually."
+msgstr "Administratörer kan begränsa antalet biljetter som användare kan skapa samt antalet biljetter som agenter kan öppna individuellt."
+
+msgid "To enhance the quality of your services, ask your customers to complete a survey when a ticket is closed."
+msgstr "För att förbättra kvaliteten på dina tjänster, be dina kunder att fylla i en undersökning när en biljett är stängd."
+
+msgid "Ticket action options allow you to execute additional actions on tickets."
+msgstr "Biljettåtgärdsalternativ låter dig utföra ytterligare åtgärder på biljetter."
+
+msgid "Easily export ticket data and performance report data from your majestic support to an Excel spreadsheet with our efficient and user-friendly solution."
+msgstr "Exportera enkelt biljettdata och resultatrapportdata från din majestätiska support till ett Excel-kalkylblad med vår effektiva och användarvänliga lösning."
+
+msgid "Send the exact copy of the email to the provided email address with Email CC or BCC."
+msgstr "Skicka den exakta kopian av e-postmeddelandet till den angivna e-postadressen med Email CC eller BCC."
+
+msgid "User options enable you to define roles for new users when they are registered."
+msgstr "Användaralternativ gör att du kan definiera roller för nya användare när de är registrerade."
+
+msgid "SMTP enables you to add  custom mail protocols to send and receive emails with the support ticket system."
+msgstr "SMTP gör att du kan lägga till anpassade e-postprotokoll för att skicka och ta emot e-postmeddelanden med supportärendesystemet."
+
+msgid "Create multi-language email templates for all default email templates to send customers emails in the language that they prefer."
+msgstr "Skapa flerspråkiga e-postmallar för alla standard-e-postmallar för att skicka e-post till kunder på det språk de föredrar."
+
+msgid "Downloads can be very helpful for users who are looking to obtain the necessary information to resolve issues."
+msgstr "Nedladdningar kan vara till stor hjälp för användare som vill få nödvändig information för att lösa problem."
+
+msgid "Make an unlimited number of announcements related to the support system to encourage customer interaction."
+msgstr "Gör ett obegränsat antal meddelanden relaterade till supportsystemet för att uppmuntra kundinteraktion."
+
+msgid "With Ban Email, you can limit a users ability to create new tickets by blocking their email address."
+msgstr "Med Ban Email kan du begränsa en användares möjlighet att skapa nya biljetter genom att blockera deras e-postadress."
+
+msgid "Provide answers to common user questions with the FAQ extension before they become tickets."
+msgstr "Ge svar på vanliga användarfrågor med FAQ-tillägget innan de blir biljetter."
+
+msgid "Get immediate data on your support operations as soon as you log into your WordPress administration area."
+msgstr "Få omedelbar information om din supportverksamhet så snart du loggar in på ditt WordPress-administrationsområde."
+
+msgid "You will be informed of anything that occurs on your support system by the desktop notifications."
+msgstr "Du kommer att informeras om allt som inträffar på ditt supportsystem genom skrivbordsmeddelanden."
+
+msgid "The integration of the support ticket system for WooCommerce with your e- shop makes your support better and more professional."
+msgstr "Integrationen av supportbiljettsystemet för WooCommerce med din e-butik gör din support bättre och mer professionell."
+
+msgid "Manage your email marketing campaigns directly from your majestic support by adding new user accounts to your Mailchimp email list."
+msgstr "Hantera dina e-postmarknadsföringskampanjer direkt från din majestätiska support genom att lägga till nya användarkonton till din Mailchimp-e-postlista."
+
+msgid "Send messages internally about support tickets and other issues between agents with internal mail."
+msgstr "Skicka meddelanden internt om supportbiljetter och andra problem mellan agenter med intern post."
+
+msgid "Frontend Widgets include several widgets that can be used to enhance the plugin's functionality in various areas of the website."
+msgstr "Frontend-widgets inkluderar flera widgets som kan användas för att förbättra pluginens funktionalitet i olika delar av webbplatsen."
+
+msgid "Clients won't be able to open a new ticket using the Envato Validation plugin if they don't have a valid Envato license."
+msgstr "Klienter kommer inte att kunna öppna en ny biljett med Envato Validation-plugin om de inte har en giltig Envato-licens."
+
+msgid "Learn about a customer's purchase directly from the support dashboard by integrating Majestic Support with your EDD store."
+msgstr "Lär dig mer om en kunds köp direkt från supportpanelen genom att integrera Majestic Support med din EDD-butik."
+
+msgid "If the colors have been saved but the user-side colors are still the same, it is advised to clear the cache."
+msgstr "Om färgerna har sparats men färgerna på användarsidan fortfarande är desamma, rekommenderas det att rensa cachen."
+
+msgid "Error"
+msgstr "Fel"
+
+msgid "Roles"
+msgstr "Roller"
+
+msgid "Role"
+msgstr "Roll"
+
+msgid "Sr#"
+msgstr "Sr#"
+
+msgid "Gmail"
+msgstr "Gmail"
+
+msgid "Yahoo"
+msgstr "Yahoo"
+
+msgid "Aol"
+msgstr "Aol"
+
+msgid "Hotmail"
+msgstr "Hotmail"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "Wget"
+msgstr "Wget"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "----"
+msgstr "----"
+
+msgid "JNo"
+msgstr "JNo"
+
+msgid "Visible"
+msgstr "Synlig"
+
+msgid "Logo"
+msgstr "Logotyp"
+
+msgid "Re"
+msgstr "Re"
+
+msgid "Vertical"
+msgstr "Vertikal"
+
+msgid "Horizontal"
+msgstr "Horisontell"
+
+msgid "div"
+msgstr "div"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "General"
+msgstr "Allmän"
+
+msgid "Captcha"
+msgstr "Captcha"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Linkedin"
+msgstr "Linkedin"
+
+msgid "Kb"
+msgstr "Kb"
+
+msgid "SMTP"
+msgstr "SMTP"
+
+msgid "TLS"
+msgstr "TLS"
+
+msgid "SSL"
+msgstr "SSL"
+
+msgid "50%"
+msgstr "50 %"
+
+msgid "100%"
+msgstr "100 %"
+
+msgid "S.No"
+msgstr "S.Nr"
+
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+msgid "envato"
+msgstr "envato"
+
+msgid ":"
+msgstr ":"
+
+msgid "Envato"
+msgstr "Envato"
+
+msgid "Color"
+msgstr "Färg"
+
+msgid "Normal"
+msgstr "Vanligt"
+
+msgid "Color 1"
+msgstr "Färg 1"
+
+msgid "Color 2"
+msgstr "Färg 2"
+
+msgid "Color 3"
+msgstr "Färg 3"
+
+msgid "Color 4"
+msgstr "Färg 4"
+
+msgid "Color 5"
+msgstr "Färg 5"
+
+msgid "Color 6"
+msgstr "Färg 6"
+
+msgid "Color 7"
+msgstr "Färg 7"
+
+msgid "Kylee Arroyo"
+msgstr "Kylee Arroyo"
+
+msgid "Marketing"
+msgstr "Marknadsföring"
+
+msgid "XcyMfWYKp"
+msgstr "XcyMfWYKp"
+
+msgid "08-12-2022"
+msgstr "2022-12-08"
+
+msgid "Allison Carney"
+msgstr "Allison Carney"
+
+msgid "Yx4cW3Mfk"
+msgstr "Yx4cW3Mfk"
+
+msgid "05-12-2022"
+msgstr "2022-12-05"
+
+msgid "GxNDv3MfC"
+msgstr "GxNDv3MfC"
+
+msgid "01-12-2022"
+msgstr "2022-12-01"
+
+msgid ","
+msgstr ","
+
+msgid "Issue Summary"
+msgstr "Ärendesammanfattning"
+
+msgid "Envato Purchase Code"
+msgstr "Envato köpkod"
+
+msgid "Internal Note Title"
+msgstr "Intern anteckningstitel"
+
+msgid "Ticket Department Transfer"
+msgstr "Transfer av biljettavdelningen"
+
+msgid "Change Ticket Priority"
+msgstr "Ändra biljettprioritet"
+
+msgid "View Ticket"
+msgstr "Se biljett"
+
+msgid "New Ticket Notification"
+msgstr "Ny biljettmeddelande"
+
+msgid "Edit Own Time"
+msgstr "Redigera egen tid"
+
+msgid "View Feedback"
+msgstr "Visa feedback"
+
+msgid "View Ticket Merge"
+msgstr "Visa Ticket Merge"
+
+msgid "View Credentials"
+msgstr "Visa inloggningsuppgifter"
+
+msgid "Delete Credentials"
+msgstr "Ta bort inloggningsuppgifter"
+
+msgid "Edit Credentials"
+msgstr "Redigera inloggningsuppgifter"
+
+msgid "Add Credentials"
+msgstr "Lägg till autentiseringsuppgifter"
+
+msgid "Mark Non Premium"
+msgstr "Markera Non Premium"
+
+msgid "Link To Paid Support"
+msgstr "Länk till betald support"
+
+msgid "Assign Role Permissions"
+msgstr "Tilldela rollbehörigheter"
+
+msgid "Add User"
+msgstr "Lägg till användare"
+
+msgid "Edit User"
+msgstr "Redigera användare"
+
+msgid "Assign User Permissions"
+msgstr "Tilldela användarbehörigheter"
+
+msgid "Delete Department"
+msgstr "Ta bort avdelning"
+
+msgid "View Department"
+msgstr "Se avdelning"
+
+msgid "View Role"
+msgstr "Visa roll"
+
+msgid "View User"
+msgstr "Visa användare"
+
+msgid "View Agent Reports"
+msgstr "Visa agentrapporter"
+
+msgid "View Department Reports"
+msgstr "Se avdelningsrapporter"
+
+msgid "Manage Ticket Close Reasons"
+msgstr "Hantera skäl för stängning av biljetter"
+
+msgid "View Category"
+msgstr "Visa kategori"
+
+msgid "View Knowledge Base"
+msgstr "Se kunskapsbasen"
+
+msgid "Delete Category"
+msgstr "Ta bort kategori"
+
+msgid "Delete Knowledge Base"
+msgstr "Ta bort kunskapsbas"
+
+msgid "View FAQ"
+msgstr "Se FAQ"
+
+msgid "Delete FAQ"
+msgstr "Ta bort FAQ"
+
+msgid "View Download"
+msgstr "Visa nedladdning"
+
+msgid "Delete Download"
+msgstr "Ta bort nedladdning"
+
+msgid "Delete Announcement"
+msgstr "Ta bort meddelande"
+
+msgid "Allow Mail System"
+msgstr "Tillåt Mail System"
+
+msgid "Edit Help Topic"
+msgstr "Redigera hjälpämne"
+
+msgid "View Help Topic"
+msgstr "Visa hjälpämne"
+
+msgid "Delete Help Topic"
+msgstr "Ta bort hjälpämne"
+
+msgid "Edit Premade Response"
+msgstr "Redigera färdigt svar"
+
+msgid "View Premade Response"
+msgstr "Visa förhandssvar"
+
+msgid "Delete Premade Response"
+msgstr "Ta bort färdigt svar"
+
+msgid "Edit Smart Reply"
+msgstr "Redigera smartsvar"
+
+msgid "View Smart Reply"
+msgstr "Visa Smart svar"
+
+msgid "Delete Smart Reply"
+msgstr "Ta bort Smart Reply"
+
+msgid "Add Ban Email"
+msgstr "Lägg till Ban E-post"
+
+msgid "Edit Ban Email"
+msgstr "Redigera förbudsmail"
+
+msgid "View Ban Email"
+msgstr "Visa Ban E-post"
+
+msgid "Delete Ban Email"
+msgstr "Ta bort förbudsmail"
+
+msgid "View Announcement"
+msgstr "Visa meddelande"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Add Permissions"
+msgstr "Lägg till behörigheter"
+
+msgid "Add Rule"
+msgstr "Lägg till regel"
+
+msgid "Contain"
+msgstr "Innehålla"
+
+msgid "Matched"
+msgstr "Matchat"
+
+msgid "Submit Type"
+msgstr "Skicka typ"
+
+msgid "Addons Status"
+msgstr "Tilläggsstatus"
+
+msgid "Assign To"
+msgstr "Tilldela till"
+
+msgid "Agent Detail Report"
+msgstr "Agent detaljrapport"
+
+msgid "User Detail Report"
+msgstr "Användardetaljrapport"
+
+msgid "Satisfaction Reports"
+msgstr "Nöjdhetsrapporter"
+
+msgid "Admin New Ticket Received"
+msgstr "Admin Ny biljett mottagen"
+
+msgid "Staff New Ticket Received"
+msgstr "Personal Ny biljett mottagen"
+
+msgid "New Department Received"
+msgstr "Ny avdelning mottagen"
+
+msgid "New Group Received"
+msgstr "Ny grupp mottagen"
+
+msgid "New Agent Received"
+msgstr "Ny agent mottagen"
+
+msgid "New Help Topic Received"
+msgstr "Nytt hjälpämne mottaget"
+
+msgid "Admin Reassign Ticket"
+msgstr "Admin omtilldela biljett"
+
+msgid "Staff Reassign Ticket"
+msgstr "Personal omtilldela biljett"
+
+msgid "Admin Close Ticket"
+msgstr "Admin Stäng biljett"
+
+msgid "Staff Close Ticket"
+msgstr "Personal Stäng biljett"
+
+msgid "Admin Delete Ticket"
+msgstr "Admin Radera biljett"
+
+msgid "Staff Delete Ticket"
+msgstr "Personal Radera biljett"
+
+msgid "Admin Overdue Ticket"
+msgstr "Admin försenad biljett"
+
+msgid "Staff Overdue Ticket"
+msgstr "Personal försenad biljett"
+
+msgid "Admin Email Baned"
+msgstr "Admin e-post förbjuden"
+
+msgid "Staff Email Baned"
+msgstr "Personalens e-post förbjuden"
+
+msgid "Admin Ticket Transfered to Department"
+msgstr "Adminbiljett överförd till avdelning"
+
+msgid "Staff Ticket Transfered to Department"
+msgstr "Personalbiljett överförd till avdelning"
+
+msgid "Admin Email baned and ticket closed"
+msgstr "Admin E-post förbjuden och biljetten stängd"
+
+msgid "Staff Email baned and ticket closed"
+msgstr "Personalens e-post förbjuden och biljetten stängd"
+
+msgid "Admin Email Unbaned"
+msgstr "Admin e-post avstängd"
+
+msgid "Staff Email Unbaned"
+msgstr "Personalens e-post förbjuden"
+
+msgid "Admin Ticket Reply"
+msgstr "Admin Ticket Svar"
+
+msgid "Staff Ticket Reply"
+msgstr "Personalbiljettsvar"
+
+msgid "Ticket Received"
+msgstr "Biljett mottagen"
+
+msgid "Banemail try new ticket"
+msgstr "Banemail prova ny biljett"
+
+msgid "Admin Ticket has been locked"
+msgstr "Admin Ticket har låsts"
+
+msgid "Staff Ticket has been locked"
+msgstr "Personalbiljett har låsts"
+
+msgid "Admin Ticket has been unlocked"
+msgstr "Admin Ticket har låsts upp"
+
+msgid "Staff Ticket has been unlocked"
+msgstr "Personalbiljetten har låsts upp"
+
+msgid "Admin In progress Ticket"
+msgstr "Admin pågår biljett"
+
+msgid "Staff In progress Ticket"
+msgstr "Personal Pågår Biljett"
+
+msgid "Admin Ticket priority changed"
+msgstr "Admin Ticket-prioritet har ändrats"
+
+msgid "Staff Ticket priority changed"
+msgstr "Personalbiljettprioritet har ändrats"
+
+msgid "New Mail has been sent"
+msgstr "Nytt mail har skickats"
+
+msgid "New Reply has been sent"
+msgstr "Nytt svar har skickats"
+
+msgid "Delete User Data"
+msgstr "Ta bort användardata"
+
+msgid "Closed on"
+msgstr "Stängt på"
+
+msgid "Message could not be sent. Mailer Error: "
+msgstr "Meddelandet kunde inte skickas. Mailer-fel:"
+
+msgid "Test email has been sent on : "
+msgstr "Testmail har skickats den:"
+
+msgid "The system has no agents add an agent to maximize your productivity."
+msgstr "Systemet har inga agenter som lägger till en agent för att maximera din produktivitet."

@@ -1,0 +1,6144 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "You are not allowed"
+msgstr "غير مسموح لك"
+
+msgid "The ticket has been locked"
+msgstr "لقد تم قفل التذكرة"
+
+msgid "Successfully"
+msgstr "بنجاح"
+
+msgid "The ticket has not been locked"
+msgstr "لم يتم قفل التذكرة"
+
+msgid "Lock Ticket"
+msgstr "تذكرة القفل"
+
+msgid "The ticket is locked by"
+msgstr "التذكرة مقفلة"
+
+msgid "The ticket has been unlocked"
+msgstr "لقد تم فتح التذكرة"
+
+msgid "The ticket has not been unlocked"
+msgstr "لم يتم فتح التذكرة"
+
+msgid "Unlock Ticket"
+msgstr "فتح التذكرة"
+
+msgid "User already an agent"
+msgstr "المستخدم بالفعل وكيل"
+
+msgid "The agent has not been stored"
+msgstr "لم يتم تخزين الوكيل"
+
+msgid "The agent has been stored"
+msgstr "تم تخزين الوكيل"
+
+msgid "The agent has been deleted"
+msgstr "تم حذف الوكيل"
+
+msgid "The agent has not been deleted"
+msgstr "لم يتم حذف الوكيل"
+
+msgid "The agent in use cannot delete"
+msgstr "لا يمكن حذف العامل المستخدم"
+
+msgid "Agent"
+msgstr "عامل"
+
+msgid "status has been changed"
+msgstr "تم تغيير الحالة"
+
+msgid "status has not been changed"
+msgstr "لم يتم تغيير الوضع"
+
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+msgid "User Name"
+msgstr "اسم المستخدم"
+
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+msgid "Name"
+msgstr "اسم"
+
+msgid "Email"
+msgstr "بريد إلكتروني"
+
+msgid "Previous"
+msgstr "سابق"
+
+msgid "Next"
+msgstr "التالي"
+
+msgid "Error Deleting Logo"
+msgstr "حدث خطأ أثناء حذف الشعار"
+
+msgid "Active"
+msgstr "نشيط"
+
+msgid "Disabled"
+msgstr "عاجز"
+
+msgid "Uploaded file extension error."
+msgstr "خطأ في امتداد الملف الذي تم تحميله."
+
+msgid "Select user"
+msgstr "اختر المستخدم"
+
+msgid "Username"
+msgstr "اسم المستخدم"
+
+msgid "Search"
+msgstr "يبحث"
+
+msgid "Reset"
+msgstr "إعادة ضبط"
+
+msgid "Use search feature to select the user"
+msgstr "استخدم خاصية البحث لاختيار المستخدم"
+
+msgid "image"
+msgstr "صورة"
+
+msgid "Add Agent"
+msgstr "إضافة وكيل"
+
+msgid "WP User ID"
+msgstr "معرف مستخدم الفسفور الأبيض"
+
+msgid "WP Username"
+msgstr "اسم مستخدم الوب"
+
+msgid "WP Full Name"
+msgstr "الفسفور الأبيض الاسم الكامل"
+
+msgid "WP Email Address"
+msgstr "عنوان البريد الإلكتروني الوب"
+
+msgid "User"
+msgstr "مستخدم"
+
+msgid "Select User"
+msgstr "اختر المستخدم"
+
+msgid "Select Role"
+msgstr "حدد الدور"
+
+msgid "First Name"
+msgstr "الاسم الأول"
+
+msgid "Last Name"
+msgstr "اسم العائلة"
+
+msgid "Office Phone"
+msgstr "هاتف المكتب"
+
+msgid "Extension"
+msgstr "امتداد"
+
+msgid "Mobile No"
+msgstr "رقم المحمول"
+
+msgid "Picture"
+msgstr "صورة"
+
+msgid "cross"
+msgstr "يعبر"
+
+msgid "Maximum File Size"
+msgstr "حجم الملف الأقصى"
+
+msgid "File Extension Type"
+msgstr "نوع امتداد الملف"
+
+msgid "Append Signature"
+msgstr "إلحاق التوقيع"
+
+msgid "Append signature with a reply"
+msgstr "إلحاق التوقيع مع الرد"
+
+msgid "Signature"
+msgstr "إمضاء"
+
+msgid "Account Status"
+msgstr "حالة الحساب"
+
+msgid "Select Status"
+msgstr "حدد الحالة"
+
+msgid "Save"
+msgstr "يحفظ"
+
+msgid "Cancel"
+msgstr "يلغي"
+
+msgid "Close"
+msgstr "يغلق"
+
+msgid "User Detail"
+msgstr "تفاصيل المستخدم"
+
+msgid "Append"
+msgstr "ألحق"
+
+msgid "Department Section"
+msgstr "القسم الشعبة"
+
+msgid "Ticket Section"
+msgstr "قسم التذاكر"
+
+msgid "Agent Section"
+msgstr "قسم الوكيل"
+
+msgid "Knowledge Base Section"
+msgstr "قسم قاعدة المعرفة"
+
+msgid "FAQ Section"
+msgstr "قسم الأسئلة الشائعة"
+
+msgid "Download Section"
+msgstr "تحميل القسم"
+
+msgid "Announcement Section"
+msgstr "قسم الإعلان"
+
+msgid "Mail Section"
+msgstr "قسم البريد"
+
+msgid "Help Topic Section"
+msgstr "قسم موضوع المساعدة"
+
+msgid "Premade Response Section"
+msgstr "قسم الاستجابة المعدة مسبقا"
+
+msgid "Smart Reply Section"
+msgstr "قسم الرد الذكي"
+
+msgid "Ban Email Section"
+msgstr "قسم حظر البريد الإلكتروني"
+
+msgid "Select / Deselect All"
+msgstr "حدد / قم بإلغاء تحديد الكل"
+
+msgid "Save Permissions"
+msgstr "حفظ الأذونات"
+
+msgid "Full Name"
+msgstr "الاسم الكامل"
+
+msgid "Status"
+msgstr "حالة"
+
+msgid "Created"
+msgstr "مخلوق"
+
+msgid "Permissions"
+msgstr "الأذونات"
+
+msgid "Action"
+msgstr "فعل"
+
+msgid "Staff"
+msgstr "طاقم عمل"
+
+msgid "change status"
+msgstr "تغيير الوضع"
+
+msgid "Edit"
+msgstr "يحرر"
+
+msgid "Delete"
+msgstr "يمسح"
+
+msgid "Are you sure you want to delete"
+msgstr "هل أنت متأكد أنك تريد حذف"
+
+msgid "Something went wrong to try again later."
+msgstr "حدث خطأ ما. حاول مرة أخرى لاحقًا."
+
+msgid "My Profile"
+msgstr "ملفي"
+
+msgid "Upload Image"
+msgstr "تحميل الصور"
+
+msgid "Phone No"
+msgstr "رقم الهاتف"
+
+msgid "Upload file limit exceeds"
+msgstr "تجاوز حد تحميل الملف"
+
+msgid "No help topic found"
+msgstr "لم يتم العثور على موضوع تعليمات"
+
+msgid "Error file size too large"
+msgstr "حجم ملف الخطأ كبير جدًا"
+
+msgid "Submit Ticket"
+msgstr "قدم التذكرة"
+
+msgid "Select Department"
+msgstr "اختر القسم"
+
+msgid "Select Help Topic"
+msgstr "حدد موضوع التعليمات"
+
+msgid "Select Priority"
+msgstr "حدد الأولوية"
+
+msgid "premade"
+msgstr "معد سابقا"
+
+msgid "Add more"
+msgstr "أضف المزيد"
+
+msgid "Remove"
+msgstr "يزيل"
+
+msgid "Reason for edit"
+msgstr "سبب التعديل"
+
+msgid "Internal Note"
+msgstr "مذكرة داخلية"
+
+msgid "Enter valid woocommerce order#"
+msgstr "أدخل رقم طلب woocommerce صالحًا"
+
+msgid "Order id found"
+msgstr "تم العثور على معرف الطلب"
+
+msgid "Order id not found"
+msgstr "لم يتم العثور على معرف الطلب"
+
+msgid "Select Product"
+msgstr "حدد المنتج"
+
+msgid "Dated"
+msgstr "بتاريخ"
+
+msgid "Select Order ID"
+msgstr "حدد معرف الطلب"
+
+msgid "Select license key"
+msgstr "حدد مفتاح الترخيص"
+
+msgid "Assign to me"
+msgstr "خصص لي"
+
+msgid "Show All"
+msgstr "عرض الكل"
+
+msgid "Show Less"
+msgstr "عرض أقل"
+
+msgid "My Tickets"
+msgstr "تذاكري"
+
+msgid "Open"
+msgstr "يفتح"
+
+msgid "Closed"
+msgstr "مغلق"
+
+msgid "Answered"
+msgstr "أجاب"
+
+msgid "Overdue"
+msgstr "تأخرت"
+
+msgid "All Tickets"
+msgstr "جميع التذاكر"
+
+msgid "Ticket ID"
+msgstr "معرف التذكرة"
+
+msgid "Or"
+msgstr "أو"
+
+msgid "From"
+msgstr "من"
+
+msgid "Select Agent"
+msgstr "حدد الوكيل"
+
+msgid "Select"
+msgstr "يختار"
+
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+msgid "Assigned to me"
+msgstr "تعيين لي"
+
+msgid "All"
+msgstr "الجميع"
+
+msgid "Tickets"
+msgstr "التذاكر"
+
+msgid "Subject"
+msgstr "موضوع"
+
+msgid "Priority"
+msgstr "أولوية"
+
+msgid "sort"
+msgstr "نوع"
+
+msgid "New"
+msgstr "جديد"
+
+msgid "Waiting Reply"
+msgstr "في انتظار الرد"
+
+msgid "In Progress"
+msgstr "في تَقَدم"
+
+msgid "Replied"
+msgstr "أجاب"
+
+msgid "Close and merge"
+msgstr "إغلاق ودمج"
+
+msgid "Created via Email"
+msgstr "تم إنشاؤها عبر البريد الإلكتروني"
+
+msgid "The ticket is locked"
+msgstr "التذكرة مقفلة"
+
+msgid "The ticket marks as overdue"
+msgstr "تشير التذكرة إلى أنها متأخرة"
+
+msgid "Last Reply"
+msgstr "الرد الأخير"
+
+msgid "Agent Permissions"
+msgstr "أذونات الوكيل"
+
+msgid "Agents"
+msgstr "عملاء"
+
+msgid "Add agent"
+msgstr "إضافة وكيل"
+
+msgid "Search by username"
+msgstr "البحث حسب اسم المستخدم"
+
+msgid "Already exists"
+msgstr "موجود أصلا"
+
+msgid "The role has been stored"
+msgstr "تم تخزين الدور"
+
+msgid "The role has not been stored"
+msgstr "لم يتم تخزين الدور"
+
+msgid "The role has been deleted"
+msgstr "تم حذف الدور"
+
+msgid "The role has not been deleted"
+msgstr "لم يتم حذف الدور"
+
+msgid "The role currently in use cannot be deleted"
+msgstr "لا يمكن حذف الدور المستخدم حاليًا"
+
+msgid "Add Role"
+msgstr "أضف دور"
+
+msgid "Save Role"
+msgstr "حفظ الدور"
+
+msgid "Role Name"
+msgstr "اسم الدور"
+
+msgid "Role Permission"
+msgstr "إذن الدور"
+
+msgid "Role Permissions"
+msgstr "أذونات الدور"
+
+msgid "Role permissions"
+msgstr "أذونات الدور"
+
+msgid "Agent permissions have been stored"
+msgstr "تم تخزين أذونات الوكيل"
+
+msgid "Select Condition Operator"
+msgstr "حدد عامل الحالة"
+
+msgid "Select Submit Type"
+msgstr "حدد نوع الإرسال"
+
+msgid "Rule has been stored"
+msgstr "تم تخزين القاعدة"
+
+msgid "Rule has not been stored"
+msgstr "لم يتم تخزين القاعدة"
+
+msgid "Rule has been deleted"
+msgstr "تم حذف القاعدة"
+
+msgid "Rule has not been deleted"
+msgstr "لم يتم حذف القاعدة"
+
+msgid "Rule"
+msgstr "قاعدة"
+
+msgid "in use cannot deleted"
+msgstr "قيد الاستخدام لا يمكن حذفها"
+
+msgid "Condition Title"
+msgstr "عنوان الحالة"
+
+msgid "Select Condition Title"
+msgstr "حدد عنوان الشرط"
+
+msgid "Condition Operator"
+msgstr "عامل الحالة"
+
+msgid "Condition Value"
+msgstr "قيمة الحالة"
+
+msgid "Select Condition Value"
+msgstr "حدد قيمة الشرط"
+
+msgid "Delete Condition"
+msgstr "حذف الشرط"
+
+msgid "No Operator found"
+msgstr "لم يتم العثور على عامل"
+
+msgid "No Value found"
+msgstr "لم يتم العثور على قيمة"
+
+msgid "Rule Title"
+msgstr "عنوان القاعدة"
+
+msgid "Condition value"
+msgstr "قيمة الحالة"
+
+msgid "+Add more Condition"
+msgstr "+ إضافة المزيد من الشروط"
+
+msgid "Save Rule"
+msgstr "حفظ القاعدة"
+
+msgid "Records per page"
+msgstr "تسجيلات لكل صفحة"
+
+msgid "Save Ordering"
+msgstr "حفظ الطلب"
+
+msgid "An announcement has been stored"
+msgstr "تم تخزين إعلان"
+
+msgid "An announcement has not been stored"
+msgstr "لم يتم تخزين إعلان"
+
+msgid "An announcement has been deleted"
+msgstr "تم حذف إعلان"
+
+msgid "An announcement has not been deleted"
+msgstr "لم يتم حذف إعلان"
+
+msgid "Announcement"
+msgstr "إعلان"
+
+msgid "ordering has been changed"
+msgstr "تم تغيير الترتيب"
+
+msgid "ordering has not changed"
+msgstr "لم يتغير الترتيب"
+
+msgid "Public"
+msgstr "عام"
+
+msgid "Private"
+msgstr "خاص"
+
+msgid "Add Announcement"
+msgstr "إضافة إعلان"
+
+msgid "Title"
+msgstr "عنوان"
+
+msgid "Parent Category"
+msgstr "القسم الرئيسي"
+
+msgid "Select Category"
+msgstr "اختر الفئة"
+
+msgid "Description"
+msgstr "وصف"
+
+msgid "Select Visibility"
+msgstr "حدد إمكانية الرؤية"
+
+msgid "All users"
+msgstr "جميع المستخدمين"
+
+msgid "Only logged-in users"
+msgstr "فقط المستخدمين الذين قاموا بتسجيل الدخول"
+
+msgid "Visible To"
+msgstr "مرئي ل"
+
+msgid "Save Announcement"
+msgstr "إعلان حفظ"
+
+msgid "Category"
+msgstr "فئة"
+
+msgid "Ordering"
+msgstr "الطلب"
+
+msgid "Announcement Detail"
+msgstr "تفاصيل الإعلان"
+
+msgid "Category Name"
+msgstr "اسم التصنيف"
+
+msgid "Announcements"
+msgstr "الإعلانات"
+
+msgid "Categories"
+msgstr "فئات"
+
+msgid "Add Announcements"
+msgstr "أضف إعلانات"
+
+msgid "Logger Email"
+msgstr "البريد الإلكتروني للمسجل"
+
+msgid "Log"
+msgstr "سجل"
+
+msgid "Logger"
+msgstr "المسجل"
+
+msgid "IP Address"
+msgstr "عنوان IP"
+
+msgid "Ban email has been stored"
+msgstr "تم تخزين البريد الإلكتروني المحظور"
+
+msgid "Ban email has not been stored"
+msgstr "لم يتم تخزين حظر البريد الإلكتروني"
+
+msgid "Ban email has been deleted"
+msgstr "تم حذف البريد الإلكتروني المحظور"
+
+msgid "Ban email has not been deleted"
+msgstr "لم يتم حذف البريد الإلكتروني الخاص بالحظر"
+
+msgid "Ban email does not exist"
+msgstr "حظر البريد الإلكتروني غير موجود"
+
+msgid "Add Email"
+msgstr "إضافة البريد الإلكتروني"
+
+msgid "Save Email"
+msgstr "حفظ البريد الإلكتروني"
+
+msgid "Save Banned Email"
+msgstr "حفظ البريد الإلكتروني المحظور"
+
+msgid "Emails"
+msgstr "رسائل البريد الإلكتروني"
+
+msgid "Submitter"
+msgstr "مقدم"
+
+msgid "Banned Emails"
+msgstr "رسائل البريد الإلكتروني المحظورة"
+
+msgid "Are you sure you want to delete it?"
+msgstr "هل أنت متأكد أنك تريد حذف ذلك؟"
+
+msgid "Premade response message has been stored"
+msgstr "تم تخزين رسالة الرد المعدة مسبقًا"
+
+msgid "Premade response message has not been stored"
+msgstr "لم يتم تخزين رسالة الاستجابة المعدة مسبقًا"
+
+msgid "Premade department message has been deleted"
+msgstr "تم حذف رسالة القسم المعدة مسبقا"
+
+msgid "Premade department message has not been deleted"
+msgstr "لم يتم حذف رسالة القسم المعدة مسبقًا"
+
+msgid "Premade response"
+msgstr "استجابة مسبقة"
+
+msgid "Add Premade Response"
+msgstr "أضف استجابة مسبقة الصنع"
+
+msgid "Department"
+msgstr "قسم"
+
+msgid "Response"
+msgstr "إجابة"
+
+msgid "Save Premade Response"
+msgstr "حفظ الاستجابة المعدة مسبقًا"
+
+msgid "The department under which the answer will be made is available"
+msgstr "القسم الذي سيتم الرد تحته موجود"
+
+msgid "Offline"
+msgstr "غير متصل على الانترنت"
+
+msgid "Last Updated"
+msgstr "آخر تحديث"
+
+msgid "Not updated"
+msgstr "غير محدث"
+
+msgid "Premade Response"
+msgstr "استجابة مسبقة الصنع"
+
+msgid "Latest Tickets"
+msgstr "أحدث التذاكر"
+
+msgid "Last Month Ticket Stats"
+msgstr "إحصائيات التذاكر للشهر الماضي"
+
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+msgid "The attachment has been removed"
+msgstr "تمت إزالة المرفق"
+
+msgid "The attachment has not been removed"
+msgstr "لم تتم إزالة المرفق"
+
+msgid "The download has been stored"
+msgstr "تم تخزين التنزيل"
+
+msgid "The download has not been stored"
+msgstr "لم يتم تخزين التحميل"
+
+msgid "Download"
+msgstr "تحميل"
+
+msgid "The download has been deleted"
+msgstr "تم حذف التنزيل"
+
+msgid "The download has not been deleted"
+msgstr "لم يتم حذف التحميل"
+
+msgid "Download All"
+msgstr "تحميل الكل"
+
+msgid "Add Download"
+msgstr "إضافة تحميل"
+
+msgid "Attachments"
+msgstr "المرفقات"
+
+msgid "Save Download"
+msgstr "حفظ تحميل"
+
+msgid "Add More Files"
+msgstr "إضافة المزيد من الملفات"
+
+msgid "Delete attachment"
+msgstr "حذف المرفق"
+
+msgid "grab"
+msgstr "يمسك"
+
+msgid "Attachment"
+msgstr "مرفق"
+
+msgid "Downloads"
+msgstr "التحميلات"
+
+msgid "Files"
+msgstr "ملفات"
+
+msgid "Majestic Support"
+msgstr "دعم مهيب"
+
+msgid "Get Help"
+msgstr "احصل على مساعدة"
+
+msgid "Email CC has been stored"
+msgstr "تم تخزين البريد الإلكتروني CC"
+
+msgid "Email CC has not been stored"
+msgstr "لم يتم تخزين البريد الإلكتروني CC"
+
+msgid "Email CC has been deleted"
+msgstr "لقد تم حذف نسخة البريد الإلكتروني"
+
+msgid "Email CC has not been deleted"
+msgstr "لم يتم حذف نسخة البريد الإلكتروني"
+
+msgid "Email CC "
+msgstr "البريد الإلكتروني CC"
+
+msgid "Email CC"
+msgstr "البريد الإلكتروني CC"
+
+msgid "Template Type"
+msgstr "نوع القالب"
+
+msgid "Select Template Type"
+msgstr "حدد نوع القالب"
+
+msgid "Delete row"
+msgstr "احذف صف"
+
+msgid "Template For"
+msgstr "قالب ل"
+
+msgid "Select Template For"
+msgstr "حدد قالب ل"
+
+msgid "Template Title"
+msgstr "عنوان القالب"
+
+msgid "Add more row"
+msgstr "إضافة المزيد من الصف"
+
+msgid "Save Email CC"
+msgstr "حفظ البريد الإلكتروني CC"
+
+msgid "Service is running, please close the pag"
+msgstr "الخدمة قيد التشغيل، يرجى إغلاق الصفحة"
+
+msgid "Your setting is working please this."
+msgstr "الإعداد الخاص بك يعمل من فضلك هذا."
+
+msgid "Connection established but the system cannot read any email"
+msgstr "تم إنشاء الاتصال ولكن النظام لا يمكنه قراءة أي بريد إلكتروني"
+
+msgid "The setting has been stored."
+msgstr "تم تخزين الإعداد."
+
+msgid "The setting has not been stored."
+msgstr "لم يتم تخزين الإعداد."
+
+msgid "Email address already exist"
+msgstr "عنوان البريد الإلكتروني موجود بالفعل"
+
+msgid "Email for email piping has been stored"
+msgstr "تم تخزين البريد الإلكتروني لأنابيب البريد الإلكتروني"
+
+msgid "Email for email piping has not been stored"
+msgstr "لم يتم تخزين البريد الإلكتروني لأنابيب البريد الإلكتروني"
+
+msgid "The email has been deleted"
+msgstr "لقد تم حذف البريد الإلكتروني"
+
+msgid "The email has not been deleted"
+msgstr "لم يتم حذف البريد الإلكتروني"
+
+msgid "Enabled"
+msgstr "ممكّن"
+
+msgid "Only New Tickets"
+msgstr "التذاكر الجديدة فقط"
+
+msgid "Only Replies"
+msgstr "الردود فقط"
+
+msgid "Both"
+msgstr "كلاهما"
+
+msgid "Other"
+msgstr "آخر"
+
+msgid "Yes"
+msgstr "نعم"
+
+msgid "Please enter the hostname first"
+msgstr "الرجاء إدخال اسم المضيف أولاً"
+
+msgid "Please enable email piping setting first"
+msgstr "الرجاء تمكين إعداد توجيه البريد الإلكتروني أولاً"
+
+msgid "Enable email piping"
+msgstr "تمكين أنابيب البريد الإلكتروني"
+
+msgid "Ticket Type"
+msgstr "نوع التذكرة"
+
+msgid "Which email type to read"
+msgstr "نوع البريد الإلكتروني الذي تريد قراءته"
+
+msgid "Save attachments if found in an email"
+msgstr "حفظ المرفقات إذا وجدت في البريد الإلكتروني"
+
+msgid "Host Type"
+msgstr "نوع المضيف"
+
+msgid "Select your email service provider"
+msgstr "حدد مزود خدمة البريد الإلكتروني الخاص بك"
+
+msgid "Host Name"
+msgstr "اسم المضيف"
+
+msgid "Enabled SSL"
+msgstr "تمكين طبقة المقابس الآمنة"
+
+msgid "Do you have enabled SSL on your domain?"
+msgstr "هل قمت بتمكين SSL على المجال الخاص بك؟"
+
+msgid "Host Port Number"
+msgstr "رقم المنفذ المضيف"
+
+msgid "Host port number to read an email from"
+msgstr "رقم منفذ المضيف لقراءة البريد الإلكتروني منه"
+
+msgid "Email address to read emails"
+msgstr "عنوان البريد الإلكتروني لقراءة رسائل البريد الإلكتروني"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Password for a given email address"
+msgstr "كلمة المرور لعنوان البريد الإلكتروني المحدد"
+
+msgid "check"
+msgstr "يفحص"
+
+msgid "Check Settings"
+msgstr "تحقق من الإعدادات"
+
+msgid "If the system doesn't respond in 30 seconds"
+msgstr "إذا لم يستجب النظام خلال 30 ثانية"
+
+msgid "it means system unable to connect email server"
+msgstr "فهذا يعني أن النظام غير قادر على الاتصال بخادم البريد الإلكتروني"
+
+msgid "Save Settings"
+msgstr "احفظ التغييرات"
+
+msgid "Cron Job"
+msgstr "وظيفة كرون"
+
+msgid "Web Cron Job"
+msgstr "وظيفة ويب كرون"
+
+msgid "Curl"
+msgstr "لفة"
+
+msgid "PHP Script"
+msgstr "PHP البرنامج النصي"
+
+msgid "Configuration of a backup job with webcron.org"
+msgstr "تكوين مهمة النسخ الاحتياطي مع webcron.org"
+
+msgid "Name of cron job"
+msgstr "اسم وظيفة كرون"
+
+msgid "Log in to webcron.org and in the cron area, click on "
+msgstr "قم بتسجيل الدخول إلى webcron.org وفي منطقة cron، انقر فوق"
+
+msgid "Timeout"
+msgstr "نفذ الوقت"
+
+msgid "URL you want to execute"
+msgstr "عنوان URL الذي تريد تنفيذه"
+
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+msgid "Leave this blank"
+msgstr "اترك هذا فارغا"
+
+msgid "Execution time"
+msgstr "وقت التنفيذ"
+
+msgid "That the grid below the other options select when and how"
+msgstr "أن تقوم الشبكة الموجودة أسفل الخيارات الأخرى بتحديد متى وكيف"
+
+msgid "Alerts"
+msgstr "التنبيهات"
+
+msgid "Cron scheduling using wget"
+msgstr "جدولة كرون باستخدام wget"
+
+msgid "Cron scheduling using Curl"
+msgstr "جدولة كرون باستخدام Curl"
+
+msgid "Custom PHP script to run the cron job"
+msgstr "برنامج نصي PHP مخصص لتشغيل مهمة cron"
+
+msgid "Sorry the cron job did not work"
+msgstr "آسف وظيفة كرون لم تنجح"
+
+msgid "URL for use with your own scripts and third-party scripts"
+msgstr "عنوان URL للاستخدام مع البرامج النصية الخاصة بك والبرامج النصية التابعة لجهات خارجية"
+
+msgid "It is recommended to run the script every hour."
+msgstr "يوصى بتشغيل البرنامج النصي كل ساعة."
+
+msgid "Ticket Email Type"
+msgstr "نوع البريد الإلكتروني للتذكرة"
+
+msgid "ticket email"
+msgstr "البريد الإلكتروني للتذكرة"
+
+msgid "Overall Reports"
+msgstr "التقارير الشاملة"
+
+msgid "Agents Report"
+msgstr "تقرير الوكلاء"
+
+msgid "Department Report"
+msgstr "تقرير القسم"
+
+msgid "Departments Report"
+msgstr "تقرير الأقسام"
+
+msgid "Majestic Support Overall Reports"
+msgstr "التقارير الشاملة للدعم المهيب"
+
+msgid "Tickets By Status"
+msgstr "التذاكر حسب الحالة"
+
+msgid "Tickets By Departments"
+msgstr "التذاكر حسب الأقسام"
+
+msgid "Tickets By Priorities"
+msgstr "التذاكر حسب الأولويات"
+
+msgid "Tickets By Channel"
+msgstr "التذاكر حسب القناة"
+
+msgid "Direct"
+msgstr "مباشر"
+
+msgid "Direct reply"
+msgstr "الرد المباشر"
+
+msgid "Email reply"
+msgstr "الرد بالبريد الإلكتروني"
+
+msgid "Tickets By staff"
+msgstr "التذاكر من قبل الموظفين"
+
+msgid "Report By"
+msgstr "تقرير"
+
+msgid "agent"
+msgstr "عامل"
+
+msgid "To"
+msgstr "ل"
+
+msgid "Report By Agents"
+msgstr "تقرير من قبل الوكلاء"
+
+msgid "Ticket status by days"
+msgstr "حالة التذكرة بالأيام"
+
+msgid "Date"
+msgstr "تاريخ"
+
+msgid "Tickets Staff"
+msgstr "موظفي التذاكر"
+
+msgid "Average Rating"
+msgstr "متوسط ​​تقييم"
+
+msgid "Average Time"
+msgstr "متوسط ​​الوقت"
+
+msgid "Report By agent"
+msgstr "تقرير بواسطة الوكيل"
+
+msgid "Rating"
+msgstr "تقييم"
+
+msgid "Time"
+msgstr "وقت"
+
+msgid "Merged"
+msgstr "تم الدمج"
+
+msgid "Report By department"
+msgstr "تقرير حسب القسم"
+
+msgid "Tickets By Department"
+msgstr "التذاكر حسب القسم"
+
+msgid "Department Name"
+msgstr "اسم القسم"
+
+msgid "User report"
+msgstr "تقرير المستخدم"
+
+msgid "Users report"
+msgstr "تقرير المستخدمين"
+
+msgid "Users Tickets"
+msgstr "تذاكر المستخدمين"
+
+msgid "User Report"
+msgstr "تقرير المستخدم"
+
+msgid "Report By Departments"
+msgstr "تقرير حسب الإدارات"
+
+msgid "Tickets Data"
+msgstr "بيانات التذاكر"
+
+msgid "Message"
+msgstr "رسالة"
+
+msgid "Assigned To"
+msgstr "مخصص ل"
+
+msgid "Updated"
+msgstr "محدث"
+
+msgid "Due Date"
+msgstr "تاريخ الاستحقاق"
+
+msgid "Closed Date"
+msgstr "تاريخ مغلق"
+
+msgid "Closed Time"
+msgstr "وقت مغلق"
+
+msgid "Requester User Name"
+msgstr "اسم المستخدم الطالب"
+
+msgid "Requester Name"
+msgstr "اسم الطالب"
+
+msgid "Requester Email"
+msgstr "البريد الإلكتروني للطالب"
+
+msgid "Requester Phone"
+msgstr "هاتف الطالب"
+
+msgid "Requester help Topic"
+msgstr "موضوع مساعدة الطالب"
+
+msgid "Ticket Attachment"
+msgstr "مرفق التذكرة"
+
+msgid "Posted By"
+msgstr "منشور من طرف"
+
+msgid "Note Title"
+msgstr "ملاحظة العنوان"
+
+msgid "Note Message"
+msgstr "ملاحظة الرسالة"
+
+msgid "Posted Date"
+msgstr "تاريخ النشر"
+
+msgid "Note Attachment"
+msgstr "ملاحظة المرفق"
+
+msgid "User Time"
+msgstr "وقت المستخدم"
+
+msgid "System Time"
+msgstr "وقت النظام"
+
+msgid "Edit Reason"
+msgstr "تعديل السبب"
+
+msgid "Reply Date"
+msgstr "تاريخ الرد"
+
+msgid "Reply By"
+msgstr "الرد من قبل"
+
+msgid "Reply Attachment"
+msgstr "الرد بالمرفق"
+
+msgid "Total Tracking Time"
+msgstr "إجمالي وقت التتبع"
+
+msgid "Ticket Status"
+msgstr "حالة التذكرة"
+
+msgid "Select Ticket Status"
+msgstr "حدد حالة التذكرة"
+
+msgid "Ticket Overdue"
+msgstr "التذكرة متأخرة"
+
+msgid "Select Ticket Overdue Status"
+msgstr "حدد حالة التذكرة المتأخرة"
+
+msgid "Export Style"
+msgstr "نمط التصدير"
+
+msgid "Single Header"
+msgstr "رأس واحد"
+
+msgid "Multiple Header"
+msgstr "رأس متعدد"
+
+msgid "Export"
+msgstr "يصدّر"
+
+msgid "FAQ has been stored"
+msgstr "تم تخزين الأسئلة الشائعة"
+
+msgid "FAQ has not been stored"
+msgstr "لم يتم تخزين الأسئلة الشائعة"
+
+msgid "FAQ has been deleted"
+msgstr "تم حذف الأسئلة الشائعة"
+
+msgid "FAQ has not been deleted"
+msgstr "لم يتم حذف الأسئلة الشائعة"
+
+msgid "FAQ"
+msgstr "التعليمات"
+
+msgid "Add FAQs"
+msgstr "أضف الأسئلة الشائعة"
+
+msgid "Save FAQ"
+msgstr "حفظ الأسئلة الشائعة"
+
+msgid "Content"
+msgstr "محتوى"
+
+msgid "FAQ Detail"
+msgstr "تفاصيل الأسئلة الشائعة"
+
+msgid "FAQs"
+msgstr "الأسئلة الشائعة"
+
+msgid "Search title"
+msgstr "عنوان البحث"
+
+msgid "Search keywords"
+msgstr "كلمات البحث"
+
+msgid "Sub Category Faqs"
+msgstr "أسئلة وأجوبة الفئة الفرعية"
+
+msgid "Add FAQ"
+msgstr "أضف الأسئلة الشائعة"
+
+msgid "Feedback has been stored"
+msgstr "تم تخزين التعليقات"
+
+msgid "Feedback has not been stored"
+msgstr "لم يتم تخزين التعليقات"
+
+msgid "user image"
+msgstr "صورة المستخدم"
+
+msgid "feedback image"
+msgstr "صورة ردود الفعل"
+
+msgid "Feedback"
+msgstr "تعليق"
+
+msgid "Latest Feedback"
+msgstr "أحدث تعليقات"
+
+msgid "Form Feedback"
+msgstr "ردود الفعل على النموذج"
+
+msgid "Submit Feedback"
+msgstr "إرسال الملاحظات"
+
+msgid "Help topic has been stored"
+msgstr "تم تخزين موضوع التعليمات"
+
+msgid "Help topic has not been stored"
+msgstr "لم يتم تخزين موضوع التعليمات"
+
+msgid "Help topic has been deleted"
+msgstr "تم حذف موضوع المساعدة"
+
+msgid "Help topic has not been deleted"
+msgstr "لم يتم حذف موضوع التعليمات"
+
+msgid "Help topic in use cannot be deleting"
+msgstr "لا يمكن حذف موضوع التعليمات قيد الاستخدام"
+
+msgid "Help topic"
+msgstr "موضوع المساعدة"
+
+msgid "Add Help Topic"
+msgstr "إضافة موضوع تعليمات"
+
+msgid "Help Topic"
+msgstr "موضوع المساعدة"
+
+msgid "Save Help Topic"
+msgstr "حفظ موضوع التعليمات"
+
+msgid "Help Topics"
+msgstr "مواضيع المساعدة"
+
+msgid "The category has been stored"
+msgstr "تم تخزين الفئة"
+
+msgid "The category has not been stored"
+msgstr "لم يتم تخزين الفئة"
+
+msgid "The category has been deleted"
+msgstr "تم حذف الفئة"
+
+msgid "The category has not been deleted"
+msgstr "لم يتم حذف الفئة"
+
+msgid "The category in use cannot be deleting"
+msgstr "لا يمكن حذف الفئة المستخدمة"
+
+msgid "Knowledgebase article has been stored"
+msgstr "تم تخزين مقالة قاعدة المعرفة"
+
+msgid "Knowledgebase article has not been stored"
+msgstr "لم يتم تخزين مقالة قاعدة المعارف"
+
+msgid "The article has been deleted"
+msgstr "تم حذف المقال"
+
+msgid "The article has not been deleted"
+msgstr "لم يتم حذف المقال"
+
+msgid "Article"
+msgstr "شرط"
+
+msgid "The parent category does not have this type."
+msgstr "الفئة الأصلية لا تحتوي على هذا النوع."
+
+msgid "Would you like to add this type to Parent Category?"
+msgstr "هل ترغب في إضافة هذا النوع إلى فئة الأصل؟"
+
+msgid "JYes"
+msgstr "نعم"
+
+msgid "Child category has this type,"
+msgstr "فئة الطفل لديها هذا النوع،"
+
+msgid "You cannot unmark it."
+msgstr "لا يمكنك إلغاء تحديده."
+
+msgid "Draft"
+msgstr "مسودة"
+
+msgid "Add Knowledge Base"
+msgstr "إضافة قاعدة المعرفة"
+
+msgid "Meta Description"
+msgstr "ميتا الوصف"
+
+msgid "Meta Keywords"
+msgstr "كلمات دلالية"
+
+msgid "Add More"
+msgstr "أضف المزيد"
+
+msgid "Save Knowledge Base"
+msgstr "حفظ قاعدة المعرفة"
+
+msgid "Please select at least one category for"
+msgstr "الرجاء تحديد فئة واحدة على الأقل ل"
+
+msgid "Add Category"
+msgstr "إضافة فئة"
+
+msgid "Category For"
+msgstr "فئة ل"
+
+msgid "Knowledge Base"
+msgstr "قاعدة المعرفة"
+
+msgid "Save Category"
+msgstr "حفظ الفئة"
+
+msgid "Meta Data Options"
+msgstr "خيارات بيانات التعريف"
+
+msgid "Category Title"
+msgstr "عنوان الفئة"
+
+msgid "category"
+msgstr "فئة"
+
+msgid "Knowledge Base Detail"
+msgstr "تفاصيل قاعدة المعرفة"
+
+msgid "Article Attachment"
+msgstr "مرفق المقال"
+
+msgid "Knowledgebase"
+msgstr "قاعدة المعرفة"
+
+msgid "Knowledge Base Articles"
+msgstr "مقالات قاعدة المعرفة"
+
+msgid "Sub Category Knowledgebase"
+msgstr "قاعدة معارف الفئة الفرعية"
+
+msgid "Mail has not been marked as read"
+msgstr "لم يتم وضع علامة على البريد كمقروء"
+
+msgid "Mail has been marked as read"
+msgstr "تم وضع علامة على البريد كمقروء"
+
+msgid "Message field cannot be empty"
+msgstr "لا يمكن أن يكون حقل الرسالة فارغًا"
+
+msgid "Mail has been sent"
+msgstr "تم إرسال البريد"
+
+msgid "Mail has not been sent"
+msgstr "لم يتم إرسال البريد"
+
+msgid "Mail has been deleted"
+msgstr "تم حذف البريد"
+
+msgid "Mail has not been deleted"
+msgstr "لم يتم حذف البريد"
+
+msgid "Mail"
+msgstr "بريد"
+
+msgid "is in use cannot be delete"
+msgstr "قيد الاستخدام ولا يمكن حذفه"
+
+msgid "Mail cannot mark as to read"
+msgstr "لا يمكن للبريد وضع علامة للقراءة"
+
+msgid "Mail cannot mark as unread"
+msgstr "لا يمكن وضع علامة غير مقروءة على البريد"
+
+msgid "Mail has been marked as unread"
+msgstr "تم وضع علامة على البريد كغير مقروء"
+
+msgid "Inbox"
+msgstr "صندوق الوارد"
+
+msgid "Outbox"
+msgstr "صندوق الصادر"
+
+msgid " )  "
+msgstr ")"
+
+msgid "Compose"
+msgstr "مؤلف موسيقى"
+
+msgid "Send"
+msgstr "يرسل"
+
+msgid "Read"
+msgstr "يقرأ"
+
+msgid "Unread"
+msgstr "غير مقروءة"
+
+msgid "Select Type"
+msgstr "اختر صنف"
+
+msgid "To use this feature you must be agent"
+msgstr "لاستخدام هذه الميزة يجب أن تكون وكيلاً"
+
+msgid "To use this feature you must have agents addon."
+msgstr "لاستخدام هذه الميزة يجب أن يكون لديك ملحق وكلاء."
+
+msgid "mark read"
+msgstr "علامة القراءة"
+
+msgid "mark unread"
+msgstr "علامة غير مقروء"
+
+msgid "Replied By"
+msgstr "تم الرد بواسطة"
+
+msgid "Reply"
+msgstr "رد"
+
+msgid ")  "
+msgstr ")"
+
+msgid "Type Message"
+msgstr "اكتب رسالة"
+
+msgid "Replies"
+msgstr "الردود"
+
+msgid "Limit exceeds maximum tickets"
+msgstr "الحد يتجاوز الحد الأقصى للتذاكر"
+
+msgid "The maximum number of open tickets limit has been exceeded."
+msgstr "تم تجاوز الحد الأقصى لعدد التذاكر المفتوحة."
+
+msgid "Ticket has been closed due to merged with"
+msgstr "تم إغلاق التذكرة بسبب الدمج مع"
+
+msgid "Ticket"
+msgstr "تذكرة"
+
+msgid "has been merged into"
+msgstr "تم دمجها في"
+
+msgid "Merge Ticket"
+msgstr "تذكرة الدمج"
+
+msgid "Search Ticket To Merge Into Another"
+msgstr "ابحث عن تذكرة للاندماج في أخرى"
+
+msgid "Edit Last Reply"
+msgstr "تحرير الرد الأخير"
+
+msgid "Merge Ticket Latest Reply"
+msgstr "دمج تذكرة الرد الأخير"
+
+msgid "Merge"
+msgstr "دمج"
+
+msgid "Ticket has been merged"
+msgstr "تم دمج التذكرة"
+
+msgid "Ticket has not been merged"
+msgstr "لم يتم دمج التذكرة"
+
+msgid "Disabled form cannot be set as default"
+msgstr "لا يمكن تعيين النموذج المعطل كافتراضي"
+
+msgid "Form has been stored"
+msgstr "تم تخزين النموذج"
+
+msgid "Form has not been stored"
+msgstr "لم يتم تخزين النموذج"
+
+msgid "Multiform has been deleted"
+msgstr "تم حذف الأشكال المتعددة"
+
+msgid "Multiform has not been deleted"
+msgstr "لم يتم حذف الأشكال المتعددة"
+
+msgid "Multiform in use"
+msgstr "متعدد الأشكال قيد الاستخدام"
+
+msgid " cannot deleted"
+msgstr "لا يمكن حذفها"
+
+msgid "Default form cannot be set as disabled"
+msgstr "لا يمكن تعيين النموذج الافتراضي على أنه معطل"
+
+msgid "Multiform"
+msgstr "متعدد الأشكال"
+
+msgid "default has not been changed"
+msgstr "لم يتم تغيير الافتراضي"
+
+msgid "default has been changed"
+msgstr "تم تغيير الافتراضي"
+
+msgid "Create Ticket"
+msgstr "إنشاء تذكرة"
+
+msgid "multiform"
+msgstr "متعدد الأشكال"
+
+msgid "Default"
+msgstr "تقصير"
+
+msgid "Save Multiform"
+msgstr "حفظ الأشكال المتعددة"
+
+msgid "Fields"
+msgstr "مجالات"
+
+msgid "Edit Fields"
+msgstr "تحرير الحقول"
+
+msgid "spinning wheel"
+msgstr "عجلة دوارة"
+
+msgid "Select Languages"
+msgstr "حدد اللغات"
+
+msgid "Select Language"
+msgstr "اختار اللغة"
+
+msgid "Email Template has been successfully deleted"
+msgstr "تم حذف قالب البريد الإلكتروني بنجاح"
+
+msgid "Email template has been stored"
+msgstr "تم تخزين قالب البريد الإلكتروني"
+
+msgid "Email template has not been stored"
+msgstr "لم يتم تخزين قالب البريد الإلكتروني"
+
+msgid "The internal note has been posted"
+msgstr "لقد تم نشر المذكرة الداخلية"
+
+msgid "The internal note has not been posted"
+msgstr "لم يتم نشر المذكرة الداخلية"
+
+msgid "Post Internal Note"
+msgstr "نشر ملاحظة داخلية"
+
+msgid "The internal note is posted by"
+msgstr "تم نشر المذكرة الداخلية بواسطة"
+
+msgid "Ticket Notification"
+msgstr "إشعار التذاكر"
+
+msgid "Once Weekly"
+msgstr "مرة واحدة أسبوعيا"
+
+msgid "Thanks for subscribing!"
+msgstr "شكرا على الإشتراك!"
+
+msgid "Ticket already marked overdue"
+msgstr "تم وضع علامة على التذكرة بأنها متأخرة بالفعل"
+
+msgid "The ticket has been marked as overdue"
+msgstr "تم وضع علامة على التذكرة بأنها متأخرة"
+
+msgid "The ticket has not been marked as overdue"
+msgstr "لم يتم وضع علامة على التذكرة بأنها متأخرة"
+
+msgid "System"
+msgstr "نظام"
+
+msgid "Mark overdue"
+msgstr "علامة متأخرة"
+
+msgid "The ticket is marked as overdue by"
+msgstr "تم وضع علامة على التذكرة بأنها متأخرة من قبل"
+
+msgid "The ticket has been unmarked as overdue"
+msgstr "لم يتم وضع علامة على التذكرة على أنها متأخرة"
+
+msgid "The ticket has not been unmarked as overdue"
+msgstr "لم يتم إلغاء تحديد التذكرة على أنها متأخرة"
+
+msgid "Unmark overdue"
+msgstr "قم بإلغاء تحديد التأخير"
+
+msgid "The ticket is unmarked as overdue by"
+msgstr "لم يتم وضع علامة على التذكرة على أنها تأخرت عن موعدها"
+
+msgid "Paid Support"
+msgstr "الدعم المدفوع"
+
+msgid "Check if you want to use this product for paid support"
+msgstr "تحقق مما إذا كنت تريد استخدام هذا المنتج للحصول على الدعم المدفوع"
+
+msgid "Paid support type"
+msgstr "نوع الدعم المدفوع"
+
+msgid "One-off Support"
+msgstr "دعم لمرة واحدة"
+
+msgid "Subscription Support"
+msgstr "دعم الاشتراك"
+
+msgid "Number of tickets"
+msgstr "عدد التذاكر"
+
+msgid "Credential Type"
+msgstr "نوع الاعتماد"
+
+msgid "Additional Info."
+msgstr "معلومات إضافية."
+
+msgid "Please insert values"
+msgstr "الرجاء إدخال القيم"
+
+msgid "Visitor"
+msgstr "زائر"
+
+msgid "By"
+msgstr "بواسطة"
+
+msgid "Credential removed on ticket close"
+msgstr "تمت إزالة بيانات الاعتماد عند إغلاق التذكرة"
+
+msgid "Failed to retrieve data"
+msgstr "فشل في استرداد البيانات"
+
+msgid "Reason has been stored"
+msgstr "تم تخزين السبب"
+
+msgid "Reason has not been stored"
+msgstr "لم يتم تخزين السبب"
+
+msgid "Reason has been deleted"
+msgstr "تم حذف السبب"
+
+msgid "Reason has not been deleted"
+msgstr "لم يتم حذف السبب"
+
+msgid "Reason"
+msgstr "سبب"
+
+msgid "Are you going to close this ticket?"
+msgstr "هل ستغلق هذه التذكرة؟"
+
+msgid "If you have a moment, please select a reason for closing the ticket."
+msgstr "إذا كان لديك لحظة، يرجى تحديد سبب لإغلاق التذكرة."
+
+msgid "Submit & Close"
+msgstr "إرسال وإغلاق"
+
+msgid "Skip & Close"
+msgstr "تخطي وإغلاق"
+
+msgid "Add Reason"
+msgstr "أضف سببًا"
+
+msgid "Save Reason"
+msgstr "حفظ السبب"
+
+msgid "Ticket Close Reasons"
+msgstr "أسباب إغلاق التذكرة"
+
+msgid "Mail Notification Widget"
+msgstr "القطعة إعلام البريد"
+
+msgid "Show newly and reply mail notifications"
+msgstr "إظهار إشعارات البريد الجديدة والرد عليها"
+
+msgid "New mail from"
+msgstr "بريد جديد من"
+
+msgid "Mail Notification"
+msgstr "إشعار البريد"
+
+msgid "Layout"
+msgstr "تَخطِيط"
+
+msgid "Max Record"
+msgstr "سجل ماكس"
+
+msgid "My Ticket Widget"
+msgstr "القطعة تذكرتي"
+
+msgid "Show unanswered tickets"
+msgstr "عرض التذاكر التي لم يتم الرد عليها"
+
+msgid "Order tickets"
+msgstr "طلب التذاكر"
+
+msgid "Close due to merge"
+msgstr "إغلاق بسبب الدمج"
+
+msgid "Product"
+msgstr "منتج"
+
+msgid "Order"
+msgstr "طلب"
+
+msgid "There is no ticket"
+msgstr "لا يوجد تذكرة"
+
+msgid "Something went wrong"
+msgstr "هناك خطأ ما"
+
+msgid "Transaction Key"
+msgstr "مفتاح المعاملة"
+
+msgid "Please select )"
+msgstr "الرجاء التحديد )"
+
+msgid "Hide notice"
+msgstr "إخفاء إشعار"
+
+msgid "Control Panel"
+msgstr "لوحة التحكم"
+
+msgid "Edit Announcement"
+msgstr "تحرير إعلان"
+
+msgid "Departments"
+msgstr "الأقسام"
+
+msgid "Add Department"
+msgstr "إضافة قسم"
+
+msgid "Edit Department"
+msgstr "قسم التحرير"
+
+msgid "Staff report"
+msgstr "تقرير الموظفين"
+
+msgid "Staff reports"
+msgstr "تقارير الموظفين"
+
+msgid "Departments report"
+msgstr "تقرير الإدارات"
+
+msgid "Edit Download"
+msgstr "تحرير التحميل"
+
+msgid "Edit FAQ"
+msgstr "تحرير الأسئلة الشائعة"
+
+msgid "Feedbacks"
+msgstr "التقيمات"
+
+msgid "Edit Knowledge Base"
+msgstr "تحرير قاعدة المعرفة"
+
+msgid "Edit Category"
+msgstr "تحرير الفئة"
+
+msgid "Send Message"
+msgstr "أرسل رسالة"
+
+msgid "Edit Role"
+msgstr "تحرير الدور"
+
+msgid "Staffs"
+msgstr "الموظفين"
+
+msgid "Add Staff"
+msgstr "أضف فريق العمل"
+
+msgid "Edit Staff"
+msgstr "تحرير الموظفين"
+
+msgid "Staff Permissions"
+msgstr "أذونات الموظفين"
+
+msgid "Add Ticket"
+msgstr "أضف تذكرة"
+
+msgid "Edit Ticket"
+msgstr "تحرير التذكرة"
+
+msgid "Ticket Detail"
+msgstr "تفاصيل التذكرة"
+
+msgid "Plus"
+msgstr "زائد"
+
+msgid "Equals"
+msgstr "يساوي"
+
+msgid "Minus"
+msgstr "ناقص"
+
+msgid "stars"
+msgstr "النجوم"
+
+msgid "Please write appreciated review at WP Extension Directory"
+msgstr "يرجى كتابة مراجعة موضع تقدير في WP Extension Directory"
+
+msgid "love"
+msgstr "حب"
+
+msgid "I'd love to help :)"
+msgstr "أحب أن أساعد :)"
+
+msgid "sad"
+msgstr "حزين"
+
+msgid "Not this time"
+msgstr "ليس هذه المرة"
+
+msgid "happy"
+msgstr "سعيد"
+
+msgid "I've already rated you"
+msgstr "لقد قمت بتقييمك بالفعل"
+
+msgid "close"
+msgstr "يغلق"
+
+msgid "thanks"
+msgstr "شكرًا"
+
+msgid "You are awesome !......"
+msgstr "أنت رائع !......"
+
+msgid "Thanks for your support, we really appreciate it."
+msgstr "شكرا لدعمكم، ونحن نقدر ذلك حقا."
+
+msgid "Majestic Support Team"
+msgstr "فريق الدعم المهيب"
+
+msgid "Remind you about this later?"
+msgstr "هل أذكرك بهذا لاحقًا؟"
+
+msgid "Remind me in 3 days"
+msgstr "ذكرني في 3 أيام"
+
+msgid "Remind me in 10 days"
+msgstr "ذكرني في 10 أيام"
+
+msgid "Remind me in 30 days"
+msgstr "ذكرني في 30 يوما"
+
+msgid "Don't remind me about this"
+msgstr "لا تذكرني بهذا"
+
+msgid "Dashboard"
+msgstr "لوحة القيادة"
+
+msgid "About Us"
+msgstr "معلومات عنا"
+
+msgid "Translations"
+msgstr "ترجمات"
+
+msgid "System Errors"
+msgstr "أخطاء النظام"
+
+msgid "slugs"
+msgstr "الرخويات"
+
+msgid "Slugs"
+msgstr "الرخويات"
+
+msgid "multiforms"
+msgstr "أشكال متعددة"
+
+msgid "Multiforms"
+msgstr "أشكال متعددة"
+
+msgid "Ticket Close Reason"
+msgstr "سبب إغلاق التذكرة"
+
+msgid "Smart Replies"
+msgstr "الردود الذكية"
+
+msgid "Smart Reply"
+msgstr "الرد الذكي"
+
+msgid "Add Smart Reply"
+msgstr "إضافة الرد الذكي"
+
+msgid "Agent Auto Assign"
+msgstr "تعيين الوكيل تلقائيًا"
+
+msgid "Auto Assign"
+msgstr "انتقاء ذاتي"
+
+msgid "Settings"
+msgstr "إعدادات"
+
+msgid "Cron Job URLs"
+msgstr "عناوين URL لوظيفة كرون"
+
+msgid "Premium Addons"
+msgstr "الإضافات المميزة"
+
+msgid "Install Add-ons"
+msgstr "تثبيت الوظائف الإضافية"
+
+msgid "Add-ons List"
+msgstr "قائمة الإضافات"
+
+msgid "Add-ons Status"
+msgstr "حالة الإضافات"
+
+msgid "Shortcodes"
+msgstr "الرموز المختصرة"
+
+msgid "Short Codes"
+msgstr "رموز قصيرة"
+
+msgid "Colors"
+msgstr "الألوان"
+
+msgid "Reports"
+msgstr "التقارير"
+
+msgid "Overall Statistics"
+msgstr "الإحصائيات الشاملة"
+
+msgid "Agent Reports"
+msgstr "تقارير الوكيل"
+
+msgid "Department Reports"
+msgstr "تقارير القسم"
+
+msgid "User Reports"
+msgstr "تقارير المستخدم"
+
+msgid "Satisfaction Report"
+msgstr "تقرير الرضا"
+
+msgid "Email Piping"
+msgstr "أنابيب البريد الإلكتروني"
+
+msgid "Priorities"
+msgstr "الأولويات"
+
+msgid "Add Priority"
+msgstr "أضف الأولوية"
+
+msgid "GDPR"
+msgstr "اللائحة العامة لحماية البيانات"
+
+msgid "Erase Data Requests"
+msgstr "محو طلبات البيانات"
+
+msgid "Feedback Fields"
+msgstr "حقول ردود الفعل"
+
+msgid "System Emails"
+msgstr "رسائل البريد الإلكتروني للنظام"
+
+msgid "Premade Responses"
+msgstr "ردود مسبقة الصنع"
+
+msgid "Banned Email Log List"
+msgstr "قائمة سجل البريد الإلكتروني المحظورة"
+
+msgid "Ban Emails"
+msgstr "حظر رسائل البريد الإلكتروني"
+
+msgid "Emial CC"
+msgstr "البريد الإلكتروني CC"
+
+msgid "Add Emial CC"
+msgstr "إضافة نسخة للبريد الإلكتروني"
+
+msgid "Add Email CC"
+msgstr "إضافة نسخة للبريد الإلكتروني"
+
+msgid "Email Templates"
+msgstr "قوالب البريد الإلكتروني"
+
+msgid "New Ticket"
+msgstr "تذكرة جديدة"
+
+msgid "Agent Ticket"
+msgstr "تذكرة الوكيل"
+
+msgid "New Agent"
+msgstr "وكيل جديد"
+
+msgid "Reassign Ticket"
+msgstr "إعادة تعيين التذكرة"
+
+msgid "Close Ticket"
+msgstr "إغلاق التذكرة"
+
+msgid "Delete Ticket"
+msgstr "حذف التذكرة"
+
+msgid "Mark Overdue"
+msgstr "مارك متأخر"
+
+msgid "Ban Email"
+msgstr "حظر البريد الإلكتروني"
+
+msgid "Ban email try to create ticket"
+msgstr "حاول حظر البريد الإلكتروني لإنشاء تذكرة"
+
+msgid "Department Transfer"
+msgstr "نقل القسم"
+
+msgid "Ban Email and Close Ticket"
+msgstr "حظر البريد الإلكتروني وإغلاق التذكرة"
+
+msgid "Unban Email"
+msgstr "إلغاء حظر البريد الإلكتروني"
+
+msgid "Response Ticket"
+msgstr "تذكرة الرد"
+
+msgid "Reply Ticket"
+msgstr "تذكرة الرد"
+
+msgid "New Ticket Admin Alert"
+msgstr "تنبيه مشرف التذاكر الجديد"
+
+msgid "In Progress Ticket"
+msgstr "تذكرة قيد التقدم"
+
+msgid "Ticket priority is changed by"
+msgstr "يتم تغيير أولوية التذكرة بواسطة"
+
+msgid "New Mail Received"
+msgstr "تم استلام بريد جديد"
+
+msgid "New Mail Message Received"
+msgstr "تم استلام رسالة بريدية جديدة"
+
+msgid "Feedback Email To User"
+msgstr "ردود الفعل البريد الإلكتروني إلى المستخدم"
+
+msgid "User Reply On Closed Ticket"
+msgstr "رد المستخدم على التذكرة المغلقة"
+
+msgid "help"
+msgstr "يساعد"
+
+msgid "Select Form"
+msgstr "حدد النموذج"
+
+msgid "No Record Found"
+msgstr "لا يوجد سجلات"
+
+msgid "Log out"
+msgstr "تسجيل خروج"
+
+msgid "iframe"
+msgstr "com.iframe"
+
+msgid "Sorry"
+msgstr "آسف"
+
+msgid "There was no record found"
+msgstr "لم يتم العثور على سجل"
+
+msgid "Sorry!"
+msgstr "آسف!"
+
+msgid "There was no record found..."
+msgstr "لم يتم العثور على أي سجل..."
+
+msgid "Access Denied"
+msgstr "تم الرفض"
+
+msgid "You have no permission to access this page"
+msgstr "ليس لديك إذن للوصول إلى هذه الصفحة"
+
+msgid "Register"
+msgstr "يسجل"
+
+msgid "User is not allowed to access this page."
+msgstr "لا يسمح للمستخدم بالوصول إلى هذه الصفحة."
+
+msgid "You are already Logged In."
+msgstr "انت بالفعل داخل."
+
+msgid "Access Denied!"
+msgstr "تم الرفض!"
+
+msgid "Your account has been disabled, please contact the administrator."
+msgstr "لقد تم تعطيل حسابك، يرجى الاتصال بالمسؤول."
+
+msgid "You are not logged In"
+msgstr "لم يتم دخولك"
+
+msgid "To access the page, please login"
+msgstr "للوصول إلى الصفحة، يرجى تسجيل الدخول"
+
+msgid "User is not allowed to view this Ticket"
+msgstr "لا يسمح للمستخدم بمشاهدة هذه التذكرة"
+
+msgid "You have already given the feedback for this ticket."
+msgstr "لقد قمت بالفعل بتقديم الملاحظات بشأن هذه التذكرة."
+
+msgid "Ticket not found...!"
+msgstr "لم يتم العثور على التذكرة...!"
+
+msgid "User is not allowed to view this page"
+msgstr "لا يسمح للمستخدم بمشاهدة هذه الصفحة"
+
+msgid "Thank you so much for your feedback"
+msgstr "شكرا جزيلا على ردك"
+
+msgid "Majestic Support Control Panel"
+msgstr "لوحة تحكم الدعم المهيبة"
+
+msgid "Slug"
+msgstr "سبيكة"
+
+msgid "System Error"
+msgstr "خطأ في النظام"
+
+msgid "User Fields"
+msgstr "حقول المستخدم"
+
+msgid "Ban list log"
+msgstr "سجل قائمة الحظر"
+
+msgid "Field Ordering"
+msgstr "الترتيب الميداني"
+
+msgid "Post Installation"
+msgstr "ما بعد التثبيت"
+
+msgid "Emailcc"
+msgstr "البريد الإلكتروني"
+
+msgid "Help"
+msgstr "يساعد"
+
+msgid "Premium Addon"
+msgstr "الملحق المميز"
+
+msgid "Username / password is incorrect"
+msgstr "اسم المستخدم/كلمة المرور غير صحيحة"
+
+msgid "Username already taken"
+msgstr "الاسم مستخدم من قبل"
+
+msgid "Invalid username"
+msgstr "اسم المستخدم غير صالح"
+
+msgid "Please enter a username"
+msgstr "الرجاء ادخال اسم المستخدم"
+
+msgid "Invalid email"
+msgstr "بريد إلكتروني خاطئ"
+
+msgid "Email already registered"
+msgstr "البريد الإلكتروني مسجل مسبقا"
+
+msgid "Please enter a password"
+msgstr "الرجاء إدخال كلمة المرور"
+
+msgid "Passwords do not match"
+msgstr "كلمة المرور غير مطابقة"
+
+msgid "Invalid captcha"
+msgstr "كلمة التحقق غير صالحة"
+
+msgid "User has been successfully registered"
+msgstr "تم تسجيل المستخدم بنجاح"
+
+msgid "Could not subscribe to the newsletter"
+msgstr "لا يمكن الاشتراك في النشرة الإخبارية"
+
+msgid "You have successfully subscribed to the newsletter"
+msgstr "لقد تم بنجاح اشتراكك في النشرة الإخبارية"
+
+msgid "Majestic Support Pages"
+msgstr "صفحات الدعم المهيبة"
+
+msgid "Majestic Support control panel"
+msgstr "لوحة تحكم الدعم المهيب"
+
+msgid "Add ticket"
+msgstr "أضف تذكرة"
+
+msgid "My tickets"
+msgstr "تذاكري"
+
+msgid "List downloads"
+msgstr "قائمة التنزيلات"
+
+msgid "Latest downloads"
+msgstr "أحدث التنزيلات"
+
+msgid "Popular downloads"
+msgstr "تحميلات شائعة"
+
+msgid "List knowledge base"
+msgstr "قائمة قاعدة المعرفة"
+
+msgid "Latest knowledge base"
+msgstr "أحدث قاعدة المعرفة"
+
+msgid "Popular knowledge base"
+msgstr "قاعدة المعرفة الشعبية"
+
+msgid "List FAQ`s"
+msgstr "قائمة الأسئلة الشائعة"
+
+msgid "Latest FAQ`s"
+msgstr "أحدث الأسئلة الشائعة"
+
+msgid "Popular FAQ`s"
+msgstr "الأسئلة الشائعة الشائعة"
+
+msgid "List announcements"
+msgstr "إعلانات القائمة"
+
+msgid "Latest announcements"
+msgstr "أحدث الإعلانات"
+
+msgid "Popular announcements"
+msgstr "إعلانات شعبية"
+
+msgid "View"
+msgstr "منظر"
+
+msgid "Form submission failed!"
+msgstr "فشل تقديم النموذج!"
+
+msgid "You have not answered all required fields"
+msgstr "لم تقم بالإجابة على كافة الحقول المطلوبة"
+
+msgid "You have not given a correct time"
+msgstr "أنت لم تعط الوقت الصحيح"
+
+msgid "You have not given a correct e-mail address"
+msgstr "لم تقم بإعطاء عنوان البريد الإلكتروني الصحيح"
+
+msgid "You have not given a correct phone number"
+msgstr "لم تقم بإعطاء رقم الهاتف الصحيح"
+
+msgid "You have not given a correct answer to the security question"
+msgstr "لم تعط إجابة صحيحة لسؤال الأمان"
+
+msgid "You have not given a correct date"
+msgstr "لم تعط التاريخ الصحيح"
+
+msgid "The input value must be between "
+msgstr "يجب أن تكون قيمة الإدخال بين"
+
+msgid " characters"
+msgstr "الشخصيات"
+
+msgid "The input value is longer than "
+msgstr "قيمة الإدخال أطول من"
+
+msgid "The input value is shorter than "
+msgstr "قيمة الإدخال أقصر من"
+
+msgid "Input values could not be confirmed"
+msgstr "لا يمكن تأكيد قيم الإدخال"
+
+msgid "Incorrect domain value"
+msgstr "قيمة المجال غير صحيحة"
+
+msgid "The input value is not a correct URL"
+msgstr "قيمة الإدخال ليست عنوان URL صحيحًا"
+
+msgid "The input value is incorrect"
+msgstr "قيمة الإدخال غير صحيحة"
+
+msgid "The input value was not a correct number"
+msgstr "لم تكن قيمة الإدخال رقمًا صحيحًا"
+
+msgid "Your social security number was incorrect"
+msgstr "رقم الضمان الاجتماعي الخاص بك كان غير صحيح"
+
+msgid "Incorrect UK VAT Number"
+msgstr "رقم ضريبة القيمة المضافة في المملكة المتحدة غير صحيح"
+
+msgid "The password isn't strong enough"
+msgstr "كلمة المرور ليست قوية بما فيه الكفاية"
+
+msgid "You have to choose at least "
+msgstr "عليك أن تختار على الأقل"
+
+msgid " answers"
+msgstr "إجابات"
+
+msgid "The input value can only contain alphanumeric characters "
+msgstr "يمكن أن تحتوي قيمة الإدخال على أحرف أبجدية رقمية فقط"
+
+msgid " and "
+msgstr "و"
+
+msgid "The file you are trying to upload is too large"
+msgstr "الملف الذي تحاول تحميله كبير جدًا"
+
+msgid "The file you are trying to upload is of the wrong type"
+msgstr "الملف الذي تحاول تحميله من نوع خاطئ"
+
+msgid "Please choose between "
+msgstr "الرجاء الاختيار بين"
+
+msgid "Please choose at least "
+msgstr "يرجى الاختيار على الأقل"
+
+msgid "Please choose a maximum of "
+msgstr "يرجى اختيار الحد الأقصى"
+
+msgid " item(s)"
+msgstr "أغراض)"
+
+msgid "The credit card number is not correct"
+msgstr "رقم بطاقة الائتمان غير صحيح"
+
+msgid "The CVV number was not correct"
+msgstr "رقم CVV لم يكن صحيحا"
+
+msgid "Lost your password"
+msgstr "فقدت كلمة المرور الخاصة بك"
+
+msgid "Activated"
+msgstr "مفعل"
+
+msgid "Active Now"
+msgstr "نشط الان"
+
+msgid "Install Now"
+msgstr "تثبيت الآن"
+
+msgid "Pagination default page size not saved"
+msgstr "لم يتم حفظ حجم الصفحة الافتراضي لترقيم الصفحات"
+
+msgid "Data directory cannot empty."
+msgstr "لا يمكن إفراغ دليل البيانات."
+
+msgid "Data directory is not proper."
+msgstr "دليل البيانات غير مناسب."
+
+msgid "Data directory is not writable."
+msgstr "دليل البيانات غير قابل للكتابة."
+
+msgid "System slug not be empty."
+msgstr "سبيكة النظام لا تكون فارغة."
+
+msgid "System slug is conflicted with post or page slug."
+msgstr "يتعارض سبيكة النظام مع سبيكة النشر أو الصفحة."
+
+msgid "The setting has been stored"
+msgstr "تم تخزين الإعداد"
+
+msgid "The setting not has been stored"
+msgstr "لم يتم تخزين الإعداد"
+
+msgid "Days"
+msgstr "أيام"
+
+msgid "Hours"
+msgstr "ساعات"
+
+msgid "Google Recaptcha"
+msgstr "جوجل ريكابتشا"
+
+msgid "Own Captcha"
+msgstr "كلمة التحقق الخاصة"
+
+msgid "Any"
+msgstr "أي"
+
+msgid "Addition"
+msgstr "إضافة"
+
+msgid "Subtraction"
+msgstr "الطرح"
+
+msgid "Recaptcha Version 2"
+msgstr "ريكابتشا الإصدار 2"
+
+msgid "Recaptcha Version 3"
+msgstr "ريكابتشا الإصدار 3"
+
+msgid "Show"
+msgstr "يعرض"
+
+msgid "Hide"
+msgstr "يخفي"
+
+msgid "Majestic Support Login Page"
+msgstr "صفحة تسجيل الدخول للدعم المهيب"
+
+msgid "WordPress Default Login Page"
+msgstr "صفحة تسجيل الدخول الافتراضية في ووردبريس"
+
+msgid "Custom"
+msgstr "مخصص"
+
+msgid "Majestic Support Register Page"
+msgstr "صفحة تسجيل الدعم المهيبة"
+
+msgid "Top left"
+msgstr "أعلى اليسار"
+
+msgid "Top right"
+msgstr "اعلى اليمين"
+
+msgid "Middle left"
+msgstr "منتصف اليسار"
+
+msgid "Middle right"
+msgstr "اليمين الأوسط"
+
+msgid "Bottom left"
+msgstr "أسفل اليسار"
+
+msgid "Bottom right"
+msgstr "أسفل اليمين"
+
+msgid "Random"
+msgstr "عشوائي"
+
+msgid "Sequence"
+msgstr "تسلسل"
+
+msgid "Ascending"
+msgstr "تصاعدي"
+
+msgid "Descending"
+msgstr "تنازلي"
+
+msgid "Single"
+msgstr "أعزب"
+
+msgid "Multiple"
+msgstr "عديد"
+
+msgid "menu"
+msgstr "قائمة طعام"
+
+msgid "Select Configuration"
+msgstr "حدد التكوين"
+
+msgid "General Settings"
+msgstr "الاعدادات العامة"
+
+msgid "Support Icon"
+msgstr "أيقونة الدعم"
+
+msgid "Ticket Settings"
+msgstr "إعدادات التذاكر"
+
+msgid "Ticket Listing"
+msgstr "قائمة التذاكر"
+
+msgid "Visitor Ticket Setting"
+msgstr "إعداد تذكرة الزائر"
+
+msgid "Email Settings"
+msgstr "إعدادات البريد الإلكتروني"
+
+msgid "Email Regarding Banned Users"
+msgstr "البريد الإلكتروني بخصوص المستخدمين المحظورين"
+
+msgid "Ticket Operations Email Setting"
+msgstr "إعداد البريد الإلكتروني لعمليات التذاكر"
+
+msgid "Agent Menu"
+msgstr "قائمة الوكيل"
+
+msgid "Dashboard Links"
+msgstr "روابط لوحة القيادة"
+
+msgid "Top Menu Links"
+msgstr "روابط القائمة العلوية"
+
+msgid "User Menu"
+msgstr "قائمة المستخدم"
+
+msgid "Feedback Settings"
+msgstr "إعدادات ردود الفعل"
+
+msgid "Push Notifications"
+msgstr "دفع الإخطارات"
+
+msgid "Firebase Notifications"
+msgstr "إشعارات Firebase"
+
+msgid "Private Credentials"
+msgstr "أوراق الاعتماد الخاصة"
+
+msgid "Envato Validation"
+msgstr "التحقق من صحة إنفاتو"
+
+msgid "MailChimp"
+msgstr "ميل تشيمب"
+
+msgid "Easy Digital Downloads"
+msgstr "تنزيلات رقمية سهلة"
+
+msgid "Social Login"
+msgstr "تسجيل الدخول الاجتماعي"
+
+msgid "Set the heading of your plugin"
+msgstr "قم بتعيين عنوان البرنامج المساعد الخاص بك"
+
+msgid "Ticket Default Page"
+msgstr "صفحة التذكرة الافتراضية"
+
+msgid "Select Page"
+msgstr "حدد الصفحة"
+
+msgid "Data Directory"
+msgstr "دليل البيانات"
+
+msgid "Set the name for your data directory"
+msgstr "قم بتعيين اسم دليل البيانات الخاص بك"
+
+msgid "Date Format"
+msgstr "صيغة التاريخ"
+
+msgid "DD-MM-YYYY"
+msgstr "يوم-شهر-سنة"
+
+msgid "MM-DD-YYYY"
+msgstr "ش-ي-ي-س س س س"
+
+msgid "YYYY-MM-DD"
+msgstr "السنة-الشهر-اليوم"
+
+msgid "Set the default date format"
+msgstr "قم بتعيين تنسيق التاريخ الافتراضي"
+
+msgid "Pagination default page size"
+msgstr "حجم الصفحة الافتراضي لترقيم الصفحات"
+
+msgid "Set the number of records per page"
+msgstr "قم بتعيين عدد السجلات لكل صفحة"
+
+msgid "Breadcrumbs"
+msgstr "فتات الخبز"
+
+msgid "Show or hide breadcrumbs"
+msgstr "إظهار أو إخفاء فتات الخبز"
+
+msgid "Top Header"
+msgstr "رأس أعلى"
+
+msgid "Show or hide top header"
+msgstr "إظهار أو إخفاء الرأس العلوي"
+
+msgid "Show count on tickets"
+msgstr "إظهار العد على التذاكر"
+
+msgid "Default wp role for new users"
+msgstr "دور wp الافتراضي للمستخدمين الجدد"
+
+msgid "Select the role you want to assign to new users"
+msgstr "حدد الدور الذي تريد تعيينه للمستخدمين الجدد"
+
+msgid "No. of attachments"
+msgstr "عدد المرفقات"
+
+msgid "Number of attachments allowed at a time"
+msgstr "عدد المرفقات المسموح بها في المرة الواحدة"
+
+msgid "File maximum size"
+msgstr "الحد الأقصى لحجم الملف"
+
+msgid "File extensions"
+msgstr "ملحقات الملفات"
+
+msgid "File extensions allowed to attach"
+msgstr "يُسمح بإرفاق امتدادات الملفات"
+
+msgid "Set Login Link"
+msgstr "تعيين رابط تسجيل الدخول"
+
+msgid "Set login link default or custom"
+msgstr "قم بتعيين رابط تسجيل الدخول الافتراضي أو المخصص"
+
+msgid "Set register Link"
+msgstr "تعيين رابط التسجيل"
+
+msgid "Screen Tag"
+msgstr "علامة الشاشة"
+
+msgid "Enable or disable your support icon"
+msgstr "تمكين أو تعطيل رمز الدعم الخاص بك"
+
+msgid "Custom Image"
+msgstr "صورة مخصصة"
+
+msgid "Set custom support image"
+msgstr "قم بتعيين صورة الدعم المخصصة"
+
+msgid "custom text"
+msgstr "نص مخصص"
+
+msgid "Set custom support text"
+msgstr "قم بتعيين نص الدعم المخصص"
+
+msgid "Support Icon Position"
+msgstr "موقف رمز الدعم"
+
+msgid "Screen Tag Position"
+msgstr "موضع علامة الشاشة"
+
+msgid "Select a position for your support icon"
+msgstr "حدد موضعًا لرمز الدعم الخاص بك"
+
+msgid "Online"
+msgstr "متصل"
+
+msgid "Set your plugin offline for front end"
+msgstr "قم بتعيين المكون الإضافي الخاص بك في وضع عدم الاتصال للواجهة الأمامية"
+
+msgid "Offline Message"
+msgstr "رسالة غير متصل"
+
+msgid "Set the offline message for your user"
+msgstr "قم بتعيين الرسالة غير المتصلة للمستخدم الخاص بك"
+
+msgid "Woocommerce Category"
+msgstr "فئة ووكومرس"
+
+msgid "Ticket ID Prefix"
+msgstr "بادئة معرف التذكرة"
+
+msgid "Set a prefix for the custom ticket ID"
+msgstr "قم بتعيين بادئة لمعرف التذكرة المخصص"
+
+msgid "Ticket ID sequence"
+msgstr "تسلسل معرف التذكرة"
+
+msgid "Set the ticket ID sequentially or randomly, e.g., "
+msgstr "قم بتعيين معرف التذكرة بشكل تسلسلي أو عشوائي، على سبيل المثال،"
+
+msgid "Pad Zeros"
+msgstr "لوحة الأصفار"
+
+msgid "To pad an integer with leading zeros to a specific length"
+msgstr "لحشو عدد صحيح بأصفار بادئة بطول محدد"
+
+msgid "Ticket ID Suffix"
+msgstr "لاحقة معرف التذكرة"
+
+msgid "Set the suffix for your custom ticket ID"
+msgstr "قم بتعيين اللاحقة لمعرف التذكرة المخصص الخاص بك"
+
+msgid "Maximum tickets"
+msgstr "الحد الأقصى للتذاكر"
+
+msgid "Maximum ticket per user"
+msgstr "الحد الأقصى للتذكرة لكل مستخدم"
+
+msgid "Maximum open tickets"
+msgstr "الحد الأقصى للتذاكر المفتوحة"
+
+msgid "Maximum number of tickets opened per user"
+msgstr "الحد الأقصى لعدد التذاكر المفتوحة لكل مستخدم"
+
+msgid "Reopen ticket within days"
+msgstr "إعادة فتح التذكرة خلال أيام"
+
+msgid "The ticket will reopen within the given number of days"
+msgstr "سيتم إعادة فتح التذكرة خلال عدد معين من الأيام"
+
+msgid "Multiforms Popup For New Tickets"
+msgstr "الأشكال المتعددة المنبثقة للتذاكر الجديدة"
+
+msgid "User can print ticket"
+msgstr "يمكن للمستخدم طباعة التذكرة"
+
+msgid "Can users print a ticket from the ticket detail or not?"
+msgstr "هل يمكن للمستخدمين طباعة تذكرة من تفاصيل التذكرة أم لا؟"
+
+msgid "Allow Users To Reply via Email On Closed Ticket"
+msgstr "السماح للمستخدمين بالرد عبر البريد الإلكتروني على التذكرة المغلقة"
+
+msgid "Select whether users can reply to closed email piping tickets or not"
+msgstr "حدد ما إذا كان بإمكان المستخدمين الرد على تذاكر إرسال البريد الإلكتروني المغلقة أم لا"
+
+msgid "Show Admin OR Agent Email On Ticket Reply"
+msgstr "إظهار البريد الإلكتروني للمسؤول أو الوكيل عند الرد على التذكرة"
+
+msgid "Show Anonymous Name On Ticket Reply"
+msgstr "إظهار الاسم المجهول على الرد على التذكرة"
+
+msgid "Ticket auto close"
+msgstr "إغلاق التذكرة تلقائيًا"
+
+msgid "Ticket auto-close if user does not respond within given days"
+msgstr "يتم إغلاق التذكرة تلقائيًا إذا لم يستجب المستخدم خلال أيام معينة"
+
+msgid "Show ticket delete button"
+msgstr "إظهار زر حذف التذكرة"
+
+msgid "Select whether users can see the ticket delete button"
+msgstr "حدد ما إذا كان بإمكان المستخدمين رؤية زر حذف التذكرة"
+
+msgid "Ticket close reason Type"
+msgstr "نوع سبب إغلاق التذكرة"
+
+msgid "Select whether users can save single or multiple reasons"
+msgstr "حدد ما إذا كان يمكن للمستخدمين حفظ سبب واحد أو عدة أسباب"
+
+msgid "Maximum Record For Smart Reply"
+msgstr "الحد الأقصى للسجل للرد الذكي"
+
+msgid "Set the number of replies to show"
+msgstr "قم بتعيين عدد الردود التي سيتم عرضها"
+
+msgid "New ticket message"
+msgstr "رسالة تذكرة جديدة"
+
+msgid "This message will show on the new ticket"
+msgstr "ستظهر هذه الرسالة على التذكرة الجديدة"
+
+msgid "Ticket listing ordering"
+msgstr "طلب قائمة التذاكر"
+
+msgid "Set default ordering for ticket listing"
+msgstr "قم بتعيين الترتيب الافتراضي لقائمة التذاكر"
+
+msgid "Ticket listing sorting"
+msgstr "فرز قائمة التذاكر"
+
+msgid "Set default sorting for ticket listing"
+msgstr "ضبط الفرز الافتراضي لقائمة التذاكر"
+
+msgid "Closed info. on admin closed tickets"
+msgstr "معلومات مغلقة على التذاكر المغلقة المشرف"
+
+msgid "Closed info. on agent closed tickets"
+msgstr "معلومات مغلقة على تذاكر الوكيل المغلقة"
+
+msgid "Closed info. on user closed tickets"
+msgstr "معلومات مغلقة على التذاكر المغلقة للمستخدم"
+
+msgid "Assigned info. on admin tickets"
+msgstr "المعلومات المخصصة. على تذاكر المشرف"
+
+msgid "Assigned info. on agent tickets"
+msgstr "المعلومات المخصصة. على تذاكر الوكيل"
+
+msgid "Assigned info. on user tickets"
+msgstr "المعلومات المخصصة. على تذاكر المستخدم"
+
+msgid "Visitors can create tickets"
+msgstr "يمكن للزوار إنشاء التذاكر"
+
+msgid "Allow visitors to create tickets or not"
+msgstr "السماح للزوار بإنشاء التذاكر أم لا"
+
+msgid "Visitor ticket creation message"
+msgstr "رسالة إنشاء تذكرة الزائر"
+
+msgid "This text will appear whenever a visitor creates a ticket"
+msgstr "سيظهر هذا النص عندما يقوم الزائر بإنشاء تذكرة"
+
+msgid "Default alert email"
+msgstr "البريد الإلكتروني التنبيهي الافتراضي"
+
+msgid "Default admin email"
+msgstr "البريد الإلكتروني الافتراضي للمسؤول"
+
+msgid "Admin email address to receive emails"
+msgstr "عنوان البريد الإلكتروني للمشرف لتلقي رسائل البريد الإلكتروني"
+
+msgid "Department Email"
+msgstr "البريد الإلكتروني للقسم"
+
+msgid "Send email to all departments on ticket create"
+msgstr "إرسال بريد إلكتروني إلى جميع الأقسام عند إنشاء التذاكر"
+
+msgid "Mail to admin"
+msgstr "البريد إلى المشرف"
+
+msgid "Send an email to the admin when a banned email tries to create a ticket"
+msgstr "أرسل بريدًا إلكترونيًا إلى المسؤول عندما يحاول بريد إلكتروني محظور إنشاء تذكرة"
+
+msgid "Admin"
+msgstr "مسؤل"
+
+msgid "New ticket"
+msgstr "تذكرة جديدة"
+
+msgid "Ticket reassign"
+msgstr "إعادة تعيين التذكرة"
+
+msgid "Ticket close"
+msgstr "إغلاق التذكرة"
+
+msgid "Ticket delete"
+msgstr "حذف التذكرة"
+
+msgid "Ticket marked as overdue"
+msgstr "تم وضع علامة على التذكرة بأنها متأخرة"
+
+msgid "Ticket ban email"
+msgstr "البريد الإلكتروني الخاص بحظر التذاكر"
+
+msgid "Ticket department transfer"
+msgstr "نقل قسم التذاكر"
+
+msgid "Ticket reply User"
+msgstr "مستخدم الرد على التذكرة"
+
+msgid "Ticket Response Agent"
+msgstr "وكيل الاستجابة للتذاكر"
+
+msgid "Ticket ban email and close ticket"
+msgstr "البريد الإلكتروني لحظر التذكرة وإغلاق التذكرة"
+
+msgid "Ticket unban email"
+msgstr "تذكرة إلغاء حظر البريد الإلكتروني"
+
+msgid "Ticket lock"
+msgstr "قفل التذاكر"
+
+msgid "Ticket unlock"
+msgstr "فتح التذكرة"
+
+msgid "Ticket Change Priority"
+msgstr "أولوية تغيير التذكرة"
+
+msgid "Mark Ticket In Progress"
+msgstr "ضع علامة على التذكرة قيد التقدم"
+
+msgid "Reply To A Closed Ticket By Email"
+msgstr "الرد على تذكرة مغلقة عن طريق البريد الإلكتروني"
+
+msgid "Send Feedback Email To User"
+msgstr "إرسال ملاحظات بالبريد الإلكتروني إلى المستخدم"
+
+msgid "Open Ticket"
+msgstr "تذكرة مفتوحة"
+
+msgid "Department reports"
+msgstr "تقارير القسم"
+
+msgid "Login/Logout Button"
+msgstr "زر تسجيل الدخول/الخروج"
+
+msgid "Ticket Total Count"
+msgstr "العدد الإجمالي للتذاكر"
+
+msgid "Erase Agent Data"
+msgstr "محو بيانات الوكيل"
+
+msgid "Export Ticket"
+msgstr "تذكرة التصدير"
+
+msgid "Latest Downloads"
+msgstr "أحدث التنزيلات"
+
+msgid "Latest Announcements"
+msgstr "أحدث الإعلانات"
+
+msgid "Latest Knowledge Base"
+msgstr "أحدث قاعدة المعرفة"
+
+msgid "Latest FAQs"
+msgstr "أحدث الأسئلة الشائعة"
+
+msgid "Home"
+msgstr "بيت"
+
+msgid "Check Ticket Status"
+msgstr "التحقق من حالة التذكرة"
+
+msgid "Registration"
+msgstr "تسجيل"
+
+msgid "Erase User Data"
+msgstr "محو بيانات المستخدم"
+
+msgid "Feedback Email Delay Type"
+msgstr "ردود الفعل نوع تأخير البريد الإلكتروني"
+
+msgid "Select delay type for feedback email"
+msgstr "حدد نوع التأخير لإرسال التعليقات عبر البريد الإلكتروني"
+
+msgid "Feedback Email Delay"
+msgstr "تأخير البريد الإلكتروني للتعليقات"
+
+msgid "Success message after submitting feedback"
+msgstr "رسالة النجاح بعد تقديم الملاحظات"
+
+msgid "This text will appear whenever anyone submits feedback"
+msgstr "سيظهر هذا النص عندما يرسل أي شخص تعليقات"
+
+msgid "Login with facebook"
+msgstr "تسجيل الدخول باستخدام الفيسبوك"
+
+msgid "Facebook user can log in to Majestic Support"
+msgstr "يمكن لمستخدم Facebook تسجيل الدخول إلى Majestic Support"
+
+msgid "Secret"
+msgstr "سر"
+
+msgid "secret key"
+msgstr "المفتاح السري"
+
+msgid "API Key"
+msgstr "مفتاح API"
+
+msgid "The Facebook app requires an API key"
+msgstr "يتطلب تطبيق Facebook مفتاح API"
+
+msgid "Login with linkedin"
+msgstr "تسجيل الدخول مع ينكدين"
+
+msgid "Linkedin users can log in to Majestic Support"
+msgstr "يمكن لمستخدمي Linkedin تسجيل الدخول إلى Majestic Support"
+
+msgid "The LinkedIn app requires an API key"
+msgstr "يتطلب تطبيق LinkedIn مفتاح API"
+
+msgid "UTF Auto Switch"
+msgstr "UTF التبديل التلقائي"
+
+msgid "Create User via email"
+msgstr "إنشاء مستخدم عبر البريد الإلكتروني"
+
+msgid "Click here to insert Install."
+msgstr "انقر هنا لإدراج التثبيت."
+
+msgid "Majestic Support Desktop Notifications plugin is not active."
+msgstr "البرنامج الإضافي Majestic Support Desktop Notifications غير نشط."
+
+msgid "Find and add the Firebase API keys."
+msgstr "ابحث عن مفاتيح Firebase API وأضفها."
+
+msgid "Click here to get Firebase API keys."
+msgstr "انقر هنا للحصول على مفاتيح Firebase API."
+
+msgid "User's API Key"
+msgstr "مفتاح API الخاص بالمستخدم"
+
+msgid "Firebase API key for the front user"
+msgstr "مفتاح Firebase API للمستخدم الأمامي"
+
+msgid "Auth Domain"
+msgstr "مجال المصادقة"
+
+msgid "Firebase Auth Domain"
+msgstr "مجال مصادقة Firebase"
+
+msgid "Database Url"
+msgstr "عنوان URL لقاعدة البيانات"
+
+msgid "Firebase Database URL"
+msgstr "عنوان URL لقاعدة بيانات Firebase"
+
+msgid "Project ID"
+msgstr "معرف المشروع"
+
+msgid "Firebase Project ID"
+msgstr "معرف مشروع Firebase"
+
+msgid "Bucket Storage"
+msgstr "تخزين دلو"
+
+msgid "Firebase Bucket Storage"
+msgstr "تخزين دلو Firebase"
+
+msgid "Message Sender ID"
+msgstr "معرف مرسل الرسالة"
+
+msgid "Firebase Message Sender ID"
+msgstr "معرف مرسل رسالة Firebase"
+
+msgid "Private Server Key"
+msgstr "مفتاح الخادم الخاص"
+
+msgid "Firebase Server Key"
+msgstr "مفتاح خادم Firebase"
+
+msgid "Logo Image for Desktop Notifications"
+msgstr "صورة الشعار لإشعارات سطح المكتب"
+
+msgid "Remove Image"
+msgstr "إزالة الصورة"
+
+msgid "Remove Logo"
+msgstr "إزالة الشعار"
+
+msgid "No Firebase Notification Logo"
+msgstr "لا يوجد شعار إشعار Firebase"
+
+msgid "Secret Key"
+msgstr "المفتاح السري"
+
+msgid "Second Level Security"
+msgstr "أمن المستوى الثاني"
+
+msgid "For enhanced security, change the encryption method in %s on line %s"
+msgstr "لتحسين الأمان، قم بتغيير أسلوب التشفير في %s على السطر %s"
+
+msgid "Api Key"
+msgstr "مفتاح API"
+
+msgid "Enter Envato api key "
+msgstr "أدخل مفتاح Envato API"
+
+msgid "Click here to generate an api key"
+msgstr "انقر هنا لإنشاء مفتاح API"
+
+msgid "License Mandatory"
+msgstr "الترخيص إلزامي"
+
+msgid "Product ID"
+msgstr "معرف المنتج"
+
+msgid "A comma-separated list of Envato product ids"
+msgstr "قائمة مفصولة بفواصل لمعرفات منتجات Envato"
+
+msgid "Enter MailChimp API key "
+msgstr "أدخل مفتاح MailChimp API"
+
+msgid "Audience ID"
+msgstr "معرف الجمهور"
+
+msgid "Find Audience ID in your MailChimp account"
+msgstr "ابحث عن معرف الجمهور في حساب MailChimp الخاص بك"
+
+msgid "Enable double opt-in"
+msgstr "تمكين الاشتراك المزدوج"
+
+msgid "You must also enable double opt-in in your MailChimp account"
+msgstr "يجب عليك أيضًا تمكين الاشتراك المزدوج في حساب MailChimp الخاص بك"
+
+msgid "Welcome email"
+msgstr "ترحيب البريد الإلكتروني"
+
+msgid "You can enable Final Welcome Email in your MailChimp account"
+msgstr "يمكنك تمكين البريد الإلكتروني الترحيبي النهائي في حساب MailChimp الخاص بك"
+
+msgid "Verify License On Ticket Creation"
+msgstr "التحقق من الترخيص عند إنشاء التذكرة"
+
+msgid "Captcha Setting"
+msgstr "إعداد كلمة التحقق"
+
+msgid "Show captcha on registration form"
+msgstr "إظهار كلمة التحقق في نموذج التسجيل"
+
+msgid "Select whether you want to show captcha on the registration form or not"
+msgstr "حدد ما إذا كنت تريد إظهار كلمة التحقق في نموذج التسجيل أم لا"
+
+msgid "Show captcha on the visitor ticket form"
+msgstr "إظهار كلمة التحقق في نموذج تذكرة الزائر"
+
+msgid "Show captcha when a visitor wants to create a ticket"
+msgstr "إظهار كلمة التحقق عندما يريد الزائر إنشاء تذكرة"
+
+msgid "Captcha selection"
+msgstr "اختيار كلمة التحقق"
+
+msgid "Which captcha do you want to add?"
+msgstr "ما كلمة التحقق التي تريد إضافتها؟"
+
+msgid "Google reCaptcha"
+msgstr "جوجل ريكابتشا"
+
+msgid "Google ReCaptcha version"
+msgstr "نسخة جوجل ReCaptcha"
+
+msgid "Select the Google ReCaptcha version"
+msgstr "حدد إصدار Google ReCaptcha"
+
+msgid "Google ReCaptcha site key"
+msgstr "مفتاح موقع Google ReCaptcha"
+
+msgid "Please enter the site key for Google ReCaptcha from"
+msgstr "الرجاء إدخال مفتاح الموقع لـ Google ReCaptcha من"
+
+msgid "Google ReCaptcha secret key"
+msgstr "مفتاح جوجل ReCaptcha السري"
+
+msgid "Please enter the secret key for Google ReCaptcha from"
+msgstr "الرجاء إدخال المفتاح السري لـ Google ReCaptcha من"
+
+msgid "Own captcha calculation type"
+msgstr "نوع حساب كلمة التحقق الخاصة"
+
+msgid "Select the calculation type (addition or subtraction)"
+msgstr "حدد نوع الحساب (الجمع أو الطرح)"
+
+msgid "Own captcha operands"
+msgstr "معاملات الكابتشا الخاصة"
+
+msgid "Select the total number of operands to be given"
+msgstr "حدد العدد الإجمالي للمعاملات التي سيتم تقديمها"
+
+msgid "Positive Answer Upon Own Captcha Subtraction"
+msgstr "إجابة إيجابية عند طرح كلمة التحقق الخاصة بك"
+
+msgid "watch video"
+msgstr "شاهد الفيديو"
+
+msgid "Add"
+msgstr "يضيف"
+
+msgid "Ticket via email"
+msgstr "تذكرة عبر البريد الإلكتروني"
+
+msgid "OR"
+msgstr "أو"
+
+msgid "Sorry the cron job didnot work"
+msgstr "آسف وظيفة كرون لم تنجح"
+
+msgid "Update ticket status"
+msgstr "تحديث حالة التذكرة"
+
+msgid "You cannot use this email, it is used in email piping"
+msgstr "لا يمكنك استخدام هذا البريد الإلكتروني، فهو يستخدم في توجيه البريد الإلكتروني"
+
+msgid "The department has been stored"
+msgstr "تم حفظ القسم"
+
+msgid "The department has not been stored"
+msgstr "لم يتم تخزين القسم"
+
+msgid "The department has been deleted"
+msgstr "تم حذف القسم"
+
+msgid "The department has not been deleted"
+msgstr "ولم يتم حذف القسم"
+
+msgid "The department in use cannot be delete"
+msgstr "لا يمكن حذف القسم المستخدم"
+
+msgid "Outgoing Email"
+msgstr "البريد الإلكتروني الصادر"
+
+msgid "Select Email"
+msgstr "حدد البريد الإلكتروني"
+
+msgid "Tickets of this department will receive emails from this email"
+msgstr "سوف تتلقى تذاكر هذا القسم رسائل البريد الإلكتروني من هذا البريد الإلكتروني"
+
+msgid "Receive Email"
+msgstr "استلام بريد الكتروني"
+
+msgid "Default with auto assign"
+msgstr "الافتراضي مع التعيين التلقائي"
+
+msgid "Save Department"
+msgstr "قسم الحفظ"
+
+msgid "Add New Email"
+msgstr "إضافة بريد إلكتروني جديد"
+
+msgid "The user of this department will receive an email with the new ticket"
+msgstr "سيتلقى مستخدم هذا القسم بريدًا إلكترونيًا يتضمن التذكرة الجديدة"
+
+msgid "Outgoing"
+msgstr "منفتح"
+
+msgid "Click here to give us feedback"
+msgstr "انقر هنا لتعطينا ردود الفعل"
+
+msgid "Email Already Exist"
+msgstr "البريد الالكتروني موجود مسبقا"
+
+msgid "The email has been stored"
+msgstr "تم تخزين البريد الإلكتروني"
+
+msgid "The email has not been stored"
+msgstr "لم يتم تخزين البريد الإلكتروني"
+
+msgid "Ticket History"
+msgstr "تاريخ التذاكر"
+
+msgid "False"
+msgstr "خطأ شنيع"
+
+msgid "True"
+msgstr "حقيقي"
+
+msgid "Send Email By"
+msgstr "إرسال البريد الإلكتروني بواسطة"
+
+msgid "SMTP host type"
+msgstr "نوع مضيف SMTP"
+
+msgid "SMTP host"
+msgstr "مضيف SMTP"
+
+msgid "SMTP Authentication"
+msgstr "مصادقة SMTP"
+
+msgid "SMTP Secure"
+msgstr "SMTP آمن"
+
+msgid "SMTP Port"
+msgstr "منفذ SMTP"
+
+msgid "If the system doesnot respond in 30 seconds"
+msgstr "إذا لم يستجب النظام خلال 30 ثانية"
+
+msgid "Auto Response"
+msgstr "رد تلقائي"
+
+msgid "Some values are not acceptable please retry"
+msgstr "بعض القيم غير مقبولة، يرجى إعادة المحاولة"
+
+msgid "info"
+msgstr "معلومات"
+
+msgid "System email used for sending email"
+msgstr "البريد الإلكتروني للنظام المستخدم لإرسال البريد الإلكتروني"
+
+msgid "Required Fields are not filled"
+msgstr "الحقول المطلوبة لم يتم ملؤها"
+
+msgid "Ban Email Try To Create Ticket"
+msgstr "حظر البريد الإلكتروني حاول إنشاء تذكرة"
+
+msgid "Ticket Priority Is Changed By"
+msgstr "تم تغيير أولوية التذكرة بواسطة"
+
+msgid "Data Deleted"
+msgstr "تم حذف البيانات"
+
+msgid "Body"
+msgstr "جسم"
+
+msgid "Parameters"
+msgstr "حدود"
+
+msgid "Tracking ID"
+msgstr "معرف التتبع"
+
+msgid "Ticket URL"
+msgstr "عنوان URL للتذكرة"
+
+msgid "Ticket Priority"
+msgstr "أولوية التذكرة"
+
+msgid "Department title"
+msgstr "عنوان القسم"
+
+msgid "Group Title"
+msgstr "عنوان المجموعة"
+
+msgid "Agent name"
+msgstr "اسم العميل"
+
+msgid "Help topic title"
+msgstr "عنوان موضوع المساعدة"
+
+msgid "Feedback URL"
+msgstr "عنوان URL للتعليقات"
+
+msgid "Ticket Subject"
+msgstr "موضوع التذكرة"
+
+msgid "Ticket Tracking ID"
+msgstr "معرف تتبع التذاكر"
+
+msgid "Close Date"
+msgstr "تاريخ قريب"
+
+msgid "Save Email Template"
+msgstr "حفظ قالب البريد الإلكتروني"
+
+msgid "Note:"
+msgstr "ملحوظة:"
+
+msgid "Features marked with"
+msgstr "الميزات التي تحمل علامة"
+
+msgid "are only available with its own addon."
+msgstr "متوفرة فقط مع الملحق الخاص بها."
+
+msgid "Field mark as published"
+msgstr "علامة الحقل كما تم نشرها"
+
+msgid "Field mark as unpublished"
+msgstr "تم وضع علامة على الحقل على أنه غير منشور"
+
+msgid "Field cannot be mark as published"
+msgstr "لا يمكن وضع علامة على الحقل كمنشور"
+
+msgid "Field mark as required"
+msgstr "علامة الحقل كما هو مطلوب"
+
+msgid "Field mark as not required"
+msgstr "علامة الحقل غير مطلوبة"
+
+msgid "Field ordering down"
+msgstr "الترتيب الميداني للأسفل"
+
+msgid "Field ordering up"
+msgstr "الترتيب الميداني يصل"
+
+msgid "Parent field has not been stored"
+msgstr "لم يتم تخزين الحقل الأصلي"
+
+msgid "Please Insert At least one value for every option"
+msgstr "الرجاء إدخال قيمة واحدة على الأقل لكل خيار"
+
+msgid "Child fields has not been stored"
+msgstr "لم يتم تخزين الحقول التابعة"
+
+msgid "Field has not been stored"
+msgstr "لم يتم تخزين الحقل"
+
+msgid "Field has been stored"
+msgstr "تم تخزين الحقل"
+
+msgid "Field has been updated"
+msgstr "تم تحديث الحقل"
+
+msgid "Parent Field"
+msgstr "حقل الوالدين"
+
+msgid "Edit Field"
+msgstr "تحرير الحقل"
+
+msgid "Field Title"
+msgstr "عنوان الحقل"
+
+msgid "User Published"
+msgstr "تم النشر بواسطة المستخدم"
+
+msgid "Visitor Published"
+msgstr "نشر الزائر"
+
+msgid "Required"
+msgstr "مطلوب"
+
+msgid "User Search"
+msgstr "بحث المستخدم"
+
+msgid "Show On Listing"
+msgstr "عرض في القائمة"
+
+msgid "Advanced"
+msgstr "متقدم"
+
+msgid "Field has not been deleted"
+msgstr "لم يتم حذف الحقل"
+
+msgid "Field has been deleted"
+msgstr "تم حذف الحقل"
+
+msgid "No response found"
+msgstr "لم يتم العثور على رد"
+
+msgid "Equal"
+msgstr "متساوي"
+
+msgid "Not Equal"
+msgstr "غير متساوي"
+
+msgid "Text Field"
+msgstr "حقل النص"
+
+msgid "Check Box"
+msgstr "خانة الاختيار"
+
+msgid "Drop Down"
+msgstr "اسقاط"
+
+msgid "Text Area"
+msgstr "منطقة النص"
+
+msgid "Radio Button"
+msgstr "زر الراديو"
+
+msgid "Upload File"
+msgstr "رفع ملف"
+
+msgid "Multi Select"
+msgstr "تحديد متعدد"
+
+msgid "Admin Only"
+msgstr "المشرف فقط"
+
+msgid "Terms and Conditions"
+msgstr "الأحكام والشروط"
+
+msgid "Dependent Field"
+msgstr "الحقل التابع"
+
+msgid "Field Type"
+msgstr "نوع الحقل"
+
+msgid "Field Size"
+msgstr "حجم الحقل"
+
+msgid "Max Length"
+msgstr "الحد الاقصى للطول"
+
+msgid "Columns"
+msgstr "أعمدة"
+
+msgid "Rows"
+msgstr "الصفوف"
+
+msgid "Select Parent"
+msgstr "حدد الوالدين"
+
+msgid "Select Child"
+msgstr "حدد الطفل"
+
+msgid "Select Condition"
+msgstr "حدد الحالة"
+
+msgid "To use this feature, please fill in the above three fields."
+msgstr "لاستخدام هذه الميزة، يرجى ملء الحقول الثلاثة المذكورة أعلاه."
+
+msgid "Use the table below to add new values"
+msgstr "استخدم الجدول أدناه لإضافة قيم جديدة"
+
+msgid "Add Value"
+msgstr "إضافة قيمة"
+
+msgid "Terms and Conditions Text"
+msgstr "نص الشروط والأحكام"
+
+msgid "Terms and Conditions Link Type"
+msgstr "الشروط والأحكام نوع الرابط"
+
+msgid "Direct Link"
+msgstr "رابط مباشر"
+
+msgid "Wordpress Page"
+msgstr "صفحة ووردبريس"
+
+msgid "Select Link Type"
+msgstr "حدد نوع الارتباط"
+
+msgid "Terms and Conditions Link"
+msgstr "رابط الشروط والأحكام"
+
+msgid "Terms and Conditions Page"
+msgstr "صفحة الشروط والأحكام"
+
+msgid "Select Wordpress page"
+msgstr "حدد صفحة ووردبريس"
+
+msgid "Save Field"
+msgstr "حفظ الحقل"
+
+msgid "User Publish"
+msgstr "نشر المستخدم"
+
+msgid "Visitor Publish"
+msgstr "نشر زائر"
+
+msgid "Published"
+msgstr "نشرت"
+
+msgid "Unpublished"
+msgstr "غير منشورة"
+
+msgid "Not required"
+msgstr "غير مطلوب"
+
+msgid "users popup"
+msgstr "المستخدمين المنبثقة"
+
+msgid "Can Not Unpublished"
+msgstr "لا يمكن إلغاء النشر"
+
+msgid "good"
+msgstr "جيد"
+
+msgid "can not mark as not required"
+msgstr "لا يمكن وضع علامة على أنها غير مطلوبة"
+
+msgid "Cannot unpublished field"
+msgstr "لا يمكن إلغاء نشر الحقل"
+
+msgid "Please fill required fields."
+msgstr "يرجى ملء الحقول المطلوبة."
+
+msgid "User Data"
+msgstr "بيانات المستخدم"
+
+msgid "Erasing data request has been stored"
+msgstr "تم تخزين طلب محو البيانات"
+
+msgid "Failed while storing"
+msgstr "فشل أثناء التخزين"
+
+msgid "Erase data request withdrawn"
+msgstr "تم سحب طلب محو البيانات"
+
+msgid "Failed while performing action"
+msgstr "فشل أثناء تنفيذ الإجراء"
+
+msgid "User identifying data erased"
+msgstr "تم مسح بيانات تعريف المستخدم"
+
+msgid "User data Deleted"
+msgstr "تم حذف بيانات المستخدم"
+
+msgid "Export your data"
+msgstr "تصدير البيانات الخاصة بك"
+
+msgid "You have filed a request to remove your data."
+msgstr "لقد قدمت طلبًا لإزالة بياناتك."
+
+msgid "To withdraw erases data request"
+msgstr "للانسحاب يمحو طلب البيانات"
+
+msgid "Request the removal of data from the system."
+msgstr "طلب إزالة البيانات من النظام."
+
+msgid "Field Text"
+msgstr "النص الميداني"
+
+msgid "Link Type"
+msgstr "نوع الرابط"
+
+msgid "Link Page"
+msgstr "صفحة الارتباط"
+
+msgid "User Email"
+msgstr "البريد الالكتروني للمستخدم"
+
+msgid "Request Status"
+msgstr "حالة الطلب"
+
+msgid "Awaiting response"
+msgstr "في انتظار الرد"
+
+msgid "Erased identifying data"
+msgstr "تمحى بيانات التعريف"
+
+msgid "Deleted"
+msgstr "تم الحذف"
+
+msgid "Erase identifying data"
+msgstr "مسح البيانات التعريفية"
+
+msgid "Are you sure to erase identifying data"
+msgstr "هل أنت متأكد من مسح البيانات التعريفية"
+
+msgid "Delete data"
+msgstr "حذف البيانات"
+
+msgid "Link"
+msgstr "وصلة"
+
+msgid "Direct URL"
+msgstr "عنوان URL المباشر"
+
+msgid "Page Title or URL"
+msgstr "عنوان الصفحة أو عنوان URL"
+
+msgid "Cannot open file"
+msgstr "لا يمكن فتح ملف"
+
+msgid "The new theme has been applied"
+msgstr "تم تطبيق الموضوع الجديد"
+
+msgid "Error applying the new theme"
+msgstr "خطأ في تطبيق السمة الجديدة"
+
+msgid "Dir is not writable"
+msgstr "دير غير قابل للكتابة"
+
+msgid "Unable to connect to the server"
+msgstr "غير قادر على الاتصال بالخادم"
+
+msgid "Language is not installed"
+msgstr "لم يتم تثبيت اللغة"
+
+msgid "Language directory is not writable"
+msgstr "دليل اللغة غير قابل للكتابة"
+
+msgid "Required language is not installed but similar language like"
+msgstr "لم يتم تثبيت اللغة المطلوبة ولكن لغة مماثلة مثل"
+
+msgid "is found in your system"
+msgstr "تم العثور عليه في النظام الخاص بك"
+
+msgid "Language code"
+msgstr "رمز اللغة"
+
+msgid "Empty values"
+msgstr "القيم الفارغة"
+
+msgid "File is not writable"
+msgstr "الملف غير قابل للكتابة"
+
+msgid "File successfully downloaded"
+msgstr "تم تنزيل الملف بنجاح"
+
+msgid "User ID"
+msgstr "معرف المستخدم"
+
+msgid "Ordering updated"
+msgstr "تم تحديث الطلب"
+
+msgid "Missing user(s) added successfully!"
+msgstr "تمت إضافة المستخدم (المستخدمين) المفقود بنجاح!"
+
+msgid "No missing user found!"
+msgstr "لم يتم العثور على مستخدم مفقود!"
+
+msgid "How to translate Majestic Support"
+msgstr "كيفية ترجمة الدعم المهيب"
+
+msgid "arrow"
+msgstr "سهم"
+
+msgid "Remove All"
+msgstr "حذف الكل"
+
+msgid "How to create ticket"
+msgstr "كيفية إنشاء تذكرة"
+
+msgid "Add Field"
+msgstr "إضافة حقل"
+
+msgid "How to setup user fields"
+msgstr "كيفية إعداد حقول المستخدم"
+
+msgid "reset"
+msgstr "إعادة ضبط"
+
+msgid "Reset All"
+msgstr "إعادة ضبط الجميع"
+
+msgid "How to set smartreply"
+msgstr "كيفية ضبط الرد الذكي"
+
+msgid "Add Multiform"
+msgstr "إضافة أشكال متعددة"
+
+msgid "How to set multiforms"
+msgstr "كيفية ضبط الأشكال المتعددة"
+
+msgid "Add Conditions"
+msgstr "أضف الشروط"
+
+msgid "Conditions"
+msgstr "شروط"
+
+msgid "How to add Shortcode"
+msgstr "كيفية إضافة الرمز القصير"
+
+msgid "How to set colors"
+msgstr "كيفية ضبط الألوان"
+
+msgid "Export Data"
+msgstr "تصدير البيانات"
+
+msgid "Add Email Piping"
+msgstr "إضافة أنابيب البريد الإلكتروني"
+
+msgid "Add GDPR Field"
+msgstr "أضف حقل اللائحة العامة لحماية البيانات"
+
+msgid "Add Depertment"
+msgstr "إضافة قسم"
+
+msgid "Add Knowledge base"
+msgstr "إضافة قاعدة المعرفة"
+
+msgid "How to use Knowledge Base"
+msgstr "كيفية استخدام قاعدة المعرفة"
+
+msgid "How to use downloads"
+msgstr "كيفية استخدام التنزيلات"
+
+msgid "How to create FAQ"
+msgstr "كيفية إنشاء الأسئلة الشائعة"
+
+msgid "How to add announcement"
+msgstr "كيفية إضافة إعلان"
+
+msgid "Add Help Topics"
+msgstr "إضافة موضوعات المساعدة"
+
+msgid "How to use help topic"
+msgstr "كيفية استخدام موضوع المساعدة"
+
+msgid "How to set SMTP"
+msgstr "كيفية ضبط SMTP"
+
+msgid "Add Banned Email"
+msgstr "إضافة البريد الإلكتروني المحظور"
+
+msgid "How to use email cc"
+msgstr "كيفية استخدام البريد الإلكتروني cc"
+
+msgid "Configuration"
+msgstr "إعدادات"
+
+msgid "Reasons"
+msgstr "الأسباب"
+
+msgid "About Majestic Support"
+msgstr "حول الدعم المهيب"
+
+msgid "Our Products"
+msgstr "منتجاتنا"
+
+msgid "Wp Job Portal"
+msgstr "بوابة وظائف الوب"
+
+msgid "New Tickets"
+msgstr "تذاكر جديدة"
+
+msgid "addon"
+msgstr "اضافه"
+
+msgid "Answered Tickets"
+msgstr "تذاكر الرد"
+
+msgid "Pending Tickets"
+msgstr "التذاكر المعلقة"
+
+msgid "Overdue Tickets"
+msgstr "التذاكر المتأخرة"
+
+msgid "Update"
+msgstr "تحديث"
+
+msgid "View Addone Status"
+msgstr "عرض حالة Addone"
+
+msgid "Today Tickets"
+msgstr "تذاكر اليوم"
+
+msgid "Statistics"
+msgstr "إحصائيات"
+
+msgid "View All Tickets"
+msgstr "عرض جميع التذاكر"
+
+msgid "Quick Links"
+msgstr "روابط سريعة"
+
+msgid "email template"
+msgstr "قالب البريد الإلكتروني"
+
+msgid "add missing users"
+msgstr "إضافة المستخدمين المفقودين"
+
+msgid "user"
+msgstr "مستخدم"
+
+msgid "Sync WP Users"
+msgstr "مزامنة مستخدمي WP"
+
+msgid "Add New Smart Reply"
+msgstr "إضافة رد ذكي جديد"
+
+msgid "Suggest a quick and most relevant reply to the customer's query."
+msgstr "اقترح ردًا سريعًا وأكثر صلة باستفسار العميل."
+
+msgid "Add Reply"
+msgstr "إضافة الرد"
+
+msgid "Add New Agent"
+msgstr "إضافة وكيل جديد"
+
+msgid "Agent Add-on Not Installed"
+msgstr "الوظيفة الإضافية للوكيل غير مثبتة"
+
+msgid "Don't limit yourself—install the Agent addon for maximum productivity."
+msgstr "لا تقيد نفسك — قم بتثبيت الملحق Agent لتحقيق أقصى قدر من الإنتاجية."
+
+msgid "agent addone"
+msgstr "الملحق الوكيل"
+
+msgid "Install Agent Addon"
+msgstr "تثبيت الملحق الوكيل"
+
+msgid "Tickets By Priority"
+msgstr "التذاكر حسب الأولوية"
+
+msgid "Install Addone"
+msgstr "تثبيت الملحق"
+
+msgid "Add-ons"
+msgstr "الإضافات"
+
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+msgid "Version"
+msgstr "إصدار"
+
+msgid "Auto Close Ticket"
+msgstr "تذكرة الإغلاق التلقائي"
+
+msgid "Private Note"
+msgstr "ملاحظة خاصة"
+
+msgid "Max Ticket"
+msgstr "تذكرة ماكس"
+
+msgid "Max Tickets"
+msgstr "تذاكر ماكس"
+
+msgid "Merge Tickets"
+msgstr "دمج التذاكر"
+
+msgid "Time Tracking"
+msgstr "تتبع الوقت"
+
+msgid "User Options"
+msgstr "خيارات المستخدم"
+
+msgid "Actions"
+msgstr "أجراءات"
+
+msgid "Ticket Actions"
+msgstr "إجراءات التذاكر"
+
+msgid "Desktop Notifications"
+msgstr "إشعارات سطح المكتب"
+
+msgid "Admin Widgets"
+msgstr "الحاجيات المشرف"
+
+msgid "Internal Mail"
+msgstr "بريد داخلي"
+
+msgid "Front-End Widgets"
+msgstr "الحاجيات الأمامية"
+
+msgid "mailchimp"
+msgstr "mailchimp"
+
+msgid "Mailchimp"
+msgstr "ميلشيمب"
+
+msgid "paidsupport"
+msgstr "com.paysupport"
+
+msgid "easy digital download"
+msgstr "تحميل رقمي سهل"
+
+msgid "Easy Digital Download"
+msgstr "تحميل رقمي سهل"
+
+msgid "Multi Language Email Templates"
+msgstr "قوالب البريد الإلكتروني متعددة اللغات"
+
+msgid "Email Cc"
+msgstr "نسخة من البريد الإلكتروني"
+
+msgid "Multi Forms"
+msgstr "أشكال متعددة"
+
+msgid "Ticket Closed Reason"
+msgstr "سبب إغلاق التذكرة"
+
+msgid "Quick Installation Guide"
+msgstr "دليل التثبيت السريع"
+
+msgid "How To Setup"
+msgstr "كيفيه التنصيب"
+
+msgid "Ticket Creation"
+msgstr "إنشاء التذاكر"
+
+msgid "Fields Manager"
+msgstr "مدير الحقول"
+
+msgid "Email Notification Problems"
+msgstr "مشاكل إشعارات البريد الإلكتروني"
+
+msgid "Premium Addons List"
+msgstr "قائمة الإضافات المميزة"
+
+msgid "Features"
+msgstr "سمات"
+
+msgid "The best support system plugin for WordPress has everything you need."
+msgstr "يحتوي أفضل مكون إضافي لنظام الدعم لـ WordPress على كل ما تحتاجه."
+
+msgid "Addons"
+msgstr "إضافات"
+
+msgid "All Add-ons"
+msgstr "جميع الإضافات"
+
+msgid "Add New Add-ons"
+msgstr "إضافة إضافات جديدة"
+
+msgid "New Update Version"
+msgstr "نسخة التحديث الجديدة"
+
+msgid "is Available"
+msgstr "متاح"
+
+msgid "Help icon"
+msgstr "رمز المساعدة"
+
+msgid "Videos Guidance"
+msgstr "إرشادات الفيديو"
+
+msgid "View all videos"
+msgstr "عرض جميع مقاطع الفيديو"
+
+msgid "Video icon"
+msgstr "رمز الفيديو"
+
+msgid "View All Videos"
+msgstr "عرض جميع مقاطع الفيديو"
+
+msgid "Majestic Support icon"
+msgstr "رمز الدعم المهيب"
+
+msgid "Contact Us For Support"
+msgstr "اتصل بنا للحصول على الدعم"
+
+msgid "Submit ticket"
+msgstr "قدم التذكرة"
+
+msgid "Visitor ticket creation"
+msgstr "إنشاء تذكرة الزائر"
+
+msgid "How to set ticket auto close"
+msgstr "كيفية ضبط الإغلاق التلقائي للتذكرة"
+
+msgid "How to reopen closed ticket"
+msgstr "كيفية إعادة فتح التذكرة المغلقة"
+
+msgid "How to lock a ticket"
+msgstr "كيفية قفل التذكرة"
+
+msgid "How to add private note"
+msgstr "كيفية إضافة ملاحظة خاصة"
+
+msgid "View ticket history"
+msgstr "عرض تاريخ التذاكر"
+
+msgid "How to setup custom fields"
+msgstr "كيفية إعداد الحقول المخصصة"
+
+msgid "Set ticket auto overdue"
+msgstr "ضبط التذكرة المتأخرة تلقائيًا"
+
+msgid "Manually set ticket overdue"
+msgstr "تعيين التذكرة المتأخرة يدويًا"
+
+msgid "How to merge tickets"
+msgstr "كيفية دمج التذاكر"
+
+msgid "How to export tickets"
+msgstr "كيفية تصدير التذاكر"
+
+msgid "How use help topic"
+msgstr "كيفية استخدام موضوع المساعدة"
+
+msgid "How to change department"
+msgstr "كيفية تغيير القسم"
+
+msgid "How to use multi-forms"
+msgstr "كيفية استخدام الأشكال المتعددة"
+
+msgid "How to paid support"
+msgstr "كيفية دفع الدعم"
+
+msgid "How to use premade response"
+msgstr "كيفية استخدام الاستجابة المعدة مسبقا"
+
+msgid "How to add private credentials"
+msgstr "كيفية إضافة بيانات الاعتماد الخاصة"
+
+msgid "How to ban/unban user"
+msgstr "كيفية حظر/إلغاء حظر المستخدم"
+
+msgid "Agent system"
+msgstr "نظام الوكيل"
+
+msgid "Manually assign ticket to agen"
+msgstr "تعيين تذكرة للوكيل يدويًا"
+
+msgid "Manually assign ticket to agent"
+msgstr "تعيين تذكرة للوكيل يدويًا"
+
+msgid "How to edit time"
+msgstr "كيفية تعديل الوقت"
+
+msgid "How to use time tracking"
+msgstr "كيفية استخدام تتبع الوقت"
+
+msgid "How to use smart replies"
+msgstr "كيفية استخدام الردود الذكية"
+
+msgid "Configurations"
+msgstr "التكوينات"
+
+msgid "How to set max open ticket"
+msgstr "كيفية تعيين الحد الأقصى للتذكرة المفتوحة"
+
+msgid "How to show counts"
+msgstr "كيفية إظهار الأعداد"
+
+msgid "How to set Captcha"
+msgstr "كيفية ضبط كلمة التحقق"
+
+msgid "User options"
+msgstr "خيارات المستخدم"
+
+msgid "How to set login redirect"
+msgstr "كيفية ضبط إعادة توجيه تسجيل الدخول"
+
+msgid "How to set fields ordering"
+msgstr "كيفية ضبط ترتيب الحقول"
+
+msgid "How to enable social login"
+msgstr "كيفية تمكين تسجيل الدخول الاجتماعي"
+
+msgid "Setup"
+msgstr "يثبت"
+
+msgid "How to setup"
+msgstr "كيفيه التنصيب"
+
+msgid "How to enable email piping"
+msgstr "كيفية تمكين أنابيب البريد الإلكتروني"
+
+msgid "How to solve email notification problem"
+msgstr "كيفية حل مشكلة إشعارات البريد الإلكتروني"
+
+msgid "How to translate"
+msgstr "كيفية ترجمة"
+
+msgid "How to install addons"
+msgstr "كيفية تثبيت الإضافات"
+
+msgid "How to Desktop Notifications"
+msgstr "كيفية إخطارات سطح المكتب"
+
+msgid "and"
+msgstr "و"
+
+msgid "How to use knowledge base"
+msgstr "كيفية استخدام قاعدة المعرفة"
+
+msgid "Misc"
+msgstr "متنوعات"
+
+msgid "How to use internal mail"
+msgstr "كيفية استخدام البريد الداخلي"
+
+msgid "Use front-end widgets"
+msgstr "استخدم أدوات الواجهة الأمامية"
+
+msgid "How to enable admin widgets"
+msgstr "كيفية تمكين الحاجيات المشرف"
+
+msgid "Majestic Support / Majestic Support Control Panel"
+msgstr "الدعم المهيب / لوحة التحكم الدعم المهيب"
+
+msgid "Majestic Support / Majestic Support main control panel"
+msgstr "Majestic Support / لوحة التحكم الرئيسية Majestic Support"
+
+msgid "Add new ticket form for both the user and the agent"
+msgstr "إضافة نموذج تذكرة جديد لكل من المستخدم والوكيل"
+
+msgid "Add Ticket Using Multiform"
+msgstr "إضافة تذكرة باستخدام الأشكال المتعددة"
+
+msgid "My tickets for both user and agent"
+msgstr "التذاكر الخاصة بي لكل من المستخدم والوكيل"
+
+msgid "Show latest downloads. Options"
+msgstr "عرض أحدث التنزيلات. خيارات"
+
+msgid "i.e."
+msgstr "أي."
+
+msgid "Popular Downloads"
+msgstr "تحميلات شائعة"
+
+msgid "Show popular downloads. Options"
+msgstr "عرض التنزيلات الشائعة. خيارات"
+
+msgid "Show latest knowledge base. Options"
+msgstr "عرض أحدث قاعدة المعرفة. خيارات"
+
+msgid "Show popular knowledge base. Options"
+msgstr "إظهار قاعدة المعرفة الشعبية. خيارات"
+
+msgid "List FAQs"
+msgstr "قائمة الأسئلة الشائعة"
+
+msgid "Show latest FAQs. Options"
+msgstr "عرض أحدث الأسئلة الشائعة. خيارات"
+
+msgid "Popular FAQs"
+msgstr "الأسئلة الشائعة الشائعة"
+
+msgid "Show popular FAQs. Options"
+msgstr "عرض الأسئلة الشائعة الشائعة. خيارات"
+
+msgid "Show latest announcements. Options"
+msgstr "عرض أحدث الإعلانات. خيارات"
+
+msgid "Popular Announcements"
+msgstr "الإعلانات الشعبية"
+
+msgid "Show popular announcements. Options"
+msgstr "عرض الإعلانات الشعبية. خيارات"
+
+msgid "Get"
+msgstr "يحصل"
+
+msgid "Translation"
+msgstr "ترجمة"
+
+msgid "c error"
+msgstr "ج خطأ"
+
+msgid "saved"
+msgstr "أنقذ"
+
+msgid "Contribute In Translation"
+msgstr "المساهمة في الترجمة"
+
+msgid "translate"
+msgstr "يترجم"
+
+msgid "Manual Download"
+msgstr "اليدوي تحميل"
+
+msgid "Log In"
+msgstr "تسجيل الدخول"
+
+msgid "Log Out"
+msgstr "تسجيل خروج"
+
+msgid "Agent Feedback"
+msgstr "ردود فعل الوكيل"
+
+msgid "Dashboard Menu"
+msgstr "قائمة لوحة المعلومات"
+
+msgid "Open Tickets"
+msgstr "التذاكر المفتوحة"
+
+msgid "Closed Tickets"
+msgstr "التذاكر المغلقة"
+
+msgid "This ticket is marked as overdue"
+msgstr "تم وضع علامة على هذه التذكرة بأنها متأخرة"
+
+msgid "View All Downloads"
+msgstr "عرض جميع التنزيلات"
+
+msgid "View All Announcements"
+msgstr "عرض جميع الإعلانات"
+
+msgid "View All Knowledge Base"
+msgstr "عرض جميع قاعدة المعرفة"
+
+msgid "View All FAQs"
+msgstr "عرض جميع الأسئلة الشائعة"
+
+msgid "Keep me login"
+msgstr "ابقنى على تسجيل الدخول"
+
+msgid "Repeat Password"
+msgstr "اعد كلمة السر"
+
+msgid "Subscribe to the newsletter"
+msgstr "اشترك في النشرة الإخبارية"
+
+msgid "has been changed"
+msgstr "تغير"
+
+msgid "has not been changed"
+msgstr "لم يتم تغييره"
+
+msgid "Majestic Support Settings"
+msgstr "إعدادات الدعم المهيبة"
+
+msgid "Step 4 of "
+msgstr "الخطوة 4 من"
+
+msgid "Complete"
+msgstr "مكتمل"
+
+msgid "Setting you applied has been saved successfully."
+msgstr "تم حفظ الإعداد الذي قمت بتطبيقه بنجاح."
+
+msgid "Finish"
+msgstr "ينهي"
+
+msgid "Settings Complete"
+msgstr "اكتملت الإعدادات"
+
+msgid "Ticket Setting"
+msgstr "إعداد التذكرة"
+
+msgid "Step 1 of "
+msgstr "الخطوة 1 من"
+
+msgid "Enter the site title"
+msgstr "أدخل عنوان الموقع"
+
+msgid "Date format for plugin"
+msgstr "تنسيق التاريخ للبرنامج المساعد"
+
+msgid "Show Breadcrumbs"
+msgstr "إظهار فتات الخبز"
+
+msgid "Show navigation in breadcrumbs"
+msgstr "إظهار التنقل في فتات الخبز"
+
+msgid "Upload file size in KB's"
+msgstr "حجم الملف المرفوع بالكيلوبايت"
+
+msgid "File Extension"
+msgstr "امتداد الملف"
+
+msgid "Show count on my tickets"
+msgstr "إظهار العدد على التذاكر الخاصة بي"
+
+msgid "Next Setup"
+msgstr "الإعداد التالي"
+
+msgid "Sequential"
+msgstr "تسلسلي"
+
+msgid "Step 3 of "
+msgstr "الخطوة 3 من"
+
+msgid "Set Email Delay Time"
+msgstr "ضبط وقت تأخير البريد الإلكتروني"
+
+msgid " :"
+msgstr ":"
+
+msgid "Set Email Delay"
+msgstr "ضبط تأخير البريد الإلكتروني"
+
+msgid "Back"
+msgstr "خلف"
+
+msgid "Step 2 of "
+msgstr "الخطوة 2 من"
+
+msgid "Visitor can create ticket"
+msgstr "يمكن للزائر إنشاء تذكرة"
+
+msgid "Enable/Disable Open Ticket"
+msgstr "تمكين/تعطيل التذكرة المفتوحة"
+
+msgid "Set ticket id sequential or random"
+msgstr "تعيين معرف التذكرة متسلسل أو عشوائي"
+
+msgid "Maximum Tickets"
+msgstr "الحد الأقصى للتذاكر"
+
+msgid "Set Maximum Ticket Per user"
+msgstr "قم بتعيين الحد الأقصى للتذكرة لكل مستخدم"
+
+msgid "Maximum Open Ticket"
+msgstr "الحد الأقصى للتذكرة المفتوحة"
+
+msgid "Reopen ticket within Days"
+msgstr "إعادة فتح التذكرة خلال أيام"
+
+msgid "The ticket can be reopened within a given number of days"
+msgstr "يمكن إعادة فتح التذكرة خلال عدد معين من الأيام"
+
+msgid "Show Captcha to visitor on ticket form"
+msgstr "إظهار كلمة التحقق للزائر في نموذج التذكرة"
+
+msgid "Enable/Disable Captcha on Ticket Form"
+msgstr "تمكين/تعطيل كلمة التحقق في نموذج التذكرة"
+
+msgid "Own Captcha operands"
+msgstr "معاملات Captcha الخاصة"
+
+msgid "Select the total operands to be given"
+msgstr "حدد إجمالي المعاملات المراد تقديمها"
+
+msgid "Own captcha subtraction answer positive"
+msgstr "إجابة الطرح الخاصة بكلمة التحقق إيجابية"
+
+msgid "Enable/Disable Own Captcha subtraction"
+msgstr "تمكين/تعطيل طرح كلمة التحقق الخاصة"
+
+msgid "Enable Print Ticket"
+msgstr "تمكين طباعة التذكرة"
+
+msgid "Enable/Disable Print Ticket"
+msgstr "تمكين/تعطيل طباعة التذكرة"
+
+msgid "Download Translation File"
+msgstr "تحميل ملف الترجمة"
+
+msgid "Download & Next"
+msgstr "تحميل والتالي"
+
+msgid "Skip this step"
+msgstr "تخطي هذه الخطوة"
+
+msgid "Please insert activation key to proceed"
+msgstr "الرجاء إدخال مفتاح التنشيط للمتابعة"
+
+msgid "Addon Installation Failed"
+msgstr "فشل تثبيت الملحق"
+
+msgid "Addon installation failed"
+msgstr "فشل تثبيت الملحق"
+
+msgid "Addon Installation Failed, File download error"
+msgstr "فشل تثبيت الملحق، خطأ في تنزيل الملف"
+
+msgid "Deactivate"
+msgstr "إلغاء التنشيط"
+
+msgid "Deactivated"
+msgstr "معطل"
+
+msgid "Activate"
+msgstr "تفعيل"
+
+msgid "Not Installed"
+msgstr "غير مثبت"
+
+msgid "Addon Installed Successfully"
+msgstr "تم تثبيت الملحق بنجاح"
+
+msgid "Ticket Auto Close"
+msgstr "إغلاق التذكرة تلقائيًا"
+
+msgid "Canned Response"
+msgstr "الاستجابة المعلبة"
+
+msgid "Desktop Notification"
+msgstr "إعلام سطح المكتب"
+
+msgid "Front-end Widgets"
+msgstr "الحاجيات الأمامية"
+
+msgid "Multi-Language Emails"
+msgstr "رسائل البريد الإلكتروني متعددة اللغات"
+
+msgid "left image"
+msgstr "الصورة اليسرى"
+
+msgid "right image"
+msgstr "الصورة الصحيحة"
+
+msgid "Add-ons For Majestic Support"
+msgstr "إضافات للحصول على الدعم المهيب"
+
+msgid "Save big today with an exclusive membership plan!"
+msgstr "وفر الكثير اليوم مع خطة العضوية الحصرية!"
+
+msgid "show bundle pack"
+msgstr "عرض حزمة الحزمة"
+
+msgid "buy now"
+msgstr "اشتري الآن"
+
+msgid "Installed"
+msgstr "المثبتة"
+
+msgid "agent auto assign"
+msgstr "تعيين الوكيل تلقائيًا"
+
+msgid "private note"
+msgstr "ملاحظة خاصة"
+
+msgid "merge tickets"
+msgstr "دمج التذاكر"
+
+msgid "helptopic"
+msgstr "موضوع المساعدة"
+
+msgid "time tracking"
+msgstr "تتبع الوقت"
+
+msgid "Ticket close reason"
+msgstr "سبب إغلاق التذكرة"
+
+msgid "max ticket"
+msgstr "الحد الأقصى للتذكرة"
+
+msgid "ticket actions"
+msgstr "إجراءات التذاكر"
+
+msgid "email cc"
+msgstr "البريد الإلكتروني نسخة"
+
+msgid "user options"
+msgstr "خيارات المستخدم"
+
+msgid "admin widgets"
+msgstr "الحاجيات المشرف"
+
+msgid "desktop notifications"
+msgstr "إشعارات سطح المكتب"
+
+msgid "woocommerce"
+msgstr "com.woocommerce"
+
+msgid "mail chimp"
+msgstr "mailchimp"
+
+msgid "Mail Chimp"
+msgstr "ميلشيمب"
+
+msgid "internal mail"
+msgstr "بريد داخلي"
+
+msgid "frontend widget"
+msgstr "القطعة الواجهة الأمامية"
+
+msgid "Majestic Support Add-ons Bundle Pack"
+msgstr "حزمة حزمة الوظائف الإضافية لدعم Majestic"
+
+msgid "Basic"
+msgstr "أساسي"
+
+msgid "Unlimited Agents"
+msgstr "وكلاء غير محدود"
+
+msgid "Helptopic"
+msgstr "موضوع المساعدة"
+
+msgid "Show all"
+msgstr "عرض الكل"
+
+msgid "Standard"
+msgstr "معيار"
+
+msgid "Everything in basic included and "
+msgstr "كل شيء في الأساسي متضمن و"
+
+msgid "Professional"
+msgstr "احترافي"
+
+msgid "Everything in standard included and"
+msgstr "كل شيء في المعيار متضمن و"
+
+msgid "All Future Addons"
+msgstr "جميع الإضافات المستقبلية"
+
+msgid "Status: "
+msgstr "حالة:"
+
+msgid "addon in no longer active"
+msgstr "الملحق في لم يعد نشطا"
+
+msgid "Please Insert Your Activation Key"
+msgstr "الرجاء إدخال مفتاح التنشيط الخاص بك"
+
+msgid "XXXX-XXXX-XXXXX-XXXXX"
+msgstr "XXXX-XXXX-XXXXXX-XXXX"
+
+msgid "Proceed"
+msgstr "يتابع"
+
+msgid "Majestic Support Addon Installer"
+msgstr "برنامج تثبيت الملحق الدعم المهيب"
+
+msgid "Select All Addons"
+msgstr "حدد جميع الإضافات"
+
+msgid "All allowed add ons are already installed"
+msgstr "جميع الإضافات المسموح بها مثبتة بالفعل"
+
+msgid "You are not allowed to install any add on"
+msgstr "لا يسمح لك بتثبيت أي إضافة"
+
+msgid "Addons Installed Successfully"
+msgstr "تم تثبيت الإضافات بنجاح"
+
+msgid "Open Dashboard"
+msgstr "افتح لوحة المعلومات"
+
+msgid "Open Plugins Page"
+msgstr "افتح صفحة الإضافات"
+
+msgid "Page Not Found !!"
+msgstr "الصفحة غير موجودة !!"
+
+msgid "Priority Title Already Exist"
+msgstr "عنوان الأولوية موجود بالفعل"
+
+msgid "Priority has been stored"
+msgstr "تم تخزين الأولوية"
+
+msgid "Priority has not been stored"
+msgstr "لم يتم تخزين الأولوية"
+
+msgid "Priority has been deleted"
+msgstr "تم حذف الأولوية"
+
+msgid "Priority has not been deleted"
+msgstr "لم يتم حذف الأولوية"
+
+msgid "Default priority cannot delete"
+msgstr "لا يمكن حذف الأولوية الافتراضية"
+
+msgid "Priority has been make default"
+msgstr "لقد تم جعل الأولوية افتراضية"
+
+msgid "Priority has not been make default"
+msgstr "لم يتم جعل الأولوية افتراضية"
+
+msgid "Ticket Overdue Interval Type"
+msgstr "نوع الفاصل الزمني للتذكرة المتأخرة"
+
+msgid "Save Priority"
+msgstr "حفظ الأولوية"
+
+msgid "Date Interval"
+msgstr "الفاصل الزمني"
+
+msgid "Reply posted"
+msgstr "تم نشر الرد"
+
+msgid "Reply posted on ticket"
+msgstr "تم نشر الرد على التذكرة"
+
+msgid "Guest"
+msgstr "ضيف"
+
+msgid "Ticket is replied by"
+msgstr "يتم الرد على التذكرة بواسطة"
+
+msgid "Reply Has been Posted"
+msgstr "تم نشر الرد"
+
+msgid "Reply Has Not been Posted"
+msgstr "لم يتم نشر الرد"
+
+msgid "Dates"
+msgstr "بلح"
+
+msgid "Department Statistics"
+msgstr "إحصائيات القسم"
+
+msgid "answered ticket"
+msgstr "تذكرة أجاب"
+
+msgid "pending ticket"
+msgstr "تذكرة معلقة"
+
+msgid "overdue ticket"
+msgstr "تذكرة متأخرة"
+
+msgid "Time Taken"
+msgstr "الوقت المستغرق"
+
+msgid "Merged and closed"
+msgstr "مدمج ومغلق"
+
+msgid "Out of"
+msgstr "بعيدا عن المكان"
+
+msgid "Overall Report"
+msgstr "التقرير الشامل"
+
+msgid "Ticket by departments"
+msgstr "تذكرة حسب الإدارات"
+
+msgid "Agent Tickets"
+msgstr "تذاكر الوكيل"
+
+msgid "all ticket"
+msgstr "كل تذكرة"
+
+msgid "Tickets By Status And Priorities"
+msgstr "التذاكر حسب الحالة والأولويات"
+
+msgid "Tickets By Agents"
+msgstr "التذاكر عن طريق الوكلاء"
+
+msgid "Staff Reports"
+msgstr "تقارير الموظفين"
+
+msgid "Based on"
+msgstr "مرتكز على"
+
+msgid "Customer Satisfaction"
+msgstr "رضا العملاء"
+
+msgid "satisfaction image"
+msgstr "صورة ‏الرضا‏"
+
+msgid "Excellent"
+msgstr "ممتاز"
+
+msgid "NA"
+msgstr "غير متوفر"
+
+msgid "Happy"
+msgstr "سعيد"
+
+msgid "bad"
+msgstr "سيء"
+
+msgid "Sad"
+msgstr "حزين"
+
+msgid "Angry"
+msgstr "غاضب"
+
+msgid "Agent Statistics"
+msgstr "إحصائيات الوكيل"
+
+msgid "staff image"
+msgstr "صورة الموظفين"
+
+msgid "Average rating"
+msgstr "متوسط ​​تقييم"
+
+msgid "Average time"
+msgstr "متوسط ​​الوقت"
+
+msgid "Tickets not assigned to the agent"
+msgstr "التذاكر غير مخصصة للوكيل"
+
+msgid "Minutes"
+msgstr "دقائق"
+
+msgid "Report By Agent"
+msgstr "تقرير بواسطة الوكيل"
+
+msgid "User Statistics"
+msgstr "إحصائيات المستخدم"
+
+msgid "Users"
+msgstr "المستخدمين"
+
+msgid "Tickets by departments"
+msgstr "التذاكر حسب الإدارات"
+
+msgid "Ticket Status By Departments"
+msgstr "حالة التذكرة حسب الإدارات"
+
+msgid "Agent detail Report"
+msgstr "تقرير تفاصيل الوكيل"
+
+msgid "Agent Report"
+msgstr "تقرير الوكيل"
+
+msgid "Reports Statistics"
+msgstr "إحصائيات التقارير"
+
+msgid "Slugs/Slug has been stored"
+msgstr "تم تخزين الرخويات/السبيكة"
+
+msgid "Prefix has not been stored"
+msgstr "لم يتم تخزين البادئة"
+
+msgid "Prefix has been stored"
+msgstr "تم تخزين البادئة"
+
+msgid "Home Slug"
+msgstr "سبيكة المنزل"
+
+msgid "Prefix"
+msgstr "بادئة"
+
+msgid "This prefix will be added to the slug in case of homepage links."
+msgstr "ستتم إضافة هذه البادئة إلى السلسلة الثابتة في حالة روابط الصفحة الرئيسية."
+
+msgid "This prefix will be added to the slug in case of conflict."
+msgstr "ستتم إضافة هذه البادئة إلى سبيكة في حالة وجود تعارض."
+
+msgid "Search By Slug"
+msgstr "البحث عن طريق سبيكة"
+
+msgid "Slug List"
+msgstr "قائمة السبائك"
+
+msgid "edit"
+msgstr "يحرر"
+
+msgid "This button will only save slugs on the current page"
+msgstr "سيحفظ هذا الزر الارتباطات الثابتة فقط في الصفحة الحالية"
+
+msgid "Smart Reply Title Already Exist"
+msgstr "عنوان الرد الذكي موجود بالفعل"
+
+msgid "Smart Reply has been stored"
+msgstr "تم تخزين الرد الذكي"
+
+msgid "Smart Reply has not been stored"
+msgstr "لم يتم تخزين الرد الذكي"
+
+msgid "Smart Reply has been deleted"
+msgstr "تم حذف الرد الذكي"
+
+msgid "Smart Reply has not been deleted"
+msgstr "لم يتم حذف الرد الذكي"
+
+msgid "Enter Ticket Subject"
+msgstr "أدخل موضوع التذكرة"
+
+msgid "delete"
+msgstr "يمسح"
+
+msgid "Save Smart Reply"
+msgstr "حفظ الرد الذكي"
+
+msgid "System error has been deleted"
+msgstr "تم حذف خطأ النظام"
+
+msgid "System error has not been deleted"
+msgstr "لم يتم حذف خطأ النظام"
+
+msgid "Color Chooser"
+msgstr "منتقي الألوان"
+
+msgid "Preset Theme"
+msgstr "موضوع محدد مسبقا"
+
+msgid "Top Menu Heading Background"
+msgstr "خلفية عنوان القائمة العلوية"
+
+msgid "Top Header Line Color"
+msgstr "لون خط الرأس العلوي"
+
+msgid "Button Hover"
+msgstr "زر التحويم"
+
+msgid "Heading Text"
+msgstr "نص العنوان"
+
+msgid "Content Background Color"
+msgstr "لون خلفية المحتوى"
+
+msgid "Content Text Color"
+msgstr "لون نص المحتوى"
+
+msgid "Border Color"
+msgstr "لون الحدود"
+
+msgid "Lines"
+msgstr "خطوط"
+
+msgid "Button Color"
+msgstr "لون الزر"
+
+msgid "Top Header Text Color"
+msgstr "لون نص الرأس العلوي"
+
+msgid "Save Colors"
+msgstr "حفظ الألوان"
+
+msgid "Color Effect Preview"
+msgstr "معاينة تأثير اللون"
+
+msgid "Submit Ticket  "
+msgstr "قدم التذكرة"
+
+msgid "Open ( 3 )"
+msgstr "مفتوح ( 3 )"
+
+msgid "Closed ( 2 )"
+msgstr "مغلق ( 2 )"
+
+msgid "Answered ( 1 )"
+msgstr "تم الرد (1)"
+
+msgid "All Tickets ( 5 )"
+msgstr "جميع التذاكر ( 5 )"
+
+msgid " Priority"
+msgstr "أولوية"
+
+msgid "Can i upgrade my plan?"
+msgstr "هل يمكنني ترقية خطتي؟"
+
+msgid "Low"
+msgstr "قليل"
+
+msgid "Ticket ID  :"
+msgstr "معرف التذكرة :"
+
+msgid "Last Reply :"
+msgstr "الرد الأخير :"
+
+msgid "How can i get Subscription"
+msgstr "كيف يمكنني الحصول على الاشتراك"
+
+msgid " Department   "
+msgstr "قسم"
+
+msgid "Support"
+msgstr "يدعم"
+
+msgid " Ticket ID :"
+msgstr "معرف التذكرة :"
+
+msgid "Created :"
+msgstr "مخلوق :"
+
+msgid "Matthew Frazier"
+msgstr "ماثيو فرايزر"
+
+msgid "How long do i have support access"
+msgstr "كم من الوقت يمكنني الوصول إلى الدعم"
+
+msgid " Department"
+msgstr "قسم"
+
+msgid "Note"
+msgstr "ملحوظة"
+
+msgid "Blue Jeans"
+msgstr "جينز أزرق"
+
+msgid "Red"
+msgstr "أحمر"
+
+msgid "Mint"
+msgstr "نعناع"
+
+msgid "Lavender"
+msgstr "لافندر"
+
+msgid "Orange"
+msgstr "البرتقالي"
+
+msgid "Grass"
+msgstr "عشب"
+
+msgid "Black"
+msgstr "أسود"
+
+msgid "Support for this Envato license has expired"
+msgstr "لقد انتهت صلاحية دعم ترخيص Envato هذا"
+
+msgid "Record not found"
+msgstr "لم يتم العثور على السجل"
+
+msgid "Banned email cannot create ticket"
+msgstr "البريد الإلكتروني المحظور لا يمكنه إنشاء تذكرة"
+
+msgid "Incorrect Captcha Code"
+msgstr "هذا الكود ليس صحيح"
+
+msgid "Please select paid support item"
+msgstr "الرجاء تحديد عنصر الدعم المدفوع"
+
+msgid "No purchase found with that code"
+msgstr "لم يتم العثور على أي عملية شراء بهذا الرمز"
+
+msgid "Provide a valid license key to create a ticket."
+msgstr "توفير مفتاح ترخيص صالح لإنشاء تذكرة."
+
+msgid "Your license has expired."
+msgstr "انتهت مدة صلاحية الترخيص الخاص بك."
+
+msgid "Your license is not active, activate your license."
+msgstr "الترخيص الخاص بك غير نشط، قم بتنشيط الترخيص الخاص بك."
+
+msgid "Due date error is not valid"
+msgstr "خطأ تاريخ الاستحقاق غير صالح"
+
+msgid "Ticket has not been created"
+msgstr "لم يتم إنشاء التذكرة"
+
+msgid "Your ticket has been submitted successfully"
+msgstr "لقد تم تقديم تذكرتك بنجاح"
+
+msgid "created"
+msgstr "مخلوق"
+
+msgid "Ticket is updated by"
+msgstr "يتم تحديث التذكرة بواسطة"
+
+msgid "Ticket is created by"
+msgstr "يتم إنشاء التذكرة بواسطة"
+
+msgid "Ticket has been deleted"
+msgstr "تم حذف التذكرة"
+
+msgid "Ticket has not been deleted"
+msgstr "لم يتم حذف التذكرة"
+
+msgid "in use cannot be deleted"
+msgstr "قيد الاستخدام لا يمكن حذفها"
+
+msgid "Ticket already closed"
+msgstr "التذكرة مغلقة بالفعل"
+
+msgid "Ticket has been closed"
+msgstr "تم إغلاق التذكرة"
+
+msgid "Ticket has not been closed"
+msgstr "لم يتم إغلاق التذكرة"
+
+msgid "Ticket is closed by"
+msgstr "التذكرة مغلقة بواسطة"
+
+msgid "due to the following reasons"
+msgstr "للأسباب التالية"
+
+msgid "Your are not allowed"
+msgstr "غير مسموح لك"
+
+msgid "The department has been transferred"
+msgstr "تم نقل القسم"
+
+msgid "The department has not been transferred"
+msgstr "ولم يتم نقل القسم"
+
+msgid "The department is transferred by"
+msgstr "يتم نقل القسم بواسطة"
+
+msgid "Assigned to agent"
+msgstr "تم تعيينه إلى الوكيل"
+
+msgid "Not assigned to agent"
+msgstr "لم يتم تعيينه للوكيل"
+
+msgid "Assign ticket to agent"
+msgstr "تعيين تذكرة للوكيل"
+
+msgid "Ticket is assigned to agent by"
+msgstr "يتم تعيين التذكرة للوكيل بواسطة"
+
+msgid "The ticket already has the same priority"
+msgstr "التذكرة لها نفس الأولوية بالفعل"
+
+msgid "Priority has been changed"
+msgstr "تم تغيير الأولوية"
+
+msgid "Priority has not been changed"
+msgstr "لم يتم تغيير الأولوية"
+
+msgid "Change Priority"
+msgstr "تغيير الأولوية"
+
+msgid "Email already banned"
+msgstr "البريد الإلكتروني محظور بالفعل"
+
+msgid "The email has been banned"
+msgstr "لقد تم حظر البريد الإلكتروني"
+
+msgid "The email has not been banned"
+msgstr "لم يتم حظر البريد الإلكتروني"
+
+msgid "Email is banned by"
+msgstr "البريد الإلكتروني محظور من قبل"
+
+msgid "The ticket has been reopened"
+msgstr "تم إعادة فتح التذكرة"
+
+msgid "The ticket has not been reopened"
+msgstr "لم يتم إعادة فتح التذكرة"
+
+msgid "Reopen Ticket"
+msgstr "إعادة فتح التذكرة"
+
+msgid "The ticket is reopened by"
+msgstr "يتم إعادة فتح التذكرة بواسطة"
+
+msgid "The ticket reopens time limit end"
+msgstr "تعيد التذكرة فتح نهاية المهلة الزمنية"
+
+msgid "Email has been unbanned"
+msgstr "تم إلغاء حظر البريد الإلكتروني"
+
+msgid "Email has not been unbanned"
+msgstr "لم يتم إلغاء حظر البريد الإلكتروني"
+
+msgid "Unbanned Email"
+msgstr "البريد الإلكتروني غير المحظور"
+
+msgid "Email is unbanned by"
+msgstr "البريد الإلكتروني غير محظور بواسطة"
+
+msgid "Email cannot be unbanned"
+msgstr "لا يمكن إلغاء حظر البريد الإلكتروني"
+
+msgid "Ticket already marked in progress"
+msgstr "تم وضع علامة على التذكرة بالفعل قيد التقدم"
+
+msgid "The ticket has been marked as in progress"
+msgstr "تم وضع علامة على التذكرة بأنها قيد التقدم"
+
+msgid "The ticket has not been marked as in progress"
+msgstr "لم يتم وضع علامة على التذكرة بأنها قيد التقدم"
+
+msgid "In progress ticket"
+msgstr "تذكرة قيد التقدم"
+
+msgid "The ticket is marked as in progress by"
+msgstr "تم وضع علامة على التذكرة بأنها قيد التقدم بواسطة"
+
+msgid "File upload limit exceeds"
+msgstr "تجاوز حد تحميل الملفات"
+
+msgid "The uploaded file extension not valid"
+msgstr "امتداد الملف الذي تم تحميله غير صالح"
+
+msgid "Paid support info"
+msgstr "معلومات الدعم المدفوعة"
+
+msgid "Order ID"
+msgstr "رقم التعريف الخاص بالطلب"
+
+msgid "Product Name"
+msgstr "اسم المنتج"
+
+msgid "Total Tickets"
+msgstr "إجمالي التذاكر"
+
+msgid "Remaining Tickets"
+msgstr "التذاكر المتبقية"
+
+msgid "Unlimited"
+msgstr "غير محدود"
+
+msgid "You have not purchased any supported item"
+msgstr "لم تقم بشراء أي عنصر مدعوم"
+
+msgid "Go to shop"
+msgstr "اذهب إلى المتجر"
+
+msgid "Select Order"
+msgstr "اختر طلبا"
+
+msgid "No premade response found"
+msgstr "لم يتم العثور على استجابة مسبقة"
+
+msgid "Waiting agent reply"
+msgstr "في انتظار رد الوكيل"
+
+msgid "Waiting customer reply"
+msgstr "في انتظار رد العميل"
+
+msgid "Close ticket"
+msgstr "إغلاق التذكرة"
+
+msgid "Are you sure to mark this ticket non-premium?"
+msgstr "هل أنت متأكد من وضع علامة على هذه التذكرة بأنها غير مميزة؟"
+
+msgid "Edit Reply"
+msgstr "تحرير الرد"
+
+msgid "Edit Time"
+msgstr "تحرير الوقت"
+
+msgid "Add reason in the other box"
+msgstr "أضف السبب في المربع الآخر"
+
+msgid "First make some selection!"
+msgstr "أولا قم ببعض الاختيار!"
+
+msgid "Reason For Editing the timer"
+msgstr "سبب تحرير الموقت"
+
+msgid "Reason For Editing"
+msgstr "سبب التعديل"
+
+msgid "Resolve conflict"
+msgstr "حل الصراع"
+
+msgid "Lock"
+msgstr "قفل"
+
+msgid "Add New Credential"
+msgstr "إضافة بيانات اعتماد جديدة"
+
+msgid "Add Internal Note"
+msgstr "أضف ملاحظة داخلية"
+
+msgid "play"
+msgstr "يلعب"
+
+msgid "pause"
+msgstr "يوقف"
+
+msgid "stop"
+msgstr "قف"
+
+msgid "Close on reply"
+msgstr "إغلاق عند الرد"
+
+msgid "Reason For Department Transfer"
+msgstr "سبب نقل القسم"
+
+msgid "Transfer"
+msgstr "تحويل"
+
+msgid "Assign To Agent"
+msgstr "تعيين للوكيل"
+
+msgid "Assign"
+msgstr "تعيين"
+
+msgid "View all"
+msgstr "عرض الكل"
+
+msgid "tickets by"
+msgstr "التذاكر بواسطة"
+
+msgid "Show History"
+msgstr "عرض التاريخ"
+
+msgid "Print Ticket"
+msgstr "طباعة تذكرة"
+
+msgid "Unmark Overdue"
+msgstr "قم بإلغاء تحديد متأخر"
+
+msgid "Mark in Progress"
+msgstr "وضع علامة قيد التقدم"
+
+msgid "agent image"
+msgstr "صورة الوكيل"
+
+msgid "Post A New Internal Note"
+msgstr "نشر ملاحظة داخلية جديدة"
+
+msgid "Ticket Thread"
+msgstr "موضوع التذكرة"
+
+msgid "View Image"
+msgstr "عرض الصورة"
+
+msgid "smart-reply"
+msgstr "الرد الذكي"
+
+msgid "Check Smart Reply"
+msgstr "تحقق من الرد الذكي"
+
+msgid "Search and get a saved smart reply on Majestic Support for a ticket."
+msgstr "ابحث واحصل على رد ذكي محفوظ على Majestic Support للحصول على تذكرة."
+
+msgid "search"
+msgstr "يبحث"
+
+msgid "Add this reply to smart reply?"
+msgstr "هل تريد إضافة هذا الرد إلى الرد الذكي؟"
+
+msgid "Post Reply"
+msgstr "الرد آخر"
+
+msgid "Own Signature"
+msgstr "التوقيع الخاص"
+
+msgid "Department Signature"
+msgstr "توقيع القسم"
+
+msgid "JNone"
+msgstr "لا شيء"
+
+msgid "Add Signature"
+msgstr "إضافة التوقيع"
+
+msgid "On Waiting"
+msgstr "على الإنتظار"
+
+msgid "Closed and merged"
+msgstr "مغلقة ومدمجة"
+
+msgid "Ticket Closing Reason"
+msgstr "سبب إغلاق التذكرة"
+
+msgid "ago"
+msgstr "منذ"
+
+msgid "No Last Reply"
+msgstr "لا يوجد رد أخير"
+
+msgid "Not Given"
+msgstr "غير معطى"
+
+msgid "Closed By"
+msgstr "أغلقت"
+
+msgid "Closed On"
+msgstr "أغلقت يوم"
+
+msgid "Copy"
+msgstr "ينسخ"
+
+msgid "Copied"
+msgstr "نسخ"
+
+msgid "Change"
+msgstr "يتغير"
+
+msgid "Assign And Transfer Ticket"
+msgstr "تعيين ونقل التذكرة"
+
+msgid "Ticket assigned to"
+msgstr "التذكرة المخصصة ل"
+
+msgid "staff photo"
+msgstr "صورة للموظفين"
+
+msgid "Total Time Taken"
+msgstr "إجمالي الوقت المستغرق"
+
+msgid "view ticket"
+msgstr "عرض التذكرة"
+
+msgid "Woocommerce Order"
+msgstr "ترتيب ووكومرس"
+
+msgid "Envato License"
+msgstr "ترخيص إنفاتو"
+
+msgid "Item"
+msgstr "غرض"
+
+msgid "Buyer"
+msgstr "مشتر"
+
+msgid "License Type"
+msgstr "نوع الرخصة"
+
+msgid "License"
+msgstr "رخصة"
+
+msgid "Purchase Date"
+msgstr "تاريخ الشراء"
+
+msgid "Supported Until"
+msgstr "مدعوم حتى"
+
+msgid "Paid Support Details"
+msgstr "تفاصيل الدعم المدفوع"
+
+msgid "Subscription"
+msgstr "الاشتراك"
+
+msgid "Subscribed On"
+msgstr "تم الاشتراك فيه"
+
+msgid "Support Expiry"
+msgstr "انتهاء الدعم"
+
+msgid "No expiration"
+msgstr "لا انتهاء الصلاحية"
+
+msgid "Non-premium support"
+msgstr "دعم غير مميز"
+
+msgid "Check this box if this ticket should NOT apply against the paid support"
+msgstr "حدد هذا المربع إذا كان لا ينبغي تطبيق هذه التذكرة على الدعم المدفوع"
+
+msgid "Remaining"
+msgstr "متبقي"
+
+msgid "Link ticket to paid support"
+msgstr "ربط التذكرة بالدعم المدفوع"
+
+msgid "closed ticket"
+msgstr "تذكرة مغلقة"
+
+msgid "Ticket Creator Name"
+msgstr "اسم منشئ التذاكر"
+
+msgid "From Date"
+msgstr "من التاريخ"
+
+msgid "To Date"
+msgstr "ان يذهب في موعد"
+
+msgid "Enforce delete"
+msgstr "فرض الحذف"
+
+msgid "Are you sure to enforce delete"
+msgstr "هل أنت متأكد من فرض الحذف"
+
+msgid "Are you sure to mark this ticket non-preminum?"
+msgstr "هل أنت متأكد من وضع علامة على هذه التذكرة بأنها غير مميزة؟"
+
+msgid "Message Logs"
+msgstr "سجلات الرسائل"
+
+msgid "Edit Timer"
+msgstr "تحرير الموقت"
+
+msgid "Type Note for Department"
+msgstr "اكتب ملاحظة للقسم"
+
+msgid "Assign Ticket To Agent"
+msgstr "تعيين تذكرة للوكيل"
+
+msgid "Assigning Note"
+msgstr "إسناد الملاحظة"
+
+msgid "Time Track"
+msgstr "المسار الزمني"
+
+msgid "Type Internal Note"
+msgstr "اكتب ملاحظة داخلية"
+
+msgid "tickets"
+msgstr "تذاكر"
+
+msgid "Reopen"
+msgstr "إعادة فتح"
+
+msgid "History"
+msgstr "تاريخ"
+
+msgid "Print"
+msgstr "مطبعة"
+
+msgid "Are you sure you want to delete this ticket"
+msgstr "هل أنت متأكد أنك تريد حذف هذه التذكرة"
+
+msgid "Are you sure to close this ticket"
+msgstr "هل أنت متأكد من إغلاق هذه التذكرة"
+
+msgid "Unlock"
+msgstr "الغاء القفل"
+
+msgid "Mark In Progress"
+msgstr "وضع علامة قيد التقدم"
+
+msgid "Ban Email And Close Ticket"
+msgstr "حظر البريد الإلكتروني وإغلاق التذكرة"
+
+msgid "Post New Internal Note"
+msgstr "نشر ملاحظة داخلية جديدة"
+
+msgid "Reply A Message"
+msgstr "الرد على رسالة"
+
+msgid "Search and get a saved smart reply on Majestic Support."
+msgstr "ابحث واحصل على رد ذكي محفوظ على Majestic Support."
+
+msgid "Check Reply"
+msgstr "تحقق من الرد"
+
+msgid "Select Premade"
+msgstr "حدد لمصنع مسبق"
+
+msgid "Assign Ticket"
+msgstr "تخصيص تذكرة"
+
+msgid ": "
+msgstr ":"
+
+msgid "Assigned To Agent"
+msgstr "تم تعيينه إلى الوكيل"
+
+msgid "View all orders"
+msgstr "عرض جميع الطلبات"
+
+msgid "Non-preminum support"
+msgstr "دعم غير مميز"
+
+msgid "Check Status"
+msgstr "تحقق من حالة"
+
+msgid "High"
+msgstr "عالي"
+
+msgid "Urgent"
+msgstr "عاجل"
+
+msgid "Admin email address and email piping address cannot be the same, your email piping will not be work."
+msgstr "لا يمكن أن يكون عنوان البريد الإلكتروني للمشرف وعنوان إرسال البريد الإلكتروني متماثلين، ولن تعمل أنابيب البريد الإلكتروني لديك."
+
+msgid "IMAP is either not installed or not enabled in your server. Contact to hosting company"
+msgstr "إما أن IMAP غير مثبت أو غير ممكّن في الخادم الخاص بك. تواصل مع شركة الاستضافة"
+
+msgid "180 secs If the setting is not completely increased, most sites will work with a setting of between 180 and 600"
+msgstr "180 ثانية إذا لم يتم زيادة الإعداد بشكل كامل، فستعمل معظم المواقع بإعداد يتراوح بين 180 و600"
+
+msgid "If you have already set up alert methods in the webcron.org interface, we recommend choosing an alert type"
+msgstr "إذا قمت بالفعل بإعداد طرق التنبيه في واجهة webcron.org، فإننا نوصي باختيار نوع التنبيه"
+
+msgid "Enter allowed number of tickets that customer can post. Enter -1 for unlimited tickets."
+msgstr "أدخل العدد المسموح به من التذاكر التي يمكن للعميل نشرها. أدخل -1 للحصول على تذاكر غير محدودة."
+
+msgid "Your response would be helpful to other users, as we believe that the success of the support system is largely dependent on how well customers are treated."
+msgstr "سيكون ردك مفيدًا للمستخدمين الآخرين، لأننا نعتقد أن نجاح نظام الدعم يعتمد إلى حد كبير على مدى جودة معاملة العملاء."
+
+msgid "</b> and Enter your license key and hit to authenticate. A valid key is required for updates."
+msgstr "</b> وأدخل مفتاح الترخيص الخاص بك واضغط للمصادقة. مطلوب مفتاح صالح للتحديثات."
+
+msgid "We'd love to hear from you. It'll only take 2 minutes of your time, and will really help us spread the word"
+msgstr "نحن نحب أن نسمع منك. لن يستغرق الأمر سوى دقيقتين من وقتك، وسيساعدنا حقًا في نشر الكلمة"
+
+msgid "Registration has been disabled by admin, please contact the system administrator."
+msgstr "تم تعطيل التسجيل من قبل المشرف، يرجى الاتصال بمسؤول النظام."
+
+msgid "Please check confirmation email to complete your subscription for the newsletter"
+msgstr "يرجى التحقق من رسالة التأكيد الإلكترونية لإكمال اشتراكك في النشرة الإخبارية"
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Dont forget to update the add-ons to enjoy the greatest features!"
+msgstr "مرحبًا يا من هناك! لقد أطلقنا مؤخرًا تحديثًا جديدًا للوظائف الإضافية. لا تنس تحديث الإضافات لتستمتع بأكبر الميزات!"
+
+msgid "Select the Majestic Support default page, and on the action system, it will redirect to the selected page. If not selected the default page, email links, and support icon might not work."
+msgstr "حدد الصفحة الافتراضية Majestic Support، وفي نظام الإجراء، سيتم إعادة التوجيه إلى الصفحة المحددة. إذا لم يتم تحديد الصفحة الافتراضية، فقد لا تعمل روابط البريد الإلكتروني وأيقونة الدعم."
+
+msgid "You need to rename the existing data directory in the file system before changing the data directory name"
+msgstr "تحتاج إلى إعادة تسمية دليل البيانات الموجود في نظام الملفات قبل تغيير اسم دليل البيانات"
+
+msgid "Show the number of open, closed, and answered tickets in my tickets and dashboard"
+msgstr "إظهار عدد التذاكر المفتوحة والمغلقة والمجاب عليها في التذاكر ولوحة التحكم الخاصة بي"
+
+msgid "Set register link default or custom.<br /> To enable registrations, WordPress admin > General > Settings > Membership: Anyone can register"
+msgstr "قم بتعيين رابط التسجيل افتراضيًا أو مخصصًا. <br /> لتمكين التسجيلات، مسؤول WordPress > عام > الإعدادات > العضوية: يمكن لأي شخص التسجيل"
+
+msgid "Select category to display only products of this category on the WooCommerce shop page."
+msgstr "حدد فئة لعرض منتجات هذه الفئة فقط على صفحة متجر WooCommerce."
+
+msgid "Show or hide the multiform popup when creating a new ticket. if you hide them, the system will open the default form."
+msgstr "إظهار أو إخفاء النافذة المنبثقة متعددة الأشكال عند إنشاء تذكرة جديدة. إذا قمت بإخفائها، فسيقوم النظام بفتح النموذج الافتراضي."
+
+msgid "Select whether users can see the email of administrator or agent on the ticket reply"
+msgstr "حدد ما إذا كان يمكن للمستخدمين رؤية البريد الإلكتروني للمسؤول أو الوكيل في الرد على التذكرة"
+
+msgid "Select whether users can see the name of administrator or agent on ticket reply"
+msgstr "حدد ما إذا كان بإمكان المستخدمين رؤية اسم المسؤول أو الوكيل في الرد على التذكرة"
+
+msgid "By enabling this option, an admin can know who closed the ticket and when that ticket closed."
+msgstr "من خلال تمكين هذا الخيار، يمكن للمسؤول معرفة من أغلق التذكرة ومتى تم إغلاق تلك التذكرة."
+
+msgid "By enabling this option, an agent can know who closed the ticket and when that ticket closed."
+msgstr "من خلال تمكين هذا الخيار، يمكن للوكيل معرفة من أغلق التذكرة ومتى تم إغلاق تلك التذكرة."
+
+msgid "By enabling this option, a user can know who closed the ticket and when that ticket closed."
+msgstr "من خلال تمكين هذا الخيار، يمكن للمستخدم معرفة من أغلق التذكرة ومتى تم إغلاق تلك التذكرة."
+
+msgid "By enabling this option, an admin can know to whom the ticket has been assigned."
+msgstr "من خلال تمكين هذا الخيار، يمكن للمسؤول معرفة من تم تعيين التذكرة له."
+
+msgid "By enabling this option, an agent can know to whom the ticket has been assigned."
+msgstr "من خلال تمكين هذا الخيار، يمكن للوكيل معرفة من تم تخصيص التذكرة له."
+
+msgid "By enabling this option, a user can know to whom the ticket has been assigned."
+msgstr "من خلال تمكين هذا الخيار، يمكن للمستخدم معرفة من تم تخصيص التذكرة له."
+
+msgid "If the ticket department email is not selected, then this email is used to send emails"
+msgstr "إذا لم يتم تحديد البريد الإلكتروني لقسم التذاكر، فسيتم استخدام هذا البريد الإلكتروني لإرسال رسائل البريد الإلكتروني"
+
+msgid "Set the number of days or hours to send a feedback email after a ticket is closed"
+msgstr "قم بتعيين عدد الأيام أو الساعات لإرسال رسالة بالبريد الإلكتروني للملاحظات بعد إغلاق التذكرة"
+
+msgid "Majestic Support Desktop Notifications plugin is not installed. Please install the plugin to enable desktop notifications"
+msgstr "لم يتم تثبيت البرنامج المساعد Majestic Support Desktop Notifications. الرجاء تثبيت البرنامج المساعد لتمكين إشعارات سطح المكتب"
+
+msgid "Changing the encryption key of private credentials will cause all existing credentials to be discarded"
+msgstr "سيؤدي تغيير مفتاح التشفير لبيانات الاعتماد الخاصة إلى تجاهل جميع بيانات الاعتماد الموجودة"
+
+msgid "Prevent users from submitting a ticket without a valid license for one of your product"
+msgstr "منع المستخدمين من إرسال تذكرة بدون ترخيص صالح لأحد منتجاتك"
+
+msgid "Selecting \\ positive"
+msgstr "اختيار  إيجابي"
+
+msgid "e.g \\ The text between [link] and [/link] will be linked to provided url or wordpress page."
+msgstr "majestic-support-ar"
+
+msgid "e.g., \\ The text between [link] and [/link] will be linked to provided URL or WordPress page."
+msgstr ""
+
+msgid "Majestic support is customer service or assistance that is exceptional in nature, providing a high level of satisfaction to the customer by going above and beyond their expectations. It involves providing prompt and efficient response times, personalized attention, and a willingness to solve problems or address concerns in a timely and effective manner."
+msgstr "الدعم المهيب هو خدمة عملاء أو مساعدة استثنائية بطبيعتها، مما يوفر مستوى عالٍ من الرضا للعملاء من خلال تجاوز توقعاتهم. وهو ينطوي على توفير أوقات استجابة سريعة وفعالة، والاهتمام الشخصي، والرغبة في حل المشكلات أو معالجة المخاوف في الوقت المناسب وبطريقة فعالة."
+
+msgid "Explore our other products and services that we offer, you might find something else that interests you or fulfills your needs even better."
+msgstr "استكشف منتجاتنا وخدماتنا الأخرى التي نقدمها، فقد تجد شيئًا آخر يثير اهتمامك أو يلبي احتياجاتك بشكل أفضل."
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Don't forget to update the add-ons to enjoy the greatest features!"
+msgstr "مرحبًا يا من هناك! لقد أطلقنا مؤخرًا تحديثًا جديدًا للوظائف الإضافية. لا تنس تحديث الإضافات لتستمتع بأكبر الميزات!"
+
+msgid "The best support plugin for the majestic support has everything you need."
+msgstr "أفضل مكون إضافي للدعم المهيب يحتوي على كل ما تحتاجه."
+
+msgid "A reputable support system that offers step-by-step YouTube video guides to help you understand."
+msgstr "نظام دعم حسن السمعة يقدم أدلة فيديو خطوة بخطوة على YouTube لمساعدتك على الفهم."
+
+msgid "At Majestic Support, we are committed to offering prompt and helpful customer care to help you at every step."
+msgstr "في Majestic Support، نحن ملتزمون بتقديم خدمة عملاء سريعة ومفيدة لمساعدتك في كل خطوة."
+
+msgid "When WordPress language change to fr, Majestic Support language will auto change to fr"
+msgstr "عندما تتغير لغة WordPress إلى fr، ستتغير لغة Majestic Support تلقائيًا إلى fr"
+
+msgid "Want to download translation file? Click on download. It will take sometime."
+msgstr "هل تريد تنزيل ملف الترجمة؟ انقر على تحميل. وسوف يستغرق بعض الوقت."
+
+msgid "Get trusted WordPress add-ons. Guaranteed to work fast, safe to use, beautifully coded, packed with features, and are easy to use."
+msgstr "احصل على إضافات WordPress الموثوقة. مضمون للعمل بسرعة، وآمن للاستخدام، ومشفر بشكل جميل، ومليء بالميزات، وسهل الاستخدام."
+
+msgid "Add agents and assign roles and permissions to provide assistance and support for customer support tickets."
+msgstr "أضف وكلاء وقم بتعيين الأدوار والأذونات لتقديم المساعدة والدعم لتذاكر دعم العملاء."
+
+msgid "Create multiple custom ticket forms with different custom fields for each request type that you support."
+msgstr "قم بإنشاء نماذج تذكرة مخصصة متعددة مع حقول مخصصة مختلفة لكل نوع طلب تدعمه."
+
+msgid "Email piping is the process of automatically turning incoming emails into support tickets without manual data entry."
+msgstr "إرسال البريد الإلكتروني هو عملية تحويل رسائل البريد الإلكتروني الواردة تلقائيًا إلى تذاكر دعم دون إدخال البيانات يدويًا."
+
+msgid "Make the ticket assignment process automatic and assign the most qualified agent to your tickets with conditions."
+msgstr "اجعل عملية تخصيص التذاكر تلقائية وقم بتعيين الوكيل الأكثر تأهيلاً لتذاكرك بشروط."
+
+msgid "Add private notes to a ticket and share crucial information internally with your agents, this private note is not visible to the customer."
+msgstr "أضف ملاحظات خاصة إلى التذكرة وشارك المعلومات المهمة داخليًا مع وكلائك، وهذه الملاحظة الخاصة غير مرئية للعميل."
+
+msgid "Merge one or more tickets into another if you receive two support requests from the same end user about the same issue."
+msgstr "قم بدمج تذكرة واحدة أو أكثر في أخرى إذا تلقيت طلبي دعم من نفس المستخدم النهائي بشأن نفس المشكلة."
+
+msgid "The user can search for and choose the topic for which they need help using help topics"
+msgstr "يمكن للمستخدم البحث عن الموضوع الذي يحتاج إلى مساعدة فيه واختياره باستخدام موضوعات المساعدة"
+
+msgid "Manage abandoned tickets, and set rules for tickets over time, and those tickets will be closed automatically after a certain period."
+msgstr "إدارة التذاكر المهجورة، ووضع قواعد للتذاكر مع مرور الوقت، وسيتم إغلاق تلك التذاكر تلقائيا بعد فترة معينة."
+
+msgid "Stop wasting time on repetitive inquiries, build your knowledge base, and organize your solutions into categories for users."
+msgstr "توقف عن إضاعة الوقت في الاستفسارات المتكررة، وقم ببناء قاعدة معرفتك، وقم بتنظيم حلولك في فئات للمستخدمين."
+
+msgid "Define rules or set a specific time interval for making tickets automatically overdue."
+msgstr "تحديد القواعد أو تعيين فترة زمنية محددة لتأخر التذاكر تلقائيًا."
+
+msgid "Track the amount of time spent on each customer support ticket without losing focus and enhance team productivity."
+msgstr "تتبع مقدار الوقت المستغرق في كل تذكرة دعم للعملاء دون فقدان التركيز وتعزيز إنتاجية الفريق."
+
+msgid "Show the whole history of the ticket, including its status and any action taken in response to it."
+msgstr "إظهار تاريخ التذكرة بالكامل، بما في ذلك حالتها وأي إجراء تم اتخاذه ردًا عليها."
+
+msgid "The simplest approach to effectively manage payments for premium help is through paid support."
+msgstr "إن أبسط أسلوب لإدارة المدفوعات للحصول على المساعدة المميزة بشكل فعال هو من خلال الدعم المدفوع."
+
+msgid "Customers will enter sensitive information on tickets, and this add-on is designed to help you keep that information secure."
+msgstr "سيقوم العملاء بإدخال معلومات حساسة على التذاكر، وقد تم تصميم هذه الوظيفة الإضافية لمساعدتك في الحفاظ على أمان هذه المعلومات."
+
+msgid "Empowers users to provide clear and concise explanations for why customer service tickets are being closed."
+msgstr "تمكن المستخدمين من تقديم تفسيرات واضحة وموجزة لسبب إغلاق تذاكر خدمة العملاء."
+
+msgid "Make ready-made responses to the most common questions in the tickets to swiftly address client issues."
+msgstr "قم بإعداد إجابات جاهزة على الأسئلة الأكثر شيوعًا في التذاكر لمعالجة مشكلات العملاء بسرعة."
+
+msgid "Admins can limit the number of tickets that users can create as well as the number of tickets that agents can open individually."
+msgstr "يمكن للمسؤولين تحديد عدد التذاكر التي يمكن للمستخدمين إنشاؤها بالإضافة إلى عدد التذاكر التي يمكن للوكلاء فتحها بشكل فردي."
+
+msgid "To enhance the quality of your services, ask your customers to complete a survey when a ticket is closed."
+msgstr "لتحسين جودة خدماتك، اطلب من عملائك إكمال الاستبيان عند إغلاق التذكرة."
+
+msgid "Ticket action options allow you to execute additional actions on tickets."
+msgstr "تتيح لك خيارات إجراءات التذاكر تنفيذ إجراءات إضافية على التذاكر."
+
+msgid "Easily export ticket data and performance report data from your majestic support to an Excel spreadsheet with our efficient and user-friendly solution."
+msgstr "قم بتصدير بيانات التذاكر وبيانات تقارير الأداء بسهولة من دعمك المهيب إلى جدول بيانات Excel من خلال حلنا الفعال وسهل الاستخدام."
+
+msgid "Send the exact copy of the email to the provided email address with Email CC or BCC."
+msgstr "أرسل النسخة الدقيقة من البريد الإلكتروني إلى عنوان البريد الإلكتروني المقدم مع Email CC أو BCC."
+
+msgid "User options enable you to define roles for new users when they are registered."
+msgstr "تتيح لك خيارات المستخدم تحديد الأدوار للمستخدمين الجدد عند تسجيلهم."
+
+msgid "SMTP enables you to add  custom mail protocols to send and receive emails with the support ticket system."
+msgstr "يمكّنك SMTP من إضافة بروتوكولات بريد مخصصة لإرسال واستقبال رسائل البريد الإلكتروني باستخدام نظام تذاكر الدعم."
+
+msgid "Create multi-language email templates for all default email templates to send customers emails in the language that they prefer."
+msgstr "قم بإنشاء قوالب بريد إلكتروني متعددة اللغات لجميع قوالب البريد الإلكتروني الافتراضية لإرسال رسائل البريد الإلكتروني للعملاء باللغة التي يفضلونها."
+
+msgid "Downloads can be very helpful for users who are looking to obtain the necessary information to resolve issues."
+msgstr "يمكن أن تكون التنزيلات مفيدة جدًا للمستخدمين الذين يتطلعون إلى الحصول على المعلومات الضرورية لحل المشكلات."
+
+msgid "Make an unlimited number of announcements related to the support system to encourage customer interaction."
+msgstr "عمل عدد غير محدود من الإعلانات المتعلقة بنظام الدعم لتشجيع تفاعل العملاء."
+
+msgid "With Ban Email, you can limit a users ability to create new tickets by blocking their email address."
+msgstr "باستخدام حظر البريد الإلكتروني، يمكنك تقييد قدرة المستخدمين على إنشاء تذاكر جديدة عن طريق حظر عنوان بريدهم الإلكتروني."
+
+msgid "Provide answers to common user questions with the FAQ extension before they become tickets."
+msgstr "قم بتقديم إجابات لأسئلة المستخدم الشائعة باستخدام ملحق الأسئلة الشائعة قبل أن تصبح تذاكر."
+
+msgid "Get immediate data on your support operations as soon as you log into your WordPress administration area."
+msgstr "احصل على بيانات فورية حول عمليات الدعم الخاصة بك بمجرد تسجيل الدخول إلى منطقة إدارة WordPress الخاصة بك."
+
+msgid "You will be informed of anything that occurs on your support system by the desktop notifications."
+msgstr "سيتم إعلامك بأي شيء يحدث على نظام الدعم الخاص بك عن طريق إشعارات سطح المكتب."
+
+msgid "The integration of the support ticket system for WooCommerce with your e- shop makes your support better and more professional."
+msgstr "إن دمج نظام تذاكر الدعم لـ WooCommerce مع متجرك الإلكتروني يجعل دعمك أفضل وأكثر احترافية."
+
+msgid "Manage your email marketing campaigns directly from your majestic support by adding new user accounts to your Mailchimp email list."
+msgstr "قم بإدارة حملات التسويق عبر البريد الإلكتروني مباشرة من دعمك الرائع عن طريق إضافة حسابات مستخدمين جديدة إلى قائمة بريدك الإلكتروني في Mailchimp."
+
+msgid "Send messages internally about support tickets and other issues between agents with internal mail."
+msgstr "أرسل رسائل داخليًا حول تذاكر الدعم والمشكلات الأخرى بين الوكلاء الذين لديهم بريد داخلي."
+
+msgid "Frontend Widgets include several widgets that can be used to enhance the plugin's functionality in various areas of the website."
+msgstr "تتضمن أدوات الواجهة الأمامية العديد من الأدوات التي يمكن استخدامها لتحسين وظائف البرنامج الإضافي في مناطق مختلفة من موقع الويب."
+
+msgid "Clients won't be able to open a new ticket using the Envato Validation plugin if they don't have a valid Envato license."
+msgstr "لن يتمكن العملاء من فتح تذكرة جديدة باستخدام مكون Envato Validation الإضافي إذا لم يكن لديهم ترخيص Envato صالح."
+
+msgid "Learn about a customer's purchase directly from the support dashboard by integrating Majestic Support with your EDD store."
+msgstr "تعرف على عملية شراء العميل مباشرة من لوحة معلومات الدعم من خلال دمج Majestic Support مع متجر EDD الخاص بك."
+
+msgid "If the colors have been saved but the user-side colors are still the same, it is advised to clear the cache."
+msgstr "إذا تم حفظ الألوان ولكن الألوان من جانب المستخدم لا تزال كما هي، فمن المستحسن مسح ذاكرة التخزين المؤقت."
+
+msgid "Error"
+msgstr "خطأ"
+
+msgid "Roles"
+msgstr "الأدوار"
+
+msgid "Role"
+msgstr "دور"
+
+msgid "Sr#"
+msgstr "ريال سعودى#"
+
+msgid "Gmail"
+msgstr "بريد جوجل"
+
+msgid "Yahoo"
+msgstr "ياهو"
+
+msgid "Aol"
+msgstr "أول"
+
+msgid "Hotmail"
+msgstr "هوتميل"
+
+msgid "No"
+msgstr "لا"
+
+msgid "Wget"
+msgstr "Wget"
+
+msgid "URL"
+msgstr "عنوان URL"
+
+msgid "----"
+msgstr "----"
+
+msgid "JNo"
+msgstr "رقم J"
+
+msgid "Visible"
+msgstr "مرئي"
+
+msgid "Logo"
+msgstr "شعار"
+
+msgid "Re"
+msgstr "يكرر"
+
+msgid "Vertical"
+msgstr "رَأسِيّ"
+
+msgid "Horizontal"
+msgstr "أفقي"
+
+msgid "div"
+msgstr "شعبة"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "General"
+msgstr "عام"
+
+msgid "Captcha"
+msgstr "كلمة التحقق"
+
+msgid "Facebook"
+msgstr "فيسبوك"
+
+msgid "Linkedin"
+msgstr "ينكدين"
+
+msgid "Kb"
+msgstr "كيلو بايت"
+
+msgid "SMTP"
+msgstr "SMTP"
+
+msgid "TLS"
+msgstr "TLS"
+
+msgid "SSL"
+msgstr "طبقة المقابس الآمنة"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "S.No"
+msgstr "رقم S"
+
+msgid "WooCommerce"
+msgstr "ووكومرس"
+
+msgid "envato"
+msgstr "com.envato"
+
+msgid ":"
+msgstr ":"
+
+msgid "Envato"
+msgstr "إنفاتو"
+
+msgid "Color"
+msgstr "لون"
+
+msgid "Normal"
+msgstr "طبيعي"
+
+msgid "Color 1"
+msgstr "اللون 1"
+
+msgid "Color 2"
+msgstr "اللون 2"
+
+msgid "Color 3"
+msgstr "اللون 3"
+
+msgid "Color 4"
+msgstr "اللون 4"
+
+msgid "Color 5"
+msgstr "اللون 5"
+
+msgid "Color 6"
+msgstr "اللون 6"
+
+msgid "Color 7"
+msgstr "اللون 7"
+
+msgid "Kylee Arroyo"
+msgstr "كايلي أرويو"
+
+msgid "Marketing"
+msgstr "تسويق"
+
+msgid "XcyMfWYKp"
+msgstr "XcyMfWYKp"
+
+msgid "08-12-2022"
+msgstr "08-12-2022"
+
+msgid "Allison Carney"
+msgstr "أليسون كارني"
+
+msgid "Yx4cW3Mfk"
+msgstr "Yx4cW3Mfk"
+
+msgid "05-12-2022"
+msgstr "05-12-2022"
+
+msgid "GxNDv3MfC"
+msgstr "GxNDv3MfC"
+
+msgid "01-12-2022"
+msgstr "01-12-2022"
+
+msgid ","
+msgstr ","
+
+msgid "Issue Summary"
+msgstr "ملخص القضية"
+
+msgid "Envato Purchase Code"
+msgstr "كود شراء إنفاتو"
+
+msgid "Internal Note Title"
+msgstr "عنوان الملاحظة الداخلية"
+
+msgid "Ticket Department Transfer"
+msgstr "نقل قسم التذاكر"
+
+msgid "Change Ticket Priority"
+msgstr "تغيير أولوية التذكرة"
+
+msgid "View Ticket"
+msgstr "عرض التذكرة"
+
+msgid "New Ticket Notification"
+msgstr "إشعار التذاكر الجديدة"
+
+msgid "Edit Own Time"
+msgstr "تحرير الوقت الخاص"
+
+msgid "View Feedback"
+msgstr "عرض التعليقات"
+
+msgid "View Ticket Merge"
+msgstr "عرض دمج التذاكر"
+
+msgid "View Credentials"
+msgstr "عرض بيانات الاعتماد"
+
+msgid "Delete Credentials"
+msgstr "حذف بيانات الاعتماد"
+
+msgid "Edit Credentials"
+msgstr "تحرير بيانات الاعتماد"
+
+msgid "Add Credentials"
+msgstr "إضافة بيانات الاعتماد"
+
+msgid "Mark Non Premium"
+msgstr "وضع علامة غير مميزة"
+
+msgid "Link To Paid Support"
+msgstr "رابط إلى الدعم المدفوع"
+
+msgid "Assign Role Permissions"
+msgstr "تعيين أذونات الدور"
+
+msgid "Add User"
+msgstr "إضافة مستخدم"
+
+msgid "Edit User"
+msgstr "تحرير العضو"
+
+msgid "Assign User Permissions"
+msgstr "تعيين أذونات المستخدم"
+
+msgid "Delete Department"
+msgstr "حذف القسم"
+
+msgid "View Department"
+msgstr "عرض القسم"
+
+msgid "View Role"
+msgstr "عرض الدور"
+
+msgid "View User"
+msgstr "عرض المستخدم"
+
+msgid "View Agent Reports"
+msgstr "عرض تقارير الوكيل"
+
+msgid "View Department Reports"
+msgstr "عرض تقارير القسم"
+
+msgid "Manage Ticket Close Reasons"
+msgstr "إدارة أسباب إغلاق التذكرة"
+
+msgid "View Category"
+msgstr "عرض الفئة"
+
+msgid "View Knowledge Base"
+msgstr "عرض قاعدة المعرفة"
+
+msgid "Delete Category"
+msgstr "حذف الفئة"
+
+msgid "Delete Knowledge Base"
+msgstr "حذف قاعدة المعرفة"
+
+msgid "View FAQ"
+msgstr "عرض الأسئلة الشائعة"
+
+msgid "Delete FAQ"
+msgstr "حذف الأسئلة الشائعة"
+
+msgid "View Download"
+msgstr "مشاهدة تحميل"
+
+msgid "Delete Download"
+msgstr "حذف التنزيل"
+
+msgid "Delete Announcement"
+msgstr "إعلان حذف"
+
+msgid "Allow Mail System"
+msgstr "السماح لنظام البريد"
+
+msgid "Edit Help Topic"
+msgstr "تحرير موضوع التعليمات"
+
+msgid "View Help Topic"
+msgstr "عرض موضوع التعليمات"
+
+msgid "Delete Help Topic"
+msgstr "حذف موضوع التعليمات"
+
+msgid "Edit Premade Response"
+msgstr "تحرير الاستجابة المعدة مسبقًا"
+
+msgid "View Premade Response"
+msgstr "عرض الاستجابة المعدة مسبقًا"
+
+msgid "Delete Premade Response"
+msgstr "حذف الاستجابة المعدة مسبقا"
+
+msgid "Edit Smart Reply"
+msgstr "تحرير الرد الذكي"
+
+msgid "View Smart Reply"
+msgstr "عرض الرد الذكي"
+
+msgid "Delete Smart Reply"
+msgstr "حذف الرد الذكي"
+
+msgid "Add Ban Email"
+msgstr "إضافة حظر البريد الإلكتروني"
+
+msgid "Edit Ban Email"
+msgstr "تحرير حظر البريد الإلكتروني"
+
+msgid "View Ban Email"
+msgstr "عرض حظر البريد الإلكتروني"
+
+msgid "Delete Ban Email"
+msgstr "حذف البريد الإلكتروني المحظور"
+
+msgid "View Announcement"
+msgstr "شاهد الإعلان"
+
+msgid "Phone"
+msgstr "هاتف"
+
+msgid "Add Permissions"
+msgstr "إضافة أذونات"
+
+msgid "Add Rule"
+msgstr "أضف القاعدة"
+
+msgid "Contain"
+msgstr "يحتوي"
+
+msgid "Matched"
+msgstr "متطابق"
+
+msgid "Submit Type"
+msgstr "إرسال النوع"
+
+msgid "Addons Status"
+msgstr "حالة الإضافات"
+
+msgid "Assign To"
+msgstr "يسند إلى"
+
+msgid "Agent Detail Report"
+msgstr "تقرير تفاصيل الوكيل"
+
+msgid "User Detail Report"
+msgstr "تقرير تفاصيل المستخدم"
+
+msgid "Satisfaction Reports"
+msgstr "تقارير الرضا"
+
+msgid "Admin New Ticket Received"
+msgstr "تم استلام تذكرة المشرف الجديدة"
+
+msgid "Staff New Ticket Received"
+msgstr "تم استلام تذكرة جديدة للموظفين"
+
+msgid "New Department Received"
+msgstr "تم استلام قسم جديد"
+
+msgid "New Group Received"
+msgstr "تم استلام مجموعة جديدة"
+
+msgid "New Agent Received"
+msgstr "تم استلام الوكيل الجديد"
+
+msgid "New Help Topic Received"
+msgstr "تم تلقي موضوع تعليمات جديد"
+
+msgid "Admin Reassign Ticket"
+msgstr "تذكرة إعادة تعيين المشرف"
+
+msgid "Staff Reassign Ticket"
+msgstr "تذكرة إعادة تعيين الموظفين"
+
+msgid "Admin Close Ticket"
+msgstr "المشرف إغلاق التذكرة"
+
+msgid "Staff Close Ticket"
+msgstr "تذكرة إغلاق الموظفين"
+
+msgid "Admin Delete Ticket"
+msgstr "المشرف حذف التذكرة"
+
+msgid "Staff Delete Ticket"
+msgstr "الموظفين حذف التذكرة"
+
+msgid "Admin Overdue Ticket"
+msgstr "تذكرة المشرف المتأخرة"
+
+msgid "Staff Overdue Ticket"
+msgstr "تذكرة متأخرة للموظفين"
+
+msgid "Admin Email Baned"
+msgstr "البريد الإلكتروني المشرف محظور"
+
+msgid "Staff Email Baned"
+msgstr "البريد الإلكتروني للموظفين محظور"
+
+msgid "Admin Ticket Transfered to Department"
+msgstr "تم نقل تذكرة المشرف إلى القسم"
+
+msgid "Staff Ticket Transfered to Department"
+msgstr "تم نقل تذكرة الموظفين إلى القسم"
+
+msgid "Admin Email baned and ticket closed"
+msgstr "البريد الإلكتروني للمشرف محظور والتذكرة مغلقة"
+
+msgid "Staff Email baned and ticket closed"
+msgstr "تم حظر البريد الإلكتروني للموظفين وتم إغلاق التذكرة"
+
+msgid "Admin Email Unbaned"
+msgstr "البريد الإلكتروني للمشرف غير محظور"
+
+msgid "Staff Email Unbaned"
+msgstr "البريد الإلكتروني للموظفين غير محظور"
+
+msgid "Admin Ticket Reply"
+msgstr "رد تذكرة المشرف"
+
+msgid "Staff Ticket Reply"
+msgstr "الرد على تذكرة الموظفين"
+
+msgid "Ticket Received"
+msgstr "تم استلام التذكرة"
+
+msgid "Banemail try new ticket"
+msgstr "Banmail جرب تذكرة جديدة"
+
+msgid "Admin Ticket has been locked"
+msgstr "تم قفل تذكرة المشرف"
+
+msgid "Staff Ticket has been locked"
+msgstr "تم قفل تذكرة الموظفين"
+
+msgid "Admin Ticket has been unlocked"
+msgstr "لقد تم فتح تذكرة المشرف"
+
+msgid "Staff Ticket has been unlocked"
+msgstr "لقد تم فتح تذكرة الموظفين"
+
+msgid "Admin In progress Ticket"
+msgstr "تذكرة المشرف قيد التقدم"
+
+msgid "Staff In progress Ticket"
+msgstr "تذكرة للموظفين قيد التقدم"
+
+msgid "Admin Ticket priority changed"
+msgstr "تغيرت أولوية تذكرة المشرف"
+
+msgid "Staff Ticket priority changed"
+msgstr "تغيرت أولوية تذكرة الموظفين"
+
+msgid "New Mail has been sent"
+msgstr "تم إرسال بريد جديد"
+
+msgid "New Reply has been sent"
+msgstr "تم إرسال الرد الجديد"
+
+msgid "Delete User Data"
+msgstr "حذف بيانات المستخدم"
+
+msgid "Closed on"
+msgstr "أغلقت يوم"
+
+msgid "Message could not be sent. Mailer Error: "
+msgstr "لا يمكن إرسال الرسالة. خطأ في الارسال:"
+
+msgid "Test email has been sent on : "
+msgstr "تم إرسال البريد الإلكتروني التجريبي على:"
+
+msgid "The system has no agents add an agent to maximize your productivity."
+msgstr "لا يحتوي النظام على وكلاء، قم بإضافة وكيل لزيادة إنتاجيتك إلى الحد الأقصى"

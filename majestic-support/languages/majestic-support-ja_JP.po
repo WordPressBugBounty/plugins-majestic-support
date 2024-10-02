@@ -1,0 +1,6144 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "You are not allowed"
+msgstr "あなたは許可されていません"
+
+msgid "The ticket has been locked"
+msgstr "チケットはロックされています"
+
+msgid "Successfully"
+msgstr "成功しました"
+
+msgid "The ticket has not been locked"
+msgstr "チケットはロックされていません"
+
+msgid "Lock Ticket"
+msgstr "ロックチケット"
+
+msgid "The ticket is locked by"
+msgstr "チケットは次によってロックされています"
+
+msgid "The ticket has been unlocked"
+msgstr "チケットのロックが解除されました"
+
+msgid "The ticket has not been unlocked"
+msgstr "チケットのロックが解除されていません"
+
+msgid "Unlock Ticket"
+msgstr "ロック解除チケット"
+
+msgid "User already an agent"
+msgstr "ユーザーはすでにエージェントです"
+
+msgid "The agent has not been stored"
+msgstr "エージェントは保存されていません"
+
+msgid "The agent has been stored"
+msgstr "エージェントが保存されました"
+
+msgid "The agent has been deleted"
+msgstr "エージェントは削除されました"
+
+msgid "The agent has not been deleted"
+msgstr "エージェントは削除されていません"
+
+msgid "The agent in use cannot delete"
+msgstr "使用中のエージェントは削除できません"
+
+msgid "Agent"
+msgstr "エージェント"
+
+msgid "status has been changed"
+msgstr "ステータスが変更されました"
+
+msgid "status has not been changed"
+msgstr "ステータスは変わっていない"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "User Name"
+msgstr "ユーザー名"
+
+msgid "Email Address"
+msgstr "電子メールアドレス"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Email"
+msgstr "Eメール"
+
+msgid "Previous"
+msgstr "前の"
+
+msgid "Next"
+msgstr "次"
+
+msgid "Error Deleting Logo"
+msgstr "ロゴの削除エラー"
+
+msgid "Active"
+msgstr "アクティブ"
+
+msgid "Disabled"
+msgstr "無効"
+
+msgid "Uploaded file extension error."
+msgstr "アップロードされたファイル拡張子エラー。"
+
+msgid "Select user"
+msgstr "ユーザーの選択"
+
+msgid "Username"
+msgstr "ユーザー名"
+
+msgid "Search"
+msgstr "検索"
+
+msgid "Reset"
+msgstr "リセット"
+
+msgid "Use search feature to select the user"
+msgstr "検索機能を使用してユーザーを選択します"
+
+msgid "image"
+msgstr "画像"
+
+msgid "Add Agent"
+msgstr "エージェントの追加"
+
+msgid "WP User ID"
+msgstr "WPユーザーID"
+
+msgid "WP Username"
+msgstr "WP ユーザー名"
+
+msgid "WP Full Name"
+msgstr "WPのフルネーム"
+
+msgid "WP Email Address"
+msgstr "WPメールアドレス"
+
+msgid "User"
+msgstr "ユーザー"
+
+msgid "Select User"
+msgstr "ユーザーの選択"
+
+msgid "Select Role"
+msgstr "役割の選択"
+
+msgid "First Name"
+msgstr "ファーストネーム"
+
+msgid "Last Name"
+msgstr "苗字"
+
+msgid "Office Phone"
+msgstr "オフィスの電話"
+
+msgid "Extension"
+msgstr "拡大"
+
+msgid "Mobile No"
+msgstr "携帯番号"
+
+msgid "Picture"
+msgstr "写真"
+
+msgid "cross"
+msgstr "クロス"
+
+msgid "Maximum File Size"
+msgstr "最大ファイルサイズ"
+
+msgid "File Extension Type"
+msgstr "ファイル拡張子の種類"
+
+msgid "Append Signature"
+msgstr "署名を追加"
+
+msgid "Append signature with a reply"
+msgstr "返信に署名を追加する"
+
+msgid "Signature"
+msgstr "サイン"
+
+msgid "Account Status"
+msgstr "アカウントのステータス"
+
+msgid "Select Status"
+msgstr "ステータスの選択"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Close"
+msgstr "近い"
+
+msgid "User Detail"
+msgstr "ユーザーの詳細"
+
+msgid "Append"
+msgstr "追加"
+
+msgid "Department Section"
+msgstr "部課"
+
+msgid "Ticket Section"
+msgstr "チケットセクション"
+
+msgid "Agent Section"
+msgstr "エージェントセクション"
+
+msgid "Knowledge Base Section"
+msgstr "ナレッジベースセクション"
+
+msgid "FAQ Section"
+msgstr "よくある質問セクション"
+
+msgid "Download Section"
+msgstr "ダウンロードセクション"
+
+msgid "Announcement Section"
+msgstr "お知らせセクション"
+
+msgid "Mail Section"
+msgstr "メールセクション"
+
+msgid "Help Topic Section"
+msgstr "ヘルプ トピック セクション"
+
+msgid "Premade Response Section"
+msgstr "事前に作成された応答セクション"
+
+msgid "Smart Reply Section"
+msgstr "スマート リプライ セクション"
+
+msgid "Ban Email Section"
+msgstr "メール禁止セクション"
+
+msgid "Select / Deselect All"
+msgstr "すべて選択/選択解除"
+
+msgid "Save Permissions"
+msgstr "権限の保存"
+
+msgid "Full Name"
+msgstr "フルネーム"
+
+msgid "Status"
+msgstr "状態"
+
+msgid "Created"
+msgstr "作成した"
+
+msgid "Permissions"
+msgstr "権限"
+
+msgid "Action"
+msgstr "アクション"
+
+msgid "Staff"
+msgstr "スタッフ"
+
+msgid "change status"
+msgstr "ステータスを変更する"
+
+msgid "Edit"
+msgstr "編集"
+
+msgid "Delete"
+msgstr "消去"
+
+msgid "Are you sure you want to delete"
+msgstr "消去してもよろしいですか"
+
+msgid "Something went wrong to try again later."
+msgstr "後でもう一度試してみると問題が発生しました。"
+
+msgid "My Profile"
+msgstr "私のプロフィール"
+
+msgid "Upload Image"
+msgstr "画像をアップロードする"
+
+msgid "Phone No"
+msgstr "電話番号"
+
+msgid "Upload file limit exceeds"
+msgstr "アップロードファイルの制限を超えています"
+
+msgid "No help topic found"
+msgstr "ヘルプ トピックが見つかりませんでした"
+
+msgid "Error file size too large"
+msgstr "エラーファイルのサイズが大きすぎます"
+
+msgid "Submit Ticket"
+msgstr "チケットを送信する"
+
+msgid "Select Department"
+msgstr "部門を選択してください"
+
+msgid "Select Help Topic"
+msgstr "ヘルプトピックを選択してください"
+
+msgid "Select Priority"
+msgstr "優先度の選択"
+
+msgid "premade"
+msgstr "既成の"
+
+msgid "Add more"
+msgstr "さらに追加"
+
+msgid "Remove"
+msgstr "取り除く"
+
+msgid "Reason for edit"
+msgstr "編集理由"
+
+msgid "Internal Note"
+msgstr "内部メモ"
+
+msgid "Enter valid woocommerce order#"
+msgstr "有効な woocommerce 注文番号を入力してください"
+
+msgid "Order id found"
+msgstr "注文IDが見つかりました"
+
+msgid "Order id not found"
+msgstr "注文IDが見つかりません"
+
+msgid "Select Product"
+msgstr "製品の選択"
+
+msgid "Dated"
+msgstr "日付付き"
+
+msgid "Select Order ID"
+msgstr "注文IDを選択してください"
+
+msgid "Select license key"
+msgstr "ライセンスキーを選択してください"
+
+msgid "Assign to me"
+msgstr "私に割り当ててください"
+
+msgid "Show All"
+msgstr "すべて表示する"
+
+msgid "Show Less"
+msgstr "表示を減らす"
+
+msgid "My Tickets"
+msgstr "私のチケット"
+
+msgid "Open"
+msgstr "開ける"
+
+msgid "Closed"
+msgstr "閉まっている"
+
+msgid "Answered"
+msgstr "答えた"
+
+msgid "Overdue"
+msgstr "期限を過ぎました"
+
+msgid "All Tickets"
+msgstr "すべてのチケット"
+
+msgid "Ticket ID"
+msgstr "チケットID"
+
+msgid "Or"
+msgstr "または"
+
+msgid "From"
+msgstr "から"
+
+msgid "Select Agent"
+msgstr "エージェントの選択"
+
+msgid "Select"
+msgstr "選択する"
+
+msgid "Start Date"
+msgstr "開始日"
+
+msgid "End Date"
+msgstr "終了日"
+
+msgid "Assigned to me"
+msgstr "私に割り当てられました"
+
+msgid "All"
+msgstr "全て"
+
+msgid "Tickets"
+msgstr "チケット"
+
+msgid "Subject"
+msgstr "主題"
+
+msgid "Priority"
+msgstr "優先度"
+
+msgid "sort"
+msgstr "選別"
+
+msgid "New"
+msgstr "新しい"
+
+msgid "Waiting Reply"
+msgstr "返信待ち"
+
+msgid "In Progress"
+msgstr "進行中"
+
+msgid "Replied"
+msgstr "返信しました"
+
+msgid "Close and merge"
+msgstr "閉じて結合する"
+
+msgid "Created via Email"
+msgstr "電子メールで作成"
+
+msgid "The ticket is locked"
+msgstr "チケットはロックされています"
+
+msgid "The ticket marks as overdue"
+msgstr "チケットに期限切れのマークが付いている"
+
+msgid "Last Reply"
+msgstr "最後の返信"
+
+msgid "Agent Permissions"
+msgstr "エージェントの権限"
+
+msgid "Agents"
+msgstr "エージェント"
+
+msgid "Add agent"
+msgstr "エージェントの追加"
+
+msgid "Search by username"
+msgstr "ユーザー名で検索"
+
+msgid "Already exists"
+msgstr "もう存在している"
+
+msgid "The role has been stored"
+msgstr "役割が保存されました"
+
+msgid "The role has not been stored"
+msgstr "役割は保存されていません"
+
+msgid "The role has been deleted"
+msgstr "役割が削除されました"
+
+msgid "The role has not been deleted"
+msgstr "役割は削除されていません"
+
+msgid "The role currently in use cannot be deleted"
+msgstr "現在使用中のロールは削除できません"
+
+msgid "Add Role"
+msgstr "役割の追加"
+
+msgid "Save Role"
+msgstr "役割の保存"
+
+msgid "Role Name"
+msgstr "役割名"
+
+msgid "Role Permission"
+msgstr "役割の権限"
+
+msgid "Role Permissions"
+msgstr "役割の権限"
+
+msgid "Role permissions"
+msgstr "役割の権限"
+
+msgid "Agent permissions have been stored"
+msgstr "エージェントの権限が保存されました"
+
+msgid "Select Condition Operator"
+msgstr "条件演算子の選択"
+
+msgid "Select Submit Type"
+msgstr "送信タイプを選択してください"
+
+msgid "Rule has been stored"
+msgstr "ルールが保存されました"
+
+msgid "Rule has not been stored"
+msgstr "ルールは保存されていません"
+
+msgid "Rule has been deleted"
+msgstr "ルールは削除されました"
+
+msgid "Rule has not been deleted"
+msgstr "ルールは削除されていません"
+
+msgid "Rule"
+msgstr "ルール"
+
+msgid "in use cannot deleted"
+msgstr "使用中は削除できません"
+
+msgid "Condition Title"
+msgstr "状態タイトル"
+
+msgid "Select Condition Title"
+msgstr "条件タイトルの選択"
+
+msgid "Condition Operator"
+msgstr "条件演算子"
+
+msgid "Condition Value"
+msgstr "条件値"
+
+msgid "Select Condition Value"
+msgstr "条件値の選択"
+
+msgid "Delete Condition"
+msgstr "条件の削除"
+
+msgid "No Operator found"
+msgstr "オペレーターが見つかりませんでした"
+
+msgid "No Value found"
+msgstr "値が見つかりませんでした"
+
+msgid "Rule Title"
+msgstr "ルールのタイトル"
+
+msgid "Condition value"
+msgstr "条件値"
+
+msgid "+Add more Condition"
+msgstr "+さらに条件を追加"
+
+msgid "Save Rule"
+msgstr "ルールの保存"
+
+msgid "Records per page"
+msgstr "ページあたりのレコード数"
+
+msgid "Save Ordering"
+msgstr "注文の保存"
+
+msgid "An announcement has been stored"
+msgstr "お知らせが保存されました"
+
+msgid "An announcement has not been stored"
+msgstr "お知らせは保存されていません"
+
+msgid "An announcement has been deleted"
+msgstr "お知らせが削除されました"
+
+msgid "An announcement has not been deleted"
+msgstr "お知らせは削除されていません"
+
+msgid "Announcement"
+msgstr "発表"
+
+msgid "ordering has been changed"
+msgstr "順序が変更されました"
+
+msgid "ordering has not changed"
+msgstr "注文は変わっていない"
+
+msgid "Public"
+msgstr "公共"
+
+msgid "Private"
+msgstr "プライベート"
+
+msgid "Add Announcement"
+msgstr "お知らせを追加"
+
+msgid "Title"
+msgstr "タイトル"
+
+msgid "Parent Category"
+msgstr "親カテゴリ"
+
+msgid "Select Category"
+msgstr "カテゴリを選んでください"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "Select Visibility"
+msgstr "可視性の選択"
+
+msgid "All users"
+msgstr "すべてのユーザー"
+
+msgid "Only logged-in users"
+msgstr "ログインしているユーザーのみ"
+
+msgid "Visible To"
+msgstr "表示対象者"
+
+msgid "Save Announcement"
+msgstr "お知らせの保存"
+
+msgid "Category"
+msgstr "カテゴリー"
+
+msgid "Ordering"
+msgstr "注文"
+
+msgid "Announcement Detail"
+msgstr "お知らせ詳細"
+
+msgid "Category Name"
+msgstr "種別名"
+
+msgid "Announcements"
+msgstr "お知らせ"
+
+msgid "Categories"
+msgstr "カテゴリー"
+
+msgid "Add Announcements"
+msgstr "お知らせの追加"
+
+msgid "Logger Email"
+msgstr "ロガーの電子メール"
+
+msgid "Log"
+msgstr "ログ"
+
+msgid "Logger"
+msgstr "ロガー"
+
+msgid "IP Address"
+msgstr "IPアドレス"
+
+msgid "Ban email has been stored"
+msgstr "BAN メールが保存されました"
+
+msgid "Ban email has not been stored"
+msgstr "BAN メールは保存されていません"
+
+msgid "Ban email has been deleted"
+msgstr "BANメールは削除されました"
+
+msgid "Ban email has not been deleted"
+msgstr "BANメールは削除されていない"
+
+msgid "Ban email does not exist"
+msgstr "禁止メールは存在しません"
+
+msgid "Add Email"
+msgstr "メールを追加"
+
+msgid "Save Email"
+msgstr "メールの保存"
+
+msgid "Save Banned Email"
+msgstr "禁止されたメールを保存する"
+
+msgid "Emails"
+msgstr "メール"
+
+msgid "Submitter"
+msgstr "提出者"
+
+msgid "Banned Emails"
+msgstr "禁止されたメール"
+
+msgid "Are you sure you want to delete it?"
+msgstr "削除してもよろしいですか?"
+
+msgid "Premade response message has been stored"
+msgstr "あらかじめ作成された応答メッセージが保存されています"
+
+msgid "Premade response message has not been stored"
+msgstr "事前に作成された応答メッセージが保存されていません"
+
+msgid "Premade department message has been deleted"
+msgstr "事前に作成された部門メッセージが削除されました"
+
+msgid "Premade department message has not been deleted"
+msgstr "事前に作成された部門メッセージが削除されていません"
+
+msgid "Premade response"
+msgstr "あらかじめ用意された応答"
+
+msgid "Add Premade Response"
+msgstr "事前に作成された応答を追加する"
+
+msgid "Department"
+msgstr "部門"
+
+msgid "Response"
+msgstr "応答"
+
+msgid "Save Premade Response"
+msgstr "事前に作成された応答を保存する"
+
+msgid "The department under which the answer will be made is available"
+msgstr "回答する部署がわかります"
+
+msgid "Offline"
+msgstr "オフライン"
+
+msgid "Last Updated"
+msgstr "最終更新"
+
+msgid "Not updated"
+msgstr "更新されていない"
+
+msgid "Premade Response"
+msgstr "事前に作成された応答"
+
+msgid "Latest Tickets"
+msgstr "最新のチケット"
+
+msgid "Last Month Ticket Stats"
+msgstr "先月のチケット統計"
+
+msgid "Pending"
+msgstr "保留中"
+
+msgid "The attachment has been removed"
+msgstr "添付ファイルが削除されました"
+
+msgid "The attachment has not been removed"
+msgstr "添付ファイルは削除されていません"
+
+msgid "The download has been stored"
+msgstr "ダウンロードが保存されました"
+
+msgid "The download has not been stored"
+msgstr "ダウンロードは保存されていません"
+
+msgid "Download"
+msgstr "ダウンロード"
+
+msgid "The download has been deleted"
+msgstr "ダウンロードは削除されました"
+
+msgid "The download has not been deleted"
+msgstr "ダウンロードは削除されていません"
+
+msgid "Download All"
+msgstr "すべてダウンロード"
+
+msgid "Add Download"
+msgstr "ダウンロードを追加"
+
+msgid "Attachments"
+msgstr "添付ファイル"
+
+msgid "Save Download"
+msgstr "ダウンロードを保存"
+
+msgid "Add More Files"
+msgstr "さらにファイルを追加する"
+
+msgid "Delete attachment"
+msgstr "添付ファイルの削除"
+
+msgid "grab"
+msgstr "掴む"
+
+msgid "Attachment"
+msgstr "アタッチメント"
+
+msgid "Downloads"
+msgstr "ダウンロード"
+
+msgid "Files"
+msgstr "ファイル"
+
+msgid "Majestic Support"
+msgstr "雄大なサポート"
+
+msgid "Get Help"
+msgstr "助けを得ます"
+
+msgid "Email CC has been stored"
+msgstr "メールCCが保存されました"
+
+msgid "Email CC has not been stored"
+msgstr "メールCCが保存されていません"
+
+msgid "Email CC has been deleted"
+msgstr "メールCCが削除されました"
+
+msgid "Email CC has not been deleted"
+msgstr "メールCCは削除されていません"
+
+msgid "Email CC "
+msgstr "メールCC"
+
+msgid "Email CC"
+msgstr "メールCC"
+
+msgid "Template Type"
+msgstr "テンプレートの種類"
+
+msgid "Select Template Type"
+msgstr "テンプレートの種類を選択してください"
+
+msgid "Delete row"
+msgstr "行の削除"
+
+msgid "Template For"
+msgstr "のテンプレート"
+
+msgid "Select Template For"
+msgstr "テンプレートの選択"
+
+msgid "Template Title"
+msgstr "テンプレートのタイトル"
+
+msgid "Add more row"
+msgstr "さらに行を追加"
+
+msgid "Save Email CC"
+msgstr "メールCCを保存"
+
+msgid "Service is running, please close the pag"
+msgstr "サービスは実行中です。ページを閉じてください"
+
+msgid "Your setting is working please this."
+msgstr "設定は機能していますので、これを行ってください。"
+
+msgid "Connection established but the system cannot read any email"
+msgstr "接続は確立されましたが、システムは電子メールを読み取ることができません"
+
+msgid "The setting has been stored."
+msgstr "設定が保存されました。"
+
+msgid "The setting has not been stored."
+msgstr "設定が保存されていません。"
+
+msgid "Email address already exist"
+msgstr "メールアドレスはすでに存在します"
+
+msgid "Email for email piping has been stored"
+msgstr "電子メールパイピング用の電子メールが保存されました"
+
+msgid "Email for email piping has not been stored"
+msgstr "電子メールパイプ用の電子メールが保存されていません"
+
+msgid "The email has been deleted"
+msgstr "メールは削除されました"
+
+msgid "The email has not been deleted"
+msgstr "メールは削除されていません"
+
+msgid "Enabled"
+msgstr "有効"
+
+msgid "Only New Tickets"
+msgstr "新しいチケットのみ"
+
+msgid "Only Replies"
+msgstr "返信のみ"
+
+msgid "Both"
+msgstr "両方"
+
+msgid "Other"
+msgstr "他の"
+
+msgid "Yes"
+msgstr "はい"
+
+msgid "Please enter the hostname first"
+msgstr "最初にホスト名を入力してください"
+
+msgid "Please enable email piping setting first"
+msgstr "最初に電子メールのパイピング設定を有効にしてください"
+
+msgid "Enable email piping"
+msgstr "電子メールのパイプを有効にする"
+
+msgid "Ticket Type"
+msgstr "チケットの種類"
+
+msgid "Which email type to read"
+msgstr "どのタイプのメールを読むべきか"
+
+msgid "Save attachments if found in an email"
+msgstr "メール内に添付ファイルが見つかった場合は保存する"
+
+msgid "Host Type"
+msgstr "ホストの種類"
+
+msgid "Select your email service provider"
+msgstr "電子メール サービス プロバイダーを選択してください"
+
+msgid "Host Name"
+msgstr "ホスト名"
+
+msgid "Enabled SSL"
+msgstr "SSLの有効化"
+
+msgid "Do you have enabled SSL on your domain?"
+msgstr "ドメインで SSL を有効にしていますか?"
+
+msgid "Host Port Number"
+msgstr "ホストのポート番号"
+
+msgid "Host port number to read an email from"
+msgstr "電子メールを読み取るホストのポート番号"
+
+msgid "Email address to read emails"
+msgstr "メールを読むためのメールアドレス"
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Password for a given email address"
+msgstr "指定されたメールアドレスのパスワード"
+
+msgid "check"
+msgstr "チェック"
+
+msgid "Check Settings"
+msgstr "設定を確認する"
+
+msgid "If the system doesn't respond in 30 seconds"
+msgstr "システムが 30 秒以内に応答しない場合"
+
+msgid "it means system unable to connect email server"
+msgstr "システムが電子メールサーバーに接続できないことを意味します"
+
+msgid "Save Settings"
+msgstr "設定を保存する"
+
+msgid "Cron Job"
+msgstr "クロンジョブ"
+
+msgid "Web Cron Job"
+msgstr "Web Cron ジョブ"
+
+msgid "Curl"
+msgstr "カール"
+
+msgid "PHP Script"
+msgstr "PHPスクリプト"
+
+msgid "Configuration of a backup job with webcron.org"
+msgstr "webcron.org を使用したバックアップ ジョブの構成"
+
+msgid "Name of cron job"
+msgstr "cron ジョブの名前"
+
+msgid "Log in to webcron.org and in the cron area, click on "
+msgstr "webcron.org にログインし、cron 領域で、"
+
+msgid "Timeout"
+msgstr "タイムアウト"
+
+msgid "URL you want to execute"
+msgstr "実行したいURL"
+
+msgid "Login"
+msgstr "ログイン"
+
+msgid "Leave this blank"
+msgstr "これを空白のままにしておきます"
+
+msgid "Execution time"
+msgstr "実行時間"
+
+msgid "That the grid below the other options select when and how"
+msgstr "他のオプションの下のグリッドがいつ、どのように選択するか"
+
+msgid "Alerts"
+msgstr "アラート"
+
+msgid "Cron scheduling using wget"
+msgstr "wgetを使用したCronスケジューリング"
+
+msgid "Cron scheduling using Curl"
+msgstr "Curl を使用した Cron スケジュール"
+
+msgid "Custom PHP script to run the cron job"
+msgstr "cron ジョブを実行するためのカスタム PHP スクリプト"
+
+msgid "Sorry the cron job did not work"
+msgstr "申し訳ありませんが、cron ジョブが機能しませんでした"
+
+msgid "URL for use with your own scripts and third-party scripts"
+msgstr "独自のスクリプトおよびサードパーティのスクリプトで使用する URL"
+
+msgid "It is recommended to run the script every hour."
+msgstr "スクリプトは 1 時間ごとに実行することをお勧めします。"
+
+msgid "Ticket Email Type"
+msgstr "チケットの電子メールの種類"
+
+msgid "ticket email"
+msgstr "チケットメール"
+
+msgid "Overall Reports"
+msgstr "全体レポート"
+
+msgid "Agents Report"
+msgstr "エージェントレポート"
+
+msgid "Department Report"
+msgstr "部門レポート"
+
+msgid "Departments Report"
+msgstr "部門レポート"
+
+msgid "Majestic Support Overall Reports"
+msgstr "Majestic サポートの全体レポート"
+
+msgid "Tickets By Status"
+msgstr "ステータス別のチケット"
+
+msgid "Tickets By Departments"
+msgstr "部門別のチケット"
+
+msgid "Tickets By Priorities"
+msgstr "優先順位別のチケット"
+
+msgid "Tickets By Channel"
+msgstr "チャンネル別チケット"
+
+msgid "Direct"
+msgstr "直接"
+
+msgid "Direct reply"
+msgstr "直接返信"
+
+msgid "Email reply"
+msgstr "メール返信"
+
+msgid "Tickets By staff"
+msgstr "チケット スタッフによる"
+
+msgid "Report By"
+msgstr "報告者"
+
+msgid "agent"
+msgstr "エージェント"
+
+msgid "To"
+msgstr "に"
+
+msgid "Report By Agents"
+msgstr "エージェントによるレポート"
+
+msgid "Ticket status by days"
+msgstr "日ごとのチケットステータス"
+
+msgid "Date"
+msgstr "日付"
+
+msgid "Tickets Staff"
+msgstr "チケットスタッフ"
+
+msgid "Average Rating"
+msgstr "平均評価"
+
+msgid "Average Time"
+msgstr "平均時間"
+
+msgid "Report By agent"
+msgstr "エージェントによるレポート"
+
+msgid "Rating"
+msgstr "評価"
+
+msgid "Time"
+msgstr "時間"
+
+msgid "Merged"
+msgstr "合併しました"
+
+msgid "Report By department"
+msgstr "部門別レポート"
+
+msgid "Tickets By Department"
+msgstr "部門別チケット"
+
+msgid "Department Name"
+msgstr "部署名"
+
+msgid "User report"
+msgstr "ユーザーレポート"
+
+msgid "Users report"
+msgstr "ユーザーレポート"
+
+msgid "Users Tickets"
+msgstr "ユーザーチケット"
+
+msgid "User Report"
+msgstr "ユーザーレポート"
+
+msgid "Report By Departments"
+msgstr "部門別レポート"
+
+msgid "Tickets Data"
+msgstr "チケットデータ"
+
+msgid "Message"
+msgstr "メッセージ"
+
+msgid "Assigned To"
+msgstr "に割り当てられた"
+
+msgid "Updated"
+msgstr "更新しました"
+
+msgid "Due Date"
+msgstr "期日"
+
+msgid "Closed Date"
+msgstr "休業日"
+
+msgid "Closed Time"
+msgstr "閉店時間"
+
+msgid "Requester User Name"
+msgstr "依頼者のユーザー名"
+
+msgid "Requester Name"
+msgstr "依頼者名"
+
+msgid "Requester Email"
+msgstr "リクエスタのメールアドレス"
+
+msgid "Requester Phone"
+msgstr "依頼者の電話番号"
+
+msgid "Requester help Topic"
+msgstr "リクエスタのヘルプトピック"
+
+msgid "Ticket Attachment"
+msgstr "チケット添付"
+
+msgid "Posted By"
+msgstr "投稿者"
+
+msgid "Note Title"
+msgstr "メモのタイトル"
+
+msgid "Note Message"
+msgstr "注意メッセージ"
+
+msgid "Posted Date"
+msgstr "投稿日"
+
+msgid "Note Attachment"
+msgstr "メモの添付ファイル"
+
+msgid "User Time"
+msgstr "ユーザー時間"
+
+msgid "System Time"
+msgstr "システム時刻"
+
+msgid "Edit Reason"
+msgstr "理由の編集"
+
+msgid "Reply Date"
+msgstr "返信日"
+
+msgid "Reply By"
+msgstr "返信者"
+
+msgid "Reply Attachment"
+msgstr "返信添付ファイル"
+
+msgid "Total Tracking Time"
+msgstr "合計追跡時間"
+
+msgid "Ticket Status"
+msgstr "チケットステータス"
+
+msgid "Select Ticket Status"
+msgstr "チケットステータスの選択"
+
+msgid "Ticket Overdue"
+msgstr "チケットの期限切れ"
+
+msgid "Select Ticket Overdue Status"
+msgstr "チケットの期限切れステータスを選択してください"
+
+msgid "Export Style"
+msgstr "エクスポートスタイル"
+
+msgid "Single Header"
+msgstr "シングルヘッダー"
+
+msgid "Multiple Header"
+msgstr "複数のヘッダー"
+
+msgid "Export"
+msgstr "輸出"
+
+msgid "FAQ has been stored"
+msgstr "よくある質問を保存しました"
+
+msgid "FAQ has not been stored"
+msgstr "FAQは保存されていません"
+
+msgid "FAQ has been deleted"
+msgstr "よくある質問は削除されました"
+
+msgid "FAQ has not been deleted"
+msgstr "よくある質問は削除されていません"
+
+msgid "FAQ"
+msgstr "よくある質問"
+
+msgid "Add FAQs"
+msgstr "FAQの追加"
+
+msgid "Save FAQ"
+msgstr "よくある質問を保存"
+
+msgid "Content"
+msgstr "コンテンツ"
+
+msgid "FAQ Detail"
+msgstr "よくある質問の詳細"
+
+msgid "FAQs"
+msgstr "よくある質問"
+
+msgid "Search title"
+msgstr "タイトル検索"
+
+msgid "Search keywords"
+msgstr "検索キーワード"
+
+msgid "Sub Category Faqs"
+msgstr "サブカテゴリのよくある質問"
+
+msgid "Add FAQ"
+msgstr "よくある質問を追加"
+
+msgid "Feedback has been stored"
+msgstr "フィードバックが保存されました"
+
+msgid "Feedback has not been stored"
+msgstr "フィードバックは保存されていません"
+
+msgid "user image"
+msgstr "ユーザーイメージ"
+
+msgid "feedback image"
+msgstr "フィードバック画像"
+
+msgid "Feedback"
+msgstr "フィードバック"
+
+msgid "Latest Feedback"
+msgstr "最新のフィードバック"
+
+msgid "Form Feedback"
+msgstr "フォームのフィードバック"
+
+msgid "Submit Feedback"
+msgstr "フィードバックを送信"
+
+msgid "Help topic has been stored"
+msgstr "ヘルプトピックが保存されました"
+
+msgid "Help topic has not been stored"
+msgstr "ヘルプ トピックが保存されていません"
+
+msgid "Help topic has been deleted"
+msgstr "ヘルプトピックは削除されました"
+
+msgid "Help topic has not been deleted"
+msgstr "ヘルプトピックは削除されていません"
+
+msgid "Help topic in use cannot be deleting"
+msgstr "使用中のヘルプ トピックは削除できません"
+
+msgid "Help topic"
+msgstr "ヘルプトピック"
+
+msgid "Add Help Topic"
+msgstr "ヘルプトピックを追加"
+
+msgid "Help Topic"
+msgstr "ヘルプトピック"
+
+msgid "Save Help Topic"
+msgstr "ヘルプ トピックの保存"
+
+msgid "Help Topics"
+msgstr "ヘルプトピックス"
+
+msgid "The category has been stored"
+msgstr "カテゴリが保存されました"
+
+msgid "The category has not been stored"
+msgstr "カテゴリが保存されていません"
+
+msgid "The category has been deleted"
+msgstr "カテゴリが削除されました"
+
+msgid "The category has not been deleted"
+msgstr "カテゴリは削除されていません"
+
+msgid "The category in use cannot be deleting"
+msgstr "使用中のカテゴリは削除できません"
+
+msgid "Knowledgebase article has been stored"
+msgstr "ナレッジベース記事が保存されました"
+
+msgid "Knowledgebase article has not been stored"
+msgstr "ナレッジベースの記事は保存されていません"
+
+msgid "The article has been deleted"
+msgstr "記事は削除されました"
+
+msgid "The article has not been deleted"
+msgstr "記事は削除されていない"
+
+msgid "Article"
+msgstr "記事"
+
+msgid "The parent category does not have this type."
+msgstr "親カテゴリにはこのタイプはありません。"
+
+msgid "Would you like to add this type to Parent Category?"
+msgstr "このタイプを親カテゴリに追加しますか?"
+
+msgid "JYes"
+msgstr "Jはい"
+
+msgid "Child category has this type,"
+msgstr "子カテゴリにはこのタイプがあり、"
+
+msgid "You cannot unmark it."
+msgstr "マークを外すことはできません。"
+
+msgid "Draft"
+msgstr "下書き"
+
+msgid "Add Knowledge Base"
+msgstr "ナレッジベースの追加"
+
+msgid "Meta Description"
+msgstr "メタ記述"
+
+msgid "Meta Keywords"
+msgstr "メタキーワード"
+
+msgid "Add More"
+msgstr "さらに追加"
+
+msgid "Save Knowledge Base"
+msgstr "ナレッジベースの保存"
+
+msgid "Please select at least one category for"
+msgstr "カテゴリを少なくとも 1 つ選択してください"
+
+msgid "Add Category"
+msgstr "カテゴリを追加"
+
+msgid "Category For"
+msgstr "カテゴリー"
+
+msgid "Knowledge Base"
+msgstr "知識ベース"
+
+msgid "Save Category"
+msgstr "カテゴリを保存"
+
+msgid "Meta Data Options"
+msgstr "メタデータのオプション"
+
+msgid "Category Title"
+msgstr "カテゴリタイトル"
+
+msgid "category"
+msgstr "カテゴリー"
+
+msgid "Knowledge Base Detail"
+msgstr "ナレッジベースの詳細"
+
+msgid "Article Attachment"
+msgstr "記事の添付ファイル"
+
+msgid "Knowledgebase"
+msgstr "知識ベース"
+
+msgid "Knowledge Base Articles"
+msgstr "ナレッジベースの記事"
+
+msgid "Sub Category Knowledgebase"
+msgstr "サブカテゴリのナレッジベース"
+
+msgid "Mail has not been marked as read"
+msgstr "メールは既読としてマークされていません"
+
+msgid "Mail has been marked as read"
+msgstr "メールが既読としてマークされました"
+
+msgid "Message field cannot be empty"
+msgstr "メッセージフィールドを空にすることはできません"
+
+msgid "Mail has been sent"
+msgstr "メールが送信されました"
+
+msgid "Mail has not been sent"
+msgstr "メールが送信されていません"
+
+msgid "Mail has been deleted"
+msgstr "メールが削除されました"
+
+msgid "Mail has not been deleted"
+msgstr "メールは削除されていません"
+
+msgid "Mail"
+msgstr "郵便"
+
+msgid "is in use cannot be delete"
+msgstr "使用中なので削除できません"
+
+msgid "Mail cannot mark as to read"
+msgstr "メールに既読マークを付けることができない"
+
+msgid "Mail cannot mark as unread"
+msgstr "メールを未読としてマークできない"
+
+msgid "Mail has been marked as unread"
+msgstr "メールが未読としてマークされています"
+
+msgid "Inbox"
+msgstr "受信箱"
+
+msgid "Outbox"
+msgstr "送信ボックス"
+
+msgid " )  "
+msgstr ")"
+
+msgid "Compose"
+msgstr "作曲する"
+
+msgid "Send"
+msgstr "送信"
+
+msgid "Read"
+msgstr "読む"
+
+msgid "Unread"
+msgstr "未読"
+
+msgid "Select Type"
+msgstr "タイプの選択"
+
+msgid "To use this feature you must be agent"
+msgstr "この機能を使用するには、エージェントである必要があります"
+
+msgid "To use this feature you must have agents addon."
+msgstr "この機能を使用するには、エージェント アドオンが必要です。"
+
+msgid "mark read"
+msgstr "既読マークを付ける"
+
+msgid "mark unread"
+msgstr "未読としてマークする"
+
+msgid "Replied By"
+msgstr "返信者"
+
+msgid "Reply"
+msgstr "返事"
+
+msgid ")  "
+msgstr ")"
+
+msgid "Type Message"
+msgstr "メッセージの種類"
+
+msgid "Replies"
+msgstr "返信"
+
+msgid "Limit exceeds maximum tickets"
+msgstr "制限が最大チケットを超えています"
+
+msgid "The maximum number of open tickets limit has been exceeded."
+msgstr "オープンチケットの最大数制限を超えました。"
+
+msgid "Ticket has been closed due to merged with"
+msgstr "と統合されたため、チケットは終了しました"
+
+msgid "Ticket"
+msgstr "チケット"
+
+msgid "has been merged into"
+msgstr "に統合されました"
+
+msgid "Merge Ticket"
+msgstr "マージチケット"
+
+msgid "Search Ticket To Merge Into Another"
+msgstr "チケットを検索して別のチケットにマージする"
+
+msgid "Edit Last Reply"
+msgstr "最終返信を編集"
+
+msgid "Merge Ticket Latest Reply"
+msgstr "チケットの最新の返信をマージ"
+
+msgid "Merge"
+msgstr "マージ"
+
+msgid "Ticket has been merged"
+msgstr "チケットは統合されました"
+
+msgid "Ticket has not been merged"
+msgstr "チケットは統合されていません"
+
+msgid "Disabled form cannot be set as default"
+msgstr "無効なフォームをデフォルトとして設定することはできません"
+
+msgid "Form has been stored"
+msgstr "フォームが保存されました"
+
+msgid "Form has not been stored"
+msgstr "フォームが保存されていません"
+
+msgid "Multiform has been deleted"
+msgstr "マルチフォームは削除されました"
+
+msgid "Multiform has not been deleted"
+msgstr "マルチフォームは削除されていません"
+
+msgid "Multiform in use"
+msgstr "マルチフォーム使用中"
+
+msgid " cannot deleted"
+msgstr "削除できません"
+
+msgid "Default form cannot be set as disabled"
+msgstr "デフォルトフォームを無効に設定できません"
+
+msgid "Multiform"
+msgstr "マルチフォーム"
+
+msgid "default has not been changed"
+msgstr "デフォルトは変更されていません"
+
+msgid "default has been changed"
+msgstr "デフォルトが変更されました"
+
+msgid "Create Ticket"
+msgstr "チケットの作成"
+
+msgid "multiform"
+msgstr "マルチフォーム"
+
+msgid "Default"
+msgstr "デフォルト"
+
+msgid "Save Multiform"
+msgstr "マルチフォームの保存"
+
+msgid "Fields"
+msgstr "田畑"
+
+msgid "Edit Fields"
+msgstr "フィールドの編集"
+
+msgid "spinning wheel"
+msgstr "回転する車輪"
+
+msgid "Select Languages"
+msgstr "言語の選択"
+
+msgid "Select Language"
+msgstr "言語を選択する"
+
+msgid "Email Template has been successfully deleted"
+msgstr "電子メールテンプレートが正常に削除されました"
+
+msgid "Email template has been stored"
+msgstr "メールテンプレートが保存されました"
+
+msgid "Email template has not been stored"
+msgstr "メールテンプレートが保存されていません"
+
+msgid "The internal note has been posted"
+msgstr "社内メモを掲載しました"
+
+msgid "The internal note has not been posted"
+msgstr "内部メモは投稿されていません"
+
+msgid "Post Internal Note"
+msgstr "社内メモを投稿する"
+
+msgid "The internal note is posted by"
+msgstr "内部メモの投稿者は次のとおりです。"
+
+msgid "Ticket Notification"
+msgstr "チケットのお知らせ"
+
+msgid "Once Weekly"
+msgstr "週に一度"
+
+msgid "Thanks for subscribing!"
+msgstr "ご購読いただきありがとうございます!"
+
+msgid "Ticket already marked overdue"
+msgstr "チケットはすでに期限切れとしてマークされています"
+
+msgid "The ticket has been marked as overdue"
+msgstr "チケットは期限切れとしてマークされています"
+
+msgid "The ticket has not been marked as overdue"
+msgstr "チケットは期限切れとしてマークされていません"
+
+msgid "System"
+msgstr "システム"
+
+msgid "Mark overdue"
+msgstr "期限切れとしてマークする"
+
+msgid "The ticket is marked as overdue by"
+msgstr "チケットは期限切れとしてマークされています"
+
+msgid "The ticket has been unmarked as overdue"
+msgstr "チケットは期限切れとしてマークされていませんでした"
+
+msgid "The ticket has not been unmarked as overdue"
+msgstr "チケットは期限切れのマークが解除されていません"
+
+msgid "Unmark overdue"
+msgstr "期限切れのマークを外す"
+
+msgid "The ticket is unmarked as overdue by"
+msgstr "チケットに期限切れのマークが付けられていないのは、"
+
+msgid "Paid Support"
+msgstr "有料サポート"
+
+msgid "Check if you want to use this product for paid support"
+msgstr "この製品を有償サポートとして使用するかどうかを確認してください"
+
+msgid "Paid support type"
+msgstr "有償サポートタイプ"
+
+msgid "One-off Support"
+msgstr "一回限りのサポート"
+
+msgid "Subscription Support"
+msgstr "サブスクリプションサポート"
+
+msgid "Number of tickets"
+msgstr "チケットの枚数"
+
+msgid "Credential Type"
+msgstr "資格情報の種類"
+
+msgid "Additional Info."
+msgstr "追加情報。"
+
+msgid "Please insert values"
+msgstr "値を入力してください"
+
+msgid "Visitor"
+msgstr "ビジター"
+
+msgid "By"
+msgstr "による"
+
+msgid "Credential removed on ticket close"
+msgstr "チケットクローズ時に資格情報が削除されました"
+
+msgid "Failed to retrieve data"
+msgstr "データの取得に失敗しました"
+
+msgid "Reason has been stored"
+msgstr "理由が保存されました"
+
+msgid "Reason has not been stored"
+msgstr "理由が保存されていません"
+
+msgid "Reason has been deleted"
+msgstr "理由は削除されました"
+
+msgid "Reason has not been deleted"
+msgstr "理由は削除されていません"
+
+msgid "Reason"
+msgstr "理由"
+
+msgid "Are you going to close this ticket?"
+msgstr "このチケットをクローズしますか?"
+
+msgid "If you have a moment, please select a reason for closing the ticket."
+msgstr "お時間がございましたら、チケットをクローズする理由を選択してください。"
+
+msgid "Submit & Close"
+msgstr "送信して閉じる"
+
+msgid "Skip & Close"
+msgstr "スキップして閉じる"
+
+msgid "Add Reason"
+msgstr "理由を追加"
+
+msgid "Save Reason"
+msgstr "保存理由"
+
+msgid "Ticket Close Reasons"
+msgstr "チケットクローズの理由"
+
+msgid "Mail Notification Widget"
+msgstr "メール通知ウィジェット"
+
+msgid "Show newly and reply mail notifications"
+msgstr "新規メール通知と返信メール通知を表示する"
+
+msgid "New mail from"
+msgstr "からの新着メール"
+
+msgid "Mail Notification"
+msgstr "メール通知"
+
+msgid "Layout"
+msgstr "レイアウト"
+
+msgid "Max Record"
+msgstr "最大記録"
+
+msgid "My Ticket Widget"
+msgstr "マイチケットウィジェット"
+
+msgid "Show unanswered tickets"
+msgstr "未回答のチケットを表示する"
+
+msgid "Order tickets"
+msgstr "チケットを注文する"
+
+msgid "Close due to merge"
+msgstr "合併のため閉店"
+
+msgid "Product"
+msgstr "製品"
+
+msgid "Order"
+msgstr "注文"
+
+msgid "There is no ticket"
+msgstr "チケットがありません"
+
+msgid "Something went wrong"
+msgstr "何か問題が発生しました"
+
+msgid "Transaction Key"
+msgstr "トランザクションキー"
+
+msgid "Please select )"
+msgstr "選んでください ）"
+
+msgid "Hide notice"
+msgstr "通知を隠す"
+
+msgid "Control Panel"
+msgstr "コントロールパネル"
+
+msgid "Edit Announcement"
+msgstr "お知らせの編集"
+
+msgid "Departments"
+msgstr "部門"
+
+msgid "Add Department"
+msgstr "部門の追加"
+
+msgid "Edit Department"
+msgstr "編集部"
+
+msgid "Staff report"
+msgstr "スタッフレポート"
+
+msgid "Staff reports"
+msgstr "スタッフレポート"
+
+msgid "Departments report"
+msgstr "各部門のレポート"
+
+msgid "Edit Download"
+msgstr "ダウンロードの編集"
+
+msgid "Edit FAQ"
+msgstr "よくある質問を編集する"
+
+msgid "Feedbacks"
+msgstr "フィードバック"
+
+msgid "Edit Knowledge Base"
+msgstr "ナレッジベースの編集"
+
+msgid "Edit Category"
+msgstr "カテゴリの編集"
+
+msgid "Send Message"
+msgstr "メッセージを送る"
+
+msgid "Edit Role"
+msgstr "役割の編集"
+
+msgid "Staffs"
+msgstr "スタッフ"
+
+msgid "Add Staff"
+msgstr "スタッフを追加"
+
+msgid "Edit Staff"
+msgstr "編集スタッフ"
+
+msgid "Staff Permissions"
+msgstr "スタッフの権限"
+
+msgid "Add Ticket"
+msgstr "チケットを追加"
+
+msgid "Edit Ticket"
+msgstr "チケットの編集"
+
+msgid "Ticket Detail"
+msgstr "チケット詳細"
+
+msgid "Plus"
+msgstr "プラス"
+
+msgid "Equals"
+msgstr "等しい"
+
+msgid "Minus"
+msgstr "マイナス"
+
+msgid "stars"
+msgstr "出演者"
+
+msgid "Please write appreciated review at WP Extension Directory"
+msgstr "WP Extension Directory に感謝のレビューを書いてください"
+
+msgid "love"
+msgstr "愛"
+
+msgid "I'd love to help :)"
+msgstr "ぜひお役に立ちたいです:)"
+
+msgid "sad"
+msgstr "悲しい"
+
+msgid "Not this time"
+msgstr "今回ではない"
+
+msgid "happy"
+msgstr "ハッピー"
+
+msgid "I've already rated you"
+msgstr "私はすでにあなたを評価しました"
+
+msgid "close"
+msgstr "近い"
+
+msgid "thanks"
+msgstr "ありがとう"
+
+msgid "You are awesome !......"
+msgstr "あなたは素晴らしいです ！......"
+
+msgid "Thanks for your support, we really appreciate it."
+msgstr "ご支援ありがとうございます。本当に感謝しています。"
+
+msgid "Majestic Support Team"
+msgstr "マジェスティックサポートチーム"
+
+msgid "Remind you about this later?"
+msgstr "これについては後で思い出していただけますか?"
+
+msgid "Remind me in 3 days"
+msgstr "3日以内に通知してください"
+
+msgid "Remind me in 10 days"
+msgstr "10 日後に通知する"
+
+msgid "Remind me in 30 days"
+msgstr "30 日後に通知する"
+
+msgid "Don't remind me about this"
+msgstr "このことについては思い出さないでください"
+
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+msgid "About Us"
+msgstr "私たちについて"
+
+msgid "Translations"
+msgstr "翻訳"
+
+msgid "System Errors"
+msgstr "システムエラー"
+
+msgid "slugs"
+msgstr "ナメクジ"
+
+msgid "Slugs"
+msgstr "ナメクジ"
+
+msgid "multiforms"
+msgstr "マルチフォーム"
+
+msgid "Multiforms"
+msgstr "マルチフォーム"
+
+msgid "Ticket Close Reason"
+msgstr "チケットクローズの理由"
+
+msgid "Smart Replies"
+msgstr "スマート リプライ"
+
+msgid "Smart Reply"
+msgstr "スマート リプライ"
+
+msgid "Add Smart Reply"
+msgstr "スマート リプライを追加する"
+
+msgid "Agent Auto Assign"
+msgstr "エージェントの自動割り当て"
+
+msgid "Auto Assign"
+msgstr "自動割り当て"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Cron Job URLs"
+msgstr "Cron ジョブの URL"
+
+msgid "Premium Addons"
+msgstr "プレミアムアドオン"
+
+msgid "Install Add-ons"
+msgstr "アドオンのインストール"
+
+msgid "Add-ons List"
+msgstr "アドオンリスト"
+
+msgid "Add-ons Status"
+msgstr "アドオンのステータス"
+
+msgid "Shortcodes"
+msgstr "ショートコード"
+
+msgid "Short Codes"
+msgstr "ショートコード"
+
+msgid "Colors"
+msgstr "色"
+
+msgid "Reports"
+msgstr "レポート"
+
+msgid "Overall Statistics"
+msgstr "全体的な統計"
+
+msgid "Agent Reports"
+msgstr "エージェントレポート"
+
+msgid "Department Reports"
+msgstr "部門レポート"
+
+msgid "User Reports"
+msgstr "ユーザーレポート"
+
+msgid "Satisfaction Report"
+msgstr "満足度レポート"
+
+msgid "Email Piping"
+msgstr "電子メールの配管"
+
+msgid "Priorities"
+msgstr "優先事項"
+
+msgid "Add Priority"
+msgstr "優先度を追加"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Erase Data Requests"
+msgstr "データ消去リクエスト"
+
+msgid "Feedback Fields"
+msgstr "フィードバックフィールド"
+
+msgid "System Emails"
+msgstr "システムメール"
+
+msgid "Premade Responses"
+msgstr "あらかじめ用意された応答"
+
+msgid "Banned Email Log List"
+msgstr "禁止メールログリスト"
+
+msgid "Ban Emails"
+msgstr "禁止メール"
+
+msgid "Emial CC"
+msgstr "メールCC"
+
+msgid "Add Emial CC"
+msgstr "メールCCを追加"
+
+msgid "Add Email CC"
+msgstr "メールCCを追加"
+
+msgid "Email Templates"
+msgstr "メールテンプレート"
+
+msgid "New Ticket"
+msgstr "新しいチケット"
+
+msgid "Agent Ticket"
+msgstr "エージェントチケット"
+
+msgid "New Agent"
+msgstr "新しいエージェント"
+
+msgid "Reassign Ticket"
+msgstr "チケットの再割り当て"
+
+msgid "Close Ticket"
+msgstr "チケットを閉じる"
+
+msgid "Delete Ticket"
+msgstr "チケットの削除"
+
+msgid "Mark Overdue"
+msgstr "期限を過ぎたとマークする"
+
+msgid "Ban Email"
+msgstr "禁止メール"
+
+msgid "Ban email try to create ticket"
+msgstr "禁止メールでチケットを作成しようとする"
+
+msgid "Department Transfer"
+msgstr "部署異動"
+
+msgid "Ban Email and Close Ticket"
+msgstr "メールの禁止とチケットのクローズ"
+
+msgid "Unban Email"
+msgstr "メールの禁止を解除する"
+
+msgid "Response Ticket"
+msgstr "レスポンスチケット"
+
+msgid "Reply Ticket"
+msgstr "返信チケット"
+
+msgid "New Ticket Admin Alert"
+msgstr "新しいチケット管理者へのアラート"
+
+msgid "In Progress Ticket"
+msgstr "進行中のチケット"
+
+msgid "Ticket priority is changed by"
+msgstr "チケットの優先順位が変更されるのは、"
+
+msgid "New Mail Received"
+msgstr "新しいメールを受信しました"
+
+msgid "New Mail Message Received"
+msgstr "新しいメールメッセージを受信しました"
+
+msgid "Feedback Email To User"
+msgstr "ユーザーへのフィードバック電子メール"
+
+msgid "User Reply On Closed Ticket"
+msgstr "クローズされたチケットに対するユーザーの返信"
+
+msgid "help"
+msgstr "ヘルプ"
+
+msgid "Select Form"
+msgstr "フォームの選択"
+
+msgid "No Record Found"
+msgstr "レコードが見つかりませんでした"
+
+msgid "Log out"
+msgstr "ログアウト"
+
+msgid "iframe"
+msgstr "iframe"
+
+msgid "Sorry"
+msgstr "ごめん"
+
+msgid "There was no record found"
+msgstr "記録が見つかりませんでした"
+
+msgid "Sorry!"
+msgstr "ごめん！"
+
+msgid "There was no record found..."
+msgstr "記録が見つかりませんでした..."
+
+msgid "Access Denied"
+msgstr "アクセスが拒否されました"
+
+msgid "You have no permission to access this page"
+msgstr "このページにアクセスする権限がありません"
+
+msgid "Register"
+msgstr "登録する"
+
+msgid "User is not allowed to access this page."
+msgstr "ユーザーはこのページへのアクセスを許可されていません。"
+
+msgid "You are already Logged In."
+msgstr "あなたは既にログインしています。"
+
+msgid "Access Denied!"
+msgstr "アクセスが拒否されました！"
+
+msgid "Your account has been disabled, please contact the administrator."
+msgstr "あなたのアカウントは無効になっています。管理者に連絡してください。"
+
+msgid "You are not logged In"
+msgstr "ログインしていません"
+
+msgid "To access the page, please login"
+msgstr "ページにアクセスするにはログインしてください"
+
+msgid "User is not allowed to view this Ticket"
+msgstr "ユーザーはこのチケットの閲覧を許可されていません"
+
+msgid "You have already given the feedback for this ticket."
+msgstr "このチケットについてはすでにフィードバックを送信しています。"
+
+msgid "Ticket not found...!"
+msgstr "チケットが見つかりません...!"
+
+msgid "User is not allowed to view this page"
+msgstr "ユーザーはこのページの閲覧を許可されていません"
+
+msgid "Thank you so much for your feedback"
+msgstr "フィードバックをいただきまして誠にありがとうございます"
+
+msgid "Majestic Support Control Panel"
+msgstr "Majestic サポート コントロール パネル"
+
+msgid "Slug"
+msgstr "ナメクジ"
+
+msgid "System Error"
+msgstr "システムエラー"
+
+msgid "User Fields"
+msgstr "ユーザーフィールド"
+
+msgid "Ban list log"
+msgstr "禁止リストのログ"
+
+msgid "Field Ordering"
+msgstr "フィールドの順序付け"
+
+msgid "Post Installation"
+msgstr "インストール後"
+
+msgid "Emailcc"
+msgstr "電子メールcc"
+
+msgid "Help"
+msgstr "ヘルプ"
+
+msgid "Premium Addon"
+msgstr "プレミアムアドオン"
+
+msgid "Username / password is incorrect"
+msgstr "ユーザー名/パスワードが間違っています"
+
+msgid "Username already taken"
+msgstr "ユーザー名はすでに使用されています"
+
+msgid "Invalid username"
+msgstr "無効なユーザー名"
+
+msgid "Please enter a username"
+msgstr "ユーザー名を入力してください"
+
+msgid "Invalid email"
+msgstr "無効な電子メール"
+
+msgid "Email already registered"
+msgstr "すでに登録されたメール"
+
+msgid "Please enter a password"
+msgstr "パスワードを入力してください"
+
+msgid "Passwords do not match"
+msgstr "パスワードが一致していません"
+
+msgid "Invalid captcha"
+msgstr "無効なキャプチャ"
+
+msgid "User has been successfully registered"
+msgstr "ユーザーは正常に登録されました"
+
+msgid "Could not subscribe to the newsletter"
+msgstr "ニュースレターを購読できませんでした"
+
+msgid "You have successfully subscribed to the newsletter"
+msgstr "ニュースレターの購読が完了しました"
+
+msgid "Majestic Support Pages"
+msgstr "マジェスティックのサポートページ"
+
+msgid "Majestic Support control panel"
+msgstr "Majestic Support コントロール パネル"
+
+msgid "Add ticket"
+msgstr "チケットを追加"
+
+msgid "My tickets"
+msgstr "私のチケット"
+
+msgid "List downloads"
+msgstr "ダウンロードのリスト"
+
+msgid "Latest downloads"
+msgstr "最新のダウンロード"
+
+msgid "Popular downloads"
+msgstr "人気のダウンロード"
+
+msgid "List knowledge base"
+msgstr "ナレッジベースをリストする"
+
+msgid "Latest knowledge base"
+msgstr "最新のナレッジベース"
+
+msgid "Popular knowledge base"
+msgstr "人気のナレッジベース"
+
+msgid "List FAQ`s"
+msgstr "よくある質問のリスト"
+
+msgid "Latest FAQ`s"
+msgstr "最新のFAQ"
+
+msgid "Popular FAQ`s"
+msgstr "よくある FAQ"
+
+msgid "List announcements"
+msgstr "お知らせ一覧"
+
+msgid "Latest announcements"
+msgstr "最新のお知らせ"
+
+msgid "Popular announcements"
+msgstr "人気のお知らせ"
+
+msgid "View"
+msgstr "ビュー"
+
+msgid "Form submission failed!"
+msgstr "フォームの送信に失敗しました!"
+
+msgid "You have not answered all required fields"
+msgstr "すべての必須フィールドに回答していません"
+
+msgid "You have not given a correct time"
+msgstr "正確な時間を指定していません"
+
+msgid "You have not given a correct e-mail address"
+msgstr "正しい電子メールアドレスを入力していません"
+
+msgid "You have not given a correct phone number"
+msgstr "正しい電話番号を入力していません"
+
+msgid "You have not given a correct answer to the security question"
+msgstr "秘密の質問に正解していません"
+
+msgid "You have not given a correct date"
+msgstr "正しい日付を指定していません"
+
+msgid "The input value must be between "
+msgstr "入力値は次の範囲内でなければなりません"
+
+msgid " characters"
+msgstr "キャラクター"
+
+msgid "The input value is longer than "
+msgstr "入力値が次より長いです"
+
+msgid "The input value is shorter than "
+msgstr "入力値が以下より短いです"
+
+msgid "Input values could not be confirmed"
+msgstr "入力値が確認できませんでした"
+
+msgid "Incorrect domain value"
+msgstr "不正なドメイン値"
+
+msgid "The input value is not a correct URL"
+msgstr "入力値が正しい URL ではありません"
+
+msgid "The input value is incorrect"
+msgstr "入力値が正しくありません"
+
+msgid "The input value was not a correct number"
+msgstr "入力値が正しい数値ではありませんでした"
+
+msgid "Your social security number was incorrect"
+msgstr "社会保障番号が間違っていました"
+
+msgid "Incorrect UK VAT Number"
+msgstr "間違った英国 VAT 番号"
+
+msgid "The password isn't strong enough"
+msgstr "パスワードの強度が十分ではありません"
+
+msgid "You have to choose at least "
+msgstr "少なくとも選択する必要があります"
+
+msgid " answers"
+msgstr "答え"
+
+msgid "The input value can only contain alphanumeric characters "
+msgstr "入力値には英数字のみを含めることができます"
+
+msgid " and "
+msgstr "そして"
+
+msgid "The file you are trying to upload is too large"
+msgstr "アップロードしようとしているファイルが大きすぎます"
+
+msgid "The file you are trying to upload is of the wrong type"
+msgstr "アップロードしようとしているファイルの種類が間違っています"
+
+msgid "Please choose between "
+msgstr "どちらかを選択してください"
+
+msgid "Please choose at least "
+msgstr "少なくとも選択してください"
+
+msgid "Please choose a maximum of "
+msgstr "最大数を選択してください"
+
+msgid " item(s)"
+msgstr "アイテム"
+
+msgid "The credit card number is not correct"
+msgstr "クレジットカード番号が正しくありません"
+
+msgid "The CVV number was not correct"
+msgstr "CVV番号が正しくありませんでした"
+
+msgid "Lost your password"
+msgstr "パスワードを忘れましたか"
+
+msgid "Activated"
+msgstr "アクティブ化されました"
+
+msgid "Active Now"
+msgstr "現在アクティブです"
+
+msgid "Install Now"
+msgstr "今すぐインストール"
+
+msgid "Pagination default page size not saved"
+msgstr "ページネーションのデフォルトのページサイズが保存されない"
+
+msgid "Data directory cannot empty."
+msgstr "データ ディレクトリを空にすることはできません。"
+
+msgid "Data directory is not proper."
+msgstr "データディレクトリが正しくありません。"
+
+msgid "Data directory is not writable."
+msgstr "データ ディレクトリは書き込み可能ではありません。"
+
+msgid "System slug not be empty."
+msgstr "システムスラッグは空ではありません。"
+
+msgid "System slug is conflicted with post or page slug."
+msgstr "システム スラグがポストまたはページ スラグと競合しています。"
+
+msgid "The setting has been stored"
+msgstr "設定が保存されました"
+
+msgid "The setting not has been stored"
+msgstr "設定が保存されていません"
+
+msgid "Days"
+msgstr "日々"
+
+msgid "Hours"
+msgstr "時間"
+
+msgid "Google Recaptcha"
+msgstr "Google 再キャプチャ"
+
+msgid "Own Captcha"
+msgstr "独自のキャプチャ"
+
+msgid "Any"
+msgstr "どれでも"
+
+msgid "Addition"
+msgstr "追加"
+
+msgid "Subtraction"
+msgstr "引き算"
+
+msgid "Recaptcha Version 2"
+msgstr "再キャプチャ バージョン 2"
+
+msgid "Recaptcha Version 3"
+msgstr "再キャプチャ バージョン 3"
+
+msgid "Show"
+msgstr "見せる"
+
+msgid "Hide"
+msgstr "隠れる"
+
+msgid "Majestic Support Login Page"
+msgstr "Majestic サポートのログイン ページ"
+
+msgid "WordPress Default Login Page"
+msgstr "WordPress のデフォルトのログインページ"
+
+msgid "Custom"
+msgstr "カスタム"
+
+msgid "Majestic Support Register Page"
+msgstr "Majesticサポート登録ページ"
+
+msgid "Top left"
+msgstr "左上"
+
+msgid "Top right"
+msgstr "右上"
+
+msgid "Middle left"
+msgstr "中段左"
+
+msgid "Middle right"
+msgstr "中右"
+
+msgid "Bottom left"
+msgstr "左下"
+
+msgid "Bottom right"
+msgstr "右下"
+
+msgid "Random"
+msgstr "ランダム"
+
+msgid "Sequence"
+msgstr "順序"
+
+msgid "Ascending"
+msgstr "上昇"
+
+msgid "Descending"
+msgstr "降順"
+
+msgid "Single"
+msgstr "シングル"
+
+msgid "Multiple"
+msgstr "複数"
+
+msgid "menu"
+msgstr "メニュー"
+
+msgid "Select Configuration"
+msgstr "構成の選択"
+
+msgid "General Settings"
+msgstr "一般設定"
+
+msgid "Support Icon"
+msgstr "サポートアイコン"
+
+msgid "Ticket Settings"
+msgstr "チケット設定"
+
+msgid "Ticket Listing"
+msgstr "チケット一覧"
+
+msgid "Visitor Ticket Setting"
+msgstr "ビジターチケット設定"
+
+msgid "Email Settings"
+msgstr "メール設定"
+
+msgid "Email Regarding Banned Users"
+msgstr "禁止されたユーザーに関するメール"
+
+msgid "Ticket Operations Email Setting"
+msgstr "チケット操作メール設定"
+
+msgid "Agent Menu"
+msgstr "エージェントメニュー"
+
+msgid "Dashboard Links"
+msgstr "ダッシュボードのリンク"
+
+msgid "Top Menu Links"
+msgstr "トップメニューのリンク"
+
+msgid "User Menu"
+msgstr "ユーザーメニュー"
+
+msgid "Feedback Settings"
+msgstr "フィードバック設定"
+
+msgid "Push Notifications"
+msgstr "プッシュ通知"
+
+msgid "Firebase Notifications"
+msgstr "Firebase通知"
+
+msgid "Private Credentials"
+msgstr "プライベート認証情報"
+
+msgid "Envato Validation"
+msgstr "Envatoの検証"
+
+msgid "MailChimp"
+msgstr "メールチンパンジー"
+
+msgid "Easy Digital Downloads"
+msgstr "簡単なデジタルダウンロード"
+
+msgid "Social Login"
+msgstr "ソーシャルログイン"
+
+msgid "Set the heading of your plugin"
+msgstr "プラグインの見出しを設定します"
+
+msgid "Ticket Default Page"
+msgstr "チケットのデフォルトページ"
+
+msgid "Select Page"
+msgstr "ページを選択"
+
+msgid "Data Directory"
+msgstr "データディレクトリ"
+
+msgid "Set the name for your data directory"
+msgstr "データ ディレクトリの名前を設定します"
+
+msgid "Date Format"
+msgstr "日付形式"
+
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+msgid "MM-DD-YYYY"
+msgstr "YYYY-MM-DD"
+
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+msgid "Set the default date format"
+msgstr "デフォルトの日付形式を設定する"
+
+msgid "Pagination default page size"
+msgstr "ページネーションのデフォルトのページサイズ"
+
+msgid "Set the number of records per page"
+msgstr "ページあたりのレコード数を設定する"
+
+msgid "Breadcrumbs"
+msgstr "パン粉"
+
+msgid "Show or hide breadcrumbs"
+msgstr "パンくずリストの表示または非表示"
+
+msgid "Top Header"
+msgstr "トップヘッダー"
+
+msgid "Show or hide top header"
+msgstr "上部ヘッダーの表示または非表示"
+
+msgid "Show count on tickets"
+msgstr "チケットのカウントを表示"
+
+msgid "Default wp role for new users"
+msgstr "新規ユーザーのデフォルトの wp ロール"
+
+msgid "Select the role you want to assign to new users"
+msgstr "新しいユーザーに割り当てる役割を選択します"
+
+msgid "No. of attachments"
+msgstr "添付ファイルの数"
+
+msgid "Number of attachments allowed at a time"
+msgstr "一度に許可される添付ファイルの数"
+
+msgid "File maximum size"
+msgstr "ファイルの最大サイズ"
+
+msgid "File extensions"
+msgstr "ファイル拡張子"
+
+msgid "File extensions allowed to attach"
+msgstr "添付できるファイル拡張子"
+
+msgid "Set Login Link"
+msgstr "ログインリンクを設定する"
+
+msgid "Set login link default or custom"
+msgstr "ログインリンクのデフォルトまたはカスタムを設定する"
+
+msgid "Set register Link"
+msgstr "設定レジスタリンク"
+
+msgid "Screen Tag"
+msgstr "スクリーンタグ"
+
+msgid "Enable or disable your support icon"
+msgstr "サポートアイコンを有効または無効にします"
+
+msgid "Custom Image"
+msgstr "カスタムイメージ"
+
+msgid "Set custom support image"
+msgstr "カスタムサポートイメージを設定する"
+
+msgid "custom text"
+msgstr "カスタムテキスト"
+
+msgid "Set custom support text"
+msgstr "カスタムサポートテキストを設定する"
+
+msgid "Support Icon Position"
+msgstr "サポートアイコンの位置"
+
+msgid "Screen Tag Position"
+msgstr "画面タグの位置"
+
+msgid "Select a position for your support icon"
+msgstr "サポートアイコンの位置を選択してください"
+
+msgid "Online"
+msgstr "オンライン"
+
+msgid "Set your plugin offline for front end"
+msgstr "フロントエンド用にプラグインをオフラインに設定する"
+
+msgid "Offline Message"
+msgstr "オフラインメッセージ"
+
+msgid "Set the offline message for your user"
+msgstr "ユーザーへのオフライン メッセージを設定する"
+
+msgid "Woocommerce Category"
+msgstr "ウーコマースカテゴリー"
+
+msgid "Ticket ID Prefix"
+msgstr "チケットIDプレフィックス"
+
+msgid "Set a prefix for the custom ticket ID"
+msgstr "カスタムチケットIDのプレフィックスを設定します。"
+
+msgid "Ticket ID sequence"
+msgstr "チケットIDシーケンス"
+
+msgid "Set the ticket ID sequentially or randomly, e.g., "
+msgstr "チケット ID を連続的またはランダムに設定します。例:"
+
+msgid "Pad Zeros"
+msgstr "パッドゼロ"
+
+msgid "To pad an integer with leading zeros to a specific length"
+msgstr "整数の先頭にゼロを特定の長さまで埋め込むには"
+
+msgid "Ticket ID Suffix"
+msgstr "チケットIDサフィックス"
+
+msgid "Set the suffix for your custom ticket ID"
+msgstr "カスタムチケットIDのサフィックスを設定します"
+
+msgid "Maximum tickets"
+msgstr "最大チケット数"
+
+msgid "Maximum ticket per user"
+msgstr "ユーザーあたりの最大チケット数"
+
+msgid "Maximum open tickets"
+msgstr "オープンチケットの最大数"
+
+msgid "Maximum number of tickets opened per user"
+msgstr "ユーザーごとにオープンされるチケットの最大数"
+
+msgid "Reopen ticket within days"
+msgstr "数日以内にチケットを再開する"
+
+msgid "The ticket will reopen within the given number of days"
+msgstr "チケットは指定された日数以内に再開されます"
+
+msgid "Multiforms Popup For New Tickets"
+msgstr "新しいチケットのマルチフォームポップアップ"
+
+msgid "User can print ticket"
+msgstr "ユーザーはチケットを印刷できます"
+
+msgid "Can users print a ticket from the ticket detail or not?"
+msgstr "ユーザーはチケットの詳細からチケットを印刷できますか?"
+
+msgid "Allow Users To Reply via Email On Closed Ticket"
+msgstr "クローズされたチケットに対してユーザーが電子メールで返信できるようにする"
+
+msgid "Select whether users can reply to closed email piping tickets or not"
+msgstr "ユーザーがクローズされた電子メール パイピング チケットに返信できるかどうかを選択します"
+
+msgid "Show Admin OR Agent Email On Ticket Reply"
+msgstr "チケット返信時に管理者またはエージェントの電子メールを表示"
+
+msgid "Show Anonymous Name On Ticket Reply"
+msgstr "チケットの返信に匿名の名前を表示"
+
+msgid "Ticket auto close"
+msgstr "チケットの自動クローズ"
+
+msgid "Ticket auto-close if user does not respond within given days"
+msgstr "ユーザーが指定の日以内に応答しない場合、チケットは自動的にクローズされます"
+
+msgid "Show ticket delete button"
+msgstr "チケット削除ボタンを表示"
+
+msgid "Select whether users can see the ticket delete button"
+msgstr "ユーザーにチケット削除ボタンを表示できるかどうかを選択します"
+
+msgid "Ticket close reason Type"
+msgstr "チケットクローズ理由のタイプ"
+
+msgid "Select whether users can save single or multiple reasons"
+msgstr "ユーザーが 1 つまたは複数の理由を保存できるかどうかを選択します"
+
+msgid "Maximum Record For Smart Reply"
+msgstr "スマート リプライの最大記録"
+
+msgid "Set the number of replies to show"
+msgstr "表示する返信の数を設定します"
+
+msgid "New ticket message"
+msgstr "新しいチケットのメッセージ"
+
+msgid "This message will show on the new ticket"
+msgstr "このメッセージは新しいチケットに表示されます"
+
+msgid "Ticket listing ordering"
+msgstr "チケットリストの注文"
+
+msgid "Set default ordering for ticket listing"
+msgstr "チケットリストのデフォルトの順序を設定する"
+
+msgid "Ticket listing sorting"
+msgstr "チケットリストの並べ替え"
+
+msgid "Set default sorting for ticket listing"
+msgstr "チケットリストのデフォルトの並べ替えを設定する"
+
+msgid "Closed info. on admin closed tickets"
+msgstr "閉店情報。管理者がクローズしたチケットについて"
+
+msgid "Closed info. on agent closed tickets"
+msgstr "閉店情報。エージェントがクローズしたチケットについて"
+
+msgid "Closed info. on user closed tickets"
+msgstr "閉店情報。ユーザーが閉じたチケットについて"
+
+msgid "Assigned info. on admin tickets"
+msgstr "割り当てられた情報。管理者チケットについて"
+
+msgid "Assigned info. on agent tickets"
+msgstr "割り当てられた情報。エージェントチケットについて"
+
+msgid "Assigned info. on user tickets"
+msgstr "割り当てられた情報。ユーザーチケットについて"
+
+msgid "Visitors can create tickets"
+msgstr "訪問者はチケットを作成できます"
+
+msgid "Allow visitors to create tickets or not"
+msgstr "訪問者がチケットを作成できるようにするかどうか"
+
+msgid "Visitor ticket creation message"
+msgstr "ビジターチケット作成メッセージ"
+
+msgid "This text will appear whenever a visitor creates a ticket"
+msgstr "このテキストは、訪問者がチケットを作成するたびに表示されます"
+
+msgid "Default alert email"
+msgstr "デフォルトのアラート電子メール"
+
+msgid "Default admin email"
+msgstr "デフォルトの管理者の電子メール"
+
+msgid "Admin email address to receive emails"
+msgstr "メールを受信するための管理者のメールアドレス"
+
+msgid "Department Email"
+msgstr "部門の電子メール"
+
+msgid "Send email to all departments on ticket create"
+msgstr "チケット作成時にすべての部門に電子メールを送信する"
+
+msgid "Mail to admin"
+msgstr "管理者にメールする"
+
+msgid "Send an email to the admin when a banned email tries to create a ticket"
+msgstr "禁止されたメールがチケットを作成しようとしたときに管理者にメールを送信する"
+
+msgid "Admin"
+msgstr "管理者"
+
+msgid "New ticket"
+msgstr "新しいチケット"
+
+msgid "Ticket reassign"
+msgstr "チケットの再割り当て"
+
+msgid "Ticket close"
+msgstr "チケットクローズ"
+
+msgid "Ticket delete"
+msgstr "チケットの削除"
+
+msgid "Ticket marked as overdue"
+msgstr "チケットは期限切れとしてマークされています"
+
+msgid "Ticket ban email"
+msgstr "チケット禁止メール"
+
+msgid "Ticket department transfer"
+msgstr "チケット売り場移転"
+
+msgid "Ticket reply User"
+msgstr "チケット返信ユーザー"
+
+msgid "Ticket Response Agent"
+msgstr "チケット対応エージェント"
+
+msgid "Ticket ban email and close ticket"
+msgstr "チケット禁止メールとチケットのクローズ"
+
+msgid "Ticket unban email"
+msgstr "チケット禁止解除メール"
+
+msgid "Ticket lock"
+msgstr "チケットロック"
+
+msgid "Ticket unlock"
+msgstr "チケットのロック解除"
+
+msgid "Ticket Change Priority"
+msgstr "チケット変更の優先順位"
+
+msgid "Mark Ticket In Progress"
+msgstr "チケットを進行中としてマークする"
+
+msgid "Reply To A Closed Ticket By Email"
+msgstr "終了したチケットに電子メールで返信する"
+
+msgid "Send Feedback Email To User"
+msgstr "ユーザーにフィードバック電子メールを送信する"
+
+msgid "Open Ticket"
+msgstr "オープンチケット"
+
+msgid "Department reports"
+msgstr "部門報告書"
+
+msgid "Login/Logout Button"
+msgstr "ログイン/ログアウトボタン"
+
+msgid "Ticket Total Count"
+msgstr "チケット総数"
+
+msgid "Erase Agent Data"
+msgstr "エージェントデータの消去"
+
+msgid "Export Ticket"
+msgstr "エクスポートチケット"
+
+msgid "Latest Downloads"
+msgstr "最新のダウンロード"
+
+msgid "Latest Announcements"
+msgstr "最新のお知らせ"
+
+msgid "Latest Knowledge Base"
+msgstr "最新のナレッジベース"
+
+msgid "Latest FAQs"
+msgstr "最新のFAQ"
+
+msgid "Home"
+msgstr "家"
+
+msgid "Check Ticket Status"
+msgstr "チケットステータスを確認する"
+
+msgid "Registration"
+msgstr "登録"
+
+msgid "Erase User Data"
+msgstr "ユーザーデータの消去"
+
+msgid "Feedback Email Delay Type"
+msgstr "フィードバック電子メール遅延タイプ"
+
+msgid "Select delay type for feedback email"
+msgstr "フィードバック電子メールの遅延タイプを選択してください"
+
+msgid "Feedback Email Delay"
+msgstr "フィードバック電子メールの遅延"
+
+msgid "Success message after submitting feedback"
+msgstr "フィードバック送信後の成功メッセージ"
+
+msgid "This text will appear whenever anyone submits feedback"
+msgstr "このテキストは、誰かがフィードバックを送信するたびに表示されます"
+
+msgid "Login with facebook"
+msgstr "Facebookでログイン"
+
+msgid "Facebook user can log in to Majestic Support"
+msgstr "Facebook ユーザーは Majestic Support にログインできます"
+
+msgid "Secret"
+msgstr "秘密"
+
+msgid "secret key"
+msgstr "秘密鍵"
+
+msgid "API Key"
+msgstr "APIキー"
+
+msgid "The Facebook app requires an API key"
+msgstr "Facebook アプリには API キーが必要です"
+
+msgid "Login with linkedin"
+msgstr "リンクされたログインでログイン"
+
+msgid "Linkedin users can log in to Majestic Support"
+msgstr "Linkedin ユーザーは Majestic Support にログインできます"
+
+msgid "The LinkedIn app requires an API key"
+msgstr "LinkedIn アプリには API キーが必要です"
+
+msgid "UTF Auto Switch"
+msgstr "UTF自動切り替え"
+
+msgid "Create User via email"
+msgstr "メール経由でユーザーを作成"
+
+msgid "Click here to insert Install."
+msgstr "ここをクリックして「インストール」を挿入します。"
+
+msgid "Majestic Support Desktop Notifications plugin is not active."
+msgstr "Majestic Support デスクトップ通知プラグインがアクティブではありません。"
+
+msgid "Find and add the Firebase API keys."
+msgstr "Firebase API キーを見つけて追加します。"
+
+msgid "Click here to get Firebase API keys."
+msgstr "Firebase API キーを取得するには、ここをクリックしてください。"
+
+msgid "User's API Key"
+msgstr "ユーザーのAPIキー"
+
+msgid "Firebase API key for the front user"
+msgstr "フロントユーザーのFirebase APIキー"
+
+msgid "Auth Domain"
+msgstr "認証ドメイン"
+
+msgid "Firebase Auth Domain"
+msgstr "Firebase認証ドメイン"
+
+msgid "Database Url"
+msgstr "データベースの URL"
+
+msgid "Firebase Database URL"
+msgstr "Firebase データベースの URL"
+
+msgid "Project ID"
+msgstr "プロジェクトID"
+
+msgid "Firebase Project ID"
+msgstr "Firebase プロジェクト ID"
+
+msgid "Bucket Storage"
+msgstr "バケットストレージ"
+
+msgid "Firebase Bucket Storage"
+msgstr "Firebaseバケットストレージ"
+
+msgid "Message Sender ID"
+msgstr "メッセージ送信者ID"
+
+msgid "Firebase Message Sender ID"
+msgstr "Firebase メッセージ送信者 ID"
+
+msgid "Private Server Key"
+msgstr "プライベートサーバーキー"
+
+msgid "Firebase Server Key"
+msgstr "Firebaseサーバーキー"
+
+msgid "Logo Image for Desktop Notifications"
+msgstr "デスクトップ通知のロゴ画像"
+
+msgid "Remove Image"
+msgstr "画像の削除"
+
+msgid "Remove Logo"
+msgstr "ロゴの削除"
+
+msgid "No Firebase Notification Logo"
+msgstr "Firebase 通知ロゴなし"
+
+msgid "Secret Key"
+msgstr "秘密鍵"
+
+msgid "Second Level Security"
+msgstr "第 2 レベルのセキュリティ"
+
+msgid "For enhanced security, change the encryption method in %s on line %s"
+msgstr "セキュリティを強化するには、%s 行 %s の暗号化方式を変更してください"
+
+msgid "Api Key"
+msgstr "APIキー"
+
+msgid "Enter Envato api key "
+msgstr "Envato APIキーを入力してください"
+
+msgid "Click here to generate an api key"
+msgstr "APIキーを生成するにはここをクリックしてください"
+
+msgid "License Mandatory"
+msgstr "ライセンス必須"
+
+msgid "Product ID"
+msgstr "製品番号"
+
+msgid "A comma-separated list of Envato product ids"
+msgstr "Envato 製品 ID のカンマ区切りリスト"
+
+msgid "Enter MailChimp API key "
+msgstr "MailChimp API キーを入力してください"
+
+msgid "Audience ID"
+msgstr "オーディエンスID"
+
+msgid "Find Audience ID in your MailChimp account"
+msgstr "MailChimp アカウントでオーディエンス ID を見つける"
+
+msgid "Enable double opt-in"
+msgstr "ダブルオプトインを有効にする"
+
+msgid "You must also enable double opt-in in your MailChimp account"
+msgstr "MailChimp アカウントでダブル オプトインを有効にする必要もあります"
+
+msgid "Welcome email"
+msgstr "ウェルカムメール"
+
+msgid "You can enable Final Welcome Email in your MailChimp account"
+msgstr "MailChimp アカウントで最終ウェルカム メールを有効にすることができます"
+
+msgid "Verify License On Ticket Creation"
+msgstr "チケット作成時にライセンスを確認する"
+
+msgid "Captcha Setting"
+msgstr "キャプチャ設定"
+
+msgid "Show captcha on registration form"
+msgstr "登録フォームにキャプチャを表示する"
+
+msgid "Select whether you want to show captcha on the registration form or not"
+msgstr "登録フォームにキャプチャを表示するかどうかを選択します"
+
+msgid "Show captcha on the visitor ticket form"
+msgstr "訪問者チケットフォームにキャプチャを表示する"
+
+msgid "Show captcha when a visitor wants to create a ticket"
+msgstr "訪問者がチケットを作成したいときにキャプチャを表示する"
+
+msgid "Captcha selection"
+msgstr "キャプチャの選択"
+
+msgid "Which captcha do you want to add?"
+msgstr "どのキャプチャを追加しますか?"
+
+msgid "Google reCaptcha"
+msgstr "Google リキャプチャ"
+
+msgid "Google ReCaptcha version"
+msgstr "Google ReCaptchaのバージョン"
+
+msgid "Select the Google ReCaptcha version"
+msgstr "Google ReCaptchaのバージョンを選択します"
+
+msgid "Google ReCaptcha site key"
+msgstr "Google ReCaptcha サイトキー"
+
+msgid "Please enter the site key for Google ReCaptcha from"
+msgstr "Google ReCaptcha のサイト キーを入力してください。"
+
+msgid "Google ReCaptcha secret key"
+msgstr "Google ReCaptcha の秘密キー"
+
+msgid "Please enter the secret key for Google ReCaptcha from"
+msgstr "Google ReCaptcha の秘密キーを入力してください。"
+
+msgid "Own captcha calculation type"
+msgstr "独自のキャプチャ計算タイプ"
+
+msgid "Select the calculation type (addition or subtraction)"
+msgstr "計算の種類（加算または減算）を選択します"
+
+msgid "Own captcha operands"
+msgstr "独自のキャプチャ オペランド"
+
+msgid "Select the total number of operands to be given"
+msgstr "与えられるオペランドの総数を選択してください"
+
+msgid "Positive Answer Upon Own Captcha Subtraction"
+msgstr "独自のキャプチャ減算による肯定的な回答"
+
+msgid "watch video"
+msgstr "ビデオを見る"
+
+msgid "Add"
+msgstr "追加"
+
+msgid "Ticket via email"
+msgstr "メールでのチケット"
+
+msgid "OR"
+msgstr "または"
+
+msgid "Sorry the cron job didnot work"
+msgstr "申し訳ありませんが、cron ジョブが機能しませんでした"
+
+msgid "Update ticket status"
+msgstr "チケットステータスを更新する"
+
+msgid "You cannot use this email, it is used in email piping"
+msgstr "この電子メールは使用できません。電子メールのパイピングで使用されています"
+
+msgid "The department has been stored"
+msgstr "部門が保存されました"
+
+msgid "The department has not been stored"
+msgstr "部門は保存されていません"
+
+msgid "The department has been deleted"
+msgstr "部門が削除されました"
+
+msgid "The department has not been deleted"
+msgstr "部門は削除されていません"
+
+msgid "The department in use cannot be delete"
+msgstr "使用中の部門は削除できません"
+
+msgid "Outgoing Email"
+msgstr "送信メール"
+
+msgid "Select Email"
+msgstr "電子メールを選択"
+
+msgid "Tickets of this department will receive emails from this email"
+msgstr "この部門のチケットはこのメールからメールを受け取ります"
+
+msgid "Receive Email"
+msgstr "メールを受信"
+
+msgid "Default with auto assign"
+msgstr "自動割り当てによるデフォルト"
+
+msgid "Save Department"
+msgstr "部門の保存"
+
+msgid "Add New Email"
+msgstr "新しいメールを追加"
+
+msgid "The user of this department will receive an email with the new ticket"
+msgstr "この部門のユーザーは、新しいチケットが記載された電子メールを受け取ります"
+
+msgid "Outgoing"
+msgstr "発信"
+
+msgid "Click here to give us feedback"
+msgstr "ここをクリックしてフィードバックをお寄せください"
+
+msgid "Email Already Exist"
+msgstr "電子メールはすでに存在します"
+
+msgid "The email has been stored"
+msgstr "メールが保存されました"
+
+msgid "The email has not been stored"
+msgstr "メールは保存されていません"
+
+msgid "Ticket History"
+msgstr "チケット履歴"
+
+msgid "False"
+msgstr "間違い"
+
+msgid "True"
+msgstr "真実"
+
+msgid "Send Email By"
+msgstr "電子メールの送信者"
+
+msgid "SMTP host type"
+msgstr "SMTP ホストの種類"
+
+msgid "SMTP host"
+msgstr "SMTPホスト"
+
+msgid "SMTP Authentication"
+msgstr "SMTP認証"
+
+msgid "SMTP Secure"
+msgstr "SMTPセキュア"
+
+msgid "SMTP Port"
+msgstr "SMTPポート"
+
+msgid "If the system doesnot respond in 30 seconds"
+msgstr "システムが 30 秒以内に応答しない場合"
+
+msgid "Auto Response"
+msgstr "自動応答"
+
+msgid "Some values are not acceptable please retry"
+msgstr "一部の値は受け入れられません。再試行してください"
+
+msgid "info"
+msgstr "情報"
+
+msgid "System email used for sending email"
+msgstr "電子メールの送信に使用されるシステム電子メール"
+
+msgid "Required Fields are not filled"
+msgstr "必須フィールドが入力されていません"
+
+msgid "Ban Email Try To Create Ticket"
+msgstr "禁止メール チケットを作成してみる"
+
+msgid "Ticket Priority Is Changed By"
+msgstr "チケットの優先順位が変更されました"
+
+msgid "Data Deleted"
+msgstr "データが削除されました"
+
+msgid "Body"
+msgstr "体"
+
+msgid "Parameters"
+msgstr "パラメーター"
+
+msgid "Tracking ID"
+msgstr "トラッキングID"
+
+msgid "Ticket URL"
+msgstr "チケットURL"
+
+msgid "Ticket Priority"
+msgstr "チケットの優先順位"
+
+msgid "Department title"
+msgstr "部署名"
+
+msgid "Group Title"
+msgstr "グループタイトル"
+
+msgid "Agent name"
+msgstr "エージェント名"
+
+msgid "Help topic title"
+msgstr "ヘルプ トピックのタイトル"
+
+msgid "Feedback URL"
+msgstr "フィードバック URL"
+
+msgid "Ticket Subject"
+msgstr "チケットの件名"
+
+msgid "Ticket Tracking ID"
+msgstr "チケット追跡ID"
+
+msgid "Close Date"
+msgstr "終了日"
+
+msgid "Save Email Template"
+msgstr "メールテンプレートの保存"
+
+msgid "Note:"
+msgstr "注記："
+
+msgid "Features marked with"
+msgstr "マークが付いた機能"
+
+msgid "are only available with its own addon."
+msgstr "独自のアドオンでのみ利用可能です。"
+
+msgid "Field mark as published"
+msgstr "フィールドを公開済みとしてマークする"
+
+msgid "Field mark as unpublished"
+msgstr "フィールドを未公開としてマークする"
+
+msgid "Field cannot be mark as published"
+msgstr "フィールドを公開済みとしてマークできません"
+
+msgid "Field mark as required"
+msgstr "フィールドに必須のマークを付けます"
+
+msgid "Field mark as not required"
+msgstr "フィールドを不要としてマークします"
+
+msgid "Field ordering down"
+msgstr "フィールドの順序を下げる"
+
+msgid "Field ordering up"
+msgstr "フィールドの順序アップ"
+
+msgid "Parent field has not been stored"
+msgstr "親フィールドが保存されていません"
+
+msgid "Please Insert At least one value for every option"
+msgstr "すべてのオプションに少なくとも 1 つの値を挿入してください"
+
+msgid "Child fields has not been stored"
+msgstr "子フィールドが保存されていません"
+
+msgid "Field has not been stored"
+msgstr "フィールドが保存されていません"
+
+msgid "Field has been stored"
+msgstr "フィールドが保存されました"
+
+msgid "Field has been updated"
+msgstr "フィールドが更新されました"
+
+msgid "Parent Field"
+msgstr "親フィールド"
+
+msgid "Edit Field"
+msgstr "フィールドの編集"
+
+msgid "Field Title"
+msgstr "フィールドタイトル"
+
+msgid "User Published"
+msgstr "ユーザー公開"
+
+msgid "Visitor Published"
+msgstr "訪問者公開"
+
+msgid "Required"
+msgstr "必須"
+
+msgid "User Search"
+msgstr "ユーザー検索"
+
+msgid "Show On Listing"
+msgstr "リストに表示"
+
+msgid "Advanced"
+msgstr "高度な"
+
+msgid "Field has not been deleted"
+msgstr "フィールドは削除されていません"
+
+msgid "Field has been deleted"
+msgstr "フィールドが削除されました"
+
+msgid "No response found"
+msgstr "応答が見つかりませんでした"
+
+msgid "Equal"
+msgstr "等しい"
+
+msgid "Not Equal"
+msgstr "等しくない"
+
+msgid "Text Field"
+msgstr "テキストフィールド"
+
+msgid "Check Box"
+msgstr "チェックボックス"
+
+msgid "Drop Down"
+msgstr "落ちる"
+
+msgid "Text Area"
+msgstr "テキストエリア"
+
+msgid "Radio Button"
+msgstr "ラジオボタン"
+
+msgid "Upload File"
+msgstr "ファイルをアップロードする"
+
+msgid "Multi Select"
+msgstr "複数選択"
+
+msgid "Admin Only"
+msgstr "管理者のみ"
+
+msgid "Terms and Conditions"
+msgstr "利用規約"
+
+msgid "Dependent Field"
+msgstr "依存フィールド"
+
+msgid "Field Type"
+msgstr "フィールドタイプ"
+
+msgid "Field Size"
+msgstr "フィールドサイズ"
+
+msgid "Max Length"
+msgstr "最大長さ"
+
+msgid "Columns"
+msgstr "コラム"
+
+msgid "Rows"
+msgstr "行"
+
+msgid "Select Parent"
+msgstr "親の選択"
+
+msgid "Select Child"
+msgstr "子の選択"
+
+msgid "Select Condition"
+msgstr "条件の選択"
+
+msgid "To use this feature, please fill in the above three fields."
+msgstr "この機能を使用するには、上記の 3 つのフィールドに入力してください。"
+
+msgid "Use the table below to add new values"
+msgstr "新しい値を追加するには、以下の表を使用してください"
+
+msgid "Add Value"
+msgstr "付加価値"
+
+msgid "Terms and Conditions Text"
+msgstr "利用規約本文"
+
+msgid "Terms and Conditions Link Type"
+msgstr "利用規約 リンクタイプ"
+
+msgid "Direct Link"
+msgstr "直接リンク"
+
+msgid "Wordpress Page"
+msgstr "ワードプレスページ"
+
+msgid "Select Link Type"
+msgstr "リンクタイプの選択"
+
+msgid "Terms and Conditions Link"
+msgstr "利用規約リンク"
+
+msgid "Terms and Conditions Page"
+msgstr "利用規約ページ"
+
+msgid "Select Wordpress page"
+msgstr "Wordpress ページを選択"
+
+msgid "Save Field"
+msgstr "フィールドの保存"
+
+msgid "User Publish"
+msgstr "ユーザー公開"
+
+msgid "Visitor Publish"
+msgstr "訪問者公開"
+
+msgid "Published"
+msgstr "発行済み"
+
+msgid "Unpublished"
+msgstr "未公開"
+
+msgid "Not required"
+msgstr "不要"
+
+msgid "users popup"
+msgstr "ユーザーポップアップ"
+
+msgid "Can Not Unpublished"
+msgstr "非公開にすることはできません"
+
+msgid "good"
+msgstr "良い"
+
+msgid "can not mark as not required"
+msgstr "不要としてマークできません"
+
+msgid "Cannot unpublished field"
+msgstr "フィールドを非公開にすることはできません"
+
+msgid "Please fill required fields."
+msgstr "必須フィールドに入力してください。"
+
+msgid "User Data"
+msgstr "ユーザーデータ"
+
+msgid "Erasing data request has been stored"
+msgstr "データ消去リクエストが保存されました"
+
+msgid "Failed while storing"
+msgstr "保存中に失敗しました"
+
+msgid "Erase data request withdrawn"
+msgstr "データ消去リクエストは取り下げられました"
+
+msgid "Failed while performing action"
+msgstr "アクションの実行中に失敗しました"
+
+msgid "User identifying data erased"
+msgstr "ユーザー識別データが消去されました"
+
+msgid "User data Deleted"
+msgstr "ユーザーデータが削除されました"
+
+msgid "Export your data"
+msgstr "データをエクスポートする"
+
+msgid "You have filed a request to remove your data."
+msgstr "データの削除リクエストを提出しました。"
+
+msgid "To withdraw erases data request"
+msgstr "データ消去リクエストを撤回するには"
+
+msgid "Request the removal of data from the system."
+msgstr "システムからのデータの削除を要求します。"
+
+msgid "Field Text"
+msgstr "フィールドテキスト"
+
+msgid "Link Type"
+msgstr "リンクタイプ"
+
+msgid "Link Page"
+msgstr "リンクページ"
+
+msgid "User Email"
+msgstr "ユーザーのメールアドレス"
+
+msgid "Request Status"
+msgstr "リクエストステータス"
+
+msgid "Awaiting response"
+msgstr "応答待ち"
+
+msgid "Erased identifying data"
+msgstr "消去された識別データ"
+
+msgid "Deleted"
+msgstr "削除されました"
+
+msgid "Erase identifying data"
+msgstr "識別データの消去"
+
+msgid "Are you sure to erase identifying data"
+msgstr "識別データを消去してもよろしいですか"
+
+msgid "Delete data"
+msgstr "データの削除"
+
+msgid "Link"
+msgstr "リンク"
+
+msgid "Direct URL"
+msgstr "直接URL"
+
+msgid "Page Title or URL"
+msgstr "ページのタイトルまたは URL"
+
+msgid "Cannot open file"
+msgstr "ファイルを開けません"
+
+msgid "The new theme has been applied"
+msgstr "新しいテーマが適用されました"
+
+msgid "Error applying the new theme"
+msgstr "新しいテーマの適用中にエラーが発生しました"
+
+msgid "Dir is not writable"
+msgstr "Dir は書き込み可能ではありません"
+
+msgid "Unable to connect to the server"
+msgstr "サーバーに接続できません"
+
+msgid "Language is not installed"
+msgstr "言語がインストールされていません"
+
+msgid "Language directory is not writable"
+msgstr "言語ディレクトリは書き込み可能ではありません"
+
+msgid "Required language is not installed but similar language like"
+msgstr "必要な言語がインストールされていませんが、次のような類似言語がインストールされています"
+
+msgid "is found in your system"
+msgstr "システム内で見つかりました"
+
+msgid "Language code"
+msgstr "言語コード"
+
+msgid "Empty values"
+msgstr "空の値"
+
+msgid "File is not writable"
+msgstr "ファイルは書き込み可能ではありません"
+
+msgid "File successfully downloaded"
+msgstr "ファイルが正常にダウンロードされました"
+
+msgid "User ID"
+msgstr "ユーザーID"
+
+msgid "Ordering updated"
+msgstr "注文が更新されました"
+
+msgid "Missing user(s) added successfully!"
+msgstr "不足しているユーザーが正常に追加されました。"
+
+msgid "No missing user found!"
+msgstr "行方不明のユーザーは見つかりませんでした。"
+
+msgid "How to translate Majestic Support"
+msgstr "Majestic Support の翻訳方法"
+
+msgid "arrow"
+msgstr "矢印"
+
+msgid "Remove All"
+msgstr "すべて削除する"
+
+msgid "How to create ticket"
+msgstr "チケットの作成方法"
+
+msgid "Add Field"
+msgstr "フィールドの追加"
+
+msgid "How to setup user fields"
+msgstr "ユーザーフィールドの設定方法"
+
+msgid "reset"
+msgstr "リセット"
+
+msgid "Reset All"
+msgstr "すべてリセット"
+
+msgid "How to set smartreply"
+msgstr "スマートリプライの設定方法"
+
+msgid "Add Multiform"
+msgstr "マルチフォームの追加"
+
+msgid "How to set multiforms"
+msgstr "マルチフォームの設定方法"
+
+msgid "Add Conditions"
+msgstr "条件の追加"
+
+msgid "Conditions"
+msgstr "条件"
+
+msgid "How to add Shortcode"
+msgstr "ショートコードの追加方法"
+
+msgid "How to set colors"
+msgstr "色の設定方法"
+
+msgid "Export Data"
+msgstr "データのエクスポート"
+
+msgid "Add Email Piping"
+msgstr "電子メールのパイプを追加する"
+
+msgid "Add GDPR Field"
+msgstr "GDPRフィールドを追加"
+
+msgid "Add Depertment"
+msgstr "部門の追加"
+
+msgid "Add Knowledge base"
+msgstr "ナレッジベースを追加"
+
+msgid "How to use Knowledge Base"
+msgstr "ナレッジベースの使用方法"
+
+msgid "How to use downloads"
+msgstr "ダウンロードの使い方"
+
+msgid "How to create FAQ"
+msgstr "FAQの作成方法"
+
+msgid "How to add announcement"
+msgstr "お知らせの追加方法"
+
+msgid "Add Help Topics"
+msgstr "ヘルプトピックの追加"
+
+msgid "How to use help topic"
+msgstr "ヘルプトピックの使い方"
+
+msgid "How to set SMTP"
+msgstr "SMTPの設定方法"
+
+msgid "Add Banned Email"
+msgstr "禁止されたメールを追加する"
+
+msgid "How to use email cc"
+msgstr "メールCCの使い方"
+
+msgid "Configuration"
+msgstr "構成"
+
+msgid "Reasons"
+msgstr "理由"
+
+msgid "About Majestic Support"
+msgstr "マジェスティックサポートについて"
+
+msgid "Our Products"
+msgstr "当社の製品"
+
+msgid "Wp Job Portal"
+msgstr "WPジョブポータル"
+
+msgid "New Tickets"
+msgstr "新しいチケット"
+
+msgid "addon"
+msgstr "アドオン"
+
+msgid "Answered Tickets"
+msgstr "回答済みのチケット"
+
+msgid "Pending Tickets"
+msgstr "保留中のチケット"
+
+msgid "Overdue Tickets"
+msgstr "期限を過ぎたチケット"
+
+msgid "Update"
+msgstr "アップデート"
+
+msgid "View Addone Status"
+msgstr "アドオンのステータスを表示する"
+
+msgid "Today Tickets"
+msgstr "今日のチケット"
+
+msgid "Statistics"
+msgstr "統計"
+
+msgid "View All Tickets"
+msgstr "すべてのチケットを見る"
+
+msgid "Quick Links"
+msgstr "クイックリンク"
+
+msgid "email template"
+msgstr "メールテンプレート"
+
+msgid "add missing users"
+msgstr "不足しているユーザーを追加する"
+
+msgid "user"
+msgstr "ユーザー"
+
+msgid "Sync WP Users"
+msgstr "WP ユーザーを同期する"
+
+msgid "Add New Smart Reply"
+msgstr "新しいスマート リプライを追加"
+
+msgid "Suggest a quick and most relevant reply to the customer's query."
+msgstr "顧客の問い合わせに対して、迅速かつ最も適切な回答を提案します。"
+
+msgid "Add Reply"
+msgstr "返信を追加"
+
+msgid "Add New Agent"
+msgstr "新しいエージェントの追加"
+
+msgid "Agent Add-on Not Installed"
+msgstr "エージェント アドオンがインストールされていません"
+
+msgid "Don't limit yourself—install the Agent addon for maximum productivity."
+msgstr "自分自身に制限を設けずに、生産性を最大限に高めるためにエージェント アドオンをインストールしてください。"
+
+msgid "agent addone"
+msgstr "エージェントアドオン"
+
+msgid "Install Agent Addon"
+msgstr "エージェントアドオンのインストール"
+
+msgid "Tickets By Priority"
+msgstr "チケットの優先順位"
+
+msgid "Install Addone"
+msgstr "アドオンをインストールする"
+
+msgid "Add-ons"
+msgstr "アドオン"
+
+msgid "View Details"
+msgstr "詳細を見る"
+
+msgid "Version"
+msgstr "バージョン"
+
+msgid "Auto Close Ticket"
+msgstr "自動終了チケット"
+
+msgid "Private Note"
+msgstr "プライベートノート"
+
+msgid "Max Ticket"
+msgstr "マックスチケット"
+
+msgid "Max Tickets"
+msgstr "最大チケット数"
+
+msgid "Merge Tickets"
+msgstr "チケットを統合する"
+
+msgid "Time Tracking"
+msgstr "時間追跡"
+
+msgid "User Options"
+msgstr "ユーザーオプション"
+
+msgid "Actions"
+msgstr "行動"
+
+msgid "Ticket Actions"
+msgstr "チケットアクション"
+
+msgid "Desktop Notifications"
+msgstr "デスクトップ通知"
+
+msgid "Admin Widgets"
+msgstr "管理者ウィジェット"
+
+msgid "Internal Mail"
+msgstr "社内メール"
+
+msgid "Front-End Widgets"
+msgstr "フロントエンドウィジェット"
+
+msgid "mailchimp"
+msgstr "メールチンパンジー"
+
+msgid "Mailchimp"
+msgstr "メールチンパンジー"
+
+msgid "paidsupport"
+msgstr "有料サポート"
+
+msgid "easy digital download"
+msgstr "簡単なデジタルダウンロード"
+
+msgid "Easy Digital Download"
+msgstr "簡単なデジタルダウンロード"
+
+msgid "Multi Language Email Templates"
+msgstr "多言語メールテンプレート"
+
+msgid "Email Cc"
+msgstr "メールCC"
+
+msgid "Multi Forms"
+msgstr "マルチフォーム"
+
+msgid "Ticket Closed Reason"
+msgstr "チケットがクローズされた理由"
+
+msgid "Quick Installation Guide"
+msgstr "クイックインストールガイド"
+
+msgid "How To Setup"
+msgstr "セットアップ方法"
+
+msgid "Ticket Creation"
+msgstr "チケットの作成"
+
+msgid "Fields Manager"
+msgstr "フィールドマネージャー"
+
+msgid "Email Notification Problems"
+msgstr "電子メール通知の問題"
+
+msgid "Premium Addons List"
+msgstr "プレミアムアドオンリスト"
+
+msgid "Features"
+msgstr "特徴"
+
+msgid "The best support system plugin for WordPress has everything you need."
+msgstr "WordPress に最適なサポート システム プラグインには、必要なものがすべて揃っています。"
+
+msgid "Addons"
+msgstr "アドオン"
+
+msgid "All Add-ons"
+msgstr "すべてのアドオン"
+
+msgid "Add New Add-ons"
+msgstr "新しいアドオンを追加する"
+
+msgid "New Update Version"
+msgstr "新しいアップデートバージョン"
+
+msgid "is Available"
+msgstr "利用可能です"
+
+msgid "Help icon"
+msgstr "ヘルプアイコン"
+
+msgid "Videos Guidance"
+msgstr "ビデオガイダンス"
+
+msgid "View all videos"
+msgstr "すべてのビデオを見る"
+
+msgid "Video icon"
+msgstr "ビデオアイコン"
+
+msgid "View All Videos"
+msgstr "すべてのビデオを見る"
+
+msgid "Majestic Support icon"
+msgstr "マジェスティックサポートアイコン"
+
+msgid "Contact Us For Support"
+msgstr "サポートについてのお問い合わせ"
+
+msgid "Submit ticket"
+msgstr "チケットを送信する"
+
+msgid "Visitor ticket creation"
+msgstr "来場者チケットの作成"
+
+msgid "How to set ticket auto close"
+msgstr "チケットの自動クローズを設定する方法"
+
+msgid "How to reopen closed ticket"
+msgstr "閉じたチケットを再度開く方法"
+
+msgid "How to lock a ticket"
+msgstr "チケットをロックする方法"
+
+msgid "How to add private note"
+msgstr "プライベートメモを追加する方法"
+
+msgid "View ticket history"
+msgstr "チケット履歴を表示する"
+
+msgid "How to setup custom fields"
+msgstr "カスタムフィールドの設定方法"
+
+msgid "Set ticket auto overdue"
+msgstr "チケットの自動期限切れを設定する"
+
+msgid "Manually set ticket overdue"
+msgstr "チケットの期限超過を手動で設定する"
+
+msgid "How to merge tickets"
+msgstr "チケットを統合する方法"
+
+msgid "How to export tickets"
+msgstr "チケットをエクスポートする方法"
+
+msgid "How use help topic"
+msgstr "ヘルプトピックの使用方法"
+
+msgid "How to change department"
+msgstr "部署異動の方法"
+
+msgid "How to use multi-forms"
+msgstr "マルチフォームの使い方"
+
+msgid "How to paid support"
+msgstr "有償サポートの受け方"
+
+msgid "How to use premade response"
+msgstr "事前に作成された応答の使用方法"
+
+msgid "How to add private credentials"
+msgstr "プライベート認証情報を追加する方法"
+
+msgid "How to ban/unban user"
+msgstr "ユーザーを禁止/禁止解除する方法"
+
+msgid "Agent system"
+msgstr "エージェント制"
+
+msgid "Manually assign ticket to agen"
+msgstr "チケットを手動でエージェントに割り当てる"
+
+msgid "Manually assign ticket to agent"
+msgstr "チケットをエージェントに手動で割り当てる"
+
+msgid "How to edit time"
+msgstr "時間を編集する方法"
+
+msgid "How to use time tracking"
+msgstr "タイムトラッキングの使用方法"
+
+msgid "How to use smart replies"
+msgstr "スマート リプライの使用方法"
+
+msgid "Configurations"
+msgstr "構成"
+
+msgid "How to set max open ticket"
+msgstr "最大オープンチケットの設定方法"
+
+msgid "How to show counts"
+msgstr "カウントを表示する方法"
+
+msgid "How to set Captcha"
+msgstr "キャプチャの設定方法"
+
+msgid "User options"
+msgstr "ユーザーオプション"
+
+msgid "How to set login redirect"
+msgstr "ログインリダイレクトの設定方法"
+
+msgid "How to set fields ordering"
+msgstr "フィールドの順序を設定する方法"
+
+msgid "How to enable social login"
+msgstr "ソーシャルログインを有効にする方法"
+
+msgid "Setup"
+msgstr "設定"
+
+msgid "How to setup"
+msgstr "セットアップ方法"
+
+msgid "How to enable email piping"
+msgstr "電子メールのパイプを有効にする方法"
+
+msgid "How to solve email notification problem"
+msgstr "メール通知の問題を解決する方法"
+
+msgid "How to translate"
+msgstr "翻訳方法"
+
+msgid "How to install addons"
+msgstr "アドオンのインストール方法"
+
+msgid "How to Desktop Notifications"
+msgstr "デスクトップ通知の方法"
+
+msgid "and"
+msgstr "そして"
+
+msgid "How to use knowledge base"
+msgstr "ナレッジベースの使用方法"
+
+msgid "Misc"
+msgstr "その他"
+
+msgid "How to use internal mail"
+msgstr "社内メールの使い方"
+
+msgid "Use front-end widgets"
+msgstr "フロントエンドウィジェットを使用する"
+
+msgid "How to enable admin widgets"
+msgstr "管理ウィジェットを有効にする方法"
+
+msgid "Majestic Support / Majestic Support Control Panel"
+msgstr "マジェスティック サポート / マジェスティック サポート コントロール パネル"
+
+msgid "Majestic Support / Majestic Support main control panel"
+msgstr "Majestic Support / Majestic Support メインコントロールパネル"
+
+msgid "Add new ticket form for both the user and the agent"
+msgstr "ユーザーとエージェントの両方に新しいチケット フォームを追加する"
+
+msgid "Add Ticket Using Multiform"
+msgstr "マルチフォームを使用してチケットを追加"
+
+msgid "My tickets for both user and agent"
+msgstr "ユーザーとエージェントの両方のチケット"
+
+msgid "Show latest downloads. Options"
+msgstr "最新のダウンロードを表示します。オプション"
+
+msgid "i.e."
+msgstr "つまり"
+
+msgid "Popular Downloads"
+msgstr "人気のダウンロード"
+
+msgid "Show popular downloads. Options"
+msgstr "人気のあるダウンロードを表示します。オプション"
+
+msgid "Show latest knowledge base. Options"
+msgstr "最新のナレッジベースを表示します。オプション"
+
+msgid "Show popular knowledge base. Options"
+msgstr "人気のあるナレッジベースを表示します。オプション"
+
+msgid "List FAQs"
+msgstr "よくある質問のリスト"
+
+msgid "Show latest FAQs. Options"
+msgstr "最新のFAQを表示します。オプション"
+
+msgid "Popular FAQs"
+msgstr "よくあるよくある質問"
+
+msgid "Show popular FAQs. Options"
+msgstr "よくある FAQ を表示します。オプション"
+
+msgid "Show latest announcements. Options"
+msgstr "最新のお知らせを表示します。オプション"
+
+msgid "Popular Announcements"
+msgstr "人気のお知らせ"
+
+msgid "Show popular announcements. Options"
+msgstr "人気のあるお知らせを表示します。オプション"
+
+msgid "Get"
+msgstr "得る"
+
+msgid "Translation"
+msgstr "翻訳"
+
+msgid "c error"
+msgstr "cエラー"
+
+msgid "saved"
+msgstr "保存されました"
+
+msgid "Contribute In Translation"
+msgstr "翻訳に貢献する"
+
+msgid "translate"
+msgstr "翻訳する"
+
+msgid "Manual Download"
+msgstr "マニュアルのダウンロード"
+
+msgid "Log In"
+msgstr "ログイン"
+
+msgid "Log Out"
+msgstr "ログアウト"
+
+msgid "Agent Feedback"
+msgstr "エージェントのフィードバック"
+
+msgid "Dashboard Menu"
+msgstr "ダッシュボードメニュー"
+
+msgid "Open Tickets"
+msgstr "オープンチケット"
+
+msgid "Closed Tickets"
+msgstr "終了したチケット"
+
+msgid "This ticket is marked as overdue"
+msgstr "このチケットは期限切れとしてマークされています"
+
+msgid "View All Downloads"
+msgstr "すべてのダウンロードを表示"
+
+msgid "View All Announcements"
+msgstr "すべてのお知らせを表示"
+
+msgid "View All Knowledge Base"
+msgstr "すべてのナレッジベースを表示"
+
+msgid "View All FAQs"
+msgstr "すべての FAQ を表示"
+
+msgid "Keep me login"
+msgstr "ログインを維持する"
+
+msgid "Repeat Password"
+msgstr "パスワードを再度入力してください"
+
+msgid "Subscribe to the newsletter"
+msgstr "ニュースレターを購読する"
+
+msgid "has been changed"
+msgstr "変更されました"
+
+msgid "has not been changed"
+msgstr "変わっていない"
+
+msgid "Majestic Support Settings"
+msgstr "Majestic サポート設定"
+
+msgid "Step 4 of "
+msgstr "ステップ 4 の"
+
+msgid "Complete"
+msgstr "完了"
+
+msgid "Setting you applied has been saved successfully."
+msgstr "適用した設定は正常に保存されました。"
+
+msgid "Finish"
+msgstr "仕上げる"
+
+msgid "Settings Complete"
+msgstr "設定完了"
+
+msgid "Ticket Setting"
+msgstr "チケット設定"
+
+msgid "Step 1 of "
+msgstr "ステップ 1 の"
+
+msgid "Enter the site title"
+msgstr "サイトタイトルを入力してください"
+
+msgid "Date format for plugin"
+msgstr "プラグインの日付形式"
+
+msgid "Show Breadcrumbs"
+msgstr "ブレッドクラムを表示"
+
+msgid "Show navigation in breadcrumbs"
+msgstr "ブレッドクラムにナビゲーションを表示する"
+
+msgid "Upload file size in KB's"
+msgstr "アップロードするファイルのサイズ (KB)"
+
+msgid "File Extension"
+msgstr "ファイル拡張子"
+
+msgid "Show count on my tickets"
+msgstr "チケットのカウントを表示"
+
+msgid "Next Setup"
+msgstr "次のセットアップ"
+
+msgid "Sequential"
+msgstr "一連"
+
+msgid "Step 3 of "
+msgstr "ステップ 3 の"
+
+msgid "Set Email Delay Time"
+msgstr "電子メールの遅延時間を設定する"
+
+msgid " :"
+msgstr ":"
+
+msgid "Set Email Delay"
+msgstr "電子メールの遅延を設定する"
+
+msgid "Back"
+msgstr "戻る"
+
+msgid "Step 2 of "
+msgstr "ステップ 2 の"
+
+msgid "Visitor can create ticket"
+msgstr "訪問者はチケットを作成できます"
+
+msgid "Enable/Disable Open Ticket"
+msgstr "オープンチケットの有効化/無効化"
+
+msgid "Set ticket id sequential or random"
+msgstr "チケット ID を連続またはランダムに設定する"
+
+msgid "Maximum Tickets"
+msgstr "最大チケット数"
+
+msgid "Set Maximum Ticket Per user"
+msgstr "ユーザーごとの最大チケットを設定する"
+
+msgid "Maximum Open Ticket"
+msgstr "最大オープンチケット"
+
+msgid "Reopen ticket within Days"
+msgstr "数日以内にチケットを再開する"
+
+msgid "The ticket can be reopened within a given number of days"
+msgstr "チケットは指定された日数以内に再度開くことができます"
+
+msgid "Show Captcha to visitor on ticket form"
+msgstr "チケットフォーム上の訪問者にキャプチャを表示"
+
+msgid "Enable/Disable Captcha on Ticket Form"
+msgstr "チケットフォームでのキャプチャの有効化/無効化"
+
+msgid "Own Captcha operands"
+msgstr "独自のキャプチャ オペランド"
+
+msgid "Select the total operands to be given"
+msgstr "与えるオペランドの合計を選択してください"
+
+msgid "Own captcha subtraction answer positive"
+msgstr "独自のキャプチャ減算の回答が肯定的"
+
+msgid "Enable/Disable Own Captcha subtraction"
+msgstr "独自のキャプチャ減算の有効化/無効化"
+
+msgid "Enable Print Ticket"
+msgstr "印刷チケットを有効にする"
+
+msgid "Enable/Disable Print Ticket"
+msgstr "プリントチケットの有効化/無効化"
+
+msgid "Download Translation File"
+msgstr "翻訳ファイルをダウンロード"
+
+msgid "Download & Next"
+msgstr "ダウンロードして次へ"
+
+msgid "Skip this step"
+msgstr "このステップを飛ばす"
+
+msgid "Please insert activation key to proceed"
+msgstr "続行するにはアクティベーション キーを挿入してください"
+
+msgid "Addon Installation Failed"
+msgstr "アドオンのインストールに失敗しました"
+
+msgid "Addon installation failed"
+msgstr "アドオンのインストールに失敗しました"
+
+msgid "Addon Installation Failed, File download error"
+msgstr "アドオンのインストール失敗、ファイルダウンロードエラー"
+
+msgid "Deactivate"
+msgstr "非アクティブ化"
+
+msgid "Deactivated"
+msgstr "無効化されました"
+
+msgid "Activate"
+msgstr "活性化"
+
+msgid "Not Installed"
+msgstr "インストールされていない"
+
+msgid "Addon Installed Successfully"
+msgstr "アドオンが正常にインストールされました"
+
+msgid "Ticket Auto Close"
+msgstr "チケットの自動終了"
+
+msgid "Canned Response"
+msgstr "返信定型文"
+
+msgid "Desktop Notification"
+msgstr "デスクトップ通知"
+
+msgid "Front-end Widgets"
+msgstr "フロントエンドウィジェット"
+
+msgid "Multi-Language Emails"
+msgstr "多言語メール"
+
+msgid "left image"
+msgstr "左の画像"
+
+msgid "right image"
+msgstr "右の画像"
+
+msgid "Add-ons For Majestic Support"
+msgstr "Majestic サポート用のアドオン"
+
+msgid "Save big today with an exclusive membership plan!"
+msgstr "特別な会員プランで今すぐ大幅節約!"
+
+msgid "show bundle pack"
+msgstr "バンドルパックを表示"
+
+msgid "buy now"
+msgstr "今すぐ購入"
+
+msgid "Installed"
+msgstr "インストール済み"
+
+msgid "agent auto assign"
+msgstr "エージェントの自動割り当て"
+
+msgid "private note"
+msgstr "私的なメモ"
+
+msgid "merge tickets"
+msgstr "チケットをマージする"
+
+msgid "helptopic"
+msgstr "ヘルプトピック"
+
+msgid "time tracking"
+msgstr "時間追跡"
+
+msgid "Ticket close reason"
+msgstr "チケットクローズの理由"
+
+msgid "max ticket"
+msgstr "最大チケット"
+
+msgid "ticket actions"
+msgstr "チケットアクション"
+
+msgid "email cc"
+msgstr "メールCC"
+
+msgid "user options"
+msgstr "ユーザーオプション"
+
+msgid "admin widgets"
+msgstr "管理ウィジェット"
+
+msgid "desktop notifications"
+msgstr "デスクトップ通知"
+
+msgid "woocommerce"
+msgstr "ウーコマース"
+
+msgid "mail chimp"
+msgstr "メールチンパンジー"
+
+msgid "Mail Chimp"
+msgstr "メールチンパンジー"
+
+msgid "internal mail"
+msgstr "社内メール"
+
+msgid "frontend widget"
+msgstr "フロントエンドウィジェット"
+
+msgid "Majestic Support Add-ons Bundle Pack"
+msgstr "Majestic サポート アドオン バンドル パック"
+
+msgid "Basic"
+msgstr "基本"
+
+msgid "Unlimited Agents"
+msgstr "無制限のエージェント"
+
+msgid "Helptopic"
+msgstr "ヘルプトピック"
+
+msgid "Show all"
+msgstr "すべて表示する"
+
+msgid "Standard"
+msgstr "標準"
+
+msgid "Everything in basic included and "
+msgstr "基本的なものはすべて含まれており、"
+
+msgid "Professional"
+msgstr "プロ"
+
+msgid "Everything in standard included and"
+msgstr "標準ですべてが含まれており、"
+
+msgid "All Future Addons"
+msgstr "今後のすべてのアドオン"
+
+msgid "Status: "
+msgstr "状態："
+
+msgid "addon in no longer active"
+msgstr "アドオンはもうアクティブではありません"
+
+msgid "Please Insert Your Activation Key"
+msgstr "アクティベーション キーを挿入してください"
+
+msgid "XXXX-XXXX-XXXXX-XXXXX"
+msgstr "XXXX-XXXX-XXXXX-XXXXX"
+
+msgid "Proceed"
+msgstr "進む"
+
+msgid "Majestic Support Addon Installer"
+msgstr "Majestic サポート アドオン インストーラー"
+
+msgid "Select All Addons"
+msgstr "すべてのアドオンを選択"
+
+msgid "All allowed add ons are already installed"
+msgstr "許可されたアドオンはすべてすでにインストールされています"
+
+msgid "You are not allowed to install any add on"
+msgstr "アドオンのインストールは許可されていません"
+
+msgid "Addons Installed Successfully"
+msgstr "アドオンが正常にインストールされました"
+
+msgid "Open Dashboard"
+msgstr "ダッシュボードを開く"
+
+msgid "Open Plugins Page"
+msgstr "プラグインページを開く"
+
+msgid "Page Not Found !!"
+msgstr "ページが見つかりません ！！"
+
+msgid "Priority Title Already Exist"
+msgstr "優先タイトルはすでに存在します"
+
+msgid "Priority has been stored"
+msgstr "優先度が保存されました"
+
+msgid "Priority has not been stored"
+msgstr "優先度は保存されていません"
+
+msgid "Priority has been deleted"
+msgstr "優先順位が削除されました"
+
+msgid "Priority has not been deleted"
+msgstr "優先度は削除されていません"
+
+msgid "Default priority cannot delete"
+msgstr "デフォルトの優先度では削除できません"
+
+msgid "Priority has been make default"
+msgstr "優先順位がデフォルトに設定されました"
+
+msgid "Priority has not been make default"
+msgstr "優先順位がデフォルトになっていません"
+
+msgid "Ticket Overdue Interval Type"
+msgstr "チケット期限切れ間隔タイプ"
+
+msgid "Save Priority"
+msgstr "保存の優先度"
+
+msgid "Date Interval"
+msgstr "日付間隔"
+
+msgid "Reply posted"
+msgstr "返信が投稿されました"
+
+msgid "Reply posted on ticket"
+msgstr "チケットに返信が投稿されました"
+
+msgid "Guest"
+msgstr "ゲスト"
+
+msgid "Ticket is replied by"
+msgstr "チケットの返信先"
+
+msgid "Reply Has been Posted"
+msgstr "返信が投稿されました"
+
+msgid "Reply Has Not been Posted"
+msgstr "返信は投稿されていません"
+
+msgid "Dates"
+msgstr "日付"
+
+msgid "Department Statistics"
+msgstr "部門統計"
+
+msgid "answered ticket"
+msgstr "答えられたチケット"
+
+msgid "pending ticket"
+msgstr "保留中のチケット"
+
+msgid "overdue ticket"
+msgstr "期限を過ぎたチケット"
+
+msgid "Time Taken"
+msgstr "かかった時間"
+
+msgid "Merged and closed"
+msgstr "合併して閉鎖"
+
+msgid "Out of"
+msgstr "のうち"
+
+msgid "Overall Report"
+msgstr "全体報告書"
+
+msgid "Ticket by departments"
+msgstr "部門ごとのチケット"
+
+msgid "Agent Tickets"
+msgstr "エージェントチケット"
+
+msgid "all ticket"
+msgstr "すべてのチケット"
+
+msgid "Tickets By Status And Priorities"
+msgstr "ステータスと優先度別のチケット"
+
+msgid "Tickets By Agents"
+msgstr "代理店によるチケット"
+
+msgid "Staff Reports"
+msgstr "スタッフレポート"
+
+msgid "Based on"
+msgstr "に基づく"
+
+msgid "Customer Satisfaction"
+msgstr "顧客満足"
+
+msgid "satisfaction image"
+msgstr "満足イメージ"
+
+msgid "Excellent"
+msgstr "素晴らしい"
+
+msgid "NA"
+msgstr "NA"
+
+msgid "Happy"
+msgstr "ハッピー"
+
+msgid "bad"
+msgstr "悪い"
+
+msgid "Sad"
+msgstr "悲しい"
+
+msgid "Angry"
+msgstr "怒り"
+
+msgid "Agent Statistics"
+msgstr "エージェントの統計"
+
+msgid "staff image"
+msgstr "スタッフイメージ"
+
+msgid "Average rating"
+msgstr "平均評価"
+
+msgid "Average time"
+msgstr "平均時間"
+
+msgid "Tickets not assigned to the agent"
+msgstr "チケットがエージェントに割り当てられていない"
+
+msgid "Minutes"
+msgstr "分"
+
+msgid "Report By Agent"
+msgstr "エージェントによるレポート"
+
+msgid "User Statistics"
+msgstr "ユーザー統計"
+
+msgid "Users"
+msgstr "ユーザー"
+
+msgid "Tickets by departments"
+msgstr "部門ごとのチケット"
+
+msgid "Ticket Status By Departments"
+msgstr "部門ごとのチケットステータス"
+
+msgid "Agent detail Report"
+msgstr "エージェント詳細レポート"
+
+msgid "Agent Report"
+msgstr "エージェントレポート"
+
+msgid "Reports Statistics"
+msgstr "レポート統計"
+
+msgid "Slugs/Slug has been stored"
+msgstr "ナメクジ/ナメクジが保管されました"
+
+msgid "Prefix has not been stored"
+msgstr "プレフィックスが保存されていません"
+
+msgid "Prefix has been stored"
+msgstr "プレフィックスが保存されました"
+
+msgid "Home Slug"
+msgstr "ホームナメクジ"
+
+msgid "Prefix"
+msgstr "プレフィックス"
+
+msgid "This prefix will be added to the slug in case of homepage links."
+msgstr "ホームページのリンクの場合、このプレフィックスがスラッグに追加されます。"
+
+msgid "This prefix will be added to the slug in case of conflict."
+msgstr "このプレフィックスは、競合が発生した場合にスラッグに追加されます。"
+
+msgid "Search By Slug"
+msgstr "ナメクジで検索"
+
+msgid "Slug List"
+msgstr "ナメクジリスト"
+
+msgid "edit"
+msgstr "編集"
+
+msgid "This button will only save slugs on the current page"
+msgstr "このボタンは現在のページのスラッグのみを保存します"
+
+msgid "Smart Reply Title Already Exist"
+msgstr "スマート リプライのタイトルはすでに存在します"
+
+msgid "Smart Reply has been stored"
+msgstr "スマート リプライが保存されました"
+
+msgid "Smart Reply has not been stored"
+msgstr "スマート リプライは保存されていません"
+
+msgid "Smart Reply has been deleted"
+msgstr "スマート リプライは削除されました"
+
+msgid "Smart Reply has not been deleted"
+msgstr "スマート リプライは削除されていません"
+
+msgid "Enter Ticket Subject"
+msgstr "チケットの件名を入力してください"
+
+msgid "delete"
+msgstr "消去"
+
+msgid "Save Smart Reply"
+msgstr "スマート リプライを保存"
+
+msgid "System error has been deleted"
+msgstr "システムエラーは削除されました"
+
+msgid "System error has not been deleted"
+msgstr "システムエラーは削除されていません"
+
+msgid "Color Chooser"
+msgstr "カラーセレクター"
+
+msgid "Preset Theme"
+msgstr "プリセットテーマ"
+
+msgid "Top Menu Heading Background"
+msgstr "トップメニューの見出しの背景"
+
+msgid "Top Header Line Color"
+msgstr "上部ヘッダー線の色"
+
+msgid "Button Hover"
+msgstr "ボタンホバー"
+
+msgid "Heading Text"
+msgstr "見出しテキスト"
+
+msgid "Content Background Color"
+msgstr "コンテンツの背景色"
+
+msgid "Content Text Color"
+msgstr "コンテンツのテキストの色"
+
+msgid "Border Color"
+msgstr "ボーダの色"
+
+msgid "Lines"
+msgstr "ライン"
+
+msgid "Button Color"
+msgstr "ボタンの色"
+
+msgid "Top Header Text Color"
+msgstr "上部ヘッダーのテキストの色"
+
+msgid "Save Colors"
+msgstr "色の保存"
+
+msgid "Color Effect Preview"
+msgstr "色効果のプレビュー"
+
+msgid "Submit Ticket  "
+msgstr "チケットを送信する"
+
+msgid "Open ( 3 )"
+msgstr "開く ( 3 )"
+
+msgid "Closed ( 2 )"
+msgstr "閉店 ( 2 )"
+
+msgid "Answered ( 1 )"
+msgstr "回答済み ( 1 )"
+
+msgid "All Tickets ( 5 )"
+msgstr "すべてのチケット ( 5 )"
+
+msgid " Priority"
+msgstr "優先度"
+
+msgid "Can i upgrade my plan?"
+msgstr "プランをアップグレードできますか?"
+
+msgid "Low"
+msgstr "低い"
+
+msgid "Ticket ID  :"
+msgstr "チケットID："
+
+msgid "Last Reply :"
+msgstr "最後の返信:"
+
+msgid "How can i get Subscription"
+msgstr "サブスクリプションを取得するにはどうすればよいですか"
+
+msgid " Department   "
+msgstr "部門"
+
+msgid "Support"
+msgstr "サポート"
+
+msgid " Ticket ID :"
+msgstr "チケットID："
+
+msgid "Created :"
+msgstr "作成した ："
+
+msgid "Matthew Frazier"
+msgstr "マシュー・フレイジャー"
+
+msgid "How long do i have support access"
+msgstr "サポートにアクセスできる期間はどれくらいですか"
+
+msgid " Department"
+msgstr "部門"
+
+msgid "Note"
+msgstr "注記"
+
+msgid "Blue Jeans"
+msgstr "ブルージーンズ"
+
+msgid "Red"
+msgstr "赤"
+
+msgid "Mint"
+msgstr "ミント"
+
+msgid "Lavender"
+msgstr "ラベンダー"
+
+msgid "Orange"
+msgstr "オレンジ"
+
+msgid "Grass"
+msgstr "草"
+
+msgid "Black"
+msgstr "黒"
+
+msgid "Support for this Envato license has expired"
+msgstr "この Envato ライセンスのサポートは期限切れになりました"
+
+msgid "Record not found"
+msgstr "記録が見当たりませんでした"
+
+msgid "Banned email cannot create ticket"
+msgstr "禁止されたメールではチケットを作成できません"
+
+msgid "Incorrect Captcha Code"
+msgstr "不正なキャプチャ コード"
+
+msgid "Please select paid support item"
+msgstr "有料サポート項目を選択してください"
+
+msgid "No purchase found with that code"
+msgstr "そのコードでの購入は見つかりませんでした"
+
+msgid "Provide a valid license key to create a ticket."
+msgstr "有効なライセンス キーを指定してチケットを作成します。"
+
+msgid "Your license has expired."
+msgstr "ライセンスの有効期限が切れています。"
+
+msgid "Your license is not active, activate your license."
+msgstr "ライセンスがアクティブではありません。ライセンスをアクティブにしてください。"
+
+msgid "Due date error is not valid"
+msgstr "期日エラーが無効です"
+
+msgid "Ticket has not been created"
+msgstr "チケットが作成されていません"
+
+msgid "Your ticket has been submitted successfully"
+msgstr "チケットは正常に送信されました"
+
+msgid "created"
+msgstr "作成した"
+
+msgid "Ticket is updated by"
+msgstr "チケットの更新者"
+
+msgid "Ticket is created by"
+msgstr "チケットの作成者"
+
+msgid "Ticket has been deleted"
+msgstr "チケットは削除されました"
+
+msgid "Ticket has not been deleted"
+msgstr "チケットは削除されていません"
+
+msgid "in use cannot be deleted"
+msgstr "使用中は削除できません"
+
+msgid "Ticket already closed"
+msgstr "チケットはすでに終了しています"
+
+msgid "Ticket has been closed"
+msgstr "チケットはクローズされました"
+
+msgid "Ticket has not been closed"
+msgstr "チケットはクローズされていません"
+
+msgid "Ticket is closed by"
+msgstr "チケットは次によって締め切られています"
+
+msgid "due to the following reasons"
+msgstr "以下の理由により"
+
+msgid "Your are not allowed"
+msgstr "あなたは許可されていません"
+
+msgid "The department has been transferred"
+msgstr "部署が異動になりました"
+
+msgid "The department has not been transferred"
+msgstr "部署は異動していない"
+
+msgid "The department is transferred by"
+msgstr "部署が異動するのは、"
+
+msgid "Assigned to agent"
+msgstr "エージェントに割り当てられました"
+
+msgid "Not assigned to agent"
+msgstr "エージェントに割り当てられていません"
+
+msgid "Assign ticket to agent"
+msgstr "チケットをエージェントに割り当てる"
+
+msgid "Ticket is assigned to agent by"
+msgstr "チケットは次の方法でエージェントに割り当てられます"
+
+msgid "The ticket already has the same priority"
+msgstr "チケットはすでに同じ優先度を持っています"
+
+msgid "Priority has been changed"
+msgstr "優先順位が変更されました"
+
+msgid "Priority has not been changed"
+msgstr "優先順位は変更されていません"
+
+msgid "Change Priority"
+msgstr "優先度の変更"
+
+msgid "Email already banned"
+msgstr "電子メールはすでに禁止されています"
+
+msgid "The email has been banned"
+msgstr "メールが禁止されました"
+
+msgid "The email has not been banned"
+msgstr "メールは禁止されていません"
+
+msgid "Email is banned by"
+msgstr "電子メールが禁止されているのは、"
+
+msgid "The ticket has been reopened"
+msgstr "チケットは再開されました"
+
+msgid "The ticket has not been reopened"
+msgstr "チケットは再開されていません"
+
+msgid "Reopen Ticket"
+msgstr "チケットを再開する"
+
+msgid "The ticket is reopened by"
+msgstr "チケットが再度オープンされるのは、"
+
+msgid "The ticket reopens time limit end"
+msgstr "チケット再開期限終了"
+
+msgid "Email has been unbanned"
+msgstr "メールの禁止が解除されました"
+
+msgid "Email has not been unbanned"
+msgstr "電子メールは禁止されていません"
+
+msgid "Unbanned Email"
+msgstr "禁止されていないメール"
+
+msgid "Email is unbanned by"
+msgstr "電子メールの禁止が解除されるのは、"
+
+msgid "Email cannot be unbanned"
+msgstr "電子メールの禁止を解除することはできません"
+
+msgid "Ticket already marked in progress"
+msgstr "チケットはすでに進行中とマークされています"
+
+msgid "The ticket has been marked as in progress"
+msgstr "チケットは進行中としてマークされています"
+
+msgid "The ticket has not been marked as in progress"
+msgstr "チケットは進行中としてマークされていません"
+
+msgid "In progress ticket"
+msgstr "進行中のチケット"
+
+msgid "The ticket is marked as in progress by"
+msgstr "チケットは進行中としてマークされます。"
+
+msgid "File upload limit exceeds"
+msgstr "ファイルのアップロード制限を超えています"
+
+msgid "The uploaded file extension not valid"
+msgstr "アップロードされたファイル拡張子が無効です"
+
+msgid "Paid support info"
+msgstr "有料サポート情報"
+
+msgid "Order ID"
+msgstr "注文ID"
+
+msgid "Product Name"
+msgstr "商品名"
+
+msgid "Total Tickets"
+msgstr "合計チケット数"
+
+msgid "Remaining Tickets"
+msgstr "残りのチケット"
+
+msgid "Unlimited"
+msgstr "無制限"
+
+msgid "You have not purchased any supported item"
+msgstr "サポートされているアイテムを購入していません"
+
+msgid "Go to shop"
+msgstr "店へ出かける"
+
+msgid "Select Order"
+msgstr "注文を選択してください"
+
+msgid "No premade response found"
+msgstr "事前に作成された応答が見つかりませんでした"
+
+msgid "Waiting agent reply"
+msgstr "エージェントの応答を待っています"
+
+msgid "Waiting customer reply"
+msgstr "顧客の返信を待っています"
+
+msgid "Close ticket"
+msgstr "チケットを閉じる"
+
+msgid "Are you sure to mark this ticket non-premium?"
+msgstr "このチケットをプレミアムなしとしてマークしてもよろしいですか?"
+
+msgid "Edit Reply"
+msgstr "返信を編集"
+
+msgid "Edit Time"
+msgstr "時間の編集"
+
+msgid "Add reason in the other box"
+msgstr "他のボックスに理由を追加します"
+
+msgid "First make some selection!"
+msgstr "まずはいくつか選択してみましょう！"
+
+msgid "Reason For Editing the timer"
+msgstr "タイマーを編集する理由"
+
+msgid "Reason For Editing"
+msgstr "編集の理由"
+
+msgid "Resolve conflict"
+msgstr "競合を解決する"
+
+msgid "Lock"
+msgstr "ロック"
+
+msgid "Add New Credential"
+msgstr "新しい資格情報の追加"
+
+msgid "Add Internal Note"
+msgstr "内部メモを追加"
+
+msgid "play"
+msgstr "遊ぶ"
+
+msgid "pause"
+msgstr "一時停止"
+
+msgid "stop"
+msgstr "停止"
+
+msgid "Close on reply"
+msgstr "返信次第終了"
+
+msgid "Reason For Department Transfer"
+msgstr "部署異動の理由"
+
+msgid "Transfer"
+msgstr "移行"
+
+msgid "Assign To Agent"
+msgstr "エージェントに割り当てる"
+
+msgid "Assign"
+msgstr "割当"
+
+msgid "View all"
+msgstr "すべて見る"
+
+msgid "tickets by"
+msgstr "によるチケット"
+
+msgid "Show History"
+msgstr "履歴の表示"
+
+msgid "Print Ticket"
+msgstr "チケットを印刷する"
+
+msgid "Unmark Overdue"
+msgstr "期限切れのマークを外す"
+
+msgid "Mark in Progress"
+msgstr "進行中のマークを付ける"
+
+msgid "agent image"
+msgstr "エージェントイメージ"
+
+msgid "Post A New Internal Note"
+msgstr "新しい社内メモを投稿する"
+
+msgid "Ticket Thread"
+msgstr "チケットスレッド"
+
+msgid "View Image"
+msgstr "画像を見る"
+
+msgid "smart-reply"
+msgstr "スマートリプライ"
+
+msgid "Check Smart Reply"
+msgstr "スマート リプライをチェックする"
+
+msgid "Search and get a saved smart reply on Majestic Support for a ticket."
+msgstr "Majestic サポートでチケットを検索し、保存されたスマート リプライを取得します。"
+
+msgid "search"
+msgstr "検索"
+
+msgid "Add this reply to smart reply?"
+msgstr "この返信をスマート リプライに追加しますか?"
+
+msgid "Post Reply"
+msgstr "返信"
+
+msgid "Own Signature"
+msgstr "自分の署名"
+
+msgid "Department Signature"
+msgstr "部門の署名"
+
+msgid "JNone"
+msgstr "Jなし"
+
+msgid "Add Signature"
+msgstr "署名の追加"
+
+msgid "On Waiting"
+msgstr "待機中"
+
+msgid "Closed and merged"
+msgstr "閉鎖および統合"
+
+msgid "Ticket Closing Reason"
+msgstr "チケットクローズの理由"
+
+msgid "ago"
+msgstr "前"
+
+msgid "No Last Reply"
+msgstr "最終返信なし"
+
+msgid "Not Given"
+msgstr "与えられていません"
+
+msgid "Closed By"
+msgstr "閉店時間"
+
+msgid "Closed On"
+msgstr "定休日"
+
+msgid "Copy"
+msgstr "コピー"
+
+msgid "Copied"
+msgstr "コピーされました"
+
+msgid "Change"
+msgstr "変化"
+
+msgid "Assign And Transfer Ticket"
+msgstr "チケットの割り当てと転送"
+
+msgid "Ticket assigned to"
+msgstr "に割り当てられたチケット"
+
+msgid "staff photo"
+msgstr "スタッフ写真"
+
+msgid "Total Time Taken"
+msgstr "合計所要時間"
+
+msgid "view ticket"
+msgstr "チケットを見る"
+
+msgid "Woocommerce Order"
+msgstr "ウーコマース注文"
+
+msgid "Envato License"
+msgstr "Envato ライセンス"
+
+msgid "Item"
+msgstr "アイテム"
+
+msgid "Buyer"
+msgstr "買い手"
+
+msgid "License Type"
+msgstr "ライセンスの種類"
+
+msgid "License"
+msgstr "ライセンス"
+
+msgid "Purchase Date"
+msgstr "購入日"
+
+msgid "Supported Until"
+msgstr "までサポートされます"
+
+msgid "Paid Support Details"
+msgstr "有料サポートの詳細"
+
+msgid "Subscription"
+msgstr "サブスクリプション"
+
+msgid "Subscribed On"
+msgstr "購読日"
+
+msgid "Support Expiry"
+msgstr "サポートの有効期限"
+
+msgid "No expiration"
+msgstr "有効期限なし"
+
+msgid "Non-premium support"
+msgstr "ノンプレミアムサポート"
+
+msgid "Check this box if this ticket should NOT apply against the paid support"
+msgstr "このチケットを有料サポートに適用しない場合は、このボックスにチェックを入れます"
+
+msgid "Remaining"
+msgstr "残り"
+
+msgid "Link ticket to paid support"
+msgstr "チケットを有料サポートにリンクする"
+
+msgid "closed ticket"
+msgstr "終了したチケット"
+
+msgid "Ticket Creator Name"
+msgstr "チケット作成者名"
+
+msgid "From Date"
+msgstr "開始日"
+
+msgid "To Date"
+msgstr "現在まで"
+
+msgid "Enforce delete"
+msgstr "削除を強制する"
+
+msgid "Are you sure to enforce delete"
+msgstr "削除を強制しますか?"
+
+msgid "Are you sure to mark this ticket non-preminum?"
+msgstr "このチケットをプレミアムなしとしてマークしてもよろしいですか?"
+
+msgid "Message Logs"
+msgstr "メッセージログ"
+
+msgid "Edit Timer"
+msgstr "タイマーの編集"
+
+msgid "Type Note for Department"
+msgstr "部門のメモを入力"
+
+msgid "Assign Ticket To Agent"
+msgstr "チケットをエージェントに割り当てる"
+
+msgid "Assigning Note"
+msgstr "ノートの割り当て"
+
+msgid "Time Track"
+msgstr "タイムトラック"
+
+msgid "Type Internal Note"
+msgstr "タイプ 内部メモ"
+
+msgid "tickets"
+msgstr "チケット"
+
+msgid "Reopen"
+msgstr "再開"
+
+msgid "History"
+msgstr "歴史"
+
+msgid "Print"
+msgstr "印刷する"
+
+msgid "Are you sure you want to delete this ticket"
+msgstr "このチケットを削除してもよろしいですか"
+
+msgid "Are you sure to close this ticket"
+msgstr "このチケットを閉じてもよろしいですか"
+
+msgid "Unlock"
+msgstr "ロックを解除する"
+
+msgid "Mark In Progress"
+msgstr "進行中のマークを付ける"
+
+msgid "Ban Email And Close Ticket"
+msgstr "メールの禁止とチケットのクローズ"
+
+msgid "Post New Internal Note"
+msgstr "新しい内部メモを投稿する"
+
+msgid "Reply A Message"
+msgstr "メッセージに返信する"
+
+msgid "Search and get a saved smart reply on Majestic Support."
+msgstr "Majestic Support で保存されたスマート リプライを検索して取得します。"
+
+msgid "Check Reply"
+msgstr "返信を確認する"
+
+msgid "Select Premade"
+msgstr "既製を選択"
+
+msgid "Assign Ticket"
+msgstr "チケットの割り当て"
+
+msgid ": "
+msgstr ":"
+
+msgid "Assigned To Agent"
+msgstr "エージェントに割り当てられています"
+
+msgid "View all orders"
+msgstr "すべての注文を表示"
+
+msgid "Non-preminum support"
+msgstr "ノンプレミアムサポート"
+
+msgid "Check Status"
+msgstr "ステータスの確認"
+
+msgid "High"
+msgstr "高い"
+
+msgid "Urgent"
+msgstr "緊急"
+
+msgid "Admin email address and email piping address cannot be the same, your email piping will not be work."
+msgstr "管理者の電子メール アドレスと電子メール パイプ アドレスを同じにすることはできません。電子メール パイプは機能しません。"
+
+msgid "IMAP is either not installed or not enabled in your server. Contact to hosting company"
+msgstr "IMAP がサーバーにインストールされていないか、有効になっていません。ホスティング会社へのお問い合わせ"
+
+msgid "180 secs If the setting is not completely increased, most sites will work with a setting of between 180 and 600"
+msgstr "180 秒 設定が完全​​に大きくなっていない場合、ほとんどのサイトは 180 ～ 600 の設定で動作します。"
+
+msgid "If you have already set up alert methods in the webcron.org interface, we recommend choosing an alert type"
+msgstr "webcron.org インターフェースでアラート方法をすでに設定している場合は、アラート タイプを選択することをお勧めします。"
+
+msgid "Enter allowed number of tickets that customer can post. Enter -1 for unlimited tickets."
+msgstr "顧客が投稿できるチケットの許可数を入力します。チケットを無制限にするには -1 を入力します。"
+
+msgid "Your response would be helpful to other users, as we believe that the success of the support system is largely dependent on how well customers are treated."
+msgstr "サポート システムの成功は顧客の対応に大きく依存すると考えているため、あなたの回答は他のユーザーにとって役立ちます。"
+
+msgid "</b> and Enter your license key and hit to authenticate. A valid key is required for updates."
+msgstr "</b> ライセンス キーを入力し、押して認証します。更新には有効なキーが必要です。"
+
+msgid "We'd love to hear from you. It'll only take 2 minutes of your time, and will really help us spread the word"
+msgstr "あなたからの御一報をお待ちしています。所要時間はわずか 2 分で、情報を広めるのに非常に役立ちます。"
+
+msgid "Registration has been disabled by admin, please contact the system administrator."
+msgstr "登録は管理者によって無効にされています。システム管理者に連絡してください。"
+
+msgid "Please check confirmation email to complete your subscription for the newsletter"
+msgstr "確認メールを確認してニュースレターの購読を完了してください"
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Dont forget to update the add-ons to enjoy the greatest features!"
+msgstr "ちょっと、そこ！最近、アドオンの新しいアップデートを開始しました。最高の機能をお楽しみいただくために、アドオンを更新することを忘れないでください。"
+
+msgid "Select the Majestic Support default page, and on the action system, it will redirect to the selected page. If not selected the default page, email links, and support icon might not work."
+msgstr "Majestic Support のデフォルト ページを選択すると、アクション システム上で選択したページにリダイレクトされます。選択されていない場合、デフォルトのページ、電子メール リンク、サポート アイコンが機能しない可能性があります。"
+
+msgid "You need to rename the existing data directory in the file system before changing the data directory name"
+msgstr "データ ディレクトリ名を変更する前に、ファイル システム内の既存のデータ ディレクトリの名前を変更する必要があります。"
+
+msgid "Show the number of open, closed, and answered tickets in my tickets and dashboard"
+msgstr "チケットとダッシュボードにオープン、クローズ、回答済みのチケットの数を表示する"
+
+msgid "Set register link default or custom.<br /> To enable registrations, WordPress admin > General > Settings > Membership: Anyone can register"
+msgstr "登録リンクをデフォルトまたはカスタムに設定します。<br /> 登録を有効にするには、WordPress 管理者 > 一般 > 設定 > メンバーシップ: 誰でも登録できます"
+
+msgid "Select category to display only products of this category on the WooCommerce shop page."
+msgstr "カテゴリを選択すると、WooCommerce ショップ ページにこのカテゴリの製品のみが表示されます。"
+
+msgid "Show or hide the multiform popup when creating a new ticket. if you hide them, the system will open the default form."
+msgstr "新しいチケットを作成するときに、マルチフォーム ポップアップを表示または非表示にします。非表示にすると、システムはデフォルトのフォームを開きます。"
+
+msgid "Select whether users can see the email of administrator or agent on the ticket reply"
+msgstr "ユーザーがチケット返信で管理者またはエージェントの電子メールを閲覧できるかどうかを選択します"
+
+msgid "Select whether users can see the name of administrator or agent on ticket reply"
+msgstr "ユーザーがチケット返信で管理者またはエージェントの名前を表示できるかどうかを選択します"
+
+msgid "By enabling this option, an admin can know who closed the ticket and when that ticket closed."
+msgstr "このオプションを有効にすると、管理者は誰がチケットを閉じたのか、そしてそのチケットがいつ閉じられたのかを知ることができます。"
+
+msgid "By enabling this option, an agent can know who closed the ticket and when that ticket closed."
+msgstr "このオプションを有効にすると、エージェントは誰がチケットをクローズしたか、いつそのチケットをクローズしたかを知ることができます。"
+
+msgid "By enabling this option, a user can know who closed the ticket and when that ticket closed."
+msgstr "このオプションを有効にすると、ユーザーは誰がチケットを閉じたのか、いつそのチケットが閉じられたのかを知ることができます。"
+
+msgid "By enabling this option, an admin can know to whom the ticket has been assigned."
+msgstr "このオプションを有効にすると、管理者はチケットが誰に割り当てられているかを知ることができます。"
+
+msgid "By enabling this option, an agent can know to whom the ticket has been assigned."
+msgstr "このオプションを有効にすると、エージェントはチケットが誰に割り当てられているかを知ることができます。"
+
+msgid "By enabling this option, a user can know to whom the ticket has been assigned."
+msgstr "このオプションを有効にすると、ユーザーはチケットが誰に割り当てられているかを知ることができます。"
+
+msgid "If the ticket department email is not selected, then this email is used to send emails"
+msgstr "チケット部門の電子メールが選択されていない場合、この電子メールは電子メールの送信に使用されます。"
+
+msgid "Set the number of days or hours to send a feedback email after a ticket is closed"
+msgstr "チケットがクローズされた後にフィードバック電子メールを送信する日数または時間を設定します。"
+
+msgid "Majestic Support Desktop Notifications plugin is not installed. Please install the plugin to enable desktop notifications"
+msgstr "Majestic Support デスクトップ通知プラグインがインストールされていません。デスクトップ通知を有効にするにはプラグインをインストールしてください"
+
+msgid "Changing the encryption key of private credentials will cause all existing credentials to be discarded"
+msgstr "プライベート認証情報の暗号化キーを変更すると、既存の認証情報がすべて破棄されます。"
+
+msgid "Prevent users from submitting a ticket without a valid license for one of your product"
+msgstr "製品の有効なライセンスを持たないユーザーがチケットを送信できないようにする"
+
+msgid "Selecting \\ positive"
+msgstr " ポジティブを選択する"
+
+msgid "e.g \\ The text between [link] and [/link] will be linked to provided url or wordpress page."
+msgstr ""
+
+msgid "e.g., \\ The text between [link] and [/link] will be linked to provided URL or WordPress page."
+msgstr ""
+
+msgid "Majestic support is customer service or assistance that is exceptional in nature, providing a high level of satisfaction to the customer by going above and beyond their expectations. It involves providing prompt and efficient response times, personalized attention, and a willingness to solve problems or address concerns in a timely and effective manner."
+msgstr "マジェスティック サポートとは、本質的に優れた顧客サービスまたは支援であり、顧客の期待を超えて高いレベルの満足度を提供します。これには、迅速かつ効率的な応答時間の提供、個別の配慮、タイムリーかつ効果的な方法で問題を解決したり懸念事項に対処したりする意欲が含まれます。"
+
+msgid "Explore our other products and services that we offer, you might find something else that interests you or fulfills your needs even better."
+msgstr "当社が提供する他の製品やサービスを調べてみると、興味のあるものやニーズをさらに満たすものが見つかるかもしれません。"
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Don't forget to update the add-ons to enjoy the greatest features!"
+msgstr "ちょっと、そこ！最近、アドオンの新しいアップデートを開始しました。最高の機能をお楽しみいただくために、アドオンを更新することを忘れないでください。"
+
+msgid "The best support plugin for the majestic support has everything you need."
+msgstr "Majestic サポートに最適なサポート プラグインには、必要なものがすべて揃っています。"
+
+msgid "A reputable support system that offers step-by-step YouTube video guides to help you understand."
+msgstr "理解を助けるステップバイステップの YouTube ビデオ ガイドを提供する、評判の高いサポート システム。"
+
+msgid "At Majestic Support, we are committed to offering prompt and helpful customer care to help you at every step."
+msgstr "Majestic Support では、あらゆる段階でお客様をサポ​​ートするために、迅速で役立つカスタマー ケアを提供することに尽力しています。"
+
+msgid "When WordPress language change to fr, Majestic Support language will auto change to fr"
+msgstr "WordPress 言語が fr に変更されると、Majestic サポート言語も自動的に fr に変更されます"
+
+msgid "Want to download translation file? Click on download. It will take sometime."
+msgstr "翻訳ファイルをダウンロードしたいですか? 「ダウンロード」をクリックします。時間がかかります。"
+
+msgid "Get trusted WordPress add-ons. Guaranteed to work fast, safe to use, beautifully coded, packed with features, and are easy to use."
+msgstr "信頼できる WordPress アドオンを入手してください。高速に動作し、安全に使用でき、美しくコード化され、機能が満載で、使いやすいことが保証されています。"
+
+msgid "Add agents and assign roles and permissions to provide assistance and support for customer support tickets."
+msgstr "エージェントを追加し、カスタマー サポート チケットに対する支援とサポートを提供する役割と権限を割り当てます。"
+
+msgid "Create multiple custom ticket forms with different custom fields for each request type that you support."
+msgstr "サポートするリクエスト タイプごとに、異なるカスタム フィールドを持つ複数のカスタム チケット フォームを作成します。"
+
+msgid "Email piping is the process of automatically turning incoming emails into support tickets without manual data entry."
+msgstr "電子メールのパイピングは、手動でデータを入力することなく、受信電子メールを自動的にサポート チケットに変換するプロセスです。"
+
+msgid "Make the ticket assignment process automatic and assign the most qualified agent to your tickets with conditions."
+msgstr "チケット割り当てプロセスを自動化し、条件付きで最も適切なエージェントをチケットに割り当てます。"
+
+msgid "Add private notes to a ticket and share crucial information internally with your agents, this private note is not visible to the customer."
+msgstr "チケットに非公開メモを追加し、重要な情報を社内でエージェントと共有します。この非公開メモは顧客には表示されません。"
+
+msgid "Merge one or more tickets into another if you receive two support requests from the same end user about the same issue."
+msgstr "同じ問題に関して同じエンド ユーザーから 2 つのサポート リクエストを受け取った場合は、1 つ以上のチケットを別のチケットにマージします。"
+
+msgid "The user can search for and choose the topic for which they need help using help topics"
+msgstr "ユーザーは、ヘルプ トピックを使用して、ヘルプが必要なトピックを検索して選択できます。"
+
+msgid "Manage abandoned tickets, and set rules for tickets over time, and those tickets will be closed automatically after a certain period."
+msgstr "放棄されたチケットを管理し、時間の経過とともにチケットのルールを設定すると、それらのチケットは一定期間後に自動的に閉じられます。"
+
+msgid "Stop wasting time on repetitive inquiries, build your knowledge base, and organize your solutions into categories for users."
+msgstr "繰り返しの問い合わせに時間を無駄にするのをやめ、知識ベースを構築し、ソリューションをユーザー向けのカテゴリに整理します。"
+
+msgid "Define rules or set a specific time interval for making tickets automatically overdue."
+msgstr "ルールを定義するか、チケットを自動的に期限切れにする特定の時間間隔を設定します。"
+
+msgid "Track the amount of time spent on each customer support ticket without losing focus and enhance team productivity."
+msgstr "集中力を失うことなく各カスタマー サポート チケットに費やした時間を追跡し、チームの生産性を向上させます。"
+
+msgid "Show the whole history of the ticket, including its status and any action taken in response to it."
+msgstr "チケットのステータスとそれに応じて実行されたアクションを含む、チケットの履歴全体を表示します。"
+
+msgid "The simplest approach to effectively manage payments for premium help is through paid support."
+msgstr "プレミアム ヘルプの支払いを効果的に管理する最も簡単なアプローチは、有料サポートを利用することです。"
+
+msgid "Customers will enter sensitive information on tickets, and this add-on is designed to help you keep that information secure."
+msgstr "顧客はチケットに機密情報を入力します。このアドオンは、その情報を安全に保つために設計されています。"
+
+msgid "Empowers users to provide clear and concise explanations for why customer service tickets are being closed."
+msgstr "ユーザーは、カスタマー サービス チケットがクローズされる理由について明確かつ簡潔な説明を提供できるようになります。"
+
+msgid "Make ready-made responses to the most common questions in the tickets to swiftly address client issues."
+msgstr "クライアントの問題に迅速に対処するために、チケット内の最も一般的な質問に対する既成の回答を作成します。"
+
+msgid "Admins can limit the number of tickets that users can create as well as the number of tickets that agents can open individually."
+msgstr "管理者は、ユーザーが作成できるチケットの数と、エージェントが個別に開くことができるチケットの数を制限できます。"
+
+msgid "To enhance the quality of your services, ask your customers to complete a survey when a ticket is closed."
+msgstr "サービスの品質を向上させるために、チケットがクローズされたときに顧客にアンケートに回答するよう依頼してください。"
+
+msgid "Ticket action options allow you to execute additional actions on tickets."
+msgstr "チケット アクション オプションを使用すると、チケットに対して追加のアクションを実行できます。"
+
+msgid "Easily export ticket data and performance report data from your majestic support to an Excel spreadsheet with our efficient and user-friendly solution."
+msgstr "当社の効率的でユーザーフレンドリーなソリューションを使用して、チケット データとパフォーマンス レポート データを Majestic サポートから Excel スプレッドシートに簡単にエクスポートします。"
+
+msgid "Send the exact copy of the email to the provided email address with Email CC or BCC."
+msgstr "電子メールの正確なコピーを、電子メール CC または BCC を使用して、指定された電子メール アドレスに送信します。"
+
+msgid "User options enable you to define roles for new users when they are registered."
+msgstr "ユーザー オプションを使用すると、新規ユーザーの登録時にそのユーザーのロールを定義できます。"
+
+msgid "SMTP enables you to add  custom mail protocols to send and receive emails with the support ticket system."
+msgstr "SMTP を使用すると、サポート チケット システムで電子メールを送受信するためのカスタム メール プロトコルを追加できます。"
+
+msgid "Create multi-language email templates for all default email templates to send customers emails in the language that they prefer."
+msgstr "すべてのデフォルトの電子メール テンプレートに対して多言語電子メール テンプレートを作成し、顧客の好みの言語で電子メールを送信します。"
+
+msgid "Downloads can be very helpful for users who are looking to obtain the necessary information to resolve issues."
+msgstr "ダウンロードは、問題を解決するために必要な情報を入手したいユーザーにとって非常に役立ちます。"
+
+msgid "Make an unlimited number of announcements related to the support system to encourage customer interaction."
+msgstr "サポート システムに関するアナウンスを無制限に行い、顧客とのやり取りを促進します。"
+
+msgid "With Ban Email, you can limit a users ability to create new tickets by blocking their email address."
+msgstr "電子メール禁止を使用すると、電子メール アドレスをブロックすることで、ユーザーが新しいチケットを作成できるように制限できます。"
+
+msgid "Provide answers to common user questions with the FAQ extension before they become tickets."
+msgstr "ユーザーの一般的な質問に対しては、チケットになる前に FAQ 拡張機能を使用して回答を提供します。"
+
+msgid "Get immediate data on your support operations as soon as you log into your WordPress administration area."
+msgstr "WordPress 管理エリアにログインするとすぐに、サポート業務に関するデータをすぐに取得できます。"
+
+msgid "You will be informed of anything that occurs on your support system by the desktop notifications."
+msgstr "サポート システムで発生したことはすべて、デスクトップ通知によって通知されます。"
+
+msgid "The integration of the support ticket system for WooCommerce with your e- shop makes your support better and more professional."
+msgstr "WooCommerce のサポート チケット システムと e-ショップの統合により、サポートがより優れた、よりプロフェッショナルなものになります。"
+
+msgid "Manage your email marketing campaigns directly from your majestic support by adding new user accounts to your Mailchimp email list."
+msgstr "新しいユーザー アカウントを Mailchimp メール リストに追加することで、Majestic サポートから直接メール マーケティング キャンペーンを管理できます。"
+
+msgid "Send messages internally about support tickets and other issues between agents with internal mail."
+msgstr "内部メールを使用して、サポート チケットやその他の問題に関するメッセージをエージェント間で社内に送信します。"
+
+msgid "Frontend Widgets include several widgets that can be used to enhance the plugin's functionality in various areas of the website."
+msgstr "フロントエンド ウィジェットには、Web サイトのさまざまな領域でプラグインの機能を強化するために使用できるいくつかのウィジェットが含まれています。"
+
+msgid "Clients won't be able to open a new ticket using the Envato Validation plugin if they don't have a valid Envato license."
+msgstr "有効な Envato ライセンスがない場合、クライアントは Envato Validation プラグインを使用して新しいチケットを開くことができません。"
+
+msgid "Learn about a customer's purchase directly from the support dashboard by integrating Majestic Support with your EDD store."
+msgstr "Majestic サポートを EDD ストアと統合することで、サポート ダッシュボードから顧客の購入について直接知ることができます。"
+
+msgid "If the colors have been saved but the user-side colors are still the same, it is advised to clear the cache."
+msgstr "カラーが保存されているが、ユーザー側のカラーがまだ同じ場合は、キャッシュをクリアすることをお勧めします。"
+
+msgid "Error"
+msgstr "エラー"
+
+msgid "Roles"
+msgstr "役割"
+
+msgid "Role"
+msgstr "役割"
+
+msgid "Sr#"
+msgstr "上級者番号"
+
+msgid "Gmail"
+msgstr "Gメール"
+
+msgid "Yahoo"
+msgstr "ヤフー"
+
+msgid "Aol"
+msgstr "アオール"
+
+msgid "Hotmail"
+msgstr "ホットメール"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "Wget"
+msgstr "ウィゲット"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "----"
+msgstr "----"
+
+msgid "JNo"
+msgstr "JNo"
+
+msgid "Visible"
+msgstr "見える"
+
+msgid "Logo"
+msgstr "ロゴ"
+
+msgid "Re"
+msgstr "リ"
+
+msgid "Vertical"
+msgstr "垂直"
+
+msgid "Horizontal"
+msgstr "水平"
+
+msgid "div"
+msgstr "ディビジョン"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "General"
+msgstr "一般的な"
+
+msgid "Captcha"
+msgstr "キャプチャ"
+
+msgid "Facebook"
+msgstr "フェイスブック"
+
+msgid "Linkedin"
+msgstr "リンクトイン"
+
+msgid "Kb"
+msgstr "KB"
+
+msgid "SMTP"
+msgstr "SMTP"
+
+msgid "TLS"
+msgstr "TLS"
+
+msgid "SSL"
+msgstr "SSL"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "S.No"
+msgstr "S.いいえ"
+
+msgid "WooCommerce"
+msgstr "ウーコマース"
+
+msgid "envato"
+msgstr "エンバト"
+
+msgid ":"
+msgstr ":"
+
+msgid "Envato"
+msgstr "エンバト"
+
+msgid "Color"
+msgstr "色"
+
+msgid "Normal"
+msgstr "普通"
+
+msgid "Color 1"
+msgstr "カラー1"
+
+msgid "Color 2"
+msgstr "カラー2"
+
+msgid "Color 3"
+msgstr "カラー3"
+
+msgid "Color 4"
+msgstr "カラー4"
+
+msgid "Color 5"
+msgstr "カラー5"
+
+msgid "Color 6"
+msgstr "カラー6"
+
+msgid "Color 7"
+msgstr "カラー7"
+
+msgid "Kylee Arroyo"
+msgstr "カイリー・アロヨ"
+
+msgid "Marketing"
+msgstr "マーケティング"
+
+msgid "XcyMfWYKp"
+msgstr "XcyMfWYKp"
+
+msgid "08-12-2022"
+msgstr "2022 年 8 月 12 日"
+
+msgid "Allison Carney"
+msgstr "アリソン・カーニー"
+
+msgid "Yx4cW3Mfk"
+msgstr "Yx4cW3Mfk"
+
+msgid "05-12-2022"
+msgstr "2022 年 5 月 12 日"
+
+msgid "GxNDv3MfC"
+msgstr "GxNDv3MfC"
+
+msgid "01-12-2022"
+msgstr "2022 年 1 月 12 日"
+
+msgid ","
+msgstr "、"
+
+msgid "Issue Summary"
+msgstr "問題の概要"
+
+msgid "Envato Purchase Code"
+msgstr "Envato購入コード"
+
+msgid "Internal Note Title"
+msgstr "内部メモのタイトル"
+
+msgid "Ticket Department Transfer"
+msgstr "チケット部門の転送"
+
+msgid "Change Ticket Priority"
+msgstr "チケットの優先順位を変更する"
+
+msgid "View Ticket"
+msgstr "チケットを見る"
+
+msgid "New Ticket Notification"
+msgstr "新規チケットのお知らせ"
+
+msgid "Edit Own Time"
+msgstr "自分の時間を編集する"
+
+msgid "View Feedback"
+msgstr "フィードバックを見る"
+
+msgid "View Ticket Merge"
+msgstr "チケットの統合を表示"
+
+msgid "View Credentials"
+msgstr "認証情報の表示"
+
+msgid "Delete Credentials"
+msgstr "認証情報の削除"
+
+msgid "Edit Credentials"
+msgstr "認証情報の編集"
+
+msgid "Add Credentials"
+msgstr "認証情報の追加"
+
+msgid "Mark Non Premium"
+msgstr "非プレミアムとしてマークする"
+
+msgid "Link To Paid Support"
+msgstr "有料サポートへのリンク"
+
+msgid "Assign Role Permissions"
+msgstr "役割権限の割り当て"
+
+msgid "Add User"
+msgstr "ユーザーを追加する"
+
+msgid "Edit User"
+msgstr "ユーザーの編集"
+
+msgid "Assign User Permissions"
+msgstr "ユーザー権限の割り当て"
+
+msgid "Delete Department"
+msgstr "部門の削除"
+
+msgid "View Department"
+msgstr "部門を見る"
+
+msgid "View Role"
+msgstr "ビューの役割"
+
+msgid "View User"
+msgstr "ユーザーの表示"
+
+msgid "View Agent Reports"
+msgstr "エージェントレポートの表示"
+
+msgid "View Department Reports"
+msgstr "部門レポートを見る"
+
+msgid "Manage Ticket Close Reasons"
+msgstr "チケットのクローズ理由の管理"
+
+msgid "View Category"
+msgstr "カテゴリを見る"
+
+msgid "View Knowledge Base"
+msgstr "ナレッジベースを見る"
+
+msgid "Delete Category"
+msgstr "カテゴリの削除"
+
+msgid "Delete Knowledge Base"
+msgstr "ナレッジベースの削除"
+
+msgid "View FAQ"
+msgstr "よくある質問を見る"
+
+msgid "Delete FAQ"
+msgstr "削除に関するよくある質問"
+
+msgid "View Download"
+msgstr "ダウンロードを見る"
+
+msgid "Delete Download"
+msgstr "ダウンロードの削除"
+
+msgid "Delete Announcement"
+msgstr "お知らせの削除"
+
+msgid "Allow Mail System"
+msgstr "メールシステムを許可する"
+
+msgid "Edit Help Topic"
+msgstr "ヘルプ トピックの編集"
+
+msgid "View Help Topic"
+msgstr "ヘルプトピックを表示"
+
+msgid "Delete Help Topic"
+msgstr "ヘルプトピックの削除"
+
+msgid "Edit Premade Response"
+msgstr "事前に作成された応答を編集する"
+
+msgid "View Premade Response"
+msgstr "事前に作成された応答を表示する"
+
+msgid "Delete Premade Response"
+msgstr "事前に作成された応答を削除する"
+
+msgid "Edit Smart Reply"
+msgstr "スマート リプライの編集"
+
+msgid "View Smart Reply"
+msgstr "スマート リプライを表示する"
+
+msgid "Delete Smart Reply"
+msgstr "スマート リプライの削除"
+
+msgid "Add Ban Email"
+msgstr "禁止メールを追加"
+
+msgid "Edit Ban Email"
+msgstr "禁止メールを編集する"
+
+msgid "View Ban Email"
+msgstr "禁止メールを表示"
+
+msgid "Delete Ban Email"
+msgstr "禁止メールを削除する"
+
+msgid "View Announcement"
+msgstr "お知らせを見る"
+
+msgid "Phone"
+msgstr "電話"
+
+msgid "Add Permissions"
+msgstr "権限の追加"
+
+msgid "Add Rule"
+msgstr "ルールの追加"
+
+msgid "Contain"
+msgstr "含む"
+
+msgid "Matched"
+msgstr "一致しました"
+
+msgid "Submit Type"
+msgstr "送信タイプ"
+
+msgid "Addons Status"
+msgstr "アドオンのステータス"
+
+msgid "Assign To"
+msgstr "に割り当てます"
+
+msgid "Agent Detail Report"
+msgstr "エージェント詳細レポート"
+
+msgid "User Detail Report"
+msgstr "ユーザー詳細レポート"
+
+msgid "Satisfaction Reports"
+msgstr "満足度レポート"
+
+msgid "Admin New Ticket Received"
+msgstr "管理者が新しいチケットを受け取りました"
+
+msgid "Staff New Ticket Received"
+msgstr "スタッフが新しいチケットを受け取りました"
+
+msgid "New Department Received"
+msgstr "新しい部門を受け取りました"
+
+msgid "New Group Received"
+msgstr "新しいグループを受け取りました"
+
+msgid "New Agent Received"
+msgstr "新しいエージェントを受け取りました"
+
+msgid "New Help Topic Received"
+msgstr "新しいヘルプ トピックを受信しました"
+
+msgid "Admin Reassign Ticket"
+msgstr "管理者再割り当てチケット"
+
+msgid "Staff Reassign Ticket"
+msgstr "スタッフの配置転換チケット"
+
+msgid "Admin Close Ticket"
+msgstr "管理者クローズチケット"
+
+msgid "Staff Close Ticket"
+msgstr "スタッフクローズチケット"
+
+msgid "Admin Delete Ticket"
+msgstr "管理者によるチケットの削除"
+
+msgid "Staff Delete Ticket"
+msgstr "スタッフ削除チケット"
+
+msgid "Admin Overdue Ticket"
+msgstr "管理者期限切れチケット"
+
+msgid "Staff Overdue Ticket"
+msgstr "スタッフ延滞チケット"
+
+msgid "Admin Email Baned"
+msgstr "管理者の電子メールが禁止されました"
+
+msgid "Staff Email Baned"
+msgstr "スタッフのメール禁止"
+
+msgid "Admin Ticket Transfered to Department"
+msgstr "管理者チケットが部門に転送されました"
+
+msgid "Staff Ticket Transfered to Department"
+msgstr "スタッフチケットが部門に転送されました"
+
+msgid "Admin Email baned and ticket closed"
+msgstr "管理者の電子メールが禁止され、チケットがクローズされました"
+
+msgid "Staff Email baned and ticket closed"
+msgstr "スタッフの電子メールが禁止され、チケットがクローズされました"
+
+msgid "Admin Email Unbaned"
+msgstr "管理者の電子メールの禁止が解除されました"
+
+msgid "Staff Email Unbaned"
+msgstr "スタッフのメールの禁止が解除されました"
+
+msgid "Admin Ticket Reply"
+msgstr "管理者チケットの返信"
+
+msgid "Staff Ticket Reply"
+msgstr "スタッフチケット返信"
+
+msgid "Ticket Received"
+msgstr "チケットを受け取りました"
+
+msgid "Banemail try new ticket"
+msgstr "Banemail の新しいチケットを試す"
+
+msgid "Admin Ticket has been locked"
+msgstr "管理者チケットはロックされています"
+
+msgid "Staff Ticket has been locked"
+msgstr "スタッフチケットがロックされました"
+
+msgid "Admin Ticket has been unlocked"
+msgstr "管理者チケットのロックが解除されました"
+
+msgid "Staff Ticket has been unlocked"
+msgstr "スタッフチケットが解放されました"
+
+msgid "Admin In progress Ticket"
+msgstr "管理者進行中のチケット"
+
+msgid "Staff In progress Ticket"
+msgstr "スタッフ進行中のチケット"
+
+msgid "Admin Ticket priority changed"
+msgstr "管理者チケットの優先順位が変更されました"
+
+msgid "Staff Ticket priority changed"
+msgstr "スタッフチケットの優先順位が変更されました"
+
+msgid "New Mail has been sent"
+msgstr "新しいメールが送信されました"
+
+msgid "New Reply has been sent"
+msgstr "新しい返信が送信されました"
+
+msgid "Delete User Data"
+msgstr "ユーザーデータの削除"
+
+msgid "Closed on"
+msgstr "定休日"
+
+msgid "Message could not be sent. Mailer Error: "
+msgstr "メッセージを送信できませんでした。メーラーエラー:"
+
+msgid "Test email has been sent on : "
+msgstr "テストメールが送信されました:"
+
+msgid "The system has no agents add an agent to maximize your productivity."
+msgstr "このシステムにはエージェントがありません。生産性を最大化するためにエージェントを追加してください。"

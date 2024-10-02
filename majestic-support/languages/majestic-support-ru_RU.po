@@ -1,0 +1,6144 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "You are not allowed"
+msgstr "Тебе не разрешено"
+
+msgid "The ticket has been locked"
+msgstr "Билет заблокирован"
+
+msgid "Successfully"
+msgstr "Успешно"
+
+msgid "The ticket has not been locked"
+msgstr "Билет не заблокирован"
+
+msgid "Lock Ticket"
+msgstr "Заблокировать билет"
+
+msgid "The ticket is locked by"
+msgstr "Билет заблокирован"
+
+msgid "The ticket has been unlocked"
+msgstr "Билет разблокирован."
+
+msgid "The ticket has not been unlocked"
+msgstr "Билет не разблокирован"
+
+msgid "Unlock Ticket"
+msgstr "Разблокировать билет"
+
+msgid "User already an agent"
+msgstr "Пользователь уже является агентом"
+
+msgid "The agent has not been stored"
+msgstr "Агент не сохранен"
+
+msgid "The agent has been stored"
+msgstr "Агент сохранен"
+
+msgid "The agent has been deleted"
+msgstr "Агент удален"
+
+msgid "The agent has not been deleted"
+msgstr "Агент не удален"
+
+msgid "The agent in use cannot delete"
+msgstr "Используемый агент не может удалить"
+
+msgid "Agent"
+msgstr "Агент"
+
+msgid "status has been changed"
+msgstr "статус изменен"
+
+msgid "status has not been changed"
+msgstr "статус не изменился"
+
+msgid "ID"
+msgstr "ИДЕНТИФИКАТОР"
+
+msgid "User Name"
+msgstr "Имя пользователя"
+
+msgid "Email Address"
+msgstr "Адрес электронной почты"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Email"
+msgstr "Электронная почта"
+
+msgid "Previous"
+msgstr "Предыдущий"
+
+msgid "Next"
+msgstr "Следующий"
+
+msgid "Error Deleting Logo"
+msgstr "Ошибка удаления логотипа"
+
+msgid "Active"
+msgstr "Активный"
+
+msgid "Disabled"
+msgstr "Неполноценный"
+
+msgid "Uploaded file extension error."
+msgstr "Ошибка расширения загруженного файла."
+
+msgid "Select user"
+msgstr "Выберите пользователя"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Reset"
+msgstr "Перезагрузить"
+
+msgid "Use search feature to select the user"
+msgstr "Используйте функцию поиска, чтобы выбрать пользователя"
+
+msgid "image"
+msgstr "изображение"
+
+msgid "Add Agent"
+msgstr "Добавить агента"
+
+msgid "WP User ID"
+msgstr "Идентификатор пользователя WP"
+
+msgid "WP Username"
+msgstr "Имя пользователя WP"
+
+msgid "WP Full Name"
+msgstr "Полное имя WP"
+
+msgid "WP Email Address"
+msgstr "Адрес электронной почты WP"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "Select User"
+msgstr "Выберите пользователя"
+
+msgid "Select Role"
+msgstr "Выберите роль"
+
+msgid "First Name"
+msgstr "Имя"
+
+msgid "Last Name"
+msgstr "Фамилия"
+
+msgid "Office Phone"
+msgstr "Офисный телефон"
+
+msgid "Extension"
+msgstr "Расширение"
+
+msgid "Mobile No"
+msgstr "Номер мобильного"
+
+msgid "Picture"
+msgstr "Картина"
+
+msgid "cross"
+msgstr "крест"
+
+msgid "Maximum File Size"
+msgstr "Максимальный размер файла"
+
+msgid "File Extension Type"
+msgstr "Тип расширения файла"
+
+msgid "Append Signature"
+msgstr "Добавить подпись"
+
+msgid "Append signature with a reply"
+msgstr "Добавить подпись к ответу"
+
+msgid "Signature"
+msgstr "Подпись"
+
+msgid "Account Status"
+msgstr "Статус аккаунта"
+
+msgid "Select Status"
+msgstr "Выберите статус"
+
+msgid "Save"
+msgstr "Сохранять"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Close"
+msgstr "Закрывать"
+
+msgid "User Detail"
+msgstr "Сведения о пользователе"
+
+msgid "Append"
+msgstr "Добавить"
+
+msgid "Department Section"
+msgstr "Раздел отдела"
+
+msgid "Ticket Section"
+msgstr "Билетный раздел"
+
+msgid "Agent Section"
+msgstr "Агентский раздел"
+
+msgid "Knowledge Base Section"
+msgstr "Раздел базы знаний"
+
+msgid "FAQ Section"
+msgstr "Раздел часто задаваемых вопросов"
+
+msgid "Download Section"
+msgstr "Раздел загрузки"
+
+msgid "Announcement Section"
+msgstr "Раздел объявлений"
+
+msgid "Mail Section"
+msgstr "Почтовый раздел"
+
+msgid "Help Topic Section"
+msgstr "Раздел темы помощи"
+
+msgid "Premade Response Section"
+msgstr "Раздел готовых ответов"
+
+msgid "Smart Reply Section"
+msgstr "Раздел умных ответов"
+
+msgid "Ban Email Section"
+msgstr "Запретить раздел электронной почты"
+
+msgid "Select / Deselect All"
+msgstr "Выбрать/отменить выбор всего"
+
+msgid "Save Permissions"
+msgstr "Сохранить разрешения"
+
+msgid "Full Name"
+msgstr "Полное имя"
+
+msgid "Status"
+msgstr "Положение дел"
+
+msgid "Created"
+msgstr "Созданный"
+
+msgid "Permissions"
+msgstr "Разрешения"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Staff"
+msgstr "Персонал"
+
+msgid "change status"
+msgstr "изменить статус"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+msgid "Something went wrong to try again later."
+msgstr "Что-то пошло не так. Повторите попытку позже."
+
+msgid "My Profile"
+msgstr "Мой профайл"
+
+msgid "Upload Image"
+msgstr "Загрузить изображение"
+
+msgid "Phone No"
+msgstr "Номер телефона"
+
+msgid "Upload file limit exceeds"
+msgstr "Превышен лимит загрузки файлов"
+
+msgid "No help topic found"
+msgstr "Тема помощи не найдена"
+
+msgid "Error file size too large"
+msgstr "Размер файла ошибки слишком велик"
+
+msgid "Submit Ticket"
+msgstr "Отправить билет"
+
+msgid "Select Department"
+msgstr "Выберите отдел"
+
+msgid "Select Help Topic"
+msgstr "Выберите тему справки"
+
+msgid "Select Priority"
+msgstr "Выберите приоритет"
+
+msgid "premade"
+msgstr "готовый"
+
+msgid "Add more"
+msgstr "Добавить больше"
+
+msgid "Remove"
+msgstr "Удалять"
+
+msgid "Reason for edit"
+msgstr "Причина редактирования"
+
+msgid "Internal Note"
+msgstr "Внутреннее примечание"
+
+msgid "Enter valid woocommerce order#"
+msgstr "Введите действительный заказ WooCommerce#"
+
+msgid "Order id found"
+msgstr "Идентификатор заказа найден"
+
+msgid "Order id not found"
+msgstr "Идентификатор заказа не найден"
+
+msgid "Select Product"
+msgstr "Выберите продукт"
+
+msgid "Dated"
+msgstr "Датированный"
+
+msgid "Select Order ID"
+msgstr "Выберите идентификатор заказа"
+
+msgid "Select license key"
+msgstr "Выберите лицензионный ключ"
+
+msgid "Assign to me"
+msgstr "Назначьте мне"
+
+msgid "Show All"
+msgstr "Показать все"
+
+msgid "Show Less"
+msgstr "Показывай меньше"
+
+msgid "My Tickets"
+msgstr "Мои билеты"
+
+msgid "Open"
+msgstr "Открыть"
+
+msgid "Closed"
+msgstr "Закрыто"
+
+msgid "Answered"
+msgstr "Ответил"
+
+msgid "Overdue"
+msgstr "Просрочено"
+
+msgid "All Tickets"
+msgstr "Все билеты"
+
+msgid "Ticket ID"
+msgstr "Идентификатор билета"
+
+msgid "Or"
+msgstr "Или"
+
+msgid "From"
+msgstr "От"
+
+msgid "Select Agent"
+msgstr "Выберите агента"
+
+msgid "Select"
+msgstr "Выбирать"
+
+msgid "Start Date"
+msgstr "Дата начала"
+
+msgid "End Date"
+msgstr "Дата окончания"
+
+msgid "Assigned to me"
+msgstr "Назначено мне"
+
+msgid "All"
+msgstr "Все"
+
+msgid "Tickets"
+msgstr "Билеты"
+
+msgid "Subject"
+msgstr "Предмет"
+
+msgid "Priority"
+msgstr "Приоритет"
+
+msgid "sort"
+msgstr "Сортировать"
+
+msgid "New"
+msgstr "Новый"
+
+msgid "Waiting Reply"
+msgstr "Ожидание ответа"
+
+msgid "In Progress"
+msgstr "В ходе выполнения"
+
+msgid "Replied"
+msgstr "Ответил"
+
+msgid "Close and merge"
+msgstr "Закрыть и объединить"
+
+msgid "Created via Email"
+msgstr "Создано по электронной почте"
+
+msgid "The ticket is locked"
+msgstr "Билет заблокирован"
+
+msgid "The ticket marks as overdue"
+msgstr "Билет помечен как просроченный"
+
+msgid "Last Reply"
+msgstr "Последний ответ"
+
+msgid "Agent Permissions"
+msgstr "Разрешения агента"
+
+msgid "Agents"
+msgstr "Агенты"
+
+msgid "Add agent"
+msgstr "Добавить агента"
+
+msgid "Search by username"
+msgstr "Поиск по имени пользователя"
+
+msgid "Already exists"
+msgstr "Уже существует"
+
+msgid "The role has been stored"
+msgstr "Роль сохранена."
+
+msgid "The role has not been stored"
+msgstr "Роль не сохранена"
+
+msgid "The role has been deleted"
+msgstr "Роль удалена"
+
+msgid "The role has not been deleted"
+msgstr "Роль не удалена"
+
+msgid "The role currently in use cannot be deleted"
+msgstr "Роль, которая используется в данный момент, не может быть удалена."
+
+msgid "Add Role"
+msgstr "Добавить роль"
+
+msgid "Save Role"
+msgstr "Сохранить роль"
+
+msgid "Role Name"
+msgstr "Имя роли"
+
+msgid "Role Permission"
+msgstr "Разрешение роли"
+
+msgid "Role Permissions"
+msgstr "Ролевые разрешения"
+
+msgid "Role permissions"
+msgstr "Ролевые разрешения"
+
+msgid "Agent permissions have been stored"
+msgstr "Разрешения агента сохранены."
+
+msgid "Select Condition Operator"
+msgstr "Выбор оператора условия"
+
+msgid "Select Submit Type"
+msgstr "Выберите тип отправки"
+
+msgid "Rule has been stored"
+msgstr "Правило сохранено"
+
+msgid "Rule has not been stored"
+msgstr "Правило не сохранено"
+
+msgid "Rule has been deleted"
+msgstr "Правило удалено"
+
+msgid "Rule has not been deleted"
+msgstr "Правило не удалено"
+
+msgid "Rule"
+msgstr "Правило"
+
+msgid "in use cannot deleted"
+msgstr "используется, невозможно удалить"
+
+msgid "Condition Title"
+msgstr "Название условия"
+
+msgid "Select Condition Title"
+msgstr "Выберите название условия"
+
+msgid "Condition Operator"
+msgstr "Оператор условия"
+
+msgid "Condition Value"
+msgstr "Значение условия"
+
+msgid "Select Condition Value"
+msgstr "Выберите значение условия"
+
+msgid "Delete Condition"
+msgstr "Удалить условие"
+
+msgid "No Operator found"
+msgstr "Оператор не найден"
+
+msgid "No Value found"
+msgstr "Значение не найдено"
+
+msgid "Rule Title"
+msgstr "Название правила"
+
+msgid "Condition value"
+msgstr "Значение условия"
+
+msgid "+Add more Condition"
+msgstr "+Добавить еще условие"
+
+msgid "Save Rule"
+msgstr "Сохранить правило"
+
+msgid "Records per page"
+msgstr "Записей на странице"
+
+msgid "Save Ordering"
+msgstr "Сохранить заказ"
+
+msgid "An announcement has been stored"
+msgstr "Объявление сохранено"
+
+msgid "An announcement has not been stored"
+msgstr "Объявление не сохранено"
+
+msgid "An announcement has been deleted"
+msgstr "Объявление удалено"
+
+msgid "An announcement has not been deleted"
+msgstr "Объявление не удалено"
+
+msgid "Announcement"
+msgstr "Объявление"
+
+msgid "ordering has been changed"
+msgstr "заказ был изменен"
+
+msgid "ordering has not changed"
+msgstr "порядок не изменился"
+
+msgid "Public"
+msgstr "Общественный"
+
+msgid "Private"
+msgstr "Частный"
+
+msgid "Add Announcement"
+msgstr "Добавить объявление"
+
+msgid "Title"
+msgstr "Заголовок"
+
+msgid "Parent Category"
+msgstr "родительская категория"
+
+msgid "Select Category"
+msgstr "выберите категорию"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Select Visibility"
+msgstr "Выберите Видимость"
+
+msgid "All users"
+msgstr "Все пользователи"
+
+msgid "Only logged-in users"
+msgstr "Только авторизованные пользователи"
+
+msgid "Visible To"
+msgstr "Виден для"
+
+msgid "Save Announcement"
+msgstr "Сохранить объявление"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Ordering"
+msgstr "Заказ"
+
+msgid "Announcement Detail"
+msgstr "Подробности объявления"
+
+msgid "Category Name"
+msgstr "Название категории"
+
+msgid "Announcements"
+msgstr "Объявления"
+
+msgid "Categories"
+msgstr "Категории"
+
+msgid "Add Announcements"
+msgstr "Добавить объявления"
+
+msgid "Logger Email"
+msgstr "Электронная почта регистратора"
+
+msgid "Log"
+msgstr "Бревно"
+
+msgid "Logger"
+msgstr "Регистратор"
+
+msgid "IP Address"
+msgstr "Айпи адрес"
+
+msgid "Ban email has been stored"
+msgstr "Письмо о запрете сохранено."
+
+msgid "Ban email has not been stored"
+msgstr "Письмо о запрете не сохранено"
+
+msgid "Ban email has been deleted"
+msgstr "Письмо о запрете удалено."
+
+msgid "Ban email has not been deleted"
+msgstr "Письмо о запрете не удалено"
+
+msgid "Ban email does not exist"
+msgstr "Запретить электронную почту не существует"
+
+msgid "Add Email"
+msgstr "Добавить адрес электронной почты"
+
+msgid "Save Email"
+msgstr "Сохранить электронную почту"
+
+msgid "Save Banned Email"
+msgstr "Сохранить запрещенную электронную почту"
+
+msgid "Emails"
+msgstr "Электронная почта"
+
+msgid "Submitter"
+msgstr "Отправитель"
+
+msgid "Banned Emails"
+msgstr "Запрещенные электронные письма"
+
+msgid "Are you sure you want to delete it?"
+msgstr "Вы уверены, что хотите это удалить?"
+
+msgid "Premade response message has been stored"
+msgstr "Готовое ответное сообщение сохранено."
+
+msgid "Premade response message has not been stored"
+msgstr "Готовое ответное сообщение не сохранено."
+
+msgid "Premade department message has been deleted"
+msgstr "Готовое сообщение отдела было удалено."
+
+msgid "Premade department message has not been deleted"
+msgstr "Готовое сообщение отдела не было удалено."
+
+msgid "Premade response"
+msgstr "Готовый ответ"
+
+msgid "Add Premade Response"
+msgstr "Добавить готовый ответ"
+
+msgid "Department"
+msgstr "Отделение"
+
+msgid "Response"
+msgstr "Ответ"
+
+msgid "Save Premade Response"
+msgstr "Сохранить готовый ответ"
+
+msgid "The department under which the answer will be made is available"
+msgstr "Имеется отдел, по которому будет дан ответ"
+
+msgid "Offline"
+msgstr "Не в сети"
+
+msgid "Last Updated"
+msgstr "Последнее обновление"
+
+msgid "Not updated"
+msgstr "Не обновляется"
+
+msgid "Premade Response"
+msgstr "Готовый ответ"
+
+msgid "Latest Tickets"
+msgstr "Последние билеты"
+
+msgid "Last Month Ticket Stats"
+msgstr "Статистика билетов за последний месяц"
+
+msgid "Pending"
+msgstr "В ожидании"
+
+msgid "The attachment has been removed"
+msgstr "Вложение удалено"
+
+msgid "The attachment has not been removed"
+msgstr "Вложение не удалено"
+
+msgid "The download has been stored"
+msgstr "Загрузка сохранена"
+
+msgid "The download has not been stored"
+msgstr "Загрузка не сохранена"
+
+msgid "Download"
+msgstr "Скачать"
+
+msgid "The download has been deleted"
+msgstr "Загрузка удалена"
+
+msgid "The download has not been deleted"
+msgstr "Загрузка не удалена"
+
+msgid "Download All"
+msgstr "Скачать все"
+
+msgid "Add Download"
+msgstr "Добавить загрузку"
+
+msgid "Attachments"
+msgstr "Вложения"
+
+msgid "Save Download"
+msgstr "Сохранить Скачать"
+
+msgid "Add More Files"
+msgstr "Добавить больше файлов"
+
+msgid "Delete attachment"
+msgstr "Удалить вложение"
+
+msgid "grab"
+msgstr "схватить"
+
+msgid "Attachment"
+msgstr "Вложение"
+
+msgid "Downloads"
+msgstr "Загрузки"
+
+msgid "Files"
+msgstr "Файлы"
+
+msgid "Majestic Support"
+msgstr "Величественная поддержка"
+
+msgid "Get Help"
+msgstr "Получить помощь"
+
+msgid "Email CC has been stored"
+msgstr "Копия электронной почты сохранена."
+
+msgid "Email CC has not been stored"
+msgstr "Копия электронной почты не сохранена"
+
+msgid "Email CC has been deleted"
+msgstr "Копия электронной почты удалена"
+
+msgid "Email CC has not been deleted"
+msgstr "Копия электронной почты не была удалена"
+
+msgid "Email CC "
+msgstr "Электронная почта CC"
+
+msgid "Email CC"
+msgstr "Электронная почта CC"
+
+msgid "Template Type"
+msgstr "Тип шаблона"
+
+msgid "Select Template Type"
+msgstr "Выберите тип шаблона"
+
+msgid "Delete row"
+msgstr "Удалить строку"
+
+msgid "Template For"
+msgstr "Шаблон для"
+
+msgid "Select Template For"
+msgstr "Выберите шаблон для"
+
+msgid "Template Title"
+msgstr "Название шаблона"
+
+msgid "Add more row"
+msgstr "Добавить еще строку"
+
+msgid "Save Email CC"
+msgstr "Сохранить копию электронной почты"
+
+msgid "Service is running, please close the pag"
+msgstr "Служба работает, пожалуйста, закройте страницу"
+
+msgid "Your setting is working please this."
+msgstr "Ваши настройки работают, пожалуйста."
+
+msgid "Connection established but the system cannot read any email"
+msgstr "Соединение установлено, но система не может прочитать электронную почту"
+
+msgid "The setting has been stored."
+msgstr "Настройка сохранена."
+
+msgid "The setting has not been stored."
+msgstr "Настройка не сохранена."
+
+msgid "Email address already exist"
+msgstr "Адрес электронной почты уже существует"
+
+msgid "Email for email piping has been stored"
+msgstr "Адрес электронной почты для канала электронной почты сохранен."
+
+msgid "Email for email piping has not been stored"
+msgstr "Электронная почта для канала электронной почты не сохранена."
+
+msgid "The email has been deleted"
+msgstr "Электронная почта была удалена"
+
+msgid "The email has not been deleted"
+msgstr "Электронная почта не была удалена"
+
+msgid "Enabled"
+msgstr "Включено"
+
+msgid "Only New Tickets"
+msgstr "Только новые билеты"
+
+msgid "Only Replies"
+msgstr "Только ответы"
+
+msgid "Both"
+msgstr "Оба"
+
+msgid "Other"
+msgstr "Другой"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "Please enter the hostname first"
+msgstr "Пожалуйста, сначала введите имя хоста"
+
+msgid "Please enable email piping setting first"
+msgstr "Пожалуйста, сначала включите настройку канала электронной почты"
+
+msgid "Enable email piping"
+msgstr "Включить пересылку электронной почты"
+
+msgid "Ticket Type"
+msgstr "Тип билета"
+
+msgid "Which email type to read"
+msgstr "Какой тип письма читать"
+
+msgid "Save attachments if found in an email"
+msgstr "Сохраняйте вложения, если они найдены в электронном письме."
+
+msgid "Host Type"
+msgstr "Тип хоста"
+
+msgid "Select your email service provider"
+msgstr "Выберите поставщика услуг электронной почты"
+
+msgid "Host Name"
+msgstr "Имя хоста"
+
+msgid "Enabled SSL"
+msgstr "Включен SSL"
+
+msgid "Do you have enabled SSL on your domain?"
+msgstr "Включен ли SSL в вашем домене?"
+
+msgid "Host Port Number"
+msgstr "Номер порта хоста"
+
+msgid "Host port number to read an email from"
+msgstr "Номер порта хоста для чтения электронной почты"
+
+msgid "Email address to read emails"
+msgstr "Адрес электронной почты для чтения писем"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Password for a given email address"
+msgstr "Пароль для данного адреса электронной почты"
+
+msgid "check"
+msgstr "проверять"
+
+msgid "Check Settings"
+msgstr "Проверьте настройки"
+
+msgid "If the system doesn't respond in 30 seconds"
+msgstr "Если система не отвечает в течение 30 секунд"
+
+msgid "it means system unable to connect email server"
+msgstr "это означает, что система не может подключиться к почтовому серверу"
+
+msgid "Save Settings"
+msgstr "Сохранить настройки"
+
+msgid "Cron Job"
+msgstr "Крон Джоб"
+
+msgid "Web Cron Job"
+msgstr "Веб-задание Cron"
+
+msgid "Curl"
+msgstr "Завиток"
+
+msgid "PHP Script"
+msgstr "PHP-скрипт"
+
+msgid "Configuration of a backup job with webcron.org"
+msgstr "Настройка задания резервного копирования с помощью webcron.org"
+
+msgid "Name of cron job"
+msgstr "Имя задания cron"
+
+msgid "Log in to webcron.org and in the cron area, click on "
+msgstr "Войдите на сайт webcron.org и в области cron нажмите"
+
+msgid "Timeout"
+msgstr "Тайм-аут"
+
+msgid "URL you want to execute"
+msgstr "URL-адрес, который вы хотите выполнить"
+
+msgid "Login"
+msgstr "Авторизоваться"
+
+msgid "Leave this blank"
+msgstr "Оставьте это пустым"
+
+msgid "Execution time"
+msgstr "Время исполнения"
+
+msgid "That the grid below the other options select when and how"
+msgstr "Что сетка под другими опциями выбирает, когда и как"
+
+msgid "Alerts"
+msgstr "Оповещения"
+
+msgid "Cron scheduling using wget"
+msgstr "Планирование Cron с использованием wget"
+
+msgid "Cron scheduling using Curl"
+msgstr "Планирование Cron с использованием Curl"
+
+msgid "Custom PHP script to run the cron job"
+msgstr "Пользовательский PHP-скрипт для запуска задания cron"
+
+msgid "Sorry the cron job did not work"
+msgstr "Извините, задание cron не сработало"
+
+msgid "URL for use with your own scripts and third-party scripts"
+msgstr "URL-адрес для использования с вашими собственными и сторонними скриптами."
+
+msgid "It is recommended to run the script every hour."
+msgstr "Рекомендуется запускать скрипт каждый час."
+
+msgid "Ticket Email Type"
+msgstr "Тип электронной почты билета"
+
+msgid "ticket email"
+msgstr "электронная почта билета"
+
+msgid "Overall Reports"
+msgstr "Общие отчеты"
+
+msgid "Agents Report"
+msgstr "Отчет агентов"
+
+msgid "Department Report"
+msgstr "Отчет отдела"
+
+msgid "Departments Report"
+msgstr "Отчет отделов"
+
+msgid "Majestic Support Overall Reports"
+msgstr "Общие отчеты Majestic Support"
+
+msgid "Tickets By Status"
+msgstr "Билеты по статусу"
+
+msgid "Tickets By Departments"
+msgstr "Билеты по отделам"
+
+msgid "Tickets By Priorities"
+msgstr "Билеты по приоритетам"
+
+msgid "Tickets By Channel"
+msgstr "Билеты по каналам"
+
+msgid "Direct"
+msgstr "Прямой"
+
+msgid "Direct reply"
+msgstr "Прямой ответ"
+
+msgid "Email reply"
+msgstr "Ответ по электронной почте"
+
+msgid "Tickets By staff"
+msgstr "Билеты От сотрудников"
+
+msgid "Report By"
+msgstr "Отчет по"
+
+msgid "agent"
+msgstr "агент"
+
+msgid "To"
+msgstr "К"
+
+msgid "Report By Agents"
+msgstr "Отчет агентов"
+
+msgid "Ticket status by days"
+msgstr "Статус билета по дням"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Tickets Staff"
+msgstr "Билеты Персонал"
+
+msgid "Average Rating"
+msgstr "Средний рейтинг"
+
+msgid "Average Time"
+msgstr "Среднее время"
+
+msgid "Report By agent"
+msgstr "Отчет от агента"
+
+msgid "Rating"
+msgstr "Рейтинг"
+
+msgid "Time"
+msgstr "Время"
+
+msgid "Merged"
+msgstr "Объединено"
+
+msgid "Report By department"
+msgstr "Отчет по отделам"
+
+msgid "Tickets By Department"
+msgstr "Билеты по отделам"
+
+msgid "Department Name"
+msgstr "название отдела"
+
+msgid "User report"
+msgstr "Пользовательский отчет"
+
+msgid "Users report"
+msgstr "Пользователи сообщают"
+
+msgid "Users Tickets"
+msgstr "Билеты пользователей"
+
+msgid "User Report"
+msgstr "Пользовательский отчет"
+
+msgid "Report By Departments"
+msgstr "Отчет по отделам"
+
+msgid "Tickets Data"
+msgstr "Данные о билетах"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Assigned To"
+msgstr "Назначено"
+
+msgid "Updated"
+msgstr "Обновлено"
+
+msgid "Due Date"
+msgstr "Срок оплаты"
+
+msgid "Closed Date"
+msgstr "Дата закрытия"
+
+msgid "Closed Time"
+msgstr "Время закрытия"
+
+msgid "Requester User Name"
+msgstr "Имя пользователя запрашивающей стороны"
+
+msgid "Requester Name"
+msgstr "Имя запрашивающего"
+
+msgid "Requester Email"
+msgstr "Электронная почта отправителя запроса"
+
+msgid "Requester Phone"
+msgstr "Телефон заявителя"
+
+msgid "Requester help Topic"
+msgstr "Тема помощи запрашивающему"
+
+msgid "Ticket Attachment"
+msgstr "Приложение к билету"
+
+msgid "Posted By"
+msgstr "Сообщение от"
+
+msgid "Note Title"
+msgstr "Название заметки"
+
+msgid "Note Message"
+msgstr "Примечание Сообщение"
+
+msgid "Posted Date"
+msgstr "Дата публикации"
+
+msgid "Note Attachment"
+msgstr "Примечание. Приложение"
+
+msgid "User Time"
+msgstr "Время пользователя"
+
+msgid "System Time"
+msgstr "Системное время"
+
+msgid "Edit Reason"
+msgstr "Изменить причину"
+
+msgid "Reply Date"
+msgstr "Дата ответа"
+
+msgid "Reply By"
+msgstr "Ответить от"
+
+msgid "Reply Attachment"
+msgstr "Ответное вложение"
+
+msgid "Total Tracking Time"
+msgstr "Общее время отслеживания"
+
+msgid "Ticket Status"
+msgstr "Статус билета"
+
+msgid "Select Ticket Status"
+msgstr "Выберите статус заявки"
+
+msgid "Ticket Overdue"
+msgstr "Билет просрочен"
+
+msgid "Select Ticket Overdue Status"
+msgstr "Выберите статус просрочки билета"
+
+msgid "Export Style"
+msgstr "Экспортировать стиль"
+
+msgid "Single Header"
+msgstr "Один заголовок"
+
+msgid "Multiple Header"
+msgstr "Множественный заголовок"
+
+msgid "Export"
+msgstr "Экспорт"
+
+msgid "FAQ has been stored"
+msgstr "Часто задаваемые вопросы сохранены."
+
+msgid "FAQ has not been stored"
+msgstr "Часто задаваемые вопросы не сохранены"
+
+msgid "FAQ has been deleted"
+msgstr "Часто задаваемые вопросы удалены"
+
+msgid "FAQ has not been deleted"
+msgstr "FAQ не удален"
+
+msgid "FAQ"
+msgstr "Часто задаваемые вопросы"
+
+msgid "Add FAQs"
+msgstr "Добавить часто задаваемые вопросы"
+
+msgid "Save FAQ"
+msgstr "Сохранить FAQ"
+
+msgid "Content"
+msgstr "Содержание"
+
+msgid "FAQ Detail"
+msgstr "Подробности часто задаваемых вопросов"
+
+msgid "FAQs"
+msgstr "Часто задаваемые вопросы"
+
+msgid "Search title"
+msgstr "Название поиска"
+
+msgid "Search keywords"
+msgstr "Ключевые слова для поиска"
+
+msgid "Sub Category Faqs"
+msgstr "Подкатегория: часто задаваемые вопросы"
+
+msgid "Add FAQ"
+msgstr "Добавить часто задаваемые вопросы"
+
+msgid "Feedback has been stored"
+msgstr "Отзыв сохранен."
+
+msgid "Feedback has not been stored"
+msgstr "Отзыв не сохранен"
+
+msgid "user image"
+msgstr "изображение пользователя"
+
+msgid "feedback image"
+msgstr "изображение обратной связи"
+
+msgid "Feedback"
+msgstr "Обратная связь"
+
+msgid "Latest Feedback"
+msgstr "Последний отзыв"
+
+msgid "Form Feedback"
+msgstr "Форма обратной связи"
+
+msgid "Submit Feedback"
+msgstr "Отправить отзыв"
+
+msgid "Help topic has been stored"
+msgstr "Тема справки сохранена."
+
+msgid "Help topic has not been stored"
+msgstr "Тема справки не сохранена"
+
+msgid "Help topic has been deleted"
+msgstr "Тема помощи удалена."
+
+msgid "Help topic has not been deleted"
+msgstr "Тема помощи не удалена"
+
+msgid "Help topic in use cannot be deleting"
+msgstr "Используемую тему справки нельзя удалить."
+
+msgid "Help topic"
+msgstr "Тема помощи"
+
+msgid "Add Help Topic"
+msgstr "Добавить тему справки"
+
+msgid "Help Topic"
+msgstr "Тема помощи"
+
+msgid "Save Help Topic"
+msgstr "Сохранить тему справки"
+
+msgid "Help Topics"
+msgstr "Разделы помощи"
+
+msgid "The category has been stored"
+msgstr "Категория сохранена."
+
+msgid "The category has not been stored"
+msgstr "Категория не сохранена"
+
+msgid "The category has been deleted"
+msgstr "Категория удалена"
+
+msgid "The category has not been deleted"
+msgstr "Категория не удалена"
+
+msgid "The category in use cannot be deleting"
+msgstr "Используемую категорию нельзя удалить."
+
+msgid "Knowledgebase article has been stored"
+msgstr "Статья базы знаний сохранена."
+
+msgid "Knowledgebase article has not been stored"
+msgstr "Статья базы знаний не сохранена"
+
+msgid "The article has been deleted"
+msgstr "Статья удалена"
+
+msgid "The article has not been deleted"
+msgstr "Статья не удалена"
+
+msgid "Article"
+msgstr "Статья"
+
+msgid "The parent category does not have this type."
+msgstr "Родительская категория не имеет этого типа."
+
+msgid "Would you like to add this type to Parent Category?"
+msgstr "Хотите добавить этот тип в родительскую категорию?"
+
+msgid "JYes"
+msgstr "JДа"
+
+msgid "Child category has this type,"
+msgstr "Дочерняя категория имеет этот тип,"
+
+msgid "You cannot unmark it."
+msgstr "Вы не можете снять с него пометку."
+
+msgid "Draft"
+msgstr "Черновик"
+
+msgid "Add Knowledge Base"
+msgstr "Добавить базу знаний"
+
+msgid "Meta Description"
+msgstr "Мета-описание"
+
+msgid "Meta Keywords"
+msgstr "Мета-ключевые слова"
+
+msgid "Add More"
+msgstr "Добавить больше"
+
+msgid "Save Knowledge Base"
+msgstr "Сохранить базу знаний"
+
+msgid "Please select at least one category for"
+msgstr "Пожалуйста, выберите хотя бы одну категорию для"
+
+msgid "Add Category"
+msgstr "Добавить категорию"
+
+msgid "Category For"
+msgstr "Категория Для"
+
+msgid "Knowledge Base"
+msgstr "База знаний"
+
+msgid "Save Category"
+msgstr "Сохранить категорию"
+
+msgid "Meta Data Options"
+msgstr "Параметры метаданных"
+
+msgid "Category Title"
+msgstr "Название категории"
+
+msgid "category"
+msgstr "категория"
+
+msgid "Knowledge Base Detail"
+msgstr "Подробности базы знаний"
+
+msgid "Article Attachment"
+msgstr "Приложение к статье"
+
+msgid "Knowledgebase"
+msgstr "База знаний"
+
+msgid "Knowledge Base Articles"
+msgstr "Статьи базы знаний"
+
+msgid "Sub Category Knowledgebase"
+msgstr "База знаний подкатегории"
+
+msgid "Mail has not been marked as read"
+msgstr "Почта не отмечена как прочитанная"
+
+msgid "Mail has been marked as read"
+msgstr "Письмо отмечено как прочитанное"
+
+msgid "Message field cannot be empty"
+msgstr "Поле сообщения не может быть пустым"
+
+msgid "Mail has been sent"
+msgstr "Письмо отправлено"
+
+msgid "Mail has not been sent"
+msgstr "Письмо не отправлено"
+
+msgid "Mail has been deleted"
+msgstr "Почта удалена"
+
+msgid "Mail has not been deleted"
+msgstr "Почта не удалена"
+
+msgid "Mail"
+msgstr "Почта"
+
+msgid "is in use cannot be delete"
+msgstr "используется, нельзя удалить"
+
+msgid "Mail cannot mark as to read"
+msgstr "Почта не может быть помечена как прочитанная"
+
+msgid "Mail cannot mark as unread"
+msgstr "Почту нельзя пометить как непрочитанную"
+
+msgid "Mail has been marked as unread"
+msgstr "Письмо помечено как непрочитанное"
+
+msgid "Inbox"
+msgstr "Входящие"
+
+msgid "Outbox"
+msgstr "Исходящие"
+
+msgid " )  "
+msgstr ")"
+
+msgid "Compose"
+msgstr "Сочинить"
+
+msgid "Send"
+msgstr "Отправлять"
+
+msgid "Read"
+msgstr "Читать"
+
+msgid "Unread"
+msgstr "Не прочитано"
+
+msgid "Select Type"
+msgstr "Выберите тип"
+
+msgid "To use this feature you must be agent"
+msgstr "Чтобы использовать эту функцию, вы должны быть агентом"
+
+msgid "To use this feature you must have agents addon."
+msgstr "Чтобы использовать эту функцию, у вас должен быть установлен аддон агентов."
+
+msgid "mark read"
+msgstr "отметить прочитанным"
+
+msgid "mark unread"
+msgstr "пометить как непрочитанное"
+
+msgid "Replied By"
+msgstr "Ответил:"
+
+msgid "Reply"
+msgstr "Отвечать"
+
+msgid ")  "
+msgstr ")"
+
+msgid "Type Message"
+msgstr "Тип сообщения"
+
+msgid "Replies"
+msgstr "Ответы"
+
+msgid "Limit exceeds maximum tickets"
+msgstr "Лимит превышает максимальное количество билетов"
+
+msgid "The maximum number of open tickets limit has been exceeded."
+msgstr "Превышено максимальное количество открытых заявок."
+
+msgid "Ticket has been closed due to merged with"
+msgstr "Заявка была закрыта из-за слияния с"
+
+msgid "Ticket"
+msgstr "Билет"
+
+msgid "has been merged into"
+msgstr "был объединен в"
+
+msgid "Merge Ticket"
+msgstr "Объединить билет"
+
+msgid "Search Ticket To Merge Into Another"
+msgstr "Найдите билет, чтобы слиться с другим"
+
+msgid "Edit Last Reply"
+msgstr "Редактировать последний ответ"
+
+msgid "Merge Ticket Latest Reply"
+msgstr "Объединить билет Последний ответ"
+
+msgid "Merge"
+msgstr "Объединить"
+
+msgid "Ticket has been merged"
+msgstr "Билет был объединен"
+
+msgid "Ticket has not been merged"
+msgstr "Билет не был объединен"
+
+msgid "Disabled form cannot be set as default"
+msgstr "Отключенную форму нельзя установить по умолчанию."
+
+msgid "Form has been stored"
+msgstr "Форма сохранена"
+
+msgid "Form has not been stored"
+msgstr "Форма не сохранена"
+
+msgid "Multiform has been deleted"
+msgstr "Мультиформа удалена"
+
+msgid "Multiform has not been deleted"
+msgstr "Мультиформ не удален"
+
+msgid "Multiform in use"
+msgstr "Мультиформ в использовании"
+
+msgid " cannot deleted"
+msgstr "невозможно удалить"
+
+msgid "Default form cannot be set as disabled"
+msgstr "Форму по умолчанию нельзя сделать отключенной"
+
+msgid "Multiform"
+msgstr "Мультиформный"
+
+msgid "default has not been changed"
+msgstr "по умолчанию не изменилось"
+
+msgid "default has been changed"
+msgstr "по умолчанию изменено"
+
+msgid "Create Ticket"
+msgstr "Создать билет"
+
+msgid "multiform"
+msgstr "многообразный"
+
+msgid "Default"
+msgstr "По умолчанию"
+
+msgid "Save Multiform"
+msgstr "Сохранить"
+
+msgid "Fields"
+msgstr "Поля"
+
+msgid "Edit Fields"
+msgstr "Редактировать поля"
+
+msgid "spinning wheel"
+msgstr "прялка"
+
+msgid "Select Languages"
+msgstr "Выберите языки"
+
+msgid "Select Language"
+msgstr "Выберите язык"
+
+msgid "Email Template has been successfully deleted"
+msgstr "Шаблон электронной почты успешно удален."
+
+msgid "Email template has been stored"
+msgstr "Шаблон электронного письма сохранен."
+
+msgid "Email template has not been stored"
+msgstr "Шаблон электронного письма не сохранен."
+
+msgid "The internal note has been posted"
+msgstr "Внутренняя заметка опубликована"
+
+msgid "The internal note has not been posted"
+msgstr "Внутренняя заметка не опубликована"
+
+msgid "Post Internal Note"
+msgstr "Опубликовать внутреннюю заметку"
+
+msgid "The internal note is posted by"
+msgstr "Внутренняя заметка опубликована"
+
+msgid "Ticket Notification"
+msgstr "Уведомление о билетах"
+
+msgid "Once Weekly"
+msgstr "Один раз в неделю"
+
+msgid "Thanks for subscribing!"
+msgstr "Спасибо за подписку!"
+
+msgid "Ticket already marked overdue"
+msgstr "Билет уже помечен как просроченный"
+
+msgid "The ticket has been marked as overdue"
+msgstr "Билет помечен как просроченный"
+
+msgid "The ticket has not been marked as overdue"
+msgstr "Билет не отмечен как просроченный"
+
+msgid "System"
+msgstr "Система"
+
+msgid "Mark overdue"
+msgstr "Отметить просрочку"
+
+msgid "The ticket is marked as overdue by"
+msgstr "Билет помечен как просроченный"
+
+msgid "The ticket has been unmarked as overdue"
+msgstr "Билет не отмечен как просроченный"
+
+msgid "The ticket has not been unmarked as overdue"
+msgstr "Билет не был отмечен как просроченный"
+
+msgid "Unmark overdue"
+msgstr "Снять отметку с просроченным"
+
+msgid "The ticket is unmarked as overdue by"
+msgstr "Билет не помечен как просроченный"
+
+msgid "Paid Support"
+msgstr "Платная поддержка"
+
+msgid "Check if you want to use this product for paid support"
+msgstr "Отметьте, хотите ли вы использовать этот продукт для платной поддержки."
+
+msgid "Paid support type"
+msgstr "Платный тип поддержки"
+
+msgid "One-off Support"
+msgstr "Разовая поддержка"
+
+msgid "Subscription Support"
+msgstr "Поддержка по подписке"
+
+msgid "Number of tickets"
+msgstr "Количество билетов"
+
+msgid "Credential Type"
+msgstr "Тип учетных данных"
+
+msgid "Additional Info."
+msgstr "Дополнительная информация."
+
+msgid "Please insert values"
+msgstr "Пожалуйста, введите значения"
+
+msgid "Visitor"
+msgstr "Посетитель"
+
+msgid "By"
+msgstr "К"
+
+msgid "Credential removed on ticket close"
+msgstr "Учетные данные удалены при закрытии заявки"
+
+msgid "Failed to retrieve data"
+msgstr "Не удалось получить данные"
+
+msgid "Reason has been stored"
+msgstr "Причина сохранена"
+
+msgid "Reason has not been stored"
+msgstr "Причина не сохранена"
+
+msgid "Reason has been deleted"
+msgstr "Причина удалена"
+
+msgid "Reason has not been deleted"
+msgstr "Причина не удалена"
+
+msgid "Reason"
+msgstr "Причина"
+
+msgid "Are you going to close this ticket?"
+msgstr "Вы собираетесь закрыть этот билет?"
+
+msgid "If you have a moment, please select a reason for closing the ticket."
+msgstr "Если у вас есть минутка, пожалуйста, выберите причину закрытия заявки."
+
+msgid "Submit & Close"
+msgstr "Отправить и закрыть"
+
+msgid "Skip & Close"
+msgstr "Пропустить и закрыть"
+
+msgid "Add Reason"
+msgstr "Добавить причину"
+
+msgid "Save Reason"
+msgstr "Сохранить причину"
+
+msgid "Ticket Close Reasons"
+msgstr "Причины закрытия заявки"
+
+msgid "Mail Notification Widget"
+msgstr "Виджет почтовых уведомлений"
+
+msgid "Show newly and reply mail notifications"
+msgstr "Показывать новые уведомления и отвечать на них"
+
+msgid "New mail from"
+msgstr "Новое письмо от"
+
+msgid "Mail Notification"
+msgstr "Почтовое уведомление"
+
+msgid "Layout"
+msgstr "Макет"
+
+msgid "Max Record"
+msgstr "Макс. запись"
+
+msgid "My Ticket Widget"
+msgstr "Мой виджет билетов"
+
+msgid "Show unanswered tickets"
+msgstr "Показать неотвеченные заявки"
+
+msgid "Order tickets"
+msgstr "Заказать билеты"
+
+msgid "Close due to merge"
+msgstr "Закрыть из-за слияния"
+
+msgid "Product"
+msgstr "Продукт"
+
+msgid "Order"
+msgstr "Заказ"
+
+msgid "There is no ticket"
+msgstr "Нет билета"
+
+msgid "Something went wrong"
+msgstr "Что-то пошло не так"
+
+msgid "Transaction Key"
+msgstr "Ключ транзакции"
+
+msgid "Please select )"
+msgstr "Пожалуйста выберите )"
+
+msgid "Hide notice"
+msgstr "Скрыть уведомление"
+
+msgid "Control Panel"
+msgstr "Панель управления"
+
+msgid "Edit Announcement"
+msgstr "Редактировать объявление"
+
+msgid "Departments"
+msgstr "Отделы"
+
+msgid "Add Department"
+msgstr "Добавить отдел"
+
+msgid "Edit Department"
+msgstr "Редактировать отдел"
+
+msgid "Staff report"
+msgstr "Отчет персонала"
+
+msgid "Staff reports"
+msgstr "Отчеты сотрудников"
+
+msgid "Departments report"
+msgstr "Отчет отделов"
+
+msgid "Edit Download"
+msgstr "Редактировать Скачать"
+
+msgid "Edit FAQ"
+msgstr "Редактировать часто задаваемые вопросы"
+
+msgid "Feedbacks"
+msgstr "Отзывы"
+
+msgid "Edit Knowledge Base"
+msgstr "Редактировать базу знаний"
+
+msgid "Edit Category"
+msgstr "Изменить категорию"
+
+msgid "Send Message"
+msgstr "Отправить сообщение"
+
+msgid "Edit Role"
+msgstr "Изменить роль"
+
+msgid "Staffs"
+msgstr "Персонал"
+
+msgid "Add Staff"
+msgstr "Добавить персонал"
+
+msgid "Edit Staff"
+msgstr "Редактировать персонал"
+
+msgid "Staff Permissions"
+msgstr "Разрешения персонала"
+
+msgid "Add Ticket"
+msgstr "Добавить билет"
+
+msgid "Edit Ticket"
+msgstr "Редактировать билет"
+
+msgid "Ticket Detail"
+msgstr "Детали билета"
+
+msgid "Plus"
+msgstr "Плюс"
+
+msgid "Equals"
+msgstr "Равно"
+
+msgid "Minus"
+msgstr "Минус"
+
+msgid "stars"
+msgstr "звезды"
+
+msgid "Please write appreciated review at WP Extension Directory"
+msgstr "Пожалуйста, напишите ценный отзыв в каталоге расширений WP."
+
+msgid "love"
+msgstr "любовь"
+
+msgid "I'd love to help :)"
+msgstr "Я бы хотел помочь :)"
+
+msgid "sad"
+msgstr "грустный"
+
+msgid "Not this time"
+msgstr "Не в этот раз"
+
+msgid "happy"
+msgstr "счастливый"
+
+msgid "I've already rated you"
+msgstr "я уже оценил тебя"
+
+msgid "close"
+msgstr "закрывать"
+
+msgid "thanks"
+msgstr "Спасибо"
+
+msgid "You are awesome !......"
+msgstr "Ты обалденный !......"
+
+msgid "Thanks for your support, we really appreciate it."
+msgstr "Спасибо за вашу поддержку, мы очень ценим это."
+
+msgid "Majestic Support Team"
+msgstr "Группа поддержки Маджестик"
+
+msgid "Remind you about this later?"
+msgstr "Напомнить тебе об этом позже?"
+
+msgid "Remind me in 3 days"
+msgstr "Напомни мне через 3 дня"
+
+msgid "Remind me in 10 days"
+msgstr "Напомни мне через 10 дней"
+
+msgid "Remind me in 30 days"
+msgstr "Напомни мне через 30 дней"
+
+msgid "Don't remind me about this"
+msgstr "Не напоминай мне об этом"
+
+msgid "Dashboard"
+msgstr "Панель приборов"
+
+msgid "About Us"
+msgstr "О нас"
+
+msgid "Translations"
+msgstr "Переводы"
+
+msgid "System Errors"
+msgstr "Системные ошибки"
+
+msgid "slugs"
+msgstr "слизни"
+
+msgid "Slugs"
+msgstr "Слизни"
+
+msgid "multiforms"
+msgstr "многообразие"
+
+msgid "Multiforms"
+msgstr "Мультиформы"
+
+msgid "Ticket Close Reason"
+msgstr "Причина закрытия заявки"
+
+msgid "Smart Replies"
+msgstr "Умные ответы"
+
+msgid "Smart Reply"
+msgstr "Умный ответ"
+
+msgid "Add Smart Reply"
+msgstr "Добавить умный ответ"
+
+msgid "Agent Auto Assign"
+msgstr "Автоматическое назначение агента"
+
+msgid "Auto Assign"
+msgstr "Автоматическое назначение"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Cron Job URLs"
+msgstr "URL-адреса заданий Cron"
+
+msgid "Premium Addons"
+msgstr "Премиум-аддоны"
+
+msgid "Install Add-ons"
+msgstr "Установить дополнения"
+
+msgid "Add-ons List"
+msgstr "Список дополнений"
+
+msgid "Add-ons Status"
+msgstr "Статус дополнений"
+
+msgid "Shortcodes"
+msgstr "Короткие коды"
+
+msgid "Short Codes"
+msgstr "Короткие коды"
+
+msgid "Colors"
+msgstr "Цвета"
+
+msgid "Reports"
+msgstr "Отчеты"
+
+msgid "Overall Statistics"
+msgstr "Общая статистика"
+
+msgid "Agent Reports"
+msgstr "Отчеты агентов"
+
+msgid "Department Reports"
+msgstr "Отчеты отдела"
+
+msgid "User Reports"
+msgstr "Пользовательские отчеты"
+
+msgid "Satisfaction Report"
+msgstr "Отчет об удовлетворенности"
+
+msgid "Email Piping"
+msgstr "Электронная почта"
+
+msgid "Priorities"
+msgstr "Приоритеты"
+
+msgid "Add Priority"
+msgstr "Добавить приоритет"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Erase Data Requests"
+msgstr "Удалить запросы данных"
+
+msgid "Feedback Fields"
+msgstr "Поля обратной связи"
+
+msgid "System Emails"
+msgstr "Системные электронные письма"
+
+msgid "Premade Responses"
+msgstr "Готовые ответы"
+
+msgid "Banned Email Log List"
+msgstr "Список журналов запрещенных адресов электронной почты"
+
+msgid "Ban Emails"
+msgstr "Запретить электронные письма"
+
+msgid "Emial CC"
+msgstr "Электронная почта CC"
+
+msgid "Add Emial CC"
+msgstr "Добавить электронную почту CC"
+
+msgid "Add Email CC"
+msgstr "Добавить электронную почту CC"
+
+msgid "Email Templates"
+msgstr "Шаблоны электронной почты"
+
+msgid "New Ticket"
+msgstr "Новый билет"
+
+msgid "Agent Ticket"
+msgstr "Билет агента"
+
+msgid "New Agent"
+msgstr "Новый агент"
+
+msgid "Reassign Ticket"
+msgstr "Переназначить билет"
+
+msgid "Close Ticket"
+msgstr "Закрыть тикет"
+
+msgid "Delete Ticket"
+msgstr "Удалить билет"
+
+msgid "Mark Overdue"
+msgstr "Марк Просроченный"
+
+msgid "Ban Email"
+msgstr "Запретить электронную почту"
+
+msgid "Ban email try to create ticket"
+msgstr "Запретить электронную почту, попытаться создать заявку"
+
+msgid "Department Transfer"
+msgstr "Перевод отдела"
+
+msgid "Ban Email and Close Ticket"
+msgstr "Запретить электронную почту и закрыть тикет"
+
+msgid "Unban Email"
+msgstr "Разблокировать электронную почту"
+
+msgid "Response Ticket"
+msgstr "Ответный билет"
+
+msgid "Reply Ticket"
+msgstr "Ответный билет"
+
+msgid "New Ticket Admin Alert"
+msgstr "Новое оповещение администратора билетов"
+
+msgid "In Progress Ticket"
+msgstr "Билет в процессе"
+
+msgid "Ticket priority is changed by"
+msgstr "Приоритет заявки изменяется на"
+
+msgid "New Mail Received"
+msgstr "Получено новое письмо"
+
+msgid "New Mail Message Received"
+msgstr "Получено новое почтовое сообщение"
+
+msgid "Feedback Email To User"
+msgstr "Обратная связь по электронной почте пользователю"
+
+msgid "User Reply On Closed Ticket"
+msgstr "Ответ пользователя на закрытую заявку"
+
+msgid "help"
+msgstr "помощь"
+
+msgid "Select Form"
+msgstr "Выберите форму"
+
+msgid "No Record Found"
+msgstr "Запись не найдена"
+
+msgid "Log out"
+msgstr "Выйти"
+
+msgid "iframe"
+msgstr "iframe"
+
+msgid "Sorry"
+msgstr "Извини"
+
+msgid "There was no record found"
+msgstr "Запись не найдена"
+
+msgid "Sorry!"
+msgstr "Извини!"
+
+msgid "There was no record found..."
+msgstr "Записи не найдено..."
+
+msgid "Access Denied"
+msgstr "Доступ запрещен"
+
+msgid "You have no permission to access this page"
+msgstr "У вас нет разрешения на доступ к этой странице"
+
+msgid "Register"
+msgstr "регистр"
+
+msgid "User is not allowed to access this page."
+msgstr "Пользователю не разрешен доступ к этой странице."
+
+msgid "You are already Logged In."
+msgstr "Вы уже вошли в систему."
+
+msgid "Access Denied!"
+msgstr "Доступ запрещен!"
+
+msgid "Your account has been disabled, please contact the administrator."
+msgstr "Ваш аккаунт отключен, обратитесь к администратору."
+
+msgid "You are not logged In"
+msgstr "Вы не авторизованы"
+
+msgid "To access the page, please login"
+msgstr "Для доступа к странице, пожалуйста, авторизуйтесь"
+
+msgid "User is not allowed to view this Ticket"
+msgstr "Пользователю не разрешено просматривать этот билет."
+
+msgid "You have already given the feedback for this ticket."
+msgstr "Вы уже оставили отзыв об этом билете."
+
+msgid "Ticket not found...!"
+msgstr "Билет не найден...!"
+
+msgid "User is not allowed to view this page"
+msgstr "Пользователю не разрешено просматривать эту страницу"
+
+msgid "Thank you so much for your feedback"
+msgstr "Большое спасибо за ваш отзыв"
+
+msgid "Majestic Support Control Panel"
+msgstr "Панель управления Majestic Support"
+
+msgid "Slug"
+msgstr "Слизень"
+
+msgid "System Error"
+msgstr "Системная ошибка"
+
+msgid "User Fields"
+msgstr "Пользовательские поля"
+
+msgid "Ban list log"
+msgstr "Журнал бан-листов"
+
+msgid "Field Ordering"
+msgstr "Порядок полей"
+
+msgid "Post Installation"
+msgstr "После установки"
+
+msgid "Emailcc"
+msgstr "Электронная почтаcc"
+
+msgid "Help"
+msgstr "Помощь"
+
+msgid "Premium Addon"
+msgstr "Премиум аддон"
+
+msgid "Username / password is incorrect"
+msgstr "Имя пользователя/пароль неверны"
+
+msgid "Username already taken"
+msgstr "Данное имя пользователя уже занято"
+
+msgid "Invalid username"
+msgstr "Неверное имя пользователя"
+
+msgid "Please enter a username"
+msgstr "Пожалуйста введите имя пользователя"
+
+msgid "Invalid email"
+msgstr "Неверный адрес электронной почты"
+
+msgid "Email already registered"
+msgstr "Электронная почта уже зарегистрирована"
+
+msgid "Please enter a password"
+msgstr "Пожалуйста, введите пароль"
+
+msgid "Passwords do not match"
+msgstr "Пароли не совпадают"
+
+msgid "Invalid captcha"
+msgstr "неверная капча"
+
+msgid "User has been successfully registered"
+msgstr "Пользователь успешно зарегистрирован"
+
+msgid "Could not subscribe to the newsletter"
+msgstr "Не удалось подписаться на рассылку"
+
+msgid "You have successfully subscribed to the newsletter"
+msgstr "Вы успешно подписались на рассылку"
+
+msgid "Majestic Support Pages"
+msgstr "Страницы поддержки Majestic"
+
+msgid "Majestic Support control panel"
+msgstr "Панель управления Majestic Support"
+
+msgid "Add ticket"
+msgstr "Добавить билет"
+
+msgid "My tickets"
+msgstr "Мои билеты"
+
+msgid "List downloads"
+msgstr "Список загрузок"
+
+msgid "Latest downloads"
+msgstr "Последние загрузки"
+
+msgid "Popular downloads"
+msgstr "Популярные загрузки"
+
+msgid "List knowledge base"
+msgstr "Список базы знаний"
+
+msgid "Latest knowledge base"
+msgstr "Последняя база знаний"
+
+msgid "Popular knowledge base"
+msgstr "Популярная база знаний"
+
+msgid "List FAQ`s"
+msgstr "Список часто задаваемых вопросов"
+
+msgid "Latest FAQ`s"
+msgstr "Последние часто задаваемые вопросы"
+
+msgid "Popular FAQ`s"
+msgstr "Популярные часто задаваемые вопросы"
+
+msgid "List announcements"
+msgstr "Список объявлений"
+
+msgid "Latest announcements"
+msgstr "Последние объявления"
+
+msgid "Popular announcements"
+msgstr "Популярные объявления"
+
+msgid "View"
+msgstr "Вид"
+
+msgid "Form submission failed!"
+msgstr "Отправка формы не удалась!"
+
+msgid "You have not answered all required fields"
+msgstr "Вы не ответили на все обязательные поля"
+
+msgid "You have not given a correct time"
+msgstr "Вы указали не правильное время"
+
+msgid "You have not given a correct e-mail address"
+msgstr "Вы указали не правильный адрес электронной почты"
+
+msgid "You have not given a correct phone number"
+msgstr "Вы указали не правильный номер телефона"
+
+msgid "You have not given a correct answer to the security question"
+msgstr "Вы не дали правильный ответ на секретный вопрос"
+
+msgid "You have not given a correct date"
+msgstr "Вы указали не правильную дату"
+
+msgid "The input value must be between "
+msgstr "Входное значение должно находиться между"
+
+msgid " characters"
+msgstr "персонажи"
+
+msgid "The input value is longer than "
+msgstr "Входное значение длиннее, чем"
+
+msgid "The input value is shorter than "
+msgstr "Входное значение короче, чем"
+
+msgid "Input values could not be confirmed"
+msgstr "Входные значения не могут быть подтверждены"
+
+msgid "Incorrect domain value"
+msgstr "Неверное значение домена"
+
+msgid "The input value is not a correct URL"
+msgstr "Входное значение не является правильным URL-адресом."
+
+msgid "The input value is incorrect"
+msgstr "Введенное значение неверно"
+
+msgid "The input value was not a correct number"
+msgstr "Введенное значение не было правильным числом"
+
+msgid "Your social security number was incorrect"
+msgstr "Ваш номер социального страхования указан неверно"
+
+msgid "Incorrect UK VAT Number"
+msgstr "Неправильный номер НДС в Великобритании"
+
+msgid "The password isn't strong enough"
+msgstr "Пароль недостаточно надежный"
+
+msgid "You have to choose at least "
+msgstr "Вам придется выбрать как минимум"
+
+msgid " answers"
+msgstr "ответы"
+
+msgid "The input value can only contain alphanumeric characters "
+msgstr "Входное значение может содержать только буквенно-цифровые символы."
+
+msgid " and "
+msgstr "и"
+
+msgid "The file you are trying to upload is too large"
+msgstr "Файл, который вы пытаетесь загрузить, слишком велик"
+
+msgid "The file you are trying to upload is of the wrong type"
+msgstr "Файл, который вы пытаетесь загрузить, имеет неправильный тип."
+
+msgid "Please choose between "
+msgstr "Пожалуйста, выберите между"
+
+msgid "Please choose at least "
+msgstr "Пожалуйста, выберите хотя бы"
+
+msgid "Please choose a maximum of "
+msgstr "Пожалуйста, выберите максимум"
+
+msgid " item(s)"
+msgstr "предметы)"
+
+msgid "The credit card number is not correct"
+msgstr "Номер кредитной карты неверен"
+
+msgid "The CVV number was not correct"
+msgstr "Номер CVV указан неверно."
+
+msgid "Lost your password"
+msgstr "Забыли пароль"
+
+msgid "Activated"
+msgstr "Активировано"
+
+msgid "Active Now"
+msgstr "Активно в настоящее время"
+
+msgid "Install Now"
+msgstr "Установите сейчас"
+
+msgid "Pagination default page size not saved"
+msgstr "Размер страницы по умолчанию для пагинации не сохранен"
+
+msgid "Data directory cannot empty."
+msgstr "Каталог данных не может быть пустым."
+
+msgid "Data directory is not proper."
+msgstr "Каталог данных неправильный."
+
+msgid "Data directory is not writable."
+msgstr "Каталог данных недоступен для записи."
+
+msgid "System slug not be empty."
+msgstr "Системный пул не должен быть пустым."
+
+msgid "System slug is conflicted with post or page slug."
+msgstr "Системный ярлык конфликтует с ярлыком сообщения или страницы."
+
+msgid "The setting has been stored"
+msgstr "Настройка сохранена"
+
+msgid "The setting not has been stored"
+msgstr "Настройка не сохранена"
+
+msgid "Days"
+msgstr "Дни"
+
+msgid "Hours"
+msgstr "Часы"
+
+msgid "Google Recaptcha"
+msgstr "Google Рекапча"
+
+msgid "Own Captcha"
+msgstr "Собственная капча"
+
+msgid "Any"
+msgstr "Любой"
+
+msgid "Addition"
+msgstr "Добавление"
+
+msgid "Subtraction"
+msgstr "Вычитание"
+
+msgid "Recaptcha Version 2"
+msgstr "Рекапча Версия 2"
+
+msgid "Recaptcha Version 3"
+msgstr "Рекапча Версия 3"
+
+msgid "Show"
+msgstr "Показывать"
+
+msgid "Hide"
+msgstr "Скрывать"
+
+msgid "Majestic Support Login Page"
+msgstr "Страница входа в службу поддержки Majestic"
+
+msgid "WordPress Default Login Page"
+msgstr "Страница входа в WordPress по умолчанию"
+
+msgid "Custom"
+msgstr "Обычай"
+
+msgid "Majestic Support Register Page"
+msgstr "Страница регистрации поддержки Majestic"
+
+msgid "Top left"
+msgstr "Верхний левый"
+
+msgid "Top right"
+msgstr "В правом верхнем углу"
+
+msgid "Middle left"
+msgstr "Средний левый"
+
+msgid "Middle right"
+msgstr "Средний правый"
+
+msgid "Bottom left"
+msgstr "Внизу слева"
+
+msgid "Bottom right"
+msgstr "Внизу справа"
+
+msgid "Random"
+msgstr "Случайный"
+
+msgid "Sequence"
+msgstr "Последовательность"
+
+msgid "Ascending"
+msgstr "Восходящий"
+
+msgid "Descending"
+msgstr "По убыванию"
+
+msgid "Single"
+msgstr "Одинокий"
+
+msgid "Multiple"
+msgstr "Несколько"
+
+msgid "menu"
+msgstr "меню"
+
+msgid "Select Configuration"
+msgstr "Выберите конфигурацию"
+
+msgid "General Settings"
+msgstr "общие настройки"
+
+msgid "Support Icon"
+msgstr "Значок поддержки"
+
+msgid "Ticket Settings"
+msgstr "Настройки заявки"
+
+msgid "Ticket Listing"
+msgstr "Листинг билетов"
+
+msgid "Visitor Ticket Setting"
+msgstr "Настройка билета посетителя"
+
+msgid "Email Settings"
+msgstr "Настройки электронной почты"
+
+msgid "Email Regarding Banned Users"
+msgstr "Электронная почта о заблокированных пользователях"
+
+msgid "Ticket Operations Email Setting"
+msgstr "Настройка электронной почты для операций с билетами"
+
+msgid "Agent Menu"
+msgstr "Меню агента"
+
+msgid "Dashboard Links"
+msgstr "Ссылки на панель управления"
+
+msgid "Top Menu Links"
+msgstr "Ссылки на верхнее меню"
+
+msgid "User Menu"
+msgstr "Меню пользователя"
+
+msgid "Feedback Settings"
+msgstr "Настройки обратной связи"
+
+msgid "Push Notifications"
+msgstr "Всплывающее уведомление"
+
+msgid "Firebase Notifications"
+msgstr "Уведомления Firebase"
+
+msgid "Private Credentials"
+msgstr "Частные учетные данные"
+
+msgid "Envato Validation"
+msgstr "Проверка Envato"
+
+msgid "MailChimp"
+msgstr "MailChimp"
+
+msgid "Easy Digital Downloads"
+msgstr "Простые цифровые загрузки"
+
+msgid "Social Login"
+msgstr "Социальный вход"
+
+msgid "Set the heading of your plugin"
+msgstr "Установите заголовок вашего плагина"
+
+msgid "Ticket Default Page"
+msgstr "Страница билета по умолчанию"
+
+msgid "Select Page"
+msgstr "Выбрать страницу"
+
+msgid "Data Directory"
+msgstr "Каталог данных"
+
+msgid "Set the name for your data directory"
+msgstr "Задайте имя для вашего каталога данных"
+
+msgid "Date Format"
+msgstr "Формат даты"
+
+msgid "DD-MM-YYYY"
+msgstr "ДД-ММ-ГГГГ"
+
+msgid "MM-DD-YYYY"
+msgstr "ММ-ДД-ГГГГ"
+
+msgid "YYYY-MM-DD"
+msgstr "ГГГГ-ММ-ДД"
+
+msgid "Set the default date format"
+msgstr "Установите формат даты по умолчанию"
+
+msgid "Pagination default page size"
+msgstr "Размер страницы по умолчанию для пагинации"
+
+msgid "Set the number of records per page"
+msgstr "Установите количество записей на странице"
+
+msgid "Breadcrumbs"
+msgstr "Панировочные сухари"
+
+msgid "Show or hide breadcrumbs"
+msgstr "Показать или скрыть хлебные крошки"
+
+msgid "Top Header"
+msgstr "Верхний заголовок"
+
+msgid "Show or hide top header"
+msgstr "Показать или скрыть верхний заголовок"
+
+msgid "Show count on tickets"
+msgstr "Показать счетчик на билетах"
+
+msgid "Default wp role for new users"
+msgstr "Роль wp по умолчанию для новых пользователей"
+
+msgid "Select the role you want to assign to new users"
+msgstr "Выберите роль, которую вы хотите назначить новым пользователям."
+
+msgid "No. of attachments"
+msgstr "Количество вложений"
+
+msgid "Number of attachments allowed at a time"
+msgstr "Количество вложений, разрешенных одновременно"
+
+msgid "File maximum size"
+msgstr "Максимальный размер файла"
+
+msgid "File extensions"
+msgstr "Расширения файлов"
+
+msgid "File extensions allowed to attach"
+msgstr "Расширения файлов, разрешенные для прикрепления"
+
+msgid "Set Login Link"
+msgstr "Установить ссылку для входа"
+
+msgid "Set login link default or custom"
+msgstr "Установить ссылку для входа по умолчанию или по индивидуальному заказу"
+
+msgid "Set register Link"
+msgstr "Установить ссылку на регистрацию"
+
+msgid "Screen Tag"
+msgstr "Тег экрана"
+
+msgid "Enable or disable your support icon"
+msgstr "Включить или отключить значок поддержки"
+
+msgid "Custom Image"
+msgstr "Пользовательское изображение"
+
+msgid "Set custom support image"
+msgstr "Установить собственное изображение поддержки"
+
+msgid "custom text"
+msgstr "пользовательский текст"
+
+msgid "Set custom support text"
+msgstr "Установить собственный текст поддержки"
+
+msgid "Support Icon Position"
+msgstr "Положение значка поддержки"
+
+msgid "Screen Tag Position"
+msgstr "Положение тега экрана"
+
+msgid "Select a position for your support icon"
+msgstr "Выберите положение для значка поддержки"
+
+msgid "Online"
+msgstr "В сети"
+
+msgid "Set your plugin offline for front end"
+msgstr "Установите плагин в автономном режиме для внешнего интерфейса"
+
+msgid "Offline Message"
+msgstr "Офлайн-сообщение"
+
+msgid "Set the offline message for your user"
+msgstr "Установите автономное сообщение для вашего пользователя"
+
+msgid "Woocommerce Category"
+msgstr "Категория Woocommerce"
+
+msgid "Ticket ID Prefix"
+msgstr "Префикс идентификатора билета"
+
+msgid "Set a prefix for the custom ticket ID"
+msgstr "Установите префикс для идентификатора пользовательского билета"
+
+msgid "Ticket ID sequence"
+msgstr "Последовательность идентификаторов билетов"
+
+msgid "Set the ticket ID sequentially or randomly, e.g., "
+msgstr "Устанавливайте идентификатор билета последовательно или случайным образом, например:"
+
+msgid "Pad Zeros"
+msgstr "Pad нули"
+
+msgid "To pad an integer with leading zeros to a specific length"
+msgstr "Чтобы дополнить целое число ведущими нулями до определенной длины"
+
+msgid "Ticket ID Suffix"
+msgstr "Суффикс идентификатора билета"
+
+msgid "Set the suffix for your custom ticket ID"
+msgstr "Установите суффикс для вашего индивидуального идентификатора заявки."
+
+msgid "Maximum tickets"
+msgstr "Максимальное количество билетов"
+
+msgid "Maximum ticket per user"
+msgstr "Максимальный билет на пользователя"
+
+msgid "Maximum open tickets"
+msgstr "Максимальное количество открытых билетов"
+
+msgid "Maximum number of tickets opened per user"
+msgstr "Максимальное количество заявок, открытых на одного пользователя"
+
+msgid "Reopen ticket within days"
+msgstr "Повторно открыть билет в течение нескольких дней"
+
+msgid "The ticket will reopen within the given number of days"
+msgstr "Билет откроется снова в течение указанного количества дней."
+
+msgid "Multiforms Popup For New Tickets"
+msgstr "Всплывающее окно Multiforms для новых билетов"
+
+msgid "User can print ticket"
+msgstr "Пользователь может распечатать билет"
+
+msgid "Can users print a ticket from the ticket detail or not?"
+msgstr "Могут ли пользователи распечатать билет из сведений о билете или нет?"
+
+msgid "Allow Users To Reply via Email On Closed Ticket"
+msgstr "Разрешить пользователям отвечать по электронной почте на закрытую заявку"
+
+msgid "Select whether users can reply to closed email piping tickets or not"
+msgstr "Выберите, могут ли пользователи отвечать на закрытые запросы по электронной почте или нет."
+
+msgid "Show Admin OR Agent Email On Ticket Reply"
+msgstr "Показывать адрес электронной почты администратора или агента при ответе на заявку"
+
+msgid "Show Anonymous Name On Ticket Reply"
+msgstr "Показывать анонимное имя в ответе на заявку"
+
+msgid "Ticket auto close"
+msgstr "Автоматическое закрытие билета"
+
+msgid "Ticket auto-close if user does not respond within given days"
+msgstr "Автоматическое закрытие заявки, если пользователь не отвечает в течение заданных дней"
+
+msgid "Show ticket delete button"
+msgstr "Показать кнопку удаления билета"
+
+msgid "Select whether users can see the ticket delete button"
+msgstr "Выберите, будут ли пользователи видеть кнопку удаления заявки."
+
+msgid "Ticket close reason Type"
+msgstr "Причина закрытия заявки Тип"
+
+msgid "Select whether users can save single or multiple reasons"
+msgstr "Выберите, могут ли пользователи сохранять одну или несколько причин"
+
+msgid "Maximum Record For Smart Reply"
+msgstr "Максимальная запись для интеллектуального ответа"
+
+msgid "Set the number of replies to show"
+msgstr "Установите количество отображаемых ответов"
+
+msgid "New ticket message"
+msgstr "Новое сообщение в билете"
+
+msgid "This message will show on the new ticket"
+msgstr "Это сообщение будет отображаться в новом билете."
+
+msgid "Ticket listing ordering"
+msgstr "Заказ билетов"
+
+msgid "Set default ordering for ticket listing"
+msgstr "Установить порядок по умолчанию для списка билетов"
+
+msgid "Ticket listing sorting"
+msgstr "Сортировка списка билетов"
+
+msgid "Set default sorting for ticket listing"
+msgstr "Установить сортировку по умолчанию для списка билетов"
+
+msgid "Closed info. on admin closed tickets"
+msgstr "Закрытая информация. по закрытым билетам администратора"
+
+msgid "Closed info. on agent closed tickets"
+msgstr "Закрытая информация. по закрытым билетам агента"
+
+msgid "Closed info. on user closed tickets"
+msgstr "Закрытая информация. по закрытым заявкам пользователей"
+
+msgid "Assigned info. on admin tickets"
+msgstr "Назначенная информация. по административным билетам"
+
+msgid "Assigned info. on agent tickets"
+msgstr "Назначенная информация. по агентским билетам"
+
+msgid "Assigned info. on user tickets"
+msgstr "Назначенная информация. по билетам пользователей"
+
+msgid "Visitors can create tickets"
+msgstr "Посетители могут создавать билеты"
+
+msgid "Allow visitors to create tickets or not"
+msgstr "Разрешить посетителям создавать билеты или нет"
+
+msgid "Visitor ticket creation message"
+msgstr "Сообщение о создании билета посетителя"
+
+msgid "This text will appear whenever a visitor creates a ticket"
+msgstr "Этот текст будет появляться всякий раз, когда посетитель создает билет."
+
+msgid "Default alert email"
+msgstr "Электронная почта для оповещений по умолчанию"
+
+msgid "Default admin email"
+msgstr "Адрес электронной почты администратора по умолчанию"
+
+msgid "Admin email address to receive emails"
+msgstr "Адрес электронной почты администратора для получения писем"
+
+msgid "Department Email"
+msgstr "Электронная почта отдела"
+
+msgid "Send email to all departments on ticket create"
+msgstr "Отправьте электронное письмо во все отделы по поводу создания заявки."
+
+msgid "Mail to admin"
+msgstr "Напишите администратору"
+
+msgid "Send an email to the admin when a banned email tries to create a ticket"
+msgstr "Отправьте электронное письмо администратору, когда запрещенное электронное письмо попытается создать заявку."
+
+msgid "Admin"
+msgstr "Админ"
+
+msgid "New ticket"
+msgstr "Новый билет"
+
+msgid "Ticket reassign"
+msgstr "Переназначить билет"
+
+msgid "Ticket close"
+msgstr "Билет закрыт"
+
+msgid "Ticket delete"
+msgstr "Удаление билета"
+
+msgid "Ticket marked as overdue"
+msgstr "Билет помечен как просроченный"
+
+msgid "Ticket ban email"
+msgstr "Письмо о запрете билета"
+
+msgid "Ticket department transfer"
+msgstr "Переезд билетного отдела"
+
+msgid "Ticket reply User"
+msgstr "Ответ на заявку Пользователь"
+
+msgid "Ticket Response Agent"
+msgstr "Агент ответа на заявки"
+
+msgid "Ticket ban email and close ticket"
+msgstr "Письмо о блокировке билета и закрытие билета"
+
+msgid "Ticket unban email"
+msgstr "Билет на разблокировку электронной почты"
+
+msgid "Ticket lock"
+msgstr "Замок билета"
+
+msgid "Ticket unlock"
+msgstr "Разблокировка билета"
+
+msgid "Ticket Change Priority"
+msgstr "Приоритет изменения заявки"
+
+msgid "Mark Ticket In Progress"
+msgstr "Отметить заявку в процессе"
+
+msgid "Reply To A Closed Ticket By Email"
+msgstr "Ответ на закрытый тикет по электронной почте"
+
+msgid "Send Feedback Email To User"
+msgstr "Отправить отзыв по электронной почте пользователю"
+
+msgid "Open Ticket"
+msgstr "Открыть билет"
+
+msgid "Department reports"
+msgstr "Отчеты отдела"
+
+msgid "Login/Logout Button"
+msgstr "Кнопка входа/выхода"
+
+msgid "Ticket Total Count"
+msgstr "Общее количество билетов"
+
+msgid "Erase Agent Data"
+msgstr "Удалить данные агента"
+
+msgid "Export Ticket"
+msgstr "Экспортный билет"
+
+msgid "Latest Downloads"
+msgstr "Последние загрузки"
+
+msgid "Latest Announcements"
+msgstr "Последние объявления"
+
+msgid "Latest Knowledge Base"
+msgstr "Последняя база знаний"
+
+msgid "Latest FAQs"
+msgstr "Последние часто задаваемые вопросы"
+
+msgid "Home"
+msgstr "Дом"
+
+msgid "Check Ticket Status"
+msgstr "Проверить статус билета"
+
+msgid "Registration"
+msgstr "Постановка на учет"
+
+msgid "Erase User Data"
+msgstr "Удалить данные пользователя"
+
+msgid "Feedback Email Delay Type"
+msgstr "Тип задержки по электронной почте обратной связи"
+
+msgid "Select delay type for feedback email"
+msgstr "Выберите тип задержки для отправки отзыва по электронной почте"
+
+msgid "Feedback Email Delay"
+msgstr "Задержка по электронной почте обратной связи"
+
+msgid "Success message after submitting feedback"
+msgstr "Сообщение об успешном завершении отправки отзыва"
+
+msgid "This text will appear whenever anyone submits feedback"
+msgstr "Этот текст будет появляться всякий раз, когда кто-либо отправляет отзыв."
+
+msgid "Login with facebook"
+msgstr "Войти с Facebook"
+
+msgid "Facebook user can log in to Majestic Support"
+msgstr "Пользователь Facebook может войти в службу поддержки Majestic"
+
+msgid "Secret"
+msgstr "Секрет"
+
+msgid "secret key"
+msgstr "Секретный ключ"
+
+msgid "API Key"
+msgstr "API-ключ"
+
+msgid "The Facebook app requires an API key"
+msgstr "Приложению Facebook требуется ключ API"
+
+msgid "Login with linkedin"
+msgstr "Войти через linkedin"
+
+msgid "Linkedin users can log in to Majestic Support"
+msgstr "Пользователи Linkedin могут войти в службу поддержки Majestic."
+
+msgid "The LinkedIn app requires an API key"
+msgstr "Приложению LinkedIn требуется ключ API"
+
+msgid "UTF Auto Switch"
+msgstr "Автоматическое переключение UTF"
+
+msgid "Create User via email"
+msgstr "Создать пользователя по электронной почте"
+
+msgid "Click here to insert Install."
+msgstr "Нажмите здесь, чтобы вставить Install."
+
+msgid "Majestic Support Desktop Notifications plugin is not active."
+msgstr "Плагин уведомлений Majestic Support Desktop не активен."
+
+msgid "Find and add the Firebase API keys."
+msgstr "Найдите и добавьте ключи API Firebase."
+
+msgid "Click here to get Firebase API keys."
+msgstr "Нажмите здесь, чтобы получить ключи API Firebase."
+
+msgid "User's API Key"
+msgstr "API-ключ пользователя"
+
+msgid "Firebase API key for the front user"
+msgstr "Ключ API Firebase для главного пользователя"
+
+msgid "Auth Domain"
+msgstr "Домен аутентификации"
+
+msgid "Firebase Auth Domain"
+msgstr "Домен аутентификации Firebase"
+
+msgid "Database Url"
+msgstr "URL-адрес базы данных"
+
+msgid "Firebase Database URL"
+msgstr "URL-адрес базы данных Firebase"
+
+msgid "Project ID"
+msgstr "Идентификатор проекта"
+
+msgid "Firebase Project ID"
+msgstr "Идентификатор проекта Firebase"
+
+msgid "Bucket Storage"
+msgstr "Ведро для хранения"
+
+msgid "Firebase Bucket Storage"
+msgstr "Ведро-хранилище Firebase"
+
+msgid "Message Sender ID"
+msgstr "Идентификатор отправителя сообщения"
+
+msgid "Firebase Message Sender ID"
+msgstr "Идентификатор отправителя сообщения Firebase"
+
+msgid "Private Server Key"
+msgstr "Частный ключ сервера"
+
+msgid "Firebase Server Key"
+msgstr "Ключ сервера Firebase"
+
+msgid "Logo Image for Desktop Notifications"
+msgstr "Изображение логотипа для уведомлений на рабочем столе"
+
+msgid "Remove Image"
+msgstr "Удалить изображение"
+
+msgid "Remove Logo"
+msgstr "Удалить логотип"
+
+msgid "No Firebase Notification Logo"
+msgstr "Нет логотипа уведомления Firebase"
+
+msgid "Secret Key"
+msgstr "Секретный ключ"
+
+msgid "Second Level Security"
+msgstr "Второй уровень безопасности"
+
+msgid "For enhanced security, change the encryption method in %s on line %s"
+msgstr "Для повышения безопасности измените метод шифрования в %s в строке %s."
+
+msgid "Api Key"
+msgstr "API-ключ"
+
+msgid "Enter Envato api key "
+msgstr "Введите API-ключ Envato"
+
+msgid "Click here to generate an api key"
+msgstr "Нажмите здесь, чтобы сгенерировать ключ API"
+
+msgid "License Mandatory"
+msgstr "Лицензия обязательна"
+
+msgid "Product ID"
+msgstr "Код товара"
+
+msgid "A comma-separated list of Envato product ids"
+msgstr "Список идентификаторов продуктов Envato, разделенных запятыми."
+
+msgid "Enter MailChimp API key "
+msgstr "Введите ключ API MailChimp"
+
+msgid "Audience ID"
+msgstr "Идентификатор аудитории"
+
+msgid "Find Audience ID in your MailChimp account"
+msgstr "Найдите идентификатор аудитории в своей учетной записи MailChimp."
+
+msgid "Enable double opt-in"
+msgstr "Включить двойное согласие"
+
+msgid "You must also enable double opt-in in your MailChimp account"
+msgstr "Вы также должны включить двойную подписку в своей учетной записи MailChimp."
+
+msgid "Welcome email"
+msgstr "Приветственное письмо"
+
+msgid "You can enable Final Welcome Email in your MailChimp account"
+msgstr "Вы можете включить последнее приветственное письмо в своей учетной записи MailChimp."
+
+msgid "Verify License On Ticket Creation"
+msgstr "Проверка лицензии при создании заявки"
+
+msgid "Captcha Setting"
+msgstr "Настройка капчи"
+
+msgid "Show captcha on registration form"
+msgstr "Показывать капчу в форме регистрации"
+
+msgid "Select whether you want to show captcha on the registration form or not"
+msgstr "Выберите, хотите ли вы отображать капчу в форме регистрации или нет."
+
+msgid "Show captcha on the visitor ticket form"
+msgstr "Показывать капчу в форме визитного билета"
+
+msgid "Show captcha when a visitor wants to create a ticket"
+msgstr "Показывать капчу, когда посетитель хочет создать билет"
+
+msgid "Captcha selection"
+msgstr "Выбор капчи"
+
+msgid "Which captcha do you want to add?"
+msgstr "Какую капчу вы хотите добавить?"
+
+msgid "Google reCaptcha"
+msgstr "Google реКапча"
+
+msgid "Google ReCaptcha version"
+msgstr "Версия Google ReCaptcha"
+
+msgid "Select the Google ReCaptcha version"
+msgstr "Выберите версию Google ReCaptcha"
+
+msgid "Google ReCaptcha site key"
+msgstr "Ключ сайта Google ReCaptcha"
+
+msgid "Please enter the site key for Google ReCaptcha from"
+msgstr "Пожалуйста, введите ключ сайта для Google ReCaptcha с"
+
+msgid "Google ReCaptcha secret key"
+msgstr "Секретный ключ Google ReCaptcha"
+
+msgid "Please enter the secret key for Google ReCaptcha from"
+msgstr "Пожалуйста, введите секретный ключ для Google ReCaptcha с"
+
+msgid "Own captcha calculation type"
+msgstr "Собственный тип расчета капчи"
+
+msgid "Select the calculation type (addition or subtraction)"
+msgstr "Выберите тип расчета (сложение или вычитание)"
+
+msgid "Own captcha operands"
+msgstr "Собственные операнды капчи"
+
+msgid "Select the total number of operands to be given"
+msgstr "Выберите общее количество операндов, которые будут заданы."
+
+msgid "Positive Answer Upon Own Captcha Subtraction"
+msgstr "Положительный ответ при вычитании собственной капчи"
+
+msgid "watch video"
+msgstr "смотреть видео"
+
+msgid "Add"
+msgstr "Добавлять"
+
+msgid "Ticket via email"
+msgstr "Билет по электронной почте"
+
+msgid "OR"
+msgstr "ИЛИ"
+
+msgid "Sorry the cron job didnot work"
+msgstr "Извините, задание cron не сработало"
+
+msgid "Update ticket status"
+msgstr "Обновить статус заявки"
+
+msgid "You cannot use this email, it is used in email piping"
+msgstr "Вы не можете использовать этот адрес электронной почты, он используется в канале электронной почты."
+
+msgid "The department has been stored"
+msgstr "Отделение сохранено"
+
+msgid "The department has not been stored"
+msgstr "Отделение не сохранено"
+
+msgid "The department has been deleted"
+msgstr "Отдел удален"
+
+msgid "The department has not been deleted"
+msgstr "Отделение не удалено"
+
+msgid "The department in use cannot be delete"
+msgstr "Используемый отдел нельзя удалить."
+
+msgid "Outgoing Email"
+msgstr "Исходящая электронная почта"
+
+msgid "Select Email"
+msgstr "Выберите электронную почту"
+
+msgid "Tickets of this department will receive emails from this email"
+msgstr "Билеты этого отдела будут получать электронные письма с этого адреса электронной почты."
+
+msgid "Receive Email"
+msgstr "Получить почту"
+
+msgid "Default with auto assign"
+msgstr "По умолчанию с автоматическим назначением"
+
+msgid "Save Department"
+msgstr "Отдел спасения"
+
+msgid "Add New Email"
+msgstr "Добавить новый адрес электронной почты"
+
+msgid "The user of this department will receive an email with the new ticket"
+msgstr "Пользователь этого отдела получит электронное письмо с новым билетом."
+
+msgid "Outgoing"
+msgstr "Исходящий"
+
+msgid "Click here to give us feedback"
+msgstr "Нажмите здесь, чтобы оставить нам отзыв"
+
+msgid "Email Already Exist"
+msgstr "Электронная почта уже существует"
+
+msgid "The email has been stored"
+msgstr "Электронная почта сохранена"
+
+msgid "The email has not been stored"
+msgstr "Электронная почта не сохранена"
+
+msgid "Ticket History"
+msgstr "История билетов"
+
+msgid "False"
+msgstr "ЛОЖЬ"
+
+msgid "True"
+msgstr "Истинный"
+
+msgid "Send Email By"
+msgstr "Отправить электронное письмо по"
+
+msgid "SMTP host type"
+msgstr "Тип SMTP-хоста"
+
+msgid "SMTP host"
+msgstr "SMTP-хост"
+
+msgid "SMTP Authentication"
+msgstr "SMTP-аутентификация"
+
+msgid "SMTP Secure"
+msgstr "SMTP безопасный"
+
+msgid "SMTP Port"
+msgstr "SMTP-порт"
+
+msgid "If the system doesnot respond in 30 seconds"
+msgstr "Если система не отвечает в течение 30 секунд"
+
+msgid "Auto Response"
+msgstr "Авто-ответ"
+
+msgid "Some values are not acceptable please retry"
+msgstr "Некоторые значения неприемлемы, повторите попытку."
+
+msgid "info"
+msgstr "Информация"
+
+msgid "System email used for sending email"
+msgstr "Системный адрес электронной почты, используемый для отправки электронной почты"
+
+msgid "Required Fields are not filled"
+msgstr "Обязательные поля не заполнены"
+
+msgid "Ban Email Try To Create Ticket"
+msgstr "Запретить электронную почту. Попробуйте создать заявку."
+
+msgid "Ticket Priority Is Changed By"
+msgstr "Приоритет заявки изменен"
+
+msgid "Data Deleted"
+msgstr "Данные удалены"
+
+msgid "Body"
+msgstr "Тело"
+
+msgid "Parameters"
+msgstr "Параметры"
+
+msgid "Tracking ID"
+msgstr "Идентификатор отслеживания"
+
+msgid "Ticket URL"
+msgstr "URL-адрес заявки"
+
+msgid "Ticket Priority"
+msgstr "Приоритет билетов"
+
+msgid "Department title"
+msgstr "Название отдела"
+
+msgid "Group Title"
+msgstr "Название группы"
+
+msgid "Agent name"
+msgstr "Имя агента"
+
+msgid "Help topic title"
+msgstr "Название темы помощи"
+
+msgid "Feedback URL"
+msgstr "URL-адрес обратной связи"
+
+msgid "Ticket Subject"
+msgstr "Тема заявки"
+
+msgid "Ticket Tracking ID"
+msgstr "Идентификатор отслеживания билета"
+
+msgid "Close Date"
+msgstr "Дата закрытия"
+
+msgid "Save Email Template"
+msgstr "Сохранить шаблон электронного письма"
+
+msgid "Note:"
+msgstr "Примечание:"
+
+msgid "Features marked with"
+msgstr "Особенности, отмеченные значком"
+
+msgid "are only available with its own addon."
+msgstr "доступны только со своим собственным аддоном."
+
+msgid "Field mark as published"
+msgstr "Отметить поле как опубликованное"
+
+msgid "Field mark as unpublished"
+msgstr "Отметить поле как неопубликованное"
+
+msgid "Field cannot be mark as published"
+msgstr "Поле нельзя пометить как опубликованное"
+
+msgid "Field mark as required"
+msgstr "Отметка поля по необходимости"
+
+msgid "Field mark as not required"
+msgstr "Отметить поле как необязательное"
+
+msgid "Field ordering down"
+msgstr "Порядок полей вниз"
+
+msgid "Field ordering up"
+msgstr "Заказ полей"
+
+msgid "Parent field has not been stored"
+msgstr "Родительское поле не сохранено"
+
+msgid "Please Insert At least one value for every option"
+msgstr "Пожалуйста, введите хотя бы одно значение для каждого параметра."
+
+msgid "Child fields has not been stored"
+msgstr "Дочерние поля не сохранены"
+
+msgid "Field has not been stored"
+msgstr "Поле не сохранено"
+
+msgid "Field has been stored"
+msgstr "Поле сохранено"
+
+msgid "Field has been updated"
+msgstr "Поле обновлено"
+
+msgid "Parent Field"
+msgstr "Родительское поле"
+
+msgid "Edit Field"
+msgstr "Редактировать поле"
+
+msgid "Field Title"
+msgstr "Название поля"
+
+msgid "User Published"
+msgstr "Опубликовано пользователем"
+
+msgid "Visitor Published"
+msgstr "Посетитель Опубликовано"
+
+msgid "Required"
+msgstr "Необходимый"
+
+msgid "User Search"
+msgstr "Поиск пользователей"
+
+msgid "Show On Listing"
+msgstr "Показать в объявлении"
+
+msgid "Advanced"
+msgstr "Передовой"
+
+msgid "Field has not been deleted"
+msgstr "Поле не удалено"
+
+msgid "Field has been deleted"
+msgstr "Поле удалено"
+
+msgid "No response found"
+msgstr "Ответ не найден"
+
+msgid "Equal"
+msgstr "Равный"
+
+msgid "Not Equal"
+msgstr "Не равный"
+
+msgid "Text Field"
+msgstr "Текстовое поле"
+
+msgid "Check Box"
+msgstr "Флажок"
+
+msgid "Drop Down"
+msgstr "Падать"
+
+msgid "Text Area"
+msgstr "Текстовая область"
+
+msgid "Radio Button"
+msgstr "Переключатель"
+
+msgid "Upload File"
+msgstr "Загрузить файл"
+
+msgid "Multi Select"
+msgstr "Выбор из нескольких вариантов"
+
+msgid "Admin Only"
+msgstr "Только администратор"
+
+msgid "Terms and Conditions"
+msgstr "Условия и положения"
+
+msgid "Dependent Field"
+msgstr "Зависимое поле"
+
+msgid "Field Type"
+msgstr "Тип поля"
+
+msgid "Field Size"
+msgstr "Размер поля"
+
+msgid "Max Length"
+msgstr "Максимальная длина"
+
+msgid "Columns"
+msgstr "Столбцы"
+
+msgid "Rows"
+msgstr "Строки"
+
+msgid "Select Parent"
+msgstr "Выберите родителя"
+
+msgid "Select Child"
+msgstr "Выбрать ребенка"
+
+msgid "Select Condition"
+msgstr "Выберите условие"
+
+msgid "To use this feature, please fill in the above three fields."
+msgstr "Чтобы использовать эту функцию, пожалуйста, заполните три поля выше."
+
+msgid "Use the table below to add new values"
+msgstr "Используйте таблицу ниже, чтобы добавить новые значения"
+
+msgid "Add Value"
+msgstr "Добавить значение"
+
+msgid "Terms and Conditions Text"
+msgstr "Текст условий использования"
+
+msgid "Terms and Conditions Link Type"
+msgstr "Условия и положения Тип ссылки"
+
+msgid "Direct Link"
+msgstr "Прямая ссылка"
+
+msgid "Wordpress Page"
+msgstr "Страница WordPress"
+
+msgid "Select Link Type"
+msgstr "Выберите тип ссылки"
+
+msgid "Terms and Conditions Link"
+msgstr "Условия использования Ссылка"
+
+msgid "Terms and Conditions Page"
+msgstr "Страница «Правила и условия»"
+
+msgid "Select Wordpress page"
+msgstr "Выберите страницу Wordpress"
+
+msgid "Save Field"
+msgstr "Сохранить поле"
+
+msgid "User Publish"
+msgstr "Пользовательская публикация"
+
+msgid "Visitor Publish"
+msgstr "Посетитель Публикация"
+
+msgid "Published"
+msgstr "Опубликовано"
+
+msgid "Unpublished"
+msgstr "Неопубликовано"
+
+msgid "Not required"
+msgstr "Не требуется"
+
+msgid "users popup"
+msgstr "всплывающее окно пользователей"
+
+msgid "Can Not Unpublished"
+msgstr "Невозможно отменить публикацию"
+
+msgid "good"
+msgstr "хороший"
+
+msgid "can not mark as not required"
+msgstr "не могу отметить как необязательный"
+
+msgid "Cannot unpublished field"
+msgstr "Невозможно неопубликовать поле"
+
+msgid "Please fill required fields."
+msgstr "Пожалуйста, заполните обязательные поля."
+
+msgid "User Data"
+msgstr "Данные пользователя"
+
+msgid "Erasing data request has been stored"
+msgstr "Запрос на удаление данных сохранен."
+
+msgid "Failed while storing"
+msgstr "Не удалось сохранить"
+
+msgid "Erase data request withdrawn"
+msgstr "Запрос на удаление данных отозван"
+
+msgid "Failed while performing action"
+msgstr "Не удалось выполнить действие"
+
+msgid "User identifying data erased"
+msgstr "Данные, идентифицирующие пользователя, удалены."
+
+msgid "User data Deleted"
+msgstr "Данные пользователя удалены"
+
+msgid "Export your data"
+msgstr "Экспортируйте свои данные"
+
+msgid "You have filed a request to remove your data."
+msgstr "Вы подали запрос на удаление ваших данных."
+
+msgid "To withdraw erases data request"
+msgstr "При выводе стирается запрос данных"
+
+msgid "Request the removal of data from the system."
+msgstr "Запросить удаление данных из системы."
+
+msgid "Field Text"
+msgstr "Текст поля"
+
+msgid "Link Type"
+msgstr "Тип ссылки"
+
+msgid "Link Page"
+msgstr "Страница ссылки"
+
+msgid "User Email"
+msgstr "Электронная почта пользователя"
+
+msgid "Request Status"
+msgstr "Статус запроса"
+
+msgid "Awaiting response"
+msgstr "В ожидании ответа"
+
+msgid "Erased identifying data"
+msgstr "Утеряны идентификационные данные"
+
+msgid "Deleted"
+msgstr "Удалено"
+
+msgid "Erase identifying data"
+msgstr "Стереть идентифицирующие данные"
+
+msgid "Are you sure to erase identifying data"
+msgstr "Вы уверены, что удалите идентификационные данные?"
+
+msgid "Delete data"
+msgstr "Удалить данные"
+
+msgid "Link"
+msgstr "Связь"
+
+msgid "Direct URL"
+msgstr "Прямой URL-адрес"
+
+msgid "Page Title or URL"
+msgstr "Название страницы или URL-адрес"
+
+msgid "Cannot open file"
+msgstr "Не могу открыть файл"
+
+msgid "The new theme has been applied"
+msgstr "Новая тема применена"
+
+msgid "Error applying the new theme"
+msgstr "Ошибка применения новой темы."
+
+msgid "Dir is not writable"
+msgstr "Каталог не доступен для записи"
+
+msgid "Unable to connect to the server"
+msgstr "Невозможно подключиться к серверу"
+
+msgid "Language is not installed"
+msgstr "Язык не установлен"
+
+msgid "Language directory is not writable"
+msgstr "Языковой каталог недоступен для записи"
+
+msgid "Required language is not installed but similar language like"
+msgstr "Требуемый язык не установлен, но похож на язык, например"
+
+msgid "is found in your system"
+msgstr "находится в вашей системе"
+
+msgid "Language code"
+msgstr "Код языка"
+
+msgid "Empty values"
+msgstr "Пустые значения"
+
+msgid "File is not writable"
+msgstr "Файл не доступен для записи"
+
+msgid "File successfully downloaded"
+msgstr "Файл успешно загружен"
+
+msgid "User ID"
+msgstr "ID пользователя"
+
+msgid "Ordering updated"
+msgstr "Заказ обновлен"
+
+msgid "Missing user(s) added successfully!"
+msgstr "Отсутствующие пользователи успешно добавлены!"
+
+msgid "No missing user found!"
+msgstr "Пропавший пользователь не найден!"
+
+msgid "How to translate Majestic Support"
+msgstr "Как перевести Majestic Support"
+
+msgid "arrow"
+msgstr "стрелка"
+
+msgid "Remove All"
+msgstr "Убрать все"
+
+msgid "How to create ticket"
+msgstr "Как создать билет"
+
+msgid "Add Field"
+msgstr "Добавить поле"
+
+msgid "How to setup user fields"
+msgstr "Как настроить пользовательские поля"
+
+msgid "reset"
+msgstr "перезагрузить"
+
+msgid "Reset All"
+msgstr "Сбросить все"
+
+msgid "How to set smartreply"
+msgstr "Как настроить умный ответ"
+
+msgid "Add Multiform"
+msgstr "Добавить мультиформу"
+
+msgid "How to set multiforms"
+msgstr "Как установить мультиформы"
+
+msgid "Add Conditions"
+msgstr "Добавить условия"
+
+msgid "Conditions"
+msgstr "Условия"
+
+msgid "How to add Shortcode"
+msgstr "Как добавить шорткод"
+
+msgid "How to set colors"
+msgstr "Как установить цвета"
+
+msgid "Export Data"
+msgstr "Экспорт данных"
+
+msgid "Add Email Piping"
+msgstr "Добавить канал электронной почты"
+
+msgid "Add GDPR Field"
+msgstr "Добавить поле GDPR"
+
+msgid "Add Depertment"
+msgstr "Добавить отдел"
+
+msgid "Add Knowledge base"
+msgstr "Добавить базу знаний"
+
+msgid "How to use Knowledge Base"
+msgstr "Как использовать базу знаний"
+
+msgid "How to use downloads"
+msgstr "Как использовать загрузки"
+
+msgid "How to create FAQ"
+msgstr "Как создать FAQ"
+
+msgid "How to add announcement"
+msgstr "Как добавить объявление"
+
+msgid "Add Help Topics"
+msgstr "Добавить темы справки"
+
+msgid "How to use help topic"
+msgstr "Как использовать раздел справки"
+
+msgid "How to set SMTP"
+msgstr "Как настроить SMTP"
+
+msgid "Add Banned Email"
+msgstr "Добавить запрещенную электронную почту"
+
+msgid "How to use email cc"
+msgstr "Как использовать электронную копию электронной почты"
+
+msgid "Configuration"
+msgstr "Конфигурация"
+
+msgid "Reasons"
+msgstr "Причины"
+
+msgid "About Majestic Support"
+msgstr "О поддержке Majestic"
+
+msgid "Our Products"
+msgstr "Наши продукты"
+
+msgid "Wp Job Portal"
+msgstr "Портал вакансий Wp"
+
+msgid "New Tickets"
+msgstr "Новые билеты"
+
+msgid "addon"
+msgstr "добавить"
+
+msgid "Answered Tickets"
+msgstr "Ответы на билеты"
+
+msgid "Pending Tickets"
+msgstr "Ожидающие заявки"
+
+msgid "Overdue Tickets"
+msgstr "Просроченные билеты"
+
+msgid "Update"
+msgstr "Обновлять"
+
+msgid "View Addone Status"
+msgstr "Просмотр статуса добавления"
+
+msgid "Today Tickets"
+msgstr "Билеты на сегодня"
+
+msgid "Statistics"
+msgstr "Статистика"
+
+msgid "View All Tickets"
+msgstr "Посмотреть все билеты"
+
+msgid "Quick Links"
+msgstr "Быстрые ссылки"
+
+msgid "email template"
+msgstr "шаблон электронной почты"
+
+msgid "add missing users"
+msgstr "добавить недостающих пользователей"
+
+msgid "user"
+msgstr "пользователь"
+
+msgid "Sync WP Users"
+msgstr "Синхронизировать пользователей WP"
+
+msgid "Add New Smart Reply"
+msgstr "Добавить новый умный ответ"
+
+msgid "Suggest a quick and most relevant reply to the customer's query."
+msgstr "Предложите быстрый и наиболее релевантный ответ на запрос клиента."
+
+msgid "Add Reply"
+msgstr "Добавить ответ"
+
+msgid "Add New Agent"
+msgstr "Добавить нового агента"
+
+msgid "Agent Add-on Not Installed"
+msgstr "Дополнение агента не установлено"
+
+msgid "Don't limit yourself—install the Agent addon for maximum productivity."
+msgstr "Не ограничивайте себя — установите дополнение «Агент» для максимальной производительности."
+
+msgid "agent addone"
+msgstr "дополнение агента"
+
+msgid "Install Agent Addon"
+msgstr "Установить дополнение агента"
+
+msgid "Tickets By Priority"
+msgstr "Билеты по приоритету"
+
+msgid "Install Addone"
+msgstr "Установить аддон"
+
+msgid "Add-ons"
+msgstr "Дополнения"
+
+msgid "View Details"
+msgstr "Посмотреть детали"
+
+msgid "Version"
+msgstr "Версия"
+
+msgid "Auto Close Ticket"
+msgstr "Автоматическое закрытие заявки"
+
+msgid "Private Note"
+msgstr "Частная заметка"
+
+msgid "Max Ticket"
+msgstr "Макс. билет"
+
+msgid "Max Tickets"
+msgstr "Макс. билеты"
+
+msgid "Merge Tickets"
+msgstr "Объединить заявки"
+
+msgid "Time Tracking"
+msgstr "Учет времени"
+
+msgid "User Options"
+msgstr "Параметры пользователя"
+
+msgid "Actions"
+msgstr "Действия"
+
+msgid "Ticket Actions"
+msgstr "Действия с билетами"
+
+msgid "Desktop Notifications"
+msgstr "Уведомления на рабочем столе"
+
+msgid "Admin Widgets"
+msgstr "Виджеты администратора"
+
+msgid "Internal Mail"
+msgstr "Внутренняя почта"
+
+msgid "Front-End Widgets"
+msgstr "Интерфейсные виджеты"
+
+msgid "mailchimp"
+msgstr "почтовый шимпанзе"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid "paidsupport"
+msgstr "платная поддержка"
+
+msgid "easy digital download"
+msgstr "простая цифровая загрузка"
+
+msgid "Easy Digital Download"
+msgstr "Простая цифровая загрузка"
+
+msgid "Multi Language Email Templates"
+msgstr "Многоязычные шаблоны электронной почты"
+
+msgid "Email Cc"
+msgstr "Электронная почта копия"
+
+msgid "Multi Forms"
+msgstr "Мульти Формы"
+
+msgid "Ticket Closed Reason"
+msgstr "Причина закрытия заявки"
+
+msgid "Quick Installation Guide"
+msgstr "Руководство по быстрой установке"
+
+msgid "How To Setup"
+msgstr "Как настроить"
+
+msgid "Ticket Creation"
+msgstr "Создание билетов"
+
+msgid "Fields Manager"
+msgstr "Менеджер полей"
+
+msgid "Email Notification Problems"
+msgstr "Проблемы с уведомлением по электронной почте"
+
+msgid "Premium Addons List"
+msgstr "Список премиум-аддонов"
+
+msgid "Features"
+msgstr "Функции"
+
+msgid "The best support system plugin for WordPress has everything you need."
+msgstr "В лучшем плагине системы поддержки WordPress есть все, что вам нужно."
+
+msgid "Addons"
+msgstr "Аддоны"
+
+msgid "All Add-ons"
+msgstr "Все дополнения"
+
+msgid "Add New Add-ons"
+msgstr "Добавить новые дополнения"
+
+msgid "New Update Version"
+msgstr "Новая версия обновления"
+
+msgid "is Available"
+msgstr "доступен"
+
+msgid "Help icon"
+msgstr "Значок справки"
+
+msgid "Videos Guidance"
+msgstr "Видео Руководство"
+
+msgid "View all videos"
+msgstr "Посмотреть все видео"
+
+msgid "Video icon"
+msgstr "Значок видео"
+
+msgid "View All Videos"
+msgstr "Просмотреть все видео"
+
+msgid "Majestic Support icon"
+msgstr "Значок величественной поддержки"
+
+msgid "Contact Us For Support"
+msgstr "Свяжитесь с нами для поддержки"
+
+msgid "Submit ticket"
+msgstr "Отправить билет"
+
+msgid "Visitor ticket creation"
+msgstr "Создание билета посетителя"
+
+msgid "How to set ticket auto close"
+msgstr "Как настроить автоматическое закрытие заявки"
+
+msgid "How to reopen closed ticket"
+msgstr "Как повторно открыть закрытый тикет"
+
+msgid "How to lock a ticket"
+msgstr "Как заблокировать билет"
+
+msgid "How to add private note"
+msgstr "Как добавить личную заметку"
+
+msgid "View ticket history"
+msgstr "Посмотреть историю билетов"
+
+msgid "How to setup custom fields"
+msgstr "Как настроить произвольные поля"
+
+msgid "Set ticket auto overdue"
+msgstr "Установить автоматическую просрочку билета"
+
+msgid "Manually set ticket overdue"
+msgstr "Вручную установленный билет просрочен"
+
+msgid "How to merge tickets"
+msgstr "Как объединить билеты"
+
+msgid "How to export tickets"
+msgstr "Как экспортировать билеты"
+
+msgid "How use help topic"
+msgstr "Как использовать раздел справки"
+
+msgid "How to change department"
+msgstr "Как сменить отдел"
+
+msgid "How to use multi-forms"
+msgstr "Как использовать мультиформы"
+
+msgid "How to paid support"
+msgstr "Как получить платную поддержку"
+
+msgid "How to use premade response"
+msgstr "Как использовать готовый ответ"
+
+msgid "How to add private credentials"
+msgstr "Как добавить личные учетные данные"
+
+msgid "How to ban/unban user"
+msgstr "Как забанить/разбанить пользователя"
+
+msgid "Agent system"
+msgstr "Агентская система"
+
+msgid "Manually assign ticket to agen"
+msgstr "Назначить билет агенту вручную"
+
+msgid "Manually assign ticket to agent"
+msgstr "Назначить билет агенту вручную"
+
+msgid "How to edit time"
+msgstr "Как редактировать время"
+
+msgid "How to use time tracking"
+msgstr "Как использовать учет времени"
+
+msgid "How to use smart replies"
+msgstr "Как использовать умные ответы"
+
+msgid "Configurations"
+msgstr "Конфигурации"
+
+msgid "How to set max open ticket"
+msgstr "Как установить максимальное количество открытых билетов"
+
+msgid "How to show counts"
+msgstr "Как показать количество"
+
+msgid "How to set Captcha"
+msgstr "Как установить капчу"
+
+msgid "User options"
+msgstr "Опции пользователя"
+
+msgid "How to set login redirect"
+msgstr "Как настроить перенаправление входа"
+
+msgid "How to set fields ordering"
+msgstr "Как настроить порядок полей"
+
+msgid "How to enable social login"
+msgstr "Как включить вход через соц."
+
+msgid "Setup"
+msgstr "Настраивать"
+
+msgid "How to setup"
+msgstr "Как настроить"
+
+msgid "How to enable email piping"
+msgstr "Как включить конвейер электронной почты"
+
+msgid "How to solve email notification problem"
+msgstr "Как решить проблему с уведомлением по электронной почте"
+
+msgid "How to translate"
+msgstr "Как перевести"
+
+msgid "How to install addons"
+msgstr "Как установить дополнения"
+
+msgid "How to Desktop Notifications"
+msgstr "Как настроить уведомления на рабочем столе"
+
+msgid "and"
+msgstr "и"
+
+msgid "How to use knowledge base"
+msgstr "Как пользоваться базой знаний"
+
+msgid "Misc"
+msgstr "Разное"
+
+msgid "How to use internal mail"
+msgstr "Как пользоваться внутренней почтой"
+
+msgid "Use front-end widgets"
+msgstr "Используйте фронтенд-виджеты"
+
+msgid "How to enable admin widgets"
+msgstr "Как включить виджеты администратора"
+
+msgid "Majestic Support / Majestic Support Control Panel"
+msgstr "Majestic Support / Панель управления Majestic Support"
+
+msgid "Majestic Support / Majestic Support main control panel"
+msgstr "Majestic Support / Главная панель управления Majestic Support"
+
+msgid "Add new ticket form for both the user and the agent"
+msgstr "Добавьте новую форму заявки как для пользователя, так и для агента."
+
+msgid "Add Ticket Using Multiform"
+msgstr "Добавить заявку с помощью Multiform"
+
+msgid "My tickets for both user and agent"
+msgstr "Мои билеты для пользователя и агента"
+
+msgid "Show latest downloads. Options"
+msgstr "Показать последние загрузки. Параметры"
+
+msgid "i.e."
+msgstr "то есть"
+
+msgid "Popular Downloads"
+msgstr "Популярные загрузки"
+
+msgid "Show popular downloads. Options"
+msgstr "Показать популярные загрузки. Параметры"
+
+msgid "Show latest knowledge base. Options"
+msgstr "Показать новейшую базу знаний. Параметры"
+
+msgid "Show popular knowledge base. Options"
+msgstr "Показать популярную базу знаний. Параметры"
+
+msgid "List FAQs"
+msgstr "Список часто задаваемых вопросов"
+
+msgid "Show latest FAQs. Options"
+msgstr "Показать последние часто задаваемые вопросы. Параметры"
+
+msgid "Popular FAQs"
+msgstr "Популярные часто задаваемые вопросы"
+
+msgid "Show popular FAQs. Options"
+msgstr "Показать популярные часто задаваемые вопросы. Параметры"
+
+msgid "Show latest announcements. Options"
+msgstr "Показать последние объявления. Параметры"
+
+msgid "Popular Announcements"
+msgstr "Популярные объявления"
+
+msgid "Show popular announcements. Options"
+msgstr "Показ популярных объявлений. Параметры"
+
+msgid "Get"
+msgstr "Получать"
+
+msgid "Translation"
+msgstr "Перевод"
+
+msgid "c error"
+msgstr "ошибка с"
+
+msgid "saved"
+msgstr "сохранено"
+
+msgid "Contribute In Translation"
+msgstr "Внести свой вклад в перевод"
+
+msgid "translate"
+msgstr "переводить"
+
+msgid "Manual Download"
+msgstr "Загрузка вручную"
+
+msgid "Log In"
+msgstr "Авторизоваться"
+
+msgid "Log Out"
+msgstr "Выйти"
+
+msgid "Agent Feedback"
+msgstr "Обратная связь с агентом"
+
+msgid "Dashboard Menu"
+msgstr "Меню информационной панели"
+
+msgid "Open Tickets"
+msgstr "Открытые билеты"
+
+msgid "Closed Tickets"
+msgstr "Закрытые билеты"
+
+msgid "This ticket is marked as overdue"
+msgstr "Этот билет помечен как просроченный"
+
+msgid "View All Downloads"
+msgstr "Просмотреть все загрузки"
+
+msgid "View All Announcements"
+msgstr "Просмотреть все объявления"
+
+msgid "View All Knowledge Base"
+msgstr "Просмотреть всю базу знаний"
+
+msgid "View All FAQs"
+msgstr "Просмотреть все часто задаваемые вопросы"
+
+msgid "Keep me login"
+msgstr "Запомнить меня"
+
+msgid "Repeat Password"
+msgstr "Повторите пароль"
+
+msgid "Subscribe to the newsletter"
+msgstr "Подписаться на рассылку"
+
+msgid "has been changed"
+msgstr "был изменен"
+
+msgid "has not been changed"
+msgstr "не был изменен"
+
+msgid "Majestic Support Settings"
+msgstr "Настройки поддержки Majestic"
+
+msgid "Step 4 of "
+msgstr "Шаг 4"
+
+msgid "Complete"
+msgstr "Полный"
+
+msgid "Setting you applied has been saved successfully."
+msgstr "Примененная вами настройка успешно сохранена."
+
+msgid "Finish"
+msgstr "Заканчивать"
+
+msgid "Settings Complete"
+msgstr "Настройки завершены"
+
+msgid "Ticket Setting"
+msgstr "Настройка билета"
+
+msgid "Step 1 of "
+msgstr "Шаг 1 из"
+
+msgid "Enter the site title"
+msgstr "Введите название сайта"
+
+msgid "Date format for plugin"
+msgstr "Формат даты для плагина"
+
+msgid "Show Breadcrumbs"
+msgstr "Показать хлебные крошки"
+
+msgid "Show navigation in breadcrumbs"
+msgstr "Показывать навигацию в хлебных крошках"
+
+msgid "Upload file size in KB's"
+msgstr "Размер загружаемого файла в КБ"
+
+msgid "File Extension"
+msgstr "Расширение файла"
+
+msgid "Show count on my tickets"
+msgstr "Показать счетчик на моих билетах"
+
+msgid "Next Setup"
+msgstr "Следующая настройка"
+
+msgid "Sequential"
+msgstr "Последовательный"
+
+msgid "Step 3 of "
+msgstr "Шаг 3"
+
+msgid "Set Email Delay Time"
+msgstr "Установите время задержки электронной почты"
+
+msgid " :"
+msgstr ":"
+
+msgid "Set Email Delay"
+msgstr "Установить задержку электронной почты"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Step 2 of "
+msgstr "Шаг 2"
+
+msgid "Visitor can create ticket"
+msgstr "Посетитель может создать билет"
+
+msgid "Enable/Disable Open Ticket"
+msgstr "Включить/отключить открытую заявку"
+
+msgid "Set ticket id sequential or random"
+msgstr "Установить идентификатор билета последовательный или случайный"
+
+msgid "Maximum Tickets"
+msgstr "Максимальное количество билетов"
+
+msgid "Set Maximum Ticket Per user"
+msgstr "Установить максимальный билет на пользователя"
+
+msgid "Maximum Open Ticket"
+msgstr "Максимальный открытый билет"
+
+msgid "Reopen ticket within Days"
+msgstr "Открыть заявку в течение нескольких дней"
+
+msgid "The ticket can be reopened within a given number of days"
+msgstr "Билет можно открыть повторно в течение определенного количества дней."
+
+msgid "Show Captcha to visitor on ticket form"
+msgstr "Показывать капчу посетителю в форме билета"
+
+msgid "Enable/Disable Captcha on Ticket Form"
+msgstr "Включить/отключить Captcha в форме заявки"
+
+msgid "Own Captcha operands"
+msgstr "Собственные операнды Captcha"
+
+msgid "Select the total operands to be given"
+msgstr "Выберите общее количество операндов, которые будут переданы"
+
+msgid "Own captcha subtraction answer positive"
+msgstr "Ответ на вычитание собственной капчи положительный"
+
+msgid "Enable/Disable Own Captcha subtraction"
+msgstr "Включить/отключить собственное вычитание капчи"
+
+msgid "Enable Print Ticket"
+msgstr "Включить печать билета"
+
+msgid "Enable/Disable Print Ticket"
+msgstr "Включить/отключить печать билета"
+
+msgid "Download Translation File"
+msgstr "Скачать файл перевода"
+
+msgid "Download & Next"
+msgstr "Скачать и Далее"
+
+msgid "Skip this step"
+msgstr "Пропустить этот шаг"
+
+msgid "Please insert activation key to proceed"
+msgstr "Пожалуйста, вставьте ключ активации, чтобы продолжить"
+
+msgid "Addon Installation Failed"
+msgstr "Установка аддона не удалась"
+
+msgid "Addon installation failed"
+msgstr "Установка аддона не удалась"
+
+msgid "Addon Installation Failed, File download error"
+msgstr "Не удалось установить дополнение, ошибка загрузки файла"
+
+msgid "Deactivate"
+msgstr "Деактивировать"
+
+msgid "Deactivated"
+msgstr "Деактивирован"
+
+msgid "Activate"
+msgstr "Активировать"
+
+msgid "Not Installed"
+msgstr "Не установлен"
+
+msgid "Addon Installed Successfully"
+msgstr "Аддон успешно установлен"
+
+msgid "Ticket Auto Close"
+msgstr "Автоматическое закрытие билета"
+
+msgid "Canned Response"
+msgstr "Готовый ответ"
+
+msgid "Desktop Notification"
+msgstr "Уведомление на рабочем столе"
+
+msgid "Front-end Widgets"
+msgstr "Интерфейсные виджеты"
+
+msgid "Multi-Language Emails"
+msgstr "Многоязычные электронные письма"
+
+msgid "left image"
+msgstr "левое изображение"
+
+msgid "right image"
+msgstr "правильное изображение"
+
+msgid "Add-ons For Majestic Support"
+msgstr "Дополнения для поддержки Majestic"
+
+msgid "Save big today with an exclusive membership plan!"
+msgstr "Сэкономьте сегодня с эксклюзивным планом членства!"
+
+msgid "show bundle pack"
+msgstr "показать пакетный пакет"
+
+msgid "buy now"
+msgstr "купить сейчас"
+
+msgid "Installed"
+msgstr "Установлен"
+
+msgid "agent auto assign"
+msgstr "автоматическое назначение агента"
+
+msgid "private note"
+msgstr "личное сообщение"
+
+msgid "merge tickets"
+msgstr "объединить заявки"
+
+msgid "helptopic"
+msgstr "справочная тема"
+
+msgid "time tracking"
+msgstr "отслеживание времени"
+
+msgid "Ticket close reason"
+msgstr "Причина закрытия заявки"
+
+msgid "max ticket"
+msgstr "максимальный билет"
+
+msgid "ticket actions"
+msgstr "действия с билетами"
+
+msgid "email cc"
+msgstr "электронная копия"
+
+msgid "user options"
+msgstr "параметры пользователя"
+
+msgid "admin widgets"
+msgstr "виджеты администратора"
+
+msgid "desktop notifications"
+msgstr "уведомления на рабочем столе"
+
+msgid "woocommerce"
+msgstr "woocommerce"
+
+msgid "mail chimp"
+msgstr "почтовый шимпанзе"
+
+msgid "Mail Chimp"
+msgstr "Mailchimp"
+
+msgid "internal mail"
+msgstr "внутренняя почта"
+
+msgid "frontend widget"
+msgstr "виджет интерфейса"
+
+msgid "Majestic Support Add-ons Bundle Pack"
+msgstr "Пакет дополнений Majestic Support"
+
+msgid "Basic"
+msgstr "Базовый"
+
+msgid "Unlimited Agents"
+msgstr "Неограниченное количество агентов"
+
+msgid "Helptopic"
+msgstr "Справочная тема"
+
+msgid "Show all"
+msgstr "Показать все"
+
+msgid "Standard"
+msgstr "Стандартный"
+
+msgid "Everything in basic included and "
+msgstr "Все базовое включено и"
+
+msgid "Professional"
+msgstr "Профессиональный"
+
+msgid "Everything in standard included and"
+msgstr "Все стандартное включено и"
+
+msgid "All Future Addons"
+msgstr "Все будущие дополнения"
+
+msgid "Status: "
+msgstr "Положение дел:"
+
+msgid "addon in no longer active"
+msgstr "аддон больше не активен"
+
+msgid "Please Insert Your Activation Key"
+msgstr "Пожалуйста, вставьте свой ключ активации"
+
+msgid "XXXX-XXXX-XXXXX-XXXXX"
+msgstr "ХХХХ-ХХХХ-ХХХХХ-ХХХХХ"
+
+msgid "Proceed"
+msgstr "Продолжить"
+
+msgid "Majestic Support Addon Installer"
+msgstr "Установщик дополнений Majestic Support"
+
+msgid "Select All Addons"
+msgstr "Выбрать все дополнения"
+
+msgid "All allowed add ons are already installed"
+msgstr "Все разрешенные дополнения уже установлены."
+
+msgid "You are not allowed to install any add on"
+msgstr "Вам не разрешено устанавливать какие-либо дополнения"
+
+msgid "Addons Installed Successfully"
+msgstr "Аддоны успешно установлены"
+
+msgid "Open Dashboard"
+msgstr "Открыть панель управления"
+
+msgid "Open Plugins Page"
+msgstr "Открыть страницу плагинов"
+
+msgid "Page Not Found !!"
+msgstr "Страница не найдена !!"
+
+msgid "Priority Title Already Exist"
+msgstr "Приоритетное название уже существует"
+
+msgid "Priority has been stored"
+msgstr "Приоритет сохранен."
+
+msgid "Priority has not been stored"
+msgstr "Приоритет не сохранен"
+
+msgid "Priority has been deleted"
+msgstr "Приоритет удален"
+
+msgid "Priority has not been deleted"
+msgstr "Приоритет не удален"
+
+msgid "Default priority cannot delete"
+msgstr "Приоритет по умолчанию не может быть удален"
+
+msgid "Priority has been make default"
+msgstr "Приоритет был сделан по умолчанию"
+
+msgid "Priority has not been make default"
+msgstr "Приоритет не установлен по умолчанию"
+
+msgid "Ticket Overdue Interval Type"
+msgstr "Тип интервала просрочки билета"
+
+msgid "Save Priority"
+msgstr "Сохранить приоритет"
+
+msgid "Date Interval"
+msgstr "Интервал дат"
+
+msgid "Reply posted"
+msgstr "Ответ опубликован"
+
+msgid "Reply posted on ticket"
+msgstr "Ответ размещен в билете"
+
+msgid "Guest"
+msgstr "Гость"
+
+msgid "Ticket is replied by"
+msgstr "На билет ответил"
+
+msgid "Reply Has been Posted"
+msgstr "Ответ был опубликован"
+
+msgid "Reply Has Not been Posted"
+msgstr "Ответ не был опубликован"
+
+msgid "Dates"
+msgstr "Даты"
+
+msgid "Department Statistics"
+msgstr "Статистика отдела"
+
+msgid "answered ticket"
+msgstr "ответ на билет"
+
+msgid "pending ticket"
+msgstr "ожидающий билет"
+
+msgid "overdue ticket"
+msgstr "просроченный билет"
+
+msgid "Time Taken"
+msgstr "Затраченное время"
+
+msgid "Merged and closed"
+msgstr "Объединены и закрыты"
+
+msgid "Out of"
+msgstr "Снаружи"
+
+msgid "Overall Report"
+msgstr "Общий отчет"
+
+msgid "Ticket by departments"
+msgstr "Билет по отделам"
+
+msgid "Agent Tickets"
+msgstr "Агентские билеты"
+
+msgid "all ticket"
+msgstr "все билеты"
+
+msgid "Tickets By Status And Priorities"
+msgstr "Билеты по статусу и приоритетам"
+
+msgid "Tickets By Agents"
+msgstr "Билеты от агентов"
+
+msgid "Staff Reports"
+msgstr "Отчеты сотрудников"
+
+msgid "Based on"
+msgstr "На основе"
+
+msgid "Customer Satisfaction"
+msgstr "Удовлетворенность клиентов"
+
+msgid "satisfaction image"
+msgstr "изображение удовлетворения"
+
+msgid "Excellent"
+msgstr "Отличный"
+
+msgid "NA"
+msgstr "NA"
+
+msgid "Happy"
+msgstr "Счастливый"
+
+msgid "bad"
+msgstr "плохой"
+
+msgid "Sad"
+msgstr "Грустный"
+
+msgid "Angry"
+msgstr "Злой"
+
+msgid "Agent Statistics"
+msgstr "Статистика агента"
+
+msgid "staff image"
+msgstr "имидж персонала"
+
+msgid "Average rating"
+msgstr "Средний рейтинг"
+
+msgid "Average time"
+msgstr "Среднее время"
+
+msgid "Tickets not assigned to the agent"
+msgstr "Билеты не закреплены за агентом"
+
+msgid "Minutes"
+msgstr "Минуты"
+
+msgid "Report By Agent"
+msgstr "Отчет от агента"
+
+msgid "User Statistics"
+msgstr "Статистика пользователя"
+
+msgid "Users"
+msgstr "Пользователи"
+
+msgid "Tickets by departments"
+msgstr "Билеты по отделам"
+
+msgid "Ticket Status By Departments"
+msgstr "Статус заявки по отделам"
+
+msgid "Agent detail Report"
+msgstr "Подробный отчет об агенте"
+
+msgid "Agent Report"
+msgstr "Отчет агента"
+
+msgid "Reports Statistics"
+msgstr "Статистика отчетов"
+
+msgid "Slugs/Slug has been stored"
+msgstr "Слизни/Слизняк сохранен"
+
+msgid "Prefix has not been stored"
+msgstr "Префикс не сохранен"
+
+msgid "Prefix has been stored"
+msgstr "Префикс сохранен"
+
+msgid "Home Slug"
+msgstr "Домашний слизень"
+
+msgid "Prefix"
+msgstr "Префикс"
+
+msgid "This prefix will be added to the slug in case of homepage links."
+msgstr "Этот префикс будет добавлен к слагу в случае ссылок на главную страницу."
+
+msgid "This prefix will be added to the slug in case of conflict."
+msgstr "Этот префикс будет добавлен к пулу в случае конфликта."
+
+msgid "Search By Slug"
+msgstr "Поиск по слизню"
+
+msgid "Slug List"
+msgstr "Список слизней"
+
+msgid "edit"
+msgstr "редактировать"
+
+msgid "This button will only save slugs on the current page"
+msgstr "Эта кнопка сохранит слизни только на текущей странице."
+
+msgid "Smart Reply Title Already Exist"
+msgstr "Умный заголовок ответа уже существует"
+
+msgid "Smart Reply has been stored"
+msgstr "Умный ответ сохранен."
+
+msgid "Smart Reply has not been stored"
+msgstr "Умный ответ не сохранен"
+
+msgid "Smart Reply has been deleted"
+msgstr "Умный ответ удален."
+
+msgid "Smart Reply has not been deleted"
+msgstr "Умный ответ не удален"
+
+msgid "Enter Ticket Subject"
+msgstr "Введите тему заявки"
+
+msgid "delete"
+msgstr "удалить"
+
+msgid "Save Smart Reply"
+msgstr "Сохранить умный ответ"
+
+msgid "System error has been deleted"
+msgstr "Системная ошибка удалена"
+
+msgid "System error has not been deleted"
+msgstr "Системная ошибка не удалена"
+
+msgid "Color Chooser"
+msgstr "Выбор цвета"
+
+msgid "Preset Theme"
+msgstr "Предустановленная тема"
+
+msgid "Top Menu Heading Background"
+msgstr "Фон заголовка верхнего меню"
+
+msgid "Top Header Line Color"
+msgstr "Цвет линии верхнего заголовка"
+
+msgid "Button Hover"
+msgstr "Кнопка при наведении"
+
+msgid "Heading Text"
+msgstr "Текст заголовка"
+
+msgid "Content Background Color"
+msgstr "Цвет фона контента"
+
+msgid "Content Text Color"
+msgstr "Цвет текста контента"
+
+msgid "Border Color"
+msgstr "Цвет границы"
+
+msgid "Lines"
+msgstr "Линии"
+
+msgid "Button Color"
+msgstr "Цвет кнопки"
+
+msgid "Top Header Text Color"
+msgstr "Цвет текста верхнего заголовка"
+
+msgid "Save Colors"
+msgstr "Сохранить цвета"
+
+msgid "Color Effect Preview"
+msgstr "Предварительный просмотр цветового эффекта"
+
+msgid "Submit Ticket  "
+msgstr "Отправить билет"
+
+msgid "Open ( 3 )"
+msgstr "Открыть ( 3 )"
+
+msgid "Closed ( 2 )"
+msgstr "Закрыто ( 2 )"
+
+msgid "Answered ( 1 )"
+msgstr "Ответил ( 1 )"
+
+msgid "All Tickets ( 5 )"
+msgstr "Все билеты ( 5 )"
+
+msgid " Priority"
+msgstr "Приоритет"
+
+msgid "Can i upgrade my plan?"
+msgstr "Могу ли я обновить свой план?"
+
+msgid "Low"
+msgstr "Низкий"
+
+msgid "Ticket ID  :"
+msgstr "Идентификатор билета:"
+
+msgid "Last Reply :"
+msgstr "Последний ответ:"
+
+msgid "How can i get Subscription"
+msgstr "Как я могу получить подписку"
+
+msgid " Department   "
+msgstr "Отделение"
+
+msgid "Support"
+msgstr "Поддерживать"
+
+msgid " Ticket ID :"
+msgstr "Идентификатор билета:"
+
+msgid "Created :"
+msgstr "Созданный :"
+
+msgid "Matthew Frazier"
+msgstr "Мэтью Фрейзер"
+
+msgid "How long do i have support access"
+msgstr "Как долго у меня будет доступ к поддержке"
+
+msgid " Department"
+msgstr "Отделение"
+
+msgid "Note"
+msgstr "Примечание"
+
+msgid "Blue Jeans"
+msgstr "Синие джинсы"
+
+msgid "Red"
+msgstr "Красный"
+
+msgid "Mint"
+msgstr "Мятный"
+
+msgid "Lavender"
+msgstr "Лаванда"
+
+msgid "Orange"
+msgstr "Апельсин"
+
+msgid "Grass"
+msgstr "Трава"
+
+msgid "Black"
+msgstr "Черный"
+
+msgid "Support for this Envato license has expired"
+msgstr "Срок поддержки этой лицензии Envato истек."
+
+msgid "Record not found"
+msgstr "запись не найдена"
+
+msgid "Banned email cannot create ticket"
+msgstr "Запрещенное электронное письмо не может создать билет"
+
+msgid "Incorrect Captcha Code"
+msgstr "Неправильный код капчи"
+
+msgid "Please select paid support item"
+msgstr "Пожалуйста, выберите пункт платной поддержки"
+
+msgid "No purchase found with that code"
+msgstr "Покупок с таким кодом не найдено"
+
+msgid "Provide a valid license key to create a ticket."
+msgstr "Предоставьте действительный лицензионный ключ для создания билета."
+
+msgid "Your license has expired."
+msgstr "Срок действия вашей лицензии истек."
+
+msgid "Your license is not active, activate your license."
+msgstr "Ваша лицензия не активна, активируйте лицензию."
+
+msgid "Due date error is not valid"
+msgstr "Ошибка срока сдачи недействительна."
+
+msgid "Ticket has not been created"
+msgstr "Билет не создан"
+
+msgid "Your ticket has been submitted successfully"
+msgstr "Ваш билет успешно отправлен"
+
+msgid "created"
+msgstr "созданный"
+
+msgid "Ticket is updated by"
+msgstr "Билет обновлен"
+
+msgid "Ticket is created by"
+msgstr "Билет создан"
+
+msgid "Ticket has been deleted"
+msgstr "Билет удален"
+
+msgid "Ticket has not been deleted"
+msgstr "Билет не удален"
+
+msgid "in use cannot be deleted"
+msgstr "используется, не может быть удален"
+
+msgid "Ticket already closed"
+msgstr "Билет уже закрыт"
+
+msgid "Ticket has been closed"
+msgstr "Билет закрыт"
+
+msgid "Ticket has not been closed"
+msgstr "Билет не закрылся"
+
+msgid "Ticket is closed by"
+msgstr "Билет закрыт"
+
+msgid "due to the following reasons"
+msgstr "по следующим причинам"
+
+msgid "Your are not allowed"
+msgstr "Вам не разрешено"
+
+msgid "The department has been transferred"
+msgstr "Кафедра переведена."
+
+msgid "The department has not been transferred"
+msgstr "Отделение не переведено"
+
+msgid "The department is transferred by"
+msgstr "Кафедра переведена"
+
+msgid "Assigned to agent"
+msgstr "Назначено агенту"
+
+msgid "Not assigned to agent"
+msgstr "Не назначен агенту"
+
+msgid "Assign ticket to agent"
+msgstr "Назначить билет агенту"
+
+msgid "Ticket is assigned to agent by"
+msgstr "Билет назначается агенту"
+
+msgid "The ticket already has the same priority"
+msgstr "Билет уже имеет такой же приоритет"
+
+msgid "Priority has been changed"
+msgstr "Приоритет изменен"
+
+msgid "Priority has not been changed"
+msgstr "Приоритет не изменился"
+
+msgid "Change Priority"
+msgstr "Изменить приоритет"
+
+msgid "Email already banned"
+msgstr "Электронная почта уже заблокирована"
+
+msgid "The email has been banned"
+msgstr "Электронная почта заблокирована"
+
+msgid "The email has not been banned"
+msgstr "Электронная почта не заблокирована"
+
+msgid "Email is banned by"
+msgstr "Электронная почта запрещена"
+
+msgid "The ticket has been reopened"
+msgstr "Билет снова открыт."
+
+msgid "The ticket has not been reopened"
+msgstr "Билет не был восстановлен"
+
+msgid "Reopen Ticket"
+msgstr "Повторное открытие билета"
+
+msgid "The ticket is reopened by"
+msgstr "Билет снова открывается"
+
+msgid "The ticket reopens time limit end"
+msgstr "Срок действия билета вновь открывается."
+
+msgid "Email has been unbanned"
+msgstr "Электронная почта разблокирована"
+
+msgid "Email has not been unbanned"
+msgstr "Электронную почту не разбанили"
+
+msgid "Unbanned Email"
+msgstr "Незабаненная электронная почта"
+
+msgid "Email is unbanned by"
+msgstr "Электронная почта разблокирована"
+
+msgid "Email cannot be unbanned"
+msgstr "Электронную почту нельзя разбанить"
+
+msgid "Ticket already marked in progress"
+msgstr "Заявка уже отмечена в процессе"
+
+msgid "The ticket has been marked as in progress"
+msgstr "Заявка помечена как обрабатываемая"
+
+msgid "The ticket has not been marked as in progress"
+msgstr "Заявка не отмечена как обрабатываемая"
+
+msgid "In progress ticket"
+msgstr "Билет в разработке"
+
+msgid "The ticket is marked as in progress by"
+msgstr "Заявка помечена как находящаяся в разработке"
+
+msgid "File upload limit exceeds"
+msgstr "Превышен лимит загрузки файлов"
+
+msgid "The uploaded file extension not valid"
+msgstr "Расширение загруженного файла недействительно."
+
+msgid "Paid support info"
+msgstr "Информация о платной поддержке"
+
+msgid "Order ID"
+msgstr "номер заказа"
+
+msgid "Product Name"
+msgstr "наименование товара"
+
+msgid "Total Tickets"
+msgstr "Всего билетов"
+
+msgid "Remaining Tickets"
+msgstr "Оставшиеся билеты"
+
+msgid "Unlimited"
+msgstr "Безлимитный"
+
+msgid "You have not purchased any supported item"
+msgstr "Вы не приобрели ни одного поддерживаемого товара"
+
+msgid "Go to shop"
+msgstr "Идти в магазин"
+
+msgid "Select Order"
+msgstr "Выберите порядок"
+
+msgid "No premade response found"
+msgstr "Готового ответа не найдено"
+
+msgid "Waiting agent reply"
+msgstr "Ожидание ответа агента"
+
+msgid "Waiting customer reply"
+msgstr "Ожидание ответа клиента"
+
+msgid "Close ticket"
+msgstr "Закрыть заявку"
+
+msgid "Are you sure to mark this ticket non-premium?"
+msgstr "Вы уверены, что пометите этот билет как непремиальный?"
+
+msgid "Edit Reply"
+msgstr "Редактировать ответ"
+
+msgid "Edit Time"
+msgstr "Изменить время"
+
+msgid "Add reason in the other box"
+msgstr "Добавьте причину в другое поле"
+
+msgid "First make some selection!"
+msgstr "Сначала сделайте выбор!"
+
+msgid "Reason For Editing the timer"
+msgstr "Причина редактирования таймера"
+
+msgid "Reason For Editing"
+msgstr "Причина редактирования"
+
+msgid "Resolve conflict"
+msgstr "Разрешение конфликта"
+
+msgid "Lock"
+msgstr "Замок"
+
+msgid "Add New Credential"
+msgstr "Добавить новые учетные данные"
+
+msgid "Add Internal Note"
+msgstr "Добавить внутреннее примечание"
+
+msgid "play"
+msgstr "играть"
+
+msgid "pause"
+msgstr "Пауза"
+
+msgid "stop"
+msgstr "останавливаться"
+
+msgid "Close on reply"
+msgstr "Закрыть ответ"
+
+msgid "Reason For Department Transfer"
+msgstr "Причина перевода отдела"
+
+msgid "Transfer"
+msgstr "Передача"
+
+msgid "Assign To Agent"
+msgstr "Назначить агенту"
+
+msgid "Assign"
+msgstr "Назначать"
+
+msgid "View all"
+msgstr "Посмотреть все"
+
+msgid "tickets by"
+msgstr "билеты по"
+
+msgid "Show History"
+msgstr "Показать историю"
+
+msgid "Print Ticket"
+msgstr "Распечатать билет"
+
+msgid "Unmark Overdue"
+msgstr "Снимите флажок «Просрочено»"
+
+msgid "Mark in Progress"
+msgstr "Отметить в процессе"
+
+msgid "agent image"
+msgstr "имидж агента"
+
+msgid "Post A New Internal Note"
+msgstr "Опубликовать новую внутреннюю заметку"
+
+msgid "Ticket Thread"
+msgstr "Билетная тема"
+
+msgid "View Image"
+msgstr "Посмотреть изображение"
+
+msgid "smart-reply"
+msgstr "умный ответ"
+
+msgid "Check Smart Reply"
+msgstr "Проверьте умный ответ"
+
+msgid "Search and get a saved smart reply on Majestic Support for a ticket."
+msgstr "Найдите и получите сохраненный умный ответ на заявку в службе поддержки Majestic."
+
+msgid "search"
+msgstr "поиск"
+
+msgid "Add this reply to smart reply?"
+msgstr "Добавить этот ответ в умный ответ?"
+
+msgid "Post Reply"
+msgstr "Ответить"
+
+msgid "Own Signature"
+msgstr "Собственная подпись"
+
+msgid "Department Signature"
+msgstr "Подпись отдела"
+
+msgid "JNone"
+msgstr "JНет"
+
+msgid "Add Signature"
+msgstr "Добавить подпись"
+
+msgid "On Waiting"
+msgstr "В ожидании"
+
+msgid "Closed and merged"
+msgstr "Закрыто и объединено"
+
+msgid "Ticket Closing Reason"
+msgstr "Причина закрытия заявки"
+
+msgid "ago"
+msgstr "назад"
+
+msgid "No Last Reply"
+msgstr "Нет последнего ответа"
+
+msgid "Not Given"
+msgstr "Не дано"
+
+msgid "Closed By"
+msgstr "Закрыто"
+
+msgid "Closed On"
+msgstr "Закрыто"
+
+msgid "Copy"
+msgstr "Копировать"
+
+msgid "Copied"
+msgstr "Скопировано"
+
+msgid "Change"
+msgstr "Изменять"
+
+msgid "Assign And Transfer Ticket"
+msgstr "Назначение и передача билета"
+
+msgid "Ticket assigned to"
+msgstr "Билет назначен на"
+
+msgid "staff photo"
+msgstr "фото персонала"
+
+msgid "Total Time Taken"
+msgstr "Общее затраченное время"
+
+msgid "view ticket"
+msgstr "просмотреть билет"
+
+msgid "Woocommerce Order"
+msgstr "Заказ Woocommerce"
+
+msgid "Envato License"
+msgstr "Лицензия Энвато"
+
+msgid "Item"
+msgstr "Элемент"
+
+msgid "Buyer"
+msgstr "Покупатель"
+
+msgid "License Type"
+msgstr "Тип лицензии"
+
+msgid "License"
+msgstr "Лицензия"
+
+msgid "Purchase Date"
+msgstr "Дата покупки"
+
+msgid "Supported Until"
+msgstr "Поддерживается до"
+
+msgid "Paid Support Details"
+msgstr "Подробности о платной поддержке"
+
+msgid "Subscription"
+msgstr "Подписка"
+
+msgid "Subscribed On"
+msgstr "Подписка включена"
+
+msgid "Support Expiry"
+msgstr "Срок действия поддержки"
+
+msgid "No expiration"
+msgstr "Нет срока годности"
+
+msgid "Non-premium support"
+msgstr "Непремиальная поддержка"
+
+msgid "Check this box if this ticket should NOT apply against the paid support"
+msgstr "Установите этот флажок, если этот билет НЕ должен применяться к платной поддержке."
+
+msgid "Remaining"
+msgstr "Оставшийся"
+
+msgid "Link ticket to paid support"
+msgstr "Связать билет с платной поддержкой"
+
+msgid "closed ticket"
+msgstr "закрытый билет"
+
+msgid "Ticket Creator Name"
+msgstr "Имя создателя заявки"
+
+msgid "From Date"
+msgstr "С даты"
+
+msgid "To Date"
+msgstr "На сегодняшний день"
+
+msgid "Enforce delete"
+msgstr "Принудительное удаление"
+
+msgid "Are you sure to enforce delete"
+msgstr "Вы уверены, что принудительно удалите?"
+
+msgid "Are you sure to mark this ticket non-preminum?"
+msgstr "Вы уверены, что пометите этот билет как непремиальный?"
+
+msgid "Message Logs"
+msgstr "Журналы сообщений"
+
+msgid "Edit Timer"
+msgstr "Редактировать таймер"
+
+msgid "Type Note for Department"
+msgstr "Тип Примечание для отдела"
+
+msgid "Assign Ticket To Agent"
+msgstr "Назначить заявку агенту"
+
+msgid "Assigning Note"
+msgstr "Назначение примечания"
+
+msgid "Time Track"
+msgstr "Трек времени"
+
+msgid "Type Internal Note"
+msgstr "Тип Внутреннее примечание"
+
+msgid "tickets"
+msgstr "Билеты"
+
+msgid "Reopen"
+msgstr "Открыть заново"
+
+msgid "History"
+msgstr "История"
+
+msgid "Print"
+msgstr "Распечатать"
+
+msgid "Are you sure you want to delete this ticket"
+msgstr "Вы уверены, что хотите удалить этот билет?"
+
+msgid "Are you sure to close this ticket"
+msgstr "Вы уверены, что закроете этот тикет?"
+
+msgid "Unlock"
+msgstr "Разблокировать"
+
+msgid "Mark In Progress"
+msgstr "Отметить в процессе"
+
+msgid "Ban Email And Close Ticket"
+msgstr "Запретить электронную почту и закрыть тикет"
+
+msgid "Post New Internal Note"
+msgstr "Опубликовать новую внутреннюю заметку"
+
+msgid "Reply A Message"
+msgstr "Ответить на сообщение"
+
+msgid "Search and get a saved smart reply on Majestic Support."
+msgstr "Найдите и получите сохраненный умный ответ в службе поддержки Majestic."
+
+msgid "Check Reply"
+msgstr "Проверить ответ"
+
+msgid "Select Premade"
+msgstr "Выберите готовые"
+
+msgid "Assign Ticket"
+msgstr "Назначить билет"
+
+msgid ": "
+msgstr ":"
+
+msgid "Assigned To Agent"
+msgstr "Назначено агенту"
+
+msgid "View all orders"
+msgstr "Посмотреть все заказы"
+
+msgid "Non-preminum support"
+msgstr "Непремиальная поддержка"
+
+msgid "Check Status"
+msgstr "Проверить состояние"
+
+msgid "High"
+msgstr "Высокий"
+
+msgid "Urgent"
+msgstr "Срочный"
+
+msgid "Admin email address and email piping address cannot be the same, your email piping will not be work."
+msgstr "Адрес электронной почты администратора и адрес канала электронной почты не могут быть одинаковыми, ваш канал электронной почты не будет работать."
+
+msgid "IMAP is either not installed or not enabled in your server. Contact to hosting company"
+msgstr "IMAP либо не установлен, либо не включен на вашем сервере. Свяжитесь с хостинговой компанией"
+
+msgid "180 secs If the setting is not completely increased, most sites will work with a setting of between 180 and 600"
+msgstr "180 секунд. Если значение параметра не увеличено полностью, большинство сайтов будут работать с настройками от 180 до 600."
+
+msgid "If you have already set up alert methods in the webcron.org interface, we recommend choosing an alert type"
+msgstr "Если вы уже настроили методы оповещения в интерфейсе webcron.org, рекомендуем выбрать тип оповещения."
+
+msgid "Enter allowed number of tickets that customer can post. Enter -1 for unlimited tickets."
+msgstr "Введите разрешенное количество заявок, которые клиент может опубликовать. Введите -1 для неограниченного количества билетов."
+
+msgid "Your response would be helpful to other users, as we believe that the success of the support system is largely dependent on how well customers are treated."
+msgstr "Ваш ответ будет полезен другим пользователям, поскольку мы считаем, что успех системы поддержки во многом зависит от того, насколько хорошо обращаются с клиентами."
+
+msgid "</b> and Enter your license key and hit to authenticate. A valid key is required for updates."
+msgstr "</b> и введите свой лицензионный ключ и нажмите для аутентификации. Для обновлений необходим действительный ключ."
+
+msgid "We'd love to hear from you. It'll only take 2 minutes of your time, and will really help us spread the word"
+msgstr "Мы хотели бы услышать от вас. Это займет всего 2 минуты вашего времени и очень поможет нам распространить информацию."
+
+msgid "Registration has been disabled by admin, please contact the system administrator."
+msgstr "Регистрация отключена администратором, обратитесь к системному администратору."
+
+msgid "Please check confirmation email to complete your subscription for the newsletter"
+msgstr "Пожалуйста, проверьте электронное письмо с подтверждением, чтобы завершить подписку на информационный бюллетень."
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Dont forget to update the add-ons to enjoy the greatest features!"
+msgstr "Привет! Недавно мы выпустили свежее обновление дополнений. Не забудьте обновить дополнения, чтобы насладиться лучшими функциями!"
+
+msgid "Select the Majestic Support default page, and on the action system, it will redirect to the selected page. If not selected the default page, email links, and support icon might not work."
+msgstr "Выберите страницу поддержки Majestic по умолчанию, и в системе действий произойдет перенаправление на выбранную страницу. Если не выбрать страницу по умолчанию, ссылки на электронную почту и значок поддержки могут не работать."
+
+msgid "You need to rename the existing data directory in the file system before changing the data directory name"
+msgstr "Перед изменением имени каталога данных необходимо переименовать существующий каталог данных в файловой системе."
+
+msgid "Show the number of open, closed, and answered tickets in my tickets and dashboard"
+msgstr "Показывать количество открытых, закрытых и отвеченных заявок в моих заявках и на панели управления."
+
+msgid "Set register link default or custom.<br /> To enable registrations, WordPress admin > General > Settings > Membership: Anyone can register"
+msgstr "Установите ссылку на регистрацию по умолчанию или настраиваемую.<br /> Чтобы включить регистрацию, администратор WordPress > Общие > Настройки > Членство: любой может зарегистрироваться."
+
+msgid "Select category to display only products of this category on the WooCommerce shop page."
+msgstr "Выберите категорию, чтобы на странице магазина WooCommerce отображались только продукты этой категории."
+
+msgid "Show or hide the multiform popup when creating a new ticket. if you hide them, the system will open the default form."
+msgstr "Показать или скрыть всплывающее окно с несколькими формами при создании новой заявки. если вы их скроете, система откроет форму по умолчанию."
+
+msgid "Select whether users can see the email of administrator or agent on the ticket reply"
+msgstr "Выберите, смогут ли пользователи видеть адрес электронной почты администратора или агента в ответе на заявку."
+
+msgid "Select whether users can see the name of administrator or agent on ticket reply"
+msgstr "Выберите, смогут ли пользователи видеть имя администратора или агента в ответе на заявку."
+
+msgid "By enabling this option, an admin can know who closed the ticket and when that ticket closed."
+msgstr "Включив эту опцию, администратор может узнать, кто закрыл заявку и когда она была закрыта."
+
+msgid "By enabling this option, an agent can know who closed the ticket and when that ticket closed."
+msgstr "Включив эту опцию, агент может узнать, кто закрыл заявку и когда она была закрыта."
+
+msgid "By enabling this option, a user can know who closed the ticket and when that ticket closed."
+msgstr "Включив эту опцию, пользователь может узнать, кто закрыл заявку и когда она была закрыта."
+
+msgid "By enabling this option, an admin can know to whom the ticket has been assigned."
+msgstr "Включив эту опцию, администратор может узнать, кому был назначен билет."
+
+msgid "By enabling this option, an agent can know to whom the ticket has been assigned."
+msgstr "Включив эту опцию, агент сможет узнать, кому был назначен билет."
+
+msgid "By enabling this option, a user can know to whom the ticket has been assigned."
+msgstr "Включив эту опцию, пользователь может узнать, кому был назначен билет."
+
+msgid "If the ticket department email is not selected, then this email is used to send emails"
+msgstr "Если адрес электронной почты билетного отдела не выбран, то этот адрес электронной почты используется для отправки электронных писем."
+
+msgid "Set the number of days or hours to send a feedback email after a ticket is closed"
+msgstr "Установите количество дней или часов для отправки электронного письма с отзывом после закрытия заявки."
+
+msgid "Majestic Support Desktop Notifications plugin is not installed. Please install the plugin to enable desktop notifications"
+msgstr "Плагин Majestic Support Desktop Notifications не установлен. Пожалуйста, установите плагин, чтобы включить уведомления на рабочем столе."
+
+msgid "Changing the encryption key of private credentials will cause all existing credentials to be discarded"
+msgstr "Изменение ключа шифрования личных учетных данных приведет к удалению всех существующих учетных данных."
+
+msgid "Prevent users from submitting a ticket without a valid license for one of your product"
+msgstr "Запретите пользователям отправлять заявки без действующей лицензии на один из ваших продуктов."
+
+msgid "Selecting \\ positive"
+msgstr "Выбор  позитив"
+
+msgid "e.g \\ The text between [link] and [/link] will be linked to provided url or wordpress page."
+msgstr ""
+
+msgid "e.g., \\ The text between [link] and [/link] will be linked to provided URL or WordPress page."
+msgstr ""
+
+msgid "Majestic support is customer service or assistance that is exceptional in nature, providing a high level of satisfaction to the customer by going above and beyond their expectations. It involves providing prompt and efficient response times, personalized attention, and a willingness to solve problems or address concerns in a timely and effective manner."
+msgstr "Поддержка Majestic — это обслуживание клиентов или помощь, которая является исключительной по своему характеру и обеспечивает высокий уровень удовлетворенности клиентов, превосходя их ожидания. Это предполагает обеспечение быстрого и эффективного реагирования, индивидуальное внимание и готовность решать проблемы или решать проблемы своевременно и эффективно."
+
+msgid "Explore our other products and services that we offer, you might find something else that interests you or fulfills your needs even better."
+msgstr "Изучите другие наши продукты и услуги, которые мы предлагаем, возможно, вы найдете что-то еще, что вас заинтересует или еще лучше удовлетворит ваши потребности."
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Don't forget to update the add-ons to enjoy the greatest features!"
+msgstr "Привет! Недавно мы выпустили свежее обновление дополнений. Не забудьте обновить дополнения, чтобы насладиться лучшими функциями!"
+
+msgid "The best support plugin for the majestic support has everything you need."
+msgstr "Лучший плагин поддержки для величественной поддержки имеет все, что вам нужно."
+
+msgid "A reputable support system that offers step-by-step YouTube video guides to help you understand."
+msgstr "Авторитетная система поддержки, которая предлагает пошаговые видеоруководства YouTube, которые помогут вам разобраться."
+
+msgid "At Majestic Support, we are committed to offering prompt and helpful customer care to help you at every step."
+msgstr "В Majestic Support мы стремимся предложить быструю и полезную поддержку клиентов, чтобы помочь вам на каждом этапе."
+
+msgid "When WordPress language change to fr, Majestic Support language will auto change to fr"
+msgstr "Когда язык WordPress изменится на fr, язык поддержки Majestic автоматически изменится на fr."
+
+msgid "Want to download translation file? Click on download. It will take sometime."
+msgstr "Хотите скачать файл перевода? Нажмите на загрузку. Это займет некоторое время."
+
+msgid "Get trusted WordPress add-ons. Guaranteed to work fast, safe to use, beautifully coded, packed with features, and are easy to use."
+msgstr "Получите надежные дополнения WordPress. Гарантировано быстрая работа, безопасность в использовании, красивый код, множество функций и простота в использовании."
+
+msgid "Add agents and assign roles and permissions to provide assistance and support for customer support tickets."
+msgstr "Добавляйте агентов и назначайте роли и разрешения для предоставления помощи и поддержки по заявкам в службу поддержки клиентов."
+
+msgid "Create multiple custom ticket forms with different custom fields for each request type that you support."
+msgstr "Создайте несколько настраиваемых форм заявок с разными настраиваемыми полями для каждого типа запроса, который вы поддерживаете."
+
+msgid "Email piping is the process of automatically turning incoming emails into support tickets without manual data entry."
+msgstr "Передача электронной почты — это процесс автоматического преобразования входящих электронных писем в заявки в службу поддержки без ручного ввода данных."
+
+msgid "Make the ticket assignment process automatic and assign the most qualified agent to your tickets with conditions."
+msgstr "Сделайте процесс назначения билетов автоматическим и назначьте для ваших билетов наиболее квалифицированного агента с условиями."
+
+msgid "Add private notes to a ticket and share crucial information internally with your agents, this private note is not visible to the customer."
+msgstr "Добавляйте личные примечания к заявке и делитесь важной информацией со своими агентами внутри компании. Эта личная заметка не видна клиенту."
+
+msgid "Merge one or more tickets into another if you receive two support requests from the same end user about the same issue."
+msgstr "Объедините одну или несколько заявок в другую, если вы получили два запроса на поддержку от одного и того же конечного пользователя по одной и той же проблеме."
+
+msgid "The user can search for and choose the topic for which they need help using help topics"
+msgstr "Пользователь может искать и выбирать тему, по которой ему нужна помощь, используя разделы справки."
+
+msgid "Manage abandoned tickets, and set rules for tickets over time, and those tickets will be closed automatically after a certain period."
+msgstr "Управляйте оставленными заявками и устанавливайте правила для заявок с течением времени, и эти заявки будут автоматически закрываться через определенный период."
+
+msgid "Stop wasting time on repetitive inquiries, build your knowledge base, and organize your solutions into categories for users."
+msgstr "Перестаньте тратить время на повторяющиеся запросы, создайте свою базу знаний и организуйте свои решения по категориям для пользователей."
+
+msgid "Define rules or set a specific time interval for making tickets automatically overdue."
+msgstr "Определите правила или установите определенный интервал времени для автоматической просрочки билетов."
+
+msgid "Track the amount of time spent on each customer support ticket without losing focus and enhance team productivity."
+msgstr "Отслеживайте количество времени, затраченное на обработку каждого обращения в службу поддержки клиентов, не теряя при этом концентрации, и повышайте продуктивность команды."
+
+msgid "Show the whole history of the ticket, including its status and any action taken in response to it."
+msgstr "Показать всю историю заявки, включая ее статус и любые действия, предпринятые в ответ на него."
+
+msgid "The simplest approach to effectively manage payments for premium help is through paid support."
+msgstr "Самый простой способ эффективного управления платежами за премиальную помощь — это платная поддержка."
+
+msgid "Customers will enter sensitive information on tickets, and this add-on is designed to help you keep that information secure."
+msgstr "Клиенты будут вводить конфиденциальную информацию в билеты, и это дополнение призвано помочь вам обеспечить безопасность этой информации."
+
+msgid "Empowers users to provide clear and concise explanations for why customer service tickets are being closed."
+msgstr "Позволяет пользователям предоставлять четкие и краткие объяснения того, почему заявки на обслуживание клиентов закрываются."
+
+msgid "Make ready-made responses to the most common questions in the tickets to swiftly address client issues."
+msgstr "Делайте в тикетах готовые ответы на самые распространенные вопросы, чтобы оперативно решать вопросы клиентов."
+
+msgid "Admins can limit the number of tickets that users can create as well as the number of tickets that agents can open individually."
+msgstr "Администраторы могут ограничить количество заявок, которые могут создавать пользователи, а также количество заявок, которые агенты могут открывать индивидуально."
+
+msgid "To enhance the quality of your services, ask your customers to complete a survey when a ticket is closed."
+msgstr "Чтобы повысить качество ваших услуг, попросите своих клиентов пройти опрос после закрытия заявки."
+
+msgid "Ticket action options allow you to execute additional actions on tickets."
+msgstr "Параметры действий с заявками позволяют выполнять дополнительные действия с заявками."
+
+msgid "Easily export ticket data and performance report data from your majestic support to an Excel spreadsheet with our efficient and user-friendly solution."
+msgstr "С помощью нашего эффективного и удобного решения вы можете легко экспортировать данные о билетах и ​​данные отчетов о производительности из вашей величественной службы поддержки в электронную таблицу Excel."
+
+msgid "Send the exact copy of the email to the provided email address with Email CC or BCC."
+msgstr "Отправьте точную копию электронного письма на указанный адрес электронной почты с указанием электронной почты CC или BCC."
+
+msgid "User options enable you to define roles for new users when they are registered."
+msgstr "Параметры пользователя позволяют определять роли для новых пользователей при их регистрации."
+
+msgid "SMTP enables you to add  custom mail protocols to send and receive emails with the support ticket system."
+msgstr "SMTP позволяет вам добавлять собственные почтовые протоколы для отправки и получения электронных писем с помощью системы заявок в службу поддержки."
+
+msgid "Create multi-language email templates for all default email templates to send customers emails in the language that they prefer."
+msgstr "Создавайте многоязычные шаблоны электронной почты для всех шаблонов электронной почты по умолчанию, чтобы отправлять электронные письма клиентам на том языке, который они предпочитают."
+
+msgid "Downloads can be very helpful for users who are looking to obtain the necessary information to resolve issues."
+msgstr "Загрузки могут быть очень полезны для пользователей, которые хотят получить необходимую информацию для решения проблем."
+
+msgid "Make an unlimited number of announcements related to the support system to encourage customer interaction."
+msgstr "Делайте неограниченное количество объявлений, связанных с системой поддержки, чтобы стимулировать взаимодействие с клиентами."
+
+msgid "With Ban Email, you can limit a users ability to create new tickets by blocking their email address."
+msgstr "С помощью Ban Email вы можете ограничить возможность пользователей создавать новые заявки, заблокировав их адрес электронной почты."
+
+msgid "Provide answers to common user questions with the FAQ extension before they become tickets."
+msgstr "Предоставляйте ответы на распространенные вопросы пользователей с помощью расширения FAQ, прежде чем они станут билетами."
+
+msgid "Get immediate data on your support operations as soon as you log into your WordPress administration area."
+msgstr "Получите немедленные данные о ваших операциях поддержки, как только вы войдете в свою область администрирования WordPress."
+
+msgid "You will be informed of anything that occurs on your support system by the desktop notifications."
+msgstr "Вы будете проинформированы обо всем, что происходит в вашей системе поддержки, с помощью уведомлений на рабочем столе."
+
+msgid "The integration of the support ticket system for WooCommerce with your e- shop makes your support better and more professional."
+msgstr "Интеграция системы заявок поддержки WooCommerce с вашим интернет-магазином сделает вашу поддержку лучше и профессиональнее."
+
+msgid "Manage your email marketing campaigns directly from your majestic support by adding new user accounts to your Mailchimp email list."
+msgstr "Управляйте своими маркетинговыми кампаниями по электронной почте непосредственно из вашей величественной службы поддержки, добавляя новые учетные записи пользователей в свой список адресов электронной почты Mailchimp."
+
+msgid "Send messages internally about support tickets and other issues between agents with internal mail."
+msgstr "Отправляйте внутренние сообщения о заявках в службу поддержки и других проблемах между агентами по внутренней почте."
+
+msgid "Frontend Widgets include several widgets that can be used to enhance the plugin's functionality in various areas of the website."
+msgstr "Виджеты внешнего интерфейса включают в себя несколько виджетов, которые можно использовать для улучшения функциональности плагина в различных областях веб-сайта."
+
+msgid "Clients won't be able to open a new ticket using the Envato Validation plugin if they don't have a valid Envato license."
+msgstr "Клиенты не смогут открыть новый билет с помощью плагина Envato Validation, если у них нет действующей лицензии Envato."
+
+msgid "Learn about a customer's purchase directly from the support dashboard by integrating Majestic Support with your EDD store."
+msgstr "Узнайте о покупке клиента непосредственно с панели поддержки, интегрировав Majestic Support с вашим магазином EDD."
+
+msgid "If the colors have been saved but the user-side colors are still the same, it is advised to clear the cache."
+msgstr "Если цвета были сохранены, но цвета на стороне пользователя остались прежними, рекомендуется очистить кеш."
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Roles"
+msgstr "Роли"
+
+msgid "Role"
+msgstr "Роль"
+
+msgid "Sr#"
+msgstr "Ср#"
+
+msgid "Gmail"
+msgstr "Gmail"
+
+msgid "Yahoo"
+msgstr "Yahoo"
+
+msgid "Aol"
+msgstr "Аол"
+
+msgid "Hotmail"
+msgstr "Горячая почта"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Wget"
+msgstr "Wget"
+
+msgid "URL"
+msgstr "URL-адрес"
+
+msgid "----"
+msgstr "----"
+
+msgid "JNo"
+msgstr "ДжейНет"
+
+msgid "Visible"
+msgstr "Видимый"
+
+msgid "Logo"
+msgstr "Логотип"
+
+msgid "Re"
+msgstr "Ре"
+
+msgid "Vertical"
+msgstr "Вертикальный"
+
+msgid "Horizontal"
+msgstr "Горизонтальный"
+
+msgid "div"
+msgstr "делитель"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "General"
+msgstr "Общий"
+
+msgid "Captcha"
+msgstr "Капча"
+
+msgid "Facebook"
+msgstr "Фейсбук"
+
+msgid "Linkedin"
+msgstr "Линкедин"
+
+msgid "Kb"
+msgstr "Кб"
+
+msgid "SMTP"
+msgstr "SMTP"
+
+msgid "TLS"
+msgstr "ТЛС"
+
+msgid "SSL"
+msgstr "SSL"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "S.No"
+msgstr "С.Нет"
+
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+msgid "envato"
+msgstr "энвато"
+
+msgid ":"
+msgstr ":"
+
+msgid "Envato"
+msgstr "Энвато"
+
+msgid "Color"
+msgstr "Цвет"
+
+msgid "Normal"
+msgstr "Нормальный"
+
+msgid "Color 1"
+msgstr "Цвет 1"
+
+msgid "Color 2"
+msgstr "Цвет 2"
+
+msgid "Color 3"
+msgstr "Цвет 3"
+
+msgid "Color 4"
+msgstr "Цвет 4"
+
+msgid "Color 5"
+msgstr "Цвет 5"
+
+msgid "Color 6"
+msgstr "Цвет 6"
+
+msgid "Color 7"
+msgstr "Цвет 7"
+
+msgid "Kylee Arroyo"
+msgstr "Кайли Арройо"
+
+msgid "Marketing"
+msgstr "Маркетинг"
+
+msgid "XcyMfWYKp"
+msgstr "XcyMfWYKp"
+
+msgid "08-12-2022"
+msgstr "12.08.2022"
+
+msgid "Allison Carney"
+msgstr "Эллисон Карни"
+
+msgid "Yx4cW3Mfk"
+msgstr "Yx4cW3Mfk"
+
+msgid "05-12-2022"
+msgstr "12.05.2022"
+
+msgid "GxNDv3MfC"
+msgstr "GxNDv3MfC"
+
+msgid "01-12-2022"
+msgstr "12.01.2022"
+
+msgid ","
+msgstr ","
+
+msgid "Issue Summary"
+msgstr "Краткое описание проблемы"
+
+msgid "Envato Purchase Code"
+msgstr "Код покупки Envato"
+
+msgid "Internal Note Title"
+msgstr "Название внутреннего примечания"
+
+msgid "Ticket Department Transfer"
+msgstr "Трансфер из билетного отдела"
+
+msgid "Change Ticket Priority"
+msgstr "Изменить приоритет заявки"
+
+msgid "View Ticket"
+msgstr "Посмотреть билет"
+
+msgid "New Ticket Notification"
+msgstr "Уведомление о новом билете"
+
+msgid "Edit Own Time"
+msgstr "Изменить собственное время"
+
+msgid "View Feedback"
+msgstr "Посмотреть отзыв"
+
+msgid "View Ticket Merge"
+msgstr "Посмотреть объединение билетов"
+
+msgid "View Credentials"
+msgstr "Просмотр учетных данных"
+
+msgid "Delete Credentials"
+msgstr "Удалить учетные данные"
+
+msgid "Edit Credentials"
+msgstr "Изменить учетные данные"
+
+msgid "Add Credentials"
+msgstr "Добавить учетные данные"
+
+msgid "Mark Non Premium"
+msgstr "Маркировка «Не Премиум»"
+
+msgid "Link To Paid Support"
+msgstr "Ссылка на платную поддержку"
+
+msgid "Assign Role Permissions"
+msgstr "Назначение разрешений роли"
+
+msgid "Add User"
+msgstr "Добавить пользователя"
+
+msgid "Edit User"
+msgstr "Изменить пользователя"
+
+msgid "Assign User Permissions"
+msgstr "Назначение разрешений пользователя"
+
+msgid "Delete Department"
+msgstr "Удалить отдел"
+
+msgid "View Department"
+msgstr "Посмотреть отдел"
+
+msgid "View Role"
+msgstr "Посмотреть роль"
+
+msgid "View User"
+msgstr "Просмотр пользователя"
+
+msgid "View Agent Reports"
+msgstr "Просмотр отчетов агента"
+
+msgid "View Department Reports"
+msgstr "Просмотр отчетов отдела"
+
+msgid "Manage Ticket Close Reasons"
+msgstr "Управление причинами закрытия заявки"
+
+msgid "View Category"
+msgstr "Посмотреть категорию"
+
+msgid "View Knowledge Base"
+msgstr "Просмотр базы знаний"
+
+msgid "Delete Category"
+msgstr "Удалить категорию"
+
+msgid "Delete Knowledge Base"
+msgstr "Удалить базу знаний"
+
+msgid "View FAQ"
+msgstr "Посмотреть часто задаваемые вопросы"
+
+msgid "Delete FAQ"
+msgstr "Удалить FAQ"
+
+msgid "View Download"
+msgstr "Посмотреть загрузки"
+
+msgid "Delete Download"
+msgstr "Удалить загрузку"
+
+msgid "Delete Announcement"
+msgstr "Удалить объявление"
+
+msgid "Allow Mail System"
+msgstr "Разрешить почтовую систему"
+
+msgid "Edit Help Topic"
+msgstr "Изменить тему справки"
+
+msgid "View Help Topic"
+msgstr "Посмотреть раздел справки"
+
+msgid "Delete Help Topic"
+msgstr "Удалить тему справки"
+
+msgid "Edit Premade Response"
+msgstr "Редактировать готовый ответ"
+
+msgid "View Premade Response"
+msgstr "Посмотреть готовый ответ"
+
+msgid "Delete Premade Response"
+msgstr "Удалить готовый ответ"
+
+msgid "Edit Smart Reply"
+msgstr "Редактировать умный ответ"
+
+msgid "View Smart Reply"
+msgstr "Просмотр умного ответа"
+
+msgid "Delete Smart Reply"
+msgstr "Удалить умный ответ"
+
+msgid "Add Ban Email"
+msgstr "Добавить письмо о запрете"
+
+msgid "Edit Ban Email"
+msgstr "Изменить письмо о запрете"
+
+msgid "View Ban Email"
+msgstr "Просмотр письма о запрете"
+
+msgid "Delete Ban Email"
+msgstr "Удалить письмо о запрете"
+
+msgid "View Announcement"
+msgstr "Посмотреть объявление"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Add Permissions"
+msgstr "Добавить разрешения"
+
+msgid "Add Rule"
+msgstr "Добавить правило"
+
+msgid "Contain"
+msgstr "Содержать"
+
+msgid "Matched"
+msgstr "Соответствует"
+
+msgid "Submit Type"
+msgstr "Тип отправки"
+
+msgid "Addons Status"
+msgstr "Статус дополнений"
+
+msgid "Assign To"
+msgstr "Назначить в"
+
+msgid "Agent Detail Report"
+msgstr "Подробный отчет агента"
+
+msgid "User Detail Report"
+msgstr "Подробный отчет о пользователях"
+
+msgid "Satisfaction Reports"
+msgstr "Отчеты об удовлетворенности"
+
+msgid "Admin New Ticket Received"
+msgstr "Администратор Получен новый билет"
+
+msgid "Staff New Ticket Received"
+msgstr "Персонал получил новый билет"
+
+msgid "New Department Received"
+msgstr "Получен новый отдел"
+
+msgid "New Group Received"
+msgstr "Получена новая группа"
+
+msgid "New Agent Received"
+msgstr "Получен новый агент"
+
+msgid "New Help Topic Received"
+msgstr "Получена новая тема справки"
+
+msgid "Admin Reassign Ticket"
+msgstr "Администратор переназначил заявку"
+
+msgid "Staff Reassign Ticket"
+msgstr "Билет на переназначение персонала"
+
+msgid "Admin Close Ticket"
+msgstr "Закрытие заявки администратором"
+
+msgid "Staff Close Ticket"
+msgstr "Закрытие заявки для персонала"
+
+msgid "Admin Delete Ticket"
+msgstr "Администратор Удалить заявку"
+
+msgid "Staff Delete Ticket"
+msgstr "Персонал Удалить заявку"
+
+msgid "Admin Overdue Ticket"
+msgstr "Заявка на просрочку администратора"
+
+msgid "Staff Overdue Ticket"
+msgstr "Билет на просрочку для персонала"
+
+msgid "Admin Email Baned"
+msgstr "Электронная почта администратора запрещена"
+
+msgid "Staff Email Baned"
+msgstr "Электронная почта сотрудников запрещена"
+
+msgid "Admin Ticket Transfered to Department"
+msgstr "Административный билет передан в отдел"
+
+msgid "Staff Ticket Transfered to Department"
+msgstr "Билет сотрудника передан в отдел"
+
+msgid "Admin Email baned and ticket closed"
+msgstr "Адрес электронной почты администратора заблокирован, тикет закрыт."
+
+msgid "Staff Email baned and ticket closed"
+msgstr "Электронная почта сотрудников заблокирована, тикет закрыт"
+
+msgid "Admin Email Unbaned"
+msgstr "Электронная почта администратора разблокирована"
+
+msgid "Staff Email Unbaned"
+msgstr "Электронная почта сотрудников разблокирована"
+
+msgid "Admin Ticket Reply"
+msgstr "Ответ администратора на заявку"
+
+msgid "Staff Ticket Reply"
+msgstr "Ответ персонала на заявку"
+
+msgid "Ticket Received"
+msgstr "Билет получен"
+
+msgid "Banemail try new ticket"
+msgstr "Banemail попробуйте новый билет"
+
+msgid "Admin Ticket has been locked"
+msgstr "Билет администратора заблокирован"
+
+msgid "Staff Ticket has been locked"
+msgstr "Билет для персонала заблокирован"
+
+msgid "Admin Ticket has been unlocked"
+msgstr "Билет администратора разблокирован"
+
+msgid "Staff Ticket has been unlocked"
+msgstr "Билет для персонала разблокирован"
+
+msgid "Admin In progress Ticket"
+msgstr "Заявка администратора в процессе"
+
+msgid "Staff In progress Ticket"
+msgstr "Билет для сотрудников в процессе"
+
+msgid "Admin Ticket priority changed"
+msgstr "Приоритет заявки администратора изменен"
+
+msgid "Staff Ticket priority changed"
+msgstr "Приоритет заявки для персонала изменен"
+
+msgid "New Mail has been sent"
+msgstr "Новая почта отправлена."
+
+msgid "New Reply has been sent"
+msgstr "Новый ответ отправлен"
+
+msgid "Delete User Data"
+msgstr "Удалить данные пользователя"
+
+msgid "Closed on"
+msgstr "Закрыто"
+
+msgid "Message could not be sent. Mailer Error: "
+msgstr "Не удалось отправить сообщение. Ошибка почтовика:"
+
+msgid "Test email has been sent on : "
+msgstr "Тестовое письмо было отправлено на адрес:"
+
+msgid "The system has no agents add an agent to maximize your productivity."
+msgstr "В системе нет агентов. Добавьте агента, чтобы максимизировать свою производительность."

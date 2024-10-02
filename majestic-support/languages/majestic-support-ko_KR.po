@@ -1,0 +1,6144 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "You are not allowed"
+msgstr "너는 허가받지 않았다"
+
+msgid "The ticket has been locked"
+msgstr "티켓이 잠겨있습니다"
+
+msgid "Successfully"
+msgstr "성공적으로"
+
+msgid "The ticket has not been locked"
+msgstr "티켓이 잠기지 않았습니다"
+
+msgid "Lock Ticket"
+msgstr "잠금 티켓"
+
+msgid "The ticket is locked by"
+msgstr "티켓은 다음에 의해 잠겨 있습니다."
+
+msgid "The ticket has been unlocked"
+msgstr "티켓이 잠금 해제되었습니다."
+
+msgid "The ticket has not been unlocked"
+msgstr "티켓이 잠금 해제되지 않았습니다."
+
+msgid "Unlock Ticket"
+msgstr "티켓 잠금 해제"
+
+msgid "User already an agent"
+msgstr "사용자는 이미 상담원입니다."
+
+msgid "The agent has not been stored"
+msgstr "에이전트가 저장되지 않았습니다."
+
+msgid "The agent has been stored"
+msgstr "에이전트가 저장되었습니다."
+
+msgid "The agent has been deleted"
+msgstr "에이전트가 삭제되었습니다."
+
+msgid "The agent has not been deleted"
+msgstr "에이전트가 삭제되지 않았습니다."
+
+msgid "The agent in use cannot delete"
+msgstr "사용 중인 에이전트는 삭제할 수 없습니다."
+
+msgid "Agent"
+msgstr "대리인"
+
+msgid "status has been changed"
+msgstr "상태가 변경되었습니다"
+
+msgid "status has not been changed"
+msgstr "상태가 변경되지 않았습니다"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "User Name"
+msgstr "사용자 이름"
+
+msgid "Email Address"
+msgstr "이메일 주소"
+
+msgid "Name"
+msgstr "이름"
+
+msgid "Email"
+msgstr "이메일"
+
+msgid "Previous"
+msgstr "이전의"
+
+msgid "Next"
+msgstr "다음"
+
+msgid "Error Deleting Logo"
+msgstr "로고 삭제 중 오류 발생"
+
+msgid "Active"
+msgstr "활동적인"
+
+msgid "Disabled"
+msgstr "장애가 있는"
+
+msgid "Uploaded file extension error."
+msgstr "업로드된 파일 확장자 오류입니다."
+
+msgid "Select user"
+msgstr "사용자 선택"
+
+msgid "Username"
+msgstr "사용자 이름"
+
+msgid "Search"
+msgstr "찾다"
+
+msgid "Reset"
+msgstr "초기화"
+
+msgid "Use search feature to select the user"
+msgstr "검색 기능을 사용하여 사용자 선택"
+
+msgid "image"
+msgstr "영상"
+
+msgid "Add Agent"
+msgstr "에이전트 추가"
+
+msgid "WP User ID"
+msgstr "WP 사용자 ID"
+
+msgid "WP Username"
+msgstr "WP 사용자 이름"
+
+msgid "WP Full Name"
+msgstr "WP 성명"
+
+msgid "WP Email Address"
+msgstr "WP 이메일 주소"
+
+msgid "User"
+msgstr "사용자"
+
+msgid "Select User"
+msgstr "사용자 선택"
+
+msgid "Select Role"
+msgstr "역할 선택"
+
+msgid "First Name"
+msgstr "이름"
+
+msgid "Last Name"
+msgstr "성"
+
+msgid "Office Phone"
+msgstr "사무실 전화"
+
+msgid "Extension"
+msgstr "확대"
+
+msgid "Mobile No"
+msgstr "모바일 번호"
+
+msgid "Picture"
+msgstr "그림"
+
+msgid "cross"
+msgstr "십자가"
+
+msgid "Maximum File Size"
+msgstr "최대 파일 크기"
+
+msgid "File Extension Type"
+msgstr "파일 확장자 유형"
+
+msgid "Append Signature"
+msgstr "서명 추가"
+
+msgid "Append signature with a reply"
+msgstr "답장에 서명 추가"
+
+msgid "Signature"
+msgstr "서명"
+
+msgid "Account Status"
+msgstr "계정 상태"
+
+msgid "Select Status"
+msgstr "상태 선택"
+
+msgid "Save"
+msgstr "구하다"
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Close"
+msgstr "닫다"
+
+msgid "User Detail"
+msgstr "사용자 세부정보"
+
+msgid "Append"
+msgstr "추가"
+
+msgid "Department Section"
+msgstr "부서 섹션"
+
+msgid "Ticket Section"
+msgstr "티켓 섹션"
+
+msgid "Agent Section"
+msgstr "에이전트 섹션"
+
+msgid "Knowledge Base Section"
+msgstr "기술 자료 섹션"
+
+msgid "FAQ Section"
+msgstr "FAQ 섹션"
+
+msgid "Download Section"
+msgstr "섹션 다운로드"
+
+msgid "Announcement Section"
+msgstr "공지사항 섹션"
+
+msgid "Mail Section"
+msgstr "메일섹션"
+
+msgid "Help Topic Section"
+msgstr "도움말 항목 섹션"
+
+msgid "Premade Response Section"
+msgstr "사전 제작 응답 섹션"
+
+msgid "Smart Reply Section"
+msgstr "스마트 답장 섹션"
+
+msgid "Ban Email Section"
+msgstr "금지 이메일 섹션"
+
+msgid "Select / Deselect All"
+msgstr "모두 선택 / 선택 취소"
+
+msgid "Save Permissions"
+msgstr "저장 권한"
+
+msgid "Full Name"
+msgstr "성명"
+
+msgid "Status"
+msgstr "상태"
+
+msgid "Created"
+msgstr "만들어진"
+
+msgid "Permissions"
+msgstr "권한"
+
+msgid "Action"
+msgstr "행동"
+
+msgid "Staff"
+msgstr "직원"
+
+msgid "change status"
+msgstr "상태 변경"
+
+msgid "Edit"
+msgstr "편집하다"
+
+msgid "Delete"
+msgstr "삭제"
+
+msgid "Are you sure you want to delete"
+msgstr "삭제 하시겠습니까"
+
+msgid "Something went wrong to try again later."
+msgstr "나중에 다시 시도하는 데 문제가 발생했습니다."
+
+msgid "My Profile"
+msgstr "내 프로필"
+
+msgid "Upload Image"
+msgstr "이미지 업로드"
+
+msgid "Phone No"
+msgstr "전화 번호"
+
+msgid "Upload file limit exceeds"
+msgstr "업로드 파일 제한을 초과했습니다."
+
+msgid "No help topic found"
+msgstr "도움말 항목을 찾을 수 없습니다."
+
+msgid "Error file size too large"
+msgstr "오류 파일 크기가 너무 큼"
+
+msgid "Submit Ticket"
+msgstr "티켓 제출"
+
+msgid "Select Department"
+msgstr "부서 선택"
+
+msgid "Select Help Topic"
+msgstr "도움말 항목 선택"
+
+msgid "Select Priority"
+msgstr "우선순위 선택"
+
+msgid "premade"
+msgstr "미리 만들어진"
+
+msgid "Add more"
+msgstr "더 추가"
+
+msgid "Remove"
+msgstr "제거하다"
+
+msgid "Reason for edit"
+msgstr "편집 이유"
+
+msgid "Internal Note"
+msgstr "내부 메모"
+
+msgid "Enter valid woocommerce order#"
+msgstr "유효한 우커머스 주문을 입력하세요#"
+
+msgid "Order id found"
+msgstr "주문 ID를 찾았습니다."
+
+msgid "Order id not found"
+msgstr "주문 ID를 찾을 수 없습니다"
+
+msgid "Select Product"
+msgstr "제품 선택"
+
+msgid "Dated"
+msgstr "날짜가 있는"
+
+msgid "Select Order ID"
+msgstr "주문 ID 선택"
+
+msgid "Select license key"
+msgstr "라이센스 키 선택"
+
+msgid "Assign to me"
+msgstr "나에게 할당"
+
+msgid "Show All"
+msgstr "모두 보이기"
+
+msgid "Show Less"
+msgstr "간략히 표시"
+
+msgid "My Tickets"
+msgstr "내 티켓"
+
+msgid "Open"
+msgstr "열려 있는"
+
+msgid "Closed"
+msgstr "닫은"
+
+msgid "Answered"
+msgstr "답변됨"
+
+msgid "Overdue"
+msgstr "연체"
+
+msgid "All Tickets"
+msgstr "모든 티켓"
+
+msgid "Ticket ID"
+msgstr "티켓 ID"
+
+msgid "Or"
+msgstr "또는"
+
+msgid "From"
+msgstr "에서"
+
+msgid "Select Agent"
+msgstr "에이전트 선택"
+
+msgid "Select"
+msgstr "선택하다"
+
+msgid "Start Date"
+msgstr "시작일"
+
+msgid "End Date"
+msgstr "종료일"
+
+msgid "Assigned to me"
+msgstr "나에게 할당됨"
+
+msgid "All"
+msgstr "모두"
+
+msgid "Tickets"
+msgstr "티켓"
+
+msgid "Subject"
+msgstr "주제"
+
+msgid "Priority"
+msgstr "우선 사항"
+
+msgid "sort"
+msgstr "종류"
+
+msgid "New"
+msgstr "새로운"
+
+msgid "Waiting Reply"
+msgstr "응답 대기 중"
+
+msgid "In Progress"
+msgstr "진행 중"
+
+msgid "Replied"
+msgstr "답변됨"
+
+msgid "Close and merge"
+msgstr "닫기 및 병합"
+
+msgid "Created via Email"
+msgstr "이메일을 통해 생성됨"
+
+msgid "The ticket is locked"
+msgstr "티켓이 잠겨 있습니다"
+
+msgid "The ticket marks as overdue"
+msgstr "티켓에 기한이 지난 것으로 표시됨"
+
+msgid "Last Reply"
+msgstr "마지막 답장"
+
+msgid "Agent Permissions"
+msgstr "에이전트 권한"
+
+msgid "Agents"
+msgstr "자치령 대표"
+
+msgid "Add agent"
+msgstr "상담사 추가"
+
+msgid "Search by username"
+msgstr "사용자 이름으로 검색"
+
+msgid "Already exists"
+msgstr "이미 존재 함"
+
+msgid "The role has been stored"
+msgstr "역할이 저장되었습니다"
+
+msgid "The role has not been stored"
+msgstr "역할이 저장되지 않았습니다."
+
+msgid "The role has been deleted"
+msgstr "역할이 삭제되었습니다."
+
+msgid "The role has not been deleted"
+msgstr "역할이 삭제되지 않았습니다."
+
+msgid "The role currently in use cannot be deleted"
+msgstr "현재 사용 중인 역할은 삭제할 수 없습니다."
+
+msgid "Add Role"
+msgstr "역할 추가"
+
+msgid "Save Role"
+msgstr "역할 저장"
+
+msgid "Role Name"
+msgstr "역할 이름"
+
+msgid "Role Permission"
+msgstr "역할 권한"
+
+msgid "Role Permissions"
+msgstr "역할 권한"
+
+msgid "Role permissions"
+msgstr "역할 권한"
+
+msgid "Agent permissions have been stored"
+msgstr "에이전트 권한이 저장되었습니다"
+
+msgid "Select Condition Operator"
+msgstr "조건 연산자 선택"
+
+msgid "Select Submit Type"
+msgstr "제출 유형 선택"
+
+msgid "Rule has been stored"
+msgstr "규칙이 저장되었습니다."
+
+msgid "Rule has not been stored"
+msgstr "규칙이 저장되지 않았습니다."
+
+msgid "Rule has been deleted"
+msgstr "규칙이 삭제되었습니다."
+
+msgid "Rule has not been deleted"
+msgstr "규칙이 삭제되지 않았습니다."
+
+msgid "Rule"
+msgstr "규칙"
+
+msgid "in use cannot deleted"
+msgstr "사용 중 삭제할 수 없습니다"
+
+msgid "Condition Title"
+msgstr "조건 제목"
+
+msgid "Select Condition Title"
+msgstr "조건 제목 선택"
+
+msgid "Condition Operator"
+msgstr "조건 연산자"
+
+msgid "Condition Value"
+msgstr "조건 값"
+
+msgid "Select Condition Value"
+msgstr "조건 값 선택"
+
+msgid "Delete Condition"
+msgstr "조건 삭제"
+
+msgid "No Operator found"
+msgstr "운영자를 찾을 수 없습니다."
+
+msgid "No Value found"
+msgstr "값을 찾을 수 없습니다"
+
+msgid "Rule Title"
+msgstr "규칙 제목"
+
+msgid "Condition value"
+msgstr "조건값"
+
+msgid "+Add more Condition"
+msgstr "+조건 추가"
+
+msgid "Save Rule"
+msgstr "규칙 저장"
+
+msgid "Records per page"
+msgstr "페이지당 기록"
+
+msgid "Save Ordering"
+msgstr "주문 저장"
+
+msgid "An announcement has been stored"
+msgstr "공지사항이 저장되었습니다"
+
+msgid "An announcement has not been stored"
+msgstr "공지사항이 저장되지 않았습니다"
+
+msgid "An announcement has been deleted"
+msgstr "공지가 삭제되었습니다"
+
+msgid "An announcement has not been deleted"
+msgstr "공지사항이 삭제되지 않았습니다"
+
+msgid "Announcement"
+msgstr "발표"
+
+msgid "ordering has been changed"
+msgstr "순서가 변경되었습니다"
+
+msgid "ordering has not changed"
+msgstr "순서가 바뀌지 않았습니다"
+
+msgid "Public"
+msgstr "공공의"
+
+msgid "Private"
+msgstr "사적인"
+
+msgid "Add Announcement"
+msgstr "공지사항 추가"
+
+msgid "Title"
+msgstr "제목"
+
+msgid "Parent Category"
+msgstr "상위 카테고리"
+
+msgid "Select Category"
+msgstr "카테고리 선택"
+
+msgid "Description"
+msgstr "설명"
+
+msgid "Select Visibility"
+msgstr "가시성 선택"
+
+msgid "All users"
+msgstr "모든 사용자들"
+
+msgid "Only logged-in users"
+msgstr "로그인한 사용자만"
+
+msgid "Visible To"
+msgstr "공개 대상"
+
+msgid "Save Announcement"
+msgstr "공지사항 저장"
+
+msgid "Category"
+msgstr "범주"
+
+msgid "Ordering"
+msgstr "주문"
+
+msgid "Announcement Detail"
+msgstr "공지사항 세부정보"
+
+msgid "Category Name"
+msgstr "카테고리 이름"
+
+msgid "Announcements"
+msgstr "공지사항"
+
+msgid "Categories"
+msgstr "카테고리"
+
+msgid "Add Announcements"
+msgstr "공지 사항 추가"
+
+msgid "Logger Email"
+msgstr "로거 이메일"
+
+msgid "Log"
+msgstr "통나무"
+
+msgid "Logger"
+msgstr "나무꾼"
+
+msgid "IP Address"
+msgstr "IP 주소"
+
+msgid "Ban email has been stored"
+msgstr "차단 이메일이 저장되었습니다"
+
+msgid "Ban email has not been stored"
+msgstr "차단 이메일이 저장되지 않았습니다"
+
+msgid "Ban email has been deleted"
+msgstr "차단 메일이 삭제되었습니다"
+
+msgid "Ban email has not been deleted"
+msgstr "차단 이메일이 삭제되지 않았습니다"
+
+msgid "Ban email does not exist"
+msgstr "차단 이메일이 존재하지 않습니다"
+
+msgid "Add Email"
+msgstr "이메일 추가"
+
+msgid "Save Email"
+msgstr "이메일 저장"
+
+msgid "Save Banned Email"
+msgstr "금지된 이메일 저장"
+
+msgid "Emails"
+msgstr "이메일"
+
+msgid "Submitter"
+msgstr "제출자"
+
+msgid "Banned Emails"
+msgstr "금지된 이메일"
+
+msgid "Are you sure you want to delete it?"
+msgstr "삭제하시겠습니까?"
+
+msgid "Premade response message has been stored"
+msgstr "미리 작성된 응답 메시지가 저장되었습니다."
+
+msgid "Premade response message has not been stored"
+msgstr "미리 작성된 응답 메시지가 저장되지 않았습니다."
+
+msgid "Premade department message has been deleted"
+msgstr "미리 작성된 부서 메시지가 삭제되었습니다."
+
+msgid "Premade department message has not been deleted"
+msgstr "미리 작성된 부서 메시지가 삭제되지 않았습니다"
+
+msgid "Premade response"
+msgstr "미리 만들어진 응답"
+
+msgid "Add Premade Response"
+msgstr "미리 만들어진 응답 추가"
+
+msgid "Department"
+msgstr "부서"
+
+msgid "Response"
+msgstr "응답"
+
+msgid "Save Premade Response"
+msgstr "미리 만들어진 응답 저장"
+
+msgid "The department under which the answer will be made is available"
+msgstr "답변을 받을 부서가 있습니다."
+
+msgid "Offline"
+msgstr "오프라인"
+
+msgid "Last Updated"
+msgstr "마지막 업데이트"
+
+msgid "Not updated"
+msgstr "업데이트되지 않음"
+
+msgid "Premade Response"
+msgstr "미리 만들어진 응답"
+
+msgid "Latest Tickets"
+msgstr "최신 티켓"
+
+msgid "Last Month Ticket Stats"
+msgstr "지난달 티켓 통계"
+
+msgid "Pending"
+msgstr "보류 중"
+
+msgid "The attachment has been removed"
+msgstr "첨부파일이 삭제되었습니다"
+
+msgid "The attachment has not been removed"
+msgstr "첨부파일이 삭제되지 않았습니다"
+
+msgid "The download has been stored"
+msgstr "다운로드가 저장되었습니다"
+
+msgid "The download has not been stored"
+msgstr "다운로드가 저장되지 않았습니다"
+
+msgid "Download"
+msgstr "다운로드"
+
+msgid "The download has been deleted"
+msgstr "다운로드가 삭제되었습니다"
+
+msgid "The download has not been deleted"
+msgstr "다운로드가 삭제되지 않았습니다"
+
+msgid "Download All"
+msgstr "모두 다운로드"
+
+msgid "Add Download"
+msgstr "다운로드 추가"
+
+msgid "Attachments"
+msgstr "첨부파일"
+
+msgid "Save Download"
+msgstr "저장 다운로드"
+
+msgid "Add More Files"
+msgstr "더 많은 파일 추가"
+
+msgid "Delete attachment"
+msgstr "첨부파일 삭제"
+
+msgid "grab"
+msgstr "붙잡다"
+
+msgid "Attachment"
+msgstr "부착"
+
+msgid "Downloads"
+msgstr "다운로드"
+
+msgid "Files"
+msgstr "파일"
+
+msgid "Majestic Support"
+msgstr "장엄한 지원"
+
+msgid "Get Help"
+msgstr "도움 받기"
+
+msgid "Email CC has been stored"
+msgstr "이메일 CC가 저장되었습니다"
+
+msgid "Email CC has not been stored"
+msgstr "이메일 CC가 저장되지 않았습니다"
+
+msgid "Email CC has been deleted"
+msgstr "이메일 참조가 삭제되었습니다."
+
+msgid "Email CC has not been deleted"
+msgstr "이메일 CC가 삭제되지 않았습니다."
+
+msgid "Email CC "
+msgstr "이메일 참조"
+
+msgid "Email CC"
+msgstr "이메일 참조"
+
+msgid "Template Type"
+msgstr "템플릿 유형"
+
+msgid "Select Template Type"
+msgstr "템플릿 유형 선택"
+
+msgid "Delete row"
+msgstr "행 삭제"
+
+msgid "Template For"
+msgstr "템플릿:"
+
+msgid "Select Template For"
+msgstr "템플릿 선택"
+
+msgid "Template Title"
+msgstr "템플릿 제목"
+
+msgid "Add more row"
+msgstr "행 추가"
+
+msgid "Save Email CC"
+msgstr "이메일 참조 저장"
+
+msgid "Service is running, please close the pag"
+msgstr "서비스가 실행 중입니다. 페이지를 닫아주세요."
+
+msgid "Your setting is working please this."
+msgstr "설정이 작동 중입니다."
+
+msgid "Connection established but the system cannot read any email"
+msgstr "연결이 설정되었지만 시스템이 이메일을 읽을 수 없습니다."
+
+msgid "The setting has been stored."
+msgstr "설정이 저장되었습니다."
+
+msgid "The setting has not been stored."
+msgstr "설정이 저장되지 않았습니다."
+
+msgid "Email address already exist"
+msgstr "이메일 주소가 이미 존재합니다."
+
+msgid "Email for email piping has been stored"
+msgstr "이메일 파이핑을 위한 이메일이 저장되었습니다."
+
+msgid "Email for email piping has not been stored"
+msgstr "이메일 파이핑을 위한 이메일이 저장되지 않았습니다."
+
+msgid "The email has been deleted"
+msgstr "이메일이 삭제되었습니다"
+
+msgid "The email has not been deleted"
+msgstr "이메일이 삭제되지 않았습니다"
+
+msgid "Enabled"
+msgstr "활성화됨"
+
+msgid "Only New Tickets"
+msgstr "신규 티켓만"
+
+msgid "Only Replies"
+msgstr "답글만"
+
+msgid "Both"
+msgstr "둘 다"
+
+msgid "Other"
+msgstr "다른"
+
+msgid "Yes"
+msgstr "예"
+
+msgid "Please enter the hostname first"
+msgstr "먼저 호스트 이름을 입력하세요."
+
+msgid "Please enable email piping setting first"
+msgstr "먼저 이메일 파이핑 설정을 활성화하세요."
+
+msgid "Enable email piping"
+msgstr "이메일 파이핑 활성화"
+
+msgid "Ticket Type"
+msgstr "티켓 종류"
+
+msgid "Which email type to read"
+msgstr "읽을 이메일 유형"
+
+msgid "Save attachments if found in an email"
+msgstr "이메일에서 발견된 경우 첨부 파일을 저장하세요."
+
+msgid "Host Type"
+msgstr "호스트 유형"
+
+msgid "Select your email service provider"
+msgstr "이메일 서비스 제공업체를 선택하세요."
+
+msgid "Host Name"
+msgstr "호스트 이름"
+
+msgid "Enabled SSL"
+msgstr "SSL 활성화"
+
+msgid "Do you have enabled SSL on your domain?"
+msgstr "도메인에서 SSL을 활성화했습니까?"
+
+msgid "Host Port Number"
+msgstr "호스트 포트 번호"
+
+msgid "Host port number to read an email from"
+msgstr "이메일을 읽을 호스트 포트 번호"
+
+msgid "Email address to read emails"
+msgstr "이메일을 읽을 수 있는 이메일 주소"
+
+msgid "Password"
+msgstr "비밀번호"
+
+msgid "Password for a given email address"
+msgstr "특정 이메일 주소의 비밀번호"
+
+msgid "check"
+msgstr "확인하다"
+
+msgid "Check Settings"
+msgstr "설정 확인"
+
+msgid "If the system doesn't respond in 30 seconds"
+msgstr "시스템이 30초 내에 응답하지 않는 경우"
+
+msgid "it means system unable to connect email server"
+msgstr "이는 시스템이 이메일 서버에 연결할 수 없음을 의미합니다."
+
+msgid "Save Settings"
+msgstr "설정 저장"
+
+msgid "Cron Job"
+msgstr "크론 작업"
+
+msgid "Web Cron Job"
+msgstr "웹 크론 작업"
+
+msgid "Curl"
+msgstr "곱슬 곱슬하다"
+
+msgid "PHP Script"
+msgstr "PHP 스크립트"
+
+msgid "Configuration of a backup job with webcron.org"
+msgstr "webcron.org를 사용한 백업 작업 구성"
+
+msgid "Name of cron job"
+msgstr "크론 작업 이름"
+
+msgid "Log in to webcron.org and in the cron area, click on "
+msgstr "webcron.org에 로그인하고 cron 영역에서 다음을 클릭하십시오."
+
+msgid "Timeout"
+msgstr "시간 초과"
+
+msgid "URL you want to execute"
+msgstr "실행하려는 URL"
+
+msgid "Login"
+msgstr "로그인"
+
+msgid "Leave this blank"
+msgstr "이 항목을 비워 두세요."
+
+msgid "Execution time"
+msgstr "실행 시간"
+
+msgid "That the grid below the other options select when and how"
+msgstr "다른 옵션 아래의 그리드는 시기와 방법을 선택합니다."
+
+msgid "Alerts"
+msgstr "경고"
+
+msgid "Cron scheduling using wget"
+msgstr "wget을 사용한 크론 스케줄링"
+
+msgid "Cron scheduling using Curl"
+msgstr "Curl을 사용한 크론 스케줄링"
+
+msgid "Custom PHP script to run the cron job"
+msgstr "크론 작업을 실행하기 위한 사용자 정의 PHP 스크립트"
+
+msgid "Sorry the cron job did not work"
+msgstr "죄송합니다. cron 작업이 작동하지 않았습니다."
+
+msgid "URL for use with your own scripts and third-party scripts"
+msgstr "자체 스크립트 및 타사 스크립트에 사용할 URL"
+
+msgid "It is recommended to run the script every hour."
+msgstr "매시간 스크립트를 실행하는 것이 좋습니다."
+
+msgid "Ticket Email Type"
+msgstr "티켓 이메일 유형"
+
+msgid "ticket email"
+msgstr "티켓 이메일"
+
+msgid "Overall Reports"
+msgstr "전체 보고서"
+
+msgid "Agents Report"
+msgstr "상담원 보고서"
+
+msgid "Department Report"
+msgstr "부서 보고서"
+
+msgid "Departments Report"
+msgstr "부서 보고서"
+
+msgid "Majestic Support Overall Reports"
+msgstr "Majestic 지원 전체 보고서"
+
+msgid "Tickets By Status"
+msgstr "상태별 티켓"
+
+msgid "Tickets By Departments"
+msgstr "부서별 티켓"
+
+msgid "Tickets By Priorities"
+msgstr "우선순위별 티켓"
+
+msgid "Tickets By Channel"
+msgstr "채널별 티켓"
+
+msgid "Direct"
+msgstr "직접"
+
+msgid "Direct reply"
+msgstr "직접 답장"
+
+msgid "Email reply"
+msgstr "이메일 답장"
+
+msgid "Tickets By staff"
+msgstr "티켓 직원 별"
+
+msgid "Report By"
+msgstr "보고 기준"
+
+msgid "agent"
+msgstr "대리인"
+
+msgid "To"
+msgstr "에게"
+
+msgid "Report By Agents"
+msgstr "에이전트별 보고"
+
+msgid "Ticket status by days"
+msgstr "일별 티켓 현황"
+
+msgid "Date"
+msgstr "날짜"
+
+msgid "Tickets Staff"
+msgstr "티켓 직원"
+
+msgid "Average Rating"
+msgstr "평균 평점"
+
+msgid "Average Time"
+msgstr "평균 시간"
+
+msgid "Report By agent"
+msgstr "상담원으로 신고"
+
+msgid "Rating"
+msgstr "평가"
+
+msgid "Time"
+msgstr "시간"
+
+msgid "Merged"
+msgstr "병합됨"
+
+msgid "Report By department"
+msgstr "부서별 보고"
+
+msgid "Tickets By Department"
+msgstr "부서별 티켓"
+
+msgid "Department Name"
+msgstr "부서 이름"
+
+msgid "User report"
+msgstr "사용자 보고서"
+
+msgid "Users report"
+msgstr "사용자 보고서"
+
+msgid "Users Tickets"
+msgstr "사용자 티켓"
+
+msgid "User Report"
+msgstr "사용자 신고"
+
+msgid "Report By Departments"
+msgstr "부서별 보고"
+
+msgid "Tickets Data"
+msgstr "티켓 데이터"
+
+msgid "Message"
+msgstr "메시지"
+
+msgid "Assigned To"
+msgstr "할당"
+
+msgid "Updated"
+msgstr "업데이트됨"
+
+msgid "Due Date"
+msgstr "마감일"
+
+msgid "Closed Date"
+msgstr "휴관일"
+
+msgid "Closed Time"
+msgstr "휴관시간"
+
+msgid "Requester User Name"
+msgstr "요청자 사용자 이름"
+
+msgid "Requester Name"
+msgstr "요청자 이름"
+
+msgid "Requester Email"
+msgstr "요청자 이메일"
+
+msgid "Requester Phone"
+msgstr "요청자 전화번호"
+
+msgid "Requester help Topic"
+msgstr "요청자 도움말 항목"
+
+msgid "Ticket Attachment"
+msgstr "티켓 첨부"
+
+msgid "Posted By"
+msgstr "게시자"
+
+msgid "Note Title"
+msgstr "참고 제목"
+
+msgid "Note Message"
+msgstr "참고 메시지"
+
+msgid "Posted Date"
+msgstr "게시 날짜"
+
+msgid "Note Attachment"
+msgstr "참고 첨부"
+
+msgid "User Time"
+msgstr "사용자 시간"
+
+msgid "System Time"
+msgstr "시스템 시간"
+
+msgid "Edit Reason"
+msgstr "이유 편집"
+
+msgid "Reply Date"
+msgstr "답변 날짜"
+
+msgid "Reply By"
+msgstr "답장"
+
+msgid "Reply Attachment"
+msgstr "답장 첨부"
+
+msgid "Total Tracking Time"
+msgstr "총 추적 시간"
+
+msgid "Ticket Status"
+msgstr "티켓 상태"
+
+msgid "Select Ticket Status"
+msgstr "티켓 상태 선택"
+
+msgid "Ticket Overdue"
+msgstr "티켓 연체"
+
+msgid "Select Ticket Overdue Status"
+msgstr "티켓 연체 상태 선택"
+
+msgid "Export Style"
+msgstr "스타일 내보내기"
+
+msgid "Single Header"
+msgstr "단일 헤더"
+
+msgid "Multiple Header"
+msgstr "다중 헤더"
+
+msgid "Export"
+msgstr "내보내다"
+
+msgid "FAQ has been stored"
+msgstr "FAQ가 저장되었습니다"
+
+msgid "FAQ has not been stored"
+msgstr "FAQ가 저장되지 않았습니다"
+
+msgid "FAQ has been deleted"
+msgstr "FAQ가 삭제되었습니다."
+
+msgid "FAQ has not been deleted"
+msgstr "FAQ가 삭제되지 않았습니다"
+
+msgid "FAQ"
+msgstr "자주하는 질문"
+
+msgid "Add FAQs"
+msgstr "FAQ 추가"
+
+msgid "Save FAQ"
+msgstr "FAQ 저장"
+
+msgid "Content"
+msgstr "콘텐츠"
+
+msgid "FAQ Detail"
+msgstr "FAQ 세부정보"
+
+msgid "FAQs"
+msgstr "자주 묻는 질문"
+
+msgid "Search title"
+msgstr "제목 검색"
+
+msgid "Search keywords"
+msgstr "키워드 검색"
+
+msgid "Sub Category Faqs"
+msgstr "하위 카테고리 자주 묻는 질문"
+
+msgid "Add FAQ"
+msgstr "FAQ 추가"
+
+msgid "Feedback has been stored"
+msgstr "피드백이 저장되었습니다"
+
+msgid "Feedback has not been stored"
+msgstr "피드백이 저장되지 않았습니다"
+
+msgid "user image"
+msgstr "사용자 이미지"
+
+msgid "feedback image"
+msgstr "피드백 이미지"
+
+msgid "Feedback"
+msgstr "피드백"
+
+msgid "Latest Feedback"
+msgstr "최신 피드백"
+
+msgid "Form Feedback"
+msgstr "양식 피드백"
+
+msgid "Submit Feedback"
+msgstr "피드백 제출"
+
+msgid "Help topic has been stored"
+msgstr "도움말 항목이 저장되었습니다"
+
+msgid "Help topic has not been stored"
+msgstr "도움말 항목이 저장되지 않았습니다."
+
+msgid "Help topic has been deleted"
+msgstr "도움말 항목이 삭제되었습니다."
+
+msgid "Help topic has not been deleted"
+msgstr "도움말 항목이 삭제되지 않았습니다."
+
+msgid "Help topic in use cannot be deleting"
+msgstr "사용 중인 도움말 항목은 삭제할 수 없습니다."
+
+msgid "Help topic"
+msgstr "도움말 항목"
+
+msgid "Add Help Topic"
+msgstr "도움말 항목 추가"
+
+msgid "Help Topic"
+msgstr "도움말 항목"
+
+msgid "Save Help Topic"
+msgstr "도움말 항목 저장"
+
+msgid "Help Topics"
+msgstr "도움말 항목"
+
+msgid "The category has been stored"
+msgstr "카테고리가 저장되었습니다"
+
+msgid "The category has not been stored"
+msgstr "카테고리가 저장되지 않았습니다"
+
+msgid "The category has been deleted"
+msgstr "카테고리가 삭제되었습니다"
+
+msgid "The category has not been deleted"
+msgstr "카테고리가 삭제되지 않았습니다"
+
+msgid "The category in use cannot be deleting"
+msgstr "사용중인 카테고리는 삭제할 수 없습니다"
+
+msgid "Knowledgebase article has been stored"
+msgstr "지식 베이스 문서가 저장되었습니다"
+
+msgid "Knowledgebase article has not been stored"
+msgstr "지식 베이스 문서가 저장되지 않았습니다."
+
+msgid "The article has been deleted"
+msgstr "글이 삭제되었습니다"
+
+msgid "The article has not been deleted"
+msgstr "글이 삭제되지 않았습니다"
+
+msgid "Article"
+msgstr "기사"
+
+msgid "The parent category does not have this type."
+msgstr "상위 카테고리에는 이 유형이 없습니다."
+
+msgid "Would you like to add this type to Parent Category?"
+msgstr "이 유형을 상위 카테고리에 추가하시겠습니까?"
+
+msgid "JYes"
+msgstr "J예"
+
+msgid "Child category has this type,"
+msgstr "하위 카테고리에는 다음과 같은 유형이 있습니다."
+
+msgid "You cannot unmark it."
+msgstr "표시를 해제할 수 없습니다."
+
+msgid "Draft"
+msgstr "초안"
+
+msgid "Add Knowledge Base"
+msgstr "기술 자료 추가"
+
+msgid "Meta Description"
+msgstr "메타 설명"
+
+msgid "Meta Keywords"
+msgstr "메타 키워드"
+
+msgid "Add More"
+msgstr "더 추가"
+
+msgid "Save Knowledge Base"
+msgstr "기술 자료 저장"
+
+msgid "Please select at least one category for"
+msgstr "카테고리를 하나 이상 선택하세요."
+
+msgid "Add Category"
+msgstr "카테고리 추가"
+
+msgid "Category For"
+msgstr "카테고리 대상"
+
+msgid "Knowledge Base"
+msgstr "기술 자료"
+
+msgid "Save Category"
+msgstr "카테고리 저장"
+
+msgid "Meta Data Options"
+msgstr "메타데이터 옵션"
+
+msgid "Category Title"
+msgstr "카테고리 제목"
+
+msgid "category"
+msgstr "범주"
+
+msgid "Knowledge Base Detail"
+msgstr "기술 자료 세부 정보"
+
+msgid "Article Attachment"
+msgstr "기사 첨부"
+
+msgid "Knowledgebase"
+msgstr "지식 베이스"
+
+msgid "Knowledge Base Articles"
+msgstr "기술 자료 문서"
+
+msgid "Sub Category Knowledgebase"
+msgstr "하위 카테고리 지식 베이스"
+
+msgid "Mail has not been marked as read"
+msgstr "메일이 읽음으로 표시되지 않았습니다."
+
+msgid "Mail has been marked as read"
+msgstr "메일이 읽음으로 표시되었습니다."
+
+msgid "Message field cannot be empty"
+msgstr "메시지 필드는 비워둘 수 없습니다."
+
+msgid "Mail has been sent"
+msgstr "메일이 전송되었습니다"
+
+msgid "Mail has not been sent"
+msgstr "메일이 전송되지 않았습니다"
+
+msgid "Mail has been deleted"
+msgstr "메일이 삭제되었습니다"
+
+msgid "Mail has not been deleted"
+msgstr "메일이 삭제되지 않았습니다"
+
+msgid "Mail"
+msgstr "우편"
+
+msgid "is in use cannot be delete"
+msgstr "사용 중입니다. 삭제할 수 없습니다."
+
+msgid "Mail cannot mark as to read"
+msgstr "메일을 읽은 것으로 표시할 수 없습니다."
+
+msgid "Mail cannot mark as unread"
+msgstr "메일은 읽지 않음으로 표시할 수 없습니다."
+
+msgid "Mail has been marked as unread"
+msgstr "메일이 읽지 않은 상태로 표시되었습니다."
+
+msgid "Inbox"
+msgstr "받은편지함"
+
+msgid "Outbox"
+msgstr "보낼편지함"
+
+msgid " )  "
+msgstr ")"
+
+msgid "Compose"
+msgstr "구성하다"
+
+msgid "Send"
+msgstr "보내다"
+
+msgid "Read"
+msgstr "읽다"
+
+msgid "Unread"
+msgstr "읽히지 않는"
+
+msgid "Select Type"
+msgstr "유형 선택"
+
+msgid "To use this feature you must be agent"
+msgstr "이 기능을 사용하려면 상담원이어야 합니다."
+
+msgid "To use this feature you must have agents addon."
+msgstr "이 기능을 사용하려면 에이전트 애드온이 있어야 합니다."
+
+msgid "mark read"
+msgstr "읽은 것으로 표시"
+
+msgid "mark unread"
+msgstr "읽지 않은 것으로 표시"
+
+msgid "Replied By"
+msgstr "응답자"
+
+msgid "Reply"
+msgstr "회신하다"
+
+msgid ")  "
+msgstr ")"
+
+msgid "Type Message"
+msgstr "메시지 입력"
+
+msgid "Replies"
+msgstr "답글"
+
+msgid "Limit exceeds maximum tickets"
+msgstr "한도가 최대 티켓 수를 초과합니다."
+
+msgid "The maximum number of open tickets limit has been exceeded."
+msgstr "최대 오픈 티켓 한도를 초과했습니다."
+
+msgid "Ticket has been closed due to merged with"
+msgstr "티켓이 다음과 병합되어 종료되었습니다."
+
+msgid "Ticket"
+msgstr "티켓"
+
+msgid "has been merged into"
+msgstr "으로 병합되었습니다."
+
+msgid "Merge Ticket"
+msgstr "병합 티켓"
+
+msgid "Search Ticket To Merge Into Another"
+msgstr "다른 티켓으로 병합할 티켓 검색"
+
+msgid "Edit Last Reply"
+msgstr "마지막 답글 편집"
+
+msgid "Merge Ticket Latest Reply"
+msgstr "병합 티켓 최신 답변"
+
+msgid "Merge"
+msgstr "병합"
+
+msgid "Ticket has been merged"
+msgstr "티켓이 병합되었습니다"
+
+msgid "Ticket has not been merged"
+msgstr "티켓이 병합되지 않았습니다."
+
+msgid "Disabled form cannot be set as default"
+msgstr "비활성화된 양식은 기본값으로 설정할 수 없습니다."
+
+msgid "Form has been stored"
+msgstr "양식이 저장되었습니다"
+
+msgid "Form has not been stored"
+msgstr "양식이 저장되지 않았습니다"
+
+msgid "Multiform has been deleted"
+msgstr "멀티폼이 삭제되었습니다"
+
+msgid "Multiform has not been deleted"
+msgstr "Multiform이 삭제되지 않았습니다."
+
+msgid "Multiform in use"
+msgstr "다양한 형태로 사용 중"
+
+msgid " cannot deleted"
+msgstr "삭제할 수 없습니다"
+
+msgid "Default form cannot be set as disabled"
+msgstr "기본 양식을 비활성화로 설정할 수 없습니다."
+
+msgid "Multiform"
+msgstr "다양한 형태"
+
+msgid "default has not been changed"
+msgstr "기본값은 변경되지 않았습니다."
+
+msgid "default has been changed"
+msgstr "기본값이 변경되었습니다"
+
+msgid "Create Ticket"
+msgstr "티켓 만들기"
+
+msgid "multiform"
+msgstr "여러 가지 형태의"
+
+msgid "Default"
+msgstr "기본"
+
+msgid "Save Multiform"
+msgstr "다중 형식 저장"
+
+msgid "Fields"
+msgstr "필드"
+
+msgid "Edit Fields"
+msgstr "필드 편집"
+
+msgid "spinning wheel"
+msgstr "물레"
+
+msgid "Select Languages"
+msgstr "언어 선택"
+
+msgid "Select Language"
+msgstr "언어 선택"
+
+msgid "Email Template has been successfully deleted"
+msgstr "이메일 템플릿이 삭제되었습니다."
+
+msgid "Email template has been stored"
+msgstr "이메일 템플릿이 저장되었습니다"
+
+msgid "Email template has not been stored"
+msgstr "이메일 템플릿이 저장되지 않았습니다."
+
+msgid "The internal note has been posted"
+msgstr "내부 메모가 게시되었습니다."
+
+msgid "The internal note has not been posted"
+msgstr "내부 메모가 게시되지 않았습니다."
+
+msgid "Post Internal Note"
+msgstr "내부 메모 게시"
+
+msgid "The internal note is posted by"
+msgstr "내부 메모 게시자:"
+
+msgid "Ticket Notification"
+msgstr "티켓 알림"
+
+msgid "Once Weekly"
+msgstr "매주 1회"
+
+msgid "Thanks for subscribing!"
+msgstr "구독해주셔서 감사합니다!"
+
+msgid "Ticket already marked overdue"
+msgstr "이미 기한이 지난 것으로 표시된 티켓"
+
+msgid "The ticket has been marked as overdue"
+msgstr "티켓이 연체로 표시되었습니다"
+
+msgid "The ticket has not been marked as overdue"
+msgstr "티켓이 연체로 표시되지 않았습니다"
+
+msgid "System"
+msgstr "체계"
+
+msgid "Mark overdue"
+msgstr "기한이 지난 것으로 표시"
+
+msgid "The ticket is marked as overdue by"
+msgstr "티켓이 다음 사람에 의해 연체된 것으로 표시됩니다."
+
+msgid "The ticket has been unmarked as overdue"
+msgstr "티켓의 연체 표시가 해제되었습니다"
+
+msgid "The ticket has not been unmarked as overdue"
+msgstr "티켓의 연체 표시가 해제되지 않았습니다."
+
+msgid "Unmark overdue"
+msgstr "연체 표시 해제"
+
+msgid "The ticket is unmarked as overdue by"
+msgstr "티켓에 연체 표시가 해제되었습니다."
+
+msgid "Paid Support"
+msgstr "유료 지원"
+
+msgid "Check if you want to use this product for paid support"
+msgstr "이 제품을 유료 지원으로 사용하고 싶은지 확인하세요."
+
+msgid "Paid support type"
+msgstr "유료 지원 유형"
+
+msgid "One-off Support"
+msgstr "일회성 지원"
+
+msgid "Subscription Support"
+msgstr "구독 지원"
+
+msgid "Number of tickets"
+msgstr "티켓 수"
+
+msgid "Credential Type"
+msgstr "자격 증명 유형"
+
+msgid "Additional Info."
+msgstr "추가 정보."
+
+msgid "Please insert values"
+msgstr "값을 입력하세요."
+
+msgid "Visitor"
+msgstr "방문객"
+
+msgid "By"
+msgstr "에 의해"
+
+msgid "Credential removed on ticket close"
+msgstr "티켓 종료 시 자격 증명이 제거됨"
+
+msgid "Failed to retrieve data"
+msgstr "데이터를 검색하지 못했습니다."
+
+msgid "Reason has been stored"
+msgstr "이유가 저장되었습니다"
+
+msgid "Reason has not been stored"
+msgstr "사유가 저장되지 않았습니다"
+
+msgid "Reason has been deleted"
+msgstr "이유가 삭제되었습니다."
+
+msgid "Reason has not been deleted"
+msgstr "이유가 삭제되지 않았습니다"
+
+msgid "Reason"
+msgstr "이유"
+
+msgid "Are you going to close this ticket?"
+msgstr "이 티켓을 종료하시겠습니까?"
+
+msgid "If you have a moment, please select a reason for closing the ticket."
+msgstr "잠시 시간을 내어 티켓을 종료하는 이유를 선택해 주세요."
+
+msgid "Submit & Close"
+msgstr "제출 및 종료"
+
+msgid "Skip & Close"
+msgstr "건너뛰고 닫기"
+
+msgid "Add Reason"
+msgstr "이유 추가"
+
+msgid "Save Reason"
+msgstr "저장 이유"
+
+msgid "Ticket Close Reasons"
+msgstr "티켓 종료 이유"
+
+msgid "Mail Notification Widget"
+msgstr "메일 알림 위젯"
+
+msgid "Show newly and reply mail notifications"
+msgstr "새로 표시하고 메일 알림에 답장하기"
+
+msgid "New mail from"
+msgstr "다음에서 보낸 새 메일"
+
+msgid "Mail Notification"
+msgstr "메일 알림"
+
+msgid "Layout"
+msgstr "공들여 나열한 것"
+
+msgid "Max Record"
+msgstr "최대 기록"
+
+msgid "My Ticket Widget"
+msgstr "내 티켓 위젯"
+
+msgid "Show unanswered tickets"
+msgstr "답변이 없는 티켓 표시"
+
+msgid "Order tickets"
+msgstr "티켓 주문"
+
+msgid "Close due to merge"
+msgstr "병합으로 인해 종료됨"
+
+msgid "Product"
+msgstr "제품"
+
+msgid "Order"
+msgstr "주문하다"
+
+msgid "There is no ticket"
+msgstr "티켓이 없습니다"
+
+msgid "Something went wrong"
+msgstr "문제가 발생했습니다."
+
+msgid "Transaction Key"
+msgstr "거래 키"
+
+msgid "Please select )"
+msgstr "선택 해주세요 )"
+
+msgid "Hide notice"
+msgstr "공지 숨기기"
+
+msgid "Control Panel"
+msgstr "제어판"
+
+msgid "Edit Announcement"
+msgstr "공지사항 수정"
+
+msgid "Departments"
+msgstr "부서"
+
+msgid "Add Department"
+msgstr "부서 추가"
+
+msgid "Edit Department"
+msgstr "부서 편집"
+
+msgid "Staff report"
+msgstr "직원 보고서"
+
+msgid "Staff reports"
+msgstr "직원 보고서"
+
+msgid "Departments report"
+msgstr "부서 보고서"
+
+msgid "Edit Download"
+msgstr "편집 다운로드"
+
+msgid "Edit FAQ"
+msgstr "FAQ 수정"
+
+msgid "Feedbacks"
+msgstr "피드백"
+
+msgid "Edit Knowledge Base"
+msgstr "기술 자료 편집"
+
+msgid "Edit Category"
+msgstr "카테고리 편집"
+
+msgid "Send Message"
+msgstr "문자 보내"
+
+msgid "Edit Role"
+msgstr "역할 편집"
+
+msgid "Staffs"
+msgstr "직원"
+
+msgid "Add Staff"
+msgstr "직원 추가"
+
+msgid "Edit Staff"
+msgstr "직원 편집"
+
+msgid "Staff Permissions"
+msgstr "직원 권한"
+
+msgid "Add Ticket"
+msgstr "티켓 추가"
+
+msgid "Edit Ticket"
+msgstr "티켓 수정"
+
+msgid "Ticket Detail"
+msgstr "티켓 세부정보"
+
+msgid "Plus"
+msgstr "을 더한"
+
+msgid "Equals"
+msgstr "같음"
+
+msgid "Minus"
+msgstr "마이너스"
+
+msgid "stars"
+msgstr "별"
+
+msgid "Please write appreciated review at WP Extension Directory"
+msgstr "WP Extension Directory에서 감사한 리뷰를 작성해 주세요."
+
+msgid "love"
+msgstr "사랑"
+
+msgid "I'd love to help :)"
+msgstr "나는 도움을 주고 싶습니다 :)"
+
+msgid "sad"
+msgstr "슬퍼"
+
+msgid "Not this time"
+msgstr "이번에는 아니야"
+
+msgid "happy"
+msgstr "행복하다"
+
+msgid "I've already rated you"
+msgstr "나는 이미 당신을 평가했습니다"
+
+msgid "close"
+msgstr "닫다"
+
+msgid "thanks"
+msgstr "감사해요"
+
+msgid "You are awesome !......"
+msgstr "당신은 굉장해요!......"
+
+msgid "Thanks for your support, we really appreciate it."
+msgstr "귀하의 지원에 감사드립니다. 정말 감사드립니다."
+
+msgid "Majestic Support Team"
+msgstr "마제스틱 지원팀"
+
+msgid "Remind you about this later?"
+msgstr "나중에 상기시켜 주시겠습니까?"
+
+msgid "Remind me in 3 days"
+msgstr "3일 후에 알림"
+
+msgid "Remind me in 10 days"
+msgstr "10일 후에 알림"
+
+msgid "Remind me in 30 days"
+msgstr "30일 후에 알림"
+
+msgid "Don't remind me about this"
+msgstr "이에 대해 나에게 상기시키지 않음"
+
+msgid "Dashboard"
+msgstr "계기반"
+
+msgid "About Us"
+msgstr "회사 소개"
+
+msgid "Translations"
+msgstr "번역"
+
+msgid "System Errors"
+msgstr "시스템 오류"
+
+msgid "slugs"
+msgstr "민달팽이"
+
+msgid "Slugs"
+msgstr "슬러그"
+
+msgid "multiforms"
+msgstr "여러 형태"
+
+msgid "Multiforms"
+msgstr "다중 형태"
+
+msgid "Ticket Close Reason"
+msgstr "티켓 종료 이유"
+
+msgid "Smart Replies"
+msgstr "스마트 답장"
+
+msgid "Smart Reply"
+msgstr "스마트 답장"
+
+msgid "Add Smart Reply"
+msgstr "스마트 답장 추가"
+
+msgid "Agent Auto Assign"
+msgstr "상담원 자동 할당"
+
+msgid "Auto Assign"
+msgstr "자동 할당"
+
+msgid "Settings"
+msgstr "설정"
+
+msgid "Cron Job URLs"
+msgstr "크론 작업 URL"
+
+msgid "Premium Addons"
+msgstr "프리미엄 애드온"
+
+msgid "Install Add-ons"
+msgstr "애드온 설치"
+
+msgid "Add-ons List"
+msgstr "추가 기능 목록"
+
+msgid "Add-ons Status"
+msgstr "부가기능 상태"
+
+msgid "Shortcodes"
+msgstr "단축 코드"
+
+msgid "Short Codes"
+msgstr "단축 코드"
+
+msgid "Colors"
+msgstr "그림 물감"
+
+msgid "Reports"
+msgstr "보고서"
+
+msgid "Overall Statistics"
+msgstr "전체 통계"
+
+msgid "Agent Reports"
+msgstr "에이전트 보고서"
+
+msgid "Department Reports"
+msgstr "부서 보고서"
+
+msgid "User Reports"
+msgstr "사용자 보고서"
+
+msgid "Satisfaction Report"
+msgstr "만족도 보고서"
+
+msgid "Email Piping"
+msgstr "이메일 파이핑"
+
+msgid "Priorities"
+msgstr "우선순위"
+
+msgid "Add Priority"
+msgstr "우선순위 추가"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Erase Data Requests"
+msgstr "데이터 삭제 요청"
+
+msgid "Feedback Fields"
+msgstr "피드백 필드"
+
+msgid "System Emails"
+msgstr "시스템 이메일"
+
+msgid "Premade Responses"
+msgstr "미리 만들어진 응답"
+
+msgid "Banned Email Log List"
+msgstr "금지된 이메일 로그 목록"
+
+msgid "Ban Emails"
+msgstr "이메일 금지"
+
+msgid "Emial CC"
+msgstr "이메일 참조"
+
+msgid "Add Emial CC"
+msgstr "이메일 참조 추가"
+
+msgid "Add Email CC"
+msgstr "이메일 참조 추가"
+
+msgid "Email Templates"
+msgstr "이메일 템플릿"
+
+msgid "New Ticket"
+msgstr "신규 티켓"
+
+msgid "Agent Ticket"
+msgstr "에이전트 티켓"
+
+msgid "New Agent"
+msgstr "신규 에이전트"
+
+msgid "Reassign Ticket"
+msgstr "티켓 재할당"
+
+msgid "Close Ticket"
+msgstr "티켓 닫기"
+
+msgid "Delete Ticket"
+msgstr "티켓 삭제"
+
+msgid "Mark Overdue"
+msgstr "기한이 지난 것으로 표시"
+
+msgid "Ban Email"
+msgstr "이메일 금지"
+
+msgid "Ban email try to create ticket"
+msgstr "이메일 차단 티켓 생성 시도"
+
+msgid "Department Transfer"
+msgstr "부서 이동"
+
+msgid "Ban Email and Close Ticket"
+msgstr "이메일 차단 및 티켓 닫기"
+
+msgid "Unban Email"
+msgstr "차단 해제 이메일"
+
+msgid "Response Ticket"
+msgstr "응답 티켓"
+
+msgid "Reply Ticket"
+msgstr "응답 티켓"
+
+msgid "New Ticket Admin Alert"
+msgstr "새 티켓 관리자 알림"
+
+msgid "In Progress Ticket"
+msgstr "진행 중인 티켓"
+
+msgid "Ticket priority is changed by"
+msgstr "티켓 우선순위는 다음에 의해 변경됩니다."
+
+msgid "New Mail Received"
+msgstr "새 메일이 수신됨"
+
+msgid "New Mail Message Received"
+msgstr "새 메일 메시지 수신됨"
+
+msgid "Feedback Email To User"
+msgstr "사용자에게 피드백 이메일 보내기"
+
+msgid "User Reply On Closed Ticket"
+msgstr "종료된 티켓에 대한 사용자 응답"
+
+msgid "help"
+msgstr "돕다"
+
+msgid "Select Form"
+msgstr "양식 선택"
+
+msgid "No Record Found"
+msgstr "기록을 찾을 수 없습니다"
+
+msgid "Log out"
+msgstr "로그 아웃"
+
+msgid "iframe"
+msgstr "아이프레임"
+
+msgid "Sorry"
+msgstr "죄송합니다"
+
+msgid "There was no record found"
+msgstr "검색된 기록이 없습니다"
+
+msgid "Sorry!"
+msgstr "죄송합니다!"
+
+msgid "There was no record found..."
+msgstr "검색된 기록이 없습니다.."
+
+msgid "Access Denied"
+msgstr "접근 불가"
+
+msgid "You have no permission to access this page"
+msgstr "이 페이지에 액세스할 수 있는 권한이 없습니다."
+
+msgid "Register"
+msgstr "등록하다"
+
+msgid "User is not allowed to access this page."
+msgstr "사용자는 이 페이지에 접근할 수 없습니다."
+
+msgid "You are already Logged In."
+msgstr "귀하는 이미 로그인하셨습니다."
+
+msgid "Access Denied!"
+msgstr "접근 불가!"
+
+msgid "Your account has been disabled, please contact the administrator."
+msgstr "귀하의 계정이 비활성화되었습니다. 관리자에게 문의하세요."
+
+msgid "You are not logged In"
+msgstr "로그인되어 있지 않습니다"
+
+msgid "To access the page, please login"
+msgstr "해당 페이지에 접속하시려면 로그인을 해주세요"
+
+msgid "User is not allowed to view this Ticket"
+msgstr "사용자는 이 티켓을 볼 수 없습니다."
+
+msgid "You have already given the feedback for this ticket."
+msgstr "이미 이 티켓에 대한 피드백을 제공하셨습니다."
+
+msgid "Ticket not found...!"
+msgstr "티켓을 찾을 수 없습니다...!"
+
+msgid "User is not allowed to view this page"
+msgstr "사용자는 이 페이지를 볼 수 없습니다"
+
+msgid "Thank you so much for your feedback"
+msgstr "피드백을 보내주셔서 정말 감사합니다."
+
+msgid "Majestic Support Control Panel"
+msgstr "Majestic 지원 제어판"
+
+msgid "Slug"
+msgstr "강타"
+
+msgid "System Error"
+msgstr "시스템 오류"
+
+msgid "User Fields"
+msgstr "사용자 필드"
+
+msgid "Ban list log"
+msgstr "금지 목록 로그"
+
+msgid "Field Ordering"
+msgstr "필드 주문"
+
+msgid "Post Installation"
+msgstr "설치 후"
+
+msgid "Emailcc"
+msgstr "이메일cc"
+
+msgid "Help"
+msgstr "돕다"
+
+msgid "Premium Addon"
+msgstr "프리미엄 애드온"
+
+msgid "Username / password is incorrect"
+msgstr "사용자 이름/비밀번호가 올바르지 않습니다."
+
+msgid "Username already taken"
+msgstr "이미 사용중인 이름입니다"
+
+msgid "Invalid username"
+msgstr "잘못된 사용자 이름"
+
+msgid "Please enter a username"
+msgstr "사용자 이름을 입력 해주세요"
+
+msgid "Invalid email"
+msgstr "잘못된 이메일"
+
+msgid "Email already registered"
+msgstr "이미 등록된 이메일"
+
+msgid "Please enter a password"
+msgstr "비밀번호를 입력해주세요"
+
+msgid "Passwords do not match"
+msgstr "비밀번호가 일치하지 않습니다"
+
+msgid "Invalid captcha"
+msgstr "잘못된 보안 문자"
+
+msgid "User has been successfully registered"
+msgstr "사용자가 성공적으로 등록되었습니다"
+
+msgid "Could not subscribe to the newsletter"
+msgstr "뉴스레터를 구독할 수 없습니다."
+
+msgid "You have successfully subscribed to the newsletter"
+msgstr "뉴스레터를 성공적으로 구독하셨습니다."
+
+msgid "Majestic Support Pages"
+msgstr "장엄한 지원 페이지"
+
+msgid "Majestic Support control panel"
+msgstr "Majestic 지원 제어판"
+
+msgid "Add ticket"
+msgstr "티켓 추가"
+
+msgid "My tickets"
+msgstr "내 티켓"
+
+msgid "List downloads"
+msgstr "다운로드 목록"
+
+msgid "Latest downloads"
+msgstr "최신 다운로드"
+
+msgid "Popular downloads"
+msgstr "인기 다운로드"
+
+msgid "List knowledge base"
+msgstr "기술 자료 나열"
+
+msgid "Latest knowledge base"
+msgstr "최신 지식 기반"
+
+msgid "Popular knowledge base"
+msgstr "인기 있는 지식 기반"
+
+msgid "List FAQ`s"
+msgstr "FAQ 나열"
+
+msgid "Latest FAQ`s"
+msgstr "최신 FAQ"
+
+msgid "Popular FAQ`s"
+msgstr "인기있는 FAQ"
+
+msgid "List announcements"
+msgstr "공지사항 나열"
+
+msgid "Latest announcements"
+msgstr "최신 공지사항"
+
+msgid "Popular announcements"
+msgstr "인기 공지사항"
+
+msgid "View"
+msgstr "보다"
+
+msgid "Form submission failed!"
+msgstr "양식 제출에 실패했습니다!"
+
+msgid "You have not answered all required fields"
+msgstr "모든 필수 항목에 응답하지 않았습니다."
+
+msgid "You have not given a correct time"
+msgstr "정확한 시간을 지정하지 않았습니다."
+
+msgid "You have not given a correct e-mail address"
+msgstr "올바른 이메일 주소를 제공하지 않았습니다"
+
+msgid "You have not given a correct phone number"
+msgstr "올바른 전화번호를 제공하지 않았습니다."
+
+msgid "You have not given a correct answer to the security question"
+msgstr "보안 질문에 대한 올바른 답변을 제공하지 않았습니다."
+
+msgid "You have not given a correct date"
+msgstr "정확한 날짜를 지정하지 않았습니다."
+
+msgid "The input value must be between "
+msgstr "입력 값은 다음 사이여야 합니다."
+
+msgid " characters"
+msgstr "문자"
+
+msgid "The input value is longer than "
+msgstr "입력 값이 다음보다 깁니다."
+
+msgid "The input value is shorter than "
+msgstr "입력값이 다음보다 짧습니다."
+
+msgid "Input values could not be confirmed"
+msgstr "입력값을 확인할 수 없습니다."
+
+msgid "Incorrect domain value"
+msgstr "잘못된 도메인 값"
+
+msgid "The input value is not a correct URL"
+msgstr "입력값이 올바른 URL이 아닙니다."
+
+msgid "The input value is incorrect"
+msgstr "입력값이 올바르지 않습니다."
+
+msgid "The input value was not a correct number"
+msgstr "입력값이 올바른 숫자가 아닙니다."
+
+msgid "Your social security number was incorrect"
+msgstr "귀하의 사회보장번호가 정확하지 않습니다."
+
+msgid "Incorrect UK VAT Number"
+msgstr "잘못된 영국 VAT 번호"
+
+msgid "The password isn't strong enough"
+msgstr "비밀번호가 강력하지 않습니다."
+
+msgid "You have to choose at least "
+msgstr "최소한 선택해야 합니다."
+
+msgid " answers"
+msgstr "답변"
+
+msgid "The input value can only contain alphanumeric characters "
+msgstr "입력 값에는 영숫자 문자만 포함될 수 있습니다."
+
+msgid " and "
+msgstr "그리고"
+
+msgid "The file you are trying to upload is too large"
+msgstr "업로드하려는 파일이 너무 큽니다."
+
+msgid "The file you are trying to upload is of the wrong type"
+msgstr "업로드하려는 파일의 형식이 잘못되었습니다."
+
+msgid "Please choose between "
+msgstr "중에서 선택해주세요"
+
+msgid "Please choose at least "
+msgstr "최소한 선택해주세요"
+
+msgid "Please choose a maximum of "
+msgstr "최대값을 선택하세요."
+
+msgid " item(s)"
+msgstr "품목"
+
+msgid "The credit card number is not correct"
+msgstr "신용카드번호가 정확하지 않습니다."
+
+msgid "The CVV number was not correct"
+msgstr "CVV 번호가 올바르지 않습니다."
+
+msgid "Lost your password"
+msgstr "비밀번호를 잊어 버렸습니까"
+
+msgid "Activated"
+msgstr "활성화됨"
+
+msgid "Active Now"
+msgstr "활성 지금"
+
+msgid "Install Now"
+msgstr "지금 설치"
+
+msgid "Pagination default page size not saved"
+msgstr "페이지 매김 기본 페이지 크기가 저장되지 않았습니다."
+
+msgid "Data directory cannot empty."
+msgstr "데이터 디렉터리는 비워둘 수 없습니다."
+
+msgid "Data directory is not proper."
+msgstr "데이터 디렉토리가 올바르지 않습니다."
+
+msgid "Data directory is not writable."
+msgstr "데이터 디렉터리에 쓸 수 없습니다."
+
+msgid "System slug not be empty."
+msgstr "시스템 슬러그가 비어 있으면 안 됩니다."
+
+msgid "System slug is conflicted with post or page slug."
+msgstr "시스템 슬러그가 게시물 또는 페이지 슬러그와 충돌합니다."
+
+msgid "The setting has been stored"
+msgstr "설정이 저장되었습니다"
+
+msgid "The setting not has been stored"
+msgstr "설정이 저장되지 않았습니다."
+
+msgid "Days"
+msgstr "날"
+
+msgid "Hours"
+msgstr "시간"
+
+msgid "Google Recaptcha"
+msgstr "구글 리캡챠"
+
+msgid "Own Captcha"
+msgstr "나만의 보안 문자"
+
+msgid "Any"
+msgstr "어느"
+
+msgid "Addition"
+msgstr "덧셈"
+
+msgid "Subtraction"
+msgstr "빼기"
+
+msgid "Recaptcha Version 2"
+msgstr "리캡챠 버전 2"
+
+msgid "Recaptcha Version 3"
+msgstr "보안문자 버전 3"
+
+msgid "Show"
+msgstr "보여주다"
+
+msgid "Hide"
+msgstr "숨다"
+
+msgid "Majestic Support Login Page"
+msgstr "Majestic 지원 로그인 페이지"
+
+msgid "WordPress Default Login Page"
+msgstr "WordPress 기본 로그인 페이지"
+
+msgid "Custom"
+msgstr "관습"
+
+msgid "Majestic Support Register Page"
+msgstr "Majestic 지원 등록 페이지"
+
+msgid "Top left"
+msgstr "왼쪽 위"
+
+msgid "Top right"
+msgstr "맨 위 오른쪽"
+
+msgid "Middle left"
+msgstr "가운데 왼쪽"
+
+msgid "Middle right"
+msgstr "가운데 오른쪽"
+
+msgid "Bottom left"
+msgstr "왼쪽 하단"
+
+msgid "Bottom right"
+msgstr "오른쪽 하단"
+
+msgid "Random"
+msgstr "무작위의"
+
+msgid "Sequence"
+msgstr "순서"
+
+msgid "Ascending"
+msgstr "오름차순"
+
+msgid "Descending"
+msgstr "내림차순"
+
+msgid "Single"
+msgstr "하나의"
+
+msgid "Multiple"
+msgstr "다수의"
+
+msgid "menu"
+msgstr "메뉴"
+
+msgid "Select Configuration"
+msgstr "구성 선택"
+
+msgid "General Settings"
+msgstr "일반 설정"
+
+msgid "Support Icon"
+msgstr "지원 아이콘"
+
+msgid "Ticket Settings"
+msgstr "티켓 설정"
+
+msgid "Ticket Listing"
+msgstr "티켓 목록"
+
+msgid "Visitor Ticket Setting"
+msgstr "방문객 티켓 설정"
+
+msgid "Email Settings"
+msgstr "이메일 설정"
+
+msgid "Email Regarding Banned Users"
+msgstr "금지된 사용자에 관한 이메일"
+
+msgid "Ticket Operations Email Setting"
+msgstr "티켓 운영 이메일 설정"
+
+msgid "Agent Menu"
+msgstr "에이전트 메뉴"
+
+msgid "Dashboard Links"
+msgstr "대시보드 링크"
+
+msgid "Top Menu Links"
+msgstr "상위 메뉴 링크"
+
+msgid "User Menu"
+msgstr "사용자 메뉴"
+
+msgid "Feedback Settings"
+msgstr "피드백 설정"
+
+msgid "Push Notifications"
+msgstr "푸시 알림"
+
+msgid "Firebase Notifications"
+msgstr "Firebase 알림"
+
+msgid "Private Credentials"
+msgstr "개인 자격 증명"
+
+msgid "Envato Validation"
+msgstr "엔바토 검증"
+
+msgid "MailChimp"
+msgstr "메일침프"
+
+msgid "Easy Digital Downloads"
+msgstr "간편한 디지털 다운로드"
+
+msgid "Social Login"
+msgstr "소셜 로그인"
+
+msgid "Set the heading of your plugin"
+msgstr "플러그인 제목 설정"
+
+msgid "Ticket Default Page"
+msgstr "티켓 기본 페이지"
+
+msgid "Select Page"
+msgstr "페이지 선택"
+
+msgid "Data Directory"
+msgstr "데이터 디렉토리"
+
+msgid "Set the name for your data directory"
+msgstr "데이터 디렉터리의 이름을 설정하세요."
+
+msgid "Date Format"
+msgstr "날짜 형식"
+
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+msgid "MM-DD-YYYY"
+msgstr "MM-DD-YYYY"
+
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+msgid "Set the default date format"
+msgstr "기본 날짜 형식 설정"
+
+msgid "Pagination default page size"
+msgstr "페이지 매김 기본 페이지 크기"
+
+msgid "Set the number of records per page"
+msgstr "페이지당 레코드 수 설정"
+
+msgid "Breadcrumbs"
+msgstr "빵 부스러기"
+
+msgid "Show or hide breadcrumbs"
+msgstr "이동 경로 표시 또는 숨기기"
+
+msgid "Top Header"
+msgstr "상단 헤더"
+
+msgid "Show or hide top header"
+msgstr "상단 헤더 표시 또는 숨기기"
+
+msgid "Show count on tickets"
+msgstr "티켓 개수 표시"
+
+msgid "Default wp role for new users"
+msgstr "신규 사용자를 위한 기본 wp 역할"
+
+msgid "Select the role you want to assign to new users"
+msgstr "새 사용자에게 할당할 역할을 선택하세요."
+
+msgid "No. of attachments"
+msgstr "첨부파일 수"
+
+msgid "Number of attachments allowed at a time"
+msgstr "한 번에 허용되는 첨부 파일 수"
+
+msgid "File maximum size"
+msgstr "파일 최대 크기"
+
+msgid "File extensions"
+msgstr "파일 확장자"
+
+msgid "File extensions allowed to attach"
+msgstr "첨부가 허용된 파일 확장자"
+
+msgid "Set Login Link"
+msgstr "로그인 링크 설정"
+
+msgid "Set login link default or custom"
+msgstr "로그인 링크 기본값 또는 사용자 정의 설정"
+
+msgid "Set register Link"
+msgstr "등록 링크 설정"
+
+msgid "Screen Tag"
+msgstr "스크린 태그"
+
+msgid "Enable or disable your support icon"
+msgstr "지원 아이콘 활성화 또는 비활성화"
+
+msgid "Custom Image"
+msgstr "맞춤 이미지"
+
+msgid "Set custom support image"
+msgstr "맞춤 지원 이미지 설정"
+
+msgid "custom text"
+msgstr "맞춤 텍스트"
+
+msgid "Set custom support text"
+msgstr "맞춤 지원 텍스트 설정"
+
+msgid "Support Icon Position"
+msgstr "지원 아이콘 위치"
+
+msgid "Screen Tag Position"
+msgstr "화면 태그 위치"
+
+msgid "Select a position for your support icon"
+msgstr "지원 아이콘의 위치를 ​​선택하세요."
+
+msgid "Online"
+msgstr "온라인"
+
+msgid "Set your plugin offline for front end"
+msgstr "프런트 엔드에 대한 플러그인을 오프라인으로 설정"
+
+msgid "Offline Message"
+msgstr "오프라인 메시지"
+
+msgid "Set the offline message for your user"
+msgstr "사용자를 위한 오프라인 메시지 설정"
+
+msgid "Woocommerce Category"
+msgstr "우커머스 카테고리"
+
+msgid "Ticket ID Prefix"
+msgstr "티켓 ID 접두사"
+
+msgid "Set a prefix for the custom ticket ID"
+msgstr "사용자 지정 티켓 ID에 대한 접두사 설정"
+
+msgid "Ticket ID sequence"
+msgstr "티켓 ID 순서"
+
+msgid "Set the ticket ID sequentially or randomly, e.g., "
+msgstr "티켓 ID를 순차적으로 또는 무작위로 설정합니다. 예:"
+
+msgid "Pad Zeros"
+msgstr "패드 제로"
+
+msgid "To pad an integer with leading zeros to a specific length"
+msgstr "특정 길이까지 앞에 0을 붙여 정수를 채우려면"
+
+msgid "Ticket ID Suffix"
+msgstr "티켓 ID 접미사"
+
+msgid "Set the suffix for your custom ticket ID"
+msgstr "사용자 지정 티켓 ID의 접미사 설정"
+
+msgid "Maximum tickets"
+msgstr "최대 티켓"
+
+msgid "Maximum ticket per user"
+msgstr "사용자당 최대 티켓"
+
+msgid "Maximum open tickets"
+msgstr "최대 오픈 티켓"
+
+msgid "Maximum number of tickets opened per user"
+msgstr "사용자당 개설된 최대 티켓 수"
+
+msgid "Reopen ticket within days"
+msgstr "며칠 안에 티켓을 다시 개설하세요"
+
+msgid "The ticket will reopen within the given number of days"
+msgstr "티켓은 지정된 일수 이내에 다시 열립니다."
+
+msgid "Multiforms Popup For New Tickets"
+msgstr "신규 티켓에 대한 다양한 팝업"
+
+msgid "User can print ticket"
+msgstr "사용자는 티켓을 인쇄할 수 있습니다"
+
+msgid "Can users print a ticket from the ticket detail or not?"
+msgstr "사용자가 티켓 세부정보에서 티켓을 인쇄할 수 있나요?"
+
+msgid "Allow Users To Reply via Email On Closed Ticket"
+msgstr "종료된 티켓에 대해 사용자가 이메일을 통해 회신하도록 허용"
+
+msgid "Select whether users can reply to closed email piping tickets or not"
+msgstr "사용자가 종료된 이메일 파이핑 티켓에 응답할 수 있는지 여부를 선택하세요."
+
+msgid "Show Admin OR Agent Email On Ticket Reply"
+msgstr "티켓 답장에 관리자 또는 상담원 이메일 표시"
+
+msgid "Show Anonymous Name On Ticket Reply"
+msgstr "티켓 답장에 익명 이름 표시"
+
+msgid "Ticket auto close"
+msgstr "티켓 자동 종료"
+
+msgid "Ticket auto-close if user does not respond within given days"
+msgstr "사용자가 지정된 날짜 내에 응답하지 않으면 티켓이 자동으로 종료됩니다."
+
+msgid "Show ticket delete button"
+msgstr "티켓 삭제 버튼 표시"
+
+msgid "Select whether users can see the ticket delete button"
+msgstr "사용자에게 티켓 삭제 버튼을 볼 수 있는지 선택하세요."
+
+msgid "Ticket close reason Type"
+msgstr "티켓 종료 이유 유형"
+
+msgid "Select whether users can save single or multiple reasons"
+msgstr "사용자가 단일 이유를 저장할 수 있는지 아니면 여러 이유를 저장할 수 있는지 선택하세요."
+
+msgid "Maximum Record For Smart Reply"
+msgstr "스마트 답장 최대 기록"
+
+msgid "Set the number of replies to show"
+msgstr "표시할 답변 수 설정"
+
+msgid "New ticket message"
+msgstr "새 티켓 메시지"
+
+msgid "This message will show on the new ticket"
+msgstr "이 메시지는 새 티켓에 표시됩니다."
+
+msgid "Ticket listing ordering"
+msgstr "티켓리스트 주문"
+
+msgid "Set default ordering for ticket listing"
+msgstr "티켓 목록의 기본 순서 설정"
+
+msgid "Ticket listing sorting"
+msgstr "티켓 목록 정렬"
+
+msgid "Set default sorting for ticket listing"
+msgstr "티켓 목록의 기본 정렬 설정"
+
+msgid "Closed info. on admin closed tickets"
+msgstr "마감된 정보입니다. 관리자가 마감한 ​​티켓에 대해"
+
+msgid "Closed info. on agent closed tickets"
+msgstr "마감된 정보입니다. 대리인이 마감된 티켓에 대해"
+
+msgid "Closed info. on user closed tickets"
+msgstr "마감된 정보입니다. 사용자가 마감한 ​​티켓에 대해"
+
+msgid "Assigned info. on admin tickets"
+msgstr "할당된 정보입니다. 관리자 티켓에"
+
+msgid "Assigned info. on agent tickets"
+msgstr "할당된 정보입니다. 에이전트 티켓에"
+
+msgid "Assigned info. on user tickets"
+msgstr "할당된 정보입니다. 사용자 티켓에"
+
+msgid "Visitors can create tickets"
+msgstr "방문자는 티켓을 만들 수 있습니다"
+
+msgid "Allow visitors to create tickets or not"
+msgstr "방문자가 티켓을 만들 수 있도록 허용할지 여부"
+
+msgid "Visitor ticket creation message"
+msgstr "방문자 티켓 생성 메시지"
+
+msgid "This text will appear whenever a visitor creates a ticket"
+msgstr "방문자가 티켓을 생성할 때마다 이 텍스트가 나타납니다."
+
+msgid "Default alert email"
+msgstr "기본 알림 이메일"
+
+msgid "Default admin email"
+msgstr "기본 관리자 이메일"
+
+msgid "Admin email address to receive emails"
+msgstr "이메일을 받을 관리자 이메일 주소"
+
+msgid "Department Email"
+msgstr "부서 이메일"
+
+msgid "Send email to all departments on ticket create"
+msgstr "티켓 생성 시 모든 부서에 이메일 보내기"
+
+msgid "Mail to admin"
+msgstr "관리자에게 메일 보내기"
+
+msgid "Send an email to the admin when a banned email tries to create a ticket"
+msgstr "금지된 이메일이 티켓을 생성하려고 하면 관리자에게 이메일을 보냅니다."
+
+msgid "Admin"
+msgstr "관리자"
+
+msgid "New ticket"
+msgstr "새로운 티켓"
+
+msgid "Ticket reassign"
+msgstr "티켓 재할당"
+
+msgid "Ticket close"
+msgstr "티켓 마감"
+
+msgid "Ticket delete"
+msgstr "티켓 삭제"
+
+msgid "Ticket marked as overdue"
+msgstr "연체로 표시된 티켓"
+
+msgid "Ticket ban email"
+msgstr "티켓 금지 이메일"
+
+msgid "Ticket department transfer"
+msgstr "티켓부서 환승"
+
+msgid "Ticket reply User"
+msgstr "티켓 답장 사용자"
+
+msgid "Ticket Response Agent"
+msgstr "티켓 응답 에이전트"
+
+msgid "Ticket ban email and close ticket"
+msgstr "티켓 금지 이메일 및 티켓 종료"
+
+msgid "Ticket unban email"
+msgstr "티켓 금지 해제 이메일"
+
+msgid "Ticket lock"
+msgstr "티켓 잠금"
+
+msgid "Ticket unlock"
+msgstr "티켓 잠금 해제"
+
+msgid "Ticket Change Priority"
+msgstr "티켓 변경 우선순위"
+
+msgid "Mark Ticket In Progress"
+msgstr "티켓을 진행 중으로 표시"
+
+msgid "Reply To A Closed Ticket By Email"
+msgstr "마감된 티켓에 이메일로 답장하기"
+
+msgid "Send Feedback Email To User"
+msgstr "사용자에게 피드백 이메일 보내기"
+
+msgid "Open Ticket"
+msgstr "오픈 티켓"
+
+msgid "Department reports"
+msgstr "부서 보고서"
+
+msgid "Login/Logout Button"
+msgstr "로그인/로그아웃 버튼"
+
+msgid "Ticket Total Count"
+msgstr "티켓 총 개수"
+
+msgid "Erase Agent Data"
+msgstr "에이전트 데이터 지우기"
+
+msgid "Export Ticket"
+msgstr "수출 티켓"
+
+msgid "Latest Downloads"
+msgstr "최신 다운로드"
+
+msgid "Latest Announcements"
+msgstr "최신 공지사항"
+
+msgid "Latest Knowledge Base"
+msgstr "최신 기술 자료"
+
+msgid "Latest FAQs"
+msgstr "최신 FAQ"
+
+msgid "Home"
+msgstr "집"
+
+msgid "Check Ticket Status"
+msgstr "티켓 상태 확인"
+
+msgid "Registration"
+msgstr "등록"
+
+msgid "Erase User Data"
+msgstr "사용자 데이터 삭제"
+
+msgid "Feedback Email Delay Type"
+msgstr "피드백 이메일 지연 유형"
+
+msgid "Select delay type for feedback email"
+msgstr "피드백 이메일의 지연 유형 선택"
+
+msgid "Feedback Email Delay"
+msgstr "피드백 이메일 지연"
+
+msgid "Success message after submitting feedback"
+msgstr "피드백 제출 후 성공 메시지"
+
+msgid "This text will appear whenever anyone submits feedback"
+msgstr "누군가 피드백을 제출할 때마다 이 텍스트가 표시됩니다."
+
+msgid "Login with facebook"
+msgstr "페이스북으로 로그인"
+
+msgid "Facebook user can log in to Majestic Support"
+msgstr "Facebook 사용자는 Majestic 지원에 로그인할 수 있습니다."
+
+msgid "Secret"
+msgstr "비밀"
+
+msgid "secret key"
+msgstr "비밀 키"
+
+msgid "API Key"
+msgstr "API 키"
+
+msgid "The Facebook app requires an API key"
+msgstr "Facebook 앱에는 API 키가 필요합니다"
+
+msgid "Login with linkedin"
+msgstr "링크드인으로 로그인"
+
+msgid "Linkedin users can log in to Majestic Support"
+msgstr "Linkedin 사용자는 Majestic 지원에 로그인할 수 있습니다."
+
+msgid "The LinkedIn app requires an API key"
+msgstr "LinkedIn 앱에는 API 키가 필요합니다"
+
+msgid "UTF Auto Switch"
+msgstr "UTF 자동 전환"
+
+msgid "Create User via email"
+msgstr "이메일을 통해 사용자 생성"
+
+msgid "Click here to insert Install."
+msgstr "설치를 삽입하려면 여기를 클릭하세요."
+
+msgid "Majestic Support Desktop Notifications plugin is not active."
+msgstr "Majestic Support 데스크톱 알림 플러그인이 활성화되지 않았습니다."
+
+msgid "Find and add the Firebase API keys."
+msgstr "Firebase API 키를 찾아서 추가하세요."
+
+msgid "Click here to get Firebase API keys."
+msgstr "Firebase API 키를 받으려면 여기를 클릭하세요."
+
+msgid "User's API Key"
+msgstr "사용자의 API 키"
+
+msgid "Firebase API key for the front user"
+msgstr "전면 사용자용 Firebase API 키"
+
+msgid "Auth Domain"
+msgstr "인증 도메인"
+
+msgid "Firebase Auth Domain"
+msgstr "Firebase 인증 도메인"
+
+msgid "Database Url"
+msgstr "데이터베이스 URL"
+
+msgid "Firebase Database URL"
+msgstr "Firebase 데이터베이스 URL"
+
+msgid "Project ID"
+msgstr "프로젝트 ID"
+
+msgid "Firebase Project ID"
+msgstr "Firebase 프로젝트 ID"
+
+msgid "Bucket Storage"
+msgstr "버킷 스토리지"
+
+msgid "Firebase Bucket Storage"
+msgstr "Firebase 버킷 저장소"
+
+msgid "Message Sender ID"
+msgstr "메시지 발신자 ID"
+
+msgid "Firebase Message Sender ID"
+msgstr "Firebase 메시지 발신자 ID"
+
+msgid "Private Server Key"
+msgstr "개인 서버 키"
+
+msgid "Firebase Server Key"
+msgstr "Firebase 서버 키"
+
+msgid "Logo Image for Desktop Notifications"
+msgstr "데스크톱 알림용 로고 이미지"
+
+msgid "Remove Image"
+msgstr "이미지 제거"
+
+msgid "Remove Logo"
+msgstr "로고 제거"
+
+msgid "No Firebase Notification Logo"
+msgstr "Firebase 알림 로고 없음"
+
+msgid "Secret Key"
+msgstr "비밀키"
+
+msgid "Second Level Security"
+msgstr "2단계 보안"
+
+msgid "For enhanced security, change the encryption method in %s on line %s"
+msgstr "보안 강화를 위해 %s 라인 %s의 암호화 방법을 변경하십시오."
+
+msgid "Api Key"
+msgstr "API 키"
+
+msgid "Enter Envato api key "
+msgstr "Envato API 키를 입력하세요"
+
+msgid "Click here to generate an api key"
+msgstr "API 키를 생성하려면 여기를 클릭하세요."
+
+msgid "License Mandatory"
+msgstr "라이센스 필수"
+
+msgid "Product ID"
+msgstr "제품 ID"
+
+msgid "A comma-separated list of Envato product ids"
+msgstr "Envato 제품 ID의 쉼표로 구분된 목록"
+
+msgid "Enter MailChimp API key "
+msgstr "MailChimp API 키를 입력하세요."
+
+msgid "Audience ID"
+msgstr "잠재고객 ID"
+
+msgid "Find Audience ID in your MailChimp account"
+msgstr "MailChimp 계정에서 Audience ID 찾기"
+
+msgid "Enable double opt-in"
+msgstr "이중 옵트인 활성화"
+
+msgid "You must also enable double opt-in in your MailChimp account"
+msgstr "또한 MailChimp 계정에서 이중 옵트인을 활성화해야 합니다."
+
+msgid "Welcome email"
+msgstr "환영 이메일"
+
+msgid "You can enable Final Welcome Email in your MailChimp account"
+msgstr "MailChimp 계정에서 최종 환영 이메일을 활성화할 수 있습니다."
+
+msgid "Verify License On Ticket Creation"
+msgstr "티켓 생성 시 라이센스 확인"
+
+msgid "Captcha Setting"
+msgstr "보안 문자 설정"
+
+msgid "Show captcha on registration form"
+msgstr "등록 양식에 보안 문자 표시"
+
+msgid "Select whether you want to show captcha on the registration form or not"
+msgstr "등록 양식에 보안문자 표시 여부를 선택하세요."
+
+msgid "Show captcha on the visitor ticket form"
+msgstr "방문자 티켓 양식에 보안 문자 표시"
+
+msgid "Show captcha when a visitor wants to create a ticket"
+msgstr "방문자가 티켓을 생성하려고 할 때 보안 문자 표시"
+
+msgid "Captcha selection"
+msgstr "보안 문자 선택"
+
+msgid "Which captcha do you want to add?"
+msgstr "어떤 보안문자를 추가하고 싶으신가요?"
+
+msgid "Google reCaptcha"
+msgstr "구글 리캡차"
+
+msgid "Google ReCaptcha version"
+msgstr "구글 ReCaptcha 버전"
+
+msgid "Select the Google ReCaptcha version"
+msgstr "Google ReCaptcha 버전을 선택하세요"
+
+msgid "Google ReCaptcha site key"
+msgstr "Google ReCaptcha 사이트 키"
+
+msgid "Please enter the site key for Google ReCaptcha from"
+msgstr "Google ReCaptcha의 사이트 키를 입력하세요."
+
+msgid "Google ReCaptcha secret key"
+msgstr "Google ReCaptcha 비밀 키"
+
+msgid "Please enter the secret key for Google ReCaptcha from"
+msgstr "Google ReCaptcha의 비밀 키를 입력하세요."
+
+msgid "Own captcha calculation type"
+msgstr "자체 보안 문자 계산 유형"
+
+msgid "Select the calculation type (addition or subtraction)"
+msgstr "계산 유형(덧셈 또는 뺄셈)을 선택하세요."
+
+msgid "Own captcha operands"
+msgstr "자체 보안 문자 피연산자"
+
+msgid "Select the total number of operands to be given"
+msgstr "제공할 총 피연산자 수를 선택하세요."
+
+msgid "Positive Answer Upon Own Captcha Subtraction"
+msgstr "자신의 보안 문자 빼기 시 긍정적인 답변"
+
+msgid "watch video"
+msgstr "비디오를보다"
+
+msgid "Add"
+msgstr "추가하다"
+
+msgid "Ticket via email"
+msgstr "이메일을 통한 티켓"
+
+msgid "OR"
+msgstr "또는"
+
+msgid "Sorry the cron job didnot work"
+msgstr "죄송합니다 크론 작업이 작동하지 않았습니다"
+
+msgid "Update ticket status"
+msgstr "티켓 상태 업데이트"
+
+msgid "You cannot use this email, it is used in email piping"
+msgstr "이 이메일은 사용할 수 없습니다. 이메일 파이핑에 사용됩니다."
+
+msgid "The department has been stored"
+msgstr "부서가 저장되었습니다."
+
+msgid "The department has not been stored"
+msgstr "부서가 저장되지 않았습니다."
+
+msgid "The department has been deleted"
+msgstr "부서가 삭제되었습니다."
+
+msgid "The department has not been deleted"
+msgstr "부서가 삭제되지 않았습니다."
+
+msgid "The department in use cannot be delete"
+msgstr "사용중인 부서는 삭제할 수 없습니다"
+
+msgid "Outgoing Email"
+msgstr "보내는 이메일"
+
+msgid "Select Email"
+msgstr "이메일 선택"
+
+msgid "Tickets of this department will receive emails from this email"
+msgstr "이 부서의 티켓은 이 이메일에서 이메일을 받게 됩니다."
+
+msgid "Receive Email"
+msgstr "이메일 받기"
+
+msgid "Default with auto assign"
+msgstr "자동 할당이 포함된 기본값"
+
+msgid "Save Department"
+msgstr "부서 저장"
+
+msgid "Add New Email"
+msgstr "새 이메일 추가"
+
+msgid "The user of this department will receive an email with the new ticket"
+msgstr "이 부서의 사용자는 새 티켓이 포함된 이메일을 받게 됩니다."
+
+msgid "Outgoing"
+msgstr "나가는"
+
+msgid "Click here to give us feedback"
+msgstr "피드백을 보내려면 여기를 클릭하세요."
+
+msgid "Email Already Exist"
+msgstr "이메일이 이미 존재합니다."
+
+msgid "The email has been stored"
+msgstr "이메일이 저장되었습니다"
+
+msgid "The email has not been stored"
+msgstr "이메일이 저장되지 않았습니다"
+
+msgid "Ticket History"
+msgstr "티켓 내역"
+
+msgid "False"
+msgstr "거짓"
+
+msgid "True"
+msgstr "진실"
+
+msgid "Send Email By"
+msgstr "이메일 보내기"
+
+msgid "SMTP host type"
+msgstr "SMTP 호스트 유형"
+
+msgid "SMTP host"
+msgstr "SMTP 호스트"
+
+msgid "SMTP Authentication"
+msgstr "SMTP 인증"
+
+msgid "SMTP Secure"
+msgstr "SMTP 보안"
+
+msgid "SMTP Port"
+msgstr "SMTP 포트"
+
+msgid "If the system doesnot respond in 30 seconds"
+msgstr "시스템이 30초 내에 응답하지 않는 경우"
+
+msgid "Auto Response"
+msgstr "자동 응답"
+
+msgid "Some values are not acceptable please retry"
+msgstr "일부 값을 사용할 수 없습니다. 다시 시도해 주세요."
+
+msgid "info"
+msgstr "정보"
+
+msgid "System email used for sending email"
+msgstr "이메일 전송에 사용되는 시스템 이메일"
+
+msgid "Required Fields are not filled"
+msgstr "필수 입력란이 작성되지 않았습니다."
+
+msgid "Ban Email Try To Create Ticket"
+msgstr "이메일 차단 티켓 생성 시도"
+
+msgid "Ticket Priority Is Changed By"
+msgstr "티켓 우선순위가 변경된 사람"
+
+msgid "Data Deleted"
+msgstr "데이터가 삭제되었습니다"
+
+msgid "Body"
+msgstr "몸"
+
+msgid "Parameters"
+msgstr "매개변수"
+
+msgid "Tracking ID"
+msgstr "추적 ID"
+
+msgid "Ticket URL"
+msgstr "티켓 URL"
+
+msgid "Ticket Priority"
+msgstr "티켓 우선권"
+
+msgid "Department title"
+msgstr "부서명"
+
+msgid "Group Title"
+msgstr "그룹 제목"
+
+msgid "Agent name"
+msgstr "대리인 이름"
+
+msgid "Help topic title"
+msgstr "도움말 항목 제목"
+
+msgid "Feedback URL"
+msgstr "피드백 URL"
+
+msgid "Ticket Subject"
+msgstr "티켓 제목"
+
+msgid "Ticket Tracking ID"
+msgstr "티켓 추적 ID"
+
+msgid "Close Date"
+msgstr "마감일"
+
+msgid "Save Email Template"
+msgstr "이메일 템플릿 저장"
+
+msgid "Note:"
+msgstr "메모:"
+
+msgid "Features marked with"
+msgstr "표시된 기능"
+
+msgid "are only available with its own addon."
+msgstr "자체 애드온에서만 사용할 수 있습니다."
+
+msgid "Field mark as published"
+msgstr "필드가 게시된 것으로 표시"
+
+msgid "Field mark as unpublished"
+msgstr "필드를 게시되지 않은 것으로 표시"
+
+msgid "Field cannot be mark as published"
+msgstr "필드를 게시된 것으로 표시할 수 없습니다."
+
+msgid "Field mark as required"
+msgstr "필요에 따라 필드 표시"
+
+msgid "Field mark as not required"
+msgstr "필드를 필수가 아닌 것으로 표시"
+
+msgid "Field ordering down"
+msgstr "필드 순서 아래로"
+
+msgid "Field ordering up"
+msgstr "현장 주문"
+
+msgid "Parent field has not been stored"
+msgstr "상위 필드가 저장되지 않았습니다."
+
+msgid "Please Insert At least one value for every option"
+msgstr "모든 옵션에 대해 하나 이상의 값을 입력하십시오."
+
+msgid "Child fields has not been stored"
+msgstr "하위 필드가 저장되지 않았습니다."
+
+msgid "Field has not been stored"
+msgstr "필드가 저장되지 않았습니다."
+
+msgid "Field has been stored"
+msgstr "필드가 저장되었습니다."
+
+msgid "Field has been updated"
+msgstr "필드가 업데이트되었습니다."
+
+msgid "Parent Field"
+msgstr "상위 필드"
+
+msgid "Edit Field"
+msgstr "필드 편집"
+
+msgid "Field Title"
+msgstr "필드 제목"
+
+msgid "User Published"
+msgstr "사용자 게시됨"
+
+msgid "Visitor Published"
+msgstr "게시된 방문자"
+
+msgid "Required"
+msgstr "필수의"
+
+msgid "User Search"
+msgstr "사용자 검색"
+
+msgid "Show On Listing"
+msgstr "목록에 표시"
+
+msgid "Advanced"
+msgstr "고급의"
+
+msgid "Field has not been deleted"
+msgstr "필드가 삭제되지 않았습니다."
+
+msgid "Field has been deleted"
+msgstr "필드가 삭제되었습니다."
+
+msgid "No response found"
+msgstr "응답을 찾을 수 없습니다."
+
+msgid "Equal"
+msgstr "동일한"
+
+msgid "Not Equal"
+msgstr "같지 않음"
+
+msgid "Text Field"
+msgstr "텍스트 필드"
+
+msgid "Check Box"
+msgstr "체크박스"
+
+msgid "Drop Down"
+msgstr "쓰러지 다"
+
+msgid "Text Area"
+msgstr "텍스트 영역"
+
+msgid "Radio Button"
+msgstr "라디오 버튼"
+
+msgid "Upload File"
+msgstr "파일 업로드"
+
+msgid "Multi Select"
+msgstr "다중 선택"
+
+msgid "Admin Only"
+msgstr "관리자 전용"
+
+msgid "Terms and Conditions"
+msgstr "이용약관"
+
+msgid "Dependent Field"
+msgstr "종속 필드"
+
+msgid "Field Type"
+msgstr "필드 유형"
+
+msgid "Field Size"
+msgstr "필드 크기"
+
+msgid "Max Length"
+msgstr "최대 길이"
+
+msgid "Columns"
+msgstr "열"
+
+msgid "Rows"
+msgstr "행"
+
+msgid "Select Parent"
+msgstr "상위 선택"
+
+msgid "Select Child"
+msgstr "하위 선택"
+
+msgid "Select Condition"
+msgstr "조건 선택"
+
+msgid "To use this feature, please fill in the above three fields."
+msgstr "이 기능을 사용하려면 위의 세 가지 항목을 입력해 주세요."
+
+msgid "Use the table below to add new values"
+msgstr "아래 표를 사용하여 새 값을 추가하세요."
+
+msgid "Add Value"
+msgstr "값을 추가"
+
+msgid "Terms and Conditions Text"
+msgstr "이용 약관 텍스트"
+
+msgid "Terms and Conditions Link Type"
+msgstr "이용약관 링크 유형"
+
+msgid "Direct Link"
+msgstr "다이렉트 링크"
+
+msgid "Wordpress Page"
+msgstr "워드프레스 페이지"
+
+msgid "Select Link Type"
+msgstr "링크 유형 선택"
+
+msgid "Terms and Conditions Link"
+msgstr "이용약관 링크"
+
+msgid "Terms and Conditions Page"
+msgstr "이용약관 페이지"
+
+msgid "Select Wordpress page"
+msgstr "워드프레스 페이지 선택"
+
+msgid "Save Field"
+msgstr "필드 저장"
+
+msgid "User Publish"
+msgstr "사용자 게시"
+
+msgid "Visitor Publish"
+msgstr "방문자 게시"
+
+msgid "Published"
+msgstr "게시됨"
+
+msgid "Unpublished"
+msgstr "널리 알려지지 않은"
+
+msgid "Not required"
+msgstr "필요하지 않음"
+
+msgid "users popup"
+msgstr "사용자 팝업"
+
+msgid "Can Not Unpublished"
+msgstr "게시 취소할 수 없음"
+
+msgid "good"
+msgstr "좋은"
+
+msgid "can not mark as not required"
+msgstr "필수로 표시할 수 없습니다."
+
+msgid "Cannot unpublished field"
+msgstr "필드를 게시 취소할 수 없습니다."
+
+msgid "Please fill required fields."
+msgstr "필수 입력란을 작성해 주세요."
+
+msgid "User Data"
+msgstr "사용자 데이터"
+
+msgid "Erasing data request has been stored"
+msgstr "데이터 삭제 요청이 저장되었습니다."
+
+msgid "Failed while storing"
+msgstr "저장하는 동안 실패했습니다."
+
+msgid "Erase data request withdrawn"
+msgstr "데이터 삭제 요청이 철회되었습니다."
+
+msgid "Failed while performing action"
+msgstr "작업을 수행하는 동안 실패했습니다."
+
+msgid "User identifying data erased"
+msgstr "사용자 식별 데이터가 삭제되었습니다."
+
+msgid "User data Deleted"
+msgstr "사용자 데이터가 삭제되었습니다."
+
+msgid "Export your data"
+msgstr "데이터 내보내기"
+
+msgid "You have filed a request to remove your data."
+msgstr "귀하는 데이터 삭제 요청을 제출했습니다."
+
+msgid "To withdraw erases data request"
+msgstr "데이터 삭제 요청을 철회하려면"
+
+msgid "Request the removal of data from the system."
+msgstr "시스템에서 데이터 제거를 요청하십시오."
+
+msgid "Field Text"
+msgstr "필드 텍스트"
+
+msgid "Link Type"
+msgstr "링크 유형"
+
+msgid "Link Page"
+msgstr "링크 페이지"
+
+msgid "User Email"
+msgstr "사용자 이메일"
+
+msgid "Request Status"
+msgstr "요청 상태"
+
+msgid "Awaiting response"
+msgstr "응답을 기다리는 중"
+
+msgid "Erased identifying data"
+msgstr "삭제된 식별 데이터"
+
+msgid "Deleted"
+msgstr "삭제됨"
+
+msgid "Erase identifying data"
+msgstr "식별 데이터 삭제"
+
+msgid "Are you sure to erase identifying data"
+msgstr "식별 데이터를 삭제하시겠습니까?"
+
+msgid "Delete data"
+msgstr "데이터 삭제"
+
+msgid "Link"
+msgstr "링크"
+
+msgid "Direct URL"
+msgstr "직접 URL"
+
+msgid "Page Title or URL"
+msgstr "페이지 제목 또는 URL"
+
+msgid "Cannot open file"
+msgstr "파일을 열 수 없다"
+
+msgid "The new theme has been applied"
+msgstr "새로운 테마가 적용되었습니다"
+
+msgid "Error applying the new theme"
+msgstr "새 테마를 적용하는 중에 오류가 발생했습니다."
+
+msgid "Dir is not writable"
+msgstr "Dir은 쓸 수 없습니다."
+
+msgid "Unable to connect to the server"
+msgstr "서버에 연결할 수 없습니다"
+
+msgid "Language is not installed"
+msgstr "언어가 설치되지 않았습니다"
+
+msgid "Language directory is not writable"
+msgstr "언어 디렉토리에 쓸 수 없습니다"
+
+msgid "Required language is not installed but similar language like"
+msgstr "필수 언어가 설치되어 있지 않지만 다음과 유사한 언어가 설치되어 있습니다."
+
+msgid "is found in your system"
+msgstr "시스템에서 발견되었습니다"
+
+msgid "Language code"
+msgstr "언어 코드"
+
+msgid "Empty values"
+msgstr "빈 값"
+
+msgid "File is not writable"
+msgstr "파일에 쓸 수 없습니다"
+
+msgid "File successfully downloaded"
+msgstr "파일이 성공적으로 다운로드되었습니다."
+
+msgid "User ID"
+msgstr "사용자 ID"
+
+msgid "Ordering updated"
+msgstr "주문이 업데이트되었습니다."
+
+msgid "Missing user(s) added successfully!"
+msgstr "누락된 사용자가 성공적으로 추가되었습니다!"
+
+msgid "No missing user found!"
+msgstr "누락된 사용자를 찾을 수 없습니다!"
+
+msgid "How to translate Majestic Support"
+msgstr "Majestic Support 번역 방법"
+
+msgid "arrow"
+msgstr "화살"
+
+msgid "Remove All"
+msgstr "모두 제거"
+
+msgid "How to create ticket"
+msgstr "티켓 생성 방법"
+
+msgid "Add Field"
+msgstr "필드 추가"
+
+msgid "How to setup user fields"
+msgstr "사용자 필드를 설정하는 방법"
+
+msgid "reset"
+msgstr "초기화"
+
+msgid "Reset All"
+msgstr "모두 초기화"
+
+msgid "How to set smartreply"
+msgstr "스마트답장 설정 방법"
+
+msgid "Add Multiform"
+msgstr "다중 형태 추가"
+
+msgid "How to set multiforms"
+msgstr "다중 형식을 설정하는 방법"
+
+msgid "Add Conditions"
+msgstr "조건 추가"
+
+msgid "Conditions"
+msgstr "정황"
+
+msgid "How to add Shortcode"
+msgstr "단축 코드를 추가하는 방법"
+
+msgid "How to set colors"
+msgstr "색상 설정 방법"
+
+msgid "Export Data"
+msgstr "데이터 내보내기"
+
+msgid "Add Email Piping"
+msgstr "이메일 파이핑 추가"
+
+msgid "Add GDPR Field"
+msgstr "GDPR 필드 추가"
+
+msgid "Add Depertment"
+msgstr "부서 추가"
+
+msgid "Add Knowledge base"
+msgstr "기술 자료 추가"
+
+msgid "How to use Knowledge Base"
+msgstr "기술 자료 사용 방법"
+
+msgid "How to use downloads"
+msgstr "다운로드 사용 방법"
+
+msgid "How to create FAQ"
+msgstr "FAQ를 만드는 방법"
+
+msgid "How to add announcement"
+msgstr "공지사항 추가 방법"
+
+msgid "Add Help Topics"
+msgstr "도움말 항목 추가"
+
+msgid "How to use help topic"
+msgstr "도움말 항목을 사용하는 방법"
+
+msgid "How to set SMTP"
+msgstr "SMTP 설정 방법"
+
+msgid "Add Banned Email"
+msgstr "금지된 이메일 추가"
+
+msgid "How to use email cc"
+msgstr "이메일 참조를 사용하는 방법"
+
+msgid "Configuration"
+msgstr "구성"
+
+msgid "Reasons"
+msgstr "원인"
+
+msgid "About Majestic Support"
+msgstr "Majestic 지원 정보"
+
+msgid "Our Products"
+msgstr "우리의 제품"
+
+msgid "Wp Job Portal"
+msgstr "Wp 취업 포털"
+
+msgid "New Tickets"
+msgstr "신규 티켓"
+
+msgid "addon"
+msgstr "애드온"
+
+msgid "Answered Tickets"
+msgstr "답변된 티켓"
+
+msgid "Pending Tickets"
+msgstr "대기 중인 티켓"
+
+msgid "Overdue Tickets"
+msgstr "기한이 지난 티켓"
+
+msgid "Update"
+msgstr "업데이트"
+
+msgid "View Addone Status"
+msgstr "애드온 상태 보기"
+
+msgid "Today Tickets"
+msgstr "오늘 티켓"
+
+msgid "Statistics"
+msgstr "통계"
+
+msgid "View All Tickets"
+msgstr "모든 티켓 보기"
+
+msgid "Quick Links"
+msgstr "빠른 링크"
+
+msgid "email template"
+msgstr "이메일 템플릿"
+
+msgid "add missing users"
+msgstr "누락된 사용자 추가"
+
+msgid "user"
+msgstr "사용자"
+
+msgid "Sync WP Users"
+msgstr "WP 사용자 동기화"
+
+msgid "Add New Smart Reply"
+msgstr "새 스마트 답장 추가"
+
+msgid "Suggest a quick and most relevant reply to the customer's query."
+msgstr "고객의 문의에 대해 신속하고 가장 관련성이 높은 답변을 제안합니다."
+
+msgid "Add Reply"
+msgstr "답글 추가"
+
+msgid "Add New Agent"
+msgstr "새 에이전트 추가"
+
+msgid "Agent Add-on Not Installed"
+msgstr "에이전트 추가 기능이 설치되지 않았습니다."
+
+msgid "Don't limit yourself—install the Agent addon for maximum productivity."
+msgstr "제한하지 마세요. 생산성을 극대화하려면 에이전트 애드온을 설치하세요."
+
+msgid "agent addone"
+msgstr "에이전트 애드온"
+
+msgid "Install Agent Addon"
+msgstr "에이전트 애드온 설치"
+
+msgid "Tickets By Priority"
+msgstr "우선순위 티켓"
+
+msgid "Install Addone"
+msgstr "애드온 설치"
+
+msgid "Add-ons"
+msgstr "부가기능"
+
+msgid "View Details"
+msgstr "세부 정보보기"
+
+msgid "Version"
+msgstr "버전"
+
+msgid "Auto Close Ticket"
+msgstr "자동 종료 티켓"
+
+msgid "Private Note"
+msgstr "비공개 메모"
+
+msgid "Max Ticket"
+msgstr "최대 티켓"
+
+msgid "Max Tickets"
+msgstr "최대 티켓"
+
+msgid "Merge Tickets"
+msgstr "티켓 병합"
+
+msgid "Time Tracking"
+msgstr "시간 추적"
+
+msgid "User Options"
+msgstr "사용자 옵션"
+
+msgid "Actions"
+msgstr "행위"
+
+msgid "Ticket Actions"
+msgstr "티켓 작업"
+
+msgid "Desktop Notifications"
+msgstr "데스크톱 알림"
+
+msgid "Admin Widgets"
+msgstr "관리자 위젯"
+
+msgid "Internal Mail"
+msgstr "내부 메일"
+
+msgid "Front-End Widgets"
+msgstr "프런트엔드 위젯"
+
+msgid "mailchimp"
+msgstr "메일침프"
+
+msgid "Mailchimp"
+msgstr "메일침프"
+
+msgid "paidsupport"
+msgstr "유료지원"
+
+msgid "easy digital download"
+msgstr "쉬운 디지털 다운로드"
+
+msgid "Easy Digital Download"
+msgstr "간편한 디지털 다운로드"
+
+msgid "Multi Language Email Templates"
+msgstr "다중 언어 이메일 템플릿"
+
+msgid "Email Cc"
+msgstr "이메일 참조"
+
+msgid "Multi Forms"
+msgstr "다중 양식"
+
+msgid "Ticket Closed Reason"
+msgstr "티켓 종료 이유"
+
+msgid "Quick Installation Guide"
+msgstr "빠른 설치 가이드"
+
+msgid "How To Setup"
+msgstr "설정 방법"
+
+msgid "Ticket Creation"
+msgstr "티켓 생성"
+
+msgid "Fields Manager"
+msgstr "필드 관리자"
+
+msgid "Email Notification Problems"
+msgstr "이메일 알림 문제"
+
+msgid "Premium Addons List"
+msgstr "프리미엄 애드온 목록"
+
+msgid "Features"
+msgstr "특징"
+
+msgid "The best support system plugin for WordPress has everything you need."
+msgstr "WordPress를 위한 최고의 지원 시스템 플러그인은 필요한 모든 것을 갖추고 있습니다."
+
+msgid "Addons"
+msgstr "애드온"
+
+msgid "All Add-ons"
+msgstr "모든 추가 기능"
+
+msgid "Add New Add-ons"
+msgstr "새로운 추가 기능 추가"
+
+msgid "New Update Version"
+msgstr "새로운 업데이트 버전"
+
+msgid "is Available"
+msgstr "사용할 수 있습니다"
+
+msgid "Help icon"
+msgstr "도움말 아이콘"
+
+msgid "Videos Guidance"
+msgstr "비디오 안내"
+
+msgid "View all videos"
+msgstr "모든 동영상 보기"
+
+msgid "Video icon"
+msgstr "비디오 아이콘"
+
+msgid "View All Videos"
+msgstr "모든 동영상 보기"
+
+msgid "Majestic Support icon"
+msgstr "장엄한 지원 아이콘"
+
+msgid "Contact Us For Support"
+msgstr "지원을 받으려면 문의하세요"
+
+msgid "Submit ticket"
+msgstr "티켓 제출"
+
+msgid "Visitor ticket creation"
+msgstr "방문객 티켓 생성"
+
+msgid "How to set ticket auto close"
+msgstr "티켓 자동 종료 설정 방법"
+
+msgid "How to reopen closed ticket"
+msgstr "종료된 티켓을 다시 여는 방법"
+
+msgid "How to lock a ticket"
+msgstr "티켓을 잠그는 방법"
+
+msgid "How to add private note"
+msgstr "비공개 메모를 추가하는 방법"
+
+msgid "View ticket history"
+msgstr "티켓 내역 보기"
+
+msgid "How to setup custom fields"
+msgstr "사용자 정의 필드를 설정하는 방법"
+
+msgid "Set ticket auto overdue"
+msgstr "티켓 자동 연체 설정"
+
+msgid "Manually set ticket overdue"
+msgstr "수동으로 티켓 연체 설정"
+
+msgid "How to merge tickets"
+msgstr "티켓을 병합하는 방법"
+
+msgid "How to export tickets"
+msgstr "티켓을 내보내는 방법"
+
+msgid "How use help topic"
+msgstr "도움말 항목 사용 방법"
+
+msgid "How to change department"
+msgstr "부서 변경 방법"
+
+msgid "How to use multi-forms"
+msgstr "다중 양식을 사용하는 방법"
+
+msgid "How to paid support"
+msgstr "유료 지원 방법"
+
+msgid "How to use premade response"
+msgstr "미리 만들어진 응답을 사용하는 방법"
+
+msgid "How to add private credentials"
+msgstr "개인 자격 증명을 추가하는 방법"
+
+msgid "How to ban/unban user"
+msgstr "사용자를 금지/금지 해제하는 방법"
+
+msgid "Agent system"
+msgstr "에이전트 시스템"
+
+msgid "Manually assign ticket to agen"
+msgstr "티켓을 상담원에게 수동으로 할당"
+
+msgid "Manually assign ticket to agent"
+msgstr "티켓을 상담원에게 수동으로 할당"
+
+msgid "How to edit time"
+msgstr "시간을 편집하는 방법"
+
+msgid "How to use time tracking"
+msgstr "시간 추적을 사용하는 방법"
+
+msgid "How to use smart replies"
+msgstr "스마트 답장을 사용하는 방법"
+
+msgid "Configurations"
+msgstr "구성"
+
+msgid "How to set max open ticket"
+msgstr "최대 오픈 티켓 설정 방법"
+
+msgid "How to show counts"
+msgstr "개수를 표시하는 방법"
+
+msgid "How to set Captcha"
+msgstr "보안 문자 설정 방법"
+
+msgid "User options"
+msgstr "사용자 옵션"
+
+msgid "How to set login redirect"
+msgstr "로그인 리디렉션을 설정하는 방법"
+
+msgid "How to set fields ordering"
+msgstr "필드 순서를 설정하는 방법"
+
+msgid "How to enable social login"
+msgstr "소셜 로그인을 활성화하는 방법"
+
+msgid "Setup"
+msgstr "설정"
+
+msgid "How to setup"
+msgstr "설정 방법"
+
+msgid "How to enable email piping"
+msgstr "이메일 파이핑을 활성화하는 방법"
+
+msgid "How to solve email notification problem"
+msgstr "이메일 알림 문제를 해결하는 방법"
+
+msgid "How to translate"
+msgstr "번역하는 방법"
+
+msgid "How to install addons"
+msgstr "애드온 설치 방법"
+
+msgid "How to Desktop Notifications"
+msgstr "데스크톱 알림 방법"
+
+msgid "and"
+msgstr "그리고"
+
+msgid "How to use knowledge base"
+msgstr "지식베이스를 사용하는 방법"
+
+msgid "Misc"
+msgstr "기타"
+
+msgid "How to use internal mail"
+msgstr "내부메일 이용방법"
+
+msgid "Use front-end widgets"
+msgstr "프런트엔드 위젯 사용"
+
+msgid "How to enable admin widgets"
+msgstr "관리자 위젯을 활성화하는 방법"
+
+msgid "Majestic Support / Majestic Support Control Panel"
+msgstr "마제스틱 지원 / 마제스틱 지원 제어판"
+
+msgid "Majestic Support / Majestic Support main control panel"
+msgstr "마제스틱 서포트 / 마제스틱 서포트 메인 제어판"
+
+msgid "Add new ticket form for both the user and the agent"
+msgstr "사용자와 상담원 모두를 위한 새 티켓 양식 추가"
+
+msgid "Add Ticket Using Multiform"
+msgstr "Multiform을 사용하여 티켓 추가"
+
+msgid "My tickets for both user and agent"
+msgstr "사용자와 상담원 모두를 위한 내 티켓"
+
+msgid "Show latest downloads. Options"
+msgstr "최신 다운로드를 표시합니다. 옵션"
+
+msgid "i.e."
+msgstr "즉."
+
+msgid "Popular Downloads"
+msgstr "인기 다운로드"
+
+msgid "Show popular downloads. Options"
+msgstr "인기 있는 다운로드를 표시합니다. 옵션"
+
+msgid "Show latest knowledge base. Options"
+msgstr "최신 지식 기반을 표시합니다. 옵션"
+
+msgid "Show popular knowledge base. Options"
+msgstr "인기 있는 지식 베이스를 표시합니다. 옵션"
+
+msgid "List FAQs"
+msgstr "FAQ 나열"
+
+msgid "Show latest FAQs. Options"
+msgstr "최신 FAQ를 표시합니다. 옵션"
+
+msgid "Popular FAQs"
+msgstr "인기있는 FAQ"
+
+msgid "Show popular FAQs. Options"
+msgstr "인기 있는 FAQ를 표시합니다. 옵션"
+
+msgid "Show latest announcements. Options"
+msgstr "최신 공지사항을 표시합니다. 옵션"
+
+msgid "Popular Announcements"
+msgstr "인기 공지사항"
+
+msgid "Show popular announcements. Options"
+msgstr "인기 공지사항을 표시합니다. 옵션"
+
+msgid "Get"
+msgstr "얻다"
+
+msgid "Translation"
+msgstr "번역"
+
+msgid "c error"
+msgstr "c 오류"
+
+msgid "saved"
+msgstr "저장됨"
+
+msgid "Contribute In Translation"
+msgstr "번역에 기여"
+
+msgid "translate"
+msgstr "번역하다"
+
+msgid "Manual Download"
+msgstr "수동 다운로드"
+
+msgid "Log In"
+msgstr "로그인"
+
+msgid "Log Out"
+msgstr "로그 아웃"
+
+msgid "Agent Feedback"
+msgstr "상담원 피드백"
+
+msgid "Dashboard Menu"
+msgstr "대시보드 메뉴"
+
+msgid "Open Tickets"
+msgstr "오픈 티켓"
+
+msgid "Closed Tickets"
+msgstr "마감된 티켓"
+
+msgid "This ticket is marked as overdue"
+msgstr "이 티켓은 기한이 지난 것으로 표시되어 있습니다"
+
+msgid "View All Downloads"
+msgstr "모든 다운로드 보기"
+
+msgid "View All Announcements"
+msgstr "모든 공지사항 보기"
+
+msgid "View All Knowledge Base"
+msgstr "모든 기술 자료 보기"
+
+msgid "View All FAQs"
+msgstr "모든 FAQ 보기"
+
+msgid "Keep me login"
+msgstr "로그인 유지"
+
+msgid "Repeat Password"
+msgstr "비밀번호 반복"
+
+msgid "Subscribe to the newsletter"
+msgstr "뉴스레터를 구독하세요"
+
+msgid "has been changed"
+msgstr "변경되었습니다"
+
+msgid "has not been changed"
+msgstr "변경되지 않았습니다"
+
+msgid "Majestic Support Settings"
+msgstr "장엄한 지원 설정"
+
+msgid "Step 4 of "
+msgstr "4단계"
+
+msgid "Complete"
+msgstr "완벽한"
+
+msgid "Setting you applied has been saved successfully."
+msgstr "적용한 설정이 성공적으로 저장되었습니다."
+
+msgid "Finish"
+msgstr "마치다"
+
+msgid "Settings Complete"
+msgstr "설정 완료"
+
+msgid "Ticket Setting"
+msgstr "티켓 설정"
+
+msgid "Step 1 of "
+msgstr "1단계"
+
+msgid "Enter the site title"
+msgstr "사이트 제목을 입력하세요"
+
+msgid "Date format for plugin"
+msgstr "플러그인의 날짜 형식"
+
+msgid "Show Breadcrumbs"
+msgstr "이동 경로 표시"
+
+msgid "Show navigation in breadcrumbs"
+msgstr "탐색경로에 탐색 표시"
+
+msgid "Upload file size in KB's"
+msgstr "업로드 파일 크기(KB)"
+
+msgid "File Extension"
+msgstr "파일 확장자"
+
+msgid "Show count on my tickets"
+msgstr "내 티켓에 개수 표시"
+
+msgid "Next Setup"
+msgstr "다음 설정"
+
+msgid "Sequential"
+msgstr "잇달아 일어나는"
+
+msgid "Step 3 of "
+msgstr "3단계"
+
+msgid "Set Email Delay Time"
+msgstr "이메일 지연 시간 설정"
+
+msgid " :"
+msgstr ":"
+
+msgid "Set Email Delay"
+msgstr "이메일 지연 설정"
+
+msgid "Back"
+msgstr "뒤쪽에"
+
+msgid "Step 2 of "
+msgstr "2단계"
+
+msgid "Visitor can create ticket"
+msgstr "방문자가 티켓을 만들 수 있습니다."
+
+msgid "Enable/Disable Open Ticket"
+msgstr "오픈 티켓 활성화/비활성화"
+
+msgid "Set ticket id sequential or random"
+msgstr "티켓 ID를 순차적 또는 무작위로 설정"
+
+msgid "Maximum Tickets"
+msgstr "최대 티켓 수"
+
+msgid "Set Maximum Ticket Per user"
+msgstr "사용자당 최대 티켓 설정"
+
+msgid "Maximum Open Ticket"
+msgstr "최대 오픈 티켓"
+
+msgid "Reopen ticket within Days"
+msgstr "일 이내에 티켓을 다시 개설하세요"
+
+msgid "The ticket can be reopened within a given number of days"
+msgstr "티켓은 지정된 일수 이내에 다시 열릴 수 있습니다."
+
+msgid "Show Captcha to visitor on ticket form"
+msgstr "티켓 양식에 방문자에게 보안 문자(Captcha)를 보여주세요."
+
+msgid "Enable/Disable Captcha on Ticket Form"
+msgstr "티켓 양식에서 보안 문자 활성화/비활성화"
+
+msgid "Own Captcha operands"
+msgstr "자체 보안 문자 피연산자"
+
+msgid "Select the total operands to be given"
+msgstr "제공할 총 피연산자를 선택하세요."
+
+msgid "Own captcha subtraction answer positive"
+msgstr "자신의 보안 문자 빼기 답변이 긍정적입니다."
+
+msgid "Enable/Disable Own Captcha subtraction"
+msgstr "자체 보안문자 빼기 활성화/비활성화"
+
+msgid "Enable Print Ticket"
+msgstr "인쇄 티켓 활성화"
+
+msgid "Enable/Disable Print Ticket"
+msgstr "인쇄 티켓 활성화/비활성화"
+
+msgid "Download Translation File"
+msgstr "번역 파일 다운로드"
+
+msgid "Download & Next"
+msgstr "다운로드 및 다음"
+
+msgid "Skip this step"
+msgstr "이 단계를 건너 뛰"
+
+msgid "Please insert activation key to proceed"
+msgstr "계속하려면 활성화 키를 삽입하세요."
+
+msgid "Addon Installation Failed"
+msgstr "애드온 설치 실패"
+
+msgid "Addon installation failed"
+msgstr "애드온 설치 실패"
+
+msgid "Addon Installation Failed, File download error"
+msgstr "애드온 설치 실패, 파일 다운로드 오류"
+
+msgid "Deactivate"
+msgstr "비활성화"
+
+msgid "Deactivated"
+msgstr "비활성화됨"
+
+msgid "Activate"
+msgstr "활성화"
+
+msgid "Not Installed"
+msgstr "설치되지 않음"
+
+msgid "Addon Installed Successfully"
+msgstr "애드온이 성공적으로 설치되었습니다"
+
+msgid "Ticket Auto Close"
+msgstr "티켓 자동 종료"
+
+msgid "Canned Response"
+msgstr "미리 준비된 답변"
+
+msgid "Desktop Notification"
+msgstr "데스크톱 알림"
+
+msgid "Front-end Widgets"
+msgstr "프런트엔드 위젯"
+
+msgid "Multi-Language Emails"
+msgstr "다국어 이메일"
+
+msgid "left image"
+msgstr "왼쪽 이미지"
+
+msgid "right image"
+msgstr "오른쪽 이미지"
+
+msgid "Add-ons For Majestic Support"
+msgstr "Majestic 지원을 위한 추가 기능"
+
+msgid "Save big today with an exclusive membership plan!"
+msgstr "오늘 독점 멤버십 플랜으로 큰 금액을 절약하세요!"
+
+msgid "show bundle pack"
+msgstr "번들 팩 표시"
+
+msgid "buy now"
+msgstr "지금 구매"
+
+msgid "Installed"
+msgstr "설치됨"
+
+msgid "agent auto assign"
+msgstr "상담원 자동 할당"
+
+msgid "private note"
+msgstr "비공개 메모"
+
+msgid "merge tickets"
+msgstr "티켓 병합"
+
+msgid "helptopic"
+msgstr "도움말 항목"
+
+msgid "time tracking"
+msgstr "시간 추적"
+
+msgid "Ticket close reason"
+msgstr "티켓 종료 이유"
+
+msgid "max ticket"
+msgstr "최대 티켓"
+
+msgid "ticket actions"
+msgstr "티켓 작업"
+
+msgid "email cc"
+msgstr "이메일 참조"
+
+msgid "user options"
+msgstr "사용자 옵션"
+
+msgid "admin widgets"
+msgstr "관리자 위젯"
+
+msgid "desktop notifications"
+msgstr "데스크톱 알림"
+
+msgid "woocommerce"
+msgstr "우커머스"
+
+msgid "mail chimp"
+msgstr "메일침프"
+
+msgid "Mail Chimp"
+msgstr "메일침프"
+
+msgid "internal mail"
+msgstr "내부 메일"
+
+msgid "frontend widget"
+msgstr "프런트엔드 위젯"
+
+msgid "Majestic Support Add-ons Bundle Pack"
+msgstr "Majestic 지원 추가 기능 번들 팩"
+
+msgid "Basic"
+msgstr "기초적인"
+
+msgid "Unlimited Agents"
+msgstr "무제한 에이전트"
+
+msgid "Helptopic"
+msgstr "도움말 항목"
+
+msgid "Show all"
+msgstr "모두 보이기"
+
+msgid "Standard"
+msgstr "기준"
+
+msgid "Everything in basic included and "
+msgstr "기본적으로 모든 것이 포함되어 있으며"
+
+msgid "Professional"
+msgstr "전문적인"
+
+msgid "Everything in standard included and"
+msgstr "표준의 모든 것이 포함되어 있습니다."
+
+msgid "All Future Addons"
+msgstr "모든 향후 애드온"
+
+msgid "Status: "
+msgstr "상태:"
+
+msgid "addon in no longer active"
+msgstr "더 이상 활성화되지 않은 애드온"
+
+msgid "Please Insert Your Activation Key"
+msgstr "활성화 키를 삽입하세요"
+
+msgid "XXXX-XXXX-XXXXX-XXXXX"
+msgstr "XXXX-XXXX-XXXXX-XXXXX"
+
+msgid "Proceed"
+msgstr "진행하다"
+
+msgid "Majestic Support Addon Installer"
+msgstr "Majestic Support 애드온 설치 프로그램"
+
+msgid "Select All Addons"
+msgstr "모든 애드온 선택"
+
+msgid "All allowed add ons are already installed"
+msgstr "허용된 모든 추가 기능이 이미 설치되어 있습니다."
+
+msgid "You are not allowed to install any add on"
+msgstr "추가 기능을 설치할 수 없습니다"
+
+msgid "Addons Installed Successfully"
+msgstr "애드온이 성공적으로 설치되었습니다"
+
+msgid "Open Dashboard"
+msgstr "대시보드 열기"
+
+msgid "Open Plugins Page"
+msgstr "플러그인 페이지 열기"
+
+msgid "Page Not Found !!"
+msgstr "페이지를 찾을 수 없습니다!!"
+
+msgid "Priority Title Already Exist"
+msgstr "우선순위 타이틀이 이미 존재합니다."
+
+msgid "Priority has been stored"
+msgstr "우선순위가 저장되었습니다"
+
+msgid "Priority has not been stored"
+msgstr "우선순위가 저장되지 않았습니다"
+
+msgid "Priority has been deleted"
+msgstr "우선순위가 삭제되었습니다."
+
+msgid "Priority has not been deleted"
+msgstr "우선순위가 삭제되지 않았습니다."
+
+msgid "Default priority cannot delete"
+msgstr "기본 우선순위는 삭제할 수 없습니다."
+
+msgid "Priority has been make default"
+msgstr "우선순위가 기본값으로 설정되었습니다."
+
+msgid "Priority has not been make default"
+msgstr "우선순위가 기본값으로 설정되지 않았습니다."
+
+msgid "Ticket Overdue Interval Type"
+msgstr "티켓 연체 간격 유형"
+
+msgid "Save Priority"
+msgstr "우선순위 저장"
+
+msgid "Date Interval"
+msgstr "날짜 간격"
+
+msgid "Reply posted"
+msgstr "답글이 게시되었습니다."
+
+msgid "Reply posted on ticket"
+msgstr "티켓에 답글이 게시됨"
+
+msgid "Guest"
+msgstr "손님"
+
+msgid "Ticket is replied by"
+msgstr "티켓은 다음 사람이 답장합니다."
+
+msgid "Reply Has been Posted"
+msgstr "답글이 게시되었습니다"
+
+msgid "Reply Has Not been Posted"
+msgstr "답글이 게시되지 않았습니다."
+
+msgid "Dates"
+msgstr "날짜"
+
+msgid "Department Statistics"
+msgstr "학과통계"
+
+msgid "answered ticket"
+msgstr "응답 티켓"
+
+msgid "pending ticket"
+msgstr "대기 중인 티켓"
+
+msgid "overdue ticket"
+msgstr "연체된 티켓"
+
+msgid "Time Taken"
+msgstr "걸린 시간"
+
+msgid "Merged and closed"
+msgstr "병합 및 폐쇄"
+
+msgid "Out of"
+msgstr "밖으로"
+
+msgid "Overall Report"
+msgstr "종합보고서"
+
+msgid "Ticket by departments"
+msgstr "부서별 티켓"
+
+msgid "Agent Tickets"
+msgstr "에이전트 티켓"
+
+msgid "all ticket"
+msgstr "모든 티켓"
+
+msgid "Tickets By Status And Priorities"
+msgstr "상태 및 우선순위별 티켓"
+
+msgid "Tickets By Agents"
+msgstr "에이전트에 의한 티켓"
+
+msgid "Staff Reports"
+msgstr "직원 보고서"
+
+msgid "Based on"
+msgstr "기반"
+
+msgid "Customer Satisfaction"
+msgstr "고객 만족"
+
+msgid "satisfaction image"
+msgstr "만족 이미지"
+
+msgid "Excellent"
+msgstr "훌륭한"
+
+msgid "NA"
+msgstr "해당 없음"
+
+msgid "Happy"
+msgstr "행복하다"
+
+msgid "bad"
+msgstr "나쁜"
+
+msgid "Sad"
+msgstr "슬퍼"
+
+msgid "Angry"
+msgstr "화난"
+
+msgid "Agent Statistics"
+msgstr "상담원 통계"
+
+msgid "staff image"
+msgstr "직원 이미지"
+
+msgid "Average rating"
+msgstr "평균 평점"
+
+msgid "Average time"
+msgstr "평균 시간"
+
+msgid "Tickets not assigned to the agent"
+msgstr "상담원에게 티켓이 배정되지 않았습니다"
+
+msgid "Minutes"
+msgstr "분"
+
+msgid "Report By Agent"
+msgstr "에이전트별 보고"
+
+msgid "User Statistics"
+msgstr "사용자 통계"
+
+msgid "Users"
+msgstr "사용자"
+
+msgid "Tickets by departments"
+msgstr "부서별 티켓"
+
+msgid "Ticket Status By Departments"
+msgstr "부서별 티켓현황"
+
+msgid "Agent detail Report"
+msgstr "상담원 세부정보 보고서"
+
+msgid "Agent Report"
+msgstr "에이전트 보고서"
+
+msgid "Reports Statistics"
+msgstr "보고서 통계"
+
+msgid "Slugs/Slug has been stored"
+msgstr "슬러그/슬러그가 저장되었습니다"
+
+msgid "Prefix has not been stored"
+msgstr "접두사가 저장되지 않았습니다."
+
+msgid "Prefix has been stored"
+msgstr "접두어가 저장되었습니다."
+
+msgid "Home Slug"
+msgstr "홈 슬러그"
+
+msgid "Prefix"
+msgstr "접두사"
+
+msgid "This prefix will be added to the slug in case of homepage links."
+msgstr "이 접두사는 홈페이지 링크의 경우 슬러그에 추가됩니다."
+
+msgid "This prefix will be added to the slug in case of conflict."
+msgstr "이 접두사는 충돌이 발생할 경우 슬러그에 추가됩니다."
+
+msgid "Search By Slug"
+msgstr "슬러그로 검색"
+
+msgid "Slug List"
+msgstr "슬러그 목록"
+
+msgid "edit"
+msgstr "편집하다"
+
+msgid "This button will only save slugs on the current page"
+msgstr "이 버튼은 현재 페이지의 슬러그만 저장합니다."
+
+msgid "Smart Reply Title Already Exist"
+msgstr "스마트 답장 제목이 이미 존재합니다."
+
+msgid "Smart Reply has been stored"
+msgstr "스마트 답장이 저장되었습니다"
+
+msgid "Smart Reply has not been stored"
+msgstr "스마트 답장이 저장되지 않았습니다."
+
+msgid "Smart Reply has been deleted"
+msgstr "스마트 답장이 삭제되었습니다."
+
+msgid "Smart Reply has not been deleted"
+msgstr "스마트 답장이 삭제되지 않았습니다."
+
+msgid "Enter Ticket Subject"
+msgstr "티켓 제목 입력"
+
+msgid "delete"
+msgstr "삭제"
+
+msgid "Save Smart Reply"
+msgstr "스마트 답장 저장"
+
+msgid "System error has been deleted"
+msgstr "시스템 오류가 삭제되었습니다"
+
+msgid "System error has not been deleted"
+msgstr "시스템 오류가 삭제되지 않았습니다"
+
+msgid "Color Chooser"
+msgstr "색상 선택기"
+
+msgid "Preset Theme"
+msgstr "프리셋 테마"
+
+msgid "Top Menu Heading Background"
+msgstr "상단 메뉴 제목 배경"
+
+msgid "Top Header Line Color"
+msgstr "상단 헤더 라인 색상"
+
+msgid "Button Hover"
+msgstr "버튼 호버"
+
+msgid "Heading Text"
+msgstr "제목 텍스트"
+
+msgid "Content Background Color"
+msgstr "콘텐츠 배경색"
+
+msgid "Content Text Color"
+msgstr "콘텐츠 텍스트 색상"
+
+msgid "Border Color"
+msgstr "테두리 색상"
+
+msgid "Lines"
+msgstr "윤곽"
+
+msgid "Button Color"
+msgstr "버튼 색상"
+
+msgid "Top Header Text Color"
+msgstr "상단 헤더 텍스트 색상"
+
+msgid "Save Colors"
+msgstr "색상 저장"
+
+msgid "Color Effect Preview"
+msgstr "색상 효과 미리보기"
+
+msgid "Submit Ticket  "
+msgstr "티켓 제출"
+
+msgid "Open ( 3 )"
+msgstr "열기 ( 3 )"
+
+msgid "Closed ( 2 )"
+msgstr "휴무 ( 2 )"
+
+msgid "Answered ( 1 )"
+msgstr "답변됨 ( 1 )"
+
+msgid "All Tickets ( 5 )"
+msgstr "모든 티켓 ( 5 )"
+
+msgid " Priority"
+msgstr "우선 사항"
+
+msgid "Can i upgrade my plan?"
+msgstr "내 요금제를 업그레이드할 수 있나요?"
+
+msgid "Low"
+msgstr "낮은"
+
+msgid "Ticket ID  :"
+msgstr "티켓 ID :"
+
+msgid "Last Reply :"
+msgstr "마지막 답변:"
+
+msgid "How can i get Subscription"
+msgstr "구독은 어떻게 받을 수 있나요?"
+
+msgid " Department   "
+msgstr "부서"
+
+msgid "Support"
+msgstr "지원하다"
+
+msgid " Ticket ID :"
+msgstr "티켓 ID :"
+
+msgid "Created :"
+msgstr "만들어진 :"
+
+msgid "Matthew Frazier"
+msgstr "매튜 프레이저"
+
+msgid "How long do i have support access"
+msgstr "지원을 받을 수 있는 기간은 얼마나 됩니까?"
+
+msgid " Department"
+msgstr "부서"
+
+msgid "Note"
+msgstr "메모"
+
+msgid "Blue Jeans"
+msgstr "청바지"
+
+msgid "Red"
+msgstr "빨간색"
+
+msgid "Mint"
+msgstr "민트"
+
+msgid "Lavender"
+msgstr "라벤더"
+
+msgid "Orange"
+msgstr "주황색"
+
+msgid "Grass"
+msgstr "잔디"
+
+msgid "Black"
+msgstr "검은색"
+
+msgid "Support for this Envato license has expired"
+msgstr "이 Envato 라이선스에 대한 지원이 만료되었습니다."
+
+msgid "Record not found"
+msgstr "기록을 찾을 수 없습니다"
+
+msgid "Banned email cannot create ticket"
+msgstr "금지된 이메일은 티켓을 생성할 수 없습니다"
+
+msgid "Incorrect Captcha Code"
+msgstr "잘못된 보안 문자 코드"
+
+msgid "Please select paid support item"
+msgstr "유료 지원 항목을 선택해주세요"
+
+msgid "No purchase found with that code"
+msgstr "해당 코드로 구매한 항목이 없습니다."
+
+msgid "Provide a valid license key to create a ticket."
+msgstr "티켓을 생성하려면 유효한 라이센스 키를 제공하세요."
+
+msgid "Your license has expired."
+msgstr "라이센스가 만료되었습니다."
+
+msgid "Your license is not active, activate your license."
+msgstr "라이센스가 활성화되어 있지 않습니다. 라이센스를 활성화하십시오."
+
+msgid "Due date error is not valid"
+msgstr "마감일 오류가 유효하지 않습니다."
+
+msgid "Ticket has not been created"
+msgstr "티켓이 생성되지 않았습니다."
+
+msgid "Your ticket has been submitted successfully"
+msgstr "귀하의 티켓이 성공적으로 제출되었습니다"
+
+msgid "created"
+msgstr "만들어진"
+
+msgid "Ticket is updated by"
+msgstr "티켓은 다음에 의해 업데이트됩니다."
+
+msgid "Ticket is created by"
+msgstr "티켓 생성자:"
+
+msgid "Ticket has been deleted"
+msgstr "티켓이 삭제되었습니다"
+
+msgid "Ticket has not been deleted"
+msgstr "티켓이 삭제되지 않았습니다"
+
+msgid "in use cannot be deleted"
+msgstr "사용 중인 항목은 삭제할 수 없습니다."
+
+msgid "Ticket already closed"
+msgstr "티켓이 이미 마감되었습니다"
+
+msgid "Ticket has been closed"
+msgstr "티켓이 마감되었습니다"
+
+msgid "Ticket has not been closed"
+msgstr "티켓이 닫히지 않았습니다"
+
+msgid "Ticket is closed by"
+msgstr "티켓이 마감되었습니다"
+
+msgid "due to the following reasons"
+msgstr "다음과 같은 이유로"
+
+msgid "Your are not allowed"
+msgstr "당신은 허용되지 않습니다"
+
+msgid "The department has been transferred"
+msgstr "부서가 이전되었습니다"
+
+msgid "The department has not been transferred"
+msgstr "부서가 이전되지 않았습니다."
+
+msgid "The department is transferred by"
+msgstr "부서가 이전됩니다."
+
+msgid "Assigned to agent"
+msgstr "상담원에게 할당됨"
+
+msgid "Not assigned to agent"
+msgstr "상담원에게 할당되지 않음"
+
+msgid "Assign ticket to agent"
+msgstr "상담원에게 티켓 할당"
+
+msgid "Ticket is assigned to agent by"
+msgstr "티켓은 다음 사람에 의해 대리인에게 배정됩니다."
+
+msgid "The ticket already has the same priority"
+msgstr "티켓에 이미 동일한 우선순위가 있습니다."
+
+msgid "Priority has been changed"
+msgstr "우선순위가 변경되었습니다."
+
+msgid "Priority has not been changed"
+msgstr "우선순위가 변경되지 않았습니다."
+
+msgid "Change Priority"
+msgstr "우선순위 변경"
+
+msgid "Email already banned"
+msgstr "이메일이 이미 차단되었습니다."
+
+msgid "The email has been banned"
+msgstr "이메일이 금지되었습니다"
+
+msgid "The email has not been banned"
+msgstr "이메일이 차단되지 않았습니다."
+
+msgid "Email is banned by"
+msgstr "이메일은 다음에 의해 금지되었습니다."
+
+msgid "The ticket has been reopened"
+msgstr "티켓이 다시 오픈되었습니다"
+
+msgid "The ticket has not been reopened"
+msgstr "티켓이 다시 열리지 않았습니다."
+
+msgid "Reopen Ticket"
+msgstr "티켓 재개장"
+
+msgid "The ticket is reopened by"
+msgstr "티켓은 다음에 의해 재개됩니다."
+
+msgid "The ticket reopens time limit end"
+msgstr "티켓 재오픈 기한 종료"
+
+msgid "Email has been unbanned"
+msgstr "이메일 차단이 해제되었습니다."
+
+msgid "Email has not been unbanned"
+msgstr "이메일 차단이 해제되지 않았습니다."
+
+msgid "Unbanned Email"
+msgstr "금지되지 않은 이메일"
+
+msgid "Email is unbanned by"
+msgstr "이메일 차단 해제 대상:"
+
+msgid "Email cannot be unbanned"
+msgstr "이메일 차단을 해제할 수 없습니다."
+
+msgid "Ticket already marked in progress"
+msgstr "티켓이 이미 진행 중으로 표시됨"
+
+msgid "The ticket has been marked as in progress"
+msgstr "티켓이 진행 중으로 표시되었습니다."
+
+msgid "The ticket has not been marked as in progress"
+msgstr "티켓이 진행 중으로 표시되지 않았습니다."
+
+msgid "In progress ticket"
+msgstr "진행중인 티켓"
+
+msgid "The ticket is marked as in progress by"
+msgstr "티켓은 다음에 의해 진행 중으로 표시됩니다."
+
+msgid "File upload limit exceeds"
+msgstr "파일 업로드 제한을 초과했습니다."
+
+msgid "The uploaded file extension not valid"
+msgstr "업로드된 파일 확장자가 유효하지 않습니다."
+
+msgid "Paid support info"
+msgstr "유료 지원 정보"
+
+msgid "Order ID"
+msgstr "주문 아이디"
+
+msgid "Product Name"
+msgstr "상품명"
+
+msgid "Total Tickets"
+msgstr "총 티켓 수"
+
+msgid "Remaining Tickets"
+msgstr "남은 티켓"
+
+msgid "Unlimited"
+msgstr "제한 없는"
+
+msgid "You have not purchased any supported item"
+msgstr "지원되는 항목을 구매하지 않았습니다."
+
+msgid "Go to shop"
+msgstr "가게에 가다"
+
+msgid "Select Order"
+msgstr "주문 선택"
+
+msgid "No premade response found"
+msgstr "미리 만들어진 응답을 찾을 수 없습니다."
+
+msgid "Waiting agent reply"
+msgstr "상담원 답변 대기 중"
+
+msgid "Waiting customer reply"
+msgstr "고객 답변을 기다리는 중"
+
+msgid "Close ticket"
+msgstr "티켓 닫기"
+
+msgid "Are you sure to mark this ticket non-premium?"
+msgstr "이 티켓을 프리미엄이 아닌 것으로 표시하시겠습니까?"
+
+msgid "Edit Reply"
+msgstr "답글 수정"
+
+msgid "Edit Time"
+msgstr "시간 편집"
+
+msgid "Add reason in the other box"
+msgstr "다른 상자에 이유를 추가하세요."
+
+msgid "First make some selection!"
+msgstr "먼저 선택을 해보세요!"
+
+msgid "Reason For Editing the timer"
+msgstr "타이머를 편집하는 이유"
+
+msgid "Reason For Editing"
+msgstr "편집 이유"
+
+msgid "Resolve conflict"
+msgstr "갈등 해결"
+
+msgid "Lock"
+msgstr "잠그다"
+
+msgid "Add New Credential"
+msgstr "새 자격 증명 추가"
+
+msgid "Add Internal Note"
+msgstr "내부 메모 추가"
+
+msgid "play"
+msgstr "놀다"
+
+msgid "pause"
+msgstr "정지시키다"
+
+msgid "stop"
+msgstr "멈추다"
+
+msgid "Close on reply"
+msgstr "회신 후 닫기"
+
+msgid "Reason For Department Transfer"
+msgstr "부서 이동 이유"
+
+msgid "Transfer"
+msgstr "옮기다"
+
+msgid "Assign To Agent"
+msgstr "상담원에게 할당"
+
+msgid "Assign"
+msgstr "양수인"
+
+msgid "View all"
+msgstr "모두보기"
+
+msgid "tickets by"
+msgstr "티켓"
+
+msgid "Show History"
+msgstr "기록 표시"
+
+msgid "Print Ticket"
+msgstr "인쇄 티켓"
+
+msgid "Unmark Overdue"
+msgstr "연체 표시 해제"
+
+msgid "Mark in Progress"
+msgstr "진행 중으로 표시"
+
+msgid "agent image"
+msgstr "에이전트 이미지"
+
+msgid "Post A New Internal Note"
+msgstr "새 내부 메모 게시"
+
+msgid "Ticket Thread"
+msgstr "티켓 스레드"
+
+msgid "View Image"
+msgstr "이미지 보기"
+
+msgid "smart-reply"
+msgstr "스마트 답장"
+
+msgid "Check Smart Reply"
+msgstr "스마트 답장 확인"
+
+msgid "Search and get a saved smart reply on Majestic Support for a ticket."
+msgstr "Majestic Support에서 티켓을 검색하고 저장된 스마트 답장을 받으세요."
+
+msgid "search"
+msgstr "찾다"
+
+msgid "Add this reply to smart reply?"
+msgstr "이 답글을 스마트 답장에 추가하시겠습니까?"
+
+msgid "Post Reply"
+msgstr "답글 게시"
+
+msgid "Own Signature"
+msgstr "자신의 서명"
+
+msgid "Department Signature"
+msgstr "부서 서명"
+
+msgid "JNone"
+msgstr "J없음"
+
+msgid "Add Signature"
+msgstr "서명 추가"
+
+msgid "On Waiting"
+msgstr "대기 중"
+
+msgid "Closed and merged"
+msgstr "폐쇄 및 합병"
+
+msgid "Ticket Closing Reason"
+msgstr "티켓 종료 이유"
+
+msgid "ago"
+msgstr "~ 전에"
+
+msgid "No Last Reply"
+msgstr "마지막 답장 없음"
+
+msgid "Not Given"
+msgstr "주어지지 않음"
+
+msgid "Closed By"
+msgstr "마감일:"
+
+msgid "Closed On"
+msgstr "휴무일"
+
+msgid "Copy"
+msgstr "복사"
+
+msgid "Copied"
+msgstr "복사됨"
+
+msgid "Change"
+msgstr "변화"
+
+msgid "Assign And Transfer Ticket"
+msgstr "티켓 할당 및 양도"
+
+msgid "Ticket assigned to"
+msgstr "다음에 배정된 티켓"
+
+msgid "staff photo"
+msgstr "직원 사진"
+
+msgid "Total Time Taken"
+msgstr "총 소요 시간"
+
+msgid "view ticket"
+msgstr "티켓보기"
+
+msgid "Woocommerce Order"
+msgstr "우커머스 주문"
+
+msgid "Envato License"
+msgstr "엔바토 라이센스"
+
+msgid "Item"
+msgstr "안건"
+
+msgid "Buyer"
+msgstr "사는 사람"
+
+msgid "License Type"
+msgstr "라이센스 유형"
+
+msgid "License"
+msgstr "특허"
+
+msgid "Purchase Date"
+msgstr "구입 날짜"
+
+msgid "Supported Until"
+msgstr "지원 기간:"
+
+msgid "Paid Support Details"
+msgstr "유료 지원 세부정보"
+
+msgid "Subscription"
+msgstr "신청"
+
+msgid "Subscribed On"
+msgstr "구독 날짜"
+
+msgid "Support Expiry"
+msgstr "지원 만료"
+
+msgid "No expiration"
+msgstr "유효 기간 없음"
+
+msgid "Non-premium support"
+msgstr "비프리미엄 지원"
+
+msgid "Check this box if this ticket should NOT apply against the paid support"
+msgstr "이 티켓이 유료 지원에 적용되어서는 안 되는 경우 이 상자를 선택하세요."
+
+msgid "Remaining"
+msgstr "남은"
+
+msgid "Link ticket to paid support"
+msgstr "유료 지원 티켓 연결"
+
+msgid "closed ticket"
+msgstr "마감된 티켓"
+
+msgid "Ticket Creator Name"
+msgstr "티켓 작성자 이름"
+
+msgid "From Date"
+msgstr "날짜부터"
+
+msgid "To Date"
+msgstr "현재까지"
+
+msgid "Enforce delete"
+msgstr "삭제 시행"
+
+msgid "Are you sure to enforce delete"
+msgstr "삭제를 시행하시겠습니까?"
+
+msgid "Are you sure to mark this ticket non-preminum?"
+msgstr "이 티켓을 프리미엄이 아닌 것으로 표시하시겠습니까?"
+
+msgid "Message Logs"
+msgstr "메시지 로그"
+
+msgid "Edit Timer"
+msgstr "타이머 편집"
+
+msgid "Type Note for Department"
+msgstr "부서에 대한 메모 입력"
+
+msgid "Assign Ticket To Agent"
+msgstr "상담원에게 티켓 할당"
+
+msgid "Assigning Note"
+msgstr "메모 할당"
+
+msgid "Time Track"
+msgstr "타임 트랙"
+
+msgid "Type Internal Note"
+msgstr "내부 메모 입력"
+
+msgid "tickets"
+msgstr "티켓"
+
+msgid "Reopen"
+msgstr "다시 열다"
+
+msgid "History"
+msgstr "역사"
+
+msgid "Print"
+msgstr "인쇄"
+
+msgid "Are you sure you want to delete this ticket"
+msgstr "정말로 이 티켓을 삭제하시겠습니까?"
+
+msgid "Are you sure to close this ticket"
+msgstr "이 티켓을 종료하시겠습니까?"
+
+msgid "Unlock"
+msgstr "터놓다"
+
+msgid "Mark In Progress"
+msgstr "진행 중으로 표시"
+
+msgid "Ban Email And Close Ticket"
+msgstr "이메일 금지 및 티켓 닫기"
+
+msgid "Post New Internal Note"
+msgstr "새 내부 메모 게시"
+
+msgid "Reply A Message"
+msgstr "메시지에 답장하기"
+
+msgid "Search and get a saved smart reply on Majestic Support."
+msgstr "Majestic Support에서 검색하고 저장된 스마트 답장을 받으세요."
+
+msgid "Check Reply"
+msgstr "답변 확인"
+
+msgid "Select Premade"
+msgstr "사전 제작 선택"
+
+msgid "Assign Ticket"
+msgstr "티켓 할당"
+
+msgid ": "
+msgstr ":"
+
+msgid "Assigned To Agent"
+msgstr "에이전트에 할당됨"
+
+msgid "View all orders"
+msgstr "모든 주문 보기"
+
+msgid "Non-preminum support"
+msgstr "비프리미엄 지원"
+
+msgid "Check Status"
+msgstr "상태 확인"
+
+msgid "High"
+msgstr "높은"
+
+msgid "Urgent"
+msgstr "긴급한"
+
+msgid "Admin email address and email piping address cannot be the same, your email piping will not be work."
+msgstr "관리자 이메일 주소와 이메일 파이핑 주소는 동일할 수 없으며 이메일 파이핑이 작동하지 않습니다."
+
+msgid "IMAP is either not installed or not enabled in your server. Contact to hosting company"
+msgstr "IMAP이 서버에 설치되지 않았거나 활성화되지 않았습니다. 호스팅 회사에 문의"
+
+msgid "180 secs If the setting is not completely increased, most sites will work with a setting of between 180 and 600"
+msgstr "180초 설정을 완전히 늘리지 않으면 대부분의 사이트는 180~600 사이의 설정으로 작동합니다."
+
+msgid "If you have already set up alert methods in the webcron.org interface, we recommend choosing an alert type"
+msgstr "webcron.org 인터페이스에서 이미 경고 방법을 설정한 경우 경고 유형을 선택하는 것이 좋습니다."
+
+msgid "Enter allowed number of tickets that customer can post. Enter -1 for unlimited tickets."
+msgstr "고객이 게시할 수 있는 허용 티켓 수를 입력하세요. 무제한 티켓의 경우 -1을 입력하세요."
+
+msgid "Your response would be helpful to other users, as we believe that the success of the support system is largely dependent on how well customers are treated."
+msgstr "귀하의 응답은 다른 사용자에게 도움이 될 것입니다. 지원 시스템의 성공은 고객을 얼마나 잘 대우하느냐에 크게 좌우된다고 믿기 때문입니다."
+
+msgid "</b> and Enter your license key and hit to authenticate. A valid key is required for updates."
+msgstr "</b> 라이센스 키를 입력하고 인증을 누르십시오. 업데이트하려면 유효한 키가 필요합니다."
+
+msgid "We'd love to hear from you. It'll only take 2 minutes of your time, and will really help us spread the word"
+msgstr "우리는 당신의 의견을 듣고 싶습니다. 2분 정도만 투자하시면 홍보에 큰 도움이 됩니다."
+
+msgid "Registration has been disabled by admin, please contact the system administrator."
+msgstr "관리자에 의해 등록이 비활성화되었습니다. 시스템 관리자에게 문의하세요."
+
+msgid "Please check confirmation email to complete your subscription for the newsletter"
+msgstr "뉴스레터 구독을 완료하려면 확인 이메일을 확인하세요."
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Dont forget to update the add-ons to enjoy the greatest features!"
+msgstr "안녕하세요! 우리는 최근 추가 기능에 대한 새로운 업데이트를 출시했습니다. 최고의 기능을 즐기려면 추가 기능을 업데이트하는 것을 잊지 마세요!"
+
+msgid "Select the Majestic Support default page, and on the action system, it will redirect to the selected page. If not selected the default page, email links, and support icon might not work."
+msgstr "Majestic Support 기본 페이지를 선택하면 액션 시스템에서 선택한 페이지로 리디렉션됩니다. 기본 페이지를 선택하지 않으면 이메일 링크 및 지원 아이콘이 작동하지 않을 수 있습니다."
+
+msgid "You need to rename the existing data directory in the file system before changing the data directory name"
+msgstr "데이터 디렉터리 이름을 변경하기 전에 파일 시스템의 기존 데이터 디렉터리 이름을 바꿔야 합니다."
+
+msgid "Show the number of open, closed, and answered tickets in my tickets and dashboard"
+msgstr "내 티켓과 대시보드에 등록된 티켓, 마감된 티켓, 답변된 티켓의 수 표시"
+
+msgid "Set register link default or custom.<br /> To enable registrations, WordPress admin > General > Settings > Membership: Anyone can register"
+msgstr "등록 링크를 기본값 또는 사용자 정의로 설정하세요.<br /> 등록을 활성화하려면 WordPress 관리자 > 일반 > 설정 > 멤버십: 누구나 등록할 수 있습니다."
+
+msgid "Select category to display only products of this category on the WooCommerce shop page."
+msgstr "WooCommerce 쇼핑 페이지에 이 카테고리의 제품만 표시하려면 카테고리를 선택하세요."
+
+msgid "Show or hide the multiform popup when creating a new ticket. if you hide them, the system will open the default form."
+msgstr "새 티켓을 만들 때 여러 형식의 팝업을 표시하거나 숨깁니다. 숨기면 시스템에서 기본 양식이 열립니다."
+
+msgid "Select whether users can see the email of administrator or agent on the ticket reply"
+msgstr "사용자가 티켓 답장에서 관리자 또는 상담원의 이메일을 볼 수 있는지 선택하세요."
+
+msgid "Select whether users can see the name of administrator or agent on ticket reply"
+msgstr "사용자가 티켓 답장에서 관리자 또는 상담원의 이름을 볼 수 있는지 여부를 선택하세요."
+
+msgid "By enabling this option, an admin can know who closed the ticket and when that ticket closed."
+msgstr "이 옵션을 활성화하면 관리자는 티켓을 종료한 사람과 티켓이 종료된 시기를 알 수 있습니다."
+
+msgid "By enabling this option, an agent can know who closed the ticket and when that ticket closed."
+msgstr "이 옵션을 활성화하면 상담원은 티켓을 종료한 사람과 티켓이 종료된 시기를 알 수 있습니다."
+
+msgid "By enabling this option, a user can know who closed the ticket and when that ticket closed."
+msgstr "이 옵션을 활성화하면 사용자는 티켓을 종료한 사람과 티켓이 종료된 시기를 알 수 있습니다."
+
+msgid "By enabling this option, an admin can know to whom the ticket has been assigned."
+msgstr "이 옵션을 활성화하면 관리자는 티켓이 누구에게 할당되었는지 알 수 있습니다."
+
+msgid "By enabling this option, an agent can know to whom the ticket has been assigned."
+msgstr "이 옵션을 활성화하면 상담원은 티켓이 누구에게 배정되었는지 알 수 있습니다."
+
+msgid "By enabling this option, a user can know to whom the ticket has been assigned."
+msgstr "이 옵션을 활성화하면 사용자는 티켓이 누구에게 할당되었는지 알 수 있습니다."
+
+msgid "If the ticket department email is not selected, then this email is used to send emails"
+msgstr "티켓 부서 이메일을 선택하지 않은 경우 이 이메일을 사용하여 이메일을 보냅니다."
+
+msgid "Set the number of days or hours to send a feedback email after a ticket is closed"
+msgstr "티켓이 종료된 후 피드백 이메일을 보낼 일수 또는 시간 설정"
+
+msgid "Majestic Support Desktop Notifications plugin is not installed. Please install the plugin to enable desktop notifications"
+msgstr "Majestic Support 데스크톱 알림 플러그인이 설치되지 않았습니다. 데스크톱 알림을 활성화하려면 플러그인을 설치하세요."
+
+msgid "Changing the encryption key of private credentials will cause all existing credentials to be discarded"
+msgstr "개인 자격 증명의 암호화 키를 변경하면 기존 자격 증명이 모두 삭제됩니다."
+
+msgid "Prevent users from submitting a ticket without a valid license for one of your product"
+msgstr "사용자가 제품 중 하나에 대한 유효한 라이선스 없이 티켓을 제출하지 못하도록 방지"
+
+msgid "Selecting \\ positive"
+msgstr " 긍정 선택"
+
+msgid "e.g \\ The text between [link] and [/link] will be linked to provided url or wordpress page."
+msgstr ""
+
+msgid "e.g., \\ The text between [link] and [/link] will be linked to provided URL or WordPress page."
+msgstr ""
+
+msgid "Majestic support is customer service or assistance that is exceptional in nature, providing a high level of satisfaction to the customer by going above and beyond their expectations. It involves providing prompt and efficient response times, personalized attention, and a willingness to solve problems or address concerns in a timely and effective manner."
+msgstr "Majestic support는 본질적으로 탁월한 고객 서비스 또는 지원으로, 기대 이상으로 고객에게 높은 수준의 만족을 제공합니다. 여기에는 신속하고 효율적인 응답 시간, 개인별 관심, 적시에 효과적인 방식으로 문제를 해결하거나 우려 사항을 해결하려는 의지를 제공하는 것이 포함됩니다."
+
+msgid "Explore our other products and services that we offer, you might find something else that interests you or fulfills your needs even better."
+msgstr "우리가 제공하는 다른 제품과 서비스를 살펴보세요. 귀하가 관심을 갖거나 귀하의 요구 사항을 더 잘 충족할 수 있는 다른 제품을 찾을 수도 있습니다."
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Don't forget to update the add-ons to enjoy the greatest features!"
+msgstr "안녕하세요! 우리는 최근 추가 기능에 대한 새로운 업데이트를 출시했습니다. 최고의 기능을 즐기려면 추가 기능을 업데이트하는 것을 잊지 마세요!"
+
+msgid "The best support plugin for the majestic support has everything you need."
+msgstr "장엄한 지원을 위한 최고의 지원 플러그인에는 필요한 모든 것이 있습니다."
+
+msgid "A reputable support system that offers step-by-step YouTube video guides to help you understand."
+msgstr "이해를 돕기 위해 단계별 YouTube 비디오 가이드를 제공하는 평판 좋은 지원 시스템입니다."
+
+msgid "At Majestic Support, we are committed to offering prompt and helpful customer care to help you at every step."
+msgstr "Majestic Support에서는 모든 단계에서 귀하를 돕기 위해 신속하고 유용한 고객 관리를 제공하기 위해 최선을 다하고 있습니다."
+
+msgid "When WordPress language change to fr, Majestic Support language will auto change to fr"
+msgstr "WordPress 언어가 fr로 변경되면 Majestic Support 언어가 자동으로 fr로 변경됩니다."
+
+msgid "Want to download translation file? Click on download. It will take sometime."
+msgstr "번역 파일을 다운로드하고 싶으신가요? 다운로드를 클릭하세요. 언젠가는 걸릴 것입니다."
+
+msgid "Get trusted WordPress add-ons. Guaranteed to work fast, safe to use, beautifully coded, packed with features, and are easy to use."
+msgstr "신뢰할 수 있는 WordPress 추가 기능을 받으세요. 빠른 작업, 안전한 사용, 아름다운 코딩, 다양한 기능, 사용하기 쉬운 작업이 보장됩니다."
+
+msgid "Add agents and assign roles and permissions to provide assistance and support for customer support tickets."
+msgstr "상담원을 추가하고 역할과 권한을 할당하여 고객 지원 티켓에 대한 지원을 제공하세요."
+
+msgid "Create multiple custom ticket forms with different custom fields for each request type that you support."
+msgstr "지원하는 각 요청 유형에 대해 서로 다른 사용자 정의 필드를 사용하여 여러 사용자 정의 티켓 양식을 만드세요."
+
+msgid "Email piping is the process of automatically turning incoming emails into support tickets without manual data entry."
+msgstr "이메일 파이핑은 수동으로 데이터를 입력하지 않고도 수신 이메일을 자동으로 지원 티켓으로 전환하는 프로세스입니다."
+
+msgid "Make the ticket assignment process automatic and assign the most qualified agent to your tickets with conditions."
+msgstr "티켓 할당 프로세스를 자동으로 만들고 조건에 따라 티켓에 가장 적합한 상담원을 할당하세요."
+
+msgid "Add private notes to a ticket and share crucial information internally with your agents, this private note is not visible to the customer."
+msgstr "티켓에 비공개 메모를 추가하고 중요한 정보를 상담원과 내부적으로 공유하세요. 이 비공개 메모는 고객에게 표시되지 않습니다."
+
+msgid "Merge one or more tickets into another if you receive two support requests from the same end user about the same issue."
+msgstr "동일한 문제에 대해 동일한 최종 사용자로부터 두 건의 지원 요청을 받은 경우 하나 이상의 티켓을 다른 티켓으로 병합하세요."
+
+msgid "The user can search for and choose the topic for which they need help using help topics"
+msgstr "사용자는 도움말 항목을 사용하여 도움이 필요한 항목을 검색하고 선택할 수 있습니다."
+
+msgid "Manage abandoned tickets, and set rules for tickets over time, and those tickets will be closed automatically after a certain period."
+msgstr "버려진 티켓을 관리하고, 시간 경과에 따른 티켓 규칙을 설정하면 해당 티켓은 일정 기간이 지나면 자동으로 종료됩니다."
+
+msgid "Stop wasting time on repetitive inquiries, build your knowledge base, and organize your solutions into categories for users."
+msgstr "반복적인 문의로 시간을 낭비하지 말고, 지식 기반을 구축하고, 사용자를 위한 카테고리로 솔루션을 정리하세요."
+
+msgid "Define rules or set a specific time interval for making tickets automatically overdue."
+msgstr "티켓이 자동으로 기한을 초과하도록 규칙을 정의하거나 특정 시간 간격을 설정하세요."
+
+msgid "Track the amount of time spent on each customer support ticket without losing focus and enhance team productivity."
+msgstr "집중력을 잃지 않으면서 각 고객 지원 티켓에 소요된 시간을 추적하고 팀 생산성을 향상시키세요."
+
+msgid "Show the whole history of the ticket, including its status and any action taken in response to it."
+msgstr "상태와 이에 대응하여 취한 조치를 포함하여 티켓의 전체 기록을 표시합니다."
+
+msgid "The simplest approach to effectively manage payments for premium help is through paid support."
+msgstr "프리미엄 지원에 대한 지불을 효과적으로 관리하는 가장 간단한 접근 방식은 유료 지원을 이용하는 것입니다."
+
+msgid "Customers will enter sensitive information on tickets, and this add-on is designed to help you keep that information secure."
+msgstr "고객은 티켓에 민감한 정보를 입력하게 되며, 이 추가 기능은 해당 정보를 안전하게 유지하는 데 도움이 되도록 설계되었습니다."
+
+msgid "Empowers users to provide clear and concise explanations for why customer service tickets are being closed."
+msgstr "사용자가 고객 서비스 티켓이 종료되는 이유에 대해 명확하고 간결한 설명을 제공할 수 있습니다."
+
+msgid "Make ready-made responses to the most common questions in the tickets to swiftly address client issues."
+msgstr "고객 문제를 신속하게 해결하기 위해 티켓의 가장 일반적인 질문에 대한 미리 답변을 작성하세요."
+
+msgid "Admins can limit the number of tickets that users can create as well as the number of tickets that agents can open individually."
+msgstr "관리자는 사용자가 만들 수 있는 티켓 수와 상담원이 개별적으로 열 수 있는 티켓 수를 제한할 수 있습니다."
+
+msgid "To enhance the quality of your services, ask your customers to complete a survey when a ticket is closed."
+msgstr "서비스 품질을 향상시키려면 티켓이 마감되었을 때 고객에게 설문조사를 완료하도록 요청하세요."
+
+msgid "Ticket action options allow you to execute additional actions on tickets."
+msgstr "티켓 작업 옵션을 사용하면 티켓에 대한 추가 작업을 실행할 수 있습니다."
+
+msgid "Easily export ticket data and performance report data from your majestic support to an Excel spreadsheet with our efficient and user-friendly solution."
+msgstr "효율적이고 사용자 친화적인 솔루션을 사용하여 탁월한 지원의 티켓 데이터와 성과 보고서 데이터를 Excel 스프레드시트로 쉽게 내보낼 수 있습니다."
+
+msgid "Send the exact copy of the email to the provided email address with Email CC or BCC."
+msgstr "이메일 CC 또는 BCC를 사용하여 이메일의 정확한 사본을 제공된 이메일 주소로 보내십시오."
+
+msgid "User options enable you to define roles for new users when they are registered."
+msgstr "사용자 옵션을 사용하면 새 사용자가 등록될 때 역할을 정의할 수 있습니다."
+
+msgid "SMTP enables you to add  custom mail protocols to send and receive emails with the support ticket system."
+msgstr "SMTP를 사용하면 사용자 정의 메일 프로토콜을 추가하여 지원 티켓 시스템으로 이메일을 보내고 받을 수 있습니다."
+
+msgid "Create multi-language email templates for all default email templates to send customers emails in the language that they prefer."
+msgstr "모든 기본 이메일 템플릿에 대한 다국어 이메일 템플릿을 생성하여 고객이 선호하는 언어로 이메일을 보낼 수 있습니다."
+
+msgid "Downloads can be very helpful for users who are looking to obtain the necessary information to resolve issues."
+msgstr "다운로드는 문제 해결에 필요한 정보를 얻으려는 사용자에게 매우 유용할 수 있습니다."
+
+msgid "Make an unlimited number of announcements related to the support system to encourage customer interaction."
+msgstr "고객 상호 작용을 장려하기 위해 지원 시스템과 관련된 발표를 무제한으로 진행합니다."
+
+msgid "With Ban Email, you can limit a users ability to create new tickets by blocking their email address."
+msgstr "금지 이메일을 사용하면 이메일 주소를 차단하여 사용자가 새 티켓을 생성하는 기능을 제한할 수 있습니다."
+
+msgid "Provide answers to common user questions with the FAQ extension before they become tickets."
+msgstr "티켓이 되기 전에 FAQ 확장을 통해 일반적인 사용자 질문에 대한 답변을 제공하세요."
+
+msgid "Get immediate data on your support operations as soon as you log into your WordPress administration area."
+msgstr "WordPress 관리 영역에 로그인하자마자 지원 작업에 대한 즉각적인 데이터를 얻으세요."
+
+msgid "You will be informed of anything that occurs on your support system by the desktop notifications."
+msgstr "지원 시스템에서 발생하는 모든 사항은 데스크탑 알림을 통해 알려드립니다."
+
+msgid "The integration of the support ticket system for WooCommerce with your e- shop makes your support better and more professional."
+msgstr "WooCommerce에 대한 지원 티켓 시스템을 귀하의 전자 상점과 통합하면 귀하의 지원이 더욱 향상되고 전문화됩니다."
+
+msgid "Manage your email marketing campaigns directly from your majestic support by adding new user accounts to your Mailchimp email list."
+msgstr "Mailchimp 이메일 목록에 새 사용자 계정을 추가하여 훌륭한 지원을 통해 이메일 마케팅 캠페인을 직접 관리하세요."
+
+msgid "Send messages internally about support tickets and other issues between agents with internal mail."
+msgstr "내부 메일을 통해 상담원 간 지원 티켓 및 기타 문제에 대한 메시지를 내부적으로 보냅니다."
+
+msgid "Frontend Widgets include several widgets that can be used to enhance the plugin's functionality in various areas of the website."
+msgstr "프런트엔드 위젯에는 웹사이트의 다양한 영역에서 플러그인 기능을 향상시키는 데 사용할 수 있는 여러 위젯이 포함되어 있습니다."
+
+msgid "Clients won't be able to open a new ticket using the Envato Validation plugin if they don't have a valid Envato license."
+msgstr "클라이언트는 유효한 Envato 라이센스가 없으면 Envato 유효성 검사 플러그인을 사용하여 새 티켓을 열 수 없습니다."
+
+msgid "Learn about a customer's purchase directly from the support dashboard by integrating Majestic Support with your EDD store."
+msgstr "Majestic Support를 EDD 스토어와 통합하여 지원 대시보드에서 직접 고객의 구매에 대해 알아보세요."
+
+msgid "If the colors have been saved but the user-side colors are still the same, it is advised to clear the cache."
+msgstr "색상을 저장했지만 사용자 측 색상이 여전히 동일하다면 캐시를 삭제하는 것이 좋습니다."
+
+msgid "Error"
+msgstr "오류"
+
+msgid "Roles"
+msgstr "역할"
+
+msgid "Role"
+msgstr "역할"
+
+msgid "Sr#"
+msgstr "선생님#"
+
+msgid "Gmail"
+msgstr "지메일"
+
+msgid "Yahoo"
+msgstr "야후"
+
+msgid "Aol"
+msgstr "아올"
+
+msgid "Hotmail"
+msgstr "핫메일"
+
+msgid "No"
+msgstr "아니요"
+
+msgid "Wget"
+msgstr "Wget"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "----"
+msgstr "----"
+
+msgid "JNo"
+msgstr "J아니요"
+
+msgid "Visible"
+msgstr "보이는"
+
+msgid "Logo"
+msgstr "심벌 마크"
+
+msgid "Re"
+msgstr "답장"
+
+msgid "Vertical"
+msgstr "수직의"
+
+msgid "Horizontal"
+msgstr "수평의"
+
+msgid "div"
+msgstr "div"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "삼"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "General"
+msgstr "일반적인"
+
+msgid "Captcha"
+msgstr "보안 문자"
+
+msgid "Facebook"
+msgstr "페이스북"
+
+msgid "Linkedin"
+msgstr "링크드인"
+
+msgid "Kb"
+msgstr "KB"
+
+msgid "SMTP"
+msgstr "SMTP"
+
+msgid "TLS"
+msgstr "TLS"
+
+msgid "SSL"
+msgstr "SSL"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "S.No"
+msgstr "S.No"
+
+msgid "WooCommerce"
+msgstr "우커머스"
+
+msgid "envato"
+msgstr "엔바토"
+
+msgid ":"
+msgstr ":"
+
+msgid "Envato"
+msgstr "엔바토"
+
+msgid "Color"
+msgstr "색상"
+
+msgid "Normal"
+msgstr "정상"
+
+msgid "Color 1"
+msgstr "색상 1"
+
+msgid "Color 2"
+msgstr "색상 2"
+
+msgid "Color 3"
+msgstr "색상 3"
+
+msgid "Color 4"
+msgstr "색상 4"
+
+msgid "Color 5"
+msgstr "색상 5"
+
+msgid "Color 6"
+msgstr "색상 6"
+
+msgid "Color 7"
+msgstr "색상 7"
+
+msgid "Kylee Arroyo"
+msgstr "카일리 아로요"
+
+msgid "Marketing"
+msgstr "마케팅"
+
+msgid "XcyMfWYKp"
+msgstr "XcyMfWYKp"
+
+msgid "08-12-2022"
+msgstr "2022년 8월 12일"
+
+msgid "Allison Carney"
+msgstr "앨리슨 카니"
+
+msgid "Yx4cW3Mfk"
+msgstr "Yx4cW3Mfk"
+
+msgid "05-12-2022"
+msgstr "2022년 5월 12일"
+
+msgid "GxNDv3MfC"
+msgstr "GxNDv3MfC"
+
+msgid "01-12-2022"
+msgstr "2022년 1월 12일"
+
+msgid ","
+msgstr ","
+
+msgid "Issue Summary"
+msgstr "문제 요약"
+
+msgid "Envato Purchase Code"
+msgstr "Envato 구매 코드"
+
+msgid "Internal Note Title"
+msgstr "내부 메모 제목"
+
+msgid "Ticket Department Transfer"
+msgstr "티켓 부서 환승"
+
+msgid "Change Ticket Priority"
+msgstr "티켓 우선순위 변경"
+
+msgid "View Ticket"
+msgstr "티켓보기"
+
+msgid "New Ticket Notification"
+msgstr "신규 티켓 알림"
+
+msgid "Edit Own Time"
+msgstr "자신의 시간 편집"
+
+msgid "View Feedback"
+msgstr "피드백 보기"
+
+msgid "View Ticket Merge"
+msgstr "티켓 병합 보기"
+
+msgid "View Credentials"
+msgstr "자격 증명 보기"
+
+msgid "Delete Credentials"
+msgstr "자격 증명 삭제"
+
+msgid "Edit Credentials"
+msgstr "자격 증명 편집"
+
+msgid "Add Credentials"
+msgstr "자격 증명 추가"
+
+msgid "Mark Non Premium"
+msgstr "마크 논 프리미엄"
+
+msgid "Link To Paid Support"
+msgstr "유료 지원 링크"
+
+msgid "Assign Role Permissions"
+msgstr "역할 권한 할당"
+
+msgid "Add User"
+msgstr "사용자 추가"
+
+msgid "Edit User"
+msgstr "사용자 편집"
+
+msgid "Assign User Permissions"
+msgstr "사용자 권한 할당"
+
+msgid "Delete Department"
+msgstr "부서 삭제"
+
+msgid "View Department"
+msgstr "부서 보기"
+
+msgid "View Role"
+msgstr "역할 보기"
+
+msgid "View User"
+msgstr "사용자 보기"
+
+msgid "View Agent Reports"
+msgstr "상담원 보고서 보기"
+
+msgid "View Department Reports"
+msgstr "부서 보고서 보기"
+
+msgid "Manage Ticket Close Reasons"
+msgstr "티켓 종료 사유 관리"
+
+msgid "View Category"
+msgstr "카테고리 보기"
+
+msgid "View Knowledge Base"
+msgstr "기술 자료 보기"
+
+msgid "Delete Category"
+msgstr "카테고리 삭제"
+
+msgid "Delete Knowledge Base"
+msgstr "기술 자료 삭제"
+
+msgid "View FAQ"
+msgstr "FAQ 보기"
+
+msgid "Delete FAQ"
+msgstr "FAQ 삭제"
+
+msgid "View Download"
+msgstr "다운로드 보기"
+
+msgid "Delete Download"
+msgstr "다운로드 삭제"
+
+msgid "Delete Announcement"
+msgstr "공지사항 삭제"
+
+msgid "Allow Mail System"
+msgstr "메일 시스템 허용"
+
+msgid "Edit Help Topic"
+msgstr "도움말 항목 편집"
+
+msgid "View Help Topic"
+msgstr "도움말 항목 보기"
+
+msgid "Delete Help Topic"
+msgstr "도움말 항목 삭제"
+
+msgid "Edit Premade Response"
+msgstr "미리 만들어진 응답 편집"
+
+msgid "View Premade Response"
+msgstr "미리 만들어진 응답 보기"
+
+msgid "Delete Premade Response"
+msgstr "미리 만들어진 응답 삭제"
+
+msgid "Edit Smart Reply"
+msgstr "스마트 답장 수정"
+
+msgid "View Smart Reply"
+msgstr "스마트 답장 보기"
+
+msgid "Delete Smart Reply"
+msgstr "스마트 답장 삭제"
+
+msgid "Add Ban Email"
+msgstr "금지 이메일 추가"
+
+msgid "Edit Ban Email"
+msgstr "금지 이메일 편집"
+
+msgid "View Ban Email"
+msgstr "차단 이메일 보기"
+
+msgid "Delete Ban Email"
+msgstr "금지 이메일 삭제"
+
+msgid "View Announcement"
+msgstr "공지사항 보기"
+
+msgid "Phone"
+msgstr "핸드폰"
+
+msgid "Add Permissions"
+msgstr "권한 추가"
+
+msgid "Add Rule"
+msgstr "규칙 추가"
+
+msgid "Contain"
+msgstr "포함하다"
+
+msgid "Matched"
+msgstr "일치함"
+
+msgid "Submit Type"
+msgstr "제출 유형"
+
+msgid "Addons Status"
+msgstr "애드온 상태"
+
+msgid "Assign To"
+msgstr "할당 대상"
+
+msgid "Agent Detail Report"
+msgstr "상담원 세부정보 보고서"
+
+msgid "User Detail Report"
+msgstr "사용자 세부정보 보고서"
+
+msgid "Satisfaction Reports"
+msgstr "만족도 보고서"
+
+msgid "Admin New Ticket Received"
+msgstr "관리자 새 티켓 수신됨"
+
+msgid "Staff New Ticket Received"
+msgstr "직원 새 티켓 받음"
+
+msgid "New Department Received"
+msgstr "새 부서 수신됨"
+
+msgid "New Group Received"
+msgstr "새 그룹 수신됨"
+
+msgid "New Agent Received"
+msgstr "새 에이전트 수신됨"
+
+msgid "New Help Topic Received"
+msgstr "새로운 도움말 항목 수신"
+
+msgid "Admin Reassign Ticket"
+msgstr "관리자 재할당 티켓"
+
+msgid "Staff Reassign Ticket"
+msgstr "직원 재배치 티켓"
+
+msgid "Admin Close Ticket"
+msgstr "관리자 닫기 티켓"
+
+msgid "Staff Close Ticket"
+msgstr "직원 마감 티켓"
+
+msgid "Admin Delete Ticket"
+msgstr "관리자 삭제 티켓"
+
+msgid "Staff Delete Ticket"
+msgstr "직원 삭제 티켓"
+
+msgid "Admin Overdue Ticket"
+msgstr "관리자 연체 티켓"
+
+msgid "Staff Overdue Ticket"
+msgstr "직원 연체 티켓"
+
+msgid "Admin Email Baned"
+msgstr "관리자 이메일이 금지되었습니다"
+
+msgid "Staff Email Baned"
+msgstr "직원 이메일 금지"
+
+msgid "Admin Ticket Transfered to Department"
+msgstr "관리 티켓이 부서로 전송됨"
+
+msgid "Staff Ticket Transfered to Department"
+msgstr "직원 티켓이 부서로 전송됨"
+
+msgid "Admin Email baned and ticket closed"
+msgstr "관리자 이메일이 차단되고 티켓이 종료되었습니다."
+
+msgid "Staff Email baned and ticket closed"
+msgstr "직원 이메일 차단 및 티켓 폐쇄"
+
+msgid "Admin Email Unbaned"
+msgstr "관리자 이메일 금지 해제됨"
+
+msgid "Staff Email Unbaned"
+msgstr "직원 이메일 금지 해제"
+
+msgid "Admin Ticket Reply"
+msgstr "관리자 티켓 답변"
+
+msgid "Staff Ticket Reply"
+msgstr "직원 티켓 회신"
+
+msgid "Ticket Received"
+msgstr "티켓 수령"
+
+msgid "Banemail try new ticket"
+msgstr "Banemail 새로운 티켓을 사용해 보세요"
+
+msgid "Admin Ticket has been locked"
+msgstr "관리자 티켓이 잠겼습니다"
+
+msgid "Staff Ticket has been locked"
+msgstr "직원 티켓이 잠겨 있습니다"
+
+msgid "Admin Ticket has been unlocked"
+msgstr "관리자 티켓이 잠금 해제되었습니다"
+
+msgid "Staff Ticket has been unlocked"
+msgstr "직원 티켓이 잠금 해제되었습니다"
+
+msgid "Admin In progress Ticket"
+msgstr "관리자 진행 중 티켓"
+
+msgid "Staff In progress Ticket"
+msgstr "직원 진행중 티켓"
+
+msgid "Admin Ticket priority changed"
+msgstr "관리 티켓 우선순위가 변경되었습니다."
+
+msgid "Staff Ticket priority changed"
+msgstr "직원 티켓 우선순위가 변경되었습니다."
+
+msgid "New Mail has been sent"
+msgstr "새 메일이 발송되었습니다"
+
+msgid "New Reply has been sent"
+msgstr "새로운 답변이 전송되었습니다"
+
+msgid "Delete User Data"
+msgstr "사용자 데이터 삭제"
+
+msgid "Closed on"
+msgstr "휴무일"
+
+msgid "Message could not be sent. Mailer Error: "
+msgstr "메시지를 보낼 수 없습니다. 메일러 오류:"
+
+msgid "Test email has been sent on : "
+msgstr "테스트 이메일이 전송된 날짜:"
+
+msgid "The system has no agents add an agent to maximize your productivity."
+msgstr "시스템에는 에이전트가 없으며 생산성을 극대화하기 위해 에이전트를 추가합니다."

@@ -1,0 +1,6144 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "You are not allowed"
+msgstr "Nu ai voie"
+
+msgid "The ticket has been locked"
+msgstr "Biletul a fost blocat"
+
+msgid "Successfully"
+msgstr "Cu succes"
+
+msgid "The ticket has not been locked"
+msgstr "Biletul nu a fost blocat"
+
+msgid "Lock Ticket"
+msgstr "Blocați biletul"
+
+msgid "The ticket is locked by"
+msgstr "Biletul este blocat"
+
+msgid "The ticket has been unlocked"
+msgstr "Biletul a fost deblocat"
+
+msgid "The ticket has not been unlocked"
+msgstr "Biletul nu a fost deblocat"
+
+msgid "Unlock Ticket"
+msgstr "Deblocați biletul"
+
+msgid "User already an agent"
+msgstr "Utilizatorul este deja agent"
+
+msgid "The agent has not been stored"
+msgstr "Agentul nu a fost stocat"
+
+msgid "The agent has been stored"
+msgstr "Agentul a fost stocat"
+
+msgid "The agent has been deleted"
+msgstr "Agentul a fost șters"
+
+msgid "The agent has not been deleted"
+msgstr "Agentul nu a fost șters"
+
+msgid "The agent in use cannot delete"
+msgstr "Agentul în uz nu poate șterge"
+
+msgid "Agent"
+msgstr "Agent"
+
+msgid "status has been changed"
+msgstr "starea a fost schimbată"
+
+msgid "status has not been changed"
+msgstr "starea nu a fost schimbată"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "User Name"
+msgstr "Nume de utilizator"
+
+msgid "Email Address"
+msgstr "Adresa de e-mail"
+
+msgid "Name"
+msgstr "Nume"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Next"
+msgstr "Următorul"
+
+msgid "Error Deleting Logo"
+msgstr "Eroare la ștergerea siglei"
+
+msgid "Active"
+msgstr "Activ"
+
+msgid "Disabled"
+msgstr "Dezactivat"
+
+msgid "Uploaded file extension error."
+msgstr "Eroare de extensie a fișierului încărcat."
+
+msgid "Select user"
+msgstr "Selectați utilizatorul"
+
+msgid "Username"
+msgstr "Nume de utilizator"
+
+msgid "Search"
+msgstr "Căutare"
+
+msgid "Reset"
+msgstr "Resetați"
+
+msgid "Use search feature to select the user"
+msgstr "Utilizați funcția de căutare pentru a selecta utilizatorul"
+
+msgid "image"
+msgstr "imagine"
+
+msgid "Add Agent"
+msgstr "Adăugați agent"
+
+msgid "WP User ID"
+msgstr "ID utilizator WP"
+
+msgid "WP Username"
+msgstr "Nume de utilizator WP"
+
+msgid "WP Full Name"
+msgstr "Nume complet WP"
+
+msgid "WP Email Address"
+msgstr "Adresa de e-mail WP"
+
+msgid "User"
+msgstr "Utilizator"
+
+msgid "Select User"
+msgstr "Selectați Utilizator"
+
+msgid "Select Role"
+msgstr "Selectați Rol"
+
+msgid "First Name"
+msgstr "Nume"
+
+msgid "Last Name"
+msgstr "Nume"
+
+msgid "Office Phone"
+msgstr "Telefon de birou"
+
+msgid "Extension"
+msgstr "Extensie"
+
+msgid "Mobile No"
+msgstr "Numar de telefon mobil"
+
+msgid "Picture"
+msgstr "Imagine"
+
+msgid "cross"
+msgstr "cruce"
+
+msgid "Maximum File Size"
+msgstr "Dimensiunea maximă a fișierului"
+
+msgid "File Extension Type"
+msgstr "Tip de extensie de fișier"
+
+msgid "Append Signature"
+msgstr "Adăugați semnătura"
+
+msgid "Append signature with a reply"
+msgstr "Adăugați semnătura cu un răspuns"
+
+msgid "Signature"
+msgstr "Semnătură"
+
+msgid "Account Status"
+msgstr "starea contului"
+
+msgid "Select Status"
+msgstr "Selectați Stare"
+
+msgid "Save"
+msgstr "Salvați"
+
+msgid "Cancel"
+msgstr "Anulare"
+
+msgid "Close"
+msgstr "Închide"
+
+msgid "User Detail"
+msgstr "Detalii utilizator"
+
+msgid "Append"
+msgstr "Adăuga"
+
+msgid "Department Section"
+msgstr "Secţia Departamentului"
+
+msgid "Ticket Section"
+msgstr "Secția de bilete"
+
+msgid "Agent Section"
+msgstr "Secția de agenți"
+
+msgid "Knowledge Base Section"
+msgstr "Secțiunea Baza de cunoștințe"
+
+msgid "FAQ Section"
+msgstr "Secțiunea de întrebări frecvente"
+
+msgid "Download Section"
+msgstr "Secțiunea de descărcare"
+
+msgid "Announcement Section"
+msgstr "Sectiunea Anunturi"
+
+msgid "Mail Section"
+msgstr "Secțiunea Mail"
+
+msgid "Help Topic Section"
+msgstr "Secțiunea Subiect de ajutor"
+
+msgid "Premade Response Section"
+msgstr "Secțiunea de răspunsuri prefabricate"
+
+msgid "Smart Reply Section"
+msgstr "Secțiunea de răspunsuri inteligente"
+
+msgid "Ban Email Section"
+msgstr "Secțiunea Ban e-mail"
+
+msgid "Select / Deselect All"
+msgstr "Selectați / Deselectați toate"
+
+msgid "Save Permissions"
+msgstr "Salvare permisiuni"
+
+msgid "Full Name"
+msgstr "Numele complet"
+
+msgid "Status"
+msgstr "stare"
+
+msgid "Created"
+msgstr "Creată"
+
+msgid "Permissions"
+msgstr "Permisiuni"
+
+msgid "Action"
+msgstr "Acțiune"
+
+msgid "Staff"
+msgstr "Personal"
+
+msgid "change status"
+msgstr "schimba starea"
+
+msgid "Edit"
+msgstr "Editați | ×"
+
+msgid "Delete"
+msgstr "Șterge"
+
+msgid "Are you sure you want to delete"
+msgstr "ești sigur că vrei să ștergi"
+
+msgid "Something went wrong to try again later."
+msgstr "Ceva a mers prost pentru a încerca din nou mai târziu."
+
+msgid "My Profile"
+msgstr "Profilul meu"
+
+msgid "Upload Image"
+msgstr "Incarca imaginea"
+
+msgid "Phone No"
+msgstr "nr de telefon"
+
+msgid "Upload file limit exceeds"
+msgstr "Limita de fișiere de încărcare depășește"
+
+msgid "No help topic found"
+msgstr "Nu a fost găsit niciun subiect de ajutor"
+
+msgid "Error file size too large"
+msgstr "Dimensiunea fișierului de eroare este prea mare"
+
+msgid "Submit Ticket"
+msgstr "Trimiteți biletul"
+
+msgid "Select Department"
+msgstr "Selectați Departamentul"
+
+msgid "Select Help Topic"
+msgstr "Selectați Subiect de ajutor"
+
+msgid "Select Priority"
+msgstr "Selectați Prioritate"
+
+msgid "premade"
+msgstr "prefabricat"
+
+msgid "Add more"
+msgstr "Adăuga mai mult"
+
+msgid "Remove"
+msgstr "Elimina"
+
+msgid "Reason for edit"
+msgstr "Motivul editării"
+
+msgid "Internal Note"
+msgstr "Notă internă"
+
+msgid "Enter valid woocommerce order#"
+msgstr "Introduceți comanda woocommerce validă #"
+
+msgid "Order id found"
+msgstr "Id-ul comenzii a fost găsit"
+
+msgid "Order id not found"
+msgstr "Id-ul comenzii nu a fost găsit"
+
+msgid "Select Product"
+msgstr "Selectați Produs"
+
+msgid "Dated"
+msgstr "Datat"
+
+msgid "Select Order ID"
+msgstr "Selectați ID comandă"
+
+msgid "Select license key"
+msgstr "Selectați cheia de licență"
+
+msgid "Assign to me"
+msgstr "Atribuiți-mi"
+
+msgid "Show All"
+msgstr "Arata tot"
+
+msgid "Show Less"
+msgstr "Arata mai putin"
+
+msgid "My Tickets"
+msgstr "Biletele mele"
+
+msgid "Open"
+msgstr "Deschis"
+
+msgid "Closed"
+msgstr "Închis"
+
+msgid "Answered"
+msgstr "Răspuns"
+
+msgid "Overdue"
+msgstr "Depasit"
+
+msgid "All Tickets"
+msgstr "Toate Biletele"
+
+msgid "Ticket ID"
+msgstr "ID-ul biletului"
+
+msgid "Or"
+msgstr "Sau"
+
+msgid "From"
+msgstr "Din"
+
+msgid "Select Agent"
+msgstr "Selectați Agent"
+
+msgid "Select"
+msgstr "Selectați"
+
+msgid "Start Date"
+msgstr "Data de început"
+
+msgid "End Date"
+msgstr "Data de încheiere"
+
+msgid "Assigned to me"
+msgstr "Mi-a fost atribuit"
+
+msgid "All"
+msgstr "Toate"
+
+msgid "Tickets"
+msgstr "bilete"
+
+msgid "Subject"
+msgstr "Subiect"
+
+msgid "Priority"
+msgstr "Prioritate"
+
+msgid "sort"
+msgstr "fel"
+
+msgid "New"
+msgstr "Nou"
+
+msgid "Waiting Reply"
+msgstr "Astept raspuns"
+
+msgid "In Progress"
+msgstr "În curs"
+
+msgid "Replied"
+msgstr "Răspuns"
+
+msgid "Close and merge"
+msgstr "Închideți și îmbinați"
+
+msgid "Created via Email"
+msgstr "Creat prin e-mail"
+
+msgid "The ticket is locked"
+msgstr "Biletul este blocat"
+
+msgid "The ticket marks as overdue"
+msgstr "Biletul marchează ca fiind întârziat"
+
+msgid "Last Reply"
+msgstr "Ultimul răspuns"
+
+msgid "Agent Permissions"
+msgstr "Permisiuni de agent"
+
+msgid "Agents"
+msgstr "Agenți"
+
+msgid "Add agent"
+msgstr "Adăugați agent"
+
+msgid "Search by username"
+msgstr "Căutați după nume de utilizator"
+
+msgid "Already exists"
+msgstr "Deja exista"
+
+msgid "The role has been stored"
+msgstr "Rolul a fost stocat"
+
+msgid "The role has not been stored"
+msgstr "Rolul nu a fost stocat"
+
+msgid "The role has been deleted"
+msgstr "Rolul a fost șters"
+
+msgid "The role has not been deleted"
+msgstr "Rolul nu a fost șters"
+
+msgid "The role currently in use cannot be deleted"
+msgstr "Rolul utilizat în prezent nu poate fi șters"
+
+msgid "Add Role"
+msgstr "Adăugați un rol"
+
+msgid "Save Role"
+msgstr "Salvați rol"
+
+msgid "Role Name"
+msgstr "Nume rol"
+
+msgid "Role Permission"
+msgstr "Permisiune de rol"
+
+msgid "Role Permissions"
+msgstr "Permisiuni de rol"
+
+msgid "Role permissions"
+msgstr "Permisiuni de rol"
+
+msgid "Agent permissions have been stored"
+msgstr "Permisiunile agentului au fost stocate"
+
+msgid "Select Condition Operator"
+msgstr "Selectați Condition Operator"
+
+msgid "Select Submit Type"
+msgstr "Selectați tipul de trimitere"
+
+msgid "Rule has been stored"
+msgstr "Regula a fost stocată"
+
+msgid "Rule has not been stored"
+msgstr "Regula nu a fost stocată"
+
+msgid "Rule has been deleted"
+msgstr "Regula a fost ștearsă"
+
+msgid "Rule has not been deleted"
+msgstr "Regula nu a fost ștearsă"
+
+msgid "Rule"
+msgstr "Regulă"
+
+msgid "in use cannot deleted"
+msgstr "în uz nu poate fi ștearsă"
+
+msgid "Condition Title"
+msgstr "Titlul condiției"
+
+msgid "Select Condition Title"
+msgstr "Selectați Titlul condiției"
+
+msgid "Condition Operator"
+msgstr "Condiție Operator"
+
+msgid "Condition Value"
+msgstr "Valoarea condiției"
+
+msgid "Select Condition Value"
+msgstr "Selectați Valoarea condiției"
+
+msgid "Delete Condition"
+msgstr "Ștergeți condiția"
+
+msgid "No Operator found"
+msgstr "Nu a fost găsit niciun operator"
+
+msgid "No Value found"
+msgstr "Nu a fost găsită nicio valoare"
+
+msgid "Rule Title"
+msgstr "Titlul regulii"
+
+msgid "Condition value"
+msgstr "Valoarea condiției"
+
+msgid "+Add more Condition"
+msgstr "+Adăugați mai multe condiții"
+
+msgid "Save Rule"
+msgstr "Salvați regula"
+
+msgid "Records per page"
+msgstr "Înregistrări pe pagină"
+
+msgid "Save Ordering"
+msgstr "Salvați comanda"
+
+msgid "An announcement has been stored"
+msgstr "Un anunț a fost stocat"
+
+msgid "An announcement has not been stored"
+msgstr "Un anunț nu a fost stocat"
+
+msgid "An announcement has been deleted"
+msgstr "Un anunț a fost șters"
+
+msgid "An announcement has not been deleted"
+msgstr "Un anunț nu a fost șters"
+
+msgid "Announcement"
+msgstr "Anunţ"
+
+msgid "ordering has been changed"
+msgstr "comanda a fost schimbată"
+
+msgid "ordering has not changed"
+msgstr "comanda nu s-a schimbat"
+
+msgid "Public"
+msgstr "Public"
+
+msgid "Private"
+msgstr "Privat"
+
+msgid "Add Announcement"
+msgstr "Adăugați anunț"
+
+msgid "Title"
+msgstr "Titlu"
+
+msgid "Parent Category"
+msgstr "Categoria părinte"
+
+msgid "Select Category"
+msgstr "selecteaza categoria"
+
+msgid "Description"
+msgstr "Descriere"
+
+msgid "Select Visibility"
+msgstr "Selectați Vizibilitate"
+
+msgid "All users"
+msgstr "Toți utilizatorii"
+
+msgid "Only logged-in users"
+msgstr "Doar utilizatorii autentificati"
+
+msgid "Visible To"
+msgstr "Vizibil Pentru"
+
+msgid "Save Announcement"
+msgstr "Salvați anunțul"
+
+msgid "Category"
+msgstr "Categorie"
+
+msgid "Ordering"
+msgstr "Comanda"
+
+msgid "Announcement Detail"
+msgstr "Detaliu anunț"
+
+msgid "Category Name"
+msgstr "Numele categoriei"
+
+msgid "Announcements"
+msgstr "Anunturi"
+
+msgid "Categories"
+msgstr "Categorii"
+
+msgid "Add Announcements"
+msgstr "Adăugați anunțuri"
+
+msgid "Logger Email"
+msgstr "Logger Email"
+
+msgid "Log"
+msgstr "Buturuga"
+
+msgid "Logger"
+msgstr "Logger"
+
+msgid "IP Address"
+msgstr "Adresa IP"
+
+msgid "Ban email has been stored"
+msgstr "E-mailul de interzicere a fost stocat"
+
+msgid "Ban email has not been stored"
+msgstr "E-mailul de interzicere nu a fost stocat"
+
+msgid "Ban email has been deleted"
+msgstr "E-mailul de interdicție a fost șters"
+
+msgid "Ban email has not been deleted"
+msgstr "E-mailul de interdicție nu a fost șters"
+
+msgid "Ban email does not exist"
+msgstr "E-mailul de interzicere nu există"
+
+msgid "Add Email"
+msgstr "Adăugați e-mail"
+
+msgid "Save Email"
+msgstr "Salvați e-mailul"
+
+msgid "Save Banned Email"
+msgstr "Salvați e-mailul interzis"
+
+msgid "Emails"
+msgstr "E-mailuri"
+
+msgid "Submitter"
+msgstr "Remitent"
+
+msgid "Banned Emails"
+msgstr "E-mailuri interzise"
+
+msgid "Are you sure you want to delete it?"
+msgstr "Sigur vrei să-l ștergi?"
+
+msgid "Premade response message has been stored"
+msgstr "Mesajul de răspuns prestabilit a fost stocat"
+
+msgid "Premade response message has not been stored"
+msgstr "Mesajul de răspuns prestabilit nu a fost stocat"
+
+msgid "Premade department message has been deleted"
+msgstr "Mesajul departamentului prefabricat a fost șters"
+
+msgid "Premade department message has not been deleted"
+msgstr "Mesajul departamentului prefabricat nu a fost șters"
+
+msgid "Premade response"
+msgstr "Răspuns prefabricat"
+
+msgid "Add Premade Response"
+msgstr "Adăugați un răspuns prefabricat"
+
+msgid "Department"
+msgstr "Departament"
+
+msgid "Response"
+msgstr "Raspuns"
+
+msgid "Save Premade Response"
+msgstr "Salvați răspunsul prefabricat"
+
+msgid "The department under which the answer will be made is available"
+msgstr "Departamentul sub care va fi dat răspunsul este disponibil"
+
+msgid "Offline"
+msgstr "Deconectat"
+
+msgid "Last Updated"
+msgstr "Ultima actualizare"
+
+msgid "Not updated"
+msgstr "Neactualizat"
+
+msgid "Premade Response"
+msgstr "Răspuns prefabricat"
+
+msgid "Latest Tickets"
+msgstr "Ultimele Bilete"
+
+msgid "Last Month Ticket Stats"
+msgstr "Statisticile biletelor de luna trecută"
+
+msgid "Pending"
+msgstr "In asteptarea"
+
+msgid "The attachment has been removed"
+msgstr "Atașamentul a fost eliminat"
+
+msgid "The attachment has not been removed"
+msgstr "Atașamentul nu a fost eliminat"
+
+msgid "The download has been stored"
+msgstr "Descărcarea a fost stocată"
+
+msgid "The download has not been stored"
+msgstr "Descărcarea nu a fost stocată"
+
+msgid "Download"
+msgstr "Descarca"
+
+msgid "The download has been deleted"
+msgstr "Descărcarea a fost ștearsă"
+
+msgid "The download has not been deleted"
+msgstr "Descărcarea nu a fost ștearsă"
+
+msgid "Download All"
+msgstr "descarca toate"
+
+msgid "Add Download"
+msgstr "Adaugă Descărcare"
+
+msgid "Attachments"
+msgstr "Atasamente"
+
+msgid "Save Download"
+msgstr "Salvați Descărcați"
+
+msgid "Add More Files"
+msgstr "Adăugați mai multe fișiere"
+
+msgid "Delete attachment"
+msgstr "Ștergeți atașamentul"
+
+msgid "grab"
+msgstr "apuca"
+
+msgid "Attachment"
+msgstr "Atașament"
+
+msgid "Downloads"
+msgstr "Descărcări"
+
+msgid "Files"
+msgstr "Fișiere"
+
+msgid "Majestic Support"
+msgstr "Sprijin Majestuos"
+
+msgid "Get Help"
+msgstr "Obține ajutor"
+
+msgid "Email CC has been stored"
+msgstr "E-mailul CC a fost stocat"
+
+msgid "Email CC has not been stored"
+msgstr "E-mail CC nu a fost stocat"
+
+msgid "Email CC has been deleted"
+msgstr "E-mailul CC a fost șters"
+
+msgid "Email CC has not been deleted"
+msgstr "E-mailul CC nu a fost șters"
+
+msgid "Email CC "
+msgstr "E-mail CC"
+
+msgid "Email CC"
+msgstr "E-mail CC"
+
+msgid "Template Type"
+msgstr "Tip șablon"
+
+msgid "Select Template Type"
+msgstr "Selectați Tip șablon"
+
+msgid "Delete row"
+msgstr "Ștergeți rândul"
+
+msgid "Template For"
+msgstr "Șablon pentru"
+
+msgid "Select Template For"
+msgstr "Selectați șablon pentru"
+
+msgid "Template Title"
+msgstr "Titlul șablonului"
+
+msgid "Add more row"
+msgstr "Adăugați mai mult rând"
+
+msgid "Save Email CC"
+msgstr "Salvați e-mail CC"
+
+msgid "Service is running, please close the pag"
+msgstr "Serviciul rulează, vă rugăm să închideți pagina"
+
+msgid "Your setting is working please this."
+msgstr "Setarea ta funcționează, te rog asta."
+
+msgid "Connection established but the system cannot read any email"
+msgstr "Conexiunea a fost stabilită, dar sistemul nu poate citi niciun e-mail"
+
+msgid "The setting has been stored."
+msgstr "Setarea a fost stocată."
+
+msgid "The setting has not been stored."
+msgstr "Setarea nu a fost stocată."
+
+msgid "Email address already exist"
+msgstr "Adresa de e-mail există deja"
+
+msgid "Email for email piping has been stored"
+msgstr "E-mailul pentru conductele de e-mail a fost stocat"
+
+msgid "Email for email piping has not been stored"
+msgstr "E-mailul pentru conductele de e-mail nu a fost stocat"
+
+msgid "The email has been deleted"
+msgstr "E-mailul a fost șters"
+
+msgid "The email has not been deleted"
+msgstr "E-mailul nu a fost șters"
+
+msgid "Enabled"
+msgstr "Activat"
+
+msgid "Only New Tickets"
+msgstr "Doar bilete noi"
+
+msgid "Only Replies"
+msgstr "Doar Răspunsuri"
+
+msgid "Both"
+msgstr "Ambii"
+
+msgid "Other"
+msgstr "Alte"
+
+msgid "Yes"
+msgstr "da"
+
+msgid "Please enter the hostname first"
+msgstr "Vă rugăm să introduceți mai întâi numele de gazdă"
+
+msgid "Please enable email piping setting first"
+msgstr "Vă rugăm să activați mai întâi setarea canalizării e-mailului"
+
+msgid "Enable email piping"
+msgstr "Activați canalizarea e-mailului"
+
+msgid "Ticket Type"
+msgstr "Tip de bilet"
+
+msgid "Which email type to read"
+msgstr "Ce tip de e-mail să citești"
+
+msgid "Save attachments if found in an email"
+msgstr "Salvați atașamentele dacă sunt găsite într-un e-mail"
+
+msgid "Host Type"
+msgstr "Tip gazdă"
+
+msgid "Select your email service provider"
+msgstr "Selectați furnizorul dvs. de servicii de e-mail"
+
+msgid "Host Name"
+msgstr "Nume gazdă"
+
+msgid "Enabled SSL"
+msgstr "SSL activat"
+
+msgid "Do you have enabled SSL on your domain?"
+msgstr "Ai activat SSL pe domeniul tău?"
+
+msgid "Host Port Number"
+msgstr "Numărul portului gazdă"
+
+msgid "Host port number to read an email from"
+msgstr "Numărul portului gazdă de unde să citiți un e-mail"
+
+msgid "Email address to read emails"
+msgstr "Adresă de e-mail pentru a citi e-mailurile"
+
+msgid "Password"
+msgstr "Parola"
+
+msgid "Password for a given email address"
+msgstr "Parola pentru o anumită adresă de e-mail"
+
+msgid "check"
+msgstr "Verifica"
+
+msgid "Check Settings"
+msgstr "Verificați Setări"
+
+msgid "If the system doesn't respond in 30 seconds"
+msgstr "Dacă sistemul nu răspunde în 30 de secunde"
+
+msgid "it means system unable to connect email server"
+msgstr "înseamnă că sistemul nu se poate conecta la serverul de e-mail"
+
+msgid "Save Settings"
+msgstr "Salvează setările"
+
+msgid "Cron Job"
+msgstr "Cron Job"
+
+msgid "Web Cron Job"
+msgstr "Job Cron web"
+
+msgid "Curl"
+msgstr "Răsuci"
+
+msgid "PHP Script"
+msgstr "Script PHP"
+
+msgid "Configuration of a backup job with webcron.org"
+msgstr "Configurarea unui job de backup cu webcron.org"
+
+msgid "Name of cron job"
+msgstr "Numele jobului cron"
+
+msgid "Log in to webcron.org and in the cron area, click on "
+msgstr "Conectați-vă la webcron.org și, în zona cron, faceți clic pe"
+
+msgid "Timeout"
+msgstr "Pauză"
+
+msgid "URL you want to execute"
+msgstr "URL pe care doriți să o executați"
+
+msgid "Login"
+msgstr "Log in"
+
+msgid "Leave this blank"
+msgstr "Lăsați acest necompletat"
+
+msgid "Execution time"
+msgstr "Timpul de execuție"
+
+msgid "That the grid below the other options select when and how"
+msgstr "Că grila de sub celelalte opțiuni selectează când și cum"
+
+msgid "Alerts"
+msgstr "Alerte"
+
+msgid "Cron scheduling using wget"
+msgstr "Programarea Cron folosind wget"
+
+msgid "Cron scheduling using Curl"
+msgstr "Programarea Cron folosind Curl"
+
+msgid "Custom PHP script to run the cron job"
+msgstr "Script PHP personalizat pentru a rula jobul cron"
+
+msgid "Sorry the cron job did not work"
+msgstr "Ne pare rău, lucrarea cron nu a funcționat"
+
+msgid "URL for use with your own scripts and third-party scripts"
+msgstr "Adresă URL pentru utilizare cu propriile scripturi și scripturi terță parte"
+
+msgid "It is recommended to run the script every hour."
+msgstr "Se recomandă să rulați scriptul la fiecare oră."
+
+msgid "Ticket Email Type"
+msgstr "Tipul de e-mail al biletului"
+
+msgid "ticket email"
+msgstr "e-mail pentru bilet"
+
+msgid "Overall Reports"
+msgstr "Rapoarte generale"
+
+msgid "Agents Report"
+msgstr "Raportul agenților"
+
+msgid "Department Report"
+msgstr "Raportul Departamentului"
+
+msgid "Departments Report"
+msgstr "Raportul Departamentelor"
+
+msgid "Majestic Support Overall Reports"
+msgstr "Rapoarte de ansamblu Majestic Support"
+
+msgid "Tickets By Status"
+msgstr "Bilete după statut"
+
+msgid "Tickets By Departments"
+msgstr "Bilete pe departamente"
+
+msgid "Tickets By Priorities"
+msgstr "Bilete după priorități"
+
+msgid "Tickets By Channel"
+msgstr "Bilete pe canal"
+
+msgid "Direct"
+msgstr "Direct"
+
+msgid "Direct reply"
+msgstr "Răspuns direct"
+
+msgid "Email reply"
+msgstr "Răspuns prin e-mail"
+
+msgid "Tickets By staff"
+msgstr "Bilete De către personal"
+
+msgid "Report By"
+msgstr "Raportați de către"
+
+msgid "agent"
+msgstr "agent"
+
+msgid "To"
+msgstr "La"
+
+msgid "Report By Agents"
+msgstr "Raport de către agenți"
+
+msgid "Ticket status by days"
+msgstr "Starea biletului pe zile"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Tickets Staff"
+msgstr "Personalul de bilete"
+
+msgid "Average Rating"
+msgstr "Rata medie"
+
+msgid "Average Time"
+msgstr "Timp mediu"
+
+msgid "Report By agent"
+msgstr "Raport de către agent"
+
+msgid "Rating"
+msgstr "Evaluare"
+
+msgid "Time"
+msgstr "Timp"
+
+msgid "Merged"
+msgstr "Îmbinat"
+
+msgid "Report By department"
+msgstr "Raport pe departament"
+
+msgid "Tickets By Department"
+msgstr "Bilete pe departamente"
+
+msgid "Department Name"
+msgstr "numele departamentului"
+
+msgid "User report"
+msgstr "Raport utilizator"
+
+msgid "Users report"
+msgstr "Raportul utilizatorilor"
+
+msgid "Users Tickets"
+msgstr "Bilete utilizatori"
+
+msgid "User Report"
+msgstr "Raport utilizator"
+
+msgid "Report By Departments"
+msgstr "Raport pe departamente"
+
+msgid "Tickets Data"
+msgstr "Datele biletelor"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Assigned To"
+msgstr "Atribuit"
+
+msgid "Updated"
+msgstr "Actualizat"
+
+msgid "Due Date"
+msgstr "Data scadenței"
+
+msgid "Closed Date"
+msgstr "Data închisă"
+
+msgid "Closed Time"
+msgstr "Ora închisă"
+
+msgid "Requester User Name"
+msgstr "Nume de utilizator solicitant"
+
+msgid "Requester Name"
+msgstr "Numele solicitantului"
+
+msgid "Requester Email"
+msgstr "E-mailul solicitantului"
+
+msgid "Requester Phone"
+msgstr "Telefon solicitant"
+
+msgid "Requester help Topic"
+msgstr "Solicitare de ajutor Subiect"
+
+msgid "Ticket Attachment"
+msgstr "Anexa biletului"
+
+msgid "Posted By"
+msgstr "Postat de"
+
+msgid "Note Title"
+msgstr "Titlul notei"
+
+msgid "Note Message"
+msgstr "Notă Mesaj"
+
+msgid "Posted Date"
+msgstr "data postata"
+
+msgid "Note Attachment"
+msgstr "Notă atașată"
+
+msgid "User Time"
+msgstr "Timpul utilizatorului"
+
+msgid "System Time"
+msgstr "Timpul sistemului"
+
+msgid "Edit Reason"
+msgstr "Editați motivul"
+
+msgid "Reply Date"
+msgstr "Data răspunsului"
+
+msgid "Reply By"
+msgstr "Răspunde prin"
+
+msgid "Reply Attachment"
+msgstr "Atașament de răspuns"
+
+msgid "Total Tracking Time"
+msgstr "Timp total de urmărire"
+
+msgid "Ticket Status"
+msgstr "Starea biletului"
+
+msgid "Select Ticket Status"
+msgstr "Selectați Starea biletului"
+
+msgid "Ticket Overdue"
+msgstr "Biletul întârziat"
+
+msgid "Select Ticket Overdue Status"
+msgstr "Selectați Starea biletului întârziat"
+
+msgid "Export Style"
+msgstr "Export Style"
+
+msgid "Single Header"
+msgstr "Un singur antet"
+
+msgid "Multiple Header"
+msgstr "Antet multiplu"
+
+msgid "Export"
+msgstr "Export"
+
+msgid "FAQ has been stored"
+msgstr "Întrebările frecvente au fost stocate"
+
+msgid "FAQ has not been stored"
+msgstr "Întrebările frecvente nu au fost stocate"
+
+msgid "FAQ has been deleted"
+msgstr "Întrebările frecvente au fost șterse"
+
+msgid "FAQ has not been deleted"
+msgstr "Întrebările frecvente nu au fost șterse"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Add FAQs"
+msgstr "Adăugați întrebări frecvente"
+
+msgid "Save FAQ"
+msgstr "Salvați întrebări frecvente"
+
+msgid "Content"
+msgstr "Conţinut"
+
+msgid "FAQ Detail"
+msgstr "Întrebări frecvente Detaliu"
+
+msgid "FAQs"
+msgstr "Întrebări frecvente"
+
+msgid "Search title"
+msgstr "Căutare titlu"
+
+msgid "Search keywords"
+msgstr "Căutați cuvinte cheie"
+
+msgid "Sub Category Faqs"
+msgstr "Întrebări frecvente pentru subcategoria"
+
+msgid "Add FAQ"
+msgstr "Adăugați întrebări frecvente"
+
+msgid "Feedback has been stored"
+msgstr "Feedback-ul a fost stocat"
+
+msgid "Feedback has not been stored"
+msgstr "Feedback-ul nu a fost stocat"
+
+msgid "user image"
+msgstr "imaginea utilizatorului"
+
+msgid "feedback image"
+msgstr "imagine de feedback"
+
+msgid "Feedback"
+msgstr "Părere"
+
+msgid "Latest Feedback"
+msgstr "Ultimul feedback"
+
+msgid "Form Feedback"
+msgstr "Formular Feedback"
+
+msgid "Submit Feedback"
+msgstr "Trimite parerea ta"
+
+msgid "Help topic has been stored"
+msgstr "Subiectul de ajutor a fost stocat"
+
+msgid "Help topic has not been stored"
+msgstr "Subiectul de ajutor nu a fost stocat"
+
+msgid "Help topic has been deleted"
+msgstr "Subiectul de ajutor a fost șters"
+
+msgid "Help topic has not been deleted"
+msgstr "Subiectul de ajutor nu a fost șters"
+
+msgid "Help topic in use cannot be deleting"
+msgstr "Subiectul de ajutor în uz nu poate fi șters"
+
+msgid "Help topic"
+msgstr "Topic de ajutor"
+
+msgid "Add Help Topic"
+msgstr "Adăugați subiect de ajutor"
+
+msgid "Help Topic"
+msgstr "Topic de ajutor"
+
+msgid "Save Help Topic"
+msgstr "Salvați subiectul de ajutor"
+
+msgid "Help Topics"
+msgstr "Subiecte de ajutor"
+
+msgid "The category has been stored"
+msgstr "Categoria a fost stocată"
+
+msgid "The category has not been stored"
+msgstr "Categoria nu a fost stocată"
+
+msgid "The category has been deleted"
+msgstr "Categoria a fost ștearsă"
+
+msgid "The category has not been deleted"
+msgstr "Categoria nu a fost ștearsă"
+
+msgid "The category in use cannot be deleting"
+msgstr "Categoria utilizată nu poate fi ștearsă"
+
+msgid "Knowledgebase article has been stored"
+msgstr "Articolul din baza de cunoștințe a fost stocat"
+
+msgid "Knowledgebase article has not been stored"
+msgstr "Articolul din baza de cunoștințe nu a fost stocat"
+
+msgid "The article has been deleted"
+msgstr "Articolul a fost șters"
+
+msgid "The article has not been deleted"
+msgstr "Articolul nu a fost șters"
+
+msgid "Article"
+msgstr "Articol"
+
+msgid "The parent category does not have this type."
+msgstr "Categoria părinte nu are acest tip."
+
+msgid "Would you like to add this type to Parent Category?"
+msgstr "Doriți să adăugați acest tip la Categoria părinte?"
+
+msgid "JYes"
+msgstr "JDa"
+
+msgid "Child category has this type,"
+msgstr "Categoria de copii are acest tip,"
+
+msgid "You cannot unmark it."
+msgstr "Nu îl puteți demarca."
+
+msgid "Draft"
+msgstr "Proiect"
+
+msgid "Add Knowledge Base"
+msgstr "Adăugați o bază de cunoștințe"
+
+msgid "Meta Description"
+msgstr "Meta Descriere"
+
+msgid "Meta Keywords"
+msgstr "Cuvinte cheie meta"
+
+msgid "Add More"
+msgstr "Adăuga mai mult"
+
+msgid "Save Knowledge Base"
+msgstr "Salvați baza de cunoștințe"
+
+msgid "Please select at least one category for"
+msgstr "Vă rugăm să selectați cel puțin o categorie pentru"
+
+msgid "Add Category"
+msgstr "Adăugați o categorie"
+
+msgid "Category For"
+msgstr "Categoria Pentru"
+
+msgid "Knowledge Base"
+msgstr "Bază de cunoștințe"
+
+msgid "Save Category"
+msgstr "Salvați categoria"
+
+msgid "Meta Data Options"
+msgstr "Opțiuni metadate"
+
+msgid "Category Title"
+msgstr "Titlul categoriei"
+
+msgid "category"
+msgstr "categorie"
+
+msgid "Knowledge Base Detail"
+msgstr "Detaliu baza de cunoștințe"
+
+msgid "Article Attachment"
+msgstr "Articol atașat"
+
+msgid "Knowledgebase"
+msgstr "Bază de cunoștințe"
+
+msgid "Knowledge Base Articles"
+msgstr "Articole din baza de cunoștințe"
+
+msgid "Sub Category Knowledgebase"
+msgstr "Baza de cunoștințe de subcategorie"
+
+msgid "Mail has not been marked as read"
+msgstr "E-mailul nu a fost marcat ca citit"
+
+msgid "Mail has been marked as read"
+msgstr "E-mailul a fost marcat ca citit"
+
+msgid "Message field cannot be empty"
+msgstr "Câmpul de mesaj nu poate fi gol"
+
+msgid "Mail has been sent"
+msgstr "Mail a fost trimis"
+
+msgid "Mail has not been sent"
+msgstr "E-mailul nu a fost trimis"
+
+msgid "Mail has been deleted"
+msgstr "E-mailul a fost șters"
+
+msgid "Mail has not been deleted"
+msgstr "E-mailul nu a fost ștears"
+
+msgid "Mail"
+msgstr "Poștă"
+
+msgid "is in use cannot be delete"
+msgstr "este în uz nu poate fi șters"
+
+msgid "Mail cannot mark as to read"
+msgstr "Mail nu poate marca ca citit"
+
+msgid "Mail cannot mark as unread"
+msgstr "E-mailul nu poate marca ca necitit"
+
+msgid "Mail has been marked as unread"
+msgstr "E-mailul a fost marcat ca necitit"
+
+msgid "Inbox"
+msgstr "Inbox"
+
+msgid "Outbox"
+msgstr "Căsuță de ieșire"
+
+msgid " )  "
+msgstr ")"
+
+msgid "Compose"
+msgstr "Compune"
+
+msgid "Send"
+msgstr "Trimite"
+
+msgid "Read"
+msgstr "Citit"
+
+msgid "Unread"
+msgstr "Necitit"
+
+msgid "Select Type"
+msgstr "Selectați Tip"
+
+msgid "To use this feature you must be agent"
+msgstr "Pentru a utiliza această funcție, trebuie să fiți agent"
+
+msgid "To use this feature you must have agents addon."
+msgstr "Pentru a utiliza această caracteristică, trebuie să aveți supliment pentru agenți."
+
+msgid "mark read"
+msgstr "marca citit"
+
+msgid "mark unread"
+msgstr "marca necitit"
+
+msgid "Replied By"
+msgstr "Răspuns de"
+
+msgid "Reply"
+msgstr "Răspuns"
+
+msgid ")  "
+msgstr ")"
+
+msgid "Type Message"
+msgstr "Tastați mesaj"
+
+msgid "Replies"
+msgstr "Răspunsuri"
+
+msgid "Limit exceeds maximum tickets"
+msgstr "Limita depășește numărul maxim de bilete"
+
+msgid "The maximum number of open tickets limit has been exceeded."
+msgstr "Limita maximă de bilete deschise a fost depășită."
+
+msgid "Ticket has been closed due to merged with"
+msgstr "Biletul a fost închis din cauza fuzionarii cu"
+
+msgid "Ticket"
+msgstr "Bilet"
+
+msgid "has been merged into"
+msgstr "a fost fuzionat în"
+
+msgid "Merge Ticket"
+msgstr "Merge Ticket"
+
+msgid "Search Ticket To Merge Into Another"
+msgstr "Căutați bilet pentru a fuziona cu altul"
+
+msgid "Edit Last Reply"
+msgstr "Editați ultimul răspuns"
+
+msgid "Merge Ticket Latest Reply"
+msgstr "Merge Ticket Ultimul răspuns"
+
+msgid "Merge"
+msgstr "Combina"
+
+msgid "Ticket has been merged"
+msgstr "Biletul a fost fuzionat"
+
+msgid "Ticket has not been merged"
+msgstr "Biletul nu a fost îmbinat"
+
+msgid "Disabled form cannot be set as default"
+msgstr "Formularul dezactivat nu poate fi setat ca implicit"
+
+msgid "Form has been stored"
+msgstr "Formularul a fost stocat"
+
+msgid "Form has not been stored"
+msgstr "Formularul nu a fost stocat"
+
+msgid "Multiform has been deleted"
+msgstr "Multiform a fost șters"
+
+msgid "Multiform has not been deleted"
+msgstr "Multiform nu a fost șters"
+
+msgid "Multiform in use"
+msgstr "Multiform în uz"
+
+msgid " cannot deleted"
+msgstr "nu se poate șterge"
+
+msgid "Default form cannot be set as disabled"
+msgstr "Formularul implicit nu poate fi setat ca fiind dezactivat"
+
+msgid "Multiform"
+msgstr "Multiform"
+
+msgid "default has not been changed"
+msgstr "implicit nu a fost schimbat"
+
+msgid "default has been changed"
+msgstr "implicit a fost schimbat"
+
+msgid "Create Ticket"
+msgstr "Creați un bilet"
+
+msgid "multiform"
+msgstr "multiform"
+
+msgid "Default"
+msgstr "Mod implicit"
+
+msgid "Save Multiform"
+msgstr "Salvați Multiform"
+
+msgid "Fields"
+msgstr "Câmpuri"
+
+msgid "Edit Fields"
+msgstr "Editare câmpuri"
+
+msgid "spinning wheel"
+msgstr "inverte roata"
+
+msgid "Select Languages"
+msgstr "Selectați Limbi"
+
+msgid "Select Language"
+msgstr "Selecteaza limba"
+
+msgid "Email Template has been successfully deleted"
+msgstr "Șablonul de e-mail a fost șters cu succes"
+
+msgid "Email template has been stored"
+msgstr "Șablonul de e-mail a fost stocat"
+
+msgid "Email template has not been stored"
+msgstr "Șablonul de e-mail nu a fost stocat"
+
+msgid "The internal note has been posted"
+msgstr "Nota internă a fost postată"
+
+msgid "The internal note has not been posted"
+msgstr "Nota internă nu a fost postată"
+
+msgid "Post Internal Note"
+msgstr "Postați o notă internă"
+
+msgid "The internal note is posted by"
+msgstr "Nota internă este postată de"
+
+msgid "Ticket Notification"
+msgstr "Notificare bilet"
+
+msgid "Once Weekly"
+msgstr "O dată pe săptămână"
+
+msgid "Thanks for subscribing!"
+msgstr "Multumesc pentru abonare!"
+
+msgid "Ticket already marked overdue"
+msgstr "Biletul este deja marcat ca întârziat"
+
+msgid "The ticket has been marked as overdue"
+msgstr "Biletul a fost marcat ca întârziat"
+
+msgid "The ticket has not been marked as overdue"
+msgstr "Biletul nu a fost marcat ca întârziat"
+
+msgid "System"
+msgstr "Sistem"
+
+msgid "Mark overdue"
+msgstr "Mark a întârziat"
+
+msgid "The ticket is marked as overdue by"
+msgstr "Biletul este marcat ca fiind restante de"
+
+msgid "The ticket has been unmarked as overdue"
+msgstr "Biletul a fost nemarcat ca fiind întârziat"
+
+msgid "The ticket has not been unmarked as overdue"
+msgstr "Biletul nu a fost demarcat ca fiind restante"
+
+msgid "Unmark overdue"
+msgstr "Anulați marcarea întârziată"
+
+msgid "The ticket is unmarked as overdue by"
+msgstr "Biletul este nemarcat ca fiind restante de"
+
+msgid "Paid Support"
+msgstr "Suport plătit"
+
+msgid "Check if you want to use this product for paid support"
+msgstr "Verificați dacă doriți să utilizați acest produs pentru asistență plătită"
+
+msgid "Paid support type"
+msgstr "Tip de suport plătit"
+
+msgid "One-off Support"
+msgstr "Asistență unică"
+
+msgid "Subscription Support"
+msgstr "Suport pentru abonament"
+
+msgid "Number of tickets"
+msgstr "Numărul de bilete"
+
+msgid "Credential Type"
+msgstr "Tipul acreditării"
+
+msgid "Additional Info."
+msgstr "Informații suplimentare."
+
+msgid "Please insert values"
+msgstr "Vă rugăm să introduceți valori"
+
+msgid "Visitor"
+msgstr "Vizitator"
+
+msgid "By"
+msgstr "De"
+
+msgid "Credential removed on ticket close"
+msgstr "Acreditarea a fost eliminată la închiderea biletului"
+
+msgid "Failed to retrieve data"
+msgstr "Nu s-au putut prelua datele"
+
+msgid "Reason has been stored"
+msgstr "Motivul a fost stocat"
+
+msgid "Reason has not been stored"
+msgstr "Motivul nu a fost stocat"
+
+msgid "Reason has been deleted"
+msgstr "Motivul a fost șters"
+
+msgid "Reason has not been deleted"
+msgstr "Motivul nu a fost șters"
+
+msgid "Reason"
+msgstr "Motiv"
+
+msgid "Are you going to close this ticket?"
+msgstr "Ai de gând să închizi acest bilet?"
+
+msgid "If you have a moment, please select a reason for closing the ticket."
+msgstr "Dacă aveți un moment, vă rugăm să selectați un motiv pentru închiderea biletului."
+
+msgid "Submit & Close"
+msgstr "Trimiteți și închideți"
+
+msgid "Skip & Close"
+msgstr "Omite și închide"
+
+msgid "Add Reason"
+msgstr "Adăugați motiv"
+
+msgid "Save Reason"
+msgstr "Salvați motivul"
+
+msgid "Ticket Close Reasons"
+msgstr "Motive pentru închiderea biletului"
+
+msgid "Mail Notification Widget"
+msgstr "Widget de notificare prin e-mail"
+
+msgid "Show newly and reply mail notifications"
+msgstr "Afișează notificări noi și răspunde prin e-mail"
+
+msgid "New mail from"
+msgstr "E-mail nou de la"
+
+msgid "Mail Notification"
+msgstr "Notificare prin e-mail"
+
+msgid "Layout"
+msgstr "Aspect"
+
+msgid "Max Record"
+msgstr "Înregistrare maximă"
+
+msgid "My Ticket Widget"
+msgstr "Widgetul meu pentru bilete"
+
+msgid "Show unanswered tickets"
+msgstr "Afișați biletele fără răspuns"
+
+msgid "Order tickets"
+msgstr "Comandați bilete"
+
+msgid "Close due to merge"
+msgstr "Închidere din cauza îmbinării"
+
+msgid "Product"
+msgstr "Produs"
+
+msgid "Order"
+msgstr "Ordin"
+
+msgid "There is no ticket"
+msgstr "Nu există bilet"
+
+msgid "Something went wrong"
+msgstr "Ceva n-a mers bine"
+
+msgid "Transaction Key"
+msgstr "Cheie de tranzacție"
+
+msgid "Please select )"
+msgstr "Te rog selecteaza )"
+
+msgid "Hide notice"
+msgstr "Ascundeți notificarea"
+
+msgid "Control Panel"
+msgstr "Panou de control"
+
+msgid "Edit Announcement"
+msgstr "Editați anunțul"
+
+msgid "Departments"
+msgstr "Departamente"
+
+msgid "Add Department"
+msgstr "Adăugați departament"
+
+msgid "Edit Department"
+msgstr "Departamentul de editare"
+
+msgid "Staff report"
+msgstr "Raportul personalului"
+
+msgid "Staff reports"
+msgstr "Rapoartele personalului"
+
+msgid "Departments report"
+msgstr "Raportul departamentelor"
+
+msgid "Edit Download"
+msgstr "Editare Descărcare"
+
+msgid "Edit FAQ"
+msgstr "Întrebări frecvente editate"
+
+msgid "Feedbacks"
+msgstr "Feedback-uri"
+
+msgid "Edit Knowledge Base"
+msgstr "Editați baza de cunoștințe"
+
+msgid "Edit Category"
+msgstr "Editați categoria"
+
+msgid "Send Message"
+msgstr "Trimite mesaj"
+
+msgid "Edit Role"
+msgstr "Editați rolul"
+
+msgid "Staffs"
+msgstr "Personale"
+
+msgid "Add Staff"
+msgstr "Adăugați personal"
+
+msgid "Edit Staff"
+msgstr "Editați personalul"
+
+msgid "Staff Permissions"
+msgstr "Permisiunile personalului"
+
+msgid "Add Ticket"
+msgstr "Adăugați un bilet"
+
+msgid "Edit Ticket"
+msgstr "Editați biletul"
+
+msgid "Ticket Detail"
+msgstr "Detaliu bilet"
+
+msgid "Plus"
+msgstr "La care se adauga"
+
+msgid "Equals"
+msgstr "Egal"
+
+msgid "Minus"
+msgstr "Minus"
+
+msgid "stars"
+msgstr "stele"
+
+msgid "Please write appreciated review at WP Extension Directory"
+msgstr "Vă rugăm să scrieți o recenzie apreciată la WP Extension Directory"
+
+msgid "love"
+msgstr "dragoste"
+
+msgid "I'd love to help :)"
+msgstr "Mi-ar placea sa ajut :)"
+
+msgid "sad"
+msgstr "trist"
+
+msgid "Not this time"
+msgstr "Nu de data asta"
+
+msgid "happy"
+msgstr "fericit"
+
+msgid "I've already rated you"
+msgstr "Te-am evaluat deja"
+
+msgid "close"
+msgstr "închide"
+
+msgid "thanks"
+msgstr "Mulțumiri"
+
+msgid "You are awesome !......"
+msgstr "Ești minunat !......"
+
+msgid "Thanks for your support, we really appreciate it."
+msgstr "Vă mulțumim pentru sprijin, apreciem foarte mult."
+
+msgid "Majestic Support Team"
+msgstr "Echipa de suport Majestic"
+
+msgid "Remind you about this later?"
+msgstr "Îți amintești despre asta mai târziu?"
+
+msgid "Remind me in 3 days"
+msgstr "Amintește-mi în 3 zile"
+
+msgid "Remind me in 10 days"
+msgstr "Amintește-mi în 10 zile"
+
+msgid "Remind me in 30 days"
+msgstr "Amintește-mi în 30 de zile"
+
+msgid "Don't remind me about this"
+msgstr "Nu-mi aminti de asta"
+
+msgid "Dashboard"
+msgstr "Bord"
+
+msgid "About Us"
+msgstr "Despre noi"
+
+msgid "Translations"
+msgstr "Traduceri"
+
+msgid "System Errors"
+msgstr "Erori de sistem"
+
+msgid "slugs"
+msgstr "melci"
+
+msgid "Slugs"
+msgstr "melci"
+
+msgid "multiforms"
+msgstr "multiforme"
+
+msgid "Multiforms"
+msgstr "Multiforme"
+
+msgid "Ticket Close Reason"
+msgstr "Motivul închiderii biletului"
+
+msgid "Smart Replies"
+msgstr "Răspunsuri inteligente"
+
+msgid "Smart Reply"
+msgstr "Răspuns inteligent"
+
+msgid "Add Smart Reply"
+msgstr "Adăugați un răspuns inteligent"
+
+msgid "Agent Auto Assign"
+msgstr "Atribuire automată a agentului"
+
+msgid "Auto Assign"
+msgstr "Auto desemnare"
+
+msgid "Settings"
+msgstr "Setări"
+
+msgid "Cron Job URLs"
+msgstr "Adresele URL de job Cron"
+
+msgid "Premium Addons"
+msgstr "Suplimente premium"
+
+msgid "Install Add-ons"
+msgstr "Instalați suplimente"
+
+msgid "Add-ons List"
+msgstr "Lista de suplimente"
+
+msgid "Add-ons Status"
+msgstr "Starea suplimentelor"
+
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+msgid "Short Codes"
+msgstr "Coduri scurte"
+
+msgid "Colors"
+msgstr "Culori"
+
+msgid "Reports"
+msgstr "Rapoarte"
+
+msgid "Overall Statistics"
+msgstr "Statistici generale"
+
+msgid "Agent Reports"
+msgstr "Rapoarte de agent"
+
+msgid "Department Reports"
+msgstr "Rapoartele departamentului"
+
+msgid "User Reports"
+msgstr "Rapoarte utilizatori"
+
+msgid "Satisfaction Report"
+msgstr "Raport de satisfacție"
+
+msgid "Email Piping"
+msgstr "Conducte de e-mail"
+
+msgid "Priorities"
+msgstr "Priorități"
+
+msgid "Add Priority"
+msgstr "Adăugați prioritate"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Erase Data Requests"
+msgstr "Solicitări de ștergere a datelor"
+
+msgid "Feedback Fields"
+msgstr "Câmpuri de feedback"
+
+msgid "System Emails"
+msgstr "E-mailuri de sistem"
+
+msgid "Premade Responses"
+msgstr "Răspunsuri prefabricate"
+
+msgid "Banned Email Log List"
+msgstr "Listă de jurnal de e-mailuri interzise"
+
+msgid "Ban Emails"
+msgstr "Interzicerea e-mailurilor"
+
+msgid "Emial CC"
+msgstr "E-mail CC"
+
+msgid "Add Emial CC"
+msgstr "Adăugați e-mail CC"
+
+msgid "Add Email CC"
+msgstr "Adăugați e-mail CC"
+
+msgid "Email Templates"
+msgstr "Șabloane de e-mail"
+
+msgid "New Ticket"
+msgstr "Bilet nou"
+
+msgid "Agent Ticket"
+msgstr "Bilet de agent"
+
+msgid "New Agent"
+msgstr "Agent nou"
+
+msgid "Reassign Ticket"
+msgstr "Reatribuiți biletul"
+
+msgid "Close Ticket"
+msgstr "Închideți biletul"
+
+msgid "Delete Ticket"
+msgstr "Ștergeți biletul"
+
+msgid "Mark Overdue"
+msgstr "Mark întârziat"
+
+msgid "Ban Email"
+msgstr "Ban e-mail"
+
+msgid "Ban email try to create ticket"
+msgstr "Ban e-mail încercați să creați bilet"
+
+msgid "Department Transfer"
+msgstr "Transfer de departament"
+
+msgid "Ban Email and Close Ticket"
+msgstr "Interziceți e-mailul și închideți biletul"
+
+msgid "Unban Email"
+msgstr "Anulează e-mailul"
+
+msgid "Response Ticket"
+msgstr "Biletul de răspuns"
+
+msgid "Reply Ticket"
+msgstr "Bilet de răspuns"
+
+msgid "New Ticket Admin Alert"
+msgstr "Alertă pentru administratorul biletelor noi"
+
+msgid "In Progress Ticket"
+msgstr "Bilet în curs"
+
+msgid "Ticket priority is changed by"
+msgstr "Prioritatea biletului este modificată de"
+
+msgid "New Mail Received"
+msgstr "E-mail nou primit"
+
+msgid "New Mail Message Received"
+msgstr "Mesaj de e-mail nou primit"
+
+msgid "Feedback Email To User"
+msgstr "E-mail de feedback către utilizator"
+
+msgid "User Reply On Closed Ticket"
+msgstr "Răspuns utilizator la bilet închis"
+
+msgid "help"
+msgstr "Ajutor"
+
+msgid "Select Form"
+msgstr "Selectați Formular"
+
+msgid "No Record Found"
+msgstr "nicio inregistrare gasita"
+
+msgid "Log out"
+msgstr "Deconectați-vă"
+
+msgid "iframe"
+msgstr "iframe"
+
+msgid "Sorry"
+msgstr "Îmi pare rău"
+
+msgid "There was no record found"
+msgstr "Nu a fost găsită nicio înregistrare"
+
+msgid "Sorry!"
+msgstr "Îmi pare rău!"
+
+msgid "There was no record found..."
+msgstr "Nu a fost găsită nicio înregistrare..."
+
+msgid "Access Denied"
+msgstr "Acces interzis"
+
+msgid "You have no permission to access this page"
+msgstr "Nu aveți permisiunea de a accesa această pagină"
+
+msgid "Register"
+msgstr "Inregistreaza-te"
+
+msgid "User is not allowed to access this page."
+msgstr "Utilizatorul nu are voie să acceseze această pagină."
+
+msgid "You are already Logged In."
+msgstr "Ești deja autentificat."
+
+msgid "Access Denied!"
+msgstr "Acces interzis!"
+
+msgid "Your account has been disabled, please contact the administrator."
+msgstr "Contul dvs. a fost dezactivat, vă rugăm să contactați administratorul."
+
+msgid "You are not logged In"
+msgstr "Nu sunteți autentificat"
+
+msgid "To access the page, please login"
+msgstr "Pentru a accesa pagina, vă rugăm să vă autentificați"
+
+msgid "User is not allowed to view this Ticket"
+msgstr "Utilizatorul nu are voie să vizualizeze acest Tichet"
+
+msgid "You have already given the feedback for this ticket."
+msgstr "Ați dat deja feedbackul pentru acest bilet."
+
+msgid "Ticket not found...!"
+msgstr "Biletul nu a fost găsit...!"
+
+msgid "User is not allowed to view this page"
+msgstr "Utilizatorul nu are voie să vizualizeze această pagină"
+
+msgid "Thank you so much for your feedback"
+msgstr "Vă mulțumesc foarte mult pentru feedback"
+
+msgid "Majestic Support Control Panel"
+msgstr "Panoul de control Majestic Support"
+
+msgid "Slug"
+msgstr "Melc"
+
+msgid "System Error"
+msgstr "Eroare de sistem"
+
+msgid "User Fields"
+msgstr "Câmpuri de utilizator"
+
+msgid "Ban list log"
+msgstr "Jurnalul listei de interzicere"
+
+msgid "Field Ordering"
+msgstr "Comandă de câmp"
+
+msgid "Post Installation"
+msgstr "Post instalare"
+
+msgid "Emailcc"
+msgstr "Emailcc"
+
+msgid "Help"
+msgstr "Ajutor"
+
+msgid "Premium Addon"
+msgstr "Supliment Premium"
+
+msgid "Username / password is incorrect"
+msgstr "Numele de utilizator/parola este incorectă"
+
+msgid "Username already taken"
+msgstr "Nume de utilizator deja luat"
+
+msgid "Invalid username"
+msgstr "Nume de utilizator invalid"
+
+msgid "Please enter a username"
+msgstr "Va rugam sa introduceti un nume de utilizator"
+
+msgid "Invalid email"
+msgstr "E-mail invalid"
+
+msgid "Email already registered"
+msgstr "E-mail deja înregistrat"
+
+msgid "Please enter a password"
+msgstr "Vă rugăm să introduceți o parolă"
+
+msgid "Passwords do not match"
+msgstr "parolele nu se potrivesc"
+
+msgid "Invalid captcha"
+msgstr "Captcha nevalid"
+
+msgid "User has been successfully registered"
+msgstr "Utilizatorul a fost înregistrat cu succes"
+
+msgid "Could not subscribe to the newsletter"
+msgstr "Nu am putut abona la newsletter"
+
+msgid "You have successfully subscribed to the newsletter"
+msgstr "Te-ai abonat cu succes la newsletter"
+
+msgid "Majestic Support Pages"
+msgstr "Pagini de asistență majestuoase"
+
+msgid "Majestic Support control panel"
+msgstr "Panou de control Majestic Support"
+
+msgid "Add ticket"
+msgstr "Adăugați bilet"
+
+msgid "My tickets"
+msgstr "Biletele mele"
+
+msgid "List downloads"
+msgstr "Listează descărcări"
+
+msgid "Latest downloads"
+msgstr "Cele mai recente descărcări"
+
+msgid "Popular downloads"
+msgstr "Descărcări populare"
+
+msgid "List knowledge base"
+msgstr "Listați baza de cunoștințe"
+
+msgid "Latest knowledge base"
+msgstr "Cea mai recentă bază de cunoștințe"
+
+msgid "Popular knowledge base"
+msgstr "Baza de cunoștințe populare"
+
+msgid "List FAQ`s"
+msgstr "Listează întrebări frecvente"
+
+msgid "Latest FAQ`s"
+msgstr "Cele mai recente întrebări frecvente"
+
+msgid "Popular FAQ`s"
+msgstr "Întrebări frecvente populare"
+
+msgid "List announcements"
+msgstr "Lista anunţurilor"
+
+msgid "Latest announcements"
+msgstr "Ultimele anunturi"
+
+msgid "Popular announcements"
+msgstr "Anunțuri populare"
+
+msgid "View"
+msgstr "Vedere"
+
+msgid "Form submission failed!"
+msgstr "Trimiterea formularului a eșuat!"
+
+msgid "You have not answered all required fields"
+msgstr "Nu ați răspuns la toate câmpurile obligatorii"
+
+msgid "You have not given a correct time"
+msgstr "Nu ai dat ora corectă"
+
+msgid "You have not given a correct e-mail address"
+msgstr "Nu ați dat o adresă de e-mail corectă"
+
+msgid "You have not given a correct phone number"
+msgstr "Nu ați dat un număr de telefon corect"
+
+msgid "You have not given a correct answer to the security question"
+msgstr "Nu ați dat un răspuns corect la întrebarea de securitate"
+
+msgid "You have not given a correct date"
+msgstr "Nu ați dat o dată corectă"
+
+msgid "The input value must be between "
+msgstr "Valoarea de intrare trebuie să fie între"
+
+msgid " characters"
+msgstr "personaje"
+
+msgid "The input value is longer than "
+msgstr "Valoarea de intrare este mai mare decât"
+
+msgid "The input value is shorter than "
+msgstr "Valoarea de intrare este mai mică decât"
+
+msgid "Input values could not be confirmed"
+msgstr "Valorile introduse nu au putut fi confirmate"
+
+msgid "Incorrect domain value"
+msgstr "Valoare de domeniu incorectă"
+
+msgid "The input value is not a correct URL"
+msgstr "Valoarea de intrare nu este o adresă URL corectă"
+
+msgid "The input value is incorrect"
+msgstr "Valoarea de intrare este incorectă"
+
+msgid "The input value was not a correct number"
+msgstr "Valoarea de intrare nu a fost un număr corect"
+
+msgid "Your social security number was incorrect"
+msgstr "Numărul dvs. de securitate socială a fost incorect"
+
+msgid "Incorrect UK VAT Number"
+msgstr "Număr de TVA în Regatul Unit incorect"
+
+msgid "The password isn't strong enough"
+msgstr "Parola nu este suficient de puternică"
+
+msgid "You have to choose at least "
+msgstr "Trebuie să alegi măcar"
+
+msgid " answers"
+msgstr "răspunsuri"
+
+msgid "The input value can only contain alphanumeric characters "
+msgstr "Valoarea de intrare poate conține doar caractere alfanumerice"
+
+msgid " and "
+msgstr "și"
+
+msgid "The file you are trying to upload is too large"
+msgstr "Fișierul pe care încercați să îl încărcați este prea mare"
+
+msgid "The file you are trying to upload is of the wrong type"
+msgstr "Fișierul pe care încercați să îl încărcați este de tip greșit"
+
+msgid "Please choose between "
+msgstr "Vă rugăm să alegeți între"
+
+msgid "Please choose at least "
+msgstr "Vă rugăm să alegeți cel puțin"
+
+msgid "Please choose a maximum of "
+msgstr "Vă rugăm să alegeți un maxim de"
+
+msgid " item(s)"
+msgstr "articol(e)"
+
+msgid "The credit card number is not correct"
+msgstr "Numărul cardului de credit nu este corect"
+
+msgid "The CVV number was not correct"
+msgstr "Numărul CVV nu era corect"
+
+msgid "Lost your password"
+msgstr "ti-ai pierdut parola"
+
+msgid "Activated"
+msgstr "Activat"
+
+msgid "Active Now"
+msgstr "Activ acum"
+
+msgid "Install Now"
+msgstr "Instaleaza acum"
+
+msgid "Pagination default page size not saved"
+msgstr "Dimensiunea implicită a paginii de paginare nu a fost salvată"
+
+msgid "Data directory cannot empty."
+msgstr "Directorul de date nu se poate goli."
+
+msgid "Data directory is not proper."
+msgstr "Directorul de date nu este corect."
+
+msgid "Data directory is not writable."
+msgstr "Directorul de date nu poate fi scris."
+
+msgid "System slug not be empty."
+msgstr "Slug-ul de sistem să nu fie gol."
+
+msgid "System slug is conflicted with post or page slug."
+msgstr "Slug-ul de sistem este în conflict cu slug-ul de postare sau de pagină."
+
+msgid "The setting has been stored"
+msgstr "Setarea a fost stocată"
+
+msgid "The setting not has been stored"
+msgstr "Setarea nu a fost stocată"
+
+msgid "Days"
+msgstr "Zile"
+
+msgid "Hours"
+msgstr "Ore"
+
+msgid "Google Recaptcha"
+msgstr "Google Recaptcha"
+
+msgid "Own Captcha"
+msgstr "Captcha propriu"
+
+msgid "Any"
+msgstr "Orice"
+
+msgid "Addition"
+msgstr "Plus"
+
+msgid "Subtraction"
+msgstr "Scădere"
+
+msgid "Recaptcha Version 2"
+msgstr "Recaptcha versiunea 2"
+
+msgid "Recaptcha Version 3"
+msgstr "Recaptcha versiunea 3"
+
+msgid "Show"
+msgstr "Spectacol"
+
+msgid "Hide"
+msgstr "Ascunde"
+
+msgid "Majestic Support Login Page"
+msgstr "Pagina de conectare Majestic Support"
+
+msgid "WordPress Default Login Page"
+msgstr "Pagina de conectare implicită WordPress"
+
+msgid "Custom"
+msgstr "Personalizat"
+
+msgid "Majestic Support Register Page"
+msgstr "Pagina de înregistrare Majestic Support"
+
+msgid "Top left"
+msgstr "Stânga sus"
+
+msgid "Top right"
+msgstr "Sus în dreapta"
+
+msgid "Middle left"
+msgstr "Mijloc stânga"
+
+msgid "Middle right"
+msgstr "dreapta mijloc"
+
+msgid "Bottom left"
+msgstr "Stânga jos"
+
+msgid "Bottom right"
+msgstr "Dreapta-jos"
+
+msgid "Random"
+msgstr "Aleatoriu"
+
+msgid "Sequence"
+msgstr "Secvenţă"
+
+msgid "Ascending"
+msgstr "Ascendent"
+
+msgid "Descending"
+msgstr "Descendentă"
+
+msgid "Single"
+msgstr "Singur"
+
+msgid "Multiple"
+msgstr "Multiplu"
+
+msgid "menu"
+msgstr "meniul"
+
+msgid "Select Configuration"
+msgstr "Selectați Configurare"
+
+msgid "General Settings"
+msgstr "setari generale"
+
+msgid "Support Icon"
+msgstr "Pictograma suport"
+
+msgid "Ticket Settings"
+msgstr "Setări bilet"
+
+msgid "Ticket Listing"
+msgstr "Lista de bilete"
+
+msgid "Visitor Ticket Setting"
+msgstr "Setarea biletului de vizitator"
+
+msgid "Email Settings"
+msgstr "Setări de e-mail"
+
+msgid "Email Regarding Banned Users"
+msgstr "E-mail cu privire la utilizatorii interziși"
+
+msgid "Ticket Operations Email Setting"
+msgstr "Setarea e-mail pentru operațiunile de bilete"
+
+msgid "Agent Menu"
+msgstr "Meniul agentului"
+
+msgid "Dashboard Links"
+msgstr "Link-uri la tabloul de bord"
+
+msgid "Top Menu Links"
+msgstr "Linkuri din meniul de sus"
+
+msgid "User Menu"
+msgstr "meniul utilizatorului"
+
+msgid "Feedback Settings"
+msgstr "Setări de feedback"
+
+msgid "Push Notifications"
+msgstr "Notificări"
+
+msgid "Firebase Notifications"
+msgstr "Notificări Firebase"
+
+msgid "Private Credentials"
+msgstr "Acreditări private"
+
+msgid "Envato Validation"
+msgstr "Validare Envato"
+
+msgid "MailChimp"
+msgstr "MailChimp"
+
+msgid "Easy Digital Downloads"
+msgstr "Descărcări digitale ușoare"
+
+msgid "Social Login"
+msgstr "Conectare socială"
+
+msgid "Set the heading of your plugin"
+msgstr "Setați titlul pluginului dvs"
+
+msgid "Ticket Default Page"
+msgstr "Pagina implicită a biletului"
+
+msgid "Select Page"
+msgstr "Selectați Pagina"
+
+msgid "Data Directory"
+msgstr "Director de date"
+
+msgid "Set the name for your data directory"
+msgstr "Setați numele directorului dvs. de date"
+
+msgid "Date Format"
+msgstr "Formatul datei"
+
+msgid "DD-MM-YYYY"
+msgstr "ZZ-LL-AAAA"
+
+msgid "MM-DD-YYYY"
+msgstr "LL-ZZ-AAAA"
+
+msgid "YYYY-MM-DD"
+msgstr "AAAA-LL-ZZ"
+
+msgid "Set the default date format"
+msgstr "Setați formatul implicit de dată"
+
+msgid "Pagination default page size"
+msgstr "Dimensiunea implicită a paginii de paginare"
+
+msgid "Set the number of records per page"
+msgstr "Setați numărul de înregistrări pe pagină"
+
+msgid "Breadcrumbs"
+msgstr "Firimituri de pâine"
+
+msgid "Show or hide breadcrumbs"
+msgstr "Afișați sau ascundeți pesmeturile"
+
+msgid "Top Header"
+msgstr "Antet de sus"
+
+msgid "Show or hide top header"
+msgstr "Afișează sau ascunde antetul de sus"
+
+msgid "Show count on tickets"
+msgstr "Arată numărul de bilete"
+
+msgid "Default wp role for new users"
+msgstr "Rolul wp implicit pentru utilizatorii noi"
+
+msgid "Select the role you want to assign to new users"
+msgstr "Selectați rolul pe care doriți să îl atribuiți noilor utilizatori"
+
+msgid "No. of attachments"
+msgstr "Nr. atașamente"
+
+msgid "Number of attachments allowed at a time"
+msgstr "Numărul de atașamente permise simultan"
+
+msgid "File maximum size"
+msgstr "Dimensiunea maximă a fișierului"
+
+msgid "File extensions"
+msgstr "Extensii de fișiere"
+
+msgid "File extensions allowed to attach"
+msgstr "Se pot atașa extensii de fișiere"
+
+msgid "Set Login Link"
+msgstr "Setați legătura de conectare"
+
+msgid "Set login link default or custom"
+msgstr "Setați linkul de conectare implicit sau personalizat"
+
+msgid "Set register Link"
+msgstr "Setați legătura de înregistrare"
+
+msgid "Screen Tag"
+msgstr "Etichetă de ecran"
+
+msgid "Enable or disable your support icon"
+msgstr "Activați sau dezactivați pictograma de asistență"
+
+msgid "Custom Image"
+msgstr "Imagine personalizată"
+
+msgid "Set custom support image"
+msgstr "Setați imaginea de asistență personalizată"
+
+msgid "custom text"
+msgstr "text personalizat"
+
+msgid "Set custom support text"
+msgstr "Setați textul de asistență personalizat"
+
+msgid "Support Icon Position"
+msgstr "Poziția pictogramei de sprijin"
+
+msgid "Screen Tag Position"
+msgstr "Poziția etichetei ecranului"
+
+msgid "Select a position for your support icon"
+msgstr "Selectați o poziție pentru pictograma dvs. de asistență"
+
+msgid "Online"
+msgstr "Pe net"
+
+msgid "Set your plugin offline for front end"
+msgstr "Setați pluginul offline pentru front-end"
+
+msgid "Offline Message"
+msgstr "Mesaj offline"
+
+msgid "Set the offline message for your user"
+msgstr "Setați mesajul offline pentru utilizatorul dvs"
+
+msgid "Woocommerce Category"
+msgstr "Categoria Woocommerce"
+
+msgid "Ticket ID Prefix"
+msgstr "Prefixul ID-ului biletului"
+
+msgid "Set a prefix for the custom ticket ID"
+msgstr "Setați un prefix pentru ID-ul de bilet personalizat"
+
+msgid "Ticket ID sequence"
+msgstr "Secvența de identificare a biletului"
+
+msgid "Set the ticket ID sequentially or randomly, e.g., "
+msgstr "Setați ID-ul biletului secvenţial sau aleatoriu, de exemplu,"
+
+msgid "Pad Zeros"
+msgstr "Pad Zeros"
+
+msgid "To pad an integer with leading zeros to a specific length"
+msgstr "Pentru a completa un număr întreg cu zerouri de început la o anumită lungime"
+
+msgid "Ticket ID Suffix"
+msgstr "Sufix ID-ul biletului"
+
+msgid "Set the suffix for your custom ticket ID"
+msgstr "Setați sufixul pentru ID-ul dvs. de bilet personalizat"
+
+msgid "Maximum tickets"
+msgstr "Bilete maxime"
+
+msgid "Maximum ticket per user"
+msgstr "Biletul maxim per utilizator"
+
+msgid "Maximum open tickets"
+msgstr "Bilete deschise maxime"
+
+msgid "Maximum number of tickets opened per user"
+msgstr "Numărul maxim de bilete deschise per utilizator"
+
+msgid "Reopen ticket within days"
+msgstr "Redeschideți biletul în câteva zile"
+
+msgid "The ticket will reopen within the given number of days"
+msgstr "Biletul se va redeschide în numărul de zile specificat"
+
+msgid "Multiforms Popup For New Tickets"
+msgstr "Popup multiforme pentru bilete noi"
+
+msgid "User can print ticket"
+msgstr "Utilizatorul poate imprima biletul"
+
+msgid "Can users print a ticket from the ticket detail or not?"
+msgstr "Utilizatorii pot imprima un bilet din detaliul biletului sau nu?"
+
+msgid "Allow Users To Reply via Email On Closed Ticket"
+msgstr "Permiteți utilizatorilor să răspundă prin e-mail la biletul închis"
+
+msgid "Select whether users can reply to closed email piping tickets or not"
+msgstr "Selectați dacă utilizatorii pot răspunde la biletele de e-mail închise sau nu"
+
+msgid "Show Admin OR Agent Email On Ticket Reply"
+msgstr "Afișați e-mailul administratorului SAU agentului la răspunsul la bilet"
+
+msgid "Show Anonymous Name On Ticket Reply"
+msgstr "Afișați numele anonim pe răspunsul la bilet"
+
+msgid "Ticket auto close"
+msgstr "Închidere automată a biletului"
+
+msgid "Ticket auto-close if user does not respond within given days"
+msgstr "Tichetul se închide automat dacă utilizatorul nu răspunde în anumite zile"
+
+msgid "Show ticket delete button"
+msgstr "Afișați butonul de ștergere a biletului"
+
+msgid "Select whether users can see the ticket delete button"
+msgstr "Selectați dacă utilizatorii pot vedea butonul de ștergere a biletului"
+
+msgid "Ticket close reason Type"
+msgstr "Motivul închiderii biletului Tip"
+
+msgid "Select whether users can save single or multiple reasons"
+msgstr "Selectați dacă utilizatorii pot salva un singur motiv sau mai multe motive"
+
+msgid "Maximum Record For Smart Reply"
+msgstr "Înregistrare maximă pentru răspuns inteligent"
+
+msgid "Set the number of replies to show"
+msgstr "Setați numărul de răspunsuri de afișat"
+
+msgid "New ticket message"
+msgstr "Mesaj nou pentru bilet"
+
+msgid "This message will show on the new ticket"
+msgstr "Acest mesaj va apărea pe noul bilet"
+
+msgid "Ticket listing ordering"
+msgstr "Comanda de listare a biletelor"
+
+msgid "Set default ordering for ticket listing"
+msgstr "Setați comanda implicită pentru listarea biletelor"
+
+msgid "Ticket listing sorting"
+msgstr "Sortare lista biletelor"
+
+msgid "Set default sorting for ticket listing"
+msgstr "Setați sortarea implicită pentru listarea biletelor"
+
+msgid "Closed info. on admin closed tickets"
+msgstr "Informații închise. pe biletele închise de administrator"
+
+msgid "Closed info. on agent closed tickets"
+msgstr "Informații închise. pe biletele de agent închis"
+
+msgid "Closed info. on user closed tickets"
+msgstr "Informații închise. pe biletele închise de utilizator"
+
+msgid "Assigned info. on admin tickets"
+msgstr "Informații atribuite. pe biletele de administrator"
+
+msgid "Assigned info. on agent tickets"
+msgstr "Informații atribuite. pe biletele de agent"
+
+msgid "Assigned info. on user tickets"
+msgstr "Informații atribuite. pe biletele de utilizator"
+
+msgid "Visitors can create tickets"
+msgstr "Vizitatorii pot crea bilete"
+
+msgid "Allow visitors to create tickets or not"
+msgstr "Permiteți vizitatorilor să creeze bilete sau nu"
+
+msgid "Visitor ticket creation message"
+msgstr "Mesaj de creare a biletului de vizitator"
+
+msgid "This text will appear whenever a visitor creates a ticket"
+msgstr "Acest text va apărea ori de câte ori un vizitator creează un bilet"
+
+msgid "Default alert email"
+msgstr "E-mail de alertă implicit"
+
+msgid "Default admin email"
+msgstr "E-mail de administrator implicit"
+
+msgid "Admin email address to receive emails"
+msgstr "Adresă de e-mail admin pentru a primi e-mailuri"
+
+msgid "Department Email"
+msgstr "E-mail al departamentului"
+
+msgid "Send email to all departments on ticket create"
+msgstr "Trimite e-mail la toate departamentele la crearea biletului"
+
+msgid "Mail to admin"
+msgstr "Mail către administrator"
+
+msgid "Send an email to the admin when a banned email tries to create a ticket"
+msgstr "Trimiteți un e-mail administratorului atunci când un e-mail interzis încearcă să creeze un bilet"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "New ticket"
+msgstr "Bilet nou"
+
+msgid "Ticket reassign"
+msgstr "Realocarea biletului"
+
+msgid "Ticket close"
+msgstr "Biletul aproape"
+
+msgid "Ticket delete"
+msgstr "Ștergerea biletului"
+
+msgid "Ticket marked as overdue"
+msgstr "Biletul marcat ca întârziat"
+
+msgid "Ticket ban email"
+msgstr "E-mail pentru interzicerea biletelor"
+
+msgid "Ticket department transfer"
+msgstr "Transfer departament bilete"
+
+msgid "Ticket reply User"
+msgstr "Tichet răspuns utilizator"
+
+msgid "Ticket Response Agent"
+msgstr "Agent de răspuns la bilete"
+
+msgid "Ticket ban email and close ticket"
+msgstr "E-mail pentru interzicerea biletului și închiderea biletului"
+
+msgid "Ticket unban email"
+msgstr "E-mail de dezblocare a biletului"
+
+msgid "Ticket lock"
+msgstr "Blocarea biletului"
+
+msgid "Ticket unlock"
+msgstr "Deblocarea biletului"
+
+msgid "Ticket Change Priority"
+msgstr "Prioritate schimbare bilet"
+
+msgid "Mark Ticket In Progress"
+msgstr "Marcați biletul în curs"
+
+msgid "Reply To A Closed Ticket By Email"
+msgstr "Răspundeți la un bilet închis prin e-mail"
+
+msgid "Send Feedback Email To User"
+msgstr "Trimiteți un e-mail de feedback utilizatorului"
+
+msgid "Open Ticket"
+msgstr "Bilet deschis"
+
+msgid "Department reports"
+msgstr "Rapoartele departamentului"
+
+msgid "Login/Logout Button"
+msgstr "Buton de autentificare/deconectare"
+
+msgid "Ticket Total Count"
+msgstr "Număr total de bilete"
+
+msgid "Erase Agent Data"
+msgstr "Ștergeți datele agentului"
+
+msgid "Export Ticket"
+msgstr "Biletul de export"
+
+msgid "Latest Downloads"
+msgstr "Cele mai recente descărcări"
+
+msgid "Latest Announcements"
+msgstr "Ultimele Anunturi"
+
+msgid "Latest Knowledge Base"
+msgstr "Cea mai recentă bază de cunoștințe"
+
+msgid "Latest FAQs"
+msgstr "Cele mai recente întrebări frecvente"
+
+msgid "Home"
+msgstr "Acasă"
+
+msgid "Check Ticket Status"
+msgstr "Verificați starea biletului"
+
+msgid "Registration"
+msgstr "Înregistrare"
+
+msgid "Erase User Data"
+msgstr "Ștergeți datele utilizatorului"
+
+msgid "Feedback Email Delay Type"
+msgstr "Tip de întârziere prin e-mail de feedback"
+
+msgid "Select delay type for feedback email"
+msgstr "Selectați tipul de întârziere pentru e-mailul de feedback"
+
+msgid "Feedback Email Delay"
+msgstr "Întârziere prin e-mail de feedback"
+
+msgid "Success message after submitting feedback"
+msgstr "Mesaj de succes după trimiterea feedback-ului"
+
+msgid "This text will appear whenever anyone submits feedback"
+msgstr "Acest text va apărea ori de câte ori cineva trimite feedback"
+
+msgid "Login with facebook"
+msgstr "Logheaza-te cu Facebook"
+
+msgid "Facebook user can log in to Majestic Support"
+msgstr "Utilizatorul Facebook se poate conecta la Majestic Support"
+
+msgid "Secret"
+msgstr "Secret"
+
+msgid "secret key"
+msgstr "cheie secreta"
+
+msgid "API Key"
+msgstr "Cheia API"
+
+msgid "The Facebook app requires an API key"
+msgstr "Aplicația Facebook necesită o cheie API"
+
+msgid "Login with linkedin"
+msgstr "Autentifică-te cu LinkedIn"
+
+msgid "Linkedin users can log in to Majestic Support"
+msgstr "Utilizatorii Linkedin se pot conecta la Asistență Majestic"
+
+msgid "The LinkedIn app requires an API key"
+msgstr "Aplicația LinkedIn necesită o cheie API"
+
+msgid "UTF Auto Switch"
+msgstr "Comutare automată UTF"
+
+msgid "Create User via email"
+msgstr "Creați utilizator prin e-mail"
+
+msgid "Click here to insert Install."
+msgstr "Faceți clic aici pentru a introduce Instalare."
+
+msgid "Majestic Support Desktop Notifications plugin is not active."
+msgstr "Pluginul Majestic Support Desktop Notifications nu este activ."
+
+msgid "Find and add the Firebase API keys."
+msgstr "Găsiți și adăugați cheile API Firebase."
+
+msgid "Click here to get Firebase API keys."
+msgstr "Faceți clic aici pentru a obține cheile API Firebase."
+
+msgid "User's API Key"
+msgstr "Cheia API a utilizatorului"
+
+msgid "Firebase API key for the front user"
+msgstr "Cheia API Firebase pentru utilizatorul din față"
+
+msgid "Auth Domain"
+msgstr "Domeniu de autentificare"
+
+msgid "Firebase Auth Domain"
+msgstr "Domeniul de autentificare Firebase"
+
+msgid "Database Url"
+msgstr "Adresa URL a bazei de date"
+
+msgid "Firebase Database URL"
+msgstr "Adresa URL a bazei de date Firebase"
+
+msgid "Project ID"
+msgstr "ID proiect"
+
+msgid "Firebase Project ID"
+msgstr "ID-ul proiectului Firebase"
+
+msgid "Bucket Storage"
+msgstr "Depozitare cu găleată"
+
+msgid "Firebase Bucket Storage"
+msgstr "Firebase Bucket Storage"
+
+msgid "Message Sender ID"
+msgstr "ID-ul expeditorului mesajului"
+
+msgid "Firebase Message Sender ID"
+msgstr "ID-ul expeditorului de mesaje Firebase"
+
+msgid "Private Server Key"
+msgstr "Cheie de server privat"
+
+msgid "Firebase Server Key"
+msgstr "Cheia serverului Firebase"
+
+msgid "Logo Image for Desktop Notifications"
+msgstr "Imagine de siglă pentru notificări desktop"
+
+msgid "Remove Image"
+msgstr "Eliminați imaginea"
+
+msgid "Remove Logo"
+msgstr "Eliminați sigla"
+
+msgid "No Firebase Notification Logo"
+msgstr "Fără sigla de notificare Firebase"
+
+msgid "Secret Key"
+msgstr "Cheie secreta"
+
+msgid "Second Level Security"
+msgstr "Securitate al doilea nivel"
+
+msgid "For enhanced security, change the encryption method in %s on line %s"
+msgstr "Pentru securitate sporită, schimbați metoda de criptare în %s pe linia %s"
+
+msgid "Api Key"
+msgstr "Cheia API"
+
+msgid "Enter Envato api key "
+msgstr "Introduceți cheia API Envato"
+
+msgid "Click here to generate an api key"
+msgstr "Faceți clic aici pentru a genera o cheie API"
+
+msgid "License Mandatory"
+msgstr "Obligatoriu licenta"
+
+msgid "Product ID"
+msgstr "ID produs"
+
+msgid "A comma-separated list of Envato product ids"
+msgstr "O listă de coduri de produse Envato, separate prin virgulă"
+
+msgid "Enter MailChimp API key "
+msgstr "Introduceți cheia API MailChimp"
+
+msgid "Audience ID"
+msgstr "ID-ul publicului"
+
+msgid "Find Audience ID in your MailChimp account"
+msgstr "Găsiți ID-ul publicului în contul dvs. MailChimp"
+
+msgid "Enable double opt-in"
+msgstr "Activați înscrierea dublă"
+
+msgid "You must also enable double opt-in in your MailChimp account"
+msgstr "De asemenea, trebuie să activați double opt-in în contul dvs. MailChimp"
+
+msgid "Welcome email"
+msgstr "E-mail de bun venit"
+
+msgid "You can enable Final Welcome Email in your MailChimp account"
+msgstr "Puteți activa e-mailul final de bun venit în contul dvs. MailChimp"
+
+msgid "Verify License On Ticket Creation"
+msgstr "Verificați licența la crearea biletului"
+
+msgid "Captcha Setting"
+msgstr "Setare Captcha"
+
+msgid "Show captcha on registration form"
+msgstr "Afișați captcha pe formularul de înregistrare"
+
+msgid "Select whether you want to show captcha on the registration form or not"
+msgstr "Selectați dacă doriți să afișați captcha în formularul de înregistrare sau nu"
+
+msgid "Show captcha on the visitor ticket form"
+msgstr "Afișați captcha pe formularul de bilet pentru vizitator"
+
+msgid "Show captcha when a visitor wants to create a ticket"
+msgstr "Afișați captcha atunci când un vizitator dorește să creeze un bilet"
+
+msgid "Captcha selection"
+msgstr "Selectare Captcha"
+
+msgid "Which captcha do you want to add?"
+msgstr "Ce captcha vrei să adaugi?"
+
+msgid "Google reCaptcha"
+msgstr "Google reCaptcha"
+
+msgid "Google ReCaptcha version"
+msgstr "Versiunea Google ReCaptcha"
+
+msgid "Select the Google ReCaptcha version"
+msgstr "Selectați versiunea Google ReCaptcha"
+
+msgid "Google ReCaptcha site key"
+msgstr "Cheia site-ului Google ReCaptcha"
+
+msgid "Please enter the site key for Google ReCaptcha from"
+msgstr "Vă rugăm să introduceți cheia site-ului pentru Google ReCaptcha de la"
+
+msgid "Google ReCaptcha secret key"
+msgstr "Cheie secretă Google ReCaptcha"
+
+msgid "Please enter the secret key for Google ReCaptcha from"
+msgstr "Vă rugăm să introduceți cheia secretă pentru Google ReCaptcha de la"
+
+msgid "Own captcha calculation type"
+msgstr "Tip de calcul propriu captcha"
+
+msgid "Select the calculation type (addition or subtraction)"
+msgstr "Selectați tipul de calcul (adunare sau scădere)"
+
+msgid "Own captcha operands"
+msgstr "Operanzi captcha proprii"
+
+msgid "Select the total number of operands to be given"
+msgstr "Selectați numărul total de operanzi care trebuie dați"
+
+msgid "Positive Answer Upon Own Captcha Subtraction"
+msgstr "Răspuns pozitiv la scăderea proprie Captcha"
+
+msgid "watch video"
+msgstr "urmăriți videoclipul"
+
+msgid "Add"
+msgstr "Adăuga"
+
+msgid "Ticket via email"
+msgstr "Bilet prin e-mail"
+
+msgid "OR"
+msgstr "SAU"
+
+msgid "Sorry the cron job didnot work"
+msgstr "Îmi pare rău, treaba cron nu a funcționat"
+
+msgid "Update ticket status"
+msgstr "Actualizați starea biletului"
+
+msgid "You cannot use this email, it is used in email piping"
+msgstr "Nu puteți utiliza acest e-mail, este folosit în conductele de e-mail"
+
+msgid "The department has been stored"
+msgstr "Departamentul a fost depozitat"
+
+msgid "The department has not been stored"
+msgstr "Departamentul nu a fost stocat"
+
+msgid "The department has been deleted"
+msgstr "Departamentul a fost șters"
+
+msgid "The department has not been deleted"
+msgstr "Departamentul nu a fost șters"
+
+msgid "The department in use cannot be delete"
+msgstr "Departamentul în uz nu poate fi șters"
+
+msgid "Outgoing Email"
+msgstr "E-mail de ieșire"
+
+msgid "Select Email"
+msgstr "Selectați E-mail"
+
+msgid "Tickets of this department will receive emails from this email"
+msgstr "Biletele acestui departament vor primi e-mailuri din acest e-mail"
+
+msgid "Receive Email"
+msgstr "Primiți e-mail"
+
+msgid "Default with auto assign"
+msgstr "Implicit cu atribuire automată"
+
+msgid "Save Department"
+msgstr "Departamentul Salvare"
+
+msgid "Add New Email"
+msgstr "Adăugați un e-mail nou"
+
+msgid "The user of this department will receive an email with the new ticket"
+msgstr "Utilizatorul acestui departament va primi un e-mail cu noul bilet"
+
+msgid "Outgoing"
+msgstr "De ieșire"
+
+msgid "Click here to give us feedback"
+msgstr "Faceți clic aici pentru a ne oferi feedback"
+
+msgid "Email Already Exist"
+msgstr "Emailul există deja"
+
+msgid "The email has been stored"
+msgstr "E-mailul a fost stocat"
+
+msgid "The email has not been stored"
+msgstr "E-mailul nu a fost stocat"
+
+msgid "Ticket History"
+msgstr "Istoricul biletelor"
+
+msgid "False"
+msgstr "Fals"
+
+msgid "True"
+msgstr "Adevărat"
+
+msgid "Send Email By"
+msgstr "Trimite e-mail prin"
+
+msgid "SMTP host type"
+msgstr "tip de gazdă SMTP"
+
+msgid "SMTP host"
+msgstr "gazdă SMTP"
+
+msgid "SMTP Authentication"
+msgstr "Autentificare SMTP"
+
+msgid "SMTP Secure"
+msgstr "SMTP Securizat"
+
+msgid "SMTP Port"
+msgstr "Port SMTP"
+
+msgid "If the system doesnot respond in 30 seconds"
+msgstr "Dacă sistemul nu răspunde în 30 de secunde"
+
+msgid "Auto Response"
+msgstr "Răspuns automat"
+
+msgid "Some values are not acceptable please retry"
+msgstr "Unele valori nu sunt acceptabile, vă rugăm să reîncercați"
+
+msgid "info"
+msgstr "info"
+
+msgid "System email used for sending email"
+msgstr "E-mail de sistem utilizat pentru trimiterea e-mailului"
+
+msgid "Required Fields are not filled"
+msgstr "Câmpurile obligatorii nu sunt completate"
+
+msgid "Ban Email Try To Create Ticket"
+msgstr "Ban e-mail Încercați să creați un bilet"
+
+msgid "Ticket Priority Is Changed By"
+msgstr "Prioritatea biletului este modificată de"
+
+msgid "Data Deleted"
+msgstr "Date șterse"
+
+msgid "Body"
+msgstr "Corp"
+
+msgid "Parameters"
+msgstr "Parametrii"
+
+msgid "Tracking ID"
+msgstr "ID de urmărire"
+
+msgid "Ticket URL"
+msgstr "Adresa URL a biletului"
+
+msgid "Ticket Priority"
+msgstr "Prioritate bilet"
+
+msgid "Department title"
+msgstr "Titlul departamentului"
+
+msgid "Group Title"
+msgstr "Titlul grupului"
+
+msgid "Agent name"
+msgstr "Numele agentului"
+
+msgid "Help topic title"
+msgstr "Titlul subiectului de ajutor"
+
+msgid "Feedback URL"
+msgstr "Adresa URL de feedback"
+
+msgid "Ticket Subject"
+msgstr "Subiectul biletului"
+
+msgid "Ticket Tracking ID"
+msgstr "ID de urmărire a biletelor"
+
+msgid "Close Date"
+msgstr "Data închiderii"
+
+msgid "Save Email Template"
+msgstr "Salvați șablonul de e-mail"
+
+msgid "Note:"
+msgstr "Notă:"
+
+msgid "Features marked with"
+msgstr "Caracteristici marcate cu"
+
+msgid "are only available with its own addon."
+msgstr "sunt disponibile numai cu propriul supliment."
+
+msgid "Field mark as published"
+msgstr "Marcați câmpul ca fiind publicat"
+
+msgid "Field mark as unpublished"
+msgstr "Marcați câmpul ca nepublicat"
+
+msgid "Field cannot be mark as published"
+msgstr "Câmpul nu poate fi marcat ca publicat"
+
+msgid "Field mark as required"
+msgstr "Marcați câmpul după cum este necesar"
+
+msgid "Field mark as not required"
+msgstr "Marcați câmpul ca nu este obligatoriu"
+
+msgid "Field ordering down"
+msgstr "Comandarea câmpului în jos"
+
+msgid "Field ordering up"
+msgstr "Comandarea câmpului în sus"
+
+msgid "Parent field has not been stored"
+msgstr "Câmpul părinte nu a fost stocat"
+
+msgid "Please Insert At least one value for every option"
+msgstr "Vă rugăm să introduceți cel puțin o valoare pentru fiecare opțiune"
+
+msgid "Child fields has not been stored"
+msgstr "Câmpurile copil nu au fost stocate"
+
+msgid "Field has not been stored"
+msgstr "Câmpul nu a fost stocat"
+
+msgid "Field has been stored"
+msgstr "Câmpul a fost stocat"
+
+msgid "Field has been updated"
+msgstr "Câmpul a fost actualizat"
+
+msgid "Parent Field"
+msgstr "Câmpul Părinte"
+
+msgid "Edit Field"
+msgstr "Editare câmp"
+
+msgid "Field Title"
+msgstr "Titlul câmpului"
+
+msgid "User Published"
+msgstr "Utilizator publicat"
+
+msgid "Visitor Published"
+msgstr "Vizitator publicat"
+
+msgid "Required"
+msgstr "Necesar"
+
+msgid "User Search"
+msgstr "Căutare utilizator"
+
+msgid "Show On Listing"
+msgstr "Afișează pe listă"
+
+msgid "Advanced"
+msgstr "Avansat"
+
+msgid "Field has not been deleted"
+msgstr "Câmpul nu a fost șters"
+
+msgid "Field has been deleted"
+msgstr "Câmpul a fost șters"
+
+msgid "No response found"
+msgstr "Nu a fost găsit niciun răspuns"
+
+msgid "Equal"
+msgstr "Egal"
+
+msgid "Not Equal"
+msgstr "Nu este egal"
+
+msgid "Text Field"
+msgstr "Câmp text"
+
+msgid "Check Box"
+msgstr "Caseta de bifat"
+
+msgid "Drop Down"
+msgstr "Scapă jos"
+
+msgid "Text Area"
+msgstr "Zona de text"
+
+msgid "Radio Button"
+msgstr "Buton de radio"
+
+msgid "Upload File"
+msgstr "Incarca fisier"
+
+msgid "Multi Select"
+msgstr "Selectare multipla"
+
+msgid "Admin Only"
+msgstr "Doar administrator"
+
+msgid "Terms and Conditions"
+msgstr "Termeni și condiții"
+
+msgid "Dependent Field"
+msgstr "Câmp dependent"
+
+msgid "Field Type"
+msgstr "Tip câmp"
+
+msgid "Field Size"
+msgstr "Dimensiunea campului"
+
+msgid "Max Length"
+msgstr "Lungime maxima"
+
+msgid "Columns"
+msgstr "Coloane"
+
+msgid "Rows"
+msgstr "Rânduri"
+
+msgid "Select Parent"
+msgstr "Selectați Părinte"
+
+msgid "Select Child"
+msgstr "Selectați Copil"
+
+msgid "Select Condition"
+msgstr "Selectați Condiție"
+
+msgid "To use this feature, please fill in the above three fields."
+msgstr "Pentru a utiliza această funcție, vă rugăm să completați cele trei câmpuri de mai sus."
+
+msgid "Use the table below to add new values"
+msgstr "Utilizați tabelul de mai jos pentru a adăuga noi valori"
+
+msgid "Add Value"
+msgstr "Adaugă valoare"
+
+msgid "Terms and Conditions Text"
+msgstr "Textul Termenilor și Condițiilor"
+
+msgid "Terms and Conditions Link Type"
+msgstr "Termeni și condiții Tip link"
+
+msgid "Direct Link"
+msgstr "Link direct"
+
+msgid "Wordpress Page"
+msgstr "Pagina Wordpress"
+
+msgid "Select Link Type"
+msgstr "Selectați Tip link"
+
+msgid "Terms and Conditions Link"
+msgstr "Link Termeni și Condiții"
+
+msgid "Terms and Conditions Page"
+msgstr "Pagina de termeni și condiții"
+
+msgid "Select Wordpress page"
+msgstr "Selectați pagina Wordpress"
+
+msgid "Save Field"
+msgstr "Salvare câmp"
+
+msgid "User Publish"
+msgstr "Publicare utilizator"
+
+msgid "Visitor Publish"
+msgstr "Publicare vizitator"
+
+msgid "Published"
+msgstr "Publicat"
+
+msgid "Unpublished"
+msgstr "Nepublicat"
+
+msgid "Not required"
+msgstr "Nu este necesar"
+
+msgid "users popup"
+msgstr "pop-up pentru utilizatori"
+
+msgid "Can Not Unpublished"
+msgstr "Nu poate fi anulat"
+
+msgid "good"
+msgstr "bun"
+
+msgid "can not mark as not required"
+msgstr "nu se poate marca ca nenecesar"
+
+msgid "Cannot unpublished field"
+msgstr "Câmpul nu poate fi anulat"
+
+msgid "Please fill required fields."
+msgstr "Vă rugăm să completați câmpurile obligatorii."
+
+msgid "User Data"
+msgstr "Datele utilizatorului"
+
+msgid "Erasing data request has been stored"
+msgstr "Solicitarea de ștergere a datelor a fost stocată"
+
+msgid "Failed while storing"
+msgstr "A eșuat în timpul stocării"
+
+msgid "Erase data request withdrawn"
+msgstr "Solicitarea de ștergere a datelor a fost retrasă"
+
+msgid "Failed while performing action"
+msgstr "A eșuat în timpul efectuării acțiunii"
+
+msgid "User identifying data erased"
+msgstr "Datele de identificare ale utilizatorului au fost șterse"
+
+msgid "User data Deleted"
+msgstr "Datele utilizatorului au fost șterse"
+
+msgid "Export your data"
+msgstr "Exportați datele dvs"
+
+msgid "You have filed a request to remove your data."
+msgstr "Ați depus o cerere de eliminare a datelor dvs."
+
+msgid "To withdraw erases data request"
+msgstr "Pentru a retrage șterge datele solicitate"
+
+msgid "Request the removal of data from the system."
+msgstr "Solicitați ștergerea datelor din sistem."
+
+msgid "Field Text"
+msgstr "Textul câmpului"
+
+msgid "Link Type"
+msgstr "Tip link"
+
+msgid "Link Page"
+msgstr "Pagina de link"
+
+msgid "User Email"
+msgstr "E-mailul utilizatorului"
+
+msgid "Request Status"
+msgstr "Starea cererii"
+
+msgid "Awaiting response"
+msgstr "Astept raspuns"
+
+msgid "Erased identifying data"
+msgstr "Date de identificare șterse"
+
+msgid "Deleted"
+msgstr "Șters"
+
+msgid "Erase identifying data"
+msgstr "Ștergeți datele de identificare"
+
+msgid "Are you sure to erase identifying data"
+msgstr "Sunteți sigur că veți șterge datele de identificare"
+
+msgid "Delete data"
+msgstr "Ștergeți datele"
+
+msgid "Link"
+msgstr "Legătură"
+
+msgid "Direct URL"
+msgstr "URL direct"
+
+msgid "Page Title or URL"
+msgstr "Titlul paginii sau adresa URL"
+
+msgid "Cannot open file"
+msgstr "Nu pot deschide fisierul"
+
+msgid "The new theme has been applied"
+msgstr "Noua temă a fost aplicată"
+
+msgid "Error applying the new theme"
+msgstr "Eroare la aplicarea noii teme"
+
+msgid "Dir is not writable"
+msgstr "Dir nu poate fi scris"
+
+msgid "Unable to connect to the server"
+msgstr "Nu se poate conecta la server"
+
+msgid "Language is not installed"
+msgstr "Limba nu este instalată"
+
+msgid "Language directory is not writable"
+msgstr "Directorul de limbă nu poate fi scris"
+
+msgid "Required language is not installed but similar language like"
+msgstr "Limba necesară nu este instalată, dar este similară limbajului"
+
+msgid "is found in your system"
+msgstr "se găsește în sistemul dvs"
+
+msgid "Language code"
+msgstr "Cod de limbă"
+
+msgid "Empty values"
+msgstr "Valori goale"
+
+msgid "File is not writable"
+msgstr "Fișierul nu poate fi scris"
+
+msgid "File successfully downloaded"
+msgstr "Fișierul a fost descărcat cu succes"
+
+msgid "User ID"
+msgstr "ID-ul de utilizator"
+
+msgid "Ordering updated"
+msgstr "Comanda actualizată"
+
+msgid "Missing user(s) added successfully!"
+msgstr "Utilizatori lipsă(i) adăugat(i) cu succes!"
+
+msgid "No missing user found!"
+msgstr "Nu a fost găsit niciun utilizator lipsă!"
+
+msgid "How to translate Majestic Support"
+msgstr "Cum se traduce Majestic Support"
+
+msgid "arrow"
+msgstr "săgeată"
+
+msgid "Remove All"
+msgstr "Inlătură tot"
+
+msgid "How to create ticket"
+msgstr "Cum se creează un bilet"
+
+msgid "Add Field"
+msgstr "Adăugați câmp"
+
+msgid "How to setup user fields"
+msgstr "Cum se configurează câmpurile utilizator"
+
+msgid "reset"
+msgstr "resetare"
+
+msgid "Reset All"
+msgstr "Reseteaza tot"
+
+msgid "How to set smartreply"
+msgstr "Cum să setați răspunsul inteligent"
+
+msgid "Add Multiform"
+msgstr "Adăugați Multiform"
+
+msgid "How to set multiforms"
+msgstr "Cum să setați multiforme"
+
+msgid "Add Conditions"
+msgstr "Adăugați condiții"
+
+msgid "Conditions"
+msgstr "Condiții"
+
+msgid "How to add Shortcode"
+msgstr "Cum să adăugați Shortcode"
+
+msgid "How to set colors"
+msgstr "Cum se stabilesc culorile"
+
+msgid "Export Data"
+msgstr "Export de date"
+
+msgid "Add Email Piping"
+msgstr "Adăugați conducte de e-mail"
+
+msgid "Add GDPR Field"
+msgstr "Adăugați câmpul GDPR"
+
+msgid "Add Depertment"
+msgstr "Adăugați departament"
+
+msgid "Add Knowledge base"
+msgstr "Adăugați o bază de cunoștințe"
+
+msgid "How to use Knowledge Base"
+msgstr "Cum să utilizați baza de cunoștințe"
+
+msgid "How to use downloads"
+msgstr "Cum se utilizează descărcări"
+
+msgid "How to create FAQ"
+msgstr "Cum se creează întrebări frecvente"
+
+msgid "How to add announcement"
+msgstr "Cum să adăugați un anunț"
+
+msgid "Add Help Topics"
+msgstr "Adăugați subiecte de ajutor"
+
+msgid "How to use help topic"
+msgstr "Cum se folosește subiectul de ajutor"
+
+msgid "How to set SMTP"
+msgstr "Cum se setează SMTP"
+
+msgid "Add Banned Email"
+msgstr "Adăugați e-mail interzis"
+
+msgid "How to use email cc"
+msgstr "Cum se utilizează e-mailul cc"
+
+msgid "Configuration"
+msgstr "Configurare"
+
+msgid "Reasons"
+msgstr "Motive"
+
+msgid "About Majestic Support"
+msgstr "Despre Majestic Support"
+
+msgid "Our Products"
+msgstr "Produsele noastre"
+
+msgid "Wp Job Portal"
+msgstr "Portalul de locuri de muncă Wp"
+
+msgid "New Tickets"
+msgstr "Bilete noi"
+
+msgid "addon"
+msgstr "add-on"
+
+msgid "Answered Tickets"
+msgstr "Bilete cu răspuns"
+
+msgid "Pending Tickets"
+msgstr "Bilete în așteptare"
+
+msgid "Overdue Tickets"
+msgstr "Bilete restante"
+
+msgid "Update"
+msgstr "Actualizați"
+
+msgid "View Addone Status"
+msgstr "Vedeți starea adăugării"
+
+msgid "Today Tickets"
+msgstr "Astazi Bilete"
+
+msgid "Statistics"
+msgstr "Statistici"
+
+msgid "View All Tickets"
+msgstr "Vezi toate biletele"
+
+msgid "Quick Links"
+msgstr "Legături rapide"
+
+msgid "email template"
+msgstr "șablon de e-mail"
+
+msgid "add missing users"
+msgstr "adăugați utilizatorii lipsă"
+
+msgid "user"
+msgstr "utilizator"
+
+msgid "Sync WP Users"
+msgstr "Sincronizați utilizatorii WP"
+
+msgid "Add New Smart Reply"
+msgstr "Adăugați un nou răspuns inteligent"
+
+msgid "Suggest a quick and most relevant reply to the customer's query."
+msgstr "Sugerați un răspuns rapid și cel mai relevant la întrebarea clientului."
+
+msgid "Add Reply"
+msgstr "Adăugați răspuns"
+
+msgid "Add New Agent"
+msgstr "Adăugați un agent nou"
+
+msgid "Agent Add-on Not Installed"
+msgstr "Suplimentul agent nu este instalat"
+
+msgid "Don't limit yourself—install the Agent addon for maximum productivity."
+msgstr "Nu vă limitați - instalați suplimentul Agent pentru productivitate maximă."
+
+msgid "agent addone"
+msgstr "agent suplimentar"
+
+msgid "Install Agent Addon"
+msgstr "Instalați Addon Agent"
+
+msgid "Tickets By Priority"
+msgstr "Bilete cu prioritate"
+
+msgid "Install Addone"
+msgstr "Instalați Addon"
+
+msgid "Add-ons"
+msgstr "Suplimente"
+
+msgid "View Details"
+msgstr "Vezi detalii"
+
+msgid "Version"
+msgstr "Versiune"
+
+msgid "Auto Close Ticket"
+msgstr "Biletul de închidere automată"
+
+msgid "Private Note"
+msgstr "Notă privată"
+
+msgid "Max Ticket"
+msgstr "Biletul maxim"
+
+msgid "Max Tickets"
+msgstr "Max Bilete"
+
+msgid "Merge Tickets"
+msgstr "Merge Biletele"
+
+msgid "Time Tracking"
+msgstr "Urmărirea timpului"
+
+msgid "User Options"
+msgstr "Opțiuni utilizator"
+
+msgid "Actions"
+msgstr "Acțiuni"
+
+msgid "Ticket Actions"
+msgstr "Acțiuni cu bilete"
+
+msgid "Desktop Notifications"
+msgstr "Notificări pe ecran"
+
+msgid "Admin Widgets"
+msgstr "Widgeturi de administrare"
+
+msgid "Internal Mail"
+msgstr "Poșta internă"
+
+msgid "Front-End Widgets"
+msgstr "Widgeturi front-end"
+
+msgid "mailchimp"
+msgstr "mailchimp"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid "paidsupport"
+msgstr "suport plătit"
+
+msgid "easy digital download"
+msgstr "descărcare digitală ușoară"
+
+msgid "Easy Digital Download"
+msgstr "Descărcare digitală ușoară"
+
+msgid "Multi Language Email Templates"
+msgstr "Șabloane de e-mail în mai multe limbi"
+
+msgid "Email Cc"
+msgstr "E-mail Cc"
+
+msgid "Multi Forms"
+msgstr "Forme multiple"
+
+msgid "Ticket Closed Reason"
+msgstr "Motiv pentru bilet închis"
+
+msgid "Quick Installation Guide"
+msgstr "Ghid de Instalare Rapida"
+
+msgid "How To Setup"
+msgstr "Cum se configurează"
+
+msgid "Ticket Creation"
+msgstr "Crearea biletelor"
+
+msgid "Fields Manager"
+msgstr "Manager de câmpuri"
+
+msgid "Email Notification Problems"
+msgstr "Probleme de notificare prin e-mail"
+
+msgid "Premium Addons List"
+msgstr "Lista de suplimente premium"
+
+msgid "Features"
+msgstr "Caracteristici"
+
+msgid "The best support system plugin for WordPress has everything you need."
+msgstr "Cel mai bun plugin de sistem de asistență pentru WordPress are tot ce aveți nevoie."
+
+msgid "Addons"
+msgstr "Suplimente"
+
+msgid "All Add-ons"
+msgstr "Toate suplimentele"
+
+msgid "Add New Add-ons"
+msgstr "Adăugați suplimente noi"
+
+msgid "New Update Version"
+msgstr "Noua versiune de actualizare"
+
+msgid "is Available"
+msgstr "este disponibil"
+
+msgid "Help icon"
+msgstr "Pictograma Ajutor"
+
+msgid "Videos Guidance"
+msgstr "Ghid video"
+
+msgid "View all videos"
+msgstr "Vizualizați toate videoclipurile"
+
+msgid "Video icon"
+msgstr "Pictograma video"
+
+msgid "View All Videos"
+msgstr "Vizualizați toate videoclipurile"
+
+msgid "Majestic Support icon"
+msgstr "Pictograma Suport Majestic"
+
+msgid "Contact Us For Support"
+msgstr "Contactați-ne pentru asistență"
+
+msgid "Submit ticket"
+msgstr "Trimite biletul"
+
+msgid "Visitor ticket creation"
+msgstr "Crearea biletului de vizitator"
+
+msgid "How to set ticket auto close"
+msgstr "Cum să setați închiderea automată a biletului"
+
+msgid "How to reopen closed ticket"
+msgstr "Cum se redeschide biletul închis"
+
+msgid "How to lock a ticket"
+msgstr "Cum să blochezi un bilet"
+
+msgid "How to add private note"
+msgstr "Cum să adăugați o notă privată"
+
+msgid "View ticket history"
+msgstr "Vezi istoricul biletelor"
+
+msgid "How to setup custom fields"
+msgstr "Cum să configurați câmpuri personalizate"
+
+msgid "Set ticket auto overdue"
+msgstr "Setați biletul ca întârziere automată"
+
+msgid "Manually set ticket overdue"
+msgstr "Setați manual biletul întârziat"
+
+msgid "How to merge tickets"
+msgstr "Cum să îmbinați biletele"
+
+msgid "How to export tickets"
+msgstr "Cum se exportă bilete"
+
+msgid "How use help topic"
+msgstr "Cum folosești subiectul de ajutor"
+
+msgid "How to change department"
+msgstr "Cum să schimbi departamentul"
+
+msgid "How to use multi-forms"
+msgstr "Cum să utilizați formele multiple"
+
+msgid "How to paid support"
+msgstr "Cum să ai suport plătit"
+
+msgid "How to use premade response"
+msgstr "Cum să utilizați răspunsul prefabricat"
+
+msgid "How to add private credentials"
+msgstr "Cum să adăugați acreditări private"
+
+msgid "How to ban/unban user"
+msgstr "Cum se interzice/anulează utilizatorul"
+
+msgid "Agent system"
+msgstr "Sistem agent"
+
+msgid "Manually assign ticket to agen"
+msgstr "Atribuiți manual biletul la agen"
+
+msgid "Manually assign ticket to agent"
+msgstr "Atribuiți manual biletul agentului"
+
+msgid "How to edit time"
+msgstr "Cum se editează ora"
+
+msgid "How to use time tracking"
+msgstr "Cum să utilizați urmărirea timpului"
+
+msgid "How to use smart replies"
+msgstr "Cum să folosiți răspunsurile inteligente"
+
+msgid "Configurations"
+msgstr "Configurații"
+
+msgid "How to set max open ticket"
+msgstr "Cum să setați biletul de deschidere maximă"
+
+msgid "How to show counts"
+msgstr "Cum să arăți numărătoarea"
+
+msgid "How to set Captcha"
+msgstr "Cum să setați Captcha"
+
+msgid "User options"
+msgstr "Opțiuni pentru utilizator"
+
+msgid "How to set login redirect"
+msgstr "Cum să setați redirecționarea pentru autentificare"
+
+msgid "How to set fields ordering"
+msgstr "Cum să setați ordinea câmpurilor"
+
+msgid "How to enable social login"
+msgstr "Cum să activați autentificarea socială"
+
+msgid "Setup"
+msgstr "Înființat"
+
+msgid "How to setup"
+msgstr "Cum se configurează"
+
+msgid "How to enable email piping"
+msgstr "Cum să activați canalizarea e-mailului"
+
+msgid "How to solve email notification problem"
+msgstr "Cum se rezolvă problema notificării prin e-mail"
+
+msgid "How to translate"
+msgstr "Cum se traduce"
+
+msgid "How to install addons"
+msgstr "Cum se instalează suplimente"
+
+msgid "How to Desktop Notifications"
+msgstr "Cum se fac notificări pe desktop"
+
+msgid "and"
+msgstr "și"
+
+msgid "How to use knowledge base"
+msgstr "Cum se utilizează baza de cunoștințe"
+
+msgid "Misc"
+msgstr "Diverse"
+
+msgid "How to use internal mail"
+msgstr "Cum se utilizează poșta internă"
+
+msgid "Use front-end widgets"
+msgstr "Utilizați widget-uri front-end"
+
+msgid "How to enable admin widgets"
+msgstr "Cum să activați widget-urile de administrare"
+
+msgid "Majestic Support / Majestic Support Control Panel"
+msgstr "Majestic Support / Panoul de control Majestic Support"
+
+msgid "Majestic Support / Majestic Support main control panel"
+msgstr "Majestic Support / Panoul de control principal Majestic Support"
+
+msgid "Add new ticket form for both the user and the agent"
+msgstr "Adăugați un formular de bilet nou atât pentru utilizator, cât și pentru agent"
+
+msgid "Add Ticket Using Multiform"
+msgstr "Adăugați un bilet folosind Multiform"
+
+msgid "My tickets for both user and agent"
+msgstr "Biletele mele atât pentru utilizator, cât și pentru agent"
+
+msgid "Show latest downloads. Options"
+msgstr "Afișează cele mai recente descărcări. Opțiuni"
+
+msgid "i.e."
+msgstr "adică"
+
+msgid "Popular Downloads"
+msgstr "Descărcări populare"
+
+msgid "Show popular downloads. Options"
+msgstr "Afișați descărcări populare. Opțiuni"
+
+msgid "Show latest knowledge base. Options"
+msgstr "Afișați cea mai recentă bază de cunoștințe. Opțiuni"
+
+msgid "Show popular knowledge base. Options"
+msgstr "Afișați baza de cunoștințe populare. Opțiuni"
+
+msgid "List FAQs"
+msgstr "Listează întrebări frecvente"
+
+msgid "Show latest FAQs. Options"
+msgstr "Afișați cele mai recente întrebări frecvente. Opțiuni"
+
+msgid "Popular FAQs"
+msgstr "Întrebări frecvente populare"
+
+msgid "Show popular FAQs. Options"
+msgstr "Afișați întrebări frecvente populare. Opțiuni"
+
+msgid "Show latest announcements. Options"
+msgstr "Afișează cele mai recente anunțuri. Opțiuni"
+
+msgid "Popular Announcements"
+msgstr "Anunturi populare"
+
+msgid "Show popular announcements. Options"
+msgstr "Afișați anunțuri populare. Opțiuni"
+
+msgid "Get"
+msgstr "obține"
+
+msgid "Translation"
+msgstr "Traducere"
+
+msgid "c error"
+msgstr "c eroare"
+
+msgid "saved"
+msgstr "salvat"
+
+msgid "Contribute In Translation"
+msgstr "Contribuie la traducere"
+
+msgid "translate"
+msgstr "Traduceți"
+
+msgid "Manual Download"
+msgstr "Descărcare manuală"
+
+msgid "Log In"
+msgstr "Log in"
+
+msgid "Log Out"
+msgstr "Deconectați-vă"
+
+msgid "Agent Feedback"
+msgstr "Feedback agent"
+
+msgid "Dashboard Menu"
+msgstr "Meniul tabloului de bord"
+
+msgid "Open Tickets"
+msgstr "Deschide Biletele"
+
+msgid "Closed Tickets"
+msgstr "Bilete închise"
+
+msgid "This ticket is marked as overdue"
+msgstr "Acest bilet este marcat ca întârziat"
+
+msgid "View All Downloads"
+msgstr "Vedeți toate descărcările"
+
+msgid "View All Announcements"
+msgstr "Vedeți toate anunțurile"
+
+msgid "View All Knowledge Base"
+msgstr "Vedeți toată baza de cunoștințe"
+
+msgid "View All FAQs"
+msgstr "Vedeți toate întrebările frecvente"
+
+msgid "Keep me login"
+msgstr "Păstrează-mă în logare"
+
+msgid "Repeat Password"
+msgstr "Repetați parola"
+
+msgid "Subscribe to the newsletter"
+msgstr "Abonați-vă la newsletter"
+
+msgid "has been changed"
+msgstr "a fost schimbat"
+
+msgid "has not been changed"
+msgstr "nu a fost schimbat"
+
+msgid "Majestic Support Settings"
+msgstr "Setări de asistență Majestic"
+
+msgid "Step 4 of "
+msgstr "Pasul 4 din"
+
+msgid "Complete"
+msgstr "Complet"
+
+msgid "Setting you applied has been saved successfully."
+msgstr "Setarea aplicată a fost salvată cu succes."
+
+msgid "Finish"
+msgstr "finalizarea"
+
+msgid "Settings Complete"
+msgstr "Setări finalizate"
+
+msgid "Ticket Setting"
+msgstr "Setarea biletului"
+
+msgid "Step 1 of "
+msgstr "Pasul 1 din"
+
+msgid "Enter the site title"
+msgstr "Introduceți titlul site-ului"
+
+msgid "Date format for plugin"
+msgstr "Format de dată pentru plugin"
+
+msgid "Show Breadcrumbs"
+msgstr "Afișați pesmet"
+
+msgid "Show navigation in breadcrumbs"
+msgstr "Afișați navigarea în breadcrumbs"
+
+msgid "Upload file size in KB's"
+msgstr "Încărcați dimensiunea fișierului în KB"
+
+msgid "File Extension"
+msgstr "Extensie de fișier"
+
+msgid "Show count on my tickets"
+msgstr "Arată numărul de bilete"
+
+msgid "Next Setup"
+msgstr "Următoarea configurare"
+
+msgid "Sequential"
+msgstr "Secvenţial"
+
+msgid "Step 3 of "
+msgstr "Pasul 3 din"
+
+msgid "Set Email Delay Time"
+msgstr "Setați timpul de întârziere pentru e-mail"
+
+msgid " :"
+msgstr ":"
+
+msgid "Set Email Delay"
+msgstr "Setați întârzierea e-mailului"
+
+msgid "Back"
+msgstr "Înapoi"
+
+msgid "Step 2 of "
+msgstr "Pasul 2 din"
+
+msgid "Visitor can create ticket"
+msgstr "Vizitatorul poate crea bilet"
+
+msgid "Enable/Disable Open Ticket"
+msgstr "Activați/dezactivați biletul deschis"
+
+msgid "Set ticket id sequential or random"
+msgstr "Setați ID-ul biletului secvenţial sau aleatoriu"
+
+msgid "Maximum Tickets"
+msgstr "Bilete maxime"
+
+msgid "Set Maximum Ticket Per user"
+msgstr "Setați biletul maxim per utilizator"
+
+msgid "Maximum Open Ticket"
+msgstr "Biletul maxim deschis"
+
+msgid "Reopen ticket within Days"
+msgstr "Redeschideți biletul în câteva zile"
+
+msgid "The ticket can be reopened within a given number of days"
+msgstr "Biletul poate fi redeschis într-un anumit număr de zile"
+
+msgid "Show Captcha to visitor on ticket form"
+msgstr "Arată Captcha vizitatorului pe formularul de bilet"
+
+msgid "Enable/Disable Captcha on Ticket Form"
+msgstr "Activați/dezactivați Captcha pe formularul de bilet"
+
+msgid "Own Captcha operands"
+msgstr "Operanzi Captcha proprii"
+
+msgid "Select the total operands to be given"
+msgstr "Selectați totalul operanzilor care urmează să fie dați"
+
+msgid "Own captcha subtraction answer positive"
+msgstr "Răspuns propriu cu scădere captcha pozitiv"
+
+msgid "Enable/Disable Own Captcha subtraction"
+msgstr "Activați/dezactivați scăderea proprie Captcha"
+
+msgid "Enable Print Ticket"
+msgstr "Activați tipărirea biletului"
+
+msgid "Enable/Disable Print Ticket"
+msgstr "Activați/dezactivați tipărirea biletului"
+
+msgid "Download Translation File"
+msgstr "Descărcați fișierul de traducere"
+
+msgid "Download & Next"
+msgstr "Descărcați și Următorul"
+
+msgid "Skip this step"
+msgstr "Sari peste acest pas"
+
+msgid "Please insert activation key to proceed"
+msgstr "Vă rugăm să introduceți cheia de activare pentru a continua"
+
+msgid "Addon Installation Failed"
+msgstr "Instalarea suplimentului a eșuat"
+
+msgid "Addon installation failed"
+msgstr "Instalarea suplimentului a eșuat"
+
+msgid "Addon Installation Failed, File download error"
+msgstr "Instalarea suplimentului a eșuat, eroare de descărcare a fișierului"
+
+msgid "Deactivate"
+msgstr "Dezactivați"
+
+msgid "Deactivated"
+msgstr "Dezactivat"
+
+msgid "Activate"
+msgstr "Activati"
+
+msgid "Not Installed"
+msgstr "Nu este instalat"
+
+msgid "Addon Installed Successfully"
+msgstr "Addon instalat cu succes"
+
+msgid "Ticket Auto Close"
+msgstr "Închidere automată a biletului"
+
+msgid "Canned Response"
+msgstr "Răspuns conservat"
+
+msgid "Desktop Notification"
+msgstr "Notificare desktop"
+
+msgid "Front-end Widgets"
+msgstr "Widgeturi front-end"
+
+msgid "Multi-Language Emails"
+msgstr "E-mailuri în mai multe limbi"
+
+msgid "left image"
+msgstr "imaginea din stânga"
+
+msgid "right image"
+msgstr "imaginea dreapta"
+
+msgid "Add-ons For Majestic Support"
+msgstr "Suplimente pentru asistență Majestic"
+
+msgid "Save big today with an exclusive membership plan!"
+msgstr "Economisiți mult astăzi cu un plan de membru exclusiv!"
+
+msgid "show bundle pack"
+msgstr "arată pachetul de pachete"
+
+msgid "buy now"
+msgstr "Cumpără acum"
+
+msgid "Installed"
+msgstr "Instalat"
+
+msgid "agent auto assign"
+msgstr "atribuire automată a agentului"
+
+msgid "private note"
+msgstr "nota privată"
+
+msgid "merge tickets"
+msgstr "îmbinare bilete"
+
+msgid "helptopic"
+msgstr "topic de ajutor"
+
+msgid "time tracking"
+msgstr "urmărirea timpului"
+
+msgid "Ticket close reason"
+msgstr "Motivul apropiat al biletului"
+
+msgid "max ticket"
+msgstr "bilet maxim"
+
+msgid "ticket actions"
+msgstr "actiuni de bilete"
+
+msgid "email cc"
+msgstr "email cc"
+
+msgid "user options"
+msgstr "opțiunile utilizatorului"
+
+msgid "admin widgets"
+msgstr "widget-uri de administrare"
+
+msgid "desktop notifications"
+msgstr "notificări pe ecran"
+
+msgid "woocommerce"
+msgstr "woocommerce"
+
+msgid "mail chimp"
+msgstr "mailchimp"
+
+msgid "Mail Chimp"
+msgstr "Mailchimp"
+
+msgid "internal mail"
+msgstr "poștă internă"
+
+msgid "frontend widget"
+msgstr "widget-ul frontend"
+
+msgid "Majestic Support Add-ons Bundle Pack"
+msgstr "Pachet de suplimente de asistență Majestic"
+
+msgid "Basic"
+msgstr "De bază"
+
+msgid "Unlimited Agents"
+msgstr "Agenți nelimitați"
+
+msgid "Helptopic"
+msgstr "Topic de ajutor"
+
+msgid "Show all"
+msgstr "Arata tot"
+
+msgid "Standard"
+msgstr "Standard"
+
+msgid "Everything in basic included and "
+msgstr "Totul în bază inclus și"
+
+msgid "Professional"
+msgstr "Profesional"
+
+msgid "Everything in standard included and"
+msgstr "Totul in standard inclus si"
+
+msgid "All Future Addons"
+msgstr "Toate suplimentele viitoare"
+
+msgid "Status: "
+msgstr "Stare:"
+
+msgid "addon in no longer active"
+msgstr "suplimentul nu mai este activ"
+
+msgid "Please Insert Your Activation Key"
+msgstr "Vă rugăm să introduceți cheia de activare"
+
+msgid "XXXX-XXXX-XXXXX-XXXXX"
+msgstr "XXXX-XXXX-XXXX-XXXX"
+
+msgid "Proceed"
+msgstr "Continua"
+
+msgid "Majestic Support Addon Installer"
+msgstr "Instalator de suplimente de asistență Majestic"
+
+msgid "Select All Addons"
+msgstr "Selectați Toate suplimentele"
+
+msgid "All allowed add ons are already installed"
+msgstr "Toate suplimentele permise sunt deja instalate"
+
+msgid "You are not allowed to install any add on"
+msgstr "Nu aveți voie să instalați niciun supliment"
+
+msgid "Addons Installed Successfully"
+msgstr "Suplimente instalate cu succes"
+
+msgid "Open Dashboard"
+msgstr "Deschideți tabloul de bord"
+
+msgid "Open Plugins Page"
+msgstr "Deschideți pagina de pluginuri"
+
+msgid "Page Not Found !!"
+msgstr "Pagina nu a fost gasita !!"
+
+msgid "Priority Title Already Exist"
+msgstr "Titlul prioritar există deja"
+
+msgid "Priority has been stored"
+msgstr "Prioritatea a fost stocată"
+
+msgid "Priority has not been stored"
+msgstr "Prioritatea nu a fost stocată"
+
+msgid "Priority has been deleted"
+msgstr "Prioritatea a fost ștearsă"
+
+msgid "Priority has not been deleted"
+msgstr "Prioritatea nu a fost ștearsă"
+
+msgid "Default priority cannot delete"
+msgstr "Prioritatea implicită nu poate fi ștearsă"
+
+msgid "Priority has been make default"
+msgstr "Prioritatea a fost implicită"
+
+msgid "Priority has not been make default"
+msgstr "Prioritatea nu a fost implicită"
+
+msgid "Ticket Overdue Interval Type"
+msgstr "Tip de interval de întârziere a biletului"
+
+msgid "Save Priority"
+msgstr "Prioritate de salvare"
+
+msgid "Date Interval"
+msgstr "Interval de date"
+
+msgid "Reply posted"
+msgstr "Răspuns postat"
+
+msgid "Reply posted on ticket"
+msgstr "Răspunsul a fost postat pe bilet"
+
+msgid "Guest"
+msgstr "Oaspete"
+
+msgid "Ticket is replied by"
+msgstr "Biletul este răspuns de"
+
+msgid "Reply Has been Posted"
+msgstr "Răspunsul a fost postat"
+
+msgid "Reply Has Not been Posted"
+msgstr "Răspunsul nu a fost postat"
+
+msgid "Dates"
+msgstr "Datele"
+
+msgid "Department Statistics"
+msgstr "Departamentul Statistica"
+
+msgid "answered ticket"
+msgstr "a răspuns bilet"
+
+msgid "pending ticket"
+msgstr "bilet în așteptare"
+
+msgid "overdue ticket"
+msgstr "bilet restante"
+
+msgid "Time Taken"
+msgstr "Timp luat"
+
+msgid "Merged and closed"
+msgstr "Fuzionat și închis"
+
+msgid "Out of"
+msgstr "Din"
+
+msgid "Overall Report"
+msgstr "Raport general"
+
+msgid "Ticket by departments"
+msgstr "Bilete pe departamente"
+
+msgid "Agent Tickets"
+msgstr "Bilete de agent"
+
+msgid "all ticket"
+msgstr "toate biletele"
+
+msgid "Tickets By Status And Priorities"
+msgstr "Bilete după statut și priorități"
+
+msgid "Tickets By Agents"
+msgstr "Bilete de către agenți"
+
+msgid "Staff Reports"
+msgstr "Rapoartele de personal"
+
+msgid "Based on"
+msgstr "Bazat pe"
+
+msgid "Customer Satisfaction"
+msgstr "Satisfacția clientului"
+
+msgid "satisfaction image"
+msgstr "imaginea de satisfacție"
+
+msgid "Excellent"
+msgstr "Excelent"
+
+msgid "NA"
+msgstr "N / A"
+
+msgid "Happy"
+msgstr "Fericit"
+
+msgid "bad"
+msgstr "rău"
+
+msgid "Sad"
+msgstr "Trist"
+
+msgid "Angry"
+msgstr "Furios"
+
+msgid "Agent Statistics"
+msgstr "Statistica agentului"
+
+msgid "staff image"
+msgstr "imaginea personalului"
+
+msgid "Average rating"
+msgstr "Rata medie"
+
+msgid "Average time"
+msgstr "Timp mediu"
+
+msgid "Tickets not assigned to the agent"
+msgstr "Biletele nu au fost atribuite agentului"
+
+msgid "Minutes"
+msgstr "Minute"
+
+msgid "Report By Agent"
+msgstr "Raport de către agent"
+
+msgid "User Statistics"
+msgstr "Statistici utilizatori"
+
+msgid "Users"
+msgstr "Utilizatori"
+
+msgid "Tickets by departments"
+msgstr "Bilete pe departamente"
+
+msgid "Ticket Status By Departments"
+msgstr "Starea biletului pe departamente"
+
+msgid "Agent detail Report"
+msgstr "Raport detaliat agent"
+
+msgid "Agent Report"
+msgstr "Raportul agentului"
+
+msgid "Reports Statistics"
+msgstr "Statistici rapoarte"
+
+msgid "Slugs/Slug has been stored"
+msgstr "Slugs/Slug a fost stocat"
+
+msgid "Prefix has not been stored"
+msgstr "Prefixul nu a fost stocat"
+
+msgid "Prefix has been stored"
+msgstr "Prefixul a fost stocat"
+
+msgid "Home Slug"
+msgstr "Home Slug"
+
+msgid "Prefix"
+msgstr "Prefix"
+
+msgid "This prefix will be added to the slug in case of homepage links."
+msgstr "Acest prefix va fi adăugat la slug în cazul legăturilor către pagina de pornire."
+
+msgid "This prefix will be added to the slug in case of conflict."
+msgstr "Acest prefix va fi adăugat la slug în caz de conflict."
+
+msgid "Search By Slug"
+msgstr "Căutare după Slug"
+
+msgid "Slug List"
+msgstr "Lista de melci"
+
+msgid "edit"
+msgstr "Editați | ×"
+
+msgid "This button will only save slugs on the current page"
+msgstr "Acest buton va salva numai slug-uri pe pagina curentă"
+
+msgid "Smart Reply Title Already Exist"
+msgstr "Titlul de răspuns inteligent există deja"
+
+msgid "Smart Reply has been stored"
+msgstr "Răspuns inteligent a fost stocat"
+
+msgid "Smart Reply has not been stored"
+msgstr "Răspuns inteligent nu a fost stocat"
+
+msgid "Smart Reply has been deleted"
+msgstr "Răspuns inteligent a fost șters"
+
+msgid "Smart Reply has not been deleted"
+msgstr "Răspuns inteligent nu a fost șters"
+
+msgid "Enter Ticket Subject"
+msgstr "Introduceți subiectul biletului"
+
+msgid "delete"
+msgstr "șterge"
+
+msgid "Save Smart Reply"
+msgstr "Salvați răspuns inteligent"
+
+msgid "System error has been deleted"
+msgstr "Eroare de sistem a fost ștearsă"
+
+msgid "System error has not been deleted"
+msgstr "Eroare de sistem nu a fost ștearsă"
+
+msgid "Color Chooser"
+msgstr "Selector de culoare"
+
+msgid "Preset Theme"
+msgstr "Tema presetată"
+
+msgid "Top Menu Heading Background"
+msgstr "Fundalul titlului meniului de sus"
+
+msgid "Top Header Line Color"
+msgstr "Culoarea liniei antetului de sus"
+
+msgid "Button Hover"
+msgstr "Buton Hover"
+
+msgid "Heading Text"
+msgstr "Textul titlului"
+
+msgid "Content Background Color"
+msgstr "Culoare de fundal de conținut"
+
+msgid "Content Text Color"
+msgstr "Culoarea textului conținutului"
+
+msgid "Border Color"
+msgstr "Culoarea chenarului"
+
+msgid "Lines"
+msgstr "Linii"
+
+msgid "Button Color"
+msgstr "Culoare Buton"
+
+msgid "Top Header Text Color"
+msgstr "Culoarea textului antetului de sus"
+
+msgid "Save Colors"
+msgstr "Salvați culorile"
+
+msgid "Color Effect Preview"
+msgstr "Previzualizare efect de culoare"
+
+msgid "Submit Ticket  "
+msgstr "Trimiteți biletul"
+
+msgid "Open ( 3 )"
+msgstr "Deschis ( 3 )"
+
+msgid "Closed ( 2 )"
+msgstr "Închis ( 2 )"
+
+msgid "Answered ( 1 )"
+msgstr "Răspuns ( 1 )"
+
+msgid "All Tickets ( 5 )"
+msgstr "Toate biletele ( 5 )"
+
+msgid " Priority"
+msgstr "Prioritate"
+
+msgid "Can i upgrade my plan?"
+msgstr "Îmi pot actualiza planul?"
+
+msgid "Low"
+msgstr "Scăzut"
+
+msgid "Ticket ID  :"
+msgstr "ID bilet:"
+
+msgid "Last Reply :"
+msgstr "Ultimul răspuns :"
+
+msgid "How can i get Subscription"
+msgstr "Cum pot obține un abonament"
+
+msgid " Department   "
+msgstr "Departament"
+
+msgid "Support"
+msgstr "A sustine"
+
+msgid " Ticket ID :"
+msgstr "ID bilet:"
+
+msgid "Created :"
+msgstr "Creată :"
+
+msgid "Matthew Frazier"
+msgstr "Matthew Frazier"
+
+msgid "How long do i have support access"
+msgstr "Cât timp am acces la asistență"
+
+msgid " Department"
+msgstr "Departament"
+
+msgid "Note"
+msgstr "Notă"
+
+msgid "Blue Jeans"
+msgstr "Blugi albastri"
+
+msgid "Red"
+msgstr "roșu"
+
+msgid "Mint"
+msgstr "Mentă"
+
+msgid "Lavender"
+msgstr "Lavandă"
+
+msgid "Orange"
+msgstr "Portocale"
+
+msgid "Grass"
+msgstr "Iarbă"
+
+msgid "Black"
+msgstr "Negru"
+
+msgid "Support for this Envato license has expired"
+msgstr "Suportul pentru această licență Envato a expirat"
+
+msgid "Record not found"
+msgstr "Înregistrare nu a fost găsită"
+
+msgid "Banned email cannot create ticket"
+msgstr "E-mailul interzis nu poate crea bilet"
+
+msgid "Incorrect Captcha Code"
+msgstr "Cod Captcha incorect"
+
+msgid "Please select paid support item"
+msgstr "Vă rugăm să selectați elementul de asistență plătit"
+
+msgid "No purchase found with that code"
+msgstr "Nu s-a găsit nicio achiziție cu acel cod"
+
+msgid "Provide a valid license key to create a ticket."
+msgstr "Furnizați o cheie de licență validă pentru a crea un bilet."
+
+msgid "Your license has expired."
+msgstr "Licenta dumneavoastra a expirat."
+
+msgid "Your license is not active, activate your license."
+msgstr "Licența dvs. nu este activă, activați-vă licența."
+
+msgid "Due date error is not valid"
+msgstr "Eroare de data scadentă nu este validă"
+
+msgid "Ticket has not been created"
+msgstr "Biletul nu a fost creat"
+
+msgid "Your ticket has been submitted successfully"
+msgstr "Biletul dvs. a fost trimis cu succes"
+
+msgid "created"
+msgstr "creată"
+
+msgid "Ticket is updated by"
+msgstr "Biletul este actualizat de"
+
+msgid "Ticket is created by"
+msgstr "Biletul este creat de"
+
+msgid "Ticket has been deleted"
+msgstr "Biletul a fost șters"
+
+msgid "Ticket has not been deleted"
+msgstr "Biletul nu a fost șters"
+
+msgid "in use cannot be deleted"
+msgstr "în uz nu poate fi ștearsă"
+
+msgid "Ticket already closed"
+msgstr "Biletul deja închis"
+
+msgid "Ticket has been closed"
+msgstr "Biletul a fost închis"
+
+msgid "Ticket has not been closed"
+msgstr "Biletul nu a fost închis"
+
+msgid "Ticket is closed by"
+msgstr "Biletul este închis până la"
+
+msgid "due to the following reasons"
+msgstr "din următoarele motive"
+
+msgid "Your are not allowed"
+msgstr "Nu ai voie"
+
+msgid "The department has been transferred"
+msgstr "Departamentul a fost transferat"
+
+msgid "The department has not been transferred"
+msgstr "Departamentul nu a fost transferat"
+
+msgid "The department is transferred by"
+msgstr "Departamentul este transferat de"
+
+msgid "Assigned to agent"
+msgstr "Atribuit agentului"
+
+msgid "Not assigned to agent"
+msgstr "Nu este atribuit agentului"
+
+msgid "Assign ticket to agent"
+msgstr "Atribuiți biletul agentului"
+
+msgid "Ticket is assigned to agent by"
+msgstr "Biletul este atribuit agentului de către"
+
+msgid "The ticket already has the same priority"
+msgstr "Biletul are deja aceeași prioritate"
+
+msgid "Priority has been changed"
+msgstr "Prioritatea a fost schimbată"
+
+msgid "Priority has not been changed"
+msgstr "Prioritatea nu a fost schimbată"
+
+msgid "Change Priority"
+msgstr "Schimbați prioritatea"
+
+msgid "Email already banned"
+msgstr "E-mailul a fost deja interzis"
+
+msgid "The email has been banned"
+msgstr "E-mailul a fost interzis"
+
+msgid "The email has not been banned"
+msgstr "E-mailul nu a fost interzis"
+
+msgid "Email is banned by"
+msgstr "E-mailul este interzis de"
+
+msgid "The ticket has been reopened"
+msgstr "Biletul a fost redeschis"
+
+msgid "The ticket has not been reopened"
+msgstr "Biletul nu a fost redeschis"
+
+msgid "Reopen Ticket"
+msgstr "Redeschideți biletul"
+
+msgid "The ticket is reopened by"
+msgstr "Biletul este redeschis de"
+
+msgid "The ticket reopens time limit end"
+msgstr "Biletul se redeschide la sfârșitul limită de timp"
+
+msgid "Email has been unbanned"
+msgstr "E-mailul a fost anulat"
+
+msgid "Email has not been unbanned"
+msgstr "E-mailul nu a fost anulat"
+
+msgid "Unbanned Email"
+msgstr "E-mail neinterzis"
+
+msgid "Email is unbanned by"
+msgstr "E-mailul nu este interzis de"
+
+msgid "Email cannot be unbanned"
+msgstr "E-mailul nu poate fi anulat"
+
+msgid "Ticket already marked in progress"
+msgstr "Biletul marcat deja în curs"
+
+msgid "The ticket has been marked as in progress"
+msgstr "Biletul a fost marcat ca în curs"
+
+msgid "The ticket has not been marked as in progress"
+msgstr "Biletul nu a fost marcat ca în curs"
+
+msgid "In progress ticket"
+msgstr "Biletul în curs"
+
+msgid "The ticket is marked as in progress by"
+msgstr "Biletul este marcat ca în curs de"
+
+msgid "File upload limit exceeds"
+msgstr "Limita de încărcare a fișierelor depășește"
+
+msgid "The uploaded file extension not valid"
+msgstr "Extensia fișierului încărcat nu este validă"
+
+msgid "Paid support info"
+msgstr "Informații de asistență plătită"
+
+msgid "Order ID"
+msgstr "Comanda ID"
+
+msgid "Product Name"
+msgstr "numele produsului"
+
+msgid "Total Tickets"
+msgstr "Total bilete"
+
+msgid "Remaining Tickets"
+msgstr "Biletele rămase"
+
+msgid "Unlimited"
+msgstr "Nelimitat"
+
+msgid "You have not purchased any supported item"
+msgstr "Nu ați achiziționat niciun articol acceptat"
+
+msgid "Go to shop"
+msgstr "Dute la cumparaturi"
+
+msgid "Select Order"
+msgstr "Alege comanda"
+
+msgid "No premade response found"
+msgstr "Nu a fost găsit niciun răspuns prealabil"
+
+msgid "Waiting agent reply"
+msgstr "Așteaptă răspunsul agentului"
+
+msgid "Waiting customer reply"
+msgstr "Se așteaptă răspunsul clientului"
+
+msgid "Close ticket"
+msgstr "Închideți biletul"
+
+msgid "Are you sure to mark this ticket non-premium?"
+msgstr "Sigur marcați acest bilet ca non-premium?"
+
+msgid "Edit Reply"
+msgstr "Editați răspunsul"
+
+msgid "Edit Time"
+msgstr "Editare Ora"
+
+msgid "Add reason in the other box"
+msgstr "Adăugați motivul în cealaltă casetă"
+
+msgid "First make some selection!"
+msgstr "Mai întâi faceți o selecție!"
+
+msgid "Reason For Editing the timer"
+msgstr "Motiv pentru editarea temporizatorului"
+
+msgid "Reason For Editing"
+msgstr "Motivul editării"
+
+msgid "Resolve conflict"
+msgstr "Rezolvați conflictul"
+
+msgid "Lock"
+msgstr "Lacăt"
+
+msgid "Add New Credential"
+msgstr "Adăugați o nouă acreditare"
+
+msgid "Add Internal Note"
+msgstr "Adăugați o notă internă"
+
+msgid "play"
+msgstr "Joaca"
+
+msgid "pause"
+msgstr "pauză"
+
+msgid "stop"
+msgstr "Stop"
+
+msgid "Close on reply"
+msgstr "Închide la răspuns"
+
+msgid "Reason For Department Transfer"
+msgstr "Motivul transferului de departament"
+
+msgid "Transfer"
+msgstr "Transfer"
+
+msgid "Assign To Agent"
+msgstr "Atribuiți agentului"
+
+msgid "Assign"
+msgstr "Atribui"
+
+msgid "View all"
+msgstr "A vedea tot"
+
+msgid "tickets by"
+msgstr "bilete de"
+
+msgid "Show History"
+msgstr "Arată istoric"
+
+msgid "Print Ticket"
+msgstr "Tipărește biletul"
+
+msgid "Unmark Overdue"
+msgstr "Anulați marcarea Întârziată"
+
+msgid "Mark in Progress"
+msgstr "Marcare în curs"
+
+msgid "agent image"
+msgstr "imaginea agentului"
+
+msgid "Post A New Internal Note"
+msgstr "Postați o nouă notă internă"
+
+msgid "Ticket Thread"
+msgstr "Thread de bilet"
+
+msgid "View Image"
+msgstr "Vezi imaginea"
+
+msgid "smart-reply"
+msgstr "răspuns inteligent"
+
+msgid "Check Smart Reply"
+msgstr "Verificați Răspuns inteligent"
+
+msgid "Search and get a saved smart reply on Majestic Support for a ticket."
+msgstr "Căutați și obțineți un răspuns inteligent salvat pe Majestic Support pentru un bilet."
+
+msgid "search"
+msgstr "căutare"
+
+msgid "Add this reply to smart reply?"
+msgstr "Adăugați acest răspuns la răspuns inteligent?"
+
+msgid "Post Reply"
+msgstr "Raspunde"
+
+msgid "Own Signature"
+msgstr "Semnătura proprie"
+
+msgid "Department Signature"
+msgstr "Semnătura departamentului"
+
+msgid "JNone"
+msgstr "JNimic"
+
+msgid "Add Signature"
+msgstr "Adăugați semnătura"
+
+msgid "On Waiting"
+msgstr "În așteptare"
+
+msgid "Closed and merged"
+msgstr "Închis și fuzionat"
+
+msgid "Ticket Closing Reason"
+msgstr "Motivul închiderii biletului"
+
+msgid "ago"
+msgstr "în urmă"
+
+msgid "No Last Reply"
+msgstr "Nici un ultim răspuns"
+
+msgid "Not Given"
+msgstr "Nu li se acordă"
+
+msgid "Closed By"
+msgstr "Închis de"
+
+msgid "Closed On"
+msgstr "Închis pe"
+
+msgid "Copy"
+msgstr "Copie"
+
+msgid "Copied"
+msgstr "Copiat"
+
+msgid "Change"
+msgstr "Schimbare"
+
+msgid "Assign And Transfer Ticket"
+msgstr "Atribuiți și transferați bilet"
+
+msgid "Ticket assigned to"
+msgstr "Biletul atribuit la"
+
+msgid "staff photo"
+msgstr "poza personalului"
+
+msgid "Total Time Taken"
+msgstr "Timp total luat"
+
+msgid "view ticket"
+msgstr "vezi biletul"
+
+msgid "Woocommerce Order"
+msgstr "Comanda Woocommerce"
+
+msgid "Envato License"
+msgstr "Licență Envato"
+
+msgid "Item"
+msgstr "Articol"
+
+msgid "Buyer"
+msgstr "Cumpărător"
+
+msgid "License Type"
+msgstr "Tip de licență"
+
+msgid "License"
+msgstr "Licență"
+
+msgid "Purchase Date"
+msgstr "Data cumpărării"
+
+msgid "Supported Until"
+msgstr "Suportat Până la"
+
+msgid "Paid Support Details"
+msgstr "Detalii de asistență plătită"
+
+msgid "Subscription"
+msgstr "Abonament"
+
+msgid "Subscribed On"
+msgstr "Abonat pe"
+
+msgid "Support Expiry"
+msgstr "Expirarea suportului"
+
+msgid "No expiration"
+msgstr "fără dată de expirare"
+
+msgid "Non-premium support"
+msgstr "Asistență non-premium"
+
+msgid "Check this box if this ticket should NOT apply against the paid support"
+msgstr "Bifați această casetă dacă acest bilet NU ar trebui să se aplice pentru suportul plătit"
+
+msgid "Remaining"
+msgstr "Rămas"
+
+msgid "Link ticket to paid support"
+msgstr "Conectați biletul la asistență plătită"
+
+msgid "closed ticket"
+msgstr "bilet închis"
+
+msgid "Ticket Creator Name"
+msgstr "Numele creatorului biletului"
+
+msgid "From Date"
+msgstr "Din data"
+
+msgid "To Date"
+msgstr "Până în prezent"
+
+msgid "Enforce delete"
+msgstr "Forțați ștergerea"
+
+msgid "Are you sure to enforce delete"
+msgstr "Sunteți sigur că veți impune ștergerea"
+
+msgid "Are you sure to mark this ticket non-preminum?"
+msgstr "Sigur marcați acest bilet ca non-premium?"
+
+msgid "Message Logs"
+msgstr "Jurnalele de mesaje"
+
+msgid "Edit Timer"
+msgstr "Editare cronometru"
+
+msgid "Type Note for Department"
+msgstr "Tastați Notă pentru departament"
+
+msgid "Assign Ticket To Agent"
+msgstr "Atribuiți bilet agentului"
+
+msgid "Assigning Note"
+msgstr "Atribuirea notei"
+
+msgid "Time Track"
+msgstr "Time Track"
+
+msgid "Type Internal Note"
+msgstr "Tastați Notă internă"
+
+msgid "tickets"
+msgstr "bilete"
+
+msgid "Reopen"
+msgstr "Redeschide"
+
+msgid "History"
+msgstr "Istorie"
+
+msgid "Print"
+msgstr "Imprimare"
+
+msgid "Are you sure you want to delete this ticket"
+msgstr "Sigur doriți să ștergeți acest bilet"
+
+msgid "Are you sure to close this ticket"
+msgstr "Ești sigur că vei închide acest bilet"
+
+msgid "Unlock"
+msgstr "Deblocați"
+
+msgid "Mark In Progress"
+msgstr "Marcare în curs"
+
+msgid "Ban Email And Close Ticket"
+msgstr "Interziceți e-mailul și închideți biletul"
+
+msgid "Post New Internal Note"
+msgstr "Postați o nouă notă internă"
+
+msgid "Reply A Message"
+msgstr "Răspunde la un mesaj"
+
+msgid "Search and get a saved smart reply on Majestic Support."
+msgstr "Căutați și obțineți un răspuns inteligent salvat pe Asistența Majestic."
+
+msgid "Check Reply"
+msgstr "Verificați răspunsul"
+
+msgid "Select Premade"
+msgstr "Selectați Prefabricat"
+
+msgid "Assign Ticket"
+msgstr "Atribuiți bilet"
+
+msgid ": "
+msgstr ":"
+
+msgid "Assigned To Agent"
+msgstr "Atribuit Agentului"
+
+msgid "View all orders"
+msgstr "Vezi toate comenzile"
+
+msgid "Non-preminum support"
+msgstr "Asistență non-premium"
+
+msgid "Check Status"
+msgstr "Verifica statusul"
+
+msgid "High"
+msgstr "Înalt"
+
+msgid "Urgent"
+msgstr "Urgent"
+
+msgid "Admin email address and email piping address cannot be the same, your email piping will not be work."
+msgstr "Adresa de e-mail admin și adresa de canalizare de e-mail nu pot fi identice, canalul de e-mail nu va funcționa."
+
+msgid "IMAP is either not installed or not enabled in your server. Contact to hosting company"
+msgstr "IMAP fie nu este instalat, fie nu este activat pe serverul dvs. Contact cu compania de hosting"
+
+msgid "180 secs If the setting is not completely increased, most sites will work with a setting of between 180 and 600"
+msgstr "180 de secunde Dacă setarea nu este mărită complet, majoritatea site-urilor vor funcționa cu o setare între 180 și 600"
+
+msgid "If you have already set up alert methods in the webcron.org interface, we recommend choosing an alert type"
+msgstr "Dacă ați configurat deja metode de alertă în interfața webcron.org, vă recomandăm să alegeți un tip de alertă"
+
+msgid "Enter allowed number of tickets that customer can post. Enter -1 for unlimited tickets."
+msgstr "Introduceți numărul permis de bilete pe care clientul le poate posta. Introduceți -1 pentru bilete nelimitate."
+
+msgid "Your response would be helpful to other users, as we believe that the success of the support system is largely dependent on how well customers are treated."
+msgstr "Răspunsul dvs. ar fi util pentru alți utilizatori, deoarece credem că succesul sistemului de asistență depinde în mare măsură de cât de bine sunt tratați clienții."
+
+msgid "</b> and Enter your license key and hit to authenticate. A valid key is required for updates."
+msgstr "</b> și introduceți cheia de licență și apăsați pentru a vă autentifica. Pentru actualizări este necesară o cheie validă."
+
+msgid "We'd love to hear from you. It'll only take 2 minutes of your time, and will really help us spread the word"
+msgstr "Ne-am bucura sa primim vesti de la tine. Va dura doar 2 minute din timpul dvs. și ne va ajuta cu adevărat să răspândim vestea"
+
+msgid "Registration has been disabled by admin, please contact the system administrator."
+msgstr "Înregistrarea a fost dezactivată de administrator, vă rugăm să contactați administratorul de sistem."
+
+msgid "Please check confirmation email to complete your subscription for the newsletter"
+msgstr "Vă rugăm să verificați e-mailul de confirmare pentru a vă finaliza abonamentul la newsletter"
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Dont forget to update the add-ons to enjoy the greatest features!"
+msgstr "Hei acolo! Am lansat recent o nouă actualizare pentru suplimente. Nu uitați să actualizați suplimentele pentru a vă bucura de cele mai bune funcții!"
+
+msgid "Select the Majestic Support default page, and on the action system, it will redirect to the selected page. If not selected the default page, email links, and support icon might not work."
+msgstr "Selectați pagina implicită Majestic Support și, pe sistemul de acțiune, va redirecționa către pagina selectată. Dacă nu este selectată, pagina implicită, linkurile de e-mail și pictograma de asistență ar putea să nu funcționeze."
+
+msgid "You need to rename the existing data directory in the file system before changing the data directory name"
+msgstr "Trebuie să redenumiți directorul de date existent în sistemul de fișiere înainte de a schimba numele directorului de date"
+
+msgid "Show the number of open, closed, and answered tickets in my tickets and dashboard"
+msgstr "Afișați numărul de bilete deschise, închise și la care au răspuns în biletele și tabloul de bord"
+
+msgid "Set register link default or custom.<br /> To enable registrations, WordPress admin > General > Settings > Membership: Anyone can register"
+msgstr "Setați linkul de înregistrare implicit sau personalizat.<br /> Pentru a activa înregistrările, administratorul WordPress > General > Setări > Abonament: oricine se poate înregistra"
+
+msgid "Select category to display only products of this category on the WooCommerce shop page."
+msgstr "Selectați categoria pentru a afișa numai produsele din această categorie pe pagina magazinului WooCommerce."
+
+msgid "Show or hide the multiform popup when creating a new ticket. if you hide them, the system will open the default form."
+msgstr "Afișați sau ascundeți fereastra pop-up multiformă atunci când creați un bilet nou. dacă le ascundeți, sistemul va deschide formularul implicit."
+
+msgid "Select whether users can see the email of administrator or agent on the ticket reply"
+msgstr "Selectați dacă utilizatorii pot vedea e-mailul administratorului sau al agentului în răspunsul la bilet"
+
+msgid "Select whether users can see the name of administrator or agent on ticket reply"
+msgstr "Selectați dacă utilizatorii pot vedea numele administratorului sau al agentului în răspunsul la bilet"
+
+msgid "By enabling this option, an admin can know who closed the ticket and when that ticket closed."
+msgstr "Prin activarea acestei opțiuni, un administrator poate ști cine a închis biletul și când s-a închis acel bilet."
+
+msgid "By enabling this option, an agent can know who closed the ticket and when that ticket closed."
+msgstr "Prin activarea acestei opțiuni, un agent poate ști cine a închis biletul și când s-a închis acel bilet."
+
+msgid "By enabling this option, a user can know who closed the ticket and when that ticket closed."
+msgstr "Prin activarea acestei opțiuni, un utilizator poate ști cine a închis biletul și când s-a închis acel bilet."
+
+msgid "By enabling this option, an admin can know to whom the ticket has been assigned."
+msgstr "Prin activarea acestei opțiuni, un administrator poate ști cui i-a fost atribuit biletul."
+
+msgid "By enabling this option, an agent can know to whom the ticket has been assigned."
+msgstr "Prin activarea acestei opțiuni, un agent poate ști cui i-a fost atribuit biletul."
+
+msgid "By enabling this option, a user can know to whom the ticket has been assigned."
+msgstr "Prin activarea acestei opțiuni, un utilizator poate ști cui i-a fost atribuit biletul."
+
+msgid "If the ticket department email is not selected, then this email is used to send emails"
+msgstr "Dacă e-mailul departamentului de bilete nu este selectat, atunci acest e-mail este folosit pentru a trimite e-mailuri"
+
+msgid "Set the number of days or hours to send a feedback email after a ticket is closed"
+msgstr "Setați numărul de zile sau de ore pentru a trimite un e-mail de feedback după ce un bilet este închis"
+
+msgid "Majestic Support Desktop Notifications plugin is not installed. Please install the plugin to enable desktop notifications"
+msgstr "Pluginul Majestic Support Desktop Notifications nu este instalat. Instalați pluginul pentru a activa notificările desktop"
+
+msgid "Changing the encryption key of private credentials will cause all existing credentials to be discarded"
+msgstr "Schimbarea cheii de criptare a acreditărilor private va duce la eliminarea tuturor acreditărilor existente"
+
+msgid "Prevent users from submitting a ticket without a valid license for one of your product"
+msgstr "Împiedicați utilizatorii să trimită un bilet fără o licență valabilă pentru unul dintre produsele dvs"
+
+msgid "Selecting \\ positive"
+msgstr "Selectând  pozitiv"
+
+msgid "e.g \\ The text between [link] and [/link] will be linked to provided url or wordpress page."
+msgstr ""
+
+msgid "e.g., \\ The text between [link] and [/link] will be linked to provided URL or WordPress page."
+msgstr ""
+
+msgid "Majestic support is customer service or assistance that is exceptional in nature, providing a high level of satisfaction to the customer by going above and beyond their expectations. It involves providing prompt and efficient response times, personalized attention, and a willingness to solve problems or address concerns in a timely and effective manner."
+msgstr "Suportul Majestic este un serviciu sau asistență pentru clienți de natură excepțională, oferind un nivel ridicat de satisfacție clientului, depășind așteptările acestuia. Aceasta implică oferirea de timpi de răspuns prompt și eficient, atenție personalizată și dorința de a rezolva probleme sau de a aborda preocupările în timp util și eficient."
+
+msgid "Explore our other products and services that we offer, you might find something else that interests you or fulfills your needs even better."
+msgstr "Explorați celelalte produse și servicii pe care le oferim, s-ar putea să găsiți altceva care vă interesează sau vă satisface nevoile și mai bine."
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Don't forget to update the add-ons to enjoy the greatest features!"
+msgstr "Hei acolo! Am lansat recent o nouă actualizare pentru suplimente. Nu uitați să actualizați suplimentele pentru a vă bucura de cele mai bune funcții!"
+
+msgid "The best support plugin for the majestic support has everything you need."
+msgstr "Cel mai bun plugin de asistență pentru suportul maiestuos are tot ce aveți nevoie."
+
+msgid "A reputable support system that offers step-by-step YouTube video guides to help you understand."
+msgstr "Un sistem de asistență reputat care oferă ghiduri video YouTube pas cu pas pentru a vă ajuta să înțelegeți."
+
+msgid "At Majestic Support, we are committed to offering prompt and helpful customer care to help you at every step."
+msgstr "La Majestic Support, ne angajăm să oferim asistență clienților promptă și utilă pentru a vă ajuta la fiecare pas."
+
+msgid "When WordPress language change to fr, Majestic Support language will auto change to fr"
+msgstr "Când limba WordPress se schimbă în fr, limba de asistență Majestic se va schimba automat în fr"
+
+msgid "Want to download translation file? Click on download. It will take sometime."
+msgstr "Doriți să descărcați fișierul de traducere? Faceți clic pe descărcare. O să ia ceva timp."
+
+msgid "Get trusted WordPress add-ons. Guaranteed to work fast, safe to use, beautifully coded, packed with features, and are easy to use."
+msgstr "Obțineți suplimente WordPress de încredere. Garantat pentru a funcționa rapid, sigur de utilizat, frumos codificat, plin de funcții și ușor de utilizat."
+
+msgid "Add agents and assign roles and permissions to provide assistance and support for customer support tickets."
+msgstr "Adăugați agenți și atribuiți roluri și permisiuni pentru a oferi asistență și suport pentru biletele de asistență pentru clienți."
+
+msgid "Create multiple custom ticket forms with different custom fields for each request type that you support."
+msgstr "Creați mai multe formulare personalizate de bilete cu câmpuri personalizate diferite pentru fiecare tip de solicitare pe care îl acceptați."
+
+msgid "Email piping is the process of automatically turning incoming emails into support tickets without manual data entry."
+msgstr "Tubularea e-mailului este procesul de transformare automată a e-mailurilor primite în bilete de asistență fără introducerea manuală a datelor."
+
+msgid "Make the ticket assignment process automatic and assign the most qualified agent to your tickets with conditions."
+msgstr "Automatizați procesul de atribuire a biletelor și atribuiți biletelor dumneavoastră cel mai calificat agent cu condiții."
+
+msgid "Add private notes to a ticket and share crucial information internally with your agents, this private note is not visible to the customer."
+msgstr "Adăugați note private la un bilet și partajați informații cruciale în interior cu agenții dvs., această notă privată nu este vizibilă pentru client."
+
+msgid "Merge one or more tickets into another if you receive two support requests from the same end user about the same issue."
+msgstr "Îmbinați unul sau mai multe bilete în altul dacă primiți două solicitări de asistență de la același utilizator final cu privire la aceeași problemă."
+
+msgid "The user can search for and choose the topic for which they need help using help topics"
+msgstr "Utilizatorul poate căuta și alege subiectul pentru care are nevoie de ajutor folosind subiecte de ajutor"
+
+msgid "Manage abandoned tickets, and set rules for tickets over time, and those tickets will be closed automatically after a certain period."
+msgstr "Gestionați biletele abandonate și stabiliți reguli pentru bilete în timp, iar acele bilete vor fi închise automat după o anumită perioadă."
+
+msgid "Stop wasting time on repetitive inquiries, build your knowledge base, and organize your solutions into categories for users."
+msgstr "Nu mai pierdeți timpul cu întrebări repetitive, construiți-vă baza de cunoștințe și organizați-vă soluțiile în categorii pentru utilizatori."
+
+msgid "Define rules or set a specific time interval for making tickets automatically overdue."
+msgstr "Definiți regulile sau setați un interval de timp specific pentru ca biletele să fie întârziate automat."
+
+msgid "Track the amount of time spent on each customer support ticket without losing focus and enhance team productivity."
+msgstr "Urmăriți timpul petrecut cu fiecare bilet de asistență pentru clienți fără a vă pierde concentrarea și îmbunătățiți productivitatea echipei."
+
+msgid "Show the whole history of the ticket, including its status and any action taken in response to it."
+msgstr "Afișați întregul istoric al biletului, inclusiv starea acestuia și orice acțiune întreprinsă ca răspuns la acesta."
+
+msgid "The simplest approach to effectively manage payments for premium help is through paid support."
+msgstr "Cea mai simplă abordare pentru a gestiona eficient plățile pentru ajutor premium este asistența plătită."
+
+msgid "Customers will enter sensitive information on tickets, and this add-on is designed to help you keep that information secure."
+msgstr "Clienții vor introduce informații sensibile pe bilete, iar acest supliment este conceput pentru a vă ajuta să păstrați informațiile în siguranță."
+
+msgid "Empowers users to provide clear and concise explanations for why customer service tickets are being closed."
+msgstr "Permite utilizatorilor să ofere explicații clare și concise pentru motivul pentru care biletele de serviciu pentru clienți sunt închise."
+
+msgid "Make ready-made responses to the most common questions in the tickets to swiftly address client issues."
+msgstr "Faceți răspunsuri gata făcute la cele mai frecvente întrebări din bilete pentru a rezolva rapid problemele clienților."
+
+msgid "Admins can limit the number of tickets that users can create as well as the number of tickets that agents can open individually."
+msgstr "Administratorii pot limita numărul de bilete pe care utilizatorii le pot crea, precum și numărul de bilete pe care agenții le pot deschide individual."
+
+msgid "To enhance the quality of your services, ask your customers to complete a survey when a ticket is closed."
+msgstr "Pentru a îmbunătăți calitatea serviciilor dvs., cereți clienților să completeze un sondaj atunci când un bilet este închis."
+
+msgid "Ticket action options allow you to execute additional actions on tickets."
+msgstr "Opțiunile de acțiune pentru bilete vă permit să executați acțiuni suplimentare asupra biletelor."
+
+msgid "Easily export ticket data and performance report data from your majestic support to an Excel spreadsheet with our efficient and user-friendly solution."
+msgstr "Exportați cu ușurință datele despre bilete și datele rapoartelor de performanță de la suportul dvs. măreț într-o foaie de calcul Excel cu soluția noastră eficientă și ușor de utilizat."
+
+msgid "Send the exact copy of the email to the provided email address with Email CC or BCC."
+msgstr "Trimiteți copia exactă a e-mailului la adresa de e-mail furnizată cu Email CC sau BCC."
+
+msgid "User options enable you to define roles for new users when they are registered."
+msgstr "Opțiunile pentru utilizator vă permit să definiți roluri pentru noii utilizatori atunci când aceștia sunt înregistrați."
+
+msgid "SMTP enables you to add  custom mail protocols to send and receive emails with the support ticket system."
+msgstr "SMTP vă permite să adăugați protocoale de e-mail personalizate pentru a trimite și primi e-mailuri cu sistemul de bilete de asistență."
+
+msgid "Create multi-language email templates for all default email templates to send customers emails in the language that they prefer."
+msgstr "Creați șabloane de e-mail în mai multe limbi pentru toate șabloanele implicite de e-mail pentru a trimite clienților e-mailuri în limba pe care o preferă."
+
+msgid "Downloads can be very helpful for users who are looking to obtain the necessary information to resolve issues."
+msgstr "Descărcările pot fi foarte utile pentru utilizatorii care doresc să obțină informațiile necesare pentru a rezolva problemele."
+
+msgid "Make an unlimited number of announcements related to the support system to encourage customer interaction."
+msgstr "Faceți un număr nelimitat de anunțuri legate de sistemul de asistență pentru a încuraja interacțiunea cu clienții."
+
+msgid "With Ban Email, you can limit a users ability to create new tickets by blocking their email address."
+msgstr "Cu Ban Email, puteți limita capacitatea utilizatorilor de a crea bilete noi blocându-le adresa de e-mail."
+
+msgid "Provide answers to common user questions with the FAQ extension before they become tickets."
+msgstr "Oferiți răspunsuri la întrebările frecvente ale utilizatorilor cu extensia Întrebări frecvente înainte ca acestea să devină bilete."
+
+msgid "Get immediate data on your support operations as soon as you log into your WordPress administration area."
+msgstr "Obțineți date imediate despre operațiunile dvs. de asistență imediat ce vă conectați în zona dvs. de administrare WordPress."
+
+msgid "You will be informed of anything that occurs on your support system by the desktop notifications."
+msgstr "Veți fi informat despre orice se întâmplă în sistemul dvs. de asistență prin notificările de pe desktop."
+
+msgid "The integration of the support ticket system for WooCommerce with your e- shop makes your support better and more professional."
+msgstr "Integrarea sistemului de bilete de asistență pentru WooCommerce cu magazinul dvs. electronic face ca suportul dvs. să fie mai bun și mai profesionist."
+
+msgid "Manage your email marketing campaigns directly from your majestic support by adding new user accounts to your Mailchimp email list."
+msgstr "Gestionați-vă campaniile de marketing prin e-mail direct din suportul dvs. maiestuos, adăugând noi conturi de utilizator la lista de e-mailuri Mailchimp."
+
+msgid "Send messages internally about support tickets and other issues between agents with internal mail."
+msgstr "Trimiteți mesaje intern despre biletele de asistență și alte probleme între agenți cu e-mail intern."
+
+msgid "Frontend Widgets include several widgets that can be used to enhance the plugin's functionality in various areas of the website."
+msgstr "Widgeturile de front-end includ mai multe widget-uri care pot fi utilizate pentru a îmbunătăți funcționalitatea pluginului în diferite zone ale site-ului web."
+
+msgid "Clients won't be able to open a new ticket using the Envato Validation plugin if they don't have a valid Envato license."
+msgstr "Clienții nu vor putea deschide un nou bilet folosind pluginul de validare Envato dacă nu au o licență Envato validă."
+
+msgid "Learn about a customer's purchase directly from the support dashboard by integrating Majestic Support with your EDD store."
+msgstr "Aflați despre achiziția unui client direct din tabloul de bord de asistență integrând Majestic Support cu magazinul dvs. EDD."
+
+msgid "If the colors have been saved but the user-side colors are still the same, it is advised to clear the cache."
+msgstr "Dacă culorile au fost salvate, dar culorile utilizatorului sunt în continuare aceleași, se recomandă să ștergeți memoria cache."
+
+msgid "Error"
+msgstr "Eroare"
+
+msgid "Roles"
+msgstr "Roluri"
+
+msgid "Role"
+msgstr "Rol"
+
+msgid "Sr#"
+msgstr "Sr#"
+
+msgid "Gmail"
+msgstr "Gmail"
+
+msgid "Yahoo"
+msgstr "Yahoo"
+
+msgid "Aol"
+msgstr "Aol"
+
+msgid "Hotmail"
+msgstr "Hotmail"
+
+msgid "No"
+msgstr "Nu"
+
+msgid "Wget"
+msgstr "Wget"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "----"
+msgstr "----"
+
+msgid "JNo"
+msgstr "JNu"
+
+msgid "Visible"
+msgstr "Vizibil"
+
+msgid "Logo"
+msgstr "Siglă"
+
+msgid "Re"
+msgstr "Re"
+
+msgid "Vertical"
+msgstr "Vertical"
+
+msgid "Horizontal"
+msgstr "Orizontală"
+
+msgid "div"
+msgstr "div"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "General"
+msgstr "General"
+
+msgid "Captcha"
+msgstr "Captcha"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Linkedin"
+msgstr "Linkedin"
+
+msgid "Kb"
+msgstr "Kb"
+
+msgid "SMTP"
+msgstr "SMTP"
+
+msgid "TLS"
+msgstr "TLS"
+
+msgid "SSL"
+msgstr "SSL"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "S.No"
+msgstr "S.Nr"
+
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+msgid "envato"
+msgstr "envato"
+
+msgid ":"
+msgstr ":"
+
+msgid "Envato"
+msgstr "Envato"
+
+msgid "Color"
+msgstr "Culoare"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Color 1"
+msgstr "Culoare 1"
+
+msgid "Color 2"
+msgstr "Culoare 2"
+
+msgid "Color 3"
+msgstr "Culoare 3"
+
+msgid "Color 4"
+msgstr "Culoare 4"
+
+msgid "Color 5"
+msgstr "Culoare 5"
+
+msgid "Color 6"
+msgstr "Culoare 6"
+
+msgid "Color 7"
+msgstr "Culoare 7"
+
+msgid "Kylee Arroyo"
+msgstr "Kylee Arroyo"
+
+msgid "Marketing"
+msgstr "Marketing"
+
+msgid "XcyMfWYKp"
+msgstr "XcyMfWYKp"
+
+msgid "08-12-2022"
+msgstr "08-12-2022"
+
+msgid "Allison Carney"
+msgstr "Allison Carney"
+
+msgid "Yx4cW3Mfk"
+msgstr "Yx4cW3Mfk"
+
+msgid "05-12-2022"
+msgstr "05-12-2022"
+
+msgid "GxNDv3MfC"
+msgstr "GxNDv3MfC"
+
+msgid "01-12-2022"
+msgstr "01-12-2022"
+
+msgid ","
+msgstr ","
+
+msgid "Issue Summary"
+msgstr "Rezumatul problemei"
+
+msgid "Envato Purchase Code"
+msgstr "Codul de achiziție Envato"
+
+msgid "Internal Note Title"
+msgstr "Titlul notei interne"
+
+msgid "Ticket Department Transfer"
+msgstr "Transfer departament bilete"
+
+msgid "Change Ticket Priority"
+msgstr "Schimbați prioritatea biletului"
+
+msgid "View Ticket"
+msgstr "Vezi bilet"
+
+msgid "New Ticket Notification"
+msgstr "Notificare de bilet nou"
+
+msgid "Edit Own Time"
+msgstr "Editați Timpul propriu"
+
+msgid "View Feedback"
+msgstr "Vizualizați feedback"
+
+msgid "View Ticket Merge"
+msgstr "Vedeți fuziunea biletelor"
+
+msgid "View Credentials"
+msgstr "Vedeți acreditările"
+
+msgid "Delete Credentials"
+msgstr "Ștergeți acreditările"
+
+msgid "Edit Credentials"
+msgstr "Editați acreditările"
+
+msgid "Add Credentials"
+msgstr "Adăugați acreditări"
+
+msgid "Mark Non Premium"
+msgstr "Marcați ca non Premium"
+
+msgid "Link To Paid Support"
+msgstr "Link către suport plătit"
+
+msgid "Assign Role Permissions"
+msgstr "Atribuiți permisiuni de rol"
+
+msgid "Add User"
+msgstr "Adăugați utilizator"
+
+msgid "Edit User"
+msgstr "Editați utilizatorul"
+
+msgid "Assign User Permissions"
+msgstr "Atribuiți permisiuni de utilizator"
+
+msgid "Delete Department"
+msgstr "Șterge departamentul"
+
+msgid "View Department"
+msgstr "Vedeți Departamentul"
+
+msgid "View Role"
+msgstr "Vizualizați rolul"
+
+msgid "View User"
+msgstr "Vizualizare utilizator"
+
+msgid "View Agent Reports"
+msgstr "Vizualizați rapoartele agentului"
+
+msgid "View Department Reports"
+msgstr "Vedeți rapoartele departamentului"
+
+msgid "Manage Ticket Close Reasons"
+msgstr "Gestionați motivele pentru închiderea biletului"
+
+msgid "View Category"
+msgstr "Vedeți categoria"
+
+msgid "View Knowledge Base"
+msgstr "Vedeți baza de cunoștințe"
+
+msgid "Delete Category"
+msgstr "Ștergeți categoria"
+
+msgid "Delete Knowledge Base"
+msgstr "Ștergeți baza de cunoștințe"
+
+msgid "View FAQ"
+msgstr "Vezi Întrebări frecvente"
+
+msgid "Delete FAQ"
+msgstr "Șterge întrebări frecvente"
+
+msgid "View Download"
+msgstr "Vizualizare descărcare"
+
+msgid "Delete Download"
+msgstr "Șterge descărcarea"
+
+msgid "Delete Announcement"
+msgstr "Ștergeți anunțul"
+
+msgid "Allow Mail System"
+msgstr "Permiteți sistemul de e-mail"
+
+msgid "Edit Help Topic"
+msgstr "Editați subiectul de ajutor"
+
+msgid "View Help Topic"
+msgstr "Vezi subiectul de ajutor"
+
+msgid "Delete Help Topic"
+msgstr "Ștergeți subiectul de ajutor"
+
+msgid "Edit Premade Response"
+msgstr "Editați răspunsul prefabricat"
+
+msgid "View Premade Response"
+msgstr "Vedeți răspunsul prefabricat"
+
+msgid "Delete Premade Response"
+msgstr "Ștergeți răspunsul predefinit"
+
+msgid "Edit Smart Reply"
+msgstr "Editați răspunsul inteligent"
+
+msgid "View Smart Reply"
+msgstr "Vizualizați răspuns inteligent"
+
+msgid "Delete Smart Reply"
+msgstr "Ștergeți răspunsul inteligent"
+
+msgid "Add Ban Email"
+msgstr "Adăugați e-mail interzis"
+
+msgid "Edit Ban Email"
+msgstr "Editare e-mail interzis"
+
+msgid "View Ban Email"
+msgstr "Vizualizați e-mailul de interzicere"
+
+msgid "Delete Ban Email"
+msgstr "Ștergeți e-mailul de interzicere"
+
+msgid "View Announcement"
+msgstr "Vizualizați anunțul"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Add Permissions"
+msgstr "Adăugați permisiuni"
+
+msgid "Add Rule"
+msgstr "Adăugați o regulă"
+
+msgid "Contain"
+msgstr "Conține"
+
+msgid "Matched"
+msgstr "Potriviți"
+
+msgid "Submit Type"
+msgstr "Tip de trimitere"
+
+msgid "Addons Status"
+msgstr "Starea suplimentelor"
+
+msgid "Assign To"
+msgstr "Atribuiți Către"
+
+msgid "Agent Detail Report"
+msgstr "Raport detaliat agent"
+
+msgid "User Detail Report"
+msgstr "Raport despre detaliile utilizatorului"
+
+msgid "Satisfaction Reports"
+msgstr "Rapoarte de satisfacție"
+
+msgid "Admin New Ticket Received"
+msgstr "Administrator Bilet nou primit"
+
+msgid "Staff New Ticket Received"
+msgstr "A fost primit un nou bilet de personal"
+
+msgid "New Department Received"
+msgstr "Noul departament primit"
+
+msgid "New Group Received"
+msgstr "Grup nou primit"
+
+msgid "New Agent Received"
+msgstr "Agent nou primit"
+
+msgid "New Help Topic Received"
+msgstr "A fost primit un nou subiect de ajutor"
+
+msgid "Admin Reassign Ticket"
+msgstr "Admin reatribuie bilet"
+
+msgid "Staff Reassign Ticket"
+msgstr "Biletul de reatribuire a personalului"
+
+msgid "Admin Close Ticket"
+msgstr "Admin Close Ticket"
+
+msgid "Staff Close Ticket"
+msgstr "Biletul de închidere a personalului"
+
+msgid "Admin Delete Ticket"
+msgstr "Administrator șterge bilet"
+
+msgid "Staff Delete Ticket"
+msgstr "Personal șterge bilet"
+
+msgid "Admin Overdue Ticket"
+msgstr "Bilet întârziat de administrator"
+
+msgid "Staff Overdue Ticket"
+msgstr "Biletul de întârziere al personalului"
+
+msgid "Admin Email Baned"
+msgstr "E-mailul administratorului a fost interzis"
+
+msgid "Staff Email Baned"
+msgstr "E-mailul personalului a fost interzis"
+
+msgid "Admin Ticket Transfered to Department"
+msgstr "Biletul de administrare a fost transferat la departament"
+
+msgid "Staff Ticket Transfered to Department"
+msgstr "Biletul personalului transferat la departament"
+
+msgid "Admin Email baned and ticket closed"
+msgstr "E-mailul administratorului a fost interzis și biletul închis"
+
+msgid "Staff Email baned and ticket closed"
+msgstr "E-mailul personalului a fost interzis și biletul închis"
+
+msgid "Admin Email Unbaned"
+msgstr "E-mailul administratorului este interzis"
+
+msgid "Staff Email Unbaned"
+msgstr "E-mailul personalului nu este interzis"
+
+msgid "Admin Ticket Reply"
+msgstr "Răspuns bilet de administrator"
+
+msgid "Staff Ticket Reply"
+msgstr "Răspuns la biletul personalului"
+
+msgid "Ticket Received"
+msgstr "Biletul primit"
+
+msgid "Banemail try new ticket"
+msgstr "Banemail încercați un bilet nou"
+
+msgid "Admin Ticket has been locked"
+msgstr "Biletul de administrator a fost blocat"
+
+msgid "Staff Ticket has been locked"
+msgstr "Biletul personalului a fost blocat"
+
+msgid "Admin Ticket has been unlocked"
+msgstr "Biletul de administrator a fost deblocat"
+
+msgid "Staff Ticket has been unlocked"
+msgstr "Biletul personalului a fost deblocat"
+
+msgid "Admin In progress Ticket"
+msgstr "Admin În curs Ticket"
+
+msgid "Staff In progress Ticket"
+msgstr "Biletul personal în curs"
+
+msgid "Admin Ticket priority changed"
+msgstr "Prioritatea biletului de administrator a fost schimbată"
+
+msgid "Staff Ticket priority changed"
+msgstr "Prioritatea biletului de personal a fost schimbată"
+
+msgid "New Mail has been sent"
+msgstr "E-mail nou a fost trimis"
+
+msgid "New Reply has been sent"
+msgstr "Răspuns nou a fost trimis"
+
+msgid "Delete User Data"
+msgstr "Ștergeți datele utilizatorului"
+
+msgid "Closed on"
+msgstr "Închis pe"
+
+msgid "Message could not be sent. Mailer Error: "
+msgstr "Mesajul nu a putut fi trimis. Eroare Mailer:"
+
+msgid "Test email has been sent on : "
+msgstr "E-mailul de testare a fost trimis pe:"
+
+msgid "The system has no agents add an agent to maximize your productivity."
+msgstr "Sistemul nu are agenți care adaugă un agent pentru a vă maximiza productivitatea."

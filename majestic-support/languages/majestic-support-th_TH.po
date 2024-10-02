@@ -1,0 +1,6144 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: th_TH\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "You are not allowed"
+msgstr "คุณไม่ได้รับอนุญาต"
+
+msgid "The ticket has been locked"
+msgstr "ตั๋วถูกล็อค"
+
+msgid "Successfully"
+msgstr "สำเร็จแล้ว"
+
+msgid "The ticket has not been locked"
+msgstr "ตั๋วไม่ได้ถูกล็อค"
+
+msgid "Lock Ticket"
+msgstr "ล็อคตั๋ว"
+
+msgid "The ticket is locked by"
+msgstr "ตั๋วถูกล็อคโดย"
+
+msgid "The ticket has been unlocked"
+msgstr "ตั๋วถูกปลดล็อคแล้ว"
+
+msgid "The ticket has not been unlocked"
+msgstr "ตั๋วยังไม่ถูกปลดล็อค"
+
+msgid "Unlock Ticket"
+msgstr "ปลดล็อคตั๋ว"
+
+msgid "User already an agent"
+msgstr "ผู้ใช้เป็นตัวแทนแล้ว"
+
+msgid "The agent has not been stored"
+msgstr "ตัวแทนไม่ได้ถูกจัดเก็บ"
+
+msgid "The agent has been stored"
+msgstr "ตัวแทนถูกเก็บไว้"
+
+msgid "The agent has been deleted"
+msgstr "ตัวแทนถูกลบแล้ว"
+
+msgid "The agent has not been deleted"
+msgstr "ตัวแทนยังไม่ถูกลบ"
+
+msgid "The agent in use cannot delete"
+msgstr "ตัวแทนที่ใช้งานอยู่ไม่สามารถลบได้"
+
+msgid "Agent"
+msgstr "ตัวแทน"
+
+msgid "status has been changed"
+msgstr "สถานะมีการเปลี่ยนแปลง"
+
+msgid "status has not been changed"
+msgstr "สถานะยังไม่ได้รับการเปลี่ยนแปลง"
+
+msgid "ID"
+msgstr "บัตรประจำตัวประชาชน"
+
+msgid "User Name"
+msgstr "ชื่อผู้ใช้"
+
+msgid "Email Address"
+msgstr "ที่อยู่อีเมล"
+
+msgid "Name"
+msgstr "ชื่อ"
+
+msgid "Email"
+msgstr "อีเมล"
+
+msgid "Previous"
+msgstr "ก่อนหน้า"
+
+msgid "Next"
+msgstr "ต่อไป"
+
+msgid "Error Deleting Logo"
+msgstr "เกิดข้อผิดพลาดในการลบโลโก้"
+
+msgid "Active"
+msgstr "คล่องแคล่ว"
+
+msgid "Disabled"
+msgstr "พิการ"
+
+msgid "Uploaded file extension error."
+msgstr "ข้อผิดพลาดนามสกุลไฟล์ที่อัปโหลด"
+
+msgid "Select user"
+msgstr "เลือกผู้ใช้"
+
+msgid "Username"
+msgstr "ชื่อผู้ใช้"
+
+msgid "Search"
+msgstr "ค้นหา"
+
+msgid "Reset"
+msgstr "รีเซ็ต"
+
+msgid "Use search feature to select the user"
+msgstr "ใช้คุณสมบัติการค้นหาเพื่อเลือกผู้ใช้"
+
+msgid "image"
+msgstr "ภาพ"
+
+msgid "Add Agent"
+msgstr "เพิ่มตัวแทน"
+
+msgid "WP User ID"
+msgstr "รหัสผู้ใช้ WP"
+
+msgid "WP Username"
+msgstr "ชื่อผู้ใช้ WP"
+
+msgid "WP Full Name"
+msgstr "WP ชื่อเต็ม"
+
+msgid "WP Email Address"
+msgstr "ที่อยู่อีเมล WP"
+
+msgid "User"
+msgstr "ผู้ใช้"
+
+msgid "Select User"
+msgstr "เลือกผู้ใช้"
+
+msgid "Select Role"
+msgstr "เลือกบทบาท"
+
+msgid "First Name"
+msgstr "ชื่อจริง"
+
+msgid "Last Name"
+msgstr "นามสกุล"
+
+msgid "Office Phone"
+msgstr "โทรศัพท์สำนักงาน"
+
+msgid "Extension"
+msgstr "ส่วนขยาย"
+
+msgid "Mobile No"
+msgstr "เบอร์มือถือ"
+
+msgid "Picture"
+msgstr "รูปภาพ"
+
+msgid "cross"
+msgstr "ข้าม"
+
+msgid "Maximum File Size"
+msgstr "ขนาดไฟล์สูงสุด"
+
+msgid "File Extension Type"
+msgstr "ประเภทนามสกุลไฟล์"
+
+msgid "Append Signature"
+msgstr "ผนวกลายเซ็น"
+
+msgid "Append signature with a reply"
+msgstr "ผนวกลายเซ็นด้วยการตอบกลับ"
+
+msgid "Signature"
+msgstr "ลายเซ็น"
+
+msgid "Account Status"
+msgstr "สถานะบัญชี"
+
+msgid "Select Status"
+msgstr "เลือก สถานะ"
+
+msgid "Save"
+msgstr "บันทึก"
+
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+msgid "Close"
+msgstr "ปิด"
+
+msgid "User Detail"
+msgstr "รายละเอียดผู้ใช้"
+
+msgid "Append"
+msgstr "ผนวก"
+
+msgid "Department Section"
+msgstr "แผนกแผนก"
+
+msgid "Ticket Section"
+msgstr "ส่วนตั๋ว"
+
+msgid "Agent Section"
+msgstr "ส่วนตัวแทน"
+
+msgid "Knowledge Base Section"
+msgstr "ส่วนฐานความรู้"
+
+msgid "FAQ Section"
+msgstr "ส่วนคำถามที่พบบ่อย"
+
+msgid "Download Section"
+msgstr "ดาวน์โหลดมาตรา"
+
+msgid "Announcement Section"
+msgstr "ส่วนประกาศ"
+
+msgid "Mail Section"
+msgstr "ส่วนจดหมาย"
+
+msgid "Help Topic Section"
+msgstr "ส่วนหัวข้อช่วยเหลือ"
+
+msgid "Premade Response Section"
+msgstr "ส่วนการตอบสนองที่ทำไว้ล่วงหน้า"
+
+msgid "Smart Reply Section"
+msgstr "ส่วนการตอบกลับอัจฉริยะ"
+
+msgid "Ban Email Section"
+msgstr "ส่วนอีเมลบ้าน"
+
+msgid "Select / Deselect All"
+msgstr "เลือก / ยกเลิกการเลือกทั้งหมด"
+
+msgid "Save Permissions"
+msgstr "บันทึกสิทธิ์"
+
+msgid "Full Name"
+msgstr "ชื่อเต็ม"
+
+msgid "Status"
+msgstr "สถานะ"
+
+msgid "Created"
+msgstr "สร้าง"
+
+msgid "Permissions"
+msgstr "สิทธิ์"
+
+msgid "Action"
+msgstr "การกระทำ"
+
+msgid "Staff"
+msgstr "พนักงาน"
+
+msgid "change status"
+msgstr "เปลี่ยนสถานะ"
+
+msgid "Edit"
+msgstr "แก้ไข"
+
+msgid "Delete"
+msgstr "ลบ"
+
+msgid "Are you sure you want to delete"
+msgstr "คุณแน่ใจหรือว่าต้องการลบ"
+
+msgid "Something went wrong to try again later."
+msgstr "มีข้อผิดพลาดเกิดขึ้น โปรดลองอีกครั้งในภายหลัง"
+
+msgid "My Profile"
+msgstr "ประวัติของฉัน"
+
+msgid "Upload Image"
+msgstr "อัพโหลดรูปภาพ"
+
+msgid "Phone No"
+msgstr "หมายเลขโทรศัพท์"
+
+msgid "Upload file limit exceeds"
+msgstr "เกินขีดจำกัดการอัปโหลดไฟล์"
+
+msgid "No help topic found"
+msgstr "ไม่พบหัวข้อความช่วยเหลือ"
+
+msgid "Error file size too large"
+msgstr "ขนาดไฟล์ข้อผิดพลาดใหญ่เกินไป"
+
+msgid "Submit Ticket"
+msgstr "ส่งตั๋ว"
+
+msgid "Select Department"
+msgstr "เลือกแผนก"
+
+msgid "Select Help Topic"
+msgstr "เลือกหัวข้อวิธีใช้"
+
+msgid "Select Priority"
+msgstr "เลือกลำดับความสำคัญ"
+
+msgid "premade"
+msgstr "ทำไว้ล่วงหน้า"
+
+msgid "Add more"
+msgstr "เพิ่มมากขึ้น"
+
+msgid "Remove"
+msgstr "ลบ"
+
+msgid "Reason for edit"
+msgstr "เหตุผลในการแก้ไข"
+
+msgid "Internal Note"
+msgstr "หมายเหตุภายใน"
+
+msgid "Enter valid woocommerce order#"
+msgstr "ป้อนคำสั่งซื้อ woocommerce ที่ถูกต้อง#"
+
+msgid "Order id found"
+msgstr "พบรหัสคำสั่งซื้อแล้ว"
+
+msgid "Order id not found"
+msgstr "ไม่พบรหัสคำสั่งซื้อ"
+
+msgid "Select Product"
+msgstr "เลือกผลิตภัณฑ์"
+
+msgid "Dated"
+msgstr "ลงวันที่"
+
+msgid "Select Order ID"
+msgstr "เลือกรหัสคำสั่งซื้อ"
+
+msgid "Select license key"
+msgstr "เลือกรหัสใบอนุญาต"
+
+msgid "Assign to me"
+msgstr "มอบหมายให้ฉัน"
+
+msgid "Show All"
+msgstr "แสดงทั้งหมด"
+
+msgid "Show Less"
+msgstr "แสดงน้อยลง"
+
+msgid "My Tickets"
+msgstr "ตั๋วของฉัน"
+
+msgid "Open"
+msgstr "เปิด"
+
+msgid "Closed"
+msgstr "ปิด"
+
+msgid "Answered"
+msgstr "ตอบแล้ว"
+
+msgid "Overdue"
+msgstr "ค้างชำระ"
+
+msgid "All Tickets"
+msgstr "ตั๋วทั้งหมด"
+
+msgid "Ticket ID"
+msgstr "รหัสตั๋ว"
+
+msgid "Or"
+msgstr "หรือ"
+
+msgid "From"
+msgstr "จาก"
+
+msgid "Select Agent"
+msgstr "เลือกตัวแทน"
+
+msgid "Select"
+msgstr "เลือก"
+
+msgid "Start Date"
+msgstr "วันที่เริ่มต้น"
+
+msgid "End Date"
+msgstr "วันที่สิ้นสุด"
+
+msgid "Assigned to me"
+msgstr "มอบหมายให้ฉัน"
+
+msgid "All"
+msgstr "ทั้งหมด"
+
+msgid "Tickets"
+msgstr "ตั๋ว"
+
+msgid "Subject"
+msgstr "เรื่อง"
+
+msgid "Priority"
+msgstr "ลำดับความสำคัญ"
+
+msgid "sort"
+msgstr "เรียงลำดับ"
+
+msgid "New"
+msgstr "ใหม่"
+
+msgid "Waiting Reply"
+msgstr "รอการตอบกลับ"
+
+msgid "In Progress"
+msgstr "กำลังดำเนินการ"
+
+msgid "Replied"
+msgstr "ตอบกลับ"
+
+msgid "Close and merge"
+msgstr "ปิดและรวมเข้าด้วยกัน"
+
+msgid "Created via Email"
+msgstr "สร้างผ่านทางอีเมล์"
+
+msgid "The ticket is locked"
+msgstr "ตั๋วถูกล็อค"
+
+msgid "The ticket marks as overdue"
+msgstr "ตั๋วทำเครื่องหมายว่าเกินกำหนด"
+
+msgid "Last Reply"
+msgstr "คำตอบสุดท้าย"
+
+msgid "Agent Permissions"
+msgstr "สิทธิ์ตัวแทน"
+
+msgid "Agents"
+msgstr "ตัวแทน"
+
+msgid "Add agent"
+msgstr "เพิ่มตัวแทน"
+
+msgid "Search by username"
+msgstr "ค้นหาด้วยชื่อผู้ใช้"
+
+msgid "Already exists"
+msgstr "มีอยู่แล้ว"
+
+msgid "The role has been stored"
+msgstr "บทบาทถูกเก็บไว้"
+
+msgid "The role has not been stored"
+msgstr "บทบาทยังไม่ได้ถูกจัดเก็บ"
+
+msgid "The role has been deleted"
+msgstr "ลบบทบาทแล้ว"
+
+msgid "The role has not been deleted"
+msgstr "บทบาทยังไม่ถูกลบ"
+
+msgid "The role currently in use cannot be deleted"
+msgstr "ไม่สามารถลบบทบาทที่ใช้อยู่ในปัจจุบันได้"
+
+msgid "Add Role"
+msgstr "เพิ่มบทบาท"
+
+msgid "Save Role"
+msgstr "บันทึกบทบาท"
+
+msgid "Role Name"
+msgstr "ชื่อบทบาท"
+
+msgid "Role Permission"
+msgstr "การอนุญาตตามบทบาท"
+
+msgid "Role Permissions"
+msgstr "สิทธิ์ตามบทบาท"
+
+msgid "Role permissions"
+msgstr "สิทธิ์ตามบทบาท"
+
+msgid "Agent permissions have been stored"
+msgstr "สิทธิ์ของตัวแทนถูกจัดเก็บไว้แล้ว"
+
+msgid "Select Condition Operator"
+msgstr "เลือกตัวดำเนินการตามเงื่อนไข"
+
+msgid "Select Submit Type"
+msgstr "เลือกประเภทการส่ง"
+
+msgid "Rule has been stored"
+msgstr "กฎถูกเก็บไว้"
+
+msgid "Rule has not been stored"
+msgstr "ไม่ได้จัดเก็บกฎไว้"
+
+msgid "Rule has been deleted"
+msgstr "ลบกฎแล้ว"
+
+msgid "Rule has not been deleted"
+msgstr "กฎไม่ได้ถูกลบ"
+
+msgid "Rule"
+msgstr "กฎ"
+
+msgid "in use cannot deleted"
+msgstr "ใช้งานอยู่ไม่สามารถลบได้"
+
+msgid "Condition Title"
+msgstr "หัวข้อเงื่อนไข"
+
+msgid "Select Condition Title"
+msgstr "เลือกชื่อเงื่อนไข"
+
+msgid "Condition Operator"
+msgstr "ผู้ดำเนินการตามเงื่อนไข"
+
+msgid "Condition Value"
+msgstr "ค่าสภาพ"
+
+msgid "Select Condition Value"
+msgstr "เลือกค่าเงื่อนไข"
+
+msgid "Delete Condition"
+msgstr "ลบเงื่อนไข"
+
+msgid "No Operator found"
+msgstr "ไม่พบโอเปอเรเตอร์"
+
+msgid "No Value found"
+msgstr "ไม่พบค่า"
+
+msgid "Rule Title"
+msgstr "ชื่อกฎ"
+
+msgid "Condition value"
+msgstr "ค่าสภาพ"
+
+msgid "+Add more Condition"
+msgstr "+ เพิ่มเงื่อนไขเพิ่มเติม"
+
+msgid "Save Rule"
+msgstr "บันทึกกฎ"
+
+msgid "Records per page"
+msgstr "บันทึกต่อหน้า"
+
+msgid "Save Ordering"
+msgstr "บันทึกการสั่งซื้อ"
+
+msgid "An announcement has been stored"
+msgstr "ได้มีการจัดเก็บประกาศไว้แล้ว"
+
+msgid "An announcement has not been stored"
+msgstr "ยังไม่ได้จัดเก็บประกาศ"
+
+msgid "An announcement has been deleted"
+msgstr "ลบประกาศแล้ว"
+
+msgid "An announcement has not been deleted"
+msgstr "ประกาศยังไม่ถูกลบ"
+
+msgid "Announcement"
+msgstr "ประกาศ"
+
+msgid "ordering has been changed"
+msgstr "การสั่งซื้อมีการเปลี่ยนแปลง"
+
+msgid "ordering has not changed"
+msgstr "การสั่งซื้อไม่มีการเปลี่ยนแปลง"
+
+msgid "Public"
+msgstr "สาธารณะ"
+
+msgid "Private"
+msgstr "ส่วนตัว"
+
+msgid "Add Announcement"
+msgstr "เพิ่มประกาศ"
+
+msgid "Title"
+msgstr "ชื่อ"
+
+msgid "Parent Category"
+msgstr "หมวดหมู่ผู้ปกครอง"
+
+msgid "Select Category"
+msgstr "เลือกประเภท"
+
+msgid "Description"
+msgstr "คำอธิบาย"
+
+msgid "Select Visibility"
+msgstr "เลือกการเปิดเผย"
+
+msgid "All users"
+msgstr "ผู้ใช้ทั้งหมด"
+
+msgid "Only logged-in users"
+msgstr "เฉพาะผู้ใช้ที่เข้าสู่ระบบเท่านั้น"
+
+msgid "Visible To"
+msgstr "มองเห็นถึง"
+
+msgid "Save Announcement"
+msgstr "บันทึกประกาศ"
+
+msgid "Category"
+msgstr "หมวดหมู่"
+
+msgid "Ordering"
+msgstr "การสั่งซื้อ"
+
+msgid "Announcement Detail"
+msgstr "รายละเอียดประกาศ"
+
+msgid "Category Name"
+msgstr "ชื่อหมวดหมู่"
+
+msgid "Announcements"
+msgstr "ประกาศ"
+
+msgid "Categories"
+msgstr "หมวดหมู่"
+
+msgid "Add Announcements"
+msgstr "เพิ่มประกาศ"
+
+msgid "Logger Email"
+msgstr "อีเมล์คนบันทึก"
+
+msgid "Log"
+msgstr "บันทึก"
+
+msgid "Logger"
+msgstr "คนตัดไม้"
+
+msgid "IP Address"
+msgstr "ที่อยู่ IP"
+
+msgid "Ban email has been stored"
+msgstr "อีเมล์แบนถูกเก็บไว้"
+
+msgid "Ban email has not been stored"
+msgstr "อีเมลการแบนไม่ได้ถูกจัดเก็บ"
+
+msgid "Ban email has been deleted"
+msgstr "อีเมล์แบนถูกลบแล้ว"
+
+msgid "Ban email has not been deleted"
+msgstr "อีเมลการแบนยังไม่ถูกลบ"
+
+msgid "Ban email does not exist"
+msgstr "ไม่มีอีเมลการแบน"
+
+msgid "Add Email"
+msgstr "เพิ่มอีเมล"
+
+msgid "Save Email"
+msgstr "บันทึกอีเมล"
+
+msgid "Save Banned Email"
+msgstr "บันทึกอีเมลที่ถูกแบน"
+
+msgid "Emails"
+msgstr "อีเมล"
+
+msgid "Submitter"
+msgstr "ผู้ส่ง"
+
+msgid "Banned Emails"
+msgstr "อีเมลที่ถูกแบน"
+
+msgid "Are you sure you want to delete it?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบมัน?"
+
+msgid "Premade response message has been stored"
+msgstr "ข้อความตอบกลับที่สร้างไว้ล่วงหน้าถูกจัดเก็บไว้แล้ว"
+
+msgid "Premade response message has not been stored"
+msgstr "ไม่ได้จัดเก็บข้อความตอบกลับที่สร้างไว้ล่วงหน้า"
+
+msgid "Premade department message has been deleted"
+msgstr "ลบข้อความแผนกที่ทำไว้ล่วงหน้าแล้ว"
+
+msgid "Premade department message has not been deleted"
+msgstr "ข้อความแผนกที่ทำไว้ล่วงหน้ายังไม่ถูกลบ"
+
+msgid "Premade response"
+msgstr "การตอบสนองล่วงหน้า"
+
+msgid "Add Premade Response"
+msgstr "เพิ่มการตอบกลับที่สร้างไว้ล่วงหน้า"
+
+msgid "Department"
+msgstr "แผนก"
+
+msgid "Response"
+msgstr "การตอบสนอง"
+
+msgid "Save Premade Response"
+msgstr "บันทึกการตอบกลับที่สร้างไว้ล่วงหน้า"
+
+msgid "The department under which the answer will be made is available"
+msgstr "แผนกที่จะทำคำตอบนั้นมีอยู่"
+
+msgid "Offline"
+msgstr "ออฟไลน์"
+
+msgid "Last Updated"
+msgstr "อัปเดตล่าสุด"
+
+msgid "Not updated"
+msgstr "ไม่อัพเดท"
+
+msgid "Premade Response"
+msgstr "การตอบสนองที่ทำไว้ล่วงหน้า"
+
+msgid "Latest Tickets"
+msgstr "ตั๋วล่าสุด"
+
+msgid "Last Month Ticket Stats"
+msgstr "สถิติตั๋วเดือนที่แล้ว"
+
+msgid "Pending"
+msgstr "รอดำเนินการ"
+
+msgid "The attachment has been removed"
+msgstr "สิ่งที่แนบมาถูกลบออกแล้ว"
+
+msgid "The attachment has not been removed"
+msgstr "สิ่งที่แนบมายังไม่ได้ถูกลบออก"
+
+msgid "The download has been stored"
+msgstr "การดาวน์โหลดถูกเก็บไว้"
+
+msgid "The download has not been stored"
+msgstr "ไม่ได้จัดเก็บการดาวน์โหลดไว้"
+
+msgid "Download"
+msgstr "ดาวน์โหลด"
+
+msgid "The download has been deleted"
+msgstr "การดาวน์โหลดถูกลบแล้ว"
+
+msgid "The download has not been deleted"
+msgstr "การดาวน์โหลดยังไม่ถูกลบ"
+
+msgid "Download All"
+msgstr "ดาวน์โหลดทั้งหมด"
+
+msgid "Add Download"
+msgstr "เพิ่มการดาวน์โหลด"
+
+msgid "Attachments"
+msgstr "ไฟล์แนบ"
+
+msgid "Save Download"
+msgstr "บันทึกการดาวน์โหลด"
+
+msgid "Add More Files"
+msgstr "เพิ่มไฟล์เพิ่มเติม"
+
+msgid "Delete attachment"
+msgstr "ลบไฟล์แนบ"
+
+msgid "grab"
+msgstr "คว้า"
+
+msgid "Attachment"
+msgstr "เอกสารแนบ"
+
+msgid "Downloads"
+msgstr "ดาวน์โหลด"
+
+msgid "Files"
+msgstr "ไฟล์"
+
+msgid "Majestic Support"
+msgstr "การสนับสนุนมาเจสติก"
+
+msgid "Get Help"
+msgstr "ขอความช่วยเหลือ"
+
+msgid "Email CC has been stored"
+msgstr "อีเมล CC ถูกเก็บไว้"
+
+msgid "Email CC has not been stored"
+msgstr "อีเมล CC ไม่ได้ถูกจัดเก็บ"
+
+msgid "Email CC has been deleted"
+msgstr "ลบ CC อีเมลแล้ว"
+
+msgid "Email CC has not been deleted"
+msgstr "อีเมล CC ไม่ได้ถูกลบ"
+
+msgid "Email CC "
+msgstr "อีเมล CC"
+
+msgid "Email CC"
+msgstr "อีเมล CC"
+
+msgid "Template Type"
+msgstr "ประเภทเทมเพลต"
+
+msgid "Select Template Type"
+msgstr "เลือกประเภทเทมเพลต"
+
+msgid "Delete row"
+msgstr "ลบแถว"
+
+msgid "Template For"
+msgstr "เทมเพลตสำหรับ"
+
+msgid "Select Template For"
+msgstr "เลือกเทมเพลตสำหรับ"
+
+msgid "Template Title"
+msgstr "ชื่อเทมเพลต"
+
+msgid "Add more row"
+msgstr "เพิ่มอีกแถว"
+
+msgid "Save Email CC"
+msgstr "บันทึกอีเมล CC"
+
+msgid "Service is running, please close the pag"
+msgstr "การบริการกำลังทำงาน กรุณาปิดเพจ"
+
+msgid "Your setting is working please this."
+msgstr "การตั้งค่าของคุณใช้งานได้โปรดทำเช่นนี้"
+
+msgid "Connection established but the system cannot read any email"
+msgstr "สร้างการเชื่อมต่อแล้ว แต่ระบบไม่สามารถอ่านอีเมลใดๆ ได้"
+
+msgid "The setting has been stored."
+msgstr "การตั้งค่าถูกจัดเก็บไว้"
+
+msgid "The setting has not been stored."
+msgstr "การตั้งค่ายังไม่ได้ถูกจัดเก็บ"
+
+msgid "Email address already exist"
+msgstr "มีที่อยู่อีเมลอยู่แล้ว"
+
+msgid "Email for email piping has been stored"
+msgstr "อีเมลสำหรับการวางท่ออีเมลถูกจัดเก็บไว้แล้ว"
+
+msgid "Email for email piping has not been stored"
+msgstr "อีเมลสำหรับการส่งอีเมลยังไม่ได้ถูกจัดเก็บ"
+
+msgid "The email has been deleted"
+msgstr "อีเมลถูกลบแล้ว"
+
+msgid "The email has not been deleted"
+msgstr "อีเมลยังไม่ถูกลบ"
+
+msgid "Enabled"
+msgstr "เปิดใช้งานแล้ว"
+
+msgid "Only New Tickets"
+msgstr "เฉพาะตั๋วใหม่เท่านั้น"
+
+msgid "Only Replies"
+msgstr "ตอบกลับเท่านั้น"
+
+msgid "Both"
+msgstr "ทั้งคู่"
+
+msgid "Other"
+msgstr "อื่น"
+
+msgid "Yes"
+msgstr "ใช่"
+
+msgid "Please enter the hostname first"
+msgstr "กรุณากรอกชื่อโฮสต์ก่อน"
+
+msgid "Please enable email piping setting first"
+msgstr "โปรดเปิดใช้งานการตั้งค่าการส่งอีเมล์ก่อน"
+
+msgid "Enable email piping"
+msgstr "เปิดใช้งานการวางท่ออีเมล"
+
+msgid "Ticket Type"
+msgstr "ประเภทตั๋ว"
+
+msgid "Which email type to read"
+msgstr "อีเมลประเภทไหนที่จะอ่าน"
+
+msgid "Save attachments if found in an email"
+msgstr "บันทึกไฟล์แนบหากพบในอีเมล"
+
+msgid "Host Type"
+msgstr "ประเภทโฮสต์"
+
+msgid "Select your email service provider"
+msgstr "เลือกผู้ให้บริการอีเมลของคุณ"
+
+msgid "Host Name"
+msgstr "ชื่อโฮสต์"
+
+msgid "Enabled SSL"
+msgstr "เปิดใช้งาน SSL"
+
+msgid "Do you have enabled SSL on your domain?"
+msgstr "คุณได้เปิดใช้งาน SSL บนโดเมนของคุณหรือไม่?"
+
+msgid "Host Port Number"
+msgstr "หมายเลขพอร์ตโฮสต์"
+
+msgid "Host port number to read an email from"
+msgstr "หมายเลขพอร์ตโฮสต์สำหรับอ่านอีเมล"
+
+msgid "Email address to read emails"
+msgstr "ที่อยู่อีเมลสำหรับอ่านอีเมล"
+
+msgid "Password"
+msgstr "รหัสผ่าน"
+
+msgid "Password for a given email address"
+msgstr "รหัสผ่านสำหรับที่อยู่อีเมลที่ระบุ"
+
+msgid "check"
+msgstr "ตรวจสอบ"
+
+msgid "Check Settings"
+msgstr "ตรวจสอบการตั้งค่า"
+
+msgid "If the system doesn't respond in 30 seconds"
+msgstr "หากระบบไม่ตอบสนองภายใน 30 วินาที"
+
+msgid "it means system unable to connect email server"
+msgstr "หมายความว่าระบบไม่สามารถเชื่อมต่อเซิร์ฟเวอร์อีเมลได้"
+
+msgid "Save Settings"
+msgstr "บันทึกการตั้งค่า"
+
+msgid "Cron Job"
+msgstr "งานครอน"
+
+msgid "Web Cron Job"
+msgstr "งานเว็บครอน"
+
+msgid "Curl"
+msgstr "ขด"
+
+msgid "PHP Script"
+msgstr "สคริปต์ PHP"
+
+msgid "Configuration of a backup job with webcron.org"
+msgstr "การกำหนดค่างานสำรองข้อมูลด้วย webcron.org"
+
+msgid "Name of cron job"
+msgstr "ชื่องาน cron"
+
+msgid "Log in to webcron.org and in the cron area, click on "
+msgstr "เข้าสู่ระบบ webcron.org และคลิกที่พื้นที่ cron"
+
+msgid "Timeout"
+msgstr "หมดเวลา"
+
+msgid "URL you want to execute"
+msgstr "URL ที่คุณต้องการดำเนินการ"
+
+msgid "Login"
+msgstr "เข้าสู่ระบบ"
+
+msgid "Leave this blank"
+msgstr "เว้นว่างไว้นี้"
+
+msgid "Execution time"
+msgstr "เวลาดำเนินการ"
+
+msgid "That the grid below the other options select when and how"
+msgstr "ว่าตารางด้านล่างตัวเลือกอื่น ๆ จะเลือกเวลาและอย่างไร"
+
+msgid "Alerts"
+msgstr "การแจ้งเตือน"
+
+msgid "Cron scheduling using wget"
+msgstr "การตั้งเวลา Cron โดยใช้ wget"
+
+msgid "Cron scheduling using Curl"
+msgstr "การตั้งเวลา Cron โดยใช้ Curl"
+
+msgid "Custom PHP script to run the cron job"
+msgstr "สคริปต์ PHP แบบกำหนดเองเพื่อรันงาน cron"
+
+msgid "Sorry the cron job did not work"
+msgstr "ขออภัยงาน cron ไม่ทำงาน"
+
+msgid "URL for use with your own scripts and third-party scripts"
+msgstr "URL สำหรับใช้กับสคริปต์ของคุณเองและสคริปต์บุคคลที่สาม"
+
+msgid "It is recommended to run the script every hour."
+msgstr "ขอแนะนำให้รันสคริปต์ทุกชั่วโมง"
+
+msgid "Ticket Email Type"
+msgstr "ประเภทอีเมลตั๋ว"
+
+msgid "ticket email"
+msgstr "อีเมลตั๋ว"
+
+msgid "Overall Reports"
+msgstr "รายงานโดยรวม"
+
+msgid "Agents Report"
+msgstr "รายงานตัวแทน"
+
+msgid "Department Report"
+msgstr "รายงานแผนก"
+
+msgid "Departments Report"
+msgstr "รายงานหน่วยงาน"
+
+msgid "Majestic Support Overall Reports"
+msgstr "รายงานโดยรวมของ Majestic Support"
+
+msgid "Tickets By Status"
+msgstr "ตั๋วตามสถานะ"
+
+msgid "Tickets By Departments"
+msgstr "ตั๋วตามแผนก"
+
+msgid "Tickets By Priorities"
+msgstr "ตั๋วตามลำดับความสำคัญ"
+
+msgid "Tickets By Channel"
+msgstr "ตั๋วตามช่องทาง"
+
+msgid "Direct"
+msgstr "โดยตรง"
+
+msgid "Direct reply"
+msgstr "ตอบกลับโดยตรง"
+
+msgid "Email reply"
+msgstr "ตอบกลับอีเมล์"
+
+msgid "Tickets By staff"
+msgstr "ตั๋วโดยเจ้าหน้าที่"
+
+msgid "Report By"
+msgstr "รายงานโดย"
+
+msgid "agent"
+msgstr "ตัวแทน"
+
+msgid "To"
+msgstr "ถึง"
+
+msgid "Report By Agents"
+msgstr "รายงานโดยตัวแทน"
+
+msgid "Ticket status by days"
+msgstr "สถานะตั๋วตามวัน"
+
+msgid "Date"
+msgstr "วันที่"
+
+msgid "Tickets Staff"
+msgstr "พนักงานขายตั๋ว"
+
+msgid "Average Rating"
+msgstr "คะแนนเฉลี่ย"
+
+msgid "Average Time"
+msgstr "เวลาเฉลี่ย"
+
+msgid "Report By agent"
+msgstr "รายงานโดยตัวแทน"
+
+msgid "Rating"
+msgstr "เรตติ้ง"
+
+msgid "Time"
+msgstr "เวลา"
+
+msgid "Merged"
+msgstr "รวมแล้ว"
+
+msgid "Report By department"
+msgstr "รายงานตามแผนก"
+
+msgid "Tickets By Department"
+msgstr "ตั๋วตามแผนก"
+
+msgid "Department Name"
+msgstr "ชื่อห้างสรรพสินค้า"
+
+msgid "User report"
+msgstr "รายงานผู้ใช้"
+
+msgid "Users report"
+msgstr "รายงานผู้ใช้"
+
+msgid "Users Tickets"
+msgstr "ตั๋วผู้ใช้"
+
+msgid "User Report"
+msgstr "รายงานผู้ใช้"
+
+msgid "Report By Departments"
+msgstr "รายงานตามหน่วยงาน"
+
+msgid "Tickets Data"
+msgstr "ข้อมูลตั๋ว"
+
+msgid "Message"
+msgstr "ข้อความ"
+
+msgid "Assigned To"
+msgstr "ได้รับมอบหมายให้"
+
+msgid "Updated"
+msgstr "อัปเดตแล้ว"
+
+msgid "Due Date"
+msgstr "วันครบกำหนด"
+
+msgid "Closed Date"
+msgstr "วันที่ปิดทำการ"
+
+msgid "Closed Time"
+msgstr "เวลาปิด"
+
+msgid "Requester User Name"
+msgstr "ชื่อผู้ใช้ของผู้ขอ"
+
+msgid "Requester Name"
+msgstr "ชื่อผู้ขอ"
+
+msgid "Requester Email"
+msgstr "อีเมล์ผู้ขอ"
+
+msgid "Requester Phone"
+msgstr "โทรศัพท์ผู้ขอ"
+
+msgid "Requester help Topic"
+msgstr "หัวข้อช่วยเหลือผู้ร้องขอ"
+
+msgid "Ticket Attachment"
+msgstr "เอกสารแนบตั๋ว"
+
+msgid "Posted By"
+msgstr "โพสโดย"
+
+msgid "Note Title"
+msgstr "หมายเหตุ ชื่อเรื่อง"
+
+msgid "Note Message"
+msgstr "ข้อความหมายเหตุ"
+
+msgid "Posted Date"
+msgstr "วันที่โพสต์"
+
+msgid "Note Attachment"
+msgstr "หมายเหตุ สิ่งที่แนบมาด้วย"
+
+msgid "User Time"
+msgstr "เวลาผู้ใช้"
+
+msgid "System Time"
+msgstr "เวลาของระบบ"
+
+msgid "Edit Reason"
+msgstr "แก้ไขเหตุผล"
+
+msgid "Reply Date"
+msgstr "วันที่ตอบกลับ"
+
+msgid "Reply By"
+msgstr "ตอบโดย"
+
+msgid "Reply Attachment"
+msgstr "ตอบไฟล์แนบ"
+
+msgid "Total Tracking Time"
+msgstr "เวลาในการติดตามทั้งหมด"
+
+msgid "Ticket Status"
+msgstr "สถานะตั๋ว"
+
+msgid "Select Ticket Status"
+msgstr "เลือกสถานะตั๋ว"
+
+msgid "Ticket Overdue"
+msgstr "ตั๋วเกินกำหนด"
+
+msgid "Select Ticket Overdue Status"
+msgstr "เลือกสถานะตั๋วเกินกำหนด"
+
+msgid "Export Style"
+msgstr "สไตล์การส่งออก"
+
+msgid "Single Header"
+msgstr "หัวเดียว"
+
+msgid "Multiple Header"
+msgstr "หลายส่วนหัว"
+
+msgid "Export"
+msgstr "ส่งออก"
+
+msgid "FAQ has been stored"
+msgstr "คำถามที่พบบ่อยถูกเก็บไว้"
+
+msgid "FAQ has not been stored"
+msgstr "คำถามที่พบบ่อยยังไม่ได้ถูกจัดเก็บ"
+
+msgid "FAQ has been deleted"
+msgstr "คำถามที่พบบ่อยถูกลบแล้ว"
+
+msgid "FAQ has not been deleted"
+msgstr "คำถามที่พบบ่อยยังไม่ถูกลบ"
+
+msgid "FAQ"
+msgstr "คำถามที่พบบ่อย"
+
+msgid "Add FAQs"
+msgstr "เพิ่มคำถามที่พบบ่อย"
+
+msgid "Save FAQ"
+msgstr "บันทึกคำถามที่พบบ่อย"
+
+msgid "Content"
+msgstr "เนื้อหา"
+
+msgid "FAQ Detail"
+msgstr "รายละเอียดคำถามที่พบบ่อย"
+
+msgid "FAQs"
+msgstr "คำถามที่พบบ่อย"
+
+msgid "Search title"
+msgstr "ค้นหาชื่อ"
+
+msgid "Search keywords"
+msgstr "ค้นหาคำสำคัญ"
+
+msgid "Sub Category Faqs"
+msgstr "คำถามที่พบบ่อยเกี่ยวกับหมวดหมู่ย่อย"
+
+msgid "Add FAQ"
+msgstr "เพิ่มคำถามที่พบบ่อย"
+
+msgid "Feedback has been stored"
+msgstr "ข้อเสนอแนะถูกเก็บไว้"
+
+msgid "Feedback has not been stored"
+msgstr "ข้อเสนอแนะยังไม่ได้ถูกจัดเก็บ"
+
+msgid "user image"
+msgstr "ภาพผู้ใช้"
+
+msgid "feedback image"
+msgstr "ภาพตอบรับ"
+
+msgid "Feedback"
+msgstr "ข้อเสนอแนะ"
+
+msgid "Latest Feedback"
+msgstr "ข้อเสนอแนะล่าสุด"
+
+msgid "Form Feedback"
+msgstr "แบบฟอร์มตอบรับ"
+
+msgid "Submit Feedback"
+msgstr "ส่งคำติชม"
+
+msgid "Help topic has been stored"
+msgstr "หัวข้อวิธีใช้ถูกจัดเก็บไว้แล้ว"
+
+msgid "Help topic has not been stored"
+msgstr "ไม่ได้จัดเก็บหัวข้อวิธีใช้"
+
+msgid "Help topic has been deleted"
+msgstr "หัวข้อช่วยเหลือถูกลบแล้ว"
+
+msgid "Help topic has not been deleted"
+msgstr "หัวข้อช่วยเหลือยังไม่ถูกลบ"
+
+msgid "Help topic in use cannot be deleting"
+msgstr "หัวข้อวิธีใช้ที่ใช้งานอยู่ไม่สามารถลบได้"
+
+msgid "Help topic"
+msgstr "หัวข้อช่วยเหลือ"
+
+msgid "Add Help Topic"
+msgstr "เพิ่มหัวข้อวิธีใช้"
+
+msgid "Help Topic"
+msgstr "หัวข้อช่วยเหลือ"
+
+msgid "Save Help Topic"
+msgstr "บันทึกหัวข้อวิธีใช้"
+
+msgid "Help Topics"
+msgstr "หัวข้อช่วยเหลือ"
+
+msgid "The category has been stored"
+msgstr "หมวดหมู่ถูกเก็บไว้"
+
+msgid "The category has not been stored"
+msgstr "หมวดหมู่ยังไม่ได้ถูกจัดเก็บ"
+
+msgid "The category has been deleted"
+msgstr "หมวดหมู่ถูกลบแล้ว"
+
+msgid "The category has not been deleted"
+msgstr "หมวดหมู่ยังไม่ถูกลบ"
+
+msgid "The category in use cannot be deleting"
+msgstr "หมวดหมู่ที่ใช้งานอยู่ไม่สามารถลบได้"
+
+msgid "Knowledgebase article has been stored"
+msgstr "บทความฐานความรู้ถูกจัดเก็บไว้แล้ว"
+
+msgid "Knowledgebase article has not been stored"
+msgstr "บทความฐานความรู้ไม่ได้ถูกจัดเก็บ"
+
+msgid "The article has been deleted"
+msgstr "บทความถูกลบแล้ว"
+
+msgid "The article has not been deleted"
+msgstr "บทความยังไม่ถูกลบ"
+
+msgid "Article"
+msgstr "บทความ"
+
+msgid "The parent category does not have this type."
+msgstr "หมวดหมู่หลักไม่มีประเภทนี้"
+
+msgid "Would you like to add this type to Parent Category?"
+msgstr "คุณต้องการเพิ่มประเภทนี้ลงในหมวดหมู่หลักหรือไม่"
+
+msgid "JYes"
+msgstr "เจใช่"
+
+msgid "Child category has this type,"
+msgstr "หมวดหมู่ย่อยมีประเภทนี้"
+
+msgid "You cannot unmark it."
+msgstr "คุณไม่สามารถยกเลิกการทำเครื่องหมายได้"
+
+msgid "Draft"
+msgstr "ร่าง"
+
+msgid "Add Knowledge Base"
+msgstr "เพิ่มฐานความรู้"
+
+msgid "Meta Description"
+msgstr "คำอธิบายเมตา"
+
+msgid "Meta Keywords"
+msgstr "เมตาคีย์เวิร์ด"
+
+msgid "Add More"
+msgstr "เพิ่มมากขึ้น"
+
+msgid "Save Knowledge Base"
+msgstr "บันทึกฐานความรู้"
+
+msgid "Please select at least one category for"
+msgstr "โปรดเลือกอย่างน้อยหนึ่งหมวดหมู่สำหรับ"
+
+msgid "Add Category"
+msgstr "เพิ่มหมวดหมู่"
+
+msgid "Category For"
+msgstr "หมวดหมู่สำหรับ"
+
+msgid "Knowledge Base"
+msgstr "ฐานความรู้"
+
+msgid "Save Category"
+msgstr "บันทึกหมวดหมู่"
+
+msgid "Meta Data Options"
+msgstr "ตัวเลือกข้อมูลเมตา"
+
+msgid "Category Title"
+msgstr "ชื่อหมวดหมู่"
+
+msgid "category"
+msgstr "หมวดหมู่"
+
+msgid "Knowledge Base Detail"
+msgstr "รายละเอียดฐานความรู้"
+
+msgid "Article Attachment"
+msgstr "เอกสารแนบบทความ"
+
+msgid "Knowledgebase"
+msgstr "ฐานความรู้"
+
+msgid "Knowledge Base Articles"
+msgstr "บทความฐานความรู้"
+
+msgid "Sub Category Knowledgebase"
+msgstr "ฐานความรู้หมวดหมู่ย่อย"
+
+msgid "Mail has not been marked as read"
+msgstr "เมลไม่ได้ถูกทำเครื่องหมายว่าอ่านแล้ว"
+
+msgid "Mail has been marked as read"
+msgstr "เมลถูกทำเครื่องหมายว่าอ่านแล้ว"
+
+msgid "Message field cannot be empty"
+msgstr "ช่องข้อความไม่สามารถเว้นว่างได้"
+
+msgid "Mail has been sent"
+msgstr "จดหมายถูกส่งไปแล้ว"
+
+msgid "Mail has not been sent"
+msgstr "จดหมายยังไม่ได้ถูกส่ง"
+
+msgid "Mail has been deleted"
+msgstr "เมลถูกลบแล้ว"
+
+msgid "Mail has not been deleted"
+msgstr "เมลยังไม่ถูกลบ"
+
+msgid "Mail"
+msgstr "จดหมาย"
+
+msgid "is in use cannot be delete"
+msgstr "ใช้งานอยู่ไม่สามารถลบได้"
+
+msgid "Mail cannot mark as to read"
+msgstr "เมลไม่สามารถทำเครื่องหมายว่าอ่านแล้วได้"
+
+msgid "Mail cannot mark as unread"
+msgstr "เมลไม่สามารถทำเครื่องหมายว่ายังไม่ได้อ่าน"
+
+msgid "Mail has been marked as unread"
+msgstr "จดหมายถูกทำเครื่องหมายว่ายังไม่ได้อ่าน"
+
+msgid "Inbox"
+msgstr "กล่องจดหมาย"
+
+msgid "Outbox"
+msgstr "กล่องขาออก"
+
+msgid " )  "
+msgstr "-"
+
+msgid "Compose"
+msgstr "เขียน"
+
+msgid "Send"
+msgstr "ส่ง"
+
+msgid "Read"
+msgstr "อ่าน"
+
+msgid "Unread"
+msgstr "ยังไม่ได้อ่าน"
+
+msgid "Select Type"
+msgstr "เลือกประเภท"
+
+msgid "To use this feature you must be agent"
+msgstr "หากต้องการใช้คุณสมบัตินี้คุณต้องเป็นตัวแทน"
+
+msgid "To use this feature you must have agents addon."
+msgstr "หากต้องการใช้คุณสมบัตินี้ คุณต้องมีส่วนเสริมของตัวแทน"
+
+msgid "mark read"
+msgstr "ทำเครื่องหมายว่าอ่านแล้ว"
+
+msgid "mark unread"
+msgstr "ทำเครื่องหมายว่ายังไม่ได้อ่าน"
+
+msgid "Replied By"
+msgstr "ตอบโดย"
+
+msgid "Reply"
+msgstr "ตอบ"
+
+msgid ")  "
+msgstr "-"
+
+msgid "Type Message"
+msgstr "พิมพ์ข้อความ"
+
+msgid "Replies"
+msgstr "ตอบกลับ"
+
+msgid "Limit exceeds maximum tickets"
+msgstr "ขีดจำกัดเกินตั๋วสูงสุด"
+
+msgid "The maximum number of open tickets limit has been exceeded."
+msgstr "เกินขีดจำกัดจำนวนตั๋วที่เปิดสูงสุดแล้ว"
+
+msgid "Ticket has been closed due to merged with"
+msgstr "ตั๋วถูกปิดเนื่องจากการรวมเข้ากับ"
+
+msgid "Ticket"
+msgstr "ตั๋ว"
+
+msgid "has been merged into"
+msgstr "ได้ถูกรวมเข้าไว้ด้วยกัน"
+
+msgid "Merge Ticket"
+msgstr "รวมตั๋ว"
+
+msgid "Search Ticket To Merge Into Another"
+msgstr "ค้นหาตั๋วเพื่อรวมเข้าด้วยกัน"
+
+msgid "Edit Last Reply"
+msgstr "แก้ไขการตอบกลับล่าสุด"
+
+msgid "Merge Ticket Latest Reply"
+msgstr "รวมตั๋วตอบกลับล่าสุด"
+
+msgid "Merge"
+msgstr "ผสาน"
+
+msgid "Ticket has been merged"
+msgstr "รวมตั๋วแล้ว"
+
+msgid "Ticket has not been merged"
+msgstr "ตั๋วยังไม่ได้ถูกรวมเข้าด้วยกัน"
+
+msgid "Disabled form cannot be set as default"
+msgstr "แบบฟอร์มที่ปิดใช้งานไม่สามารถตั้งค่าเป็นค่าเริ่มต้นได้"
+
+msgid "Form has been stored"
+msgstr "แบบฟอร์มถูกเก็บไว้"
+
+msgid "Form has not been stored"
+msgstr "ไม่ได้จัดเก็บแบบฟอร์มไว้"
+
+msgid "Multiform has been deleted"
+msgstr "ลบมัลติฟอร์มแล้ว"
+
+msgid "Multiform has not been deleted"
+msgstr "มัลติฟอร์มยังไม่ได้ถูกลบ"
+
+msgid "Multiform in use"
+msgstr "ใช้งานได้หลากหลาย"
+
+msgid " cannot deleted"
+msgstr "ไม่สามารถลบได้"
+
+msgid "Default form cannot be set as disabled"
+msgstr "แบบฟอร์มเริ่มต้นไม่สามารถตั้งค่าเป็นปิดใช้งานได้"
+
+msgid "Multiform"
+msgstr "มัลติฟอร์ม"
+
+msgid "default has not been changed"
+msgstr "ค่าเริ่มต้นยังไม่ได้รับการเปลี่ยนแปลง"
+
+msgid "default has been changed"
+msgstr "ค่าเริ่มต้นมีการเปลี่ยนแปลง"
+
+msgid "Create Ticket"
+msgstr "สร้างตั๋ว"
+
+msgid "multiform"
+msgstr "หลายรูปแบบ"
+
+msgid "Default"
+msgstr "ค่าเริ่มต้น"
+
+msgid "Save Multiform"
+msgstr "บันทึกหลายรูปแบบ"
+
+msgid "Fields"
+msgstr "เขตข้อมูล"
+
+msgid "Edit Fields"
+msgstr "แก้ไขฟิลด์"
+
+msgid "spinning wheel"
+msgstr "ล้อหมุน"
+
+msgid "Select Languages"
+msgstr "เลือกภาษา"
+
+msgid "Select Language"
+msgstr "เลือกภาษา"
+
+msgid "Email Template has been successfully deleted"
+msgstr "ลบเทมเพลตอีเมลเรียบร้อยแล้ว"
+
+msgid "Email template has been stored"
+msgstr "เทมเพลตอีเมลถูกจัดเก็บไว้แล้ว"
+
+msgid "Email template has not been stored"
+msgstr "เทมเพลตอีเมลยังไม่ได้ถูกจัดเก็บ"
+
+msgid "The internal note has been posted"
+msgstr "บันทึกภายในได้ถูกโพสต์แล้ว"
+
+msgid "The internal note has not been posted"
+msgstr "บันทึกภายในยังไม่ได้โพสต์"
+
+msgid "Post Internal Note"
+msgstr "โพสต์บันทึกภายใน"
+
+msgid "The internal note is posted by"
+msgstr "บันทึกภายในถูกโพสต์โดย"
+
+msgid "Ticket Notification"
+msgstr "การแจ้งเตือนตั๋ว"
+
+msgid "Once Weekly"
+msgstr "สัปดาห์ละครั้ง"
+
+msgid "Thanks for subscribing!"
+msgstr "ขอบคุณสำหรับการสมัคร!"
+
+msgid "Ticket already marked overdue"
+msgstr "ตั๋วทำเครื่องหมายว่าเกินกำหนดแล้ว"
+
+msgid "The ticket has been marked as overdue"
+msgstr "ตั๋วถูกทำเครื่องหมายว่าเกินกำหนด"
+
+msgid "The ticket has not been marked as overdue"
+msgstr "ตั๋วไม่ได้ถูกทำเครื่องหมายว่าเกินกำหนด"
+
+msgid "System"
+msgstr "ระบบ"
+
+msgid "Mark overdue"
+msgstr "มาร์คเกินกำหนด"
+
+msgid "The ticket is marked as overdue by"
+msgstr "ตั๋วถูกทำเครื่องหมายว่าเกินกำหนดภายใน"
+
+msgid "The ticket has been unmarked as overdue"
+msgstr "ตั๋วถูกยกเลิกการทำเครื่องหมายว่าเกินกำหนด"
+
+msgid "The ticket has not been unmarked as overdue"
+msgstr "ตั๋วไม่ได้ถูกยกเลิกการทำเครื่องหมายว่าเกินกำหนด"
+
+msgid "Unmark overdue"
+msgstr "ยกเลิกการทำเครื่องหมายว่าเกินกำหนด"
+
+msgid "The ticket is unmarked as overdue by"
+msgstr "ตั๋วจะถูกยกเลิกการทำเครื่องหมายว่าเกินกำหนดภายใน"
+
+msgid "Paid Support"
+msgstr "การสนับสนุนแบบชำระเงิน"
+
+msgid "Check if you want to use this product for paid support"
+msgstr "ตรวจสอบว่าคุณต้องการใช้ผลิตภัณฑ์นี้เพื่อรับการสนับสนุนแบบชำระเงินหรือไม่"
+
+msgid "Paid support type"
+msgstr "ประเภทการสนับสนุนแบบชำระเงิน"
+
+msgid "One-off Support"
+msgstr "การสนับสนุนแบบครั้งเดียว"
+
+msgid "Subscription Support"
+msgstr "การสนับสนุนการสมัครสมาชิก"
+
+msgid "Number of tickets"
+msgstr "จำนวนตั๋ว"
+
+msgid "Credential Type"
+msgstr "ประเภทข้อมูลรับรอง"
+
+msgid "Additional Info."
+msgstr "ข้อมูลเพิ่มเติม."
+
+msgid "Please insert values"
+msgstr "กรุณาใส่ค่า"
+
+msgid "Visitor"
+msgstr "ผู้มาเยือน"
+
+msgid "By"
+msgstr "โดย"
+
+msgid "Credential removed on ticket close"
+msgstr "ข้อมูลรับรองถูกลบออกเมื่อปิดตั๋ว"
+
+msgid "Failed to retrieve data"
+msgstr "ไม่สามารถดึงข้อมูลได้"
+
+msgid "Reason has been stored"
+msgstr "เหตุผลถูกเก็บไว้"
+
+msgid "Reason has not been stored"
+msgstr "สาเหตุยังไม่ถูกจัดเก็บ"
+
+msgid "Reason has been deleted"
+msgstr "ลบเหตุผลแล้ว"
+
+msgid "Reason has not been deleted"
+msgstr "เหตุผลยังไม่ถูกลบ"
+
+msgid "Reason"
+msgstr "เหตุผล"
+
+msgid "Are you going to close this ticket?"
+msgstr "คุณจะปิดตั๋วนี้หรือไม่?"
+
+msgid "If you have a moment, please select a reason for closing the ticket."
+msgstr "หากคุณมีเวลา โปรดเลือกเหตุผลในการปิดตั๋ว"
+
+msgid "Submit & Close"
+msgstr "ส่งและปิด"
+
+msgid "Skip & Close"
+msgstr "ข้ามและปิด"
+
+msgid "Add Reason"
+msgstr "เพิ่มเหตุผล"
+
+msgid "Save Reason"
+msgstr "บันทึกเหตุผล"
+
+msgid "Ticket Close Reasons"
+msgstr "เหตุผลในการปิดตั๋ว"
+
+msgid "Mail Notification Widget"
+msgstr "วิดเจ็ตการแจ้งเตือนเมล"
+
+msgid "Show newly and reply mail notifications"
+msgstr "แสดงการแจ้งเตือนอีเมลใหม่และตอบกลับ"
+
+msgid "New mail from"
+msgstr "จดหมายใหม่จาก"
+
+msgid "Mail Notification"
+msgstr "การแจ้งเตือนทางไปรษณีย์"
+
+msgid "Layout"
+msgstr "เค้าโครง"
+
+msgid "Max Record"
+msgstr "บันทึกสูงสุด"
+
+msgid "My Ticket Widget"
+msgstr "วิดเจ็ตตั๋วของฉัน"
+
+msgid "Show unanswered tickets"
+msgstr "แสดงตั๋วที่ยังไม่ได้ตอบ"
+
+msgid "Order tickets"
+msgstr "สั่งซื้อตั๋ว"
+
+msgid "Close due to merge"
+msgstr "ปิดเนื่องจากการรวมตัว"
+
+msgid "Product"
+msgstr "ผลิตภัณฑ์"
+
+msgid "Order"
+msgstr "คำสั่ง"
+
+msgid "There is no ticket"
+msgstr "ไม่มีตั๋ว"
+
+msgid "Something went wrong"
+msgstr "บางอย่างผิดพลาด"
+
+msgid "Transaction Key"
+msgstr "รหัสธุรกรรม"
+
+msgid "Please select )"
+msgstr "โปรดเลือก )"
+
+msgid "Hide notice"
+msgstr "ซ่อนการแจ้งเตือน"
+
+msgid "Control Panel"
+msgstr "แผงควบคุม"
+
+msgid "Edit Announcement"
+msgstr "แก้ไขประกาศ"
+
+msgid "Departments"
+msgstr "หน่วยงาน"
+
+msgid "Add Department"
+msgstr "เพิ่มแผนก"
+
+msgid "Edit Department"
+msgstr "แก้ไขแผนก"
+
+msgid "Staff report"
+msgstr "รายงานตัวพนักงาน"
+
+msgid "Staff reports"
+msgstr "รายงานของเจ้าหน้าที่"
+
+msgid "Departments report"
+msgstr "รายงานหน่วยงาน"
+
+msgid "Edit Download"
+msgstr "แก้ไขการดาวน์โหลด"
+
+msgid "Edit FAQ"
+msgstr "แก้ไขคำถามที่พบบ่อย"
+
+msgid "Feedbacks"
+msgstr "การตอบรับ"
+
+msgid "Edit Knowledge Base"
+msgstr "แก้ไขฐานความรู้"
+
+msgid "Edit Category"
+msgstr "แก้ไขหมวดหมู่"
+
+msgid "Send Message"
+msgstr "ส่งข้อความ"
+
+msgid "Edit Role"
+msgstr "แก้ไขบทบาท"
+
+msgid "Staffs"
+msgstr "พนักงาน"
+
+msgid "Add Staff"
+msgstr "เพิ่มพนักงาน"
+
+msgid "Edit Staff"
+msgstr "แก้ไขพนักงาน"
+
+msgid "Staff Permissions"
+msgstr "สิทธิ์ของพนักงาน"
+
+msgid "Add Ticket"
+msgstr "เพิ่มตั๋ว"
+
+msgid "Edit Ticket"
+msgstr "แก้ไขตั๋ว"
+
+msgid "Ticket Detail"
+msgstr "รายละเอียดตั๋ว"
+
+msgid "Plus"
+msgstr "บวก"
+
+msgid "Equals"
+msgstr "เท่ากับ"
+
+msgid "Minus"
+msgstr "ลบ"
+
+msgid "stars"
+msgstr "ดาว"
+
+msgid "Please write appreciated review at WP Extension Directory"
+msgstr "กรุณาเขียนบทวิจารณ์ที่น่าชื่นชมที่ WP Extension Directory"
+
+msgid "love"
+msgstr "รัก"
+
+msgid "I'd love to help :)"
+msgstr "ฉันอยากจะช่วย :)"
+
+msgid "sad"
+msgstr "เศร้า"
+
+msgid "Not this time"
+msgstr "ไม่ใช่เวลานี้"
+
+msgid "happy"
+msgstr "มีความสุข"
+
+msgid "I've already rated you"
+msgstr "ฉันให้คะแนนคุณแล้ว"
+
+msgid "close"
+msgstr "ปิด"
+
+msgid "thanks"
+msgstr "ขอบคุณ"
+
+msgid "You are awesome !......"
+msgstr "คุณสุดยอดมาก!......"
+
+msgid "Thanks for your support, we really appreciate it."
+msgstr "ขอบคุณสำหรับการสนับสนุนของคุณ เราซาบซึ้งจริงๆ"
+
+msgid "Majestic Support Team"
+msgstr "ทีมสนับสนุนมาเจสติก"
+
+msgid "Remind you about this later?"
+msgstr "เตือนคุณเกี่ยวกับเรื่องนี้ในภายหลังไหม?"
+
+msgid "Remind me in 3 days"
+msgstr "เตือนฉันใน 3 วัน"
+
+msgid "Remind me in 10 days"
+msgstr "เตือนฉันใน 10 วัน"
+
+msgid "Remind me in 30 days"
+msgstr "เตือนฉันใน 30 วัน"
+
+msgid "Don't remind me about this"
+msgstr "อย่าเตือนฉันเกี่ยวกับเรื่องนี้"
+
+msgid "Dashboard"
+msgstr "แผงควบคุม"
+
+msgid "About Us"
+msgstr "เกี่ยวกับเรา"
+
+msgid "Translations"
+msgstr "การแปล"
+
+msgid "System Errors"
+msgstr "ข้อผิดพลาดของระบบ"
+
+msgid "slugs"
+msgstr "ทาก"
+
+msgid "Slugs"
+msgstr "ทาก"
+
+msgid "multiforms"
+msgstr "หลายรูปแบบ"
+
+msgid "Multiforms"
+msgstr "มัลติฟอร์ม"
+
+msgid "Ticket Close Reason"
+msgstr "เหตุผลในการปิดตั๋ว"
+
+msgid "Smart Replies"
+msgstr "การตอบกลับอัจฉริยะ"
+
+msgid "Smart Reply"
+msgstr "สมาร์ทตอบกลับ"
+
+msgid "Add Smart Reply"
+msgstr "เพิ่มสมาร์ทรีพลาย"
+
+msgid "Agent Auto Assign"
+msgstr "มอบหมายตัวแทนอัตโนมัติ"
+
+msgid "Auto Assign"
+msgstr "กำหนดอัตโนมัติ"
+
+msgid "Settings"
+msgstr "การตั้งค่า"
+
+msgid "Cron Job URLs"
+msgstr "URL งาน Cron"
+
+msgid "Premium Addons"
+msgstr "ส่วนเสริมระดับพรีเมียม"
+
+msgid "Install Add-ons"
+msgstr "ติดตั้งส่วนเสริม"
+
+msgid "Add-ons List"
+msgstr "รายการส่วนเสริม"
+
+msgid "Add-ons Status"
+msgstr "สถานะส่วนเสริม"
+
+msgid "Shortcodes"
+msgstr "รหัสย่อ"
+
+msgid "Short Codes"
+msgstr "รหัสสั้น"
+
+msgid "Colors"
+msgstr "สี"
+
+msgid "Reports"
+msgstr "รายงาน"
+
+msgid "Overall Statistics"
+msgstr "สถิติโดยรวม"
+
+msgid "Agent Reports"
+msgstr "รายงานตัวแทน"
+
+msgid "Department Reports"
+msgstr "รายงานของแผนก"
+
+msgid "User Reports"
+msgstr "รายงานผู้ใช้"
+
+msgid "Satisfaction Report"
+msgstr "รายงานความพึงพอใจ"
+
+msgid "Email Piping"
+msgstr "ท่ออีเมล"
+
+msgid "Priorities"
+msgstr "ลำดับความสำคัญ"
+
+msgid "Add Priority"
+msgstr "เพิ่มลำดับความสำคัญ"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Erase Data Requests"
+msgstr "ลบคำขอข้อมูล"
+
+msgid "Feedback Fields"
+msgstr "ฟิลด์คำติชม"
+
+msgid "System Emails"
+msgstr "อีเมลระบบ"
+
+msgid "Premade Responses"
+msgstr "การตอบกลับที่ทำไว้ล่วงหน้า"
+
+msgid "Banned Email Log List"
+msgstr "รายการบันทึกอีเมลที่ถูกแบน"
+
+msgid "Ban Emails"
+msgstr "ห้ามอีเมล์"
+
+msgid "Emial CC"
+msgstr "อีเมล CC"
+
+msgid "Add Emial CC"
+msgstr "เพิ่มอีเมล CC"
+
+msgid "Add Email CC"
+msgstr "เพิ่มอีเมล CC"
+
+msgid "Email Templates"
+msgstr "เทมเพลตอีเมล"
+
+msgid "New Ticket"
+msgstr "ตั๋วใหม่"
+
+msgid "Agent Ticket"
+msgstr "ตั๋วตัวแทน"
+
+msgid "New Agent"
+msgstr "ตัวแทนใหม่"
+
+msgid "Reassign Ticket"
+msgstr "มอบหมายตั๋วใหม่"
+
+msgid "Close Ticket"
+msgstr "ปิดตั๋ว"
+
+msgid "Delete Ticket"
+msgstr "ลบตั๋ว"
+
+msgid "Mark Overdue"
+msgstr "มาร์คเกินกำหนด"
+
+msgid "Ban Email"
+msgstr "อีเมล์บ้าน"
+
+msgid "Ban email try to create ticket"
+msgstr "ห้ามส่งอีเมลพยายามสร้างตั๋ว"
+
+msgid "Department Transfer"
+msgstr "การโอนแผนก"
+
+msgid "Ban Email and Close Ticket"
+msgstr "แบนอีเมลและปิดตั๋ว"
+
+msgid "Unban Email"
+msgstr "เลิกแบนอีเมล"
+
+msgid "Response Ticket"
+msgstr "ตั๋วตอบรับ"
+
+msgid "Reply Ticket"
+msgstr "ตอบกลับ ตั๋ว"
+
+msgid "New Ticket Admin Alert"
+msgstr "การแจ้งเตือนผู้ดูแลระบบตั๋วใหม่"
+
+msgid "In Progress Ticket"
+msgstr "อยู่ระหว่างดำเนินการตั๋ว"
+
+msgid "Ticket priority is changed by"
+msgstr "ลำดับความสำคัญของตั๋วมีการเปลี่ยนแปลงโดย"
+
+msgid "New Mail Received"
+msgstr "ได้รับจดหมายใหม่แล้ว"
+
+msgid "New Mail Message Received"
+msgstr "ได้รับข้อความเมลใหม่แล้ว"
+
+msgid "Feedback Email To User"
+msgstr "อีเมล์ตอบรับถึงผู้ใช้"
+
+msgid "User Reply On Closed Ticket"
+msgstr "ผู้ใช้ตอบกลับเกี่ยวกับตั๋วที่ปิดแล้ว"
+
+msgid "help"
+msgstr "ช่วย"
+
+msgid "Select Form"
+msgstr "เลือกแบบฟอร์ม"
+
+msgid "No Record Found"
+msgstr "ไม่พบบันทึก"
+
+msgid "Log out"
+msgstr "ออกจากระบบ"
+
+msgid "iframe"
+msgstr "ไอเฟรม"
+
+msgid "Sorry"
+msgstr "ขอโทษ"
+
+msgid "There was no record found"
+msgstr "ไม่พบบันทึก"
+
+msgid "Sorry!"
+msgstr "ขอโทษ!"
+
+msgid "There was no record found..."
+msgstr "ไม่พบบันทึก..."
+
+msgid "Access Denied"
+msgstr "ปฏิเสธการเข้าใช้"
+
+msgid "You have no permission to access this page"
+msgstr "คุณไม่ได้รับอนุญาตให้เข้าถึงหน้านี้"
+
+msgid "Register"
+msgstr "ลงทะเบียน"
+
+msgid "User is not allowed to access this page."
+msgstr "ผู้ใช้ไม่ได้รับอนุญาตให้เข้าถึงหน้านี้"
+
+msgid "You are already Logged In."
+msgstr "คุณเข้าสู่ระบบแล้ว"
+
+msgid "Access Denied!"
+msgstr "ปฏิเสธการเข้าใช้!"
+
+msgid "Your account has been disabled, please contact the administrator."
+msgstr "บัญชีของคุณถูกปิดใช้งาน โปรดติดต่อผู้ดูแลระบบ"
+
+msgid "You are not logged In"
+msgstr "คุณยังไม่ได้เข้าสู่ระบบ"
+
+msgid "To access the page, please login"
+msgstr "เพื่อเข้าสู่หน้ากรุณาเข้าสู่ระบบ"
+
+msgid "User is not allowed to view this Ticket"
+msgstr "ผู้ใช้ไม่ได้รับอนุญาตให้ดูตั๋วนี้"
+
+msgid "You have already given the feedback for this ticket."
+msgstr "คุณได้ให้ข้อเสนอแนะสำหรับตั๋วนี้แล้ว"
+
+msgid "Ticket not found...!"
+msgstr "ไม่พบตั๋ว...!"
+
+msgid "User is not allowed to view this page"
+msgstr "ผู้ใช้ไม่ได้รับอนุญาตให้ดูหน้านี้"
+
+msgid "Thank you so much for your feedback"
+msgstr "ขอบคุณมากสำหรับความคิดเห็นของคุณ"
+
+msgid "Majestic Support Control Panel"
+msgstr "แผงควบคุมการสนับสนุนมาเจสติก"
+
+msgid "Slug"
+msgstr "กระสุน"
+
+msgid "System Error"
+msgstr "ระบบผิดพลาด"
+
+msgid "User Fields"
+msgstr "เขตข้อมูลผู้ใช้"
+
+msgid "Ban list log"
+msgstr "บันทึกรายการแบน"
+
+msgid "Field Ordering"
+msgstr "การสั่งซื้อภาคสนาม"
+
+msgid "Post Installation"
+msgstr "หลังการติดตั้ง"
+
+msgid "Emailcc"
+msgstr "อีเมล์cc"
+
+msgid "Help"
+msgstr "ช่วย"
+
+msgid "Premium Addon"
+msgstr "ส่วนเสริมระดับพรีเมียม"
+
+msgid "Username / password is incorrect"
+msgstr "ชื่อผู้ใช้ / รหัสผ่านไม่ถูกต้อง"
+
+msgid "Username already taken"
+msgstr "ชื่อผู้ใช้นี้ถูกใช้ไปแล้ว"
+
+msgid "Invalid username"
+msgstr "ชื่อผู้ใช้ที่ไม่ถูกต้อง"
+
+msgid "Please enter a username"
+msgstr "กรุณากรอกชื่อผู้ใช้"
+
+msgid "Invalid email"
+msgstr "อีเมลไม่ถูกต้อง"
+
+msgid "Email already registered"
+msgstr "อีเมล์ที่ลงทะเบียนไว้แล้ว"
+
+msgid "Please enter a password"
+msgstr "กรุณากรอกรหัสผ่าน"
+
+msgid "Passwords do not match"
+msgstr "รหัสผ่านไม่ตรงกัน"
+
+msgid "Invalid captcha"
+msgstr "แคปต์ชาไม่ถูกต้อง"
+
+msgid "User has been successfully registered"
+msgstr "ผู้ใช้งานได้ลงทะเบียนสำเร็จแล้ว"
+
+msgid "Could not subscribe to the newsletter"
+msgstr "ไม่สามารถสมัครรับจดหมายข่าวได้"
+
+msgid "You have successfully subscribed to the newsletter"
+msgstr "คุณสมัครรับจดหมายข่าวเรียบร้อยแล้ว"
+
+msgid "Majestic Support Pages"
+msgstr "หน้าสนับสนุนมาเจสติก"
+
+msgid "Majestic Support control panel"
+msgstr "แผงควบคุม Majestic Support"
+
+msgid "Add ticket"
+msgstr "เพิ่มตั๋ว"
+
+msgid "My tickets"
+msgstr "ตั๋วของฉัน"
+
+msgid "List downloads"
+msgstr "รายการดาวน์โหลด"
+
+msgid "Latest downloads"
+msgstr "ดาวน์โหลดล่าสุด"
+
+msgid "Popular downloads"
+msgstr "ดาวน์โหลดยอดนิยม"
+
+msgid "List knowledge base"
+msgstr "รายการฐานความรู้"
+
+msgid "Latest knowledge base"
+msgstr "ฐานความรู้ล่าสุด"
+
+msgid "Popular knowledge base"
+msgstr "ฐานความรู้ยอดนิยม"
+
+msgid "List FAQ`s"
+msgstr "แสดงรายการคำถามที่พบบ่อย"
+
+msgid "Latest FAQ`s"
+msgstr "คำถามที่พบบ่อยล่าสุด"
+
+msgid "Popular FAQ`s"
+msgstr "คำถามที่พบบ่อยยอดนิยม"
+
+msgid "List announcements"
+msgstr "ประกาศรายการ"
+
+msgid "Latest announcements"
+msgstr "ประกาศล่าสุด"
+
+msgid "Popular announcements"
+msgstr "ประกาศยอดนิยม"
+
+msgid "View"
+msgstr "ดู"
+
+msgid "Form submission failed!"
+msgstr "การส่งแบบฟอร์มล้มเหลว!"
+
+msgid "You have not answered all required fields"
+msgstr "คุณยังไม่ได้ตอบทุกช่องที่ต้องกรอก"
+
+msgid "You have not given a correct time"
+msgstr "คุณไม่ได้ให้เวลาที่ถูกต้อง"
+
+msgid "You have not given a correct e-mail address"
+msgstr "คุณไม่ได้ให้ที่อยู่อีเมลที่ถูกต้อง"
+
+msgid "You have not given a correct phone number"
+msgstr "คุณไม่ได้ให้หมายเลขโทรศัพท์ที่ถูกต้อง"
+
+msgid "You have not given a correct answer to the security question"
+msgstr "คุณไม่ได้ให้คำตอบที่ถูกต้องสำหรับคำถามเพื่อความปลอดภัย"
+
+msgid "You have not given a correct date"
+msgstr "คุณไม่ได้ระบุวันที่ที่ถูกต้อง"
+
+msgid "The input value must be between "
+msgstr "ค่าที่ป้อนจะต้องอยู่ระหว่าง"
+
+msgid " characters"
+msgstr "ตัวอักษร"
+
+msgid "The input value is longer than "
+msgstr "ค่าที่ป้อนยาวกว่า"
+
+msgid "The input value is shorter than "
+msgstr "ค่าอินพุตสั้นกว่า"
+
+msgid "Input values could not be confirmed"
+msgstr "ไม่สามารถยืนยันค่าที่ป้อนได้"
+
+msgid "Incorrect domain value"
+msgstr "ค่าโดเมนไม่ถูกต้อง"
+
+msgid "The input value is not a correct URL"
+msgstr "ค่าที่ป้อนไม่ใช่ URL ที่ถูกต้อง"
+
+msgid "The input value is incorrect"
+msgstr "ค่าที่ป้อนไม่ถูกต้อง"
+
+msgid "The input value was not a correct number"
+msgstr "ค่าที่ป้อนไม่ใช่ตัวเลขที่ถูกต้อง"
+
+msgid "Your social security number was incorrect"
+msgstr "หมายเลขประกันสังคมของคุณไม่ถูกต้อง"
+
+msgid "Incorrect UK VAT Number"
+msgstr "หมายเลข VAT ของสหราชอาณาจักรไม่ถูกต้อง"
+
+msgid "The password isn't strong enough"
+msgstr "รหัสผ่านไม่รัดกุมพอ"
+
+msgid "You have to choose at least "
+msgstr "คุณต้องเลือกอย่างน้อย"
+
+msgid " answers"
+msgstr "คำตอบ"
+
+msgid "The input value can only contain alphanumeric characters "
+msgstr "ค่าที่ป้อนสามารถมีได้เฉพาะอักขระตัวอักษรและตัวเลขเท่านั้น"
+
+msgid " and "
+msgstr "และ"
+
+msgid "The file you are trying to upload is too large"
+msgstr "ไฟล์ที่คุณพยายามอัปโหลดมีขนาดใหญ่เกินไป"
+
+msgid "The file you are trying to upload is of the wrong type"
+msgstr "ไฟล์ที่คุณพยายามอัปโหลดมีประเภทที่ไม่ถูกต้อง"
+
+msgid "Please choose between "
+msgstr "กรุณาเลือกระหว่าง"
+
+msgid "Please choose at least "
+msgstr "กรุณาเลือกอย่างน้อย"
+
+msgid "Please choose a maximum of "
+msgstr "โปรดเลือกสูงสุดที่"
+
+msgid " item(s)"
+msgstr "รายการ"
+
+msgid "The credit card number is not correct"
+msgstr "หมายเลขบัตรเครดิตไม่ถูกต้อง"
+
+msgid "The CVV number was not correct"
+msgstr "หมายเลข CVV ไม่ถูกต้อง"
+
+msgid "Lost your password"
+msgstr "ลืมรหัสผ่านของคุณ"
+
+msgid "Activated"
+msgstr "เปิดใช้งานแล้ว"
+
+msgid "Active Now"
+msgstr "ที่ใช้งานอยู่ในขณะนี้"
+
+msgid "Install Now"
+msgstr "ติดตั้งในขณะนี้"
+
+msgid "Pagination default page size not saved"
+msgstr "ขนาดหน้าเริ่มต้นของการแบ่งหน้าไม่ได้ถูกบันทึก"
+
+msgid "Data directory cannot empty."
+msgstr "ไดเร็กทอรีข้อมูลไม่สามารถว่างเปล่าได้"
+
+msgid "Data directory is not proper."
+msgstr "ไดเร็กทอรีข้อมูลไม่ถูกต้อง"
+
+msgid "Data directory is not writable."
+msgstr "ไดเร็กทอรีข้อมูลไม่สามารถเขียนได้"
+
+msgid "System slug not be empty."
+msgstr "ตัวบุ้งของระบบต้องไม่ว่างเปล่า"
+
+msgid "System slug is conflicted with post or page slug."
+msgstr "System Slug ขัดแย้งกับ Post หรือ Page Slug"
+
+msgid "The setting has been stored"
+msgstr "การตั้งค่าถูกจัดเก็บไว้"
+
+msgid "The setting not has been stored"
+msgstr "การตั้งค่าไม่ได้รับการจัดเก็บ"
+
+msgid "Days"
+msgstr "วัน"
+
+msgid "Hours"
+msgstr "ชั่วโมง"
+
+msgid "Google Recaptcha"
+msgstr "Google Recaptcha"
+
+msgid "Own Captcha"
+msgstr "เป็นเจ้าของแคปช่า"
+
+msgid "Any"
+msgstr "ใดๆ"
+
+msgid "Addition"
+msgstr "ส่วนที่เพิ่มเข้าไป"
+
+msgid "Subtraction"
+msgstr "การลบ"
+
+msgid "Recaptcha Version 2"
+msgstr "รีแคปช่า เวอร์ชัน 2"
+
+msgid "Recaptcha Version 3"
+msgstr "รีแคปชา เวอร์ชัน 3"
+
+msgid "Show"
+msgstr "แสดง"
+
+msgid "Hide"
+msgstr "ซ่อน"
+
+msgid "Majestic Support Login Page"
+msgstr "หน้าเข้าสู่ระบบการสนับสนุน Majestic"
+
+msgid "WordPress Default Login Page"
+msgstr "หน้าเข้าสู่ระบบเริ่มต้นของ WordPress"
+
+msgid "Custom"
+msgstr "กำหนดเอง"
+
+msgid "Majestic Support Register Page"
+msgstr "หน้าลงทะเบียน Majestic Support"
+
+msgid "Top left"
+msgstr "บนซ้าย"
+
+msgid "Top right"
+msgstr "ขวาบน"
+
+msgid "Middle left"
+msgstr "กลางซ้าย"
+
+msgid "Middle right"
+msgstr "กลางขวา"
+
+msgid "Bottom left"
+msgstr "ล่างซ้าย"
+
+msgid "Bottom right"
+msgstr "ล่างขวา"
+
+msgid "Random"
+msgstr "สุ่ม"
+
+msgid "Sequence"
+msgstr "ลำดับ"
+
+msgid "Ascending"
+msgstr "จากน้อยไปมาก"
+
+msgid "Descending"
+msgstr "จากมากไปน้อย"
+
+msgid "Single"
+msgstr "เดี่ยว"
+
+msgid "Multiple"
+msgstr "หลายรายการ"
+
+msgid "menu"
+msgstr "เมนู"
+
+msgid "Select Configuration"
+msgstr "เลือก การกำหนดค่า"
+
+msgid "General Settings"
+msgstr "การตั้งค่าทั่วไป"
+
+msgid "Support Icon"
+msgstr "ไอคอนสนับสนุน"
+
+msgid "Ticket Settings"
+msgstr "การตั้งค่าตั๋ว"
+
+msgid "Ticket Listing"
+msgstr "รายการตั๋ว"
+
+msgid "Visitor Ticket Setting"
+msgstr "การตั้งค่าตั๋วผู้เข้าชม"
+
+msgid "Email Settings"
+msgstr "การตั้งค่าอีเมล"
+
+msgid "Email Regarding Banned Users"
+msgstr "อีเมลเกี่ยวกับผู้ใช้ที่ถูกแบน"
+
+msgid "Ticket Operations Email Setting"
+msgstr "การตั้งค่าอีเมลการดำเนินงานตั๋ว"
+
+msgid "Agent Menu"
+msgstr "เมนูตัวแทน"
+
+msgid "Dashboard Links"
+msgstr "ลิงค์แดชบอร์ด"
+
+msgid "Top Menu Links"
+msgstr "ลิงค์เมนูยอดนิยม"
+
+msgid "User Menu"
+msgstr "เมนูผู้ใช้"
+
+msgid "Feedback Settings"
+msgstr "การตั้งค่าคำติชม"
+
+msgid "Push Notifications"
+msgstr "การแจ้งเตือนแบบพุช"
+
+msgid "Firebase Notifications"
+msgstr "การแจ้งเตือนของ Firebase"
+
+msgid "Private Credentials"
+msgstr "ข้อมูลรับรองส่วนตัว"
+
+msgid "Envato Validation"
+msgstr "การตรวจสอบ Envato"
+
+msgid "MailChimp"
+msgstr "MailChimp"
+
+msgid "Easy Digital Downloads"
+msgstr "ดาวน์โหลดดิจิตอลได้ง่าย"
+
+msgid "Social Login"
+msgstr "เข้าสู่ระบบโซเชียล"
+
+msgid "Set the heading of your plugin"
+msgstr "ตั้งค่าส่วนหัวของปลั๊กอินของคุณ"
+
+msgid "Ticket Default Page"
+msgstr "หน้าเริ่มต้นตั๋ว"
+
+msgid "Select Page"
+msgstr "เลือกหน้า"
+
+msgid "Data Directory"
+msgstr "ไดเร็กทอรีข้อมูล"
+
+msgid "Set the name for your data directory"
+msgstr "ตั้งชื่อไดเร็กทอรีข้อมูลของคุณ"
+
+msgid "Date Format"
+msgstr "รูปแบบวันที่"
+
+msgid "DD-MM-YYYY"
+msgstr "วว-ดด-ปปปป"
+
+msgid "MM-DD-YYYY"
+msgstr "ดด-วว-ปปปป"
+
+msgid "YYYY-MM-DD"
+msgstr "ปปปป-ดด-วว"
+
+msgid "Set the default date format"
+msgstr "ตั้งค่ารูปแบบวันที่เริ่มต้น"
+
+msgid "Pagination default page size"
+msgstr "ขนาดหน้าเริ่มต้นของการแบ่งหน้า"
+
+msgid "Set the number of records per page"
+msgstr "กำหนดจำนวนบันทึกต่อหน้า"
+
+msgid "Breadcrumbs"
+msgstr "เกล็ดขนมปัง"
+
+msgid "Show or hide breadcrumbs"
+msgstr "แสดงหรือซ่อนเบรดครัมบ์"
+
+msgid "Top Header"
+msgstr "ส่วนหัวด้านบน"
+
+msgid "Show or hide top header"
+msgstr "แสดงหรือซ่อนส่วนหัวด้านบน"
+
+msgid "Show count on tickets"
+msgstr "แสดงจำนวนตั๋ว"
+
+msgid "Default wp role for new users"
+msgstr "บทบาท wp เริ่มต้นสำหรับผู้ใช้ใหม่"
+
+msgid "Select the role you want to assign to new users"
+msgstr "เลือกบทบาทที่คุณต้องการมอบหมายให้กับผู้ใช้ใหม่"
+
+msgid "No. of attachments"
+msgstr "จำนวนไฟล์แนบ"
+
+msgid "Number of attachments allowed at a time"
+msgstr "จำนวนไฟล์แนบที่อนุญาตในแต่ละครั้ง"
+
+msgid "File maximum size"
+msgstr "ขนาดไฟล์สูงสุด"
+
+msgid "File extensions"
+msgstr "นามสกุลไฟล์"
+
+msgid "File extensions allowed to attach"
+msgstr "นามสกุลไฟล์ที่อนุญาตให้แนบได้"
+
+msgid "Set Login Link"
+msgstr "ตั้งค่าลิงค์เข้าสู่ระบบ"
+
+msgid "Set login link default or custom"
+msgstr "ตั้งค่าเริ่มต้นของลิงค์เข้าสู่ระบบหรือกำหนดเอง"
+
+msgid "Set register Link"
+msgstr "ตั้งค่าลิงค์ลงทะเบียน"
+
+msgid "Screen Tag"
+msgstr "แท็กหน้าจอ"
+
+msgid "Enable or disable your support icon"
+msgstr "เปิดหรือปิดใช้งานไอคอนการสนับสนุนของคุณ"
+
+msgid "Custom Image"
+msgstr "รูปภาพที่กำหนดเอง"
+
+msgid "Set custom support image"
+msgstr "ตั้งค่าอิมเมจสนับสนุนที่กำหนดเอง"
+
+msgid "custom text"
+msgstr "ข้อความที่กำหนดเอง"
+
+msgid "Set custom support text"
+msgstr "ตั้งค่าข้อความสนับสนุนที่กำหนดเอง"
+
+msgid "Support Icon Position"
+msgstr "ตำแหน่งไอคอนสนับสนุน"
+
+msgid "Screen Tag Position"
+msgstr "ตำแหน่งแท็กหน้าจอ"
+
+msgid "Select a position for your support icon"
+msgstr "เลือกตำแหน่งสำหรับไอคอนสนับสนุนของคุณ"
+
+msgid "Online"
+msgstr "ออนไลน์"
+
+msgid "Set your plugin offline for front end"
+msgstr "ตั้งค่าปลั๊กอินของคุณแบบออฟไลน์สำหรับส่วนหน้า"
+
+msgid "Offline Message"
+msgstr "ข้อความออฟไลน์"
+
+msgid "Set the offline message for your user"
+msgstr "ตั้งค่าข้อความออฟไลน์สำหรับผู้ใช้ของคุณ"
+
+msgid "Woocommerce Category"
+msgstr "หมวดหมู่ WooCommerce"
+
+msgid "Ticket ID Prefix"
+msgstr "คำนำหน้ารหัสตั๋ว"
+
+msgid "Set a prefix for the custom ticket ID"
+msgstr "ตั้งค่าคำนำหน้าสำหรับรหัสตั๋วที่กำหนดเอง"
+
+msgid "Ticket ID sequence"
+msgstr "ลำดับรหัสตั๋ว"
+
+msgid "Set the ticket ID sequentially or randomly, e.g., "
+msgstr "ตั้งค่ารหัสตั๋วตามลำดับหรือแบบสุ่ม เช่น"
+
+msgid "Pad Zeros"
+msgstr "แพด ซีโร่ส"
+
+msgid "To pad an integer with leading zeros to a specific length"
+msgstr "เพื่อเติมจำนวนเต็มโดยมีศูนย์นำหน้าตามความยาวที่กำหนด"
+
+msgid "Ticket ID Suffix"
+msgstr "ส่วนต่อท้ายรหัสตั๋ว"
+
+msgid "Set the suffix for your custom ticket ID"
+msgstr "ตั้งค่าส่วนต่อท้ายสำหรับรหัสตั๋วที่คุณกำหนดเอง"
+
+msgid "Maximum tickets"
+msgstr "ตั๋วสูงสุด"
+
+msgid "Maximum ticket per user"
+msgstr "ตั๋วสูงสุดต่อผู้ใช้"
+
+msgid "Maximum open tickets"
+msgstr "ตั๋วที่เปิดสูงสุด"
+
+msgid "Maximum number of tickets opened per user"
+msgstr "จำนวนตั๋วสูงสุดที่เปิดต่อผู้ใช้"
+
+msgid "Reopen ticket within days"
+msgstr "เปิดตั๋วอีกครั้งภายในไม่กี่วัน"
+
+msgid "The ticket will reopen within the given number of days"
+msgstr "ตั๋วจะเปิดอีกครั้งภายในจำนวนวันที่กำหนด"
+
+msgid "Multiforms Popup For New Tickets"
+msgstr "ป๊อปอัปหลายรูปแบบสำหรับตั๋วใหม่"
+
+msgid "User can print ticket"
+msgstr "ผู้ใช้สามารถพิมพ์ตั๋วได้"
+
+msgid "Can users print a ticket from the ticket detail or not?"
+msgstr "ผู้ใช้สามารถพิมพ์ตั๋วจากรายละเอียดตั๋วได้หรือไม่?"
+
+msgid "Allow Users To Reply via Email On Closed Ticket"
+msgstr "อนุญาตให้ผู้ใช้ตอบกลับทางอีเมลเมื่อตั๋วปิด"
+
+msgid "Select whether users can reply to closed email piping tickets or not"
+msgstr "เลือกว่าผู้ใช้สามารถตอบกลับตั๋วการส่งอีเมลแบบปิดได้หรือไม่"
+
+msgid "Show Admin OR Agent Email On Ticket Reply"
+msgstr "แสดงอีเมลของผู้ดูแลระบบหรือตัวแทนในการตอบกลับตั๋ว"
+
+msgid "Show Anonymous Name On Ticket Reply"
+msgstr "แสดงชื่อที่ไม่ระบุชื่อในการตอบกลับตั๋ว"
+
+msgid "Ticket auto close"
+msgstr "ตั๋วปิดอัตโนมัติ"
+
+msgid "Ticket auto-close if user does not respond within given days"
+msgstr "ตั๋วจะปิดอัตโนมัติหากผู้ใช้ไม่ตอบกลับภายในวันที่กำหนด"
+
+msgid "Show ticket delete button"
+msgstr "แสดงปุ่มลบตั๋ว"
+
+msgid "Select whether users can see the ticket delete button"
+msgstr "เลือกว่าผู้ใช้สามารถเห็นปุ่มลบตั๋วหรือไม่"
+
+msgid "Ticket close reason Type"
+msgstr "ประเภทเหตุผลในการปิดตั๋ว"
+
+msgid "Select whether users can save single or multiple reasons"
+msgstr "เลือกว่าผู้ใช้สามารถบันทึกเหตุผลเดียวหรือหลายเหตุผลได้"
+
+msgid "Maximum Record For Smart Reply"
+msgstr "บันทึกสูงสุดสำหรับการตอบกลับอัจฉริยะ"
+
+msgid "Set the number of replies to show"
+msgstr "กำหนดจำนวนการตอบกลับที่จะแสดง"
+
+msgid "New ticket message"
+msgstr "ข้อความตั๋วใหม่"
+
+msgid "This message will show on the new ticket"
+msgstr "ข้อความนี้จะแสดงบนตั๋วใหม่"
+
+msgid "Ticket listing ordering"
+msgstr "การเรียงลำดับตั๋วรายการ"
+
+msgid "Set default ordering for ticket listing"
+msgstr "ตั้งค่าเริ่มต้นการเรียงลำดับสำหรับรายการตั๋ว"
+
+msgid "Ticket listing sorting"
+msgstr "การเรียงลำดับรายการตั๋ว"
+
+msgid "Set default sorting for ticket listing"
+msgstr "ตั้งค่าการเรียงลำดับเริ่มต้นสำหรับรายการตั๋ว"
+
+msgid "Closed info. on admin closed tickets"
+msgstr "ปิดข้อมูลแล้ว. เมื่อผู้ดูแลระบบปิดตั๋ว"
+
+msgid "Closed info. on agent closed tickets"
+msgstr "ปิดข้อมูลแล้ว. เมื่อตัวแทนปิดตั๋ว"
+
+msgid "Closed info. on user closed tickets"
+msgstr "ปิดข้อมูลแล้ว. บนตั๋วที่ผู้ใช้ปิด"
+
+msgid "Assigned info. on admin tickets"
+msgstr "ข้อมูลที่ได้รับมอบหมาย บนตั๋วผู้ดูแลระบบ"
+
+msgid "Assigned info. on agent tickets"
+msgstr "ข้อมูลที่ได้รับมอบหมาย บนตั๋วตัวแทน"
+
+msgid "Assigned info. on user tickets"
+msgstr "ข้อมูลที่ได้รับมอบหมาย บนตั๋วของผู้ใช้"
+
+msgid "Visitors can create tickets"
+msgstr "ผู้เข้าชมสามารถสร้างตั๋วได้"
+
+msgid "Allow visitors to create tickets or not"
+msgstr "อนุญาตให้ผู้เยี่ยมชมสร้างตั๋วได้หรือไม่"
+
+msgid "Visitor ticket creation message"
+msgstr "ข้อความสร้างตั๋วผู้เข้าชม"
+
+msgid "This text will appear whenever a visitor creates a ticket"
+msgstr "ข้อความนี้จะปรากฏขึ้นทุกครั้งที่ผู้เยี่ยมชมสร้างตั๋ว"
+
+msgid "Default alert email"
+msgstr "อีเมลแจ้งเตือนเริ่มต้น"
+
+msgid "Default admin email"
+msgstr "อีเมลผู้ดูแลระบบเริ่มต้น"
+
+msgid "Admin email address to receive emails"
+msgstr "ที่อยู่อีเมลของผู้ดูแลระบบเพื่อรับอีเมล"
+
+msgid "Department Email"
+msgstr "อีเมล์แผนก"
+
+msgid "Send email to all departments on ticket create"
+msgstr "ส่งอีเมลไปยังทุกแผนกเกี่ยวกับการสร้างตั๋ว"
+
+msgid "Mail to admin"
+msgstr "จดหมายถึงผู้ดูแลระบบ"
+
+msgid "Send an email to the admin when a banned email tries to create a ticket"
+msgstr "ส่งอีเมลถึงผู้ดูแลระบบเมื่อมีอีเมลที่ถูกแบนพยายามสร้างตั๋ว"
+
+msgid "Admin"
+msgstr "ผู้ดูแลระบบ"
+
+msgid "New ticket"
+msgstr "ตั๋วใหม่"
+
+msgid "Ticket reassign"
+msgstr "มอบหมายตั๋วใหม่"
+
+msgid "Ticket close"
+msgstr "ปิดตั๋วแล้ว"
+
+msgid "Ticket delete"
+msgstr "ลบตั๋ว"
+
+msgid "Ticket marked as overdue"
+msgstr "ตั๋วถูกทำเครื่องหมายว่าเกินกำหนด"
+
+msgid "Ticket ban email"
+msgstr "อีเมลห้ามจองตั๋ว"
+
+msgid "Ticket department transfer"
+msgstr "การโอนแผนกตั๋ว"
+
+msgid "Ticket reply User"
+msgstr "ผู้ใช้ตอบกลับตั๋ว"
+
+msgid "Ticket Response Agent"
+msgstr "ตัวแทนตอบรับตั๋ว"
+
+msgid "Ticket ban email and close ticket"
+msgstr "อีเมลห้ามตั๋วและปิดตั๋ว"
+
+msgid "Ticket unban email"
+msgstr "อีเมลยกเลิกการแบนตั๋ว"
+
+msgid "Ticket lock"
+msgstr "ล็อคตั๋ว"
+
+msgid "Ticket unlock"
+msgstr "ปลดล็อคตั๋ว"
+
+msgid "Ticket Change Priority"
+msgstr "ลำดับความสำคัญในการเปลี่ยนตั๋ว"
+
+msgid "Mark Ticket In Progress"
+msgstr "ทำเครื่องหมายตั๋วอยู่ระหว่างดำเนินการ"
+
+msgid "Reply To A Closed Ticket By Email"
+msgstr "ตอบกลับตั๋วที่ปิดทางอีเมล"
+
+msgid "Send Feedback Email To User"
+msgstr "ส่งอีเมล์ตอบรับไปยังผู้ใช้"
+
+msgid "Open Ticket"
+msgstr "เปิดตั๋ว"
+
+msgid "Department reports"
+msgstr "รายงานของแผนก"
+
+msgid "Login/Logout Button"
+msgstr "ปุ่มเข้าสู่ระบบ/ออกจากระบบ"
+
+msgid "Ticket Total Count"
+msgstr "จำนวนตั๋วทั้งหมด"
+
+msgid "Erase Agent Data"
+msgstr "ลบข้อมูลตัวแทน"
+
+msgid "Export Ticket"
+msgstr "ตั๋วส่งออก"
+
+msgid "Latest Downloads"
+msgstr "ดาวน์โหลดล่าสุด"
+
+msgid "Latest Announcements"
+msgstr "ประกาศล่าสุด"
+
+msgid "Latest Knowledge Base"
+msgstr "ฐานความรู้ล่าสุด"
+
+msgid "Latest FAQs"
+msgstr "คำถามที่พบบ่อยล่าสุด"
+
+msgid "Home"
+msgstr "บ้าน"
+
+msgid "Check Ticket Status"
+msgstr "ตรวจสอบสถานะตั๋ว"
+
+msgid "Registration"
+msgstr "การลงทะเบียน"
+
+msgid "Erase User Data"
+msgstr "ลบข้อมูลผู้ใช้"
+
+msgid "Feedback Email Delay Type"
+msgstr "ประเภทอีเมลตอบรับล่าช้า"
+
+msgid "Select delay type for feedback email"
+msgstr "เลือกประเภทความล่าช้าสำหรับอีเมลตอบรับ"
+
+msgid "Feedback Email Delay"
+msgstr "ข้อเสนอแนะอีเมลล่าช้า"
+
+msgid "Success message after submitting feedback"
+msgstr "ข้อความแสดงความสำเร็จหลังจากส่งข้อเสนอแนะ"
+
+msgid "This text will appear whenever anyone submits feedback"
+msgstr "ข้อความนี้จะปรากฏขึ้นทุกครั้งที่มีคนส่งความคิดเห็น"
+
+msgid "Login with facebook"
+msgstr "เข้าสู่ระบบด้วยเฟสบุ๊ค"
+
+msgid "Facebook user can log in to Majestic Support"
+msgstr "ผู้ใช้ Facebook สามารถเข้าสู่ระบบ Majestic Support ได้"
+
+msgid "Secret"
+msgstr "ความลับ"
+
+msgid "secret key"
+msgstr "รหัสลับ"
+
+msgid "API Key"
+msgstr "คีย์ API"
+
+msgid "The Facebook app requires an API key"
+msgstr "แอพ Facebook ต้องใช้คีย์ API"
+
+msgid "Login with linkedin"
+msgstr "เข้าสู่ระบบด้วยลิงค์อิน"
+
+msgid "Linkedin users can log in to Majestic Support"
+msgstr "ผู้ใช้ Linkedin สามารถเข้าสู่ระบบ Majestic Support"
+
+msgid "The LinkedIn app requires an API key"
+msgstr "แอป LinkedIn ต้องใช้คีย์ API"
+
+msgid "UTF Auto Switch"
+msgstr "UTF สวิตช์อัตโนมัติ"
+
+msgid "Create User via email"
+msgstr "สร้าง User ผ่านทางอีเมล์"
+
+msgid "Click here to insert Install."
+msgstr "คลิกที่นี่เพื่อแทรกการติดตั้ง"
+
+msgid "Majestic Support Desktop Notifications plugin is not active."
+msgstr "ปลั๊กอินการแจ้งเตือนเดสก์ท็อป Majestic Support ไม่ทำงาน"
+
+msgid "Find and add the Firebase API keys."
+msgstr "ค้นหาและเพิ่มคีย์ Firebase API"
+
+msgid "Click here to get Firebase API keys."
+msgstr "คลิกที่นี่เพื่อรับคีย์ Firebase API"
+
+msgid "User's API Key"
+msgstr "คีย์ API ของผู้ใช้"
+
+msgid "Firebase API key for the front user"
+msgstr "คีย์ Firebase API สำหรับผู้ใช้ส่วนหน้า"
+
+msgid "Auth Domain"
+msgstr "โดเมนรับรองความถูกต้อง"
+
+msgid "Firebase Auth Domain"
+msgstr "โดเมน Firebase Auth"
+
+msgid "Database Url"
+msgstr "URL ฐานข้อมูล"
+
+msgid "Firebase Database URL"
+msgstr "URL ฐานข้อมูล Firebase"
+
+msgid "Project ID"
+msgstr "รหัสโครงการ"
+
+msgid "Firebase Project ID"
+msgstr "รหัสโปรเจ็กต์ Firebase"
+
+msgid "Bucket Storage"
+msgstr "ที่เก็บข้อมูลถัง"
+
+msgid "Firebase Bucket Storage"
+msgstr "พื้นที่เก็บข้อมูลที่เก็บข้อมูล Firebase"
+
+msgid "Message Sender ID"
+msgstr "รหัสผู้ส่งข้อความ"
+
+msgid "Firebase Message Sender ID"
+msgstr "รหัสผู้ส่งข้อความ Firebase"
+
+msgid "Private Server Key"
+msgstr "รหัสเซิร์ฟเวอร์ส่วนตัว"
+
+msgid "Firebase Server Key"
+msgstr "รหัสเซิร์ฟเวอร์ Firebase"
+
+msgid "Logo Image for Desktop Notifications"
+msgstr "รูปภาพโลโก้สำหรับการแจ้งเตือนบนเดสก์ท็อป"
+
+msgid "Remove Image"
+msgstr "ลบรูปภาพ"
+
+msgid "Remove Logo"
+msgstr "ลบโลโก้"
+
+msgid "No Firebase Notification Logo"
+msgstr "ไม่มีโลโก้การแจ้งเตือน Firebase"
+
+msgid "Secret Key"
+msgstr "รหัสลับ"
+
+msgid "Second Level Security"
+msgstr "การรักษาความปลอดภัยระดับที่สอง"
+
+msgid "For enhanced security, change the encryption method in %s on line %s"
+msgstr "เพื่อเพิ่มความปลอดภัย ให้เปลี่ยนวิธีการเข้ารหัสใน %s ที่บรรทัด %s"
+
+msgid "Api Key"
+msgstr "คีย์ API"
+
+msgid "Enter Envato api key "
+msgstr "ป้อนคีย์ Envato api"
+
+msgid "Click here to generate an api key"
+msgstr "คลิกที่นี่เพื่อสร้างคีย์ API"
+
+msgid "License Mandatory"
+msgstr "ใบอนุญาตบังคับ"
+
+msgid "Product ID"
+msgstr "รหัสผลิตภัณฑ์"
+
+msgid "A comma-separated list of Envato product ids"
+msgstr "รายการรหัสผลิตภัณฑ์ Envato ที่คั่นด้วยเครื่องหมายจุลภาค"
+
+msgid "Enter MailChimp API key "
+msgstr "ป้อนคีย์ MailChimp API"
+
+msgid "Audience ID"
+msgstr "รหัสผู้ชม"
+
+msgid "Find Audience ID in your MailChimp account"
+msgstr "ค้นหา Audience ID ในบัญชี MailChimp ของคุณ"
+
+msgid "Enable double opt-in"
+msgstr "เปิดใช้งานการเลือกรับสองครั้ง"
+
+msgid "You must also enable double opt-in in your MailChimp account"
+msgstr "คุณต้องเปิดใช้งานการเลือกรับสองครั้งในบัญชี MailChimp ของคุณ"
+
+msgid "Welcome email"
+msgstr "อีเมล์ยินดีต้อนรับ"
+
+msgid "You can enable Final Welcome Email in your MailChimp account"
+msgstr "คุณสามารถเปิดใช้งานอีเมลต้อนรับฉบับสุดท้ายได้ในบัญชี MailChimp ของคุณ"
+
+msgid "Verify License On Ticket Creation"
+msgstr "ตรวจสอบใบอนุญาตในการสร้างตั๋ว"
+
+msgid "Captcha Setting"
+msgstr "การตั้งค่าแคปต์ชา"
+
+msgid "Show captcha on registration form"
+msgstr "แสดง captcha ในแบบฟอร์มลงทะเบียน"
+
+msgid "Select whether you want to show captcha on the registration form or not"
+msgstr "เลือกว่าคุณต้องการแสดง captcha ในแบบฟอร์มลงทะเบียนหรือไม่"
+
+msgid "Show captcha on the visitor ticket form"
+msgstr "แสดง captcha บนแบบฟอร์มตั๋วผู้เยี่ยมชม"
+
+msgid "Show captcha when a visitor wants to create a ticket"
+msgstr "แสดง captcha เมื่อผู้เข้าชมต้องการสร้างตั๋ว"
+
+msgid "Captcha selection"
+msgstr "การเลือกแคปช่า"
+
+msgid "Which captcha do you want to add?"
+msgstr "คุณต้องการเพิ่มแคปต์ชาใด"
+
+msgid "Google reCaptcha"
+msgstr "Google reCaptcha"
+
+msgid "Google ReCaptcha version"
+msgstr "เวอร์ชัน Google ReCaptcha"
+
+msgid "Select the Google ReCaptcha version"
+msgstr "เลือกเวอร์ชัน Google ReCaptcha"
+
+msgid "Google ReCaptcha site key"
+msgstr "รหัสไซต์ Google ReCaptcha"
+
+msgid "Please enter the site key for Google ReCaptcha from"
+msgstr "กรุณากรอกรหัสเว็บไซต์สำหรับ Google ReCaptcha จาก"
+
+msgid "Google ReCaptcha secret key"
+msgstr "รหัสลับของ Google ReCaptcha"
+
+msgid "Please enter the secret key for Google ReCaptcha from"
+msgstr "โปรดป้อนรหัสลับสำหรับ Google ReCaptcha จาก"
+
+msgid "Own captcha calculation type"
+msgstr "ประเภทการคำนวณแคปต์ชาของตัวเอง"
+
+msgid "Select the calculation type (addition or subtraction)"
+msgstr "เลือกประเภทการคำนวณ (บวกหรือลบ)"
+
+msgid "Own captcha operands"
+msgstr "ตัวถูกดำเนินการแคปต์ชาของตัวเอง"
+
+msgid "Select the total number of operands to be given"
+msgstr "เลือกจำนวนตัวถูกดำเนินการทั้งหมดที่จะได้รับ"
+
+msgid "Positive Answer Upon Own Captcha Subtraction"
+msgstr "คำตอบเชิงบวกเมื่อมีการลบแคปต์ชาของตัวเอง"
+
+msgid "watch video"
+msgstr "ดูวีดีโอ"
+
+msgid "Add"
+msgstr "เพิ่ม"
+
+msgid "Ticket via email"
+msgstr "จองตั๋วทางอีเมล"
+
+msgid "OR"
+msgstr "หรือ"
+
+msgid "Sorry the cron job didnot work"
+msgstr "ขออภัยงาน cron ไม่ทำงาน"
+
+msgid "Update ticket status"
+msgstr "อัพเดตสถานะตั๋ว"
+
+msgid "You cannot use this email, it is used in email piping"
+msgstr "คุณไม่สามารถใช้อีเมลนี้ได้ แต่ใช้ในการส่งอีเมล์"
+
+msgid "The department has been stored"
+msgstr "แผนกได้ถูกจัดเก็บไว้"
+
+msgid "The department has not been stored"
+msgstr "แผนกยังไม่ได้จัดเก็บ"
+
+msgid "The department has been deleted"
+msgstr "แผนกถูกลบแล้ว"
+
+msgid "The department has not been deleted"
+msgstr "แผนกยังไม่ถูกลบ"
+
+msgid "The department in use cannot be delete"
+msgstr "แผนกที่ใช้งานอยู่ไม่สามารถลบได้"
+
+msgid "Outgoing Email"
+msgstr "อีเมลขาออก"
+
+msgid "Select Email"
+msgstr "เลือกอีเมล"
+
+msgid "Tickets of this department will receive emails from this email"
+msgstr "ตั๋วของแผนกนี้จะได้รับอีเมลจากอีเมลนี้"
+
+msgid "Receive Email"
+msgstr "รับอีเมล์"
+
+msgid "Default with auto assign"
+msgstr "เริ่มต้นด้วยการกำหนดอัตโนมัติ"
+
+msgid "Save Department"
+msgstr "แผนกบันทึก"
+
+msgid "Add New Email"
+msgstr "เพิ่มอีเมลใหม่"
+
+msgid "The user of this department will receive an email with the new ticket"
+msgstr "ผู้ใช้แผนกนี้จะได้รับอีเมลพร้อมตั๋วใหม่"
+
+msgid "Outgoing"
+msgstr "ขาออก"
+
+msgid "Click here to give us feedback"
+msgstr "คลิกที่นี่เพื่อให้ข้อเสนอแนะแก่เรา"
+
+msgid "Email Already Exist"
+msgstr "มีอีเมลอยู่แล้ว"
+
+msgid "The email has been stored"
+msgstr "อีเมล์ถูกเก็บไว้"
+
+msgid "The email has not been stored"
+msgstr "อีเมล์ยังไม่ได้ถูกจัดเก็บ"
+
+msgid "Ticket History"
+msgstr "ประวัติตั๋ว"
+
+msgid "False"
+msgstr "เท็จ"
+
+msgid "True"
+msgstr "จริง"
+
+msgid "Send Email By"
+msgstr "ส่งอีเมล์โดย"
+
+msgid "SMTP host type"
+msgstr "ประเภทโฮสต์ SMTP"
+
+msgid "SMTP host"
+msgstr "โฮสต์ SMTP"
+
+msgid "SMTP Authentication"
+msgstr "การรับรองความถูกต้อง SMTP"
+
+msgid "SMTP Secure"
+msgstr "SMTP ที่ปลอดภัย"
+
+msgid "SMTP Port"
+msgstr "พอร์ต SMTP"
+
+msgid "If the system doesnot respond in 30 seconds"
+msgstr "หากระบบไม่ตอบสนองภายใน 30 วินาที"
+
+msgid "Auto Response"
+msgstr "ตอบกลับอัตโนมัติ"
+
+msgid "Some values are not acceptable please retry"
+msgstr "ค่าบางค่าไม่สามารถยอมรับได้ โปรดลองอีกครั้ง"
+
+msgid "info"
+msgstr "ข้อมูล"
+
+msgid "System email used for sending email"
+msgstr "อีเมลของระบบที่ใช้ในการส่งอีเมล์"
+
+msgid "Required Fields are not filled"
+msgstr "ไม่ได้กรอกข้อมูลในช่องที่ต้องกรอก"
+
+msgid "Ban Email Try To Create Ticket"
+msgstr "ห้ามอีเมลพยายามสร้างตั๋ว"
+
+msgid "Ticket Priority Is Changed By"
+msgstr "ลำดับความสำคัญของตั๋วเปลี่ยนแปลงโดย"
+
+msgid "Data Deleted"
+msgstr "ลบข้อมูลแล้ว"
+
+msgid "Body"
+msgstr "ร่างกาย"
+
+msgid "Parameters"
+msgstr "พารามิเตอร์"
+
+msgid "Tracking ID"
+msgstr "รหัสติดตาม"
+
+msgid "Ticket URL"
+msgstr "URL ตั๋ว"
+
+msgid "Ticket Priority"
+msgstr "ลำดับความสำคัญของตั๋ว"
+
+msgid "Department title"
+msgstr "ชื่อแผนก"
+
+msgid "Group Title"
+msgstr "ชื่อกลุ่ม"
+
+msgid "Agent name"
+msgstr "ชื่อตัวแทน"
+
+msgid "Help topic title"
+msgstr "ชื่อหัวข้อช่วยเหลือ"
+
+msgid "Feedback URL"
+msgstr "URL ข้อเสนอแนะ"
+
+msgid "Ticket Subject"
+msgstr "เรื่องตั๋ว"
+
+msgid "Ticket Tracking ID"
+msgstr "รหัสติดตามตั๋ว"
+
+msgid "Close Date"
+msgstr "ปิดวันที่"
+
+msgid "Save Email Template"
+msgstr "บันทึกเทมเพลตอีเมล"
+
+msgid "Note:"
+msgstr "บันทึก:"
+
+msgid "Features marked with"
+msgstr "คุณสมบัติที่มีเครื่องหมาย"
+
+msgid "are only available with its own addon."
+msgstr "ใช้ได้เฉพาะกับส่วนเสริมของตัวเองเท่านั้น"
+
+msgid "Field mark as published"
+msgstr "ทำเครื่องหมายฟิลด์ว่าเผยแพร่แล้ว"
+
+msgid "Field mark as unpublished"
+msgstr "ทำเครื่องหมายในช่องว่าไม่ได้เผยแพร่"
+
+msgid "Field cannot be mark as published"
+msgstr "ไม่สามารถทำเครื่องหมายในช่องว่าเผยแพร่แล้ว"
+
+msgid "Field mark as required"
+msgstr "ทำเครื่องหมายฟิลด์ตามต้องการ"
+
+msgid "Field mark as not required"
+msgstr "ทำเครื่องหมายฟิลด์ว่าไม่จำเป็น"
+
+msgid "Field ordering down"
+msgstr "สนามสั่งลง"
+
+msgid "Field ordering up"
+msgstr "ฟิลด์สั่งซื้อขึ้น"
+
+msgid "Parent field has not been stored"
+msgstr "ไม่ได้จัดเก็บฟิลด์หลัก"
+
+msgid "Please Insert At least one value for every option"
+msgstr "กรุณาใส่อย่างน้อยหนึ่งค่าสำหรับทุกตัวเลือก"
+
+msgid "Child fields has not been stored"
+msgstr "ฟิลด์ย่อยไม่ได้ถูกจัดเก็บ"
+
+msgid "Field has not been stored"
+msgstr "ยังไม่ได้จัดเก็บฟิลด์"
+
+msgid "Field has been stored"
+msgstr "ฟิลด์ถูกเก็บไว้"
+
+msgid "Field has been updated"
+msgstr "สนามได้รับการปรับปรุงแล้ว"
+
+msgid "Parent Field"
+msgstr "ฟิลด์ผู้ปกครอง"
+
+msgid "Edit Field"
+msgstr "แก้ไขฟิลด์"
+
+msgid "Field Title"
+msgstr "ชื่อฟิลด์"
+
+msgid "User Published"
+msgstr "เผยแพร่โดยผู้ใช้"
+
+msgid "Visitor Published"
+msgstr "ผู้เยี่ยมชมเผยแพร่แล้ว"
+
+msgid "Required"
+msgstr "ที่จำเป็น"
+
+msgid "User Search"
+msgstr "ค้นหาผู้ใช้"
+
+msgid "Show On Listing"
+msgstr "แสดงในรายการ"
+
+msgid "Advanced"
+msgstr "ขั้นสูง"
+
+msgid "Field has not been deleted"
+msgstr "ช่องยังไม่ได้ถูกลบ"
+
+msgid "Field has been deleted"
+msgstr "ลบฟิลด์แล้ว"
+
+msgid "No response found"
+msgstr "ไม่พบคำตอบ"
+
+msgid "Equal"
+msgstr "เท่ากัน"
+
+msgid "Not Equal"
+msgstr "ไม่เท่ากับ"
+
+msgid "Text Field"
+msgstr "ช่องข้อความ"
+
+msgid "Check Box"
+msgstr "กล่องกาเครื่องหมาย"
+
+msgid "Drop Down"
+msgstr "หล่นลง"
+
+msgid "Text Area"
+msgstr "พื้นที่ข้อความ"
+
+msgid "Radio Button"
+msgstr "ปุ่มวิทยุ"
+
+msgid "Upload File"
+msgstr "อัพโหลดไฟล์"
+
+msgid "Multi Select"
+msgstr "เลือกหลายรายการ"
+
+msgid "Admin Only"
+msgstr "ผู้ดูแลระบบเท่านั้น"
+
+msgid "Terms and Conditions"
+msgstr "ข้อกำหนดและเงื่อนไข"
+
+msgid "Dependent Field"
+msgstr "ฟิลด์ขึ้นอยู่กับ"
+
+msgid "Field Type"
+msgstr "ประเภทฟิลด์"
+
+msgid "Field Size"
+msgstr "ขนาดสนาม"
+
+msgid "Max Length"
+msgstr "ความยาวสูงสุด"
+
+msgid "Columns"
+msgstr "คอลัมน์"
+
+msgid "Rows"
+msgstr "แถว"
+
+msgid "Select Parent"
+msgstr "เลือกผู้ปกครอง"
+
+msgid "Select Child"
+msgstr "เลือกเด็ก"
+
+msgid "Select Condition"
+msgstr "เลือกเงื่อนไข"
+
+msgid "To use this feature, please fill in the above three fields."
+msgstr "หากต้องการใช้คุณลักษณะนี้ โปรดกรอกข้อมูลในช่องสามช่องด้านบน"
+
+msgid "Use the table below to add new values"
+msgstr "ใช้ตารางด้านล่างเพื่อเพิ่มค่าใหม่"
+
+msgid "Add Value"
+msgstr "เพิ่มมูลค่า"
+
+msgid "Terms and Conditions Text"
+msgstr "ข้อความข้อกำหนดและเงื่อนไข"
+
+msgid "Terms and Conditions Link Type"
+msgstr "ข้อกำหนดและเงื่อนไขประเภทลิงก์"
+
+msgid "Direct Link"
+msgstr "ลิงค์ตรง"
+
+msgid "Wordpress Page"
+msgstr "เวิร์ดเพรสเพจ"
+
+msgid "Select Link Type"
+msgstr "เลือกประเภทลิงก์"
+
+msgid "Terms and Conditions Link"
+msgstr "ลิงค์ข้อกำหนดและเงื่อนไข"
+
+msgid "Terms and Conditions Page"
+msgstr "หน้าข้อกำหนดและเงื่อนไข"
+
+msgid "Select Wordpress page"
+msgstr "เลือกหน้า Wordpress"
+
+msgid "Save Field"
+msgstr "บันทึกฟิลด์"
+
+msgid "User Publish"
+msgstr "ผู้ใช้เผยแพร่"
+
+msgid "Visitor Publish"
+msgstr "ผู้เยี่ยมชมเผยแพร่"
+
+msgid "Published"
+msgstr "ที่ตีพิมพ์"
+
+msgid "Unpublished"
+msgstr "ไม่ได้เผยแพร่"
+
+msgid "Not required"
+msgstr "ไม่จำเป็นต้องใช้"
+
+msgid "users popup"
+msgstr "ป๊อปอัปผู้ใช้"
+
+msgid "Can Not Unpublished"
+msgstr "ไม่สามารถยกเลิกการเผยแพร่ได้"
+
+msgid "good"
+msgstr "ดี"
+
+msgid "can not mark as not required"
+msgstr "ไม่สามารถทำเครื่องหมายว่าไม่จำเป็นได้"
+
+msgid "Cannot unpublished field"
+msgstr "ไม่สามารถยกเลิกการเผยแพร่ฟิลด์ได้"
+
+msgid "Please fill required fields."
+msgstr "กรุณากรอกข้อมูลในช่องที่ต้องกรอก"
+
+msgid "User Data"
+msgstr "ข้อมูลผู้ใช้"
+
+msgid "Erasing data request has been stored"
+msgstr "คำขอลบข้อมูลถูกเก็บไว้แล้ว"
+
+msgid "Failed while storing"
+msgstr "ล้มเหลวขณะจัดเก็บ"
+
+msgid "Erase data request withdrawn"
+msgstr "ลบคำขอข้อมูลที่ถูกถอนออก"
+
+msgid "Failed while performing action"
+msgstr "ล้มเหลวขณะดำเนินการ"
+
+msgid "User identifying data erased"
+msgstr "ข้อมูลการระบุผู้ใช้ถูกลบแล้ว"
+
+msgid "User data Deleted"
+msgstr "ข้อมูลผู้ใช้ถูกลบแล้ว"
+
+msgid "Export your data"
+msgstr "ส่งออกข้อมูลของคุณ"
+
+msgid "You have filed a request to remove your data."
+msgstr "คุณได้ยื่นคำร้องเพื่อลบข้อมูลของคุณ"
+
+msgid "To withdraw erases data request"
+msgstr "หากต้องการถอนคำขอลบข้อมูล"
+
+msgid "Request the removal of data from the system."
+msgstr "ขอลบข้อมูลออกจากระบบ"
+
+msgid "Field Text"
+msgstr "ข้อความฟิลด์"
+
+msgid "Link Type"
+msgstr "ประเภทลิงค์"
+
+msgid "Link Page"
+msgstr "ลิงค์เพจ"
+
+msgid "User Email"
+msgstr "อีเมล์ผู้ใช้"
+
+msgid "Request Status"
+msgstr "สถานะคำขอ"
+
+msgid "Awaiting response"
+msgstr "รอการตอบกลับ"
+
+msgid "Erased identifying data"
+msgstr "ลบข้อมูลระบุตัวตนแล้ว"
+
+msgid "Deleted"
+msgstr "ลบแล้ว"
+
+msgid "Erase identifying data"
+msgstr "ลบข้อมูลการระบุ"
+
+msgid "Are you sure to erase identifying data"
+msgstr "คุณแน่ใจหรือว่าจะลบข้อมูลระบุตัวตน"
+
+msgid "Delete data"
+msgstr "ลบข้อมูล"
+
+msgid "Link"
+msgstr "ลิงค์"
+
+msgid "Direct URL"
+msgstr "URL โดยตรง"
+
+msgid "Page Title or URL"
+msgstr "ชื่อหน้าหรือ URL"
+
+msgid "Cannot open file"
+msgstr "ไม่สามารถเปิดไฟล์ได้"
+
+msgid "The new theme has been applied"
+msgstr "มีการใช้ธีมใหม่แล้ว"
+
+msgid "Error applying the new theme"
+msgstr "เกิดข้อผิดพลาดในการใช้ธีมใหม่"
+
+msgid "Dir is not writable"
+msgstr "Dir ไม่สามารถเขียนได้"
+
+msgid "Unable to connect to the server"
+msgstr "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้"
+
+msgid "Language is not installed"
+msgstr "ไม่ได้ติดตั้งภาษา"
+
+msgid "Language directory is not writable"
+msgstr "ไดเร็กทอรีภาษาไม่สามารถเขียนได้"
+
+msgid "Required language is not installed but similar language like"
+msgstr "ไม่ได้ติดตั้งภาษาที่ต้องการ แต่มีภาษาที่คล้ายกันเช่น"
+
+msgid "is found in your system"
+msgstr "พบได้ในระบบของคุณ"
+
+msgid "Language code"
+msgstr "รหัสภาษา"
+
+msgid "Empty values"
+msgstr "ค่าว่าง"
+
+msgid "File is not writable"
+msgstr "ไฟล์ไม่สามารถเขียนได้"
+
+msgid "File successfully downloaded"
+msgstr "ดาวน์โหลดไฟล์สำเร็จแล้ว"
+
+msgid "User ID"
+msgstr "รหัสผู้ใช้"
+
+msgid "Ordering updated"
+msgstr "อัพเดทการสั่งซื้อแล้ว."
+
+msgid "Missing user(s) added successfully!"
+msgstr "เพิ่มผู้ใช้ที่หายไปสำเร็จแล้ว!"
+
+msgid "No missing user found!"
+msgstr "ไม่พบผู้ใช้ที่หายไป!"
+
+msgid "How to translate Majestic Support"
+msgstr "วิธีการแปล Majestic Support"
+
+msgid "arrow"
+msgstr "ลูกศร"
+
+msgid "Remove All"
+msgstr "ลบทั้งหมด"
+
+msgid "How to create ticket"
+msgstr "วิธีสร้างตั๋ว"
+
+msgid "Add Field"
+msgstr "เพิ่มฟิลด์"
+
+msgid "How to setup user fields"
+msgstr "วิธีการตั้งค่าฟิลด์ผู้ใช้"
+
+msgid "reset"
+msgstr "รีเซ็ต"
+
+msgid "Reset All"
+msgstr "การตั้งค่าทั้งหมด"
+
+msgid "How to set smartreply"
+msgstr "วิธีการตั้งค่าการตอบกลับอย่างชาญฉลาด"
+
+msgid "Add Multiform"
+msgstr "เพิ่มมัลติฟอร์ม"
+
+msgid "How to set multiforms"
+msgstr "วิธีการตั้งค่าหลายรูปแบบ"
+
+msgid "Add Conditions"
+msgstr "เพิ่มเงื่อนไข"
+
+msgid "Conditions"
+msgstr "เงื่อนไข"
+
+msgid "How to add Shortcode"
+msgstr "วิธีเพิ่มรหัสย่อ"
+
+msgid "How to set colors"
+msgstr "วิธีการตั้งค่าสี"
+
+msgid "Export Data"
+msgstr "ส่งออกข้อมูล"
+
+msgid "Add Email Piping"
+msgstr "เพิ่มการส่งอีเมล์"
+
+msgid "Add GDPR Field"
+msgstr "เพิ่มฟิลด์ GDPR"
+
+msgid "Add Depertment"
+msgstr "เพิ่มแผนก"
+
+msgid "Add Knowledge base"
+msgstr "เพิ่มฐานความรู้"
+
+msgid "How to use Knowledge Base"
+msgstr "วิธีใช้ฐานความรู้"
+
+msgid "How to use downloads"
+msgstr "วิธีการใช้งานดาวน์โหลด"
+
+msgid "How to create FAQ"
+msgstr "วิธีสร้างคำถามที่พบบ่อย"
+
+msgid "How to add announcement"
+msgstr "วิธีเพิ่มประกาศ"
+
+msgid "Add Help Topics"
+msgstr "เพิ่มหัวข้อวิธีใช้"
+
+msgid "How to use help topic"
+msgstr "วิธีใช้หัวข้อช่วยเหลือ"
+
+msgid "How to set SMTP"
+msgstr "วิธีการตั้งค่า SMTP"
+
+msgid "Add Banned Email"
+msgstr "เพิ่มอีเมลที่ถูกแบน"
+
+msgid "How to use email cc"
+msgstr "วิธีใช้อีเมลซีซี"
+
+msgid "Configuration"
+msgstr "การกำหนดค่า"
+
+msgid "Reasons"
+msgstr "เหตุผล"
+
+msgid "About Majestic Support"
+msgstr "เกี่ยวกับ มาเจสติก ซัพพอร์ต"
+
+msgid "Our Products"
+msgstr "ผลิตภัณฑ์ของเรา"
+
+msgid "Wp Job Portal"
+msgstr "พอร์ทัลงาน Wp"
+
+msgid "New Tickets"
+msgstr "ตั๋วใหม่"
+
+msgid "addon"
+msgstr "เพิ่มเข้าไป"
+
+msgid "Answered Tickets"
+msgstr "ตั๋วคำตอบ"
+
+msgid "Pending Tickets"
+msgstr "ตั๋วที่รอดำเนินการ"
+
+msgid "Overdue Tickets"
+msgstr "ตั๋วที่เกินกำหนด"
+
+msgid "Update"
+msgstr "อัปเดต"
+
+msgid "View Addone Status"
+msgstr "ดูสถานะ Addone"
+
+msgid "Today Tickets"
+msgstr "ตั๋ววันนี้"
+
+msgid "Statistics"
+msgstr "สถิติ"
+
+msgid "View All Tickets"
+msgstr "ดูตั๋วทั้งหมด"
+
+msgid "Quick Links"
+msgstr "ลิงค์ด่วน"
+
+msgid "email template"
+msgstr "เทมเพลตอีเมล"
+
+msgid "add missing users"
+msgstr "เพิ่มผู้ใช้ที่หายไป"
+
+msgid "user"
+msgstr "ผู้ใช้"
+
+msgid "Sync WP Users"
+msgstr "ซิงค์ผู้ใช้ WP"
+
+msgid "Add New Smart Reply"
+msgstr "เพิ่มสมาร์ทรีพลายใหม่"
+
+msgid "Suggest a quick and most relevant reply to the customer's query."
+msgstr "แนะนำคำตอบที่รวดเร็วและตรงประเด็นที่สุดสำหรับคำถามของลูกค้า"
+
+msgid "Add Reply"
+msgstr "เพิ่มตอบกลับ"
+
+msgid "Add New Agent"
+msgstr "เพิ่มตัวแทนใหม่"
+
+msgid "Agent Add-on Not Installed"
+msgstr "ไม่ได้ติดตั้งส่วนเสริมตัวแทน"
+
+msgid "Don't limit yourself—install the Agent addon for maximum productivity."
+msgstr "อย่าจำกัดตัวเอง—ติดตั้งส่วนเสริม Agent เพื่อประสิทธิภาพการทำงานสูงสุด"
+
+msgid "agent addone"
+msgstr "เพิ่มตัวแทนแล้ว"
+
+msgid "Install Agent Addon"
+msgstr "ติดตั้งตัวแทน Addon"
+
+msgid "Tickets By Priority"
+msgstr "ตั๋วตามลำดับความสำคัญ"
+
+msgid "Install Addone"
+msgstr "ติดตั้งส่วนเสริม"
+
+msgid "Add-ons"
+msgstr "ส่วนเสริม"
+
+msgid "View Details"
+msgstr "ดูรายละเอียด"
+
+msgid "Version"
+msgstr "เวอร์ชัน"
+
+msgid "Auto Close Ticket"
+msgstr "ตั๋วปิดอัตโนมัติ"
+
+msgid "Private Note"
+msgstr "หมายเหตุส่วนตัว"
+
+msgid "Max Ticket"
+msgstr "ตั๋วแม็กซ์"
+
+msgid "Max Tickets"
+msgstr "ตั๋วแม็กซ์"
+
+msgid "Merge Tickets"
+msgstr "รวมตั๋ว"
+
+msgid "Time Tracking"
+msgstr "การติดตามเวลา"
+
+msgid "User Options"
+msgstr "ตัวเลือกผู้ใช้"
+
+msgid "Actions"
+msgstr "การดำเนินการ"
+
+msgid "Ticket Actions"
+msgstr "การดำเนินการตั๋ว"
+
+msgid "Desktop Notifications"
+msgstr "การแจ้งเตือนบนเดสก์ท็อป"
+
+msgid "Admin Widgets"
+msgstr "วิดเจ็ตผู้ดูแลระบบ"
+
+msgid "Internal Mail"
+msgstr "จดหมายภายใน"
+
+msgid "Front-End Widgets"
+msgstr "วิดเจ็ตส่วนหน้า"
+
+msgid "mailchimp"
+msgstr "เมลชิมแปนซี"
+
+msgid "Mailchimp"
+msgstr "เมลชิมแปนซี"
+
+msgid "paidsupport"
+msgstr "การสนับสนุนแบบชำระเงิน"
+
+msgid "easy digital download"
+msgstr "ดาวน์โหลดดิจิตอลได้ง่าย"
+
+msgid "Easy Digital Download"
+msgstr "ดาวน์โหลดดิจิตอลอย่างง่ายดาย"
+
+msgid "Multi Language Email Templates"
+msgstr "เทมเพลตอีเมลหลายภาษา"
+
+msgid "Email Cc"
+msgstr "อีเมล์ สำเนาถึง"
+
+msgid "Multi Forms"
+msgstr "หลายรูปแบบ"
+
+msgid "Ticket Closed Reason"
+msgstr "เหตุผลในการปิดตั๋ว"
+
+msgid "Quick Installation Guide"
+msgstr "คู่มือการติดตั้งฉบับย่อ"
+
+msgid "How To Setup"
+msgstr "วิธีการตั้งค่า"
+
+msgid "Ticket Creation"
+msgstr "การสร้างตั๋ว"
+
+msgid "Fields Manager"
+msgstr "ผู้จัดการภาคสนาม"
+
+msgid "Email Notification Problems"
+msgstr "ปัญหาการแจ้งเตือนทางอีเมล"
+
+msgid "Premium Addons List"
+msgstr "รายการ Addons ระดับพรีเมียม"
+
+msgid "Features"
+msgstr "คุณสมบัติ"
+
+msgid "The best support system plugin for WordPress has everything you need."
+msgstr "ปลั๊กอินระบบสนับสนุนที่ดีที่สุดสำหรับ WordPress มีทุกสิ่งที่คุณต้องการ"
+
+msgid "Addons"
+msgstr "ส่วนเสริม"
+
+msgid "All Add-ons"
+msgstr "ส่วนเสริมทั้งหมด"
+
+msgid "Add New Add-ons"
+msgstr "เพิ่มส่วนเสริมใหม่"
+
+msgid "New Update Version"
+msgstr "เวอร์ชันอัปเดตใหม่"
+
+msgid "is Available"
+msgstr "สามารถใช้ได้"
+
+msgid "Help icon"
+msgstr "ไอคอนช่วยเหลือ"
+
+msgid "Videos Guidance"
+msgstr "วิดีโอแนะนำ"
+
+msgid "View all videos"
+msgstr "ดูวิดีโอทั้งหมด"
+
+msgid "Video icon"
+msgstr "ไอคอนวิดีโอ"
+
+msgid "View All Videos"
+msgstr "ดูวิดีโอทั้งหมด"
+
+msgid "Majestic Support icon"
+msgstr "ไอคอนมาเจสติกสนับสนุน"
+
+msgid "Contact Us For Support"
+msgstr "ติดต่อเราเพื่อรับการสนับสนุน"
+
+msgid "Submit ticket"
+msgstr "ส่งตั๋ว"
+
+msgid "Visitor ticket creation"
+msgstr "การสร้างตั๋วผู้เยี่ยมชม"
+
+msgid "How to set ticket auto close"
+msgstr "วิธีตั้งค่าตั๋วปิดอัตโนมัติ"
+
+msgid "How to reopen closed ticket"
+msgstr "วิธีเปิดตั๋วที่ปิดแล้วอีกครั้ง"
+
+msgid "How to lock a ticket"
+msgstr "วิธีล็อคตั๋ว"
+
+msgid "How to add private note"
+msgstr "วิธีเพิ่มบันทึกส่วนตัว"
+
+msgid "View ticket history"
+msgstr "ดูประวัติตั๋ว"
+
+msgid "How to setup custom fields"
+msgstr "วิธีการตั้งค่าฟิลด์ที่กำหนดเอง"
+
+msgid "Set ticket auto overdue"
+msgstr "ตั้งค่าตั๋วเกินกำหนดอัตโนมัติ"
+
+msgid "Manually set ticket overdue"
+msgstr "ตั้งค่าตั๋วที่เกินกำหนดด้วยตนเอง"
+
+msgid "How to merge tickets"
+msgstr "วิธีรวมตั๋ว"
+
+msgid "How to export tickets"
+msgstr "วิธีส่งออกตั๋ว"
+
+msgid "How use help topic"
+msgstr "หัวข้อวิธีใช้อย่างไร"
+
+msgid "How to change department"
+msgstr "วิธีการเปลี่ยนแผนก"
+
+msgid "How to use multi-forms"
+msgstr "วิธีการใช้งานหลายรูปแบบ"
+
+msgid "How to paid support"
+msgstr "วิธีการชำระเงินสนับสนุน"
+
+msgid "How to use premade response"
+msgstr "วิธีใช้การตอบกลับที่สร้างไว้ล่วงหน้า"
+
+msgid "How to add private credentials"
+msgstr "วิธีเพิ่มข้อมูลรับรองส่วนตัว"
+
+msgid "How to ban/unban user"
+msgstr "วิธีการแบน/ยกเลิกการแบนผู้ใช้"
+
+msgid "Agent system"
+msgstr "ระบบตัวแทน"
+
+msgid "Manually assign ticket to agen"
+msgstr "มอบหมายตั๋วให้กับตัวแทนด้วยตนเอง"
+
+msgid "Manually assign ticket to agent"
+msgstr "มอบหมายตั๋วให้กับตัวแทนด้วยตนเอง"
+
+msgid "How to edit time"
+msgstr "วิธีแก้ไขเวลา"
+
+msgid "How to use time tracking"
+msgstr "วิธีใช้การติดตามเวลา"
+
+msgid "How to use smart replies"
+msgstr "วิธีใช้การตอบกลับอัจฉริยะ"
+
+msgid "Configurations"
+msgstr "การกำหนดค่า"
+
+msgid "How to set max open ticket"
+msgstr "วิธีการตั้งค่าตั๋วเปิดสูงสุด"
+
+msgid "How to show counts"
+msgstr "วิธีแสดงจำนวน"
+
+msgid "How to set Captcha"
+msgstr "วิธีการตั้งค่าแคปต์ชา"
+
+msgid "User options"
+msgstr "ตัวเลือกผู้ใช้"
+
+msgid "How to set login redirect"
+msgstr "วิธีการตั้งค่าการเปลี่ยนเส้นทางการเข้าสู่ระบบ"
+
+msgid "How to set fields ordering"
+msgstr "วิธีการตั้งค่าการเรียงลำดับฟิลด์"
+
+msgid "How to enable social login"
+msgstr "วิธีเปิดใช้งานการเข้าสู่ระบบโซเชียล"
+
+msgid "Setup"
+msgstr "ติดตั้ง"
+
+msgid "How to setup"
+msgstr "วิธีการตั้งค่า"
+
+msgid "How to enable email piping"
+msgstr "วิธีเปิดใช้งานการวางท่ออีเมล"
+
+msgid "How to solve email notification problem"
+msgstr "วิธีแก้ปัญหาการแจ้งเตือนทางอีเมล์"
+
+msgid "How to translate"
+msgstr "แปลยังไง."
+
+msgid "How to install addons"
+msgstr "วิธีการติดตั้งส่วนเสริม"
+
+msgid "How to Desktop Notifications"
+msgstr "วิธีการแจ้งเตือนบนเดสก์ท็อป"
+
+msgid "and"
+msgstr "และ"
+
+msgid "How to use knowledge base"
+msgstr "วิธีใช้ฐานความรู้"
+
+msgid "Misc"
+msgstr "อื่น ๆ"
+
+msgid "How to use internal mail"
+msgstr "วิธีใช้เมลภายใน"
+
+msgid "Use front-end widgets"
+msgstr "ใช้วิดเจ็ตส่วนหน้า"
+
+msgid "How to enable admin widgets"
+msgstr "วิธีเปิดใช้งานวิดเจ็ตผู้ดูแลระบบ"
+
+msgid "Majestic Support / Majestic Support Control Panel"
+msgstr "แผงควบคุมการสนับสนุนมาเจสติก / แผงควบคุมการสนับสนุนมาเจสติก"
+
+msgid "Majestic Support / Majestic Support main control panel"
+msgstr "แผงควบคุมหลักของ Majestic Support / Majestic Support"
+
+msgid "Add new ticket form for both the user and the agent"
+msgstr "เพิ่มแบบฟอร์มตั๋วใหม่สำหรับทั้งผู้ใช้และตัวแทน"
+
+msgid "Add Ticket Using Multiform"
+msgstr "เพิ่มตั๋วโดยใช้ Multiform"
+
+msgid "My tickets for both user and agent"
+msgstr "ตั๋วของฉันสำหรับทั้งผู้ใช้และตัวแทน"
+
+msgid "Show latest downloads. Options"
+msgstr "แสดงการดาวน์โหลดล่าสุด ตัวเลือก"
+
+msgid "i.e."
+msgstr "เช่น."
+
+msgid "Popular Downloads"
+msgstr "ดาวน์โหลดยอดนิยม"
+
+msgid "Show popular downloads. Options"
+msgstr "แสดงการดาวน์โหลดยอดนิยม ตัวเลือก"
+
+msgid "Show latest knowledge base. Options"
+msgstr "แสดงฐานความรู้ล่าสุด ตัวเลือก"
+
+msgid "Show popular knowledge base. Options"
+msgstr "แสดงฐานความรู้ยอดนิยม ตัวเลือก"
+
+msgid "List FAQs"
+msgstr "แสดงรายการคำถามที่พบบ่อย"
+
+msgid "Show latest FAQs. Options"
+msgstr "แสดงคำถามที่พบบ่อยล่าสุด ตัวเลือก"
+
+msgid "Popular FAQs"
+msgstr "คำถามที่พบบ่อยยอดนิยม"
+
+msgid "Show popular FAQs. Options"
+msgstr "แสดงคำถามที่พบบ่อยยอดนิยม ตัวเลือก"
+
+msgid "Show latest announcements. Options"
+msgstr "แสดงประกาศล่าสุด ตัวเลือก"
+
+msgid "Popular Announcements"
+msgstr "ประกาศยอดนิยม"
+
+msgid "Show popular announcements. Options"
+msgstr "แสดงประกาศยอดนิยม ตัวเลือก"
+
+msgid "Get"
+msgstr "รับ"
+
+msgid "Translation"
+msgstr "การแปล"
+
+msgid "c error"
+msgstr "ข้อผิดพลาดค"
+
+msgid "saved"
+msgstr "บันทึกแล้ว"
+
+msgid "Contribute In Translation"
+msgstr "มีส่วนร่วมในการแปล"
+
+msgid "translate"
+msgstr "แปลภาษา"
+
+msgid "Manual Download"
+msgstr "ดาวน์โหลดด้วยตนเอง"
+
+msgid "Log In"
+msgstr "เข้าสู่ระบบ"
+
+msgid "Log Out"
+msgstr "ออกจากระบบ"
+
+msgid "Agent Feedback"
+msgstr "คำติชมของตัวแทน"
+
+msgid "Dashboard Menu"
+msgstr "เมนูแดชบอร์ด"
+
+msgid "Open Tickets"
+msgstr "เปิดตั๋ว"
+
+msgid "Closed Tickets"
+msgstr "ปิดตั๋วแล้ว"
+
+msgid "This ticket is marked as overdue"
+msgstr "ตั๋วนี้ถูกทำเครื่องหมายว่าเกินกำหนด"
+
+msgid "View All Downloads"
+msgstr "ดูการดาวน์โหลดทั้งหมด"
+
+msgid "View All Announcements"
+msgstr "ดูประกาศทั้งหมด"
+
+msgid "View All Knowledge Base"
+msgstr "ดูฐานความรู้ทั้งหมด"
+
+msgid "View All FAQs"
+msgstr "ดูคำถามที่พบบ่อยทั้งหมด"
+
+msgid "Keep me login"
+msgstr "ให้ฉันเข้าสู่ระบบ"
+
+msgid "Repeat Password"
+msgstr "ทำซ้ำรหัสผ่าน"
+
+msgid "Subscribe to the newsletter"
+msgstr "สมัครรับจดหมายข่าว"
+
+msgid "has been changed"
+msgstr "มีการเปลี่ยนแปลง"
+
+msgid "has not been changed"
+msgstr "ไม่ได้มีการเปลี่ยนแปลง"
+
+msgid "Majestic Support Settings"
+msgstr "การตั้งค่าการสนับสนุนมาเจสติก"
+
+msgid "Step 4 of "
+msgstr "ขั้นตอนที่ 4 ของ"
+
+msgid "Complete"
+msgstr "สมบูรณ์"
+
+msgid "Setting you applied has been saved successfully."
+msgstr "การตั้งค่าที่คุณใช้ได้รับการบันทึกเรียบร้อยแล้ว"
+
+msgid "Finish"
+msgstr "เสร็จ"
+
+msgid "Settings Complete"
+msgstr "การตั้งค่าเสร็จสมบูรณ์"
+
+msgid "Ticket Setting"
+msgstr "การตั้งค่าตั๋ว"
+
+msgid "Step 1 of "
+msgstr "ขั้นตอนที่ 1 ของ"
+
+msgid "Enter the site title"
+msgstr "ป้อนชื่อไซต์"
+
+msgid "Date format for plugin"
+msgstr "รูปแบบวันที่สำหรับปลั๊กอิน"
+
+msgid "Show Breadcrumbs"
+msgstr "แสดงเบรดครัมบ์"
+
+msgid "Show navigation in breadcrumbs"
+msgstr "แสดงการนำทางใน breadcrumbs"
+
+msgid "Upload file size in KB's"
+msgstr "อัปโหลดขนาดไฟล์เป็น KB"
+
+msgid "File Extension"
+msgstr "นามสกุลไฟล์"
+
+msgid "Show count on my tickets"
+msgstr "แสดงจำนวนตั๋วของฉัน"
+
+msgid "Next Setup"
+msgstr "การตั้งค่าถัดไป"
+
+msgid "Sequential"
+msgstr "ตามลำดับ"
+
+msgid "Step 3 of "
+msgstr "ขั้นตอนที่ 3 ของ"
+
+msgid "Set Email Delay Time"
+msgstr "ตั้งเวลาหน่วงเวลาอีเมล"
+
+msgid " :"
+msgstr "-"
+
+msgid "Set Email Delay"
+msgstr "ตั้งค่าความล่าช้าของอีเมล"
+
+msgid "Back"
+msgstr "กลับ"
+
+msgid "Step 2 of "
+msgstr "ขั้นตอนที่ 2 ของ"
+
+msgid "Visitor can create ticket"
+msgstr "ผู้เข้าชมสามารถสร้างตั๋วได้"
+
+msgid "Enable/Disable Open Ticket"
+msgstr "เปิด/ปิดการใช้งานตั๋วเปิด"
+
+msgid "Set ticket id sequential or random"
+msgstr "ตั้งค่ารหัสตั๋วตามลำดับหรือสุ่ม"
+
+msgid "Maximum Tickets"
+msgstr "ตั๋วสูงสุด"
+
+msgid "Set Maximum Ticket Per user"
+msgstr "กำหนดตั๋วสูงสุดต่อผู้ใช้"
+
+msgid "Maximum Open Ticket"
+msgstr "ตั๋วเปิดสูงสุด"
+
+msgid "Reopen ticket within Days"
+msgstr "เปิดตั๋วอีกครั้งภายในไม่กี่วัน"
+
+msgid "The ticket can be reopened within a given number of days"
+msgstr "สามารถเปิดตั๋วได้อีกครั้งภายในจำนวนวันที่กำหนด"
+
+msgid "Show Captcha to visitor on ticket form"
+msgstr "แสดง Captcha แก่ผู้เยี่ยมชมในแบบฟอร์มตั๋ว"
+
+msgid "Enable/Disable Captcha on Ticket Form"
+msgstr "เปิด/ปิดการใช้งาน Captcha ในแบบฟอร์มตั๋ว"
+
+msgid "Own Captcha operands"
+msgstr "เป็นเจ้าของตัวถูกดำเนินการแคปต์ชา"
+
+msgid "Select the total operands to be given"
+msgstr "เลือกตัวถูกดำเนินการทั้งหมดที่จะได้รับ"
+
+msgid "Own captcha subtraction answer positive"
+msgstr "การลบแคปต์ชาของตัวเองตอบเป็นบวก"
+
+msgid "Enable/Disable Own Captcha subtraction"
+msgstr "เปิด/ปิดการลบ Captcha ของตัวเอง"
+
+msgid "Enable Print Ticket"
+msgstr "เปิดใช้งานตั๋วพิมพ์"
+
+msgid "Enable/Disable Print Ticket"
+msgstr "เปิด/ปิด พิมพ์ตั๋ว"
+
+msgid "Download Translation File"
+msgstr "ดาวน์โหลดไฟล์แปล"
+
+msgid "Download & Next"
+msgstr "ดาวน์โหลดและถัดไป"
+
+msgid "Skip this step"
+msgstr "ข้ามขั้นตอนนี้"
+
+msgid "Please insert activation key to proceed"
+msgstr "กรุณาใส่รหัสเปิดใช้งานเพื่อดำเนินการต่อ"
+
+msgid "Addon Installation Failed"
+msgstr "การติดตั้ง Addon ล้มเหลว"
+
+msgid "Addon installation failed"
+msgstr "การติดตั้ง Addon ล้มเหลว"
+
+msgid "Addon Installation Failed, File download error"
+msgstr "การติดตั้ง Addon ล้มเหลว การดาวน์โหลดไฟล์เกิดข้อผิดพลาด"
+
+msgid "Deactivate"
+msgstr "ปิดการใช้งาน"
+
+msgid "Deactivated"
+msgstr "ปิดการใช้งาน"
+
+msgid "Activate"
+msgstr "เปิดใช้งาน"
+
+msgid "Not Installed"
+msgstr "ไม่ได้ติดตั้ง"
+
+msgid "Addon Installed Successfully"
+msgstr "ติดตั้ง Addon สำเร็จแล้ว"
+
+msgid "Ticket Auto Close"
+msgstr "ตั๋วปิดอัตโนมัติ"
+
+msgid "Canned Response"
+msgstr "คำตอบสำเร็จรูป"
+
+msgid "Desktop Notification"
+msgstr "การแจ้งเตือนบนเดสก์ท็อป"
+
+msgid "Front-end Widgets"
+msgstr "วิดเจ็ตส่วนหน้า"
+
+msgid "Multi-Language Emails"
+msgstr "อีเมลหลายภาษา"
+
+msgid "left image"
+msgstr "ภาพซ้าย"
+
+msgid "right image"
+msgstr "ภาพขวา"
+
+msgid "Add-ons For Majestic Support"
+msgstr "ส่วนเสริมสำหรับการสนับสนุน Majestic"
+
+msgid "Save big today with an exclusive membership plan!"
+msgstr "ประหยัดได้มากในวันนี้ด้วยแผนสมาชิกสุดพิเศษ!"
+
+msgid "show bundle pack"
+msgstr "แสดงแพ็ครวมกลุ่ม"
+
+msgid "buy now"
+msgstr "ซื้อตอนนี้"
+
+msgid "Installed"
+msgstr "ติดตั้งแล้ว"
+
+msgid "agent auto assign"
+msgstr "มอบหมายตัวแทนอัตโนมัติ"
+
+msgid "private note"
+msgstr "บันทึกส่วนตัว"
+
+msgid "merge tickets"
+msgstr "รวมตั๋ว"
+
+msgid "helptopic"
+msgstr "หัวข้อช่วยเหลือ"
+
+msgid "time tracking"
+msgstr "การติดตามเวลา"
+
+msgid "Ticket close reason"
+msgstr "เหตุผลในการปิดตั๋ว"
+
+msgid "max ticket"
+msgstr "ตั๋วสูงสุด"
+
+msgid "ticket actions"
+msgstr "การดำเนินการตั๋ว"
+
+msgid "email cc"
+msgstr "อีเมลซีซี"
+
+msgid "user options"
+msgstr "ตัวเลือกผู้ใช้"
+
+msgid "admin widgets"
+msgstr "วิดเจ็ตผู้ดูแลระบบ"
+
+msgid "desktop notifications"
+msgstr "การแจ้งเตือนบนเดสก์ท็อป"
+
+msgid "woocommerce"
+msgstr "วูคอมเมิร์ซ"
+
+msgid "mail chimp"
+msgstr "เมลชิมแปนซี"
+
+msgid "Mail Chimp"
+msgstr "เมลชิมแปนซี"
+
+msgid "internal mail"
+msgstr "จดหมายภายใน"
+
+msgid "frontend widget"
+msgstr "วิดเจ็ตส่วนหน้า"
+
+msgid "Majestic Support Add-ons Bundle Pack"
+msgstr "ชุดเสริมเสริม Majestic Support"
+
+msgid "Basic"
+msgstr "ขั้นพื้นฐาน"
+
+msgid "Unlimited Agents"
+msgstr "ไม่จำกัดตัวแทน"
+
+msgid "Helptopic"
+msgstr "หัวข้อช่วยเหลือ"
+
+msgid "Show all"
+msgstr "แสดงทั้งหมด"
+
+msgid "Standard"
+msgstr "มาตรฐาน"
+
+msgid "Everything in basic included and "
+msgstr "รวมทุกอย่างไว้ในพื้นฐานและ"
+
+msgid "Professional"
+msgstr "มืออาชีพ"
+
+msgid "Everything in standard included and"
+msgstr "รวมทุกอย่างที่เป็นมาตรฐานและ"
+
+msgid "All Future Addons"
+msgstr "ส่วนเสริมในอนาคตทั้งหมด"
+
+msgid "Status: "
+msgstr "สถานะ:"
+
+msgid "addon in no longer active"
+msgstr "addon ไม่ทำงานอีกต่อไป"
+
+msgid "Please Insert Your Activation Key"
+msgstr "กรุณาใส่รหัสเปิดใช้งานของคุณ"
+
+msgid "XXXX-XXXX-XXXXX-XXXXX"
+msgstr "XXXX-XXXX-XXXXX-XXXXX"
+
+msgid "Proceed"
+msgstr "ดำเนินการ"
+
+msgid "Majestic Support Addon Installer"
+msgstr "ตัวติดตั้ง Addon Support ของ Majestic"
+
+msgid "Select All Addons"
+msgstr "เลือก Addons ทั้งหมด"
+
+msgid "All allowed add ons are already installed"
+msgstr "ส่วนเสริมที่อนุญาตทั้งหมดได้รับการติดตั้งแล้ว"
+
+msgid "You are not allowed to install any add on"
+msgstr "คุณไม่ได้รับอนุญาตให้ติดตั้งส่วนเสริมใดๆ"
+
+msgid "Addons Installed Successfully"
+msgstr "ติดตั้ง Addons สำเร็จแล้ว"
+
+msgid "Open Dashboard"
+msgstr "เปิดแดชบอร์ด"
+
+msgid "Open Plugins Page"
+msgstr "เปิดหน้าปลั๊กอิน"
+
+msgid "Page Not Found !!"
+msgstr "ไม่พบหน้านี้ !!"
+
+msgid "Priority Title Already Exist"
+msgstr "ชื่อลำดับความสำคัญมีอยู่แล้ว"
+
+msgid "Priority has been stored"
+msgstr "ลำดับความสำคัญถูกเก็บไว้"
+
+msgid "Priority has not been stored"
+msgstr "ไม่ได้จัดเก็บลำดับความสำคัญไว้"
+
+msgid "Priority has been deleted"
+msgstr "ลบลำดับความสำคัญแล้ว"
+
+msgid "Priority has not been deleted"
+msgstr "ลำดับความสำคัญยังไม่ถูกลบ"
+
+msgid "Default priority cannot delete"
+msgstr "ลำดับความสำคัญเริ่มต้นไม่สามารถลบได้"
+
+msgid "Priority has been make default"
+msgstr "ลำดับความสำคัญถูกทำให้เป็นค่าเริ่มต้น"
+
+msgid "Priority has not been make default"
+msgstr "ลำดับความสำคัญไม่ได้รับการกำหนดให้เป็นค่าเริ่มต้น"
+
+msgid "Ticket Overdue Interval Type"
+msgstr "ประเภทช่วงเวลาที่เกินกำหนดตั๋ว"
+
+msgid "Save Priority"
+msgstr "บันทึกลำดับความสำคัญ"
+
+msgid "Date Interval"
+msgstr "ช่วงวันที่"
+
+msgid "Reply posted"
+msgstr "โพสต์ตอบกลับแล้ว"
+
+msgid "Reply posted on ticket"
+msgstr "ตอบกลับโพสต์บนตั๋ว"
+
+msgid "Guest"
+msgstr "แขก"
+
+msgid "Ticket is replied by"
+msgstr "ตั๋วได้รับการตอบกลับโดย"
+
+msgid "Reply Has been Posted"
+msgstr "ตอบกลับแล้ว"
+
+msgid "Reply Has Not been Posted"
+msgstr "ยังไม่ได้โพสต์คำตอบ"
+
+msgid "Dates"
+msgstr "วันที่"
+
+msgid "Department Statistics"
+msgstr "สถิติภาควิชา"
+
+msgid "answered ticket"
+msgstr "ตอบตั๋ว"
+
+msgid "pending ticket"
+msgstr "ตั๋วที่รอดำเนินการ"
+
+msgid "overdue ticket"
+msgstr "ตั๋วที่เกินกำหนด"
+
+msgid "Time Taken"
+msgstr "ใช้เวลา"
+
+msgid "Merged and closed"
+msgstr "รวมแล้วปิดครับ"
+
+msgid "Out of"
+msgstr "ออกจาก"
+
+msgid "Overall Report"
+msgstr "รายงานโดยรวม"
+
+msgid "Ticket by departments"
+msgstr "ตั๋วตามแผนก"
+
+msgid "Agent Tickets"
+msgstr "ตั๋วตัวแทน"
+
+msgid "all ticket"
+msgstr "ตั๋วทั้งหมด"
+
+msgid "Tickets By Status And Priorities"
+msgstr "ตั๋วตามสถานะและลำดับความสำคัญ"
+
+msgid "Tickets By Agents"
+msgstr "ตั๋วโดยตัวแทน"
+
+msgid "Staff Reports"
+msgstr "รายงานพนักงาน"
+
+msgid "Based on"
+msgstr "ขึ้นอยู่กับ"
+
+msgid "Customer Satisfaction"
+msgstr "ความพึงพอใจของลูกค้า"
+
+msgid "satisfaction image"
+msgstr "ภาพความพึงพอใจ"
+
+msgid "Excellent"
+msgstr "ยอดเยี่ยม"
+
+msgid "NA"
+msgstr "นา"
+
+msgid "Happy"
+msgstr "มีความสุข"
+
+msgid "bad"
+msgstr "แย่"
+
+msgid "Sad"
+msgstr "เศร้า"
+
+msgid "Angry"
+msgstr "โกรธ"
+
+msgid "Agent Statistics"
+msgstr "สถิติตัวแทน"
+
+msgid "staff image"
+msgstr "ภาพลักษณ์ของพนักงาน"
+
+msgid "Average rating"
+msgstr "คะแนนเฉลี่ย"
+
+msgid "Average time"
+msgstr "เวลาเฉลี่ย"
+
+msgid "Tickets not assigned to the agent"
+msgstr "ตั๋วไม่ได้มอบหมายให้กับตัวแทน"
+
+msgid "Minutes"
+msgstr "นาที"
+
+msgid "Report By Agent"
+msgstr "รายงานโดยตัวแทน"
+
+msgid "User Statistics"
+msgstr "สถิติผู้ใช้"
+
+msgid "Users"
+msgstr "ผู้ใช้"
+
+msgid "Tickets by departments"
+msgstr "ตั๋วตามแผนก"
+
+msgid "Ticket Status By Departments"
+msgstr "สถานะตั๋วตามแผนก"
+
+msgid "Agent detail Report"
+msgstr "รายงานรายละเอียดตัวแทน"
+
+msgid "Agent Report"
+msgstr "รายงานตัวแทน"
+
+msgid "Reports Statistics"
+msgstr "รายงานสถิติ"
+
+msgid "Slugs/Slug has been stored"
+msgstr "ทาก/ทากถูกเก็บไว้แล้ว"
+
+msgid "Prefix has not been stored"
+msgstr "คำนำหน้ายังไม่ได้ถูกจัดเก็บ"
+
+msgid "Prefix has been stored"
+msgstr "คำนำหน้าถูกเก็บไว้"
+
+msgid "Home Slug"
+msgstr "ทากบ้าน"
+
+msgid "Prefix"
+msgstr "คำนำหน้า"
+
+msgid "This prefix will be added to the slug in case of homepage links."
+msgstr "คำนำหน้านี้จะถูกเพิ่มเข้าไปในตัวบุ้งในกรณีที่มีลิงก์หน้าแรก"
+
+msgid "This prefix will be added to the slug in case of conflict."
+msgstr "คำนำหน้านี้จะถูกเพิ่มเข้าไปในตัวบุ้งในกรณีที่เกิดข้อขัดแย้ง"
+
+msgid "Search By Slug"
+msgstr "ค้นหาโดย Slug"
+
+msgid "Slug List"
+msgstr "รายการทาก"
+
+msgid "edit"
+msgstr "แก้ไข"
+
+msgid "This button will only save slugs on the current page"
+msgstr "ปุ่มนี้จะบันทึกทากในหน้าปัจจุบันเท่านั้น"
+
+msgid "Smart Reply Title Already Exist"
+msgstr "มีชื่อสมาร์ทรีพลายอยู่แล้ว"
+
+msgid "Smart Reply has been stored"
+msgstr "สมาร์ทรีพลายถูกจัดเก็บไว้แล้ว"
+
+msgid "Smart Reply has not been stored"
+msgstr "สมาร์ทรีพลายยังไม่ได้ถูกจัดเก็บ"
+
+msgid "Smart Reply has been deleted"
+msgstr "ลบสมาร์ทรีพลายแล้ว"
+
+msgid "Smart Reply has not been deleted"
+msgstr "สมาร์ทรีพลายยังไม่ได้ถูกลบ"
+
+msgid "Enter Ticket Subject"
+msgstr "ป้อนหัวข้อตั๋ว"
+
+msgid "delete"
+msgstr "ลบ"
+
+msgid "Save Smart Reply"
+msgstr "บันทึกการตอบกลับอัจฉริยะ"
+
+msgid "System error has been deleted"
+msgstr "ลบข้อผิดพลาดของระบบแล้ว"
+
+msgid "System error has not been deleted"
+msgstr "ข้อผิดพลาดของระบบยังไม่ถูกลบ"
+
+msgid "Color Chooser"
+msgstr "ตัวเลือกสี"
+
+msgid "Preset Theme"
+msgstr "ธีมที่ตั้งไว้ล่วงหน้า"
+
+msgid "Top Menu Heading Background"
+msgstr "พื้นหลังส่วนหัวของเมนูด้านบน"
+
+msgid "Top Header Line Color"
+msgstr "สีของเส้นส่วนหัวด้านบน"
+
+msgid "Button Hover"
+msgstr "ปุ่มโฮเวอร์"
+
+msgid "Heading Text"
+msgstr "ข้อความหัวเรื่อง"
+
+msgid "Content Background Color"
+msgstr "สีพื้นหลังของเนื้อหา"
+
+msgid "Content Text Color"
+msgstr "สีข้อความของเนื้อหา"
+
+msgid "Border Color"
+msgstr "สีขอบ"
+
+msgid "Lines"
+msgstr "เส้น"
+
+msgid "Button Color"
+msgstr "สีของปุ่ม"
+
+msgid "Top Header Text Color"
+msgstr "สีข้อความส่วนหัวด้านบน"
+
+msgid "Save Colors"
+msgstr "บันทึกสี"
+
+msgid "Color Effect Preview"
+msgstr "ดูตัวอย่างเอฟเฟกต์สี"
+
+msgid "Submit Ticket  "
+msgstr "ส่งตั๋ว"
+
+msgid "Open ( 3 )"
+msgstr "เปิด ( 3 )"
+
+msgid "Closed ( 2 )"
+msgstr "ปิด ( 2 )"
+
+msgid "Answered ( 1 )"
+msgstr "ตอบแล้ว ( 1 )"
+
+msgid "All Tickets ( 5 )"
+msgstr "ตั๋วทั้งหมด ( 5 )"
+
+msgid " Priority"
+msgstr "ลำดับความสำคัญ"
+
+msgid "Can i upgrade my plan?"
+msgstr "ฉันสามารถอัพเกรดแผนของฉันได้หรือไม่?"
+
+msgid "Low"
+msgstr "ต่ำ"
+
+msgid "Ticket ID  :"
+msgstr "รหัสตั๋ว :"
+
+msgid "Last Reply :"
+msgstr "ตอบกลับล่าสุด:"
+
+msgid "How can i get Subscription"
+msgstr "ฉันจะสมัครสมาชิกได้อย่างไร"
+
+msgid " Department   "
+msgstr "แผนก"
+
+msgid "Support"
+msgstr "สนับสนุน"
+
+msgid " Ticket ID :"
+msgstr "รหัสตั๋ว :"
+
+msgid "Created :"
+msgstr "สร้าง :"
+
+msgid "Matthew Frazier"
+msgstr "แมทธิว เฟรเซอร์"
+
+msgid "How long do i have support access"
+msgstr "ฉันมีสิทธิ์เข้าถึงการสนับสนุนได้นานแค่ไหน"
+
+msgid " Department"
+msgstr "แผนก"
+
+msgid "Note"
+msgstr "บันทึก"
+
+msgid "Blue Jeans"
+msgstr "กางเกงยีนส์สีน้ำเงิน"
+
+msgid "Red"
+msgstr "สีแดง"
+
+msgid "Mint"
+msgstr "สะระแหน่"
+
+msgid "Lavender"
+msgstr "ลาเวนเดอร์"
+
+msgid "Orange"
+msgstr "ส้ม"
+
+msgid "Grass"
+msgstr "หญ้า"
+
+msgid "Black"
+msgstr "สีดำ"
+
+msgid "Support for this Envato license has expired"
+msgstr "การสนับสนุนใบอนุญาต Envato นี้หมดอายุแล้ว"
+
+msgid "Record not found"
+msgstr "ไม่พบบันทึก"
+
+msgid "Banned email cannot create ticket"
+msgstr "อีเมลที่ถูกแบนไม่สามารถสร้างตั๋วได้"
+
+msgid "Incorrect Captcha Code"
+msgstr "รหัส Captcha ไม่ถูกต้อง"
+
+msgid "Please select paid support item"
+msgstr "โปรดเลือกรายการสนับสนุนแบบชำระเงิน"
+
+msgid "No purchase found with that code"
+msgstr "ไม่พบการซื้อที่มีรหัสนั้น"
+
+msgid "Provide a valid license key to create a ticket."
+msgstr "ระบุรหัสใบอนุญาตที่ถูกต้องเพื่อสร้างตั๋ว"
+
+msgid "Your license has expired."
+msgstr "ใบอนุญาตของคุณหมดอายุแล้ว"
+
+msgid "Your license is not active, activate your license."
+msgstr "ใบอนุญาตของคุณไม่ทำงาน โปรดเปิดใช้งานใบอนุญาตของคุณ"
+
+msgid "Due date error is not valid"
+msgstr "ข้อผิดพลาดวันครบกำหนดไม่ถูกต้อง"
+
+msgid "Ticket has not been created"
+msgstr "ยังไม่ได้สร้างตั๋ว"
+
+msgid "Your ticket has been submitted successfully"
+msgstr "ตั๋วของคุณถูกส่งเรียบร้อยแล้ว"
+
+msgid "created"
+msgstr "สร้าง"
+
+msgid "Ticket is updated by"
+msgstr "ตั๋วได้รับการปรับปรุงโดย"
+
+msgid "Ticket is created by"
+msgstr "ตั๋วถูกสร้างขึ้นโดย"
+
+msgid "Ticket has been deleted"
+msgstr "ลบตั๋วแล้ว"
+
+msgid "Ticket has not been deleted"
+msgstr "ตั๋วยังไม่ถูกลบ"
+
+msgid "in use cannot be deleted"
+msgstr "ที่ใช้งานอยู่ไม่สามารถลบได้"
+
+msgid "Ticket already closed"
+msgstr "ปิดตั๋วแล้ว"
+
+msgid "Ticket has been closed"
+msgstr "ปิดรับตั๋วแล้ว"
+
+msgid "Ticket has not been closed"
+msgstr "ตั๋วยังไม่ถูกปิด"
+
+msgid "Ticket is closed by"
+msgstr "ปิดรับตั๋วแล้ว"
+
+msgid "due to the following reasons"
+msgstr "เนื่องจากเหตุผลดังต่อไปนี้"
+
+msgid "Your are not allowed"
+msgstr "คุณไม่ได้รับอนุญาต"
+
+msgid "The department has been transferred"
+msgstr "แผนกได้โอนแล้ว"
+
+msgid "The department has not been transferred"
+msgstr "แผนกยังไม่ถูกโอน"
+
+msgid "The department is transferred by"
+msgstr "แผนกโอนโดย"
+
+msgid "Assigned to agent"
+msgstr "มอบหมายให้ตัวแทน"
+
+msgid "Not assigned to agent"
+msgstr "ไม่ได้รับมอบหมายให้เป็นตัวแทน"
+
+msgid "Assign ticket to agent"
+msgstr "กำหนดตั๋วให้กับตัวแทน"
+
+msgid "Ticket is assigned to agent by"
+msgstr "ตั๋วถูกกำหนดให้กับตัวแทนโดย"
+
+msgid "The ticket already has the same priority"
+msgstr "ตั๋วมีลำดับความสำคัญเท่ากันอยู่แล้ว"
+
+msgid "Priority has been changed"
+msgstr "ลำดับความสำคัญมีการเปลี่ยนแปลง"
+
+msgid "Priority has not been changed"
+msgstr "ลำดับความสำคัญไม่ได้เปลี่ยนแปลง"
+
+msgid "Change Priority"
+msgstr "เปลี่ยนลำดับความสำคัญ"
+
+msgid "Email already banned"
+msgstr "อีเมลถูกแบนแล้ว"
+
+msgid "The email has been banned"
+msgstr "อีเมลถูกแบน"
+
+msgid "The email has not been banned"
+msgstr "อีเมลไม่ได้ถูกห้าม"
+
+msgid "Email is banned by"
+msgstr "อีเมลถูกห้ามโดย"
+
+msgid "The ticket has been reopened"
+msgstr "ตั๋วถูกเปิดอีกครั้ง"
+
+msgid "The ticket has not been reopened"
+msgstr "ตั๋วยังไม่ได้ถูกเปิดอีกครั้ง"
+
+msgid "Reopen Ticket"
+msgstr "เปิดตั๋วอีกครั้ง"
+
+msgid "The ticket is reopened by"
+msgstr "ตั๋วจะถูกเปิดอีกครั้งโดย"
+
+msgid "The ticket reopens time limit end"
+msgstr "ตั๋วเปิดใหม่หมดเวลาที่กำหนด"
+
+msgid "Email has been unbanned"
+msgstr "อีเมลถูกยกเลิกการแบนแล้ว"
+
+msgid "Email has not been unbanned"
+msgstr "อีเมลไม่ได้รับการยกเลิกการแบน"
+
+msgid "Unbanned Email"
+msgstr "อีเมลที่ไม่ถูกแบน"
+
+msgid "Email is unbanned by"
+msgstr "อีเมลถูกยกเลิกการห้ามโดย"
+
+msgid "Email cannot be unbanned"
+msgstr "ไม่สามารถยกเลิกการแบนอีเมลได้"
+
+msgid "Ticket already marked in progress"
+msgstr "ตั๋วถูกทำเครื่องหมายไว้ในระหว่างดำเนินการแล้ว"
+
+msgid "The ticket has been marked as in progress"
+msgstr "ตั๋วถูกทำเครื่องหมายว่าอยู่ระหว่างดำเนินการ"
+
+msgid "The ticket has not been marked as in progress"
+msgstr "ตั๋วไม่ได้รับการทำเครื่องหมายว่าอยู่ระหว่างดำเนินการ"
+
+msgid "In progress ticket"
+msgstr "อยู่ระหว่างดำเนินการตั๋ว"
+
+msgid "The ticket is marked as in progress by"
+msgstr "ตั๋วถูกทำเครื่องหมายว่ากำลังดำเนินการโดย"
+
+msgid "File upload limit exceeds"
+msgstr "เกินขีดจำกัดการอัปโหลดไฟล์"
+
+msgid "The uploaded file extension not valid"
+msgstr "นามสกุลไฟล์ที่อัปโหลดไม่ถูกต้อง"
+
+msgid "Paid support info"
+msgstr "ข้อมูลการสนับสนุนแบบชำระเงิน"
+
+msgid "Order ID"
+msgstr "รหัสคำสั่งซื้อ"
+
+msgid "Product Name"
+msgstr "ชื่อผลิตภัณฑ์"
+
+msgid "Total Tickets"
+msgstr "ตั๋วทั้งหมด"
+
+msgid "Remaining Tickets"
+msgstr "ตั๋วที่เหลืออยู่"
+
+msgid "Unlimited"
+msgstr "ไม่ จำกัด"
+
+msgid "You have not purchased any supported item"
+msgstr "คุณยังไม่ได้ซื้อสินค้าที่รองรับ"
+
+msgid "Go to shop"
+msgstr "ไปที่ร้าน"
+
+msgid "Select Order"
+msgstr "เลือกคำสั่งซื้อ"
+
+msgid "No premade response found"
+msgstr "ไม่พบการตอบกลับที่สร้างไว้ล่วงหน้า"
+
+msgid "Waiting agent reply"
+msgstr "รอตัวแทนตอบกลับ"
+
+msgid "Waiting customer reply"
+msgstr "รอการตอบกลับของลูกค้า"
+
+msgid "Close ticket"
+msgstr "ปิดตั๋ว"
+
+msgid "Are you sure to mark this ticket non-premium?"
+msgstr "คุณแน่ใจหรือว่าทำเครื่องหมายตั๋วนี้ว่าไม่ใช่แบบพรีเมียม"
+
+msgid "Edit Reply"
+msgstr "แก้ไข ตอบกลับ"
+
+msgid "Edit Time"
+msgstr "แก้ไขเวลา"
+
+msgid "Add reason in the other box"
+msgstr "เพิ่มเหตุผลในอีกช่องหนึ่ง"
+
+msgid "First make some selection!"
+msgstr "ก่อนอื่นให้เลือก!"
+
+msgid "Reason For Editing the timer"
+msgstr "เหตุผลในการแก้ไขตัวจับเวลา"
+
+msgid "Reason For Editing"
+msgstr "เหตุผลในการแก้ไข"
+
+msgid "Resolve conflict"
+msgstr "แก้ไขความขัดแย้ง"
+
+msgid "Lock"
+msgstr "ล็อค"
+
+msgid "Add New Credential"
+msgstr "เพิ่มข้อมูลประจำตัวใหม่"
+
+msgid "Add Internal Note"
+msgstr "เพิ่มบันทึกภายใน"
+
+msgid "play"
+msgstr "เล่น"
+
+msgid "pause"
+msgstr "หยุดชั่วคราว"
+
+msgid "stop"
+msgstr "หยุด"
+
+msgid "Close on reply"
+msgstr "ปิดตอบครับ"
+
+msgid "Reason For Department Transfer"
+msgstr "เหตุผลในการย้ายหน่วยงาน"
+
+msgid "Transfer"
+msgstr "โอนย้าย"
+
+msgid "Assign To Agent"
+msgstr "มอบหมายให้ตัวแทน"
+
+msgid "Assign"
+msgstr "กำหนด"
+
+msgid "View all"
+msgstr "ดูทั้งหมด"
+
+msgid "tickets by"
+msgstr "ตั๋วโดย"
+
+msgid "Show History"
+msgstr "แสดงประวัติ"
+
+msgid "Print Ticket"
+msgstr "พิมพ์ตั๋ว"
+
+msgid "Unmark Overdue"
+msgstr "ยกเลิกการทำเครื่องหมายว่าเกินกำหนด"
+
+msgid "Mark in Progress"
+msgstr "ทำเครื่องหมายว่าอยู่ระหว่างดำเนินการ"
+
+msgid "agent image"
+msgstr "ภาพตัวแทน"
+
+msgid "Post A New Internal Note"
+msgstr "โพสต์บันทึกภายในใหม่"
+
+msgid "Ticket Thread"
+msgstr "กระทู้ตั๋ว"
+
+msgid "View Image"
+msgstr "ดูภาพ"
+
+msgid "smart-reply"
+msgstr "สมาร์ทตอบกลับ"
+
+msgid "Check Smart Reply"
+msgstr "ตรวจสอบการตอบกลับอัจฉริยะ"
+
+msgid "Search and get a saved smart reply on Majestic Support for a ticket."
+msgstr "ค้นหาและรับการตอบกลับอัจฉริยะที่บันทึกไว้ใน Majestic Support เพื่อรับตั๋ว"
+
+msgid "search"
+msgstr "ค้นหา"
+
+msgid "Add this reply to smart reply?"
+msgstr "เพิ่มการตอบกลับนี้ไปยังการตอบกลับอัจฉริยะไหม"
+
+msgid "Post Reply"
+msgstr "โพสต์ตอบ"
+
+msgid "Own Signature"
+msgstr "ลายเซ็นของตัวเอง"
+
+msgid "Department Signature"
+msgstr "ลายเซ็นแผนก"
+
+msgid "JNone"
+msgstr "เจไม่มี"
+
+msgid "Add Signature"
+msgstr "เพิ่มลายเซ็น"
+
+msgid "On Waiting"
+msgstr "ในการรอคอย"
+
+msgid "Closed and merged"
+msgstr "ปิดและรวมเข้าด้วยกัน"
+
+msgid "Ticket Closing Reason"
+msgstr "เหตุผลในการปิดตั๋ว"
+
+msgid "ago"
+msgstr "ที่ผ่านมา"
+
+msgid "No Last Reply"
+msgstr "ไม่มีการตอบกลับครั้งสุดท้าย"
+
+msgid "Not Given"
+msgstr "ไม่ให้"
+
+msgid "Closed By"
+msgstr "ปิดโดย"
+
+msgid "Closed On"
+msgstr "ปิดเมื่อ"
+
+msgid "Copy"
+msgstr "สำเนา"
+
+msgid "Copied"
+msgstr "คัดลอกแล้ว"
+
+msgid "Change"
+msgstr "เปลี่ยน"
+
+msgid "Assign And Transfer Ticket"
+msgstr "กำหนดและโอนตั๋ว"
+
+msgid "Ticket assigned to"
+msgstr "ตั๋วที่ได้รับมอบหมายให้"
+
+msgid "staff photo"
+msgstr "รูปถ่ายพนักงาน"
+
+msgid "Total Time Taken"
+msgstr "เวลาทั้งหมดที่ใช้ไป"
+
+msgid "view ticket"
+msgstr "ดูตั๋ว"
+
+msgid "Woocommerce Order"
+msgstr "การสั่งซื้อ WooCommerce"
+
+msgid "Envato License"
+msgstr "ใบอนุญาต Envato"
+
+msgid "Item"
+msgstr "รายการ"
+
+msgid "Buyer"
+msgstr "ผู้ซื้อ"
+
+msgid "License Type"
+msgstr "ประเภทใบอนุญาต"
+
+msgid "License"
+msgstr "ใบอนุญาต"
+
+msgid "Purchase Date"
+msgstr "วันที่ซื้อ"
+
+msgid "Supported Until"
+msgstr "รองรับจนถึง"
+
+msgid "Paid Support Details"
+msgstr "รายละเอียดการสนับสนุนแบบชำระเงิน"
+
+msgid "Subscription"
+msgstr "สมัครสมาชิก"
+
+msgid "Subscribed On"
+msgstr "สมัครสมาชิกเมื่อ"
+
+msgid "Support Expiry"
+msgstr "การสนับสนุนหมดอายุ"
+
+msgid "No expiration"
+msgstr "ไม่มีวันหมดอายุ"
+
+msgid "Non-premium support"
+msgstr "การสนับสนุนที่ไม่ใช่แบบพรีเมียม"
+
+msgid "Check this box if this ticket should NOT apply against the paid support"
+msgstr "ทำเครื่องหมายในช่องนี้หากไม่ควรใช้ตั๋วนี้กับการสนับสนุนแบบชำระเงิน"
+
+msgid "Remaining"
+msgstr "ที่เหลืออยู่"
+
+msgid "Link ticket to paid support"
+msgstr "เชื่อมโยงตั๋วกับการสนับสนุนแบบชำระเงิน"
+
+msgid "closed ticket"
+msgstr "ตั๋วปิดแล้ว"
+
+msgid "Ticket Creator Name"
+msgstr "ชื่อผู้สร้างตั๋ว"
+
+msgid "From Date"
+msgstr "จากวันที่"
+
+msgid "To Date"
+msgstr "จนถึงปัจจุบัน"
+
+msgid "Enforce delete"
+msgstr "บังคับใช้การลบ"
+
+msgid "Are you sure to enforce delete"
+msgstr "คุณแน่ใจว่าจะบังคับให้ลบ"
+
+msgid "Are you sure to mark this ticket non-preminum?"
+msgstr "คุณแน่ใจหรือว่าทำเครื่องหมายตั๋วนี้ว่าไม่ใช่แบบพรีเมียม"
+
+msgid "Message Logs"
+msgstr "บันทึกข้อความ"
+
+msgid "Edit Timer"
+msgstr "แก้ไขตัวจับเวลา"
+
+msgid "Type Note for Department"
+msgstr "พิมพ์หมายเหตุสำหรับแผนก"
+
+msgid "Assign Ticket To Agent"
+msgstr "มอบหมายตั๋วให้กับตัวแทน"
+
+msgid "Assigning Note"
+msgstr "การมอบหมายหมายเหตุ"
+
+msgid "Time Track"
+msgstr "ติดตามเวลา"
+
+msgid "Type Internal Note"
+msgstr "พิมพ์หมายเหตุภายใน"
+
+msgid "tickets"
+msgstr "ตั๋ว"
+
+msgid "Reopen"
+msgstr "เปิดใหม่อีกครั้ง"
+
+msgid "History"
+msgstr "ประวัติศาสตร์"
+
+msgid "Print"
+msgstr "พิมพ์"
+
+msgid "Are you sure you want to delete this ticket"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบตั๋วนี้"
+
+msgid "Are you sure to close this ticket"
+msgstr "คุณแน่ใจหรือว่าจะปิดตั๋วนี้"
+
+msgid "Unlock"
+msgstr "ปลดล็อค"
+
+msgid "Mark In Progress"
+msgstr "ทำเครื่องหมายว่าอยู่ระหว่างดำเนินการ"
+
+msgid "Ban Email And Close Ticket"
+msgstr "แบนอีเมลและปิดตั๋ว"
+
+msgid "Post New Internal Note"
+msgstr "โพสต์บันทึกภายในใหม่"
+
+msgid "Reply A Message"
+msgstr "ตอบข้อความ"
+
+msgid "Search and get a saved smart reply on Majestic Support."
+msgstr "ค้นหาและรับการตอบกลับอัจฉริยะที่บันทึกไว้ใน Majestic Support"
+
+msgid "Check Reply"
+msgstr "ตรวจสอบการตอบกลับ"
+
+msgid "Select Premade"
+msgstr "เลือกทำไว้ล่วงหน้า"
+
+msgid "Assign Ticket"
+msgstr "กำหนดตั๋ว"
+
+msgid ": "
+msgstr "-"
+
+msgid "Assigned To Agent"
+msgstr "มอบหมายให้ตัวแทน"
+
+msgid "View all orders"
+msgstr "ดูคำสั่งซื้อทั้งหมด"
+
+msgid "Non-preminum support"
+msgstr "การสนับสนุนที่ไม่ใช่แบบพรีเมียม"
+
+msgid "Check Status"
+msgstr "ตรวจสอบสถานะ"
+
+msgid "High"
+msgstr "สูง"
+
+msgid "Urgent"
+msgstr "ด่วน"
+
+msgid "Admin email address and email piping address cannot be the same, your email piping will not be work."
+msgstr "ที่อยู่อีเมลของผู้ดูแลระบบและที่อยู่ไปป์อีเมลต้องไม่เหมือนกัน การไปป์อีเมลของคุณจะไม่ทำงาน"
+
+msgid "IMAP is either not installed or not enabled in your server. Contact to hosting company"
+msgstr "IMAP ไม่ได้ติดตั้งหรือไม่ได้เปิดใช้งานในเซิร์ฟเวอร์ของคุณ ติดต่อบริษัทโฮสติ้ง"
+
+msgid "180 secs If the setting is not completely increased, most sites will work with a setting of between 180 and 600"
+msgstr "180 วินาที หากการตั้งค่าไม่เพิ่มขึ้นอย่างสมบูรณ์ ไซต์ส่วนใหญ่จะใช้งานได้โดยมีการตั้งค่าระหว่าง 180 ถึง 600"
+
+msgid "If you have already set up alert methods in the webcron.org interface, we recommend choosing an alert type"
+msgstr "หากคุณได้ตั้งค่าวิธีการแจ้งเตือนในอินเทอร์เฟซของ webcron.org แล้ว เราขอแนะนำให้เลือกประเภทการแจ้งเตือน"
+
+msgid "Enter allowed number of tickets that customer can post. Enter -1 for unlimited tickets."
+msgstr "ป้อนจำนวนตั๋วที่อนุญาตที่ลูกค้าสามารถโพสต์ได้ ป้อน -1 สำหรับตั๋วไม่จำกัด"
+
+msgid "Your response would be helpful to other users, as we believe that the success of the support system is largely dependent on how well customers are treated."
+msgstr "คำตอบของคุณจะเป็นประโยชน์ต่อผู้ใช้รายอื่น เนื่องจากเราเชื่อว่าความสำเร็จของระบบสนับสนุนนั้นขึ้นอยู่กับว่าลูกค้าได้รับการปฏิบัติที่ดีเพียงใด"
+
+msgid "</b> and Enter your license key and hit to authenticate. A valid key is required for updates."
+msgstr "</b> และป้อนรหัสใบอนุญาตของคุณแล้วกดเพื่อตรวจสอบสิทธิ์ จำเป็นต้องมีรหัสที่ถูกต้องสำหรับการอัปเดต"
+
+msgid "We'd love to hear from you. It'll only take 2 minutes of your time, and will really help us spread the word"
+msgstr "เราชอบที่จะได้ยินจากคุณ ใช้เวลาของคุณเพียง 2 นาที และจะช่วยเรากระจายข่าวได้อย่างแท้จริง"
+
+msgid "Registration has been disabled by admin, please contact the system administrator."
+msgstr "การลงทะเบียนถูกปิดใช้งานโดยผู้ดูแลระบบ โปรดติดต่อผู้ดูแลระบบ"
+
+msgid "Please check confirmation email to complete your subscription for the newsletter"
+msgstr "โปรดตรวจสอบอีเมลยืนยันเพื่อดำเนินการสมัครรับจดหมายข่าวให้เสร็จสิ้น"
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Dont forget to update the add-ons to enjoy the greatest features!"
+msgstr "สวัสดี! เราเพิ่งเปิดตัวการอัปเดตใหม่สำหรับส่วนเสริม อย่าลืมอัปเดตส่วนเสริมเพื่อเพลิดเพลินกับคุณสมบัติที่ยอดเยี่ยมที่สุด!"
+
+msgid "Select the Majestic Support default page, and on the action system, it will redirect to the selected page. If not selected the default page, email links, and support icon might not work."
+msgstr "เลือกหน้าเริ่มต้นของ Majestic Support และในระบบการดำเนินการ ระบบจะเปลี่ยนเส้นทางไปยังหน้าที่เลือก หากไม่ได้เลือกหน้าเริ่มต้น ลิงก์อีเมล และไอคอนสนับสนุนอาจไม่ทำงาน"
+
+msgid "You need to rename the existing data directory in the file system before changing the data directory name"
+msgstr "คุณต้องเปลี่ยนชื่อไดเร็กทอรีข้อมูลที่มีอยู่ในระบบไฟล์ก่อนที่จะเปลี่ยนชื่อไดเร็กทอรีข้อมูล"
+
+msgid "Show the number of open, closed, and answered tickets in my tickets and dashboard"
+msgstr "แสดงจำนวนตั๋วที่เปิด ปิด และตอบในตั๋วและแดชบอร์ดของฉัน"
+
+msgid "Set register link default or custom.<br /> To enable registrations, WordPress admin > General > Settings > Membership: Anyone can register"
+msgstr "ตั้งค่าเริ่มต้นหรือกำหนดเองของลิงก์ลงทะเบียน<br /> หากต้องการเปิดใช้งานการลงทะเบียน ผู้ดูแลระบบ WordPress > ทั่วไป > การตั้งค่า > การเป็นสมาชิก: ใครๆ ก็สามารถลงทะเบียนได้"
+
+msgid "Select category to display only products of this category on the WooCommerce shop page."
+msgstr "เลือกหมวดหมู่เพื่อแสดงเฉพาะสินค้าในหมวดนี้ในหน้าร้านค้า WooCommerce"
+
+msgid "Show or hide the multiform popup when creating a new ticket. if you hide them, the system will open the default form."
+msgstr "แสดงหรือซ่อนป๊อปอัปหลายรูปแบบเมื่อสร้างตั๋วใหม่ หากคุณซ่อนไว้ระบบจะเปิดแบบฟอร์มเริ่มต้น"
+
+msgid "Select whether users can see the email of administrator or agent on the ticket reply"
+msgstr "เลือกว่าผู้ใช้สามารถดูอีเมลของผู้ดูแลระบบหรือตัวแทนในการตอบกลับตั๋วได้หรือไม่"
+
+msgid "Select whether users can see the name of administrator or agent on ticket reply"
+msgstr "เลือกว่าผู้ใช้สามารถดูชื่อของผู้ดูแลระบบหรือตัวแทนในการตอบกลับตั๋วได้หรือไม่"
+
+msgid "By enabling this option, an admin can know who closed the ticket and when that ticket closed."
+msgstr "เมื่อเปิดใช้งานตัวเลือกนี้ ผู้ดูแลระบบสามารถทราบได้ว่าใครปิดตั๋วและเมื่อใดที่ปิดตั๋ว"
+
+msgid "By enabling this option, an agent can know who closed the ticket and when that ticket closed."
+msgstr "เมื่อเปิดใช้งานตัวเลือกนี้ ตัวแทนจะสามารถทราบได้ว่าใครปิดตั๋วและปิดตั๋วเมื่อใด"
+
+msgid "By enabling this option, a user can know who closed the ticket and when that ticket closed."
+msgstr "เมื่อเปิดใช้งานตัวเลือกนี้ ผู้ใช้สามารถทราบได้ว่าใครปิดตั๋วและเมื่อใดที่ปิดตั๋ว"
+
+msgid "By enabling this option, an admin can know to whom the ticket has been assigned."
+msgstr "เมื่อเปิดใช้งานตัวเลือกนี้ ผู้ดูแลระบบสามารถทราบได้ว่าใครเป็นผู้มอบหมายตั๋วให้"
+
+msgid "By enabling this option, an agent can know to whom the ticket has been assigned."
+msgstr "เมื่อเปิดใช้งานตัวเลือกนี้ ตัวแทนสามารถทราบได้ว่าใครเป็นผู้มอบหมายตั๋วให้"
+
+msgid "By enabling this option, a user can know to whom the ticket has been assigned."
+msgstr "เมื่อเปิดใช้งานตัวเลือกนี้ ผู้ใช้สามารถทราบได้ว่าใครเป็นผู้มอบหมายตั๋วให้"
+
+msgid "If the ticket department email is not selected, then this email is used to send emails"
+msgstr "หากไม่ได้เลือกอีเมลแผนกตั๋ว อีเมลนี้จะใช้ในการส่งอีเมล"
+
+msgid "Set the number of days or hours to send a feedback email after a ticket is closed"
+msgstr "กำหนดจำนวนวันหรือชั่วโมงในการส่งอีเมลตอบกลับหลังจากปิดตั๋วแล้ว"
+
+msgid "Majestic Support Desktop Notifications plugin is not installed. Please install the plugin to enable desktop notifications"
+msgstr "ไม่ได้ติดตั้งปลั๊กอินการแจ้งเตือนเดสก์ท็อป Majestic Support โปรดติดตั้งปลั๊กอินเพื่อเปิดใช้งานการแจ้งเตือนบนเดสก์ท็อป"
+
+msgid "Changing the encryption key of private credentials will cause all existing credentials to be discarded"
+msgstr "การเปลี่ยนคีย์การเข้ารหัสของข้อมูลประจำตัวส่วนตัวจะทำให้ข้อมูลประจำตัวที่มีอยู่ทั้งหมดถูกยกเลิก"
+
+msgid "Prevent users from submitting a ticket without a valid license for one of your product"
+msgstr "ป้องกันไม่ให้ผู้ใช้ส่งตั๋วโดยไม่มีใบอนุญาตที่ถูกต้องสำหรับผลิตภัณฑ์ของคุณ"
+
+msgid "Selecting \\ positive"
+msgstr "การเลือก  ค่าบวก"
+
+msgid "e.g \\ The text between [link] and [/link] will be linked to provided url or wordpress page."
+msgstr "เช่น  ข้อความระหว่าง [link] และ [/link] จะถูกลิงค์ไปยัง url หรือหน้า wordpress ที่ให้ไว้"
+
+msgid "e.g., \\ The text between [link] and [/link] will be linked to provided URL or WordPress page."
+msgstr "เช่น  ข้อความระหว่าง [link] และ [/link] จะเชื่อมโยงกับ URL ที่ให้ไว้หรือหน้า WordPress"
+
+msgid "Majestic support is customer service or assistance that is exceptional in nature, providing a high level of satisfaction to the customer by going above and beyond their expectations. It involves providing prompt and efficient response times, personalized attention, and a willingness to solve problems or address concerns in a timely and effective manner."
+msgstr "การสนับสนุนของ Majestic คือการบริการลูกค้าหรือความช่วยเหลือที่มีลักษณะพิเศษเป็นพิเศษ โดยมอบความพึงพอใจในระดับสูงให้กับลูกค้าโดยการทำสิ่งที่เหนือความคาดหมายของพวกเขา โดยเกี่ยวข้องกับการให้เวลาตอบสนองที่รวดเร็วและมีประสิทธิภาพ ความเอาใจใส่ส่วนบุคคล และความเต็มใจที่จะแก้ไขปัญหาหรือแก้ไขข้อกังวลอย่างทันท่วงทีและมีประสิทธิภาพ"
+
+msgid "Explore our other products and services that we offer, you might find something else that interests you or fulfills your needs even better."
+msgstr "สำรวจผลิตภัณฑ์และบริการอื่นๆ ของเราที่เรานำเสนอ คุณอาจพบสิ่งอื่นที่คุณสนใจหรือตอบสนองความต้องการของคุณได้ดียิ่งขึ้น"
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Don't forget to update the add-ons to enjoy the greatest features!"
+msgstr "สวัสดี! เราเพิ่งเปิดตัวการอัปเดตใหม่สำหรับส่วนเสริม อย่าลืมอัปเดตส่วนเสริมเพื่อเพลิดเพลินกับคุณสมบัติที่ยอดเยี่ยมที่สุด!"
+
+msgid "The best support plugin for the majestic support has everything you need."
+msgstr "ปลั๊กอินสนับสนุนที่ดีที่สุดสำหรับการสนับสนุนที่ยอดเยี่ยมมีทุกสิ่งที่คุณต้องการ"
+
+msgid "A reputable support system that offers step-by-step YouTube video guides to help you understand."
+msgstr "ระบบสนับสนุนที่มีชื่อเสียงซึ่งมีคำแนะนำวิดีโอ YouTube ทีละขั้นตอนเพื่อช่วยให้คุณเข้าใจ"
+
+msgid "At Majestic Support, we are committed to offering prompt and helpful customer care to help you at every step."
+msgstr "ที่ Majestic Support เรามุ่งมั่นที่จะมอบการดูแลลูกค้าที่รวดเร็วและเป็นประโยชน์เพื่อช่วยเหลือคุณในทุกขั้นตอน"
+
+msgid "When WordPress language change to fr, Majestic Support language will auto change to fr"
+msgstr "เมื่อภาษา WordPress เปลี่ยนเป็น fr ภาษา Majestic Support จะเปลี่ยนอัตโนมัติเป็น fr"
+
+msgid "Want to download translation file? Click on download. It will take sometime."
+msgstr "ต้องการดาวน์โหลดไฟล์การแปล? คลิกที่ดาวน์โหลด มันจะใช้เวลาสักครู่"
+
+msgid "Get trusted WordPress add-ons. Guaranteed to work fast, safe to use, beautifully coded, packed with features, and are easy to use."
+msgstr "รับส่วนเสริม WordPress ที่เชื่อถือได้ รับรองว่าทำงานเร็ว ปลอดภัย โค้ดสวยงาม อัดแน่นด้วยฟีเจอร์และใช้งานง่าย"
+
+msgid "Add agents and assign roles and permissions to provide assistance and support for customer support tickets."
+msgstr "เพิ่มตัวแทนและกำหนดบทบาทและการอนุญาตเพื่อให้ความช่วยเหลือและสนับสนุนตั๋วสนับสนุนลูกค้า"
+
+msgid "Create multiple custom ticket forms with different custom fields for each request type that you support."
+msgstr "สร้างแบบฟอร์มตั๋วที่กำหนดเองหลายรายการพร้อมฟิลด์ที่กำหนดเองที่แตกต่างกันสำหรับคำขอแต่ละประเภทที่คุณสนับสนุน"
+
+msgid "Email piping is the process of automatically turning incoming emails into support tickets without manual data entry."
+msgstr "การส่งอีเมลเป็นกระบวนการเปลี่ยนอีเมลขาเข้าให้เป็นตั๋วสนับสนุนโดยอัตโนมัติโดยไม่ต้องป้อนข้อมูลด้วยตนเอง"
+
+msgid "Make the ticket assignment process automatic and assign the most qualified agent to your tickets with conditions."
+msgstr "ทำให้กระบวนการมอบหมายตั๋วเป็นแบบอัตโนมัติ และมอบหมายตัวแทนที่มีคุณสมบัติเหมาะสมที่สุดให้กับตั๋วของคุณโดยมีเงื่อนไข"
+
+msgid "Add private notes to a ticket and share crucial information internally with your agents, this private note is not visible to the customer."
+msgstr "เพิ่มบันทึกส่วนตัวลงในตั๋วและแบ่งปันข้อมูลสำคัญภายในกับตัวแทนของคุณ บันทึกส่วนตัวนี้จะไม่ปรากฏให้ลูกค้าเห็น"
+
+msgid "Merge one or more tickets into another if you receive two support requests from the same end user about the same issue."
+msgstr "รวมตั๋วหนึ่งรายการขึ้นไปเข้ากับอีกตั๋วหนึ่ง หากคุณได้รับคำขอการสนับสนุนจากผู้ใช้คนเดียวกันเกี่ยวกับปัญหาเดียวกันสองรายการ"
+
+msgid "The user can search for and choose the topic for which they need help using help topics"
+msgstr "ผู้ใช้สามารถค้นหาและเลือกหัวข้อที่ต้องการความช่วยเหลือโดยใช้หัวข้อวิธีใช้"
+
+msgid "Manage abandoned tickets, and set rules for tickets over time, and those tickets will be closed automatically after a certain period."
+msgstr "จัดการตั๋วที่ถูกละทิ้ง และตั้งกฎสำหรับตั๋วเมื่อเวลาผ่านไป และตั๋วเหล่านั้นจะถูกปิดโดยอัตโนมัติหลังจากช่วงระยะเวลาหนึ่ง"
+
+msgid "Stop wasting time on repetitive inquiries, build your knowledge base, and organize your solutions into categories for users."
+msgstr "หยุดเสียเวลากับการสอบถามซ้ำๆ สร้างฐานความรู้ของคุณ และจัดระเบียบโซลูชันของคุณเป็นหมวดหมู่สำหรับผู้ใช้"
+
+msgid "Define rules or set a specific time interval for making tickets automatically overdue."
+msgstr "กำหนดกฎเกณฑ์หรือกำหนดช่วงเวลาเฉพาะเพื่อให้ตั๋วเกินกำหนดโดยอัตโนมัติ"
+
+msgid "Track the amount of time spent on each customer support ticket without losing focus and enhance team productivity."
+msgstr "ติดตามระยะเวลาที่ใช้ในตั๋วสนับสนุนลูกค้าแต่ละใบโดยไม่สูญเสียสมาธิและเพิ่มประสิทธิภาพการทำงานของทีม"
+
+msgid "Show the whole history of the ticket, including its status and any action taken in response to it."
+msgstr "แสดงประวัติทั้งหมดของตั๋ว รวมถึงสถานะและการดำเนินการใด ๆ เพื่อตอบสนองต่อตั๋ว"
+
+msgid "The simplest approach to effectively manage payments for premium help is through paid support."
+msgstr "วิธีที่ง่ายที่สุดในการจัดการการชำระเงินสำหรับความช่วยเหลือแบบพรีเมียมอย่างมีประสิทธิภาพคือผ่านการสนับสนุนแบบชำระเงิน"
+
+msgid "Customers will enter sensitive information on tickets, and this add-on is designed to help you keep that information secure."
+msgstr "ลูกค้าจะป้อนข้อมูลที่ละเอียดอ่อนบนตั๋ว และส่วนเสริมนี้ออกแบบมาเพื่อช่วยให้คุณรักษาข้อมูลนั้นให้ปลอดภัย"
+
+msgid "Empowers users to provide clear and concise explanations for why customer service tickets are being closed."
+msgstr "ให้อำนาจผู้ใช้ในการให้คำอธิบายที่ชัดเจนและกระชับว่าทำไมตั๋วบริการลูกค้าจึงถูกปิด"
+
+msgid "Make ready-made responses to the most common questions in the tickets to swiftly address client issues."
+msgstr "จัดทำคำตอบสำหรับคำถามที่พบบ่อยที่สุดในตั๋วเพื่อแก้ไขปัญหาของลูกค้าอย่างรวดเร็ว"
+
+msgid "Admins can limit the number of tickets that users can create as well as the number of tickets that agents can open individually."
+msgstr "ผู้ดูแลระบบสามารถจำกัดจำนวนตั๋วที่ผู้ใช้สามารถสร้างได้ เช่นเดียวกับจำนวนตั๋วที่ตัวแทนสามารถเปิดเป็นรายบุคคลได้"
+
+msgid "To enhance the quality of your services, ask your customers to complete a survey when a ticket is closed."
+msgstr "เพื่อปรับปรุงคุณภาพการบริการของคุณ ขอให้ลูกค้าของคุณทำแบบสำรวจเมื่อตั๋วถูกปิด"
+
+msgid "Ticket action options allow you to execute additional actions on tickets."
+msgstr "ตัวเลือกการดำเนินการกับตั๋วช่วยให้คุณสามารถดำเนินการเพิ่มเติมกับตั๋วได้"
+
+msgid "Easily export ticket data and performance report data from your majestic support to an Excel spreadsheet with our efficient and user-friendly solution."
+msgstr "ส่งออกข้อมูลตั๋วและข้อมูลรายงานประสิทธิภาพจากการสนับสนุนที่ยอดเยี่ยมของคุณไปยังสเปรดชีต Excel ได้อย่างง่ายดายด้วยโซลูชันที่มีประสิทธิภาพและใช้งานง่ายของเรา"
+
+msgid "Send the exact copy of the email to the provided email address with Email CC or BCC."
+msgstr "ส่งสำเนาอีเมลที่ถูกต้องไปยังที่อยู่อีเมลที่ให้ไว้พร้อมอีเมล CC หรือ BCC"
+
+msgid "User options enable you to define roles for new users when they are registered."
+msgstr "ตัวเลือกผู้ใช้ช่วยให้คุณสามารถกำหนดบทบาทสำหรับผู้ใช้ใหม่เมื่อลงทะเบียนแล้ว"
+
+msgid "SMTP enables you to add  custom mail protocols to send and receive emails with the support ticket system."
+msgstr "SMTP ช่วยให้คุณสามารถเพิ่มโปรโตคอลอีเมลที่กำหนดเองเพื่อส่งและรับอีเมลด้วยระบบตั๋วสนับสนุน"
+
+msgid "Create multi-language email templates for all default email templates to send customers emails in the language that they prefer."
+msgstr "สร้างเทมเพลตอีเมลหลายภาษาสำหรับเทมเพลตอีเมลเริ่มต้นทั้งหมดเพื่อส่งอีเมลถึงลูกค้าในภาษาที่พวกเขาต้องการ"
+
+msgid "Downloads can be very helpful for users who are looking to obtain the necessary information to resolve issues."
+msgstr "การดาวน์โหลดจะมีประโยชน์มากสำหรับผู้ใช้ที่ต้องการรับข้อมูลที่จำเป็นในการแก้ไขปัญหา"
+
+msgid "Make an unlimited number of announcements related to the support system to encourage customer interaction."
+msgstr "จัดทำประกาศที่เกี่ยวข้องกับระบบสนับสนุนได้ไม่จำกัดจำนวนเพื่อส่งเสริมการมีปฏิสัมพันธ์กับลูกค้า"
+
+msgid "With Ban Email, you can limit a users ability to create new tickets by blocking their email address."
+msgstr "ด้วย Ban Email คุณสามารถจำกัดความสามารถของผู้ใช้ในการสร้างตั๋วใหม่ได้โดยการบล็อกที่อยู่อีเมลของพวกเขา"
+
+msgid "Provide answers to common user questions with the FAQ extension before they become tickets."
+msgstr "ให้คำตอบสำหรับคำถามทั่วไปของผู้ใช้ด้วยส่วนขยายคำถามที่พบบ่อยก่อนที่จะกลายเป็นตั๋ว"
+
+msgid "Get immediate data on your support operations as soon as you log into your WordPress administration area."
+msgstr "รับข้อมูลทันทีเกี่ยวกับการดำเนินการสนับสนุนของคุณทันทีที่คุณเข้าสู่ระบบพื้นที่การดูแลระบบ WordPress ของคุณ"
+
+msgid "You will be informed of anything that occurs on your support system by the desktop notifications."
+msgstr "คุณจะได้รับแจ้งถึงสิ่งใดก็ตามที่เกิดขึ้นบนระบบสนับสนุนของคุณผ่านการแจ้งเตือนบนเดสก์ท็อป"
+
+msgid "The integration of the support ticket system for WooCommerce with your e- shop makes your support better and more professional."
+msgstr "การรวมระบบตั๋วสนับสนุนสำหรับ WooCommerce เข้ากับร้านค้าออนไลน์ของคุณทำให้การสนับสนุนของคุณดีขึ้นและเป็นมืออาชีพมากขึ้น"
+
+msgid "Manage your email marketing campaigns directly from your majestic support by adding new user accounts to your Mailchimp email list."
+msgstr "จัดการแคมเปญการตลาดผ่านอีเมลของคุณโดยตรงจากฝ่ายสนับสนุนที่ยอดเยี่ยมของคุณโดยการเพิ่มบัญชีผู้ใช้ใหม่ลงในรายการอีเมล Mailchimp ของคุณ"
+
+msgid "Send messages internally about support tickets and other issues between agents with internal mail."
+msgstr "ส่งข้อความภายในเกี่ยวกับตั๋วการสนับสนุนและปัญหาอื่นๆ ระหว่างตัวแทนด้วยอีเมลภายใน"
+
+msgid "Frontend Widgets include several widgets that can be used to enhance the plugin's functionality in various areas of the website."
+msgstr "วิดเจ็ตส่วนหน้าประกอบด้วยวิดเจ็ตหลายตัวที่สามารถใช้เพื่อปรับปรุงการทำงานของปลั๊กอินในส่วนต่างๆ ของเว็บไซต์"
+
+msgid "Clients won't be able to open a new ticket using the Envato Validation plugin if they don't have a valid Envato license."
+msgstr "ลูกค้าจะไม่สามารถเปิดตั๋วใหม่โดยใช้ปลั๊กอิน Envato Validation ได้ หากพวกเขาไม่มีใบอนุญาต Envato ที่ถูกต้อง"
+
+msgid "Learn about a customer's purchase directly from the support dashboard by integrating Majestic Support with your EDD store."
+msgstr "เรียนรู้เกี่ยวกับการซื้อของลูกค้าโดยตรงจากแดชบอร์ดการสนับสนุนโดยการรวม Majestic Support เข้ากับร้านค้า EDD ของคุณ"
+
+msgid "If the colors have been saved but the user-side colors are still the same, it is advised to clear the cache."
+msgstr "หากสีได้รับการบันทึกแล้ว แต่สีฝั่งผู้ใช้ยังคงเหมือนเดิม แนะนำให้ล้างแคช"
+
+msgid "Error"
+msgstr "ข้อผิดพลาด"
+
+msgid "Roles"
+msgstr "บทบาท"
+
+msgid "Role"
+msgstr "บทบาท"
+
+msgid "Sr#"
+msgstr "ซีเนียร์#"
+
+msgid "Gmail"
+msgstr "Gmail"
+
+msgid "Yahoo"
+msgstr "ยาฮู"
+
+msgid "Aol"
+msgstr "ออล"
+
+msgid "Hotmail"
+msgstr "ฮอตเมล"
+
+msgid "No"
+msgstr "เลขที่"
+
+msgid "Wget"
+msgstr "รับ"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "----"
+msgstr "-"
+
+msgid "JNo"
+msgstr "เจโน"
+
+msgid "Visible"
+msgstr "มองเห็นได้"
+
+msgid "Logo"
+msgstr "โลโก้"
+
+msgid "Re"
+msgstr "อีกครั้ง"
+
+msgid "Vertical"
+msgstr "แนวตั้ง"
+
+msgid "Horizontal"
+msgstr "แนวนอน"
+
+msgid "div"
+msgstr "กอง"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "General"
+msgstr "ทั่วไป"
+
+msgid "Captcha"
+msgstr "แคปช่า"
+
+msgid "Facebook"
+msgstr "เฟสบุ๊ค"
+
+msgid "Linkedin"
+msgstr "ลิงค์ดิน"
+
+msgid "Kb"
+msgstr "กิโลไบต์"
+
+msgid "SMTP"
+msgstr "SMTP"
+
+msgid "TLS"
+msgstr "ทลส"
+
+msgid "SSL"
+msgstr "เอสเอสแอล"
+
+msgid "50%"
+msgstr "50%"
+
+msgid "100%"
+msgstr "100%"
+
+msgid "S.No"
+msgstr "ส.โน"
+
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+msgid "envato"
+msgstr "เอนวาโต"
+
+msgid ":"
+msgstr "-"
+
+msgid "Envato"
+msgstr "เอนวาโต"
+
+msgid "Color"
+msgstr "สี"
+
+msgid "Normal"
+msgstr "ปกติ"
+
+msgid "Color 1"
+msgstr "สี 1"
+
+msgid "Color 2"
+msgstr "สี 2"
+
+msgid "Color 3"
+msgstr "สี 3"
+
+msgid "Color 4"
+msgstr "สี 4"
+
+msgid "Color 5"
+msgstr "สี 5"
+
+msgid "Color 6"
+msgstr "สี 6"
+
+msgid "Color 7"
+msgstr "สี 7"
+
+msgid "Kylee Arroyo"
+msgstr "ไคลี อาร์โรโย"
+
+msgid "Marketing"
+msgstr "การตลาด"
+
+msgid "XcyMfWYKp"
+msgstr "XcyMfWYKp"
+
+msgid "08-12-2022"
+msgstr "08-12-2022"
+
+msgid "Allison Carney"
+msgstr "อัลลิสัน คาร์นีย์"
+
+msgid "Yx4cW3Mfk"
+msgstr "Yx4cW3Mfk"
+
+msgid "05-12-2022"
+msgstr "05-12-2022"
+
+msgid "GxNDv3MfC"
+msgstr "GxNDv3MfC"
+
+msgid "01-12-2022"
+msgstr "01-12-2022"
+
+msgid ","
+msgstr "-"
+
+msgid "Issue Summary"
+msgstr "สรุปประเด็น"
+
+msgid "Envato Purchase Code"
+msgstr "รหัสซื้อ Envato"
+
+msgid "Internal Note Title"
+msgstr "ชื่อบันทึกภายใน"
+
+msgid "Ticket Department Transfer"
+msgstr "การโอนแผนกตั๋ว"
+
+msgid "Change Ticket Priority"
+msgstr "เปลี่ยนลำดับความสำคัญของตั๋ว"
+
+msgid "View Ticket"
+msgstr "ดูตั๋ว"
+
+msgid "New Ticket Notification"
+msgstr "การแจ้งเตือนตั๋วใหม่"
+
+msgid "Edit Own Time"
+msgstr "แก้ไขเวลาของตัวเอง"
+
+msgid "View Feedback"
+msgstr "ดูผลตอบรับ"
+
+msgid "View Ticket Merge"
+msgstr "ดูการรวมตั๋ว"
+
+msgid "View Credentials"
+msgstr "ดูข้อมูลประจำตัว"
+
+msgid "Delete Credentials"
+msgstr "ลบข้อมูลรับรอง"
+
+msgid "Edit Credentials"
+msgstr "แก้ไขข้อมูลรับรอง"
+
+msgid "Add Credentials"
+msgstr "เพิ่มข้อมูลประจำตัว"
+
+msgid "Mark Non Premium"
+msgstr "มาร์ค นนท์ พรีเมี่ยม"
+
+msgid "Link To Paid Support"
+msgstr "ลิงก์ไปยังการสนับสนุนแบบชำระเงิน"
+
+msgid "Assign Role Permissions"
+msgstr "กำหนดสิทธิ์ของบทบาท"
+
+msgid "Add User"
+msgstr "เพิ่มผู้ใช้"
+
+msgid "Edit User"
+msgstr "แก้ไขผู้ใช้"
+
+msgid "Assign User Permissions"
+msgstr "กำหนดสิทธิ์ของผู้ใช้"
+
+msgid "Delete Department"
+msgstr "ลบแผนก"
+
+msgid "View Department"
+msgstr "ดูแผนก"
+
+msgid "View Role"
+msgstr "ดูบทบาท"
+
+msgid "View User"
+msgstr "ดูผู้ใช้"
+
+msgid "View Agent Reports"
+msgstr "ดูรายงานตัวแทน"
+
+msgid "View Department Reports"
+msgstr "ดูรายงานของแผนก"
+
+msgid "Manage Ticket Close Reasons"
+msgstr "จัดการเหตุผลในการปิดตั๋ว"
+
+msgid "View Category"
+msgstr "ดูหมวดหมู่"
+
+msgid "View Knowledge Base"
+msgstr "ดูฐานความรู้"
+
+msgid "Delete Category"
+msgstr "ลบหมวดหมู่"
+
+msgid "Delete Knowledge Base"
+msgstr "ลบฐานความรู้"
+
+msgid "View FAQ"
+msgstr "ดูคำถามที่พบบ่อย"
+
+msgid "Delete FAQ"
+msgstr "ลบคำถามที่พบบ่อย"
+
+msgid "View Download"
+msgstr "ดูดาวน์โหลด"
+
+msgid "Delete Download"
+msgstr "ลบการดาวน์โหลด"
+
+msgid "Delete Announcement"
+msgstr "ลบประกาศ"
+
+msgid "Allow Mail System"
+msgstr "อนุญาตระบบเมล"
+
+msgid "Edit Help Topic"
+msgstr "แก้ไขหัวข้อความช่วยเหลือ"
+
+msgid "View Help Topic"
+msgstr "ดูหัวข้อวิธีใช้"
+
+msgid "Delete Help Topic"
+msgstr "ลบหัวข้อวิธีใช้"
+
+msgid "Edit Premade Response"
+msgstr "แก้ไขการตอบกลับที่สร้างไว้ล่วงหน้า"
+
+msgid "View Premade Response"
+msgstr "ดูการตอบกลับที่สร้างไว้ล่วงหน้า"
+
+msgid "Delete Premade Response"
+msgstr "ลบการตอบกลับที่สร้างไว้ล่วงหน้า"
+
+msgid "Edit Smart Reply"
+msgstr "แก้ไขสมาร์ทรีพลาย"
+
+msgid "View Smart Reply"
+msgstr "ดูการตอบกลับอัจฉริยะ"
+
+msgid "Delete Smart Reply"
+msgstr "ลบสมาร์ทรีพลาย"
+
+msgid "Add Ban Email"
+msgstr "เพิ่มอีเมลบ้าน"
+
+msgid "Edit Ban Email"
+msgstr "แก้ไขอีเมล์แบน"
+
+msgid "View Ban Email"
+msgstr "ดูอีเมลแบน"
+
+msgid "Delete Ban Email"
+msgstr "ลบอีเมลแบน"
+
+msgid "View Announcement"
+msgstr "ดูประกาศ"
+
+msgid "Phone"
+msgstr "โทรศัพท์"
+
+msgid "Add Permissions"
+msgstr "เพิ่มสิทธิ์"
+
+msgid "Add Rule"
+msgstr "เพิ่มกฎ"
+
+msgid "Contain"
+msgstr "บรรจุ"
+
+msgid "Matched"
+msgstr "ตรงกัน"
+
+msgid "Submit Type"
+msgstr "ประเภทการส่ง"
+
+msgid "Addons Status"
+msgstr "สถานะแอดออน"
+
+msgid "Assign To"
+msgstr "มอบหมายให้"
+
+msgid "Agent Detail Report"
+msgstr "รายงานรายละเอียดตัวแทน"
+
+msgid "User Detail Report"
+msgstr "รายงานรายละเอียดผู้ใช้"
+
+msgid "Satisfaction Reports"
+msgstr "รายงานความพึงพอใจ"
+
+msgid "Admin New Ticket Received"
+msgstr "ผู้ดูแลระบบได้รับตั๋วใหม่แล้ว"
+
+msgid "Staff New Ticket Received"
+msgstr "พนักงานได้รับตั๋วใหม่แล้ว"
+
+msgid "New Department Received"
+msgstr "ได้รับแผนกใหม่แล้ว"
+
+msgid "New Group Received"
+msgstr "กลุ่มใหม่ที่ได้รับ"
+
+msgid "New Agent Received"
+msgstr "ตัวแทนใหม่ที่ได้รับ"
+
+msgid "New Help Topic Received"
+msgstr "ได้รับหัวข้อความช่วยเหลือใหม่แล้ว"
+
+msgid "Admin Reassign Ticket"
+msgstr "ผู้ดูแลระบบมอบหมายตั๋วใหม่"
+
+msgid "Staff Reassign Ticket"
+msgstr "พนักงานมอบหมายตั๋วใหม่"
+
+msgid "Admin Close Ticket"
+msgstr "ผู้ดูแลระบบ ปิดตั๋ว"
+
+msgid "Staff Close Ticket"
+msgstr "พนักงานปิดตั๋ว"
+
+msgid "Admin Delete Ticket"
+msgstr "ผู้ดูแลระบบ ลบตั๋ว"
+
+msgid "Staff Delete Ticket"
+msgstr "พนักงานลบตั๋ว"
+
+msgid "Admin Overdue Ticket"
+msgstr "ผู้ดูแลระบบเกินกำหนดตั๋ว"
+
+msgid "Staff Overdue Ticket"
+msgstr "ตั๋วพนักงานเกินกำหนด"
+
+msgid "Admin Email Baned"
+msgstr "อีเมลผู้ดูแลระบบถูกแบน"
+
+msgid "Staff Email Baned"
+msgstr "อีเมล์พนักงานถูกแบน"
+
+msgid "Admin Ticket Transfered to Department"
+msgstr "ตั๋วผู้ดูแลระบบโอนไปยังแผนก"
+
+msgid "Staff Ticket Transfered to Department"
+msgstr "ตั๋วพนักงานโอนไปยังแผนก"
+
+msgid "Admin Email baned and ticket closed"
+msgstr "ผู้ดูแลระบบ อีเมลถูกแบนและตั๋วถูกปิด"
+
+msgid "Staff Email baned and ticket closed"
+msgstr "อีเมลของพนักงานถูกแบนและปิดตั๋วแล้ว"
+
+msgid "Admin Email Unbaned"
+msgstr "อีเมลของผู้ดูแลระบบถูกแบน"
+
+msgid "Staff Email Unbaned"
+msgstr "ยกเลิกการแบนอีเมลพนักงาน"
+
+msgid "Admin Ticket Reply"
+msgstr "ตอบกลับตั๋วผู้ดูแลระบบ"
+
+msgid "Staff Ticket Reply"
+msgstr "ตอบกลับตั๋วพนักงาน"
+
+msgid "Ticket Received"
+msgstr "ได้รับตั๋วแล้ว"
+
+msgid "Banemail try new ticket"
+msgstr "Banemail ลองตั๋วใหม่"
+
+msgid "Admin Ticket has been locked"
+msgstr "ตั๋วผู้ดูแลระบบถูกล็อค"
+
+msgid "Staff Ticket has been locked"
+msgstr "ตั๋วพนักงานถูกล็อค"
+
+msgid "Admin Ticket has been unlocked"
+msgstr "ปลดล็อคตั๋วผู้ดูแลระบบแล้ว"
+
+msgid "Staff Ticket has been unlocked"
+msgstr "ปลดล็อคตั๋วพนักงานแล้ว"
+
+msgid "Admin In progress Ticket"
+msgstr "ผู้ดูแลระบบกำลังดำเนินการตั๋ว"
+
+msgid "Staff In progress Ticket"
+msgstr "ตั๋วพนักงานกำลังดำเนินการ"
+
+msgid "Admin Ticket priority changed"
+msgstr "ลำดับความสำคัญของตั๋วผู้ดูแลระบบมีการเปลี่ยนแปลง"
+
+msgid "Staff Ticket priority changed"
+msgstr "ลำดับความสำคัญของตั๋วพนักงานมีการเปลี่ยนแปลง"
+
+msgid "New Mail has been sent"
+msgstr "จดหมายใหม่ถูกส่งไปแล้ว"
+
+msgid "New Reply has been sent"
+msgstr "ส่งการตอบกลับใหม่แล้ว"
+
+msgid "Delete User Data"
+msgstr "ลบข้อมูลผู้ใช้"
+
+msgid "Closed on"
+msgstr "ปิดเมื่อ"
+
+msgid "Message could not be sent. Mailer Error: "
+msgstr "ไม่สามารถส่งข้อความได้ ข้อผิดพลาดของเมล:"
+
+msgid "Test email has been sent on : "
+msgstr "ส่งอีเมลทดสอบแล้วเมื่อ:"
+
+msgid "The system has no agents add an agent to maximize your productivity."
+msgstr "ระบบไม่มีตัวแทนเพิ่มตัวแทนเพื่อเพิ่มผลผลิตของคุณ"
