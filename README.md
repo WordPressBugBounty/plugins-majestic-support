@@ -1,0 +1,1 @@
+# plugins-majestic-support
