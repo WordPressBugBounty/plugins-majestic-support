@@ -37,7 +37,7 @@ function MJTC_authenticate_username_password($user, $username, $password)
 // register a new user
 function MJTC_add_new_member()
 {
-    if (isset($_POST["ms_user_login"]) && wp_verify_nonce($_POST['ms_support_register_nonce'], 'ms-support-register-nonce')) {
+    if (isset($_POST["ms_user_login"]) && isset($_POST["ms_support_register_nonce"]) && wp_verify_nonce($_POST['ms_support_register_nonce'], 'ms-support-register-nonce')) {
         $user_login = majesticsupport::MJTC_sanitizeData($_POST["ms_user_login"]);// MJTC_sanitizeData() function uses wordpress santize functions
         $user_email = sanitize_email($_POST["ms_user_email"]);
         $user_first = sanitize_text_field($_POST["ms_user_first"]);

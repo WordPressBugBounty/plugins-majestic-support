@@ -11,6 +11,7 @@ class MJTC_priorityController {
 
     function handleRequest() {
         $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'priorities');
+        majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
         if (self::canaddfile()) {
             switch ($layout) {
                 case 'admin_priorities':
@@ -20,6 +21,8 @@ class MJTC_priorityController {
                     $id = MJTC_request::MJTC_getVar('majesticsupportid', 'get');
                     MJTC_includer::MJTC_getModel('priority')->getPriorityForForm($id);
                     break;
+                default:
+                    exit;
             }
             $module = (is_admin()) ? 'page' : 'mjsmod';
             $module = MJTC_request::MJTC_getVar($module, null, 'priority');
@@ -29,12 +32,15 @@ class MJTC_priorityController {
     }
 
     function canaddfile() {
-        if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
-            return false;
-        elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
-            return false;
-        else
-            return true;
+        $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
+        if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
+            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
+                return false;
+            elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
+                return false;
+            else
+                return true;
+        }
     }
 
     static function savepriority() {

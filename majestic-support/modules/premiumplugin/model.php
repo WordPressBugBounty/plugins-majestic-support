@@ -69,11 +69,11 @@ class MJTC_premiumpluginModel {
         $url = self::$server_url . '?' . http_build_query( $args, '', '&' );
         $request = wp_remote_get( self::$server_url . '?' . http_build_query( $args, '', '&' ) );
         if ( is_wp_error( $request ) ) {
-            return json_encode( array( 'error_code' => $request->get_error_code(), 'error' => $request->get_error_message() ) );
+            return wp_json_encode( array( 'error_code' => $request->get_error_code(), 'error' => $request->get_error_message() ) );
         }
 
         if ( wp_remote_retrieve_response_code( $request ) != 200 ) {
-            return json_encode( array( 'error_code' => wp_remote_retrieve_response_code( $request ), 'error' => 'Error code: ' . wp_remote_retrieve_response_code( $request ) ) );
+            return wp_json_encode( array( 'error_code' => wp_remote_retrieve_response_code( $request ), 'error' => 'Error code: ' . wp_remote_retrieve_response_code( $request ) ) );
         }
         $response =  wp_remote_retrieve_body( $request );
         $response = json_decode($response,true);
@@ -133,11 +133,11 @@ class MJTC_premiumpluginModel {
         );
         $request = wp_remote_get( self::$server_url . '?' . http_build_query( $defaults, '', '&' ) );
         if ( is_wp_error( $request ) ) {
-            return json_encode( array( 'error_code' => $request->get_error_code(), 'error' => $request->get_error_message() ) );
+            return wp_json_encode( array( 'error_code' => $request->get_error_code(), 'error' => $request->get_error_message() ) );
         }
 
         if ( wp_remote_retrieve_response_code( $request ) != 200 ) {
-            return json_encode( array( 'error_code' => wp_remote_retrieve_response_code( $request ), 'error' => 'Error code: ' . wp_remote_retrieve_response_code( $request ) ) );
+            return wp_json_encode( array( 'error_code' => wp_remote_retrieve_response_code( $request ), 'error' => 'Error code: ' . wp_remote_retrieve_response_code( $request ) ) );
         }
 
         $response =  wp_remote_retrieve_body( $request );
@@ -162,11 +162,11 @@ class MJTC_premiumpluginModel {
 
         $request = wp_remote_get( self::$server_url . '?' . http_build_query( $defaults, '', '&' ) );
         if ( is_wp_error( $request ) ) {
-            return json_encode( array( 'error_code' => $request->get_error_code(), 'error' => $request->get_error_message() ) );
+            return wp_json_encode( array( 'error_code' => $request->get_error_code(), 'error' => $request->get_error_message() ) );
         }
 
         if ( wp_remote_retrieve_response_code( $request ) != 200 ) {
-            return json_encode( array( 'error_code' => wp_remote_retrieve_response_code( $request ), 'error' => 'Error code: ' . wp_remote_retrieve_response_code( $request ) ) );
+            return wp_json_encode( array( 'error_code' => wp_remote_retrieve_response_code( $request ), 'error' => 'Error code: ' . wp_remote_retrieve_response_code( $request ) ) );
         }
 
         $response =  wp_remote_retrieve_body( $request );
@@ -287,7 +287,7 @@ class MJTC_premiumpluginModel {
         $result['error'] = false;
         if($token == ''){
             $result['error'] = esc_html(__('Addon Installation Failed','majestic-support'));
-            $result = json_encode($result);
+            $result = wp_json_encode($result);
             return $result;
         }
         $site_url = site_url();
@@ -295,12 +295,12 @@ class MJTC_premiumpluginModel {
             $site_url = MJTC_majesticsupportphplib::MJTC_str_replace("https://","",$site_url);
             $site_url = MJTC_majesticsupportphplib::MJTC_str_replace("http://","",$site_url);
         }
-        $url = 'https://majesticsupport.com/setup/index.php?token='.esc_attr($token).'&productcode='. json_encode($addon_json_array).'&domain='. site_url();
+        $url = 'https://majesticsupport.com/setup/index.php?token='.esc_attr($token).'&productcode='. wp_json_encode($addon_json_array).'&domain='. site_url();
         // verify token
         $verifytransactionkey = $this->verifytransactionkey($token, $url);
         if($verifytransactionkey['status'] == 0){
             $result['error'] = $verifytransactionkey['message'];
-            $result = json_encode($result);
+            $result = wp_json_encode($result);
             return $result;
         }
         $install_count = 0;
@@ -342,12 +342,12 @@ class MJTC_premiumpluginModel {
 
         }else{
             $result['error'] = esc_html(__('Addon Installation Failed','majestic-support'));
-            $result = json_encode($result);
+            $result = wp_json_encode($result);
             return $result;
         }
 
         $result['success'] = esc_html(__('Addon Installed Successfully','majestic-support'));
-        $result = json_encode($result);
+        $result = wp_json_encode($result);
         return $result;
     }
 
@@ -365,13 +365,17 @@ class MJTC_premiumpluginModel {
 
             $unzipfile = unzip_file( $path, $plugin_path);
 
-            @unlink( $path ); // must unlink afterwards
-            @unlink( $tmpfile ); // must unlink afterwards
+            if ( file_exists( $path ) ) {
+                wp_delete_file( $path ); // must unlink afterwards
+            }
+            if ( file_exists( $tmpfile ) ) {
+                wp_delete_file( $tmpfile ); // must unlink afterwards
+            }
 
             if ( is_wp_error( $unzipfile ) ) {
                 $result['error'] = esc_html(__('Addon installation failed','majestic-support')).'.';
                 $result['error'] .= " ".wp_kses(majesticsupport::MJTC_getVarValue($unzipfile->get_error_message()), MJTC_ALLOWED_TAGS);
-                $result = json_encode($result);
+                $result = wp_json_encode($result);
                 return $result;
             } else {
                 return true;
@@ -379,7 +383,7 @@ class MJTC_premiumpluginModel {
         }else{
             $error_string = $tmpfile->get_error_message();
             $result['error'] = esc_html(__('Addon Installation Failed, File download error','majestic-support')).'! '.esc_attr($error_string);
-            $result = json_encode($result);
+            $result = wp_json_encode($result);
             return $result;
         }
     }

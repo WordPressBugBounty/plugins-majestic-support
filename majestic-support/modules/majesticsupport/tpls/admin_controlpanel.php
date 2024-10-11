@@ -2208,7 +2208,7 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                         src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/close-red-bg.png" />
                 </div>
                 <?php
-                    $bg_no = rand(1,4);
+                    $bg_no = wp_rand(1,4);
                     $class = "mjtc-cp-baner-bg0".$bg_no;
                 ?>
                 <div class="mjtc-cp-cnt-sec mjtc-cp-baner <?php echo esc_attr($class); ?>">

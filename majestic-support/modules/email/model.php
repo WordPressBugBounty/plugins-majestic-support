@@ -58,7 +58,7 @@ class MJTC_emailModel {
                             '{MESSAGE}' => $Message,
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
 
                         // code for handling custom fields start
@@ -142,7 +142,7 @@ class MJTC_emailModel {
                         $tokenarray['emailaddress']=$Email;
                         $tokenarray['trackingid']=$TrackingId;
                         $tokenarray['sitelink']=MJTC_includer::MJTC_getModel('majesticsupport')->getEncriptedSiteLink();
-                        $token = json_encode($tokenarray);
+                        $token = wp_json_encode($tokenarray);
                         include_once MJTC_PLUGIN_PATH . 'includes/encoder.php';
                         $encoder = new MJTC_encoder();
                         $encryptedtext = $encoder->MJTC_encrypt($token);
@@ -218,7 +218,7 @@ class MJTC_emailModel {
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
                             '{TICKET_HISTORY}' => $ticketHistory,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
 
                         );
                         // code for handling custom fields start
@@ -289,7 +289,7 @@ class MJTC_emailModel {
                             $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id,'mspageid'=>majesticsupport::getPageid())));
                             $tokenarray['emailaddress']=$Email;
                             $tokenarray['trackingid']=$TrackingId;
-                            $token = json_encode($tokenarray);
+                            $token = wp_json_encode($tokenarray);
                             include_once MJTC_PLUGIN_PATH . 'includes/encoder.php';
                             $encoder = new MJTC_encoder();
                             $encryptedtext = $encoder->MJTC_encrypt($token);
@@ -322,7 +322,7 @@ class MJTC_emailModel {
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{TRACKINGID}' => $TrackingId,
                             '{SUBJECT}' => $Subject,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         $object = $this->getSenderEmailAndName(null);
                         $senderEmail = $object->email;
@@ -406,7 +406,7 @@ class MJTC_emailModel {
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
                             '{TICKET_HISTORY}' => $ticketHistory,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
@@ -478,7 +478,7 @@ class MJTC_emailModel {
                             $tokenarray['emailaddress']=$Email;
                             $tokenarray['trackingid']=$TrackingId;
                             $tokenarray['sitelink']=MJTC_includer::MJTC_getModel('majesticsupport')->getEncriptedSiteLink();
-                            $token = json_encode($tokenarray);
+                            $token = wp_json_encode($tokenarray);
                             include_once MJTC_PLUGIN_PATH . 'includes/encoder.php';
                             $encoder = new MJTC_encoder();
                             $encryptedtext = $encoder->MJTC_encrypt($token);
@@ -523,7 +523,7 @@ class MJTC_emailModel {
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
                             '{TICKET_HISTORY}' => $ticketHistory,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
@@ -593,7 +593,7 @@ class MJTC_emailModel {
                             $tokenarray['emailaddress']=$Email;
                             $tokenarray['trackingid']=$TrackingId;
                             $tokenarray['sitelink']=MJTC_includer::MJTC_getModel('majesticsupport')->getEncriptedSiteLink();
-                            $token = json_encode($tokenarray);
+                            $token = wp_json_encode($tokenarray);
                             include_once MJTC_PLUGIN_PATH . 'includes/encoder.php';
                             $encoder = new MJTC_encoder();
                             $encryptedtext = $encoder->MJTC_encrypt($token);
@@ -637,7 +637,7 @@ class MJTC_emailModel {
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
                             '{TICKET_HISTORY}' => $ticketHistory,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
@@ -740,7 +740,7 @@ class MJTC_emailModel {
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
                             '{TICKET_HISTORY}' => $ticketHistory,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
@@ -842,7 +842,7 @@ class MJTC_emailModel {
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
                             '{TICKET_HISTORY}' => $ticketHistory,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
@@ -988,7 +988,7 @@ class MJTC_emailModel {
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
                             '{TICKET_HISTORY}' => $ticketHistory,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
@@ -1091,7 +1091,7 @@ class MJTC_emailModel {
                             '{TRACKINGID}' => $TrackingId,
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
@@ -1184,7 +1184,7 @@ class MJTC_emailModel {
                             '{TRACKINGID}' => $TrackingId,
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{TICKET_HISTORY}' => $ticketHistory,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
@@ -1284,7 +1284,7 @@ class MJTC_emailModel {
                             '{TRACKINGID}' => $TrackingId,
                             '{DEPARTMENT_TITLE}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
@@ -1434,7 +1434,7 @@ class MJTC_emailModel {
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
                             '{TICKET_HISTORY}' => $ticketHistory,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
@@ -1488,7 +1488,7 @@ class MJTC_emailModel {
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
                             '{TICKET_HISTORY}' => $ticketHistory,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
@@ -1553,7 +1553,7 @@ class MJTC_emailModel {
                             '{SUBJECT}' => $Subject,
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
@@ -1602,7 +1602,7 @@ class MJTC_emailModel {
                         $tokenarray['emailaddress']=$Email;
                         $tokenarray['trackingid']=$TrackingId;
                         $tokenarray['sitelink']=MJTC_includer::MJTC_getModel('majesticsupport')->getEncriptedSiteLink();
-                        $token = json_encode($tokenarray);
+                        $token = wp_json_encode($tokenarray);
                         include_once MJTC_PLUGIN_PATH . 'includes/encoder.php';
                         $encoder = new MJTC_encoder();
                         $encryptedtext = $encoder->MJTC_encrypt($token);
@@ -1619,7 +1619,7 @@ class MJTC_emailModel {
                             '{/LINK}' => $linkclosing,
                             '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
                             '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
@@ -1669,7 +1669,7 @@ class MJTC_emailModel {
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{EMAIL_ADDRESS}' => $Email,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         $object = $this->getDefaultSenderEmailAndName();
                         $senderEmail = $object->email;
@@ -1742,7 +1742,7 @@ class MJTC_emailModel {
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{EMAIL_ADDRESS}' => $Email,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
@@ -1822,7 +1822,7 @@ class MJTC_emailModel {
                             '{AGENT_NAME}' => $mailRecord->sendername,
                             '{SUBJECT}' => $mailRecord->subject,
                             '{MESSAGE}' => $mailRecord->message,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         $object = $this->getSenderEmailAndName(null);
                         $senderEmail = $object->email;
@@ -1848,7 +1848,7 @@ class MJTC_emailModel {
                             '{AGENT_NAME}' => $mailRecord->sendername,
                             '{SUBJECT}' => $mailRecord->subject,
                             '{MESSAGE}' => $mailRecord->message,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         $object = $this->getSenderEmailAndName(null);
                         $senderEmail = $object->email;
@@ -1876,7 +1876,7 @@ class MJTC_emailModel {
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{USERNAME}' => majesticsupport::$_data['mail_data']['name'],
                             '{EMAIL}' => $Email,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         $object = $this->getSenderEmailAndName(null);
                         $senderEmail = $object->email;
@@ -1907,7 +1907,7 @@ class MJTC_emailModel {
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{AGENT_NAME}' => $staffname,
                             '{EMAIL}' => $object->email,
-                            '{CURRENT_YEAR}' => date('Y')
+                            '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         
                         $defaulttemplate = $this->getTemplateForEmail('staff-new');
@@ -2374,7 +2374,7 @@ class MJTC_emailModel {
             $error['text'] = __('Message could not be sent. Mailer Error: ', 'majestic-support'). $mail->ErrorInfo;
             $error['type'] = 1;
         }
-        return json_encode($error);;
+        return wp_json_encode($error);;
 
     }
 

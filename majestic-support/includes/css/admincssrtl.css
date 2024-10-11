@@ -400,6 +400,18 @@ div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data1 .mjtc
 div.ms-addon-installer-wrapper div.ms-addon-installer-right-section-wrap div.ms-addon-installer-right-addon-wrapper div.ms-addon-installer-right-addon-section div.ms-addon-installer-right-addon-single .ms-addon-installer-right-addon-single-checkbox{margin-right: 0;margin-left: 1rem;}
 /* create ticket */
 .mjtc-support-table-wrp .mjtc-support-table-body div.mjtc-support-data-row .mjtc-support-table-body-col.mjtc-sprt-tbl-uid .mjtc-support-display-block{float: right;}
+/* post installation */
+div#ms-main-wrapper div.post-installtion-content-header {float: right;}
+div#ms-main-wrapper div.post-installtion-content-header ul.update-header-img li.header-parts {margin-left: auto;margin-right: 20px;}
+.header-parts-number {margin-right: auto;margin-left: 10px;}
+div#ms-main-wrapper div.mjtc-admin-title-installtion span.ms_heading {float: right;}
+div#ms-main-wrapper div.close-button-bottom {float: right;}
+div#ms-main-wrapper div.ms-config-topheading{margin-right: auto;margin-left: 8px;}
+div#ms-main-wrapper div.post-installtion-content div.pic-config div.title {text-align: left;margin-right:auto;margin-left: 20px;}
+div#ms-main-wrapper div.post-installtion-content div.pic-config div.desc {margin-left: auto;margin-right: 20px;padding-left: auto;padding-right: 20.5%;}
+div#ms-main-wrapper div.post-installtion-content div.pic-config div.field select.ms-postsetting {background-position: calc(100% - 95%);}
+div#ms-main-wrapper div.post-installtion-content div.pic-button-part a.back img {transform: scalex(-1)}
+div#ms-main-wrapper div.post-installtion-content div.pic-button-part a.next-step img {transform: scalex(-1)}
 
 @media (max-width:1280px) {
     .mjtc-support-stats .mjtc-support-stats-link {width: calc(100% / 2 - 5px);margin: 0 0 10px 0px;}

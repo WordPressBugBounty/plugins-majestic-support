@@ -210,7 +210,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                         </a>
                     </div>
                     <div class="msupportadmin-help-btm-cnt">
-                        <a href="#" class="msupportadmin-help-btm-link" target="_blank">
+                        <a href="https://www.youtube.com/watch?v=f7EDGS1d9OU" class="msupportadmin-help-btm-link" target="_blank">
                             <div class="msupportadmin-help-btm-cnt-img">
                                 <img alt="<?php echo esc_html(__('How to use premade response','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/help-page/video-icon.png" />
                             </div>
@@ -264,7 +264,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                         </a>
                     </div>
                     <div class="msupportadmin-help-btm-cnt">
-                        <a href="#" class="msupportadmin-help-btm-link"  target="_blank">
+                        <a href="https://www.youtube.com/watch?v=miejXvLPuek" class="msupportadmin-help-btm-link"  target="_blank">
                             <div class="msupportadmin-help-btm-cnt-img">
                                 <img alt="<?php echo esc_html(__('Manually assign ticket to agent','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/help-page/video-icon.png" />
                             </div>
@@ -371,6 +371,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                             </div>
     					</a>
     				</div>
+                    <?php /* ?>
     				<div class="msupportadmin-help-btm-cnt">
     					<a href="#" class="msupportadmin-help-btm-link" target="_blank">
                             <div class="msupportadmin-help-btm-cnt-img">
@@ -381,6 +382,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                             </div>
     					</a>
     				</div>
+                    <?php */ ?>
     			</div>
     			<!-- email piping -->
     			<div class="msupportadmin-help-btm-wrp">
@@ -416,7 +418,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                         </a>
                     </div>
                     <div class="msupportadmin-help-btm-cnt">
-                        <a href="#" class="msupportadmin-help-btm-link" target="_blank">
+                        <a href="https://www.youtube.com/watch?v=LoSe4aYnyBg" class="msupportadmin-help-btm-link" target="_blank">
                             <div class="msupportadmin-help-btm-cnt-img">
                                 <img alt="<?php echo esc_html(__('How to translate','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/help-page/video-icon.png" />
                             </div>

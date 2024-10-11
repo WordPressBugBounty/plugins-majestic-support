@@ -1855,7 +1855,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 </div>
                                 <div class="mjtc-support-time-stamp-wrp">
                                     <span class="mjtc-support-ticket-created-date">
-                                        <?php echo esc_html(date_i18n("l F d, Y, h:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($note->created))); ?>
+                                        <?php echo esc_html(date_i18n("l F d, Y, H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($note->created))); ?>
                                     </span>
                                 </div>
                             </div>
@@ -1938,7 +1938,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                                     </div>
                                     <div class="mjtc-support-thread-cnt-btm">
                                         <span class="mjtc-support-thread-date">
-                                            <?php echo esc_html(date_i18n("l F d, Y, h:i:s", MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->created))); ?>
+                                            <?php echo esc_html(date_i18n("l F d, Y, H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->created))); ?>
                                         </span>
                                     </div>
                                 </div>
@@ -2047,7 +2047,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 if (in_array('agent',majesticsupport::$_active_addons) &&  majesticsupport::$_data['user_staff']) { ?>
                                     <div class="mjtc-support-thread-cnt-btm">
                                         <div class="mjtc-support-thread-date">
-                                            <?php echo esc_html(date_i18n("l F d, Y, h:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($reply->created))); ?>
+                                            <?php echo esc_html(date_i18n("l F d, Y, H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($reply->created))); ?>
                                         </div>
                                         <div class="mjtc-support-thread-actions">
                                             <?php
@@ -2412,7 +2412,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 <?php echo esc_html(__('Created', 'majestic-support')) . ': '; ?>
                             </div>
                             <div class="mjtc-sprt-det-info-val"
-                                title="<?php echo esc_attr(date_i18n("d F, Y, h:i:s A", MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->created))); ?>">
+                                title="<?php echo esc_attr(date_i18n("d F, Y, H:i:s A", MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->created))); ?>">
                                 <?php echo esc_html(human_time_diff(MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->created),MJTC_majesticsupportphplib::MJTC_strtotime(date_i18n("Y-m-d H:i:s")))).' '.esc_html(__('ago', 'majestic-support')); ?>
                             </div>
                         </div>
@@ -2532,7 +2532,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                                     </a>
                                     <div id="userpopupforchangepriority" style="display:none;">
                                         <div class="mjtc-support-priorty-header">
-                                            <?php echo esc_html(__('Change', 'majestic-support')) . " " . majesticsupport::MJTC_getVarValue($field_array['priority']); ?>
+                                            <?php echo esc_html(__('Change', 'majestic-support')) . " " . wp_kses(majesticsupport::MJTC_getVarValue($field_array['priority']), MJTC_ALLOWED_TAGS); ?>
                                             <span class="close-history"></span>
                                         </div>
                                         <div class="mjtc-support-priorty-fields-wrp">
@@ -2936,7 +2936,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                                     <div class="mjtc-sprt-wc-order-item-title"><?php echo esc_html(__("Purchase Date",'majestic-support')); ?>:
                                     </div>
                                     <div class="mjtc-sprt-wc-order-item-value">
-                                        <?php echo esc_html(date_i18n("F d, Y, h:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($envlicense['purchasedate']))); ?>
+                                        <?php echo esc_html(date_i18n("F d, Y, H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($envlicense['purchasedate']))); ?>
                                     </div>
                                 </div>
                                 <?php } ?>
@@ -3023,7 +3023,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                                         <div class="mjtc-sprt-wc-order-item-title"><?php echo esc_html(__("Subscribed On",'majestic-support')); ?>:
                                         </div>
                                         <div class="mjtc-sprt-wc-order-item-value">
-                                            <?php echo esc_html(date_i18n("F d, Y, h:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($paidsupport['subscriptionstartdate']))); ?>
+                                            <?php echo esc_html(date_i18n("F d, Y, H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($paidsupport['subscriptionstartdate']))); ?>
                                         </div>
                                     </div>
                                     <?php } ?>

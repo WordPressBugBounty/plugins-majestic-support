@@ -67,7 +67,7 @@ class MJTC_wphdnotification {
                     $data = $message;
                 }
             }
-            $data = json_encode($data , true);
+            $data = wp_json_encode($data , true);
             $sessionmsg = MJTC_majesticsupportphplib::MJTC_safe_encoding($data);
             if(!$update){
                 $wpdb->insert( "{$wpdb->prefix}mjtc_support_mjtcsessiondata", array("usersessionid" => majesticsupport::$_mjtcsession->sessionid, "sessionmsg" => $sessionmsg, "sessionexpire" => majesticsupport::$_mjtcsession->sessionexpire, "sessionfor" => $sessiondatafor) );

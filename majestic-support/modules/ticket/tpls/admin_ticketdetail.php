@@ -1326,7 +1326,7 @@ $yesno = array(
                                                 ?>
                                                 </div>
                                                 <div class="mjtc-support-thread-cnt-btm">
-                                                    <div class="mjtc-support-thread-date"><?php echo esc_html(date_i18n("l F d, Y, h:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($note->created))); ?></div>
+                                                    <div class="mjtc-support-thread-date"><?php echo esc_html(date_i18n("l F d, Y, H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($note->created))); ?></div>
                                                     <div class="mjtc-support-thread-actions">
                                                         <?php
                                                             if(in_array('timetracking', majesticsupport::$_active_addons)){
@@ -1403,7 +1403,7 @@ $yesno = array(
                                 ?>
                                 <div class="mjtc-support-thread-cnt-btm">
                                     <div class="mjtc-support-thread-date">
-                                        <?php echo esc_html(date_i18n("l F d, Y, h:i:s", MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->created))); ?>
+                                        <?php echo esc_html(date_i18n("l F d, Y, H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->created))); ?>
                                     </div>
                                 </div>
                             </div>
@@ -1485,7 +1485,7 @@ $yesno = array(
                                         }
                                         ?>
                                         <div class="mjtc-support-thread-cnt-btm">
-                                            <div class="mjtc-support-thread-date"><?php echo esc_html(date_i18n("l F d, Y, h:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($reply->created))); ?></div>
+                                            <div class="mjtc-support-thread-date"><?php echo esc_html(date_i18n("l F d, Y, H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($reply->created))); ?></div>
                                             <div class="mjtc-support-thread-actions">
                                                <?php
                                                if(in_array('timetracking', majesticsupport::$_active_addons)){
@@ -1776,7 +1776,7 @@ $yesno = array(
                                     <span class="mjtc-sprt-det-info-tit">
                                         <?php echo esc_html(__('Created', 'majestic-support')). ': '; ?>
                                     </span>
-                                    <span class="mjtc-sprt-det-info-val" title="<?php echo esc_attr(date_i18n("d F, Y, h:i:s A", MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->created))); ?>">
+                                    <span class="mjtc-sprt-det-info-val" title="<?php echo esc_attr(date_i18n("d F, Y, H:i:s A", MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->created))); ?>">
                                         <?php echo esc_html(human_time_diff(MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->created),MJTC_majesticsupportphplib::MJTC_strtotime(date_i18n("Y-m-d H:i:s"))).' '.esc_html(__('ago', 'majestic-support'))); ?>
                                     </span>
                                 </div>
@@ -1892,7 +1892,7 @@ $yesno = array(
                         if (isset($field_array['priority'])) { ?>
                             <div class="mjtc-sprt-det-cnt mjtc-sprt-det-tkt-prty">
                                 <div class="mjtc-sprt-det-hdg">
-                                    <a target="blank" href="#" class="mjtc-sprt-det-hdg-img mjtc-cp-video-priority">
+                                    <a target="blank" href="https://www.youtube.com/watch?v=k9n33ao35Mg" class="mjtc-sprt-det-hdg-img mjtc-cp-video-priority">
                                         <img title="<?php echo esc_attr(__('watch video','majestic-support')); ?>" alt="<?php echo esc_html(__('watch video','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL) . '/includes/images/watch-video-icon.png'; ?>" />
                                     </a>
                                     <div class="mjtc-sprt-det-hdg-txt">
@@ -2248,7 +2248,7 @@ $yesno = array(
                                         <div class="mjtc-sprt-wc-order-item">
                                             <div class="mjtc-sprt-wc-order-item-title"><?php echo esc_html(__("Purchase Date",'majestic-support')); ?>:</div>
                                             <div class="mjtc-sprt-wc-order-item-value">
-                                                <?php echo esc_html(date_i18n("F d, Y, h:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($envlicense['purchasedate']))); ?>
+                                                <?php echo esc_html(date_i18n("F d, Y, H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($envlicense['purchasedate']))); ?>
                                             </div>
                                         </div>
                                         <?php } ?>
@@ -2324,7 +2324,7 @@ $yesno = array(
                                             <?php if(isset($paidsupport['subscriptionstartdate'])){ ?>
                                             <div class="mjtc-sprt-wc-order-item">
                                                 <div class="mjtc-sprt-wc-order-item-title"><?php echo esc_html(__("Subscribed On",'majestic-support')); ?>:</div>
-                                                <div class="mjtc-sprt-wc-order-item-value"><?php echo esc_html(date_i18n("F d, Y, h:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($paidsupport['subscriptionstartdate']))); ?></div>
+                                                <div class="mjtc-sprt-wc-order-item-value"><?php echo esc_html(date_i18n("F d, Y, H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($paidsupport['subscriptionstartdate']))); ?></div>
                                             </div>
                                             <?php } ?>
                                             <?php if(isset($paidsupport['expiry'])){ ?>

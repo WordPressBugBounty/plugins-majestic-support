@@ -17,6 +17,7 @@ $type = array(
                 <span class="ms_heading"><?php echo esc_html(__('Feedback Settings','majestic-support')); ?></span>
                 <div class="ms-config-topheading">
                         <!-- <?php
+                            $tran_opt = MJTC_includer::MJTC_getModel('majesticsupport')->getInstalledTranslationKey();
                             if($tran_opt && in_array('feedback', majesticsupport::$_active_addons)){
                                 $step = '5';
                             }else if(!$tran_opt && !in_array('feedback', majesticsupport::$_active_addons)){
@@ -31,7 +32,7 @@ $type = array(
                     </div>
                 
                 <div class="close-button-bottom">
-                    <a href="#" class="close-button">
+                    <a href="admin.php?page=majesticsupport" class="close-button">
                         <img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/postinstallation/close-icon.png';?>" />
                     </a>
                 </div>

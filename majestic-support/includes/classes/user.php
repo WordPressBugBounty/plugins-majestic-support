@@ -234,7 +234,7 @@ class MJTC_user
                 // Deleting all the files in the list 
                 foreach($files as $file) { 
                     if(is_file($file))  {
-                        unlink($file);  
+                        wp_delete_file($file);  
                     }
                 }
                 rmdir($userpath);

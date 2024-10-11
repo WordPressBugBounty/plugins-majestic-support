@@ -15,6 +15,7 @@ class MJTC_ticketController {
         } else
             $defaultlayout = "myticket";
         $layout = MJTC_request::MJTC_getLayout('mjslay', null, $defaultlayout);
+        majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
         if (self::canaddfile()) {
             switch ($layout) {
                 case 'admin_tickets':
@@ -95,6 +96,12 @@ class MJTC_ticketController {
                     $list = MJTC_request::MJTC_getVar('list');
                     MJTC_includer::MJTC_getModel('ticket')->getMyTickets($list);
                     break;
+                case 'ticketstatus':
+                    break;
+                case 'visitormessagepage':
+                    break;
+                default:
+                    exit;
 
             }
             $module = (is_admin()) ? 'page' : 'mjsmod';
@@ -105,12 +112,15 @@ class MJTC_ticketController {
     }
 
     function canaddfile() {
-        if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
-            return false;
-        elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
-            return false;
-        else
-            return true;
+        $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
+        if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
+            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
+                return false;
+            elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
+                return false;
+            else
+                return true;
+        }
     }
 
     function closeticket() {
@@ -404,7 +414,7 @@ class MJTC_ticketController {
         if($token){
             include_once MJTC_PLUGIN_PATH . 'includes/encoder.php';
             $encoder = new MJTC_encoder();
-            $token = $encoder->MJTC_encrypt(json_encode(array('token' => $token, 'sitelink' => get_option('ms_encripted_site_link'))));
+            $token = $encoder->MJTC_encrypt(wp_json_encode(array('token' => $token, 'sitelink' => get_option('ms_encripted_site_link'))));
             MJTC_majesticsupportphplib::MJTC_setcookie('majestic-support-token-tkstatus',$token ,0, COOKIEPATH);
             if ( SITECOOKIEPATH != COOKIEPATH ){
                 MJTC_majesticsupportphplib::MJTC_setcookie('majestic-support-token-tkstatus',$token ,0, SITECOOKIEPATH);

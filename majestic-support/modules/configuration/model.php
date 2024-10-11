@@ -91,12 +91,21 @@ class MJTC_configurationModel {
         $path = $path . '/attachmentdata/';
         $dsk_logo_file =  $path.$file_name;
         if($file_name != ''){
-            @unlink($dsk_logo_file);
+            if ( file_exists( $dsk_logo_file ) ) {
+                wp_delete_file($dsk_logo_file);
+            }
         }
     }
 
 
     function storeConfiguration($data) {
+        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $nonce, 'save-configuration') ) {
+            die( 'Security check Failed' );
+        }
+        if (!current_user_can('manage_options')) { //only admin can change it.
+            return false;
+        }
         $notsave = false;
         $updateColors = false;
         foreach ($data AS $key => $value) {
@@ -105,21 +114,36 @@ class MJTC_configurationModel {
             if ($key == 'offline_message') {
                 $offline_message = $value;
                 if(!empty($offline_message)){
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['offline_message']); // use mjsupport_message to avoid conflict
+                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['offline_message']);
+                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($value);
+                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($value);// remove slashes with quotes.
                 }
             }
 
             if ($key == 'visitor_message') {
                 $visitor_message = $value;
                 if(!empty($visitor_message)){
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['visitor_message']); // use mjsupport_message to avoid conflict
+                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['visitor_message']);
+                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($value);
+                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($value);// remove slashes with quotes.
                 }
             }
 
             if ($key == 'new_ticket_message') {
                 $new_ticket_message = $value;
                 if(!empty($new_ticket_message)){
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['new_ticket_message']); // use mjsupport_message to avoid conflict
+                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['new_ticket_message']);
+                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($value);
+                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($value);// remove slashes with quotes.
+                }
+            }
+
+            if ($key == 'feedback_thanks_message') {
+                $feedback_thanks_message = $value;
+                if(!empty($feedback_thanks_message)){
+                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['feedback_thanks_message']);
+                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($value);
+                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($value);// remove slashes with quotes.
                 }
             }
 
@@ -271,7 +295,7 @@ class MJTC_configurationModel {
         if ($key) {
             $unlinkPath = $userpath.'/'.$key;
             if (is_file($unlinkPath)) {
-                unlink($unlinkPath);
+                wp_delete_file($unlinkPath);
             }
         }
         majesticsupport::$_db->update(majesticsupport::$_db->prefix . 'mjtc_support_config', array('configvalue' => $filename), array('configname' => 'support_custom_img'));
@@ -293,7 +317,7 @@ class MJTC_configurationModel {
         if ($key) {
             $unlinkPath = $path.'/'.$key;
             if (is_file($unlinkPath)) {
-                unlink($unlinkPath);
+                wp_delete_file($unlinkPath);
             }
         }
         majesticsupport::$_db->update(majesticsupport::$_db->prefix . 'mjtc_support_config', array('configvalue' => 0), array('configname' => 'support_custom_img'));
@@ -335,14 +359,14 @@ class MJTC_configurationModel {
     }
 
     function genearateCronKey() {
-        $key = MJTC_majesticsupportphplib::MJTC_md5(date('Y-m-d'));
+        $key = MJTC_majesticsupportphplib::MJTC_md5(gmdate('Y-m-d'));
         $query = "UPDATE `".majesticsupport::$_db->prefix."mjtc_support_config` SET configvalue = '".esc_sql($key)."' WHERE configname = 'ck'" ;
         majesticsupport::$_db->query($query);
         return true;
     }
 
     function getCronKey($passkey) {
-        if ($passkey == MJTC_majesticsupportphplib::MJTC_md5(date('Y-m-d'))) {
+        if ($passkey == MJTC_majesticsupportphplib::MJTC_md5(gmdate('Y-m-d'))) {
             $query = "SELECT configvalue FROM `".majesticsupport::$_db->prefix."mjtc_support_config` WHERE configname = 'ck'";
             $key = majesticsupport::$_db->get_var($query);
             return $key;

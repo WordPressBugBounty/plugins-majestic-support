@@ -77,7 +77,7 @@ class MJTC_smartreplyModel {
             }
 
         }
-        $newdata['ticketsubjects'] = json_encode($ticketsubjects, true);
+        $newdata['ticketsubjects'] = wp_json_encode($ticketsubjects, true);
 
         $row = MJTC_includer::MJTC_getTable('smartreplies');
         if (isset($_POST['reply'])) {
@@ -166,7 +166,7 @@ class MJTC_smartreplyModel {
                     </span>";
         }
         if (isset($html) && $html != '') {
-            return json_encode(MJTC_majesticsupportphplib::MJTC_htmlentities($html));
+            return wp_json_encode(MJTC_majesticsupportphplib::MJTC_htmlentities($html));
         }
         return;
     }

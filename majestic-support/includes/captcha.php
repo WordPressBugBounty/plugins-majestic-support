@@ -8,7 +8,7 @@ class MJTC_captcha {
     function MJTC_getCaptchaForForm() {
         $rand = $this->MJTC_randomNumber();
         MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable($rand,'','majesticsupport_spamcheckid');
-        $majesticsupport_rot13 = mt_rand(0, 1);
+        $majesticsupport_rot13 = wp_rand(0, 1);
         MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable($majesticsupport_rot13,'','majesticsupport_rot13');
 
         $operator = 2;
@@ -17,11 +17,11 @@ class MJTC_captcha {
         }
         $max_value = 20;
         $negativ = 1;
-        $operend_1 = mt_rand($negativ, $max_value);
-        $operend_2 = mt_rand($negativ, $max_value);
+        $operend_1 = wp_rand($negativ, $max_value);
+        $operend_2 = wp_rand($negativ, $max_value);
         $operand = majesticsupport::$_config['owncaptcha_totaloperand'];
         if ($operand == 3) {
-            $operend_3 = mt_rand($negativ, $max_value);
+            $operend_3 = wp_rand($negativ, $max_value);
         }
 
         if (majesticsupport::$_config['owncaptcha_calculationtype'] == 2) { // Subtraction
@@ -51,14 +51,16 @@ class MJTC_captcha {
         }
 
         if ($tcalc == 0)
-            $tcalc = mt_rand(1, 2);
+            $tcalc = wp_rand(1, 2);
 
         if ($tcalc == 1) { // Addition
             if ($majesticsupport_rot13 == 1) { // ROT13 coding
                 if ($operand == 2) {
-                    MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(MJTC_majesticsupportphplib::MJTC_str_rot13(MJTC_majesticsupportphplib::MJTC_safe_encoding($operend_1 + $operend_2)),'','majesticsupport_spamcheckresult');
+                    // The use of function str_rot13() is forbidden
+                    MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(MJTC_majesticsupportphplib::MJTC_safe_encoding($operend_1 + $operend_2),'','majesticsupport_spamcheckresult');
                 } elseif ($operand == 3) {
-                    MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(MJTC_majesticsupportphplib::MJTC_str_rot13(MJTC_majesticsupportphplib::MJTC_safe_encoding($operend_1 + $operend_2 + $operend_3)),'','majesticsupport_spamcheckresult');
+                    // The use of function str_rot13() is forbidden
+                    MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(MJTC_majesticsupportphplib::MJTC_safe_encoding($operend_1 + $operend_2 + $operend_3),'','majesticsupport_spamcheckresult');
                 }
             } else {
                 if ($operand == 2) {
@@ -70,9 +72,11 @@ class MJTC_captcha {
         } elseif ($tcalc == 2) { // Subtraction
             if ($majesticsupport_rot13 == 1) {
                 if ($operand == 2) {
-                    MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(MJTC_majesticsupportphplib::MJTC_str_rot13(MJTC_majesticsupportphplib::MJTC_safe_encoding($operend_1 - $operend_2)),'','majesticsupport_spamcheckresult');
+                    // The use of function str_rot13() is forbidden
+                    MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(MJTC_majesticsupportphplib::MJTC_safe_encoding($operend_1 - $operend_2),'','majesticsupport_spamcheckresult');
                 } elseif ($operand == 3) {
-                    MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(MJTC_majesticsupportphplib::MJTC_str_rot13(MJTC_majesticsupportphplib::MJTC_safe_encoding($operend_1 - $operend_2 - $operend_3)),'','majesticsupport_spamcheckresult');
+                    // The use of function str_rot13() is forbidden
+                    MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(MJTC_majesticsupportphplib::MJTC_safe_encoding($operend_1 - $operend_2 - $operend_3),'','majesticsupport_spamcheckresult');
                 }
             } else {
                 if ($operand == 2) {
@@ -111,16 +115,16 @@ class MJTC_captcha {
         $pw = '';
         // first character has to be a letter
         $characters = range('a', 'z');
-        $pw .= $characters[mt_rand(0, 25)];
+        $pw .= $characters[wp_rand(0, 25)];
 
         // other characters arbitrarily
         $numbers = range(0, 9);
         $characters = array_merge($characters, $numbers);
 
-        $pw_length = mt_rand(4, 12);
+        $pw_length = wp_rand(4, 12);
 
         for ($i = 0; $i < $pw_length; $i++) {
-            $pw .= $characters[mt_rand(0, 35)];
+            $pw .= $characters[wp_rand(0, 35)];
         }
         return $pw;
     }
@@ -128,7 +132,8 @@ class MJTC_captcha {
     private function MJTC_performChecks() {
         $majesticsupport_rot13 = MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_getNotificationDatabySessionId('majesticsupport_rot13',true);
         if($majesticsupport_rot13 == 1){
-            $spamcheckresult = MJTC_majesticsupportphplib::MJTC_safe_decoding(MJTC_majesticsupportphplib::MJTC_str_rot13(MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_getNotificationDatabySessionId('majesticsupport_spamcheckresult',true)));
+            // The use of function str_rot13() is forbidden
+            $spamcheckresult = MJTC_majesticsupportphplib::MJTC_safe_decoding(MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_getNotificationDatabySessionId('majesticsupport_spamcheckresult',true));
         } else {
             $majesticsupport_spamcheckresult = MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_getNotificationDatabySessionId('majesticsupport_spamcheckresult',true);
             if ($majesticsupport_spamcheckresult != '') {

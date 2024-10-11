@@ -34,7 +34,7 @@ $tran_opt = MJTC_includer::MJTC_getModel('majesticsupport')->getInstalledTransla
                         <span class="heading-post-ins ms-config-steps"><?php echo esc_html($steps); ?></span>
                     </div>
                 <div class="close-button-bottom">
-                    <a href="?page=majesticsupport" class="close-button">
+                    <a href="admin.php?page=majesticsupport" class="close-button">
                         <img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/postinstallation/close-icon.png';?>" />
                     </a>
                 </div>

@@ -228,7 +228,7 @@ class MJTC_fieldorderingModel {
                 $visible['visibleCondition'] = $data['visibleCondition'];
                 $visible['visibleValue'] = $data['visibleValue'];
                 $visible_array = array_map(array($this,'sanitize_custom_field'), $visible);
-                $data['visibleparams'] = json_encode($visible_array);
+                $data['visibleparams'] = wp_json_encode($visible_array);
 
                 $query = "SELECT visible_field FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE id = " . esc_sql($data['visibleParent']);
                 $old_fieldname = majesticsupport::$_db->get_var($query);
@@ -296,7 +296,7 @@ class MJTC_fieldorderingModel {
             }
 
             $params_array = array_map(array($this,'sanitize_custom_field'), $params);
-            $data['userfieldparams'] = json_encode($params_array, JSON_UNESCAPED_UNICODE);
+            $data['userfieldparams'] = wp_json_encode($params_array, JSON_UNESCAPED_UNICODE);
 
             // for admin_only
             if(isset($data['userfieldtype']) && ($data['userfieldtype'] == 'admin_only') ){
@@ -403,7 +403,7 @@ class MJTC_fieldorderingModel {
                 $childNew->$value[0] = "";
             }
         }
-        $childNew = json_encode( $childNew );
+        $childNew = wp_json_encode( $childNew );
         $child->userfieldparams = $childNew;
         $query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET userfieldparams = '" . esc_sql($childNew) . "' WHERE id = " . esc_sql($child->id);
         majesticsupport::$_db->query($query);
@@ -436,7 +436,7 @@ class MJTC_fieldorderingModel {
         $msFunction = 'getDataOfSelectedField();';
         $html = MJTC_formfield::MJTC_select('parentfield', $data, (isset($parent) && $parent !='') ? $parent : '', esc_html(__('Select', 'majestic-support')) .'&nbsp;'. esc_html(__('Parent Field', 'majestic-support')), array('onchange' => $msFunction, 'class' => 'inputbox one mjtc-form-select-field', 'data-validation' => 'required'));
         $html = MJTC_majesticsupportphplib::MJTC_htmlentities($html);
-        $data = json_encode($html);
+        $data = wp_json_encode($html);
         return $data;
     }
 
@@ -552,7 +552,7 @@ class MJTC_fieldorderingModel {
         }
         $html .= " <input type='hidden' name='arraynames' value='" . esc_attr($fieldsvar) . "' />";
         $html = MJTC_majesticsupportphplib::MJTC_htmlentities($html);
-        $html = json_encode($html);
+        $html = wp_json_encode($html);
         return $html;
     }
 
@@ -624,7 +624,7 @@ class MJTC_fieldorderingModel {
         $html .='</div>
             </form>';
         $html = MJTC_majesticsupportphplib::MJTC_htmlentities($html);
-        return json_encode($html);
+        return wp_json_encode($html);
     }
 
     function deleteUserField($id){
@@ -821,7 +821,7 @@ class MJTC_fieldorderingModel {
         $textvar =  ($flag == 1) ?  esc_html(__('Select', 'majestic-support')).' '.$data->fieldtitle : '';
         $html = MJTC_formfield::MJTC_select($childfield, $comboOptions, '',$textvar, array('data-validation' => '','class' => 'inputbox one mjtc-form-select-field mjtc-support-custom-select', 'onchange' => $msFunction));
         $html = MJTC_majesticsupportphplib::MJTC_htmlentities($html);
-        $phtml = json_encode($html);
+        $phtml = wp_json_encode($html);
         return $phtml;
     }
 

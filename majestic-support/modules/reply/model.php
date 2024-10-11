@@ -265,7 +265,7 @@ class MJTC_replyModel {
                     $tokenarray['emailaddress'] = MJTC_includer::MJTC_getModel('ticket')->getTicketEmailById($data['ticketid']);
                     $tokenarray['trackingid'] = MJTC_includer::MJTC_getModel('ticket')->getTrackingIdById($data['ticketid']);
                     $tokenarray['sitelink']=MJTC_includer::MJTC_getModel('majesticsupport')->getEncriptedSiteLink();
-                    $token = json_encode($tokenarray);
+                    $token = wp_json_encode($tokenarray);
                     include_once MJTC_PLUGIN_PATH . 'includes/encoder.php';
                     $encoder = new MJTC_encoder();
                     $encryptedtext = $encoder->MJTC_encrypt($token);
@@ -368,7 +368,7 @@ class MJTC_replyModel {
         $lastreply = majesticsupport::$_db->get_row($query);
         // $lastreply = MJTC_majesticsupportphplib::MJTC_htmlentities(($lastreply));
 
-        return json_encode($lastreply);
+        return wp_json_encode($lastreply);
     }
 
     function getAttachmentByReplyId($id ,$internalid = ''){

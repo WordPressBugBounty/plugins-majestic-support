@@ -39,41 +39,41 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
             <form class="msadmin-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("?page=majesticsupport_email&task=saveemail"),"save-email")); ?>">
                 <div class="mjtc-form-wrapper">
                     <div class="mjtc-form-title"><?php echo esc_html(__('Email', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
-                    <div class="mjtc-form-field"><?php echo wp_kses(MJTC_formfield::MJTC_text('email', isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->email : '', array('class' => 'inputbox mjtc-form-input-field', 'data-validation' => 'required email')), MJTC_ALLOWED_TAGS) ?></div>
+                    <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_text('email', isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->email : '', array('class' => 'inputbox mjtc-form-input-field', 'data-validation' => 'required email')), MJTC_ALLOWED_TAGS) ?></div>
                 </div>
                 <?php if(in_array('smtp', majesticsupport::$_active_addons)){ ?>
                     <div class="mjtc-form-wrapper">
                         <div class="mjtc-form-title"><?php echo esc_html(__('Send Email By', 'majestic-support')); ?></div>
-                        <div class="mjtc-form-field"><?php echo wp_kses(MJTC_formfield::MJTC_select('smtpemailauth', $emailtype , isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->smtpemailauth : '' , esc_html(__('Select Type', 'majestic-support')) , array('class' => 'mjtc-smtp-select mjtc-form-select-field')), MJTC_ALLOWED_TAGS)?></div>
+                        <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('smtpemailauth', $emailtype , isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->smtpemailauth : '' , esc_html(__('Select Type', 'majestic-support')) , array('class' => 'mjtc-smtp-select mjtc-form-select-field')), MJTC_ALLOWED_TAGS)?></div>
                     </div>
                     <div id="smtpauthselect" style="display: none;">
                         <div class="mjtc-form-wrapper">
                             <div class="mjtc-form-title"><?php echo esc_html(__('SMTP host type', 'majestic-support')); ?></div>
-                            <div class="mjtc-form-field"><?php echo wp_kses(MJTC_formfield::MJTC_select('smtphosttype', $smtphost , isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->smtphosttype : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'mjtc-smtp-select mjtc-form-select-field')), MJTC_ALLOWED_TAGS)?></div>
+                            <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('smtphosttype', $smtphost , isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->smtphosttype : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'mjtc-smtp-select mjtc-form-select-field')), MJTC_ALLOWED_TAGS)?></div>
                         </div>
                         <div class="mjtc-form-wrapper">
                             <div class="mjtc-form-title"><?php echo esc_html(__('SMTP host', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
-                            <div class="mjtc-form-field"><?php echo wp_kses(MJTC_formfield::MJTC_text('smtphost', isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->smtphost : '', array('class' => 'inputbox mjtc-form-select-field')), MJTC_ALLOWED_TAGS) ?></div>
+                            <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_text('smtphost', isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->smtphost : '', array('class' => 'inputbox mjtc-form-select-field')), MJTC_ALLOWED_TAGS) ?></div>
                         </div>
                         <div class="mjtc-form-wrapper">
                             <div class="mjtc-form-title"><?php echo esc_html(__('SMTP Authentication', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
-                            <div class="mjtc-form-field"><?php echo wp_kses(MJTC_formfield::MJTC_select('smtpauthencation', $truefalse , isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->smtpauthencation : '' , esc_html(__('Select Type', 'majestic-support')) , array('class' => 'mjtc-smtp-select mjtc-form-select-field')), MJTC_ALLOWED_TAGS)?></div>
+                            <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('smtpauthencation', $truefalse , isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->smtpauthencation : '' , esc_html(__('Select Type', 'majestic-support')) , array('class' => 'mjtc-smtp-select mjtc-form-select-field')), MJTC_ALLOWED_TAGS)?></div>
                         </div>
                         <div class="mjtc-form-wrapper">
                             <div class="mjtc-form-title"><?php echo esc_html(__('Username', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
-                            <div class="mjtc-form-field"><?php echo wp_kses(MJTC_formfield::MJTC_text('name', isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->name : '', array('class' => 'inputbox mjtc-form-input-field')), MJTC_ALLOWED_TAGS) ?></div>
+                            <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_text('name', isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->name : '', array('class' => 'inputbox mjtc-form-input-field')), MJTC_ALLOWED_TAGS) ?></div>
                         </div>
                         <div class="mjtc-form-wrapper">
                             <div class="mjtc-form-title"><?php echo esc_html(__('Password', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
-                            <div class="mjtc-form-field"><?php echo wp_kses(MJTC_formfield::MJTC_password('password', isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->password : '', array('class' => 'inputbox mjtc-form-input-field')), MJTC_ALLOWED_TAGS) ?></div>
+                            <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_password('password', isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->password : '', array('class' => 'inputbox mjtc-form-input-field')), MJTC_ALLOWED_TAGS) ?></div>
                         </div>
                         <div class="mjtc-form-wrapper">
                             <div class="mjtc-form-title"><?php echo esc_html(__('SMTP Secure', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
-                            <div class="mjtc-form-field"><?php echo wp_kses(MJTC_formfield::MJTC_select('smtpsecure', $securesmtp , isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->smtpsecure : '' , esc_html(__('Select Type', 'majestic-support')) , array('class' => 'mjtc-smtp-select mjtc-form-select-field')), MJTC_ALLOWED_TAGS)?></div>
+                            <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('smtpsecure', $securesmtp , isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->smtpsecure : '' , esc_html(__('Select Type', 'majestic-support')) , array('class' => 'mjtc-smtp-select mjtc-form-select-field')), MJTC_ALLOWED_TAGS)?></div>
                         </div>
                         <div class="mjtc-form-wrapper">
                             <div class="mjtc-form-title"><?php echo esc_html(__('SMTP Port', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
-                            <div class="mjtc-form-field"><?php echo wp_kses(MJTC_formfield::MJTC_text('mailport', isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->mailport : '', array('class' => 'inputbox mjtc-form-input-field')), MJTC_ALLOWED_TAGS) ?></div>
+                            <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_text('mailport', isset(majesticsupport::$_data[0]->email) ? majesticsupport::$_data[0]->mailport : '', array('class' => 'inputbox mjtc-form-input-field')), MJTC_ALLOWED_TAGS) ?></div>
                         </div>
                         <div class="mjtc-col-md-12 mjtc-col-md-offset-2 mjtc-admin-ticketviaemail-wrapper-checksetting">
                             <a title="<?php echo esc_attr(__('Check Settings','majestic-support')); ?>" href="#" id="mjtc-admin-ticketviaemail"><img alt="<?php echo esc_html(__('check','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/tick_ticketviaemail.png" /><?php echo esc_html(__('Check Settings','majestic-support')); ?></a>
@@ -87,11 +87,11 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                 <?php } ?>
                 <div class="mjtc-form-wrapper">
                     <div class="mjtc-form-title"><?php echo esc_html(__('Auto Response', 'majestic-support')); ?></div>
-                    <div class="mjtc-form-field"><?php echo wp_kses(MJTC_formfield::MJTC_radiobutton('autoresponse', array('1' => esc_html(__('Yes', 'majestic-support')), '0' => esc_html(__('No', 'majestic-support'))), isset(majesticsupport::$_data[0]->autoresponse) ? majesticsupport::$_data[0]->autoresponse : '1', array('class' => 'radiobutton mjtc-form-radio-field')), MJTC_ALLOWED_TAGS); ?></div>
+                    <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_radiobutton('autoresponse', array('1' => esc_html(__('Yes', 'majestic-support')), '0' => esc_html(__('No', 'majestic-support'))), isset(majesticsupport::$_data[0]->autoresponse) ? majesticsupport::$_data[0]->autoresponse : '1', array('class' => 'radiobutton mjtc-form-radio-field')), MJTC_ALLOWED_TAGS); ?></div>
                 </div>
                 <div class="mjtc-form-wrapper">
                     <div class="mjtc-form-title"><?php echo esc_html(__('Status', 'majestic-support')); ?></div>
-                    <div class="mjtc-form-field"><?php echo wp_kses(MJTC_formfield::MJTC_radiobutton('status', array('1' => esc_html(__('Active', 'majestic-support')), '0' => esc_html(__('Disabled', 'majestic-support'))), isset(majesticsupport::$_data[0]->status) ? majesticsupport::$_data[0]->status : '1', array('class' => 'radiobutton mjtc-form-radio-field')), MJTC_ALLOWED_TAGS); ?></div>
+                    <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_radiobutton('status', array('1' => esc_html(__('Active', 'majestic-support')), '0' => esc_html(__('Disabled', 'majestic-support'))), isset(majesticsupport::$_data[0]->status) ? majesticsupport::$_data[0]->status : '1', array('class' => 'radiobutton mjtc-form-radio-field')), MJTC_ALLOWED_TAGS); ?></div>
                 </div>
                 <?php echo wp_kses(MJTC_formfield::MJTC_hidden('id', isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '' ), MJTC_ALLOWED_TAGS); ?>
                 <?php echo wp_kses(MJTC_formfield::MJTC_hidden('created', isset(majesticsupport::$_data[0]->created) ? majesticsupport::$_data[0]->created : '' ), MJTC_ALLOWED_TAGS); ?>

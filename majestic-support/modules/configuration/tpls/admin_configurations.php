@@ -688,7 +688,7 @@ $plugin_array = get_option('active_plugins');
                             if(isset(majesticsupport::$_data[0]['set_register_link'])){
                                 $title = esc_html(__('Set register Link', 'majestic-support'));
                                 $field = MJTC_formfield::MJTC_select('set_register_link', $defaultregisterpage, majesticsupport::$_data[0]['set_register_link']);
-                                $description =  esc_html(__('Set register link default or custom'.'.<br />'.' To enable registrations, WordPress admin > General > Settings > Membership: Anyone can register', 'majestic-support'));
+                                $description =  esc_html(__('Set register link default or custom', 'majestic-support')).'.<br />'.esc_html(__('To enable registrations, WordPress admin > General > Settings > Membership: Anyone can register', 'majestic-support'));
                                 $childfield = '';
                                 if(isset(majesticsupport::$_data[0]['register_link'])){
                                     $childfield = MJTC_formfield::MJTC_text('register_link', majesticsupport::$_data[0]['register_link'], array('class' => 'inputbox registerlink_field'));

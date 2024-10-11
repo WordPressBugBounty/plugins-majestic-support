@@ -106,7 +106,7 @@ class MJTC_emailtemplateModel {
         $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = '" . $templatefor . "'";
         $result = majesticsupport::$_db->get_row($query);
         $data =  array('defaultsubject'=>MJTC_majesticsupportphplib::MJTC_htmlentities($result->subject),'defaultbody'=>MJTC_majesticsupportphplib::MJTC_htmlentities($result->body) , 'defaultid'=>MJTC_majesticsupportphplib::MJTC_htmlentities($result->id));
-        return json_encode($data);
+        return wp_json_encode($data);
 
     }
 }

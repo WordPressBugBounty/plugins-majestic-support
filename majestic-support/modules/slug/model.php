@@ -143,7 +143,7 @@ class MJTC_slugModel {
                     ' . wp_kses(MJTC_formfield::MJTC_button('save', esc_html(__('Save', 'majestic-support')), array('class' => 'button savebutton popup-act-btn','onClick'=>'getFieldValue();')), MJTC_ALLOWED_TAGS);
         $html .='</div>';
         $html = MJTC_majesticsupportphplib::MJTC_htmlentities($html);
-        return json_encode($html);
+        return wp_json_encode($html);
     }
 
     function getDefaultSlugFromSlug($layout) {
@@ -160,12 +160,12 @@ class MJTC_slugModel {
 
     function getSlugString($home_page = 0) {
         global $wp_rewrite;
-        $rules = json_encode($wp_rewrite->rules);
+        $rules = wp_json_encode($wp_rewrite->rules);
         $query = "SELECT slug AS value FROM `".majesticsupport::$_db->prefix."mjtc_support_slug`";
         $val = majesticsupport::$_db->get_results($query);
         $string = '';
         $bstring = '';
-        //$rules = json_encode($rules);
+        //$rules = wp_json_encode($rules);
         $prefix = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('slug_prefix');
         $homeprefix = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('home_slug_prefix');
         foreach ($val as $slug) {
@@ -186,7 +186,7 @@ class MJTC_slugModel {
         global $wp_rewrite;
         $slug_prefix = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('slug_prefix');
         $homeprefix = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('home_slug_prefix');
-        $rules = json_encode($wp_rewrite->rules);
+        $rules = wp_json_encode($wp_rewrite->rules);
         $query = "SELECT slug AS value FROM `".majesticsupport::$_db->prefix."mjtc_support_slug`";
         $val = majesticsupport::$_db->get_results($query);
         $string = array();

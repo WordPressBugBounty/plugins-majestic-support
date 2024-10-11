@@ -37,7 +37,7 @@ if (is_plugin_active('majestic-support/majestic-support.php')) {
 		if (is_array($structure)) {
 			foreach($structure as $file) {
 				if (is_dir($file)) mjtc_recursiveremove($file);
-				elseif (is_file($file)) unlink($file);
+				elseif (is_file($file)) wp_delete_file($file);
 			}
 		}
 		rmdir($dir);

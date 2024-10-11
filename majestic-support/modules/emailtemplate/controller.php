@@ -11,6 +11,7 @@ class MJTC_emailtemplateController {
 
     function handleRequest() {
         $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'emailtemplates');
+        majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
         if (self::canaddfile()) {
             switch ($layout) {
                 case 'admin_emailtemplates':
@@ -18,6 +19,8 @@ class MJTC_emailtemplateController {
                     majesticsupport::$_data[1] = $tempfor;
                     MJTC_includer::MJTC_getModel('emailtemplate')->getTemplate($tempfor);
                     break;
+                default:
+                    exit;
             }
             $module = (is_admin()) ? 'page' : 'mjsmod';
             $module = MJTC_request::MJTC_getVar($module, null, 'emailtemplate');
@@ -27,12 +30,15 @@ class MJTC_emailtemplateController {
     }
 
     function canaddfile() {
-        if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
-            return false;
-        elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
-            return false;
-        else
-            return true;
+        $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
+        if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
+            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
+                return false;
+            elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
+                return false;
+            else
+                return true;
+        }
     }
 
     static function saveemailtemplate() {

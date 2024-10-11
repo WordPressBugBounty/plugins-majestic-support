@@ -24,7 +24,7 @@ class MJTC_SUPPORTTICKETUpdater {
 			}
 		}
 		$this->addon_installed_array = $addon_installed_array;
-		$this->api_key = json_encode($transaction_key_array);
+		$this->api_key = wp_json_encode($transaction_key_array);
 	}
 
 	// class constructor triggers this function. sets up intail hooks and filters to be used.
@@ -171,7 +171,7 @@ class MJTC_SUPPORTTICKETUpdater {
 												$transaction_key = MJTC_includer::MJTC_getModel('majesticsupport')->getAddonTransationKey($option_name);
 												$addon_json_array = array();
 												$addon_json_array[] = MJTC_majesticsupportphplib::MJTC_str_replace('majestic-support-', '', $c_key);
-												$url = 'https://majesticsupport.com/setup/index.php?token='.$transaction_key.'&productcode='. json_encode($addon_json_array).'&domain='. site_url();
+												$url = 'https://majesticsupport.com/setup/index.php?token='.$transaction_key.'&productcode='. wp_json_encode($addon_json_array).'&domain='. site_url();
 
 												// prepping data for seamless update of allowed addons
 												$plugin = new stdClass();
@@ -216,9 +216,9 @@ class MJTC_SUPPORTTICKETUpdater {
 		if(MJTC_majesticsupportphplib::MJTC_strstr($args->slug, 'majestic-support-')){
 			$response = $this->MJTC_getPluginInfo($args->slug);
 			if ($response) {
-				$response->sections = json_decode(json_encode($response->sections),true);
-				$response->banners = json_decode(json_encode($response->banners),true);
-				$response->contributors = json_decode(json_encode($response->contributors),true);
+				$response->sections = json_decode(wp_json_encode($response->sections),true);
+				$response->banners = json_decode(wp_json_encode($response->banners),true);
+				$response->contributors = json_decode(wp_json_encode($response->contributors),true);
 				return $response;
 			}
 		}else{

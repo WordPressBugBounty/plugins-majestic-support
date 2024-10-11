@@ -103,7 +103,7 @@ MJTC_message::MJTC_getMessage();
                             <span class="color_title">
                                 <?php echo esc_html(__('Color 1','majestic-support'));?>
                             </span>
-                            <input type="text" name="color1" id="color1" value="<?php echo esc_attr(majesticsupport::$_data[0]['color1']); ?>" style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color1']); ?>;" />
+                            <input type="text" name="color1" id="color1" value="<?php echo esc_attr(majesticsupport::$_data[0]['color1']); ?>" style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color1']); ?>;" maxlength="15" />
                             <span class="color_location">
                                 <?php echo esc_html(__('Top Menu Heading Background', 'majestic-support')); ?>
                             </span>
@@ -112,7 +112,7 @@ MJTC_message::MJTC_getMessage();
                             <span class="color_title">
                                 <?php echo esc_html(__('Color 2', 'majestic-support'));?>
                             </span>
-                            <input type="text" name="color2" id="color2" value="<?php echo esc_attr(majesticsupport::$_data[0]['color2']);?>" style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color2']); ?>;" />
+                            <input type="text" name="color2" id="color2" value="<?php echo esc_attr(majesticsupport::$_data[0]['color2']);?>" style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color2']); ?>;" maxlength="15" />
                             <span class="color_location">
                                 <?php echo esc_html(__('Top Header Line Color', 'majestic-support')); ?>,
                                 <?php echo esc_html(__('Button Hover', 'majestic-support')); ?>,
@@ -123,7 +123,7 @@ MJTC_message::MJTC_getMessage();
                             <span class="color_title">
                                 <?php echo esc_html(__('Color 3', 'majestic-support'));?>
                             </span>
-                            <input type="text" name="color3" id="color3" value="<?php echo esc_attr(majesticsupport::$_data[0]['color3']);?>" style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color3']);?>;" />
+                            <input type="text" name="color3" id="color3" value="<?php echo esc_attr(majesticsupport::$_data[0]['color3']);?>" style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color3']);?>;" maxlength="15" />
                             <span class="color_location">
                                 <?php echo esc_html(__('Content Background Color', 'majestic-support'));?>
                             </span>
@@ -132,7 +132,7 @@ MJTC_message::MJTC_getMessage();
                             <span class="color_title">
                                 <?php echo esc_html(__('Color 4', 'majestic-support'));?>
                             </span>
-                            <input type="text" name="color4" id="color4" value="<?php echo esc_attr(majesticsupport::$_data[0]['color4']);?>" style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color4']);?>;" />
+                            <input type="text" name="color4" id="color4" value="<?php echo esc_attr(majesticsupport::$_data[0]['color4']);?>" style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color4']);?>;" maxlength="15" />
                             <span class="color_location">
                                     <?php echo esc_html(__('Content Text Color', 'majestic-support'));?>
                             </span>
@@ -141,7 +141,7 @@ MJTC_message::MJTC_getMessage();
                             <span class="color_title">
                                 <?php echo esc_html(__('Color 5','majestic-support'));?>
                             </span>
-                            <input type="text" name="color5" id="color5" value="<?php echo esc_attr(majesticsupport::$_data[0]['color5']); ?>" style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color5']);?>;" />
+                            <input type="text" name="color5" id="color5" value="<?php echo esc_attr(majesticsupport::$_data[0]['color5']); ?>" style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color5']);?>;" maxlength="15" />
                             <span class="color_location">
                                 <?php echo esc_html(__('Border Color','majestic-support'));?>,
                                 <?php echo esc_html(__('Lines','majestic-support')); ?>
@@ -151,7 +151,7 @@ MJTC_message::MJTC_getMessage();
                             <span class="color_title">
                                 <?php echo esc_html(__('Color 6', 'majestic-support'));?>
                             </span>
-                            <input type="text" name="color6" id="color6" value="<?php echo esc_attr(majesticsupport::$_data[0]['color6']); ?>" style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color6']);?>;" />
+                            <input type="text" name="color6" id="color6" value="<?php echo esc_attr(majesticsupport::$_data[0]['color6']); ?>" style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color6']);?>;" maxlength="15" />
                             <span class="color_location">
                                 <?php echo esc_html(__('Button Color', 'majestic-support'));?>
                             </span>
@@ -162,7 +162,7 @@ MJTC_message::MJTC_getMessage();
                             </span>
                             <input type="text" name="color7" id="color7"
                                 value="<?php echo esc_attr(majesticsupport::$_data[0]['color7']);?>"
-                                style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color7']);?>;" />
+                                style="background:<?php echo esc_attr(majesticsupport::$_data[0]['color7']);?>;" maxlength="15" />
                             <span class="color_location">
                                 <?php echo esc_html(__('Top Header Text Color', 'majestic-support')); ?>
                             </span>
@@ -345,7 +345,7 @@ MJTC_message::MJTC_getMessage();
                                                                     <input type="text" name="ms-ticketsearchkeys"
                                                                         id="ms-ticketsearchkeys" value=""
                                                                         class="mjtc-support-input-field"
-                                                                        placeholder="<?php echo __('Ticket ID', 'majestic-support') . ' ' . __('Or', 'majestic-support') . ' ' . __('Email Address', 'mamajestic-support') . ' ' . __('Or', 'majestic-support') . ' ' . __('Subject', 'mamajestic-support')?>">
+                                                                        placeholder="<?php echo esc_html(__('Ticket ID', 'majestic-support')) . ' ' . esc_html(__('Or', 'majestic-support')) . ' ' . esc_html(__('Email Address', 'mamajestic-support')) . ' ' . esc_html(__('Or', 'majestic-support')) . ' ' . esc_html(__('Subject', 'mamajestic-support'))?>">
                                                                 </div>
                                                                 <div class="buttons-overall-wrapper">
                                                                     <div class="mjtc-filter-button-wrp">
@@ -402,8 +402,8 @@ MJTC_message::MJTC_getMessage();
                                                         </span>
                                                     </select>
                                                     <span class="sort-link-wrapper">
-                                                        <a href="#" class="mjtc-admin-sort-btn" title="<?php echo __('sort', 'majestic-support') ?>">
-                                                            <img alt="<?php echo __('sort', 'majestic-support') ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL);?>includes/images/sorting-2.png">
+                                                        <a href="#" class="mjtc-admin-sort-btn" title="<?php echo esc_attr(__('sort', 'majestic-support')) ?>">
+                                                            <img alt="<?php echo esc_attr(__('sort', 'majestic-support')) ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL);?>includes/images/sorting-2.png">
                                                         </a>
                                                     </span>
 

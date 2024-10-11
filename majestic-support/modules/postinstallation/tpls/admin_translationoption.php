@@ -8,7 +8,7 @@ $tran_data = json_decode(majesticsupport::$_data[0]['mstran']);
             <div class="mjtc-admin-title-installtion">
                 <span class="ms_heading"><?php echo esc_html(__('Majestic Support Settings','majestic-support')); ?></span>
                 <div class="close-button-bottom">
-                    <a href="?page=majesticsupport" class="close-button">
+                    <a href="admin.php?page=majesticsupport" class="close-button">
                         <img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/postinstallation/close-icon.png';?>" />
                     </a>
                 </div>

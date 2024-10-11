@@ -115,13 +115,7 @@ class MJTC_majesticsupportphplib {
         return $output;
     }
 
-    public static function MJTC_str_rot13($str){
-        $output = null;
-        if ($str !== null) {
-            $output = str_rot13($str);
-        }
-        return $output;
-    }
+    // The use of function str_rot13() is forbidden
 
     public static function MJTC_preg_replace($pattern, $replacement, $subject, $limit = -1, &$count = null){
         $output = null;

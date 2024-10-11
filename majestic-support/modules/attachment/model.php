@@ -89,7 +89,7 @@ class MJTC_attachmentModel {
             $path = $path . '/attachmentdata';
 
             $path = $path . '/ticket/'.$foldername.'/' . $filename;
-            unlink($path);
+            wp_delete_file($path);
             MJTC_message::MJTC_setMessage(esc_html(__('The attachment has been removed', 'majestic-support')), 'updated');
         } else {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -232,7 +232,7 @@ class MJTC_attachmentModel {
         $filelist = MJTC_majesticsupportphplib::MJTC_substr($filelist, 0, MJTC_majesticsupportphplib::MJTC_strlen($filelist) - 1);
         $v_list = $archive->create($filelist, PCLZIP_OPT_REMOVE_PATH, $directory);
         if ($v_list == 0) {
-            die("Error : '" . $archive->errorInfo() . "'");
+            die("Error : '" . wp_kses($archive->errorInfo(), MJTC_ALLOWED_TAGS) . "'");
         }
         $file = $path . '/alldownloads.zip';
         header('Content-Description: File Transfer');
@@ -245,11 +245,15 @@ class MJTC_attachmentModel {
         header('Content-Length: ' . filesize($file));
         flush();
         readfile($file);
-        @unlink($file);
+        if ( file_exists( $file ) ) {
+            wp_delete_file($file);
+        }
         $path = MJTC_PLUGIN_PATH;
         $path .= 'zipdownloads';
         $path .= '/' . $randomfolder;
-        @unlink($path . '/index.html');
+        if ( file_exists( $path . '/index.html' ) ) {
+            wp_delete_file($path . '/index.html');
+        }
         if (file_exists($path)) {
             rmdir($path);
         }
@@ -288,7 +292,7 @@ class MJTC_attachmentModel {
         $filelist = MJTC_majesticsupportphplib::MJTC_substr($filelist, 0, MJTC_majesticsupportphplib::MJTC_strlen($filelist) - 1);
         $v_list = $archive->create($filelist, PCLZIP_OPT_REMOVE_PATH, $directory);
         if ($v_list == 0) {
-            die("Error : '" . $archive->errorInfo() . "'");
+            die("Error : '" . wp_kses($archive->errorInfo(), MJTC_ALLOWED_TAGS) . "'");
         }
         $file = $path . '/alldownloads.zip';
         header('Content-Description: File Transfer');
@@ -301,11 +305,15 @@ class MJTC_attachmentModel {
         header('Content-Length: ' . filesize($file));
         flush();
         readfile($file);
-        @unlink($file);
+        if ( file_exists( $file ) ) {
+            wp_delete_file($file);
+        }
         $path = MJTC_PLUGIN_PATH;
         $path .= 'zipdownloads';
         $path .= '/' . $randomfolder;
-        @unlink($path . '/index.html');
+        if ( file_exists( $path . '/index.html' ) ) {
+            wp_delete_file($path . '/index.html');
+        }
         if (file_exists($path)) {
             @rmdir($path);
         }
@@ -324,7 +332,7 @@ class MJTC_attachmentModel {
             }
             $i = 0;
             while ($i < $length) {
-                $char = MJTC_majesticsupportphplib::MJTC_substr($possible, mt_rand(0, $maxlength - 1), 1);
+                $char = MJTC_majesticsupportphplib::MJTC_substr($possible, wp_rand(0, $maxlength - 1), 1);
                 if (!MJTC_majesticsupportphplib::MJTC_strstr($rndfoldername, $char)) {
                     if ($i == 0) {
                         if (ctype_alpha($char)) {

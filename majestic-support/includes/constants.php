@@ -190,6 +190,7 @@ if (!defined('MJTC_ALLOWED_TAGS')) {
             'data-image1' => array(),
             'data-image2' => array(),
             'data-gall' => array(),
+            'data-vbtype' => array(),
             'target' => array(),
             'data-tab-number' => array(),
             'style' => array(),

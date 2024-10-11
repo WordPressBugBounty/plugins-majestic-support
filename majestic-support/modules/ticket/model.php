@@ -685,7 +685,7 @@ class MJTC_ticketModel {
         if (in_array('agent', majesticsupport::$_active_addons) && majesticsupport::$_data['user_staff']) { //staff
             if(current_user_can('ms_support_ticket')){
                 majesticsupport::$_data['permission_granted'] = true;
-                MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(date("Y-m-d h:i:s"),'','ticket_time_start_',$id);
+                MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(gmdate("Y-m-d h:i:s"),'','ticket_time_start_',$id);
                 if(in_array('timetracking', majesticsupport::$_active_addons)){
                     majesticsupport::$_data['time_taken'] = MJTC_includer::MJTC_getModel('timetracking')->getTimeTakenByTicketId($id);
                 }
@@ -693,7 +693,7 @@ class MJTC_ticketModel {
                 majesticsupport::$_data['permission_granted'] = $this->validateTicketDetailForStaff($id);
                 if (majesticsupport::$_data['permission_granted']) { // validation passed
                     if(in_array('timetracking', majesticsupport::$_active_addons)){
-                        MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(date("Y-m-d h:i:s"),'','ticket_time_start_',$id);
+                        MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(gmdate("Y-m-d h:i:s"),'','ticket_time_start_',$id);
                         majesticsupport::$_data['time_taken'] = MJTC_includer::MJTC_getModel('timetracking')->getTimeTakenByTicketId($id);
                     }
                 }
@@ -703,7 +703,7 @@ class MJTC_ticketModel {
             if(current_user_can('ms_support_ticket') || current_user_can('ms_support_ticket_tickets')){
                 majesticsupport::$_data['permission_granted'] = true;
                 if(in_array('timetracking', majesticsupport::$_active_addons)){
-                    MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(date("Y-m-d h:i:s"),'','ticket_time_start_',$id);
+                    MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_addSessionNotificationDataToTable(gmdate("Y-m-d h:i:s"),'','ticket_time_start_',$id);
                     majesticsupport::$_data['time_taken'] = MJTC_includer::MJTC_getModel('timetracking')->getTimeTakenByTicketId($id);
                 }
             }
@@ -817,7 +817,7 @@ class MJTC_ticketModel {
                 // add random characters to $password until $length is reached
                 while ($i < $length) {
                     // pick a random character from the possible ones
-                    $char = MJTC_majesticsupportphplib::MJTC_substr($possible, mt_rand(0, $maxlength - 1), 1);
+                    $char = MJTC_majesticsupportphplib::MJTC_substr($possible, wp_rand(0, $maxlength - 1), 1);
                     if (!MJTC_majesticsupportphplib::MJTC_strstr($ticketid, $char)) {
                         if ($i == 0) {
                             if (ctype_alpha($char)) {
@@ -903,7 +903,7 @@ class MJTC_ticketModel {
             // add random characters to $password until $length is reached
             while ($i < $length) {
                 // pick a random character from the possible ones
-                $char = MJTC_majesticsupportphplib::MJTC_substr($possible, mt_rand(0, $maxlength - 1), 1);
+                $char = MJTC_majesticsupportphplib::MJTC_substr($possible, wp_rand(0, $maxlength - 1), 1);
                 if (!MJTC_majesticsupportphplib::MJTC_strstr($internalid, $char)) {
                     if ($i == 0) {
                         if (ctype_alpha($char)) {
@@ -1089,7 +1089,7 @@ class MJTC_ticketModel {
                         MJTC_message::MJTC_setMessage(esc_html(__('No purchase found with that code', 'majestic-support')), 'error');
                         return false;
                     }else{
-                        $envatoData = json_encode($res);
+                        $envatoData = wp_json_encode($res);
                     }
                 }
             }
@@ -1199,7 +1199,7 @@ class MJTC_ticketModel {
                 $customflagforadd=true;
                 $custom_field_namesforadd[]=$ufobj->field;
             }else if($ufobj->userfieldtype == 'date'){
-                $vardata = isset($data[$ufobj->field]) ? date("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime($data[$ufobj->field])) : '';
+                $vardata = isset($data[$ufobj->field]) ? gmdate("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime($data[$ufobj->field])) : '';
             }else{
                 $vardata = isset($data[$ufobj->field]) ? $data[$ufobj->field] : '';
             }
@@ -1231,7 +1231,7 @@ class MJTC_ticketModel {
                 }
             }
         }
-        $params = html_entity_decode(json_encode($params, JSON_UNESCAPED_UNICODE));
+        $params = html_entity_decode(wp_json_encode($params, JSON_UNESCAPED_UNICODE));
         $data['params'] = $params;
         //custom field code end
 
@@ -1354,7 +1354,7 @@ class MJTC_ticketModel {
                 $tokenarray['emailaddress'] = $data['email'];
                 $tokenarray['trackingid'] = $data['ticketid'];
                 $tokenarray['sitelink']=MJTC_includer::MJTC_getModel('majesticsupport')->getEncriptedSiteLink();
-                $token = json_encode($tokenarray);
+                $token = wp_json_encode($tokenarray);
                 include_once MJTC_PLUGIN_PATH . 'includes/encoder.php';
                 $encoder = new MJTC_encoder();
                 $encryptedtext = $encoder->MJTC_encrypt($token);
@@ -1418,7 +1418,7 @@ class MJTC_ticketModel {
         $params = majesticsupport::$_db->get_var($query);
         $decoded_params = json_decode($params,true);
         $decoded_params[$field] = $filename;
-        $encoded_params = json_encode($decoded_params);
+        $encoded_params = wp_json_encode($decoded_params);
         $query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET params = '" . esc_sql($encoded_params) . "' WHERE id = " . esc_sql($ticketid);
         majesticsupport::$_db->query($query);
         if (majesticsupport::$_db->last_error != null) {
@@ -2105,7 +2105,7 @@ class MJTC_ticketModel {
         if (!$lastreply)
             $lastreply = date_i18n('Y-m-d H:i:s');
         $days = majesticsupport::$_config['reopen_ticket_within_days'];
-        $date = date("Y-m-d H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime(date("Y-m-d H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($lastreply)) . " +" . esc_html($days) . " day"));
+        $date = gmdate("Y-m-d H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime(gmdate("Y-m-d H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($lastreply)) . " +" . esc_html($days) . " day"));
         if ($date < date_i18n('Y-m-d H:i:s'))
             return false;
         else
@@ -2285,7 +2285,7 @@ class MJTC_ticketModel {
             return;
         }
         if(majesticsupport::$_config['feedback_email_delay_type'] == 1){
-            $intrval_string = " date(DATE_ADD(closed,INTERVAL " . (int)majesticsupport::$_config['feedback_email_delay']." DAY)) < '".date("Y-m-d")."'";
+            $intrval_string = " date(DATE_ADD(closed,INTERVAL " . (int)majesticsupport::$_config['feedback_email_delay']." DAY)) < '".gmdate("Y-m-d")."'";
         }else{
             $intrval_string = " DATE_ADD(closed,INTERVAL " .(int) majesticsupport::$_config['feedback_email_delay'] . " HOUR) < '".date_i18n("Y-m-d H:i:s")."'";
         }
@@ -2312,7 +2312,9 @@ class MJTC_ticketModel {
         $query = "SELECT attachmentdir FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE id = ".esc_sql($id);
         $foldername = majesticsupport::$_db->get_var($query);
         $userpath = $path . '/' . $foldername.'/'.$filename;
-        unlink($userpath);
+        if ( file_exists( $userpath ) ) {
+            wp_delete_file($userpath);
+        }
         return ;
     }
 
@@ -2345,7 +2347,7 @@ class MJTC_ticketModel {
     function createTokenByEmailAndTrackingId($emailaddress, $trackingid) {
         include_once MJTC_PLUGIN_PATH . 'includes/encoder.php';
         $encoder = new MJTC_encoder();
-        $token = $encoder->MJTC_encrypt(json_encode(array('emailaddress' => $emailaddress, 'trackingid' => $trackingid)));
+        $token = $encoder->MJTC_encrypt(wp_json_encode(array('emailaddress' => $emailaddress, 'trackingid' => $trackingid)));
         return $token;
     }
 
@@ -2584,7 +2586,7 @@ class MJTC_ticketModel {
         // add random characters to $password until $length is reached
         while ($i < $length) {
             // pick a random character from the possible ones
-            $char = MJTC_majesticsupportphplib::MJTC_substr($possible, mt_rand(0, $maxlength - 1), 1);
+            $char = MJTC_majesticsupportphplib::MJTC_substr($possible, wp_rand(0, $maxlength - 1), 1);
             if (!MJTC_majesticsupportphplib::MJTC_strstr($foldername, $char)) {
                 if ($i == 0) {
                     if (ctype_alpha($char)) {
@@ -2603,7 +2605,7 @@ class MJTC_ticketModel {
     static function generateHash($id){
         if(!is_numeric($id))
             return null;
-        return MJTC_majesticsupportphplib::MJTC_safe_encoding(json_encode(MJTC_majesticsupportphplib::MJTC_safe_encoding($id)));
+        return MJTC_majesticsupportphplib::MJTC_safe_encoding(wp_json_encode(MJTC_majesticsupportphplib::MJTC_safe_encoding($id)));
     }
 
     function generateTicketToken(){
@@ -2612,7 +2614,7 @@ class MJTC_ticketModel {
         do {
             $count++;
             $token = "";
-            $length = rand(9,15);
+            $length = wp_rand(9,15);
             $possible = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
             // we refer to the length of $possible a few times, so let's grab it now
             $maxlength = MJTC_majesticsupportphplib::MJTC_strlen($possible);
@@ -2623,7 +2625,7 @@ class MJTC_ticketModel {
             // add random characters to $password until $length is reached
             while ($i < $length) {
                 // pick a random character from the possible ones
-                $char = MJTC_majesticsupportphplib::MJTC_substr($possible, mt_rand(0, $maxlength - 1), 1);
+                $char = MJTC_majesticsupportphplib::MJTC_substr($possible, wp_rand(0, $maxlength - 1), 1);
                 if (!MJTC_majesticsupportphplib::MJTC_strstr($token, $char)) {
                     if ($i == 0) {
                         if (ctype_alpha($char)) {

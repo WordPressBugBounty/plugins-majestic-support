@@ -14,7 +14,7 @@ class MJTC_reviewbox {
         }
         $current_count = get_option("majesticsupport_show_review_box_after");
         if($current_count === false) {
-            $date = date("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime("+30 days"));
+            $date = gmdate("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime("+30 days"));
             add_option("majesticsupport_show_review_box_after", $date);
             return;
         } else if($current_count < 35) {
@@ -22,7 +22,7 @@ class MJTC_reviewbox {
         }
         $date_to_show = get_option("majesticsupport_show_review_box_after");
         if($date_to_show !== false) {
-            $current_date = date("Y-m-d");
+            $current_date = gmdate("Y-m-d");
             if($current_date < $date_to_show) {
                 return;
             }

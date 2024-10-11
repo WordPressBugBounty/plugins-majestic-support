@@ -3,14 +3,15 @@
 /**
  * @package Majestic Support
  * @author Majestic Support
- * @version 1.0.4
+ * @version 1.0.5
  */
 /*
   Plugin Name: Majestic Support
   Plugin URI: https://www.majesticsupport.com
   Description: Majestic Support is a trusted open source ticket system. Majestic Support is a simple, easy to use, web-based customer support system. User can create ticket from front-end. Majestic Support comes packed with lot features than most of the expensive(and complex) support ticket system on market. Majestic Support provide you best industry Majestic Support system.
   Author: Majestic Support
-  Version: 1.0.4
+  Version: 1.0.5
+  License: GPLv3
   Text Domain: majestic-support
   
  */
@@ -65,7 +66,7 @@ class majesticsupport {
         self::$_data = array();
         self::$_search = array();
         self::$_captcha = array();
-        self::$_currentversion = '104';
+        self::$_currentversion = '105';
         self::$_addon_query = array('select'=>'','join'=>'','where'=>'');
         self::$_mjtcsession = MJTC_includer::MJTC_getObjectClass('wphdsession');
         global $wpdb;
@@ -131,7 +132,7 @@ class majesticsupport {
                     // restore colors data end
                     update_option('ms_currentversion', self::$_currentversion);
                     include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-                    MJTC_updates::MJTC_checkUpdates('104');
+                    MJTC_updates::MJTC_checkUpdates('105');
                     MJTC_includer::MJTC_getModel('majesticsupport')->updateColorFile();
                 }
             }
@@ -198,7 +199,7 @@ class majesticsupport {
     function majesticsupport_activation_redirect(){
         if (get_option('majesticsupport_do_activation_redirect')) {
             delete_option('majesticsupport_do_activation_redirect');
-            exit(wp_redirect(admin_url('admin.php?page=majesticsupport_postinstallation&mjslay=stepone')));
+            exit(esc_url(wp_redirect(admin_url('admin.php?page=majesticsupport_postinstallation&mjslay=stepone'))));
         }
     }
 
@@ -534,19 +535,19 @@ class majesticsupport {
                 $ticketid = MJTC_request::MJTC_getVar('majesticsupportid');
                 if (in_array('agent', majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) { //staff
                     if(current_user_can('ms_support_ticket')){
-                        $timecookies['ticket_time_start'][$ticketid] = date("Y-m-d h:i:s");
+                        $timecookies['ticket_time_start'][$ticketid] = gmdate("Y-m-d h:i:s");
                     }else{
                         majesticsupport::$_data['permission_granted'] = MJTC_includer::MJTC_getModel('ticket')->validateTicketDetailForStaff($ticketid);
                         if (majesticsupport::$_data['permission_granted']) { // validation passed
                             if(in_array('timetracking', majesticsupport::$_active_addons)){
-                                $timecookies['ticket_time_start'][$ticketid] = date("Y-m-d h:i:s");
+                                $timecookies['ticket_time_start'][$ticketid] = gmdate("Y-m-d h:i:s");
                             }
                         }
                     }
                 } else { // user
                     if(current_user_can('ms_support_ticket') || current_user_can('ms_support_ticket_tickets')){
                         if(in_array('timetracking', majesticsupport::$_active_addons)){
-                            $timecookies['ticket_time_start'][$ticketid] = date("Y-m-d h:i:s");
+                            $timecookies['ticket_time_start'][$ticketid] = gmdate("Y-m-d h:i:s");
                         }
                     }
                 }
@@ -591,7 +592,7 @@ class majesticsupport {
     public static function setusersearchcookies($cookiesval, $ms_search_array){
         if(!$cookiesval)
             return false;
-        $data = json_encode( $ms_search_array );
+        $data = wp_json_encode( $ms_search_array );
         $data = MJTC_majesticsupportphplib::MJTC_safe_encoding($data);
         MJTC_majesticsupportphplib::MJTC_setcookie('ms_ticket_search_data' , $data , 0 , COOKIEPATH);
         if ( SITECOOKIEPATH != COOKIEPATH ){
@@ -1045,7 +1046,7 @@ class majesticsupport {
 
         if(isset($args['mjsmod']) && isset($args['mjslay'])){
             // Get the original query parts
-            $redirect = @parse_url($permalink);
+            $redirect = wp_parse_url($permalink);
             if (!isset($redirect['query']))
                 $redirect['query'] = '';
 

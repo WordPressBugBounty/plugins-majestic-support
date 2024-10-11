@@ -9,10 +9,10 @@ class MJTC_formfield {
      */
 
     static function MJTC_text($name, $value, $extraattr = array()) {
-        $textfield = '<input type="text" name="' . $name . '" id="' . $name . '" value="' . $value . '" ';
+        $textfield = '<input type="text" name="' . esc_attr($name) . '" id="' . esc_attr($name) . '" value="' . esc_attr($value) . '" ';
         if (!empty($extraattr))
             foreach ($extraattr AS $key => $val)
-                $textfield .= ' ' . $key . '="' . $val . '"';
+                $textfield .= ' ' . esc_attr($key) . '="' . esc_attr($val) . '"';
         $textfield .= ' />';
         return $textfield;
     }
@@ -21,10 +21,10 @@ class MJTC_formfield {
      */
 
     static function MJTC_email($name, $value, $extraattr = array()) {
-        $textfield = '<input type="email" name="' . $name . '" id="' . $name . '" value="' . $value . '" ';
+        $textfield = '<input type="email" name="' . esc_attr($name) . '" id="' . esc_attr($name) . '" value="' . esc_attr($value) . '" ';
         if (!empty($extraattr))
             foreach ($extraattr AS $key => $val)
-                $textfield .= ' ' . $key . '="' . $val . '"';
+                $textfield .= ' ' . esc_attr($key) . '="' . esc_attr($val) . '"';
         $textfield .= ' />';
         return $textfield;
     }
@@ -34,10 +34,10 @@ class MJTC_formfield {
      */
 
     static function MJTC_password($name, $value, $extraattr = array()) {
-        $textfield = '<input type="password" name="' . $name . '" id="' . $name . '" value="' . $value . '" ';
+        $textfield = '<input type="password" name="' . esc_attr($name) . '" id="' . esc_attr($name) . '" value="' . esc_attr($value) . '" ';
         if (!empty($extraattr))
             foreach ($extraattr AS $key => $val)
-                $textfield .= ' ' . $key . '="' . $val . '"';
+                $textfield .= ' ' . esc_attr($key) . '="' . esc_attr($val) . '"';
         $textfield .= ' />';
         return $textfield;
     }
@@ -47,11 +47,11 @@ class MJTC_formfield {
      */
 
     static function MJTC_textarea($name, $value, $extraattr = array()) {
-        $textarea = '<textarea name="' . $name . '" id="' . $name . '" ';
+        $textarea = '<textarea name="' . esc_attr($name) . '" id="' . esc_attr($name) . '" ';
         if (!empty($extraattr))
             foreach ($extraattr AS $key => $val)
-                $textarea .= ' ' . $key . '="' . $val . '"';
-        $textarea .= ' >' . $value . '</textarea>';
+                $textarea .= ' ' . esc_attr($key) . '="' . esc_attr($val) . '"';
+        $textarea .= ' >' . esc_html($value) . '</textarea>';
         return $textarea;
     }
 
@@ -60,10 +60,10 @@ class MJTC_formfield {
      */
 
     static function MJTC_hidden($name, $value, $extraattr = array()) {
-        $textfield = '<input type="hidden" name="' . $name . '" id="' . $name . '" value="' . $value . '" ';
+        $textfield = '<input type="hidden" name="' . esc_attr($name) . '" id="' . esc_attr($name) . '" value="' . esc_attr($value) . '" ';
         if (!empty($extraattr))
             foreach ($extraattr AS $key => $val)
-                $textfield .= ' ' . $key . '="' . $val . '"';
+                $textfield .= ' ' . esc_attr($key) . '="' . esc_attr($val) . '"';
         $textfield .= ' />';
         return $textfield;
     }
@@ -73,10 +73,10 @@ class MJTC_formfield {
      */
 
     static function MJTC_submitbutton($name, $value, $extraattr = array()) {
-        $textfield = '<input type="submit" name="' . $name . '" id="' . $name . '" value="' . $value . '" ';
+        $textfield = '<input type="submit" name="' . esc_attr($name) . '" id="' . esc_attr($name) . '" value="' . esc_attr($value) . '" ';
         if (!empty($extraattr))
             foreach ($extraattr AS $key => $val)
-                $textfield .= ' ' . $key . '="' . $val . '"';
+                $textfield .= ' ' . esc_attr($key) . '="' . esc_attr($val) . '"';
         $textfield .= ' />';
         return $textfield;
     }
@@ -86,10 +86,10 @@ class MJTC_formfield {
      */
 
     static function MJTC_button($name, $value, $extraattr = array()) {
-        $textfield = '<input type="button" name="' . $name . '" id="' . $name . '" value="' . $value . '" ';
+        $textfield = '<input type="button" name="' . esc_attr($name) . '" id="' . esc_attr($name) . '" value="' . esc_attr($value) . '" ';
         if (!empty($extraattr))
             foreach ($extraattr AS $key => $val)
-                $textfield .= ' ' . $key . '="' . $val . '"';
+                $textfield .= ' ' . esc_attr($key) . '="' . esc_attr($val) . '"';
         $textfield .= ' />';
         return $textfield;
     }
@@ -99,10 +99,10 @@ class MJTC_formfield {
      */
 
     static function MJTC_select($name, $list, $defaultvalue, $title = '', $extraattr = array()) {
-        $selectfield = '<select name="' . $name . '" id="' . $name . '" ';
+        $selectfield = '<select name="' . esc_attr($name) . '" id="' . esc_attr($name) . '" ';
         if (!empty($extraattr))
             foreach ($extraattr AS $key => $val) {
-                $selectfield .= ' ' . $key . '="' . $val . '"';
+                $selectfield .= ' ' . esc_attr($key) . '="' . esc_attr($val) . '"';
             }
         $selectfield .= ' >';
         if ($title != '') {
@@ -111,9 +111,9 @@ class MJTC_formfield {
         if (!empty($list))
             foreach ($list AS $record) {
                 if ((is_array($defaultvalue) && in_array($record->id, $defaultvalue)) || $defaultvalue == $record->id)
-                    $selectfield .= '<option selected="selected" value="' . $record->id . '">' . esc_html(majesticsupport::MJTC_getVarValue($record->text)) . '</option>';
+                    $selectfield .= '<option selected="selected" value="' . esc_attr($record->id) . '">' . esc_html(majesticsupport::MJTC_getVarValue($record->text)) . '</option>';
                 else
-                    $selectfield .= '<option value="' . $record->id . '">' . esc_html(majesticsupport::MJTC_getVarValue($record->text)) . '</option>';
+                    $selectfield .= '<option value="' . esc_attr($record->id) . '">' . esc_html(majesticsupport::MJTC_getVarValue($record->text)) . '</option>';
             }
 
         $selectfield .= '</select>';
@@ -130,14 +130,14 @@ class MJTC_formfield {
         foreach ($list AS $value => $label) {
 
             $radiobutton .= '<div class="ms-formfield-radio-button-wrap" >';
-            $radiobutton .= '<input type="radio" name="' . $name . '" id="' . $name . $count . '" value="' . $value . '"';
+            $radiobutton .= '<input type="radio" name="' . esc_attr($name) . '" id="' . esc_attr($name) . esc_attr($count) . '" value="' . esc_attr($value) . '"';
             if ($defaultvalue == $value)
                 $radiobutton .= ' checked="checked"';
             if (!empty($extraattr))
                 foreach ($extraattr AS $key => $val) {
-                    $radiobutton .= ' ' . $key . '="' . $val . '"';
+                    $radiobutton .= ' ' . esc_attr($key) . '="' . esc_attr($val) . '"';
                 }
-            $radiobutton .= '/><label id="for' . $name. $count . '" for="' . $name . $count . '">' . $label . '</label>';
+            $radiobutton .= '/><label id="for' . esc_attr($name). esc_attr($count) . '" for="' . esc_attr($name) . esc_attr($count) . '">' . esc_html($label) . '</label>';
             $radiobutton .= '</div>';
             $count++;
         }
@@ -152,7 +152,7 @@ class MJTC_formfield {
         $checkbox = '';
         $count = 1;
         foreach ($list AS $value => $label) {
-            $checkbox .= '<input type="checkbox" name="' . $name . '" id="' . $name . $count . '" value="' . $value . '"';
+            $checkbox .= '<input type="checkbox" name="' . esc_attr($name) . '" id="' . esc_attr($name) . esc_attr($count) . '" value="' . esc_attr($value) . '"';
             if(is_array($defaultvalue)){
                 if (in_array($value, $defaultvalue))
                     $checkbox .= ' checked="checked"';
@@ -163,9 +163,9 @@ class MJTC_formfield {
 
             if (!empty($extraattr))
                 foreach ($extraattr AS $key => $val) {
-                    $checkbox .= ' ' . $key . '="' . $val . '"';
+                    $checkbox .= ' ' . esc_attr($key) . '="' . esc_attr($val) . '"';
                 }
-            $checkbox .= '/><label id="for' . $name . '" for="' . $name . $count . '">' . $label . '</label>';
+            $checkbox .= '/><label id="for' . esc_attr($name) . '" for="' . esc_attr($name) . esc_attr($count) . '">' . esc_html($label) . '</label>';
             $count++;
         }
         return $checkbox;

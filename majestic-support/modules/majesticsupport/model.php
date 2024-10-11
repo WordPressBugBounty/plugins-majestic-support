@@ -546,7 +546,7 @@ class MJTC_majesticsupportModel {
             }
         }
 
-        $result = json_encode($result);
+        $result = wp_json_encode($result);
 
         return $result;
     }
@@ -606,7 +606,7 @@ class MJTC_majesticsupportModel {
             $result['input'] = MJTC_majesticsupportphplib::MJTC_htmlentities($result['input']);
             $result['path'] = esc_html(__('Language code','majestic-support'));
         }
-        $result = json_encode($result);
+        $result = wp_json_encode($result);
         return $result;
     }
 
@@ -628,7 +628,7 @@ class MJTC_majesticsupportModel {
 
         if($lang_name == '' || $language_code == ''){
             $result['error'] = esc_html(__('Empty values','majestic-support'));
-            return json_encode($result);
+            return wp_json_encode($result);
         }
 
         $final_path = $path.'/majestic-support-'.$language_code.'.po';
@@ -639,10 +639,10 @@ class MJTC_majesticsupportModel {
 
         if(!array_key_exists($language_code, $langarray)){
             $result['error'] = $lang_name. ' ' . esc_html(__('Language is not installed','majestic-support'));
-            return json_encode($result);
+            return wp_json_encode($result);
         }elseif( ! is_writeable($path)){
             $result['error'] = $lang_name. ' ' . esc_html(__('Language directory is not writable','majestic-support')).': '.esc_url($path);
-            return json_encode($result);
+            return wp_json_encode($result);
         }
 
         if( ! file_exists($final_path)){
@@ -688,7 +688,7 @@ class MJTC_majesticsupportModel {
             }
         }
 
-        $result = json_encode($result);
+        $result = wp_json_encode($result);
 
         return $result;
 
@@ -699,7 +699,9 @@ class MJTC_majesticsupportModel {
         do_action('majesticsupport_load_wp_admin_file');
         $tmpfile = download_url( $url);
         copy( $tmpfile, $path );
-        @unlink( $tmpfile ); // must unlink afterwards
+        if ( file_exists( $tmpfile ) ) {
+            wp_delete_file( $tmpfile ); // must unlink afterwards
+        }
         //make mo for po file
         $this->phpmo_convert($path);
         return $result;
@@ -1273,7 +1275,7 @@ class MJTC_majesticsupportModel {
                 }
                 if(is_array($array) && isset($array['file'])){
                     $mjtc_tran_lang_exists = array("code" => $activated_lang, "lang_fullname" => $install_lang_name , "name" => $lang_name);
-                    $mjtc_tran_lang_exists = json_encode($mjtc_tran_lang_exists);
+                    $mjtc_tran_lang_exists = wp_json_encode($mjtc_tran_lang_exists);
                     update_option( 'mjtc_tran_lang_exists', $mjtc_tran_lang_exists);
                     return $mjtc_tran_lang_exists;
                 }else{
@@ -1305,7 +1307,7 @@ class MJTC_majesticsupportModel {
         if($days == -1) {
             add_option("majesticsupport_hide_review_box", "1");
         } else {
-            $date = date("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime("+".$days." days"));
+            $date = gmdate("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime("+".$days." days"));
             update_option("majesticsupport_show_review_box_after", $date);
         }
         return true;
@@ -1733,7 +1735,7 @@ class MJTC_majesticsupportModel {
                 break;
             case 'systememails':
                 $actionButton = "<a title=\"". esc_html(__('Add','majestic-support')) ."\" class=\"msadmin-add-link button\" href=\"?page=majesticsupport_email&mjslay=addemail\"><img alt=\"". esc_html(__('Add','majestic-support')) ."\" src=\"". esc_url(MJTC_PLUGIN_URL) ."includes/images/add-icon.png\" />". esc_html(__('Add Email', 'majestic-support')) ."</a>
-                <a target=\"blank\" href=\"#\" class=\"msadmin-video-link mjtc-cp-video-popup\" title=\"". esc_html(__('How to set SMTP', 'majestic-support')) ."\">
+                <a target=\"blank\" href=\"https://www.youtube.com/watch?v=JbR9MhSRH_s&t=1s\" class=\"msadmin-video-link mjtc-cp-video-popup\" title=\"". esc_html(__('How to set SMTP', 'majestic-support')) ."\">
                     <img alt=\"". esc_html(__('arrow','majestic-support')) ."\" src=\"". esc_url(MJTC_PLUGIN_URL) ."includes/images/watch-video.png\"/>
                 </a>";
                 $title = __("System Emails", 'majestic-support');

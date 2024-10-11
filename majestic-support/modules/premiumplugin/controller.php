@@ -8,6 +8,7 @@ class MJTC_premiumpluginController {
 
     function handleRequest() {
         $module = "premiumplugin";
+        majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
         if ($this->canAddLayout()) {
             $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'step1');
             switch ($layout) {
@@ -16,6 +17,18 @@ class MJTC_premiumpluginController {
                     majesticsupport::$_data['productcode'] = MJTC_includer::MJTC_getModel('configuration')->getConfigurationByConfigName('productcode');
                     majesticsupport::$_data['producttype'] = MJTC_includer::MJTC_getModel('configuration')->getConfigurationByConfigName('producttype');
                 break;
+                case 'admin_step2':
+                break;
+                case 'admin_step3':
+                break;
+                case 'admin_addonfeatures':
+                break;
+                case 'admin_addonstatus':
+                break;
+                case 'admin_missingaddon':
+                break;
+                default:
+                    exit;
             }
             $module =  'premiumplugin';
             MJTC_includer::MJTC_include_file($layout, $module);
@@ -23,12 +36,15 @@ class MJTC_premiumpluginController {
     }
 
     function canAddLayout() {
-        if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
-            return false;
-        elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
-            return false;
-        else
-            return true;
+        $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
+        if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
+            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
+                return false;
+            elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
+                return false;
+            else
+                return true;
+        }
     }
 
     function verifytransactionkey(){
@@ -59,11 +75,11 @@ class MJTC_premiumpluginController {
                }
             }
             if(is_array($result) && isset($result['status']) && $result['status'] == 1 ){ // means everthing ok
-                $resultaddon = json_encode($result);
+                $resultaddon = wp_json_encode($result);
                 $resultaddon = MJTC_majesticsupportphplib::MJTC_safe_encoding( $resultaddon );
                 $result['actual_transaction_key'] = $post_data['transactionkey'];
                 // in case of session not working
-                add_option('ms_addon_install_data',json_encode($result));
+                add_option('ms_addon_install_data',wp_json_encode($result));
                 $url = admin_url("admin.php?page=majesticsupport_premiumplugin&mjslay=step2");
                 wp_redirect($url);
                 return;
@@ -81,7 +97,7 @@ class MJTC_premiumpluginController {
         $array['status'] = 0;
         $array['message'] = $error;
         $array['transactionkey'] = $post_data['transactionkey'];
-        $array = json_encode( $array );
+        $array = wp_json_encode( $array );
         $array = MJTC_majesticsupportphplib::MJTC_safe_encoding($array);
         MJTC_majesticsupportphplib::MJTC_setcookie('ms_addon_return_data' , $array , 0, COOKIEPATH);
         if ( SITECOOKIEPATH != COOKIEPATH ){
@@ -116,7 +132,7 @@ class MJTC_premiumpluginController {
             $array['status'] = 0;
             $array['message'] = esc_html(__('Addon Installation Failed','majestic-support')).'!';
             $array['transactionkey'] = $post_data['transactionkey'];
-            $array = json_encode( $array );
+            $array = wp_json_encode( $array );
             $array = MJTC_majesticsupportphplib::MJTC_safe_encoding($array);
             MJTC_majesticsupportphplib::MJTC_setcookie('ms_addon_return_data' , $array , 0, COOKIEPATH);
             if ( SITECOOKIEPATH != COOKIEPATH ){
@@ -131,7 +147,7 @@ class MJTC_premiumpluginController {
 		    $site_url = MJTC_majesticsupportphplib::MJTC_str_replace("https://","",$site_url);
             $site_url = MJTC_majesticsupportphplib::MJTC_str_replace("http://","",$site_url);
         }
-        $url = 'https://majesticsupport.com/setup/index.php?token='.esc_attr($token).'&productcode='. json_encode($addon_json_array).'&domain='. esc_attr($site_url);
+        $url = 'https://majesticsupport.com/setup/index.php?token='.esc_attr($token).'&productcode='. wp_json_encode($addon_json_array).'&domain='. esc_attr($site_url);
 
         $install_count = 0;
 
@@ -156,7 +172,7 @@ class MJTC_premiumpluginController {
             $array['status'] = 0;
             $array['message'] = esc_html(__('Addon Installation Failed','majestic-support')).'!';
             $array['transactionkey'] = $post_data['transactionkey'];
-            $array = json_encode( $array );
+            $array = wp_json_encode( $array );
             $array = MJTC_majesticsupportphplib::MJTC_safe_encoding($array);
             MJTC_majesticsupportphplib::MJTC_setcookie('ms_addon_return_data' , $array , 0, COOKIEPATH);
             if ( SITECOOKIEPATH != COOKIEPATH ){
@@ -184,8 +200,12 @@ class MJTC_premiumpluginController {
             copy( $tmpfile, $path );
             $unzipfile = unzip_file( $path, $plugin_path);
 
-            @unlink( $path ); // must unlink afterwards
-            @unlink( $tmpfile ); // must unlink afterwards
+            if ( file_exists( $path ) ) {
+                wp_delete_file( $path ); // must unlink afterwards
+            }
+            if ( file_exists( $tmpfile ) ) {
+                wp_delete_file( $tmpfile ); // must unlink afterwards
+            }
 
             if ( is_wp_error( $unzipfile ) ) {
                 $array['data'] = array();
@@ -193,7 +213,7 @@ class MJTC_premiumpluginController {
                 $array['message'] = esc_html(__('Addon installation failed','majestic-support')).'.';
                 $array['message'] .= " ".wp_kses(majesticsupport::MJTC_getVarValue($unzipfile->get_error_message(), MJTC_ALLOWED_TAGS));
                 $array['transactionkey'] = $post_data['transactionkey'];
-                $array = json_encode( $array );
+                $array = wp_json_encode( $array );
                 $array = MJTC_majesticsupportphplib::MJTC_safe_encoding($array);
                 MJTC_majesticsupportphplib::MJTC_setcookie('ms_addon_return_data' , $array , 0, COOKIEPATH);
                 if ( SITECOOKIEPATH != COOKIEPATH ){
@@ -212,7 +232,7 @@ class MJTC_premiumpluginController {
             $error_string = $tmpfile->get_error_message();
             $array['message'] = esc_html(__('Addon Installation Failed, File download error','majestic-support')).'! '.$error_string;
             $array['transactionkey'] = $post_data['transactionkey'];
-            $array = json_encode( $array );
+            $array = wp_json_encode( $array );
             $array = MJTC_majesticsupportphplib::MJTC_safe_encoding($array);
             MJTC_majesticsupportphplib::MJTC_setcookie('ms_addon_return_data' , $array , 0, COOKIEPATH);
             if ( SITECOOKIEPATH != COOKIEPATH ){
