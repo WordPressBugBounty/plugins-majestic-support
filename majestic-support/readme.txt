@@ -4,7 +4,7 @@ Contributors: ahmadmj
 Donate link: https://majesticsupport.com
 Tags:  helpdesk, support, support desk, support plugin, ticket system
 Requires at least: 5.5
-Tested up to: 6.6.2
+Tested up to: 6.7
 Stable tag: 1.0.5
 Requires PHP: 7.4
 License: GPLv3
@@ -269,3 +269,15 @@ If you activate certain features in this plugin, the user's personal data, inclu
 
 = 1.0.0
 * Just release.
+
+== Frequently Asked Questions ==
+
+
+= Will Majestic Support work with my theme? =
+Yes; JS Help Desk will work with any theme.
+
+= Where can I report bugs or contribute to the project? =
+Bugs can be reported either in our support forum or preferably on the (https://majesticsupport.com).
+
+= How can I report security bugs? =
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/wp-job-portal)
