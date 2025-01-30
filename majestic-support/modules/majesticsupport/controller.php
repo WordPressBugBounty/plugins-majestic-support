@@ -16,13 +16,13 @@ class MJTC_majesticsupportController {
             switch ($layout) {
                 case 'admin_controlpanel':
 			        include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-			        MJTC_updates::MJTC_checkUpdates();
+			        MJTC_updates::MJTC_checkUpdates('106');
                     MJTC_includer::MJTC_getModel('majesticsupport')->getControlPanelDataAdmin();
                     break;
                 case 'controlpanel':
                     MJTC_includer::MJTC_getModel('majesticsupport')->getControlPanelData();
                     include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-                    MJTC_updates::MJTC_checkUpdates('101');
+                    MJTC_updates::MJTC_checkUpdates('106');
                     MJTC_includer::MJTC_getModel('majesticsupport')->updateColorFile();
                     break;
                 case 'admin_shortcodes':

@@ -113,7 +113,8 @@ class MJTC_gdprController {
         if (! wp_verify_nonce( $nonce, 'export-usereraserequest') ) {
             die( 'Security check Failed' );
         }
-        $uid  = MJTC_request::MJTC_getVar('majesticsupportid');
+        // get current user ID by function due to security reasons
+        $uid  = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
         $return_value = MJTC_includer::MJTC_getModel('gdpr')->setUserExportByuid($uid);
         if (!empty($return_value)) {
             // Push the report now!

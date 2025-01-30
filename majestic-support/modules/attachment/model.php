@@ -151,6 +151,9 @@ class MJTC_attachmentModel {
             $path = $path . '/attachmentdata';
             $path = $path . '/ticket/' . $foldername;
             $file = $path . '/'.$filename;
+            // remove this code after version "1.0.7"
+            MJTC_includer::MJTC_getModel('majesticsupport')->generateIndexFile($path);
+            // remove above code after version "1.0.7"
 
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
@@ -184,6 +187,9 @@ class MJTC_attachmentModel {
         $path = $path . '/attachmentdata';
         $path = $path . '/ticket/' . $foldername;
         $file = $path . '/'.$filename;
+        // remove this code after version "1.0.7"
+        MJTC_includer::MJTC_getModel('majesticsupport')->generateIndexFile($path);
+        // remove above code after version "1.0.7"
 
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
@@ -222,8 +228,13 @@ class MJTC_attachmentModel {
         $scanned_directory = [];
         foreach ($ticketattachment AS $ticketattachments) {
             $directory = $jpath . '/attachmentdata/ticket/' . $ticketattachments->attachmentdir . '/';
-        array_push($scanned_directory,$ticketattachments->filename);
+            array_push($scanned_directory,$ticketattachments->filename);
         }
+        // remove this code after version "1.0.7"
+        if (!empty($directory)) {
+            MJTC_includer::MJTC_getModel('majesticsupport')->generateIndexFile($directory);
+        }
+        // remove above code after version "1.0.7"
 
         $filelist = '';
         foreach ($scanned_directory AS $file) {
@@ -282,8 +293,13 @@ class MJTC_attachmentModel {
         $scanned_directory = [];
         foreach ($replyattachment AS $replyattachments) {
             $directory = $jpath . '/attachmentdata/ticket/' . $replyattachments->attachmentdir . '/';
-        array_push($scanned_directory,$replyattachments->filename);
+            array_push($scanned_directory,$replyattachments->filename);
         }
+        // remove this code after version "1.0.7"
+        if (!empty($directory)) {
+            MJTC_includer::MJTC_getModel('majesticsupport')->generateIndexFile($directory);
+        }
+        // remove above code after version "1.0.7"
 
         $filelist = '';
         foreach ($scanned_directory AS $file) {

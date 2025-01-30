@@ -295,7 +295,7 @@ class MJTC_premiumpluginModel {
             $site_url = MJTC_majesticsupportphplib::MJTC_str_replace("https://","",$site_url);
             $site_url = MJTC_majesticsupportphplib::MJTC_str_replace("http://","",$site_url);
         }
-        $url = 'https://majesticsupport.com/setup/index.php?token='.esc_attr($token).'&productcode='. wp_json_encode($addon_json_array).'&domain='. site_url();
+        $url = 'https://majesticsupport.com/setup/index.php?token='.esc_attr($token).'&productcode='. wp_json_encode($addon_json_array).'&domain='. $site_url;
         // verify token
         $verifytransactionkey = $this->verifytransactionkey($token, $url);
         if($verifytransactionkey['status'] == 0){

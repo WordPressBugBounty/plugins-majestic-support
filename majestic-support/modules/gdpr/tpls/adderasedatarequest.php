@@ -40,7 +40,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                             <?php echo esc_html(__('Export your data', 'majestic-support')) ?>
                         </div>
                         <div class="mjtc-support-heading-right">
-                            <a class="mjtc-support-add-download-btn" href="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'gdpr','task'=>'exportusereraserequest','action'=>'mstask','majesticsupportid'=> MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid() ,'mspageid'=>get_the_ID())),'export-usereraserequest')); ?>"><span
+                            <!-- jssupportticketid removed due to security reasons -->
+                            <a class="mjtc-support-add-download-btn" href="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'gdpr','task'=>'exportusereraserequest','action'=>'mstask','mspageid'=>get_the_ID())),'export-usereraserequest')); ?>"><span
                                     class="mjtc-support-add-img-wrp"></span><?php echo esc_html(__('Export', 'majestic-support')) ?></a>
                         </div>
                     </div>

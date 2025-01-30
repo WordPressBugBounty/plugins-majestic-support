@@ -2,10 +2,10 @@
 === Majestic Support - The Leading-Edge Help Desk & Customer Support Plugin ===
 Contributors: ahmadmj
 Donate link: https://majesticsupport.com
-Tags:  helpdesk, support, support desk, support plugin, ticket system
+Tags:  customer support, helpdesk, support desk, support plugin, ticket system
 Requires at least: 5.5
-Tested up to: 6.7
-Stable tag: 1.0.5
+Tested up to: 6.7.1
+Stable tag: 1.0.6
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -250,6 +250,9 @@ If you activate certain features in this plugin, the user's personal data, inclu
 * google fcm ([Google](https://policies.google.com/?hl=en))
 
 == Changelog ==
+= 1.0.6 =
+* Security update.
+
 = 1.0.5
 * Security update.
 
