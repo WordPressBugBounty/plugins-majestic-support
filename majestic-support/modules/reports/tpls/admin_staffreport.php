@@ -25,7 +25,7 @@ $majesticsupport_js ="
             var anchor = jQuery(this);
             jQuery(anchor).click(function (e) {
                 var id = jQuery(this).attr('data-id');
-                var name = jQuery(this).html();
+                var name = jQuery(this).attr('data-username')
                 jQuery('input#username-text').val(name);
                 jQuery('input#uid').val(id);
                 jQuery('div#userpopup').slideUp('slow', function () {
@@ -53,9 +53,10 @@ $majesticsupport_js ="
         });
         jQuery('form#userpopupsearch').submit(function (e) {
             e.preventDefault();
+            var username = jQuery('input#username').val();
             var name = jQuery('input#name').val();
             var emailaddress = jQuery('input#emailaddress').val();
-            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', name: name, emailaddress: emailaddress, mjsmod: 'agent', task: 'getusersearchstaffreportajax', '_wpnonce':'". esc_attr(wp_create_nonce("get-usersearch-staffreport-ajax"))."'}, function (data) {
+            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', username: username, name: name, emailaddress: emailaddress, mjsmod: 'agent', task: 'getusersearchstaffreportajax', '_wpnonce':'". esc_attr(wp_create_nonce("get-usersearch-staffreport-ajax"))."'}, function (data) {
                 if (data) {
                     jQuery('div#userpopup-records').html(data);
                     setUserLink();
@@ -114,7 +115,7 @@ $majesticsupport_js ="
 	    // redraw charts, dashboards, etc here
 	    chart.draw(data, options);
 	}
-	jQuery(window).resize(resizeCharts);
+	jQuery(window).resize(drawChart);
 ";
 wp_add_inline_script('majesticsupport-google-charts-handle',$majesticsupport_js);
 ?>	
@@ -354,16 +355,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 								<div class="mjtc-admin-staff-cnt">
 									<div class="mjtc-report-staff-image">
 										<?php
-											if($agent->photo){
-												$maindir = wp_upload_dir();
-												$path = $maindir['baseurl'];
-
-												$imageurl = $path."/".majesticsupport::$_config['data_directory']."/staffdata/staff_".$agent->id."/".$agent->photo;
-											}else{
-												$imageurl = MJTC_PLUGIN_URL."includes/images/user.png";
-											}
+										echo wp_kses_post(ms_get_avatar($agent->uid, 'mjtc-report-staff-pic'));
 										?>
-										<img alt="<?php echo esc_html(__('staff image', 'majestic-support')); ?>" class="mjtc-report-staff-pic" src="<?php echo esc_url($imageurl); ?>" />
 									</div>
 									<div class="mjtc-report-staff-cnt">
 										<div class="mjtc-report-staff-info mjtc-report-staff-name">

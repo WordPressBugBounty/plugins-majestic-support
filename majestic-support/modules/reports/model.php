@@ -314,7 +314,7 @@ class MJTC_reportsModel {
         majesticsupport::$_data['total'] = $total;
         majesticsupport::$_data[1] = MJTC_pagination::MJTC_getPagination($total , 'staffreports');
 
-        $query = "SELECT staff.photo,staff.id,staff.firstname,staff.lastname,staff.username,staff.email,user.display_name,user.user_email,user.user_nicename,
+        $query = "SELECT staff.photo,staff.id,staff.uid,staff.firstname,staff.lastname,staff.username,staff.email,user.display_name,user.user_email,user.user_nicename,
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 0 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($curdate) . "' AND date(created) <= '" . esc_sql($fromdate) . "' AND staffid = staff.id) AS openticket,
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 4 AND date(created) >= '" . esc_sql($curdate) . "' AND date(created) <= '" . esc_sql($fromdate) . "' AND staffid = staff.id) AS closeticket,
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 4 AND status != 0 AND date(created) >= '" . esc_sql($curdate) . "' AND date(created) <= '" . esc_sql($fromdate) . "' AND staffid = staff.id) AS answeredticket,
@@ -618,7 +618,7 @@ class MJTC_reportsModel {
         majesticsupport::$_data['total'] = $total;
         majesticsupport::$_data[1] = MJTC_pagination::MJTC_getPagination($total);
         // data
-        $query = "SELECT DISTINCT staff.photo,staff.id,staff.firstname,staff.lastname,staff.username,staff.email,user.display_name,user.user_email,user.user_nicename,
+        $query = "SELECT DISTINCT staff.photo,staff.id,staff.uid,staff.firstname,staff.lastname,staff.username,staff.email,user.display_name,user.user_email,user.user_nicename,
             (SELECT COUNT(ticket.id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.status = 0 AND (ticket.lastreply = '0000-00-00 00:00:00') AND date(ticket.created) >= '" . esc_sql($curdate) . "' AND date(ticket.created) <= '" . esc_sql($fromdate) . "' AND ticket.staffid = staff.id) AS openticket,
             (SELECT COUNT(ticket.id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.status = 4 AND date(ticket.created) >= '" . esc_sql($curdate) . "' AND date(ticket.created) <= '" . esc_sql($fromdate) . "' AND ticket.staffid = staff.id) AS closeticket,
             (SELECT COUNT(ticket.id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.isanswered = 1 AND ticket.status != 4 AND ticket.status != 0 AND date(ticket.created) >= '" . esc_sql($curdate) . "' AND date(ticket.created) <= '" . esc_sql($fromdate) . "' AND ticket.staffid = staff.id) AS answeredticket,
@@ -784,7 +784,7 @@ class MJTC_reportsModel {
         // Pagination
         $query = "SELECT COUNT(user.id)
                     FROM `".majesticsupport::$_wpprefixforuser."mjtc_support_users` AS user
-                    WHERE  ";
+                    WHERE user.wpuid != 0 AND ";
                     if(in_array('agent', majesticsupport::$_active_addons)){
                         $query .=" NOT EXISTS (SELECT id FROM `".majesticsupport::$_db->prefix."mjtc_support_staff` WHERE uid = user.id) AND  ";
                     }
@@ -802,7 +802,7 @@ class MJTC_reportsModel {
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 4 AND date(created) >= '" . esc_sql($curdate) . "' AND date(created) <= '" . esc_sql($fromdate) . "' AND uid = user.id) AS overdueticket,
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 4 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($curdate) . "' AND date(created) <= '" . esc_sql($fromdate) . "' AND uid = user.id) AS pendingticket
                     FROM `".majesticsupport::$_wpprefixforuser."mjtc_support_users` AS user
-                    WHERE  ";
+                    WHERE user.wpuid != 0 AND ";
                     if(in_array('agent', majesticsupport::$_active_addons)){
                         $query .=" NOT EXISTS (SELECT id FROM `".majesticsupport::$_db->prefix."mjtc_support_staff` WHERE uid = user.id) AND  ";
                     }
@@ -938,7 +938,7 @@ class MJTC_reportsModel {
 
         majesticsupport::$_data['line_chart_json_array'] = $json_array;
 
-        $query = "SELECT staff.photo,staff.id,staff.firstname,staff.lastname,staff.username,staff.email,user.display_name,user.user_email,user.user_nicename,
+        $query = "SELECT staff.photo,staff.id,staff.uid,staff.firstname,staff.lastname,staff.username,staff.email,user.display_name,user.user_email,user.user_nicename,
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE date(created) >= '" . esc_sql($curdate) . "' AND date(created) <= '" . esc_sql($fromdate) . "' AND staffid = staff.id) AS allticket,
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 0 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($curdate) . "' AND date(created) <= '" . esc_sql($fromdate) . "' AND staffid = staff.id) AS openticket,
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 4 AND date(created) >= '" . esc_sql($curdate) . "' AND date(created) <= '" . esc_sql($fromdate) . "' AND staffid = staff.id) AS closeticket,
@@ -959,7 +959,7 @@ class MJTC_reportsModel {
             }
         }
 
-        majesticsupport::$_data['staff_report'] =$agent;
+        majesticsupport::$_data['staff_report'] = $agent;
         // ticket ids for staff member on which he replied but are not assigned to him
         $ticketid_string = '';
         if(in_array('timetracking', majesticsupport::$_active_addons)){

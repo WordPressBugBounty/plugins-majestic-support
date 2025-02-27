@@ -22,6 +22,7 @@ class MJTC_ticketModel {
         $priority = majesticsupport::$_search['ticket']['priority'];
         $departmentid = majesticsupport::$_search['ticket']['departmentid'];
         $staffid = majesticsupport::$_search['ticket']['staffid'];
+        $status = majesticsupport::$_search['ticket']['status'];
         $sortby = majesticsupport::$_search['ticket']['sortby'];
         if (!empty($search_userfields)) {
             foreach ($search_userfields as $uf) {
@@ -76,6 +77,9 @@ class MJTC_ticketModel {
 
         if ($eddorderid != null && is_numeric($eddorderid))
             $inquery .= " AND ticket.eddorderid = ".esc_sql($eddorderid);
+
+        if ($status != null && is_numeric($status))
+            $inquery .= " AND ticket.status != 4 AND ticket.status != 5 AND ticket.status != 0 AND ticket.isanswered = ".esc_sql($status);
 
         $valarray = array();
         if (!empty($search_userfields)) {
@@ -151,6 +155,7 @@ class MJTC_ticketModel {
         majesticsupport::$_data['filter']['sortby'] = $sortby;
         majesticsupport::$_data['filter']['orderid'] = $orderid;
         majesticsupport::$_data['filter']['eddorderid'] = $eddorderid;
+        majesticsupport::$_data['filter']['status'] = $status;
 
         $userquery = '';
         $uid = MJTC_request::MJTC_getVar('uid');
@@ -206,7 +211,7 @@ class MJTC_ticketModel {
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
-        if(majesticsupport::$_config['count_on_myticket'] == 1){
+        //if(majesticsupport::$_config['count_on_myticket'] == 1){
             $query = "SELECT COUNT(ticket.id) "
                     . "FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket "
                     . "LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON ticket.departmentid = department.id "
@@ -241,7 +246,7 @@ class MJTC_ticketModel {
                     . "LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON ticket.priorityid = priority.id "
                     . "WHERE 1 = 1".$userquery;
             majesticsupport::$_data['count']['allticket'] = majesticsupport::$_db->get_var($query);
-        }
+        //}
         return;
     }
 
@@ -289,6 +294,7 @@ class MJTC_ticketModel {
             $orderid = isset(majesticsupport::$_search['ticket']) ? majesticsupport::$_search['ticket']['orderid'] : '';
             $eddorderid = isset(majesticsupport::$_search['ticket']) ? majesticsupport::$_search['ticket']['eddorderid'] : '';
             $staffid = isset(majesticsupport::$_search['ticket']) ? majesticsupport::$_search['ticket']['staffid'] : '';
+            $status = isset(majesticsupport::$_search['ticket']) ? majesticsupport::$_search['ticket']['status'] : '';
             $sortby = isset(majesticsupport::$_search['ticket']) ? majesticsupport::$_search['ticket']['sortby'] : '';
             $assignedtome = isset(majesticsupport::$_search['ticket']) ? majesticsupport::$_search['ticket']['assignedtome'] : '';
 
@@ -355,6 +361,10 @@ class MJTC_ticketModel {
                     $inquery .= " AND ticket.staffid = '".esc_sql($stfid)."'";
                     majesticsupport::$_data['filter']['assignedtome'] = $assignedtome;
                 }
+            }
+            if ($status != null) {
+                $inquery .= " AND ticket.status != 4 AND ticket.status != 5 AND ticket.status != 0 AND ticket.isanswered = '".esc_sql($status)."'";
+                majesticsupport::$_data['filter']['status'] = $status;
             }
             //Custom field search
 
@@ -490,7 +500,7 @@ class MJTC_ticketModel {
             if (majesticsupport::$_db->last_error != null) {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
             }
-            if(majesticsupport::$_config['count_on_myticket'] == 1){
+            // if(majesticsupport::$_config['count_on_myticket'] == 1){
                 $query = "SELECT COUNT(ticket.id) "
                         . "FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket "
                         . "LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON ticket.departmentid = department.id "
@@ -518,7 +528,7 @@ class MJTC_ticketModel {
                         . "LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON ticket.priorityid = priority.id "
                         . "WHERE ticket.uid = ".esc_sql($uid);
                 majesticsupport::$_data['count']['allticket'] = majesticsupport::$_db->get_var($query);
-            }
+            // }
         }
         return;
     }
@@ -573,7 +583,9 @@ class MJTC_ticketModel {
         if($allowed == true){
             $agent_conditions = "1 = 1";
         }else{
-            $agent_conditions = "ticket.staffid = ".esc_sql($staffid)." OR ticket.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = ".esc_sql($staffid).")";
+            if(is_numeric($staffid)) {
+                $agent_conditions = "ticket.staffid = ".esc_sql($staffid)." OR ticket.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = ".esc_sql($staffid).")";
+            }
         }
         //show specific user's tickets
         $userquery = "";
@@ -604,7 +616,7 @@ class MJTC_ticketModel {
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
-        if(majesticsupport::$_config['count_on_myticket'] == 1){
+        // if(majesticsupport::$_config['count_on_myticket'] == 1){
             $query = "SELECT COUNT(ticket.id)
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket
                         LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON ticket.departmentid = department.id
@@ -640,7 +652,7 @@ class MJTC_ticketModel {
                         LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON ticket.priorityid = priority.id
                         WHERE (".$agent_conditions.")  ".$userquery;
             majesticsupport::$_data['count']['allticket'] = majesticsupport::$_db->get_var($query);;
-        }
+        // }
         return;
     }
 
@@ -1002,8 +1014,9 @@ class MJTC_ticketModel {
     }
 
     function captchaValidate() {
+        $nonce_id = MJTC_request::MJTC_getVar('id');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-ticket') ) {
+        if (! wp_verify_nonce( $nonce, 'save-ticket-'.$nonce_id) ) {
             die( 'Security check Failed' );
         }
         if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()) {
@@ -1035,9 +1048,9 @@ class MJTC_ticketModel {
     }
 
     function storeTickets($data) {
-
+        $nonce_id = isset($data['id']) ? $data['id'] : '';
 		$nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-ticket') ) {
+        if (! wp_verify_nonce( $nonce, 'save-ticket-'.$nonce_id) ) {
             die( 'Security check Failed' );
         }
         if (isset($data['email'])) {
@@ -1199,7 +1212,8 @@ class MJTC_ticketModel {
                 $customflagforadd=true;
                 $custom_field_namesforadd[]=$ufobj->field;
             }else if($ufobj->userfieldtype == 'date'){
-                $vardata = isset($data[$ufobj->field]) ? gmdate("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime($data[$ufobj->field])) : '';
+		//gmdate makes error
+                $vardata = isset($data[$ufobj->field]) ? date("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime($data[$ufobj->field])) : '';
             }else{
                 $vardata = isset($data[$ufobj->field]) ? $data[$ufobj->field] : '';
             }
@@ -1414,6 +1428,7 @@ class MJTC_ticketModel {
     }
 
     function storeUploadFieldValueInParams($ticketid,$filename,$field){
+        if(!is_numeric($ticketid)) return false;
         $query = "SELECT params FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE id = ".esc_sql($ticketid);
         $params = majesticsupport::$_db->get_var($query);
         $decoded_params = json_decode($params,true);
@@ -1473,7 +1488,7 @@ class MJTC_ticketModel {
             }
             // delete replies
             MJTC_includer::MJTC_getModel('reply')->removeTicketReplies($id);
-        } else {
+        } else if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid() != 0) { // Not visitor {
             MJTC_message::MJTC_setMessage(esc_html(__('Ticket','majestic-support')).' '.esc_html(__('in use cannot be deleted', 'majestic-support')), 'error');
         }
 
@@ -1665,9 +1680,16 @@ class MJTC_ticketModel {
                     MJTC_message::MJTC_setMessage(esc_html(__('You are not allowed', 'majestic-support')), 'error');
                     return;
                 }
-            } else if (!$this->validateTicketAction($id, $internalid)) {
-                MJTC_message::MJTC_setMessage(esc_html(__('You are not allowed','majestic-support')), 'error');
-                return;
+            } else {
+                if(!current_user_can('manage_options')){
+                    // in case of user check for ticket owner
+                    $current_uid = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
+                    $ticket_uid = MJTC_includer::MJTC_getModel('ticket')->getUIdById($id);
+                    if ($current_uid != $ticket_uid) {
+                        MJTC_message::MJTC_setMessage(esc_html(__('You are not allowed','majestic-support')), 'error');
+                        return;
+                    }
+                }
             }
         }
         if (!$this->checkActionStatusSame($id, array('action' => 'closeticket'))) {
@@ -2303,6 +2325,7 @@ class MJTC_ticketModel {
     }
 
     function removeFileCustom($id,$key){
+        if(!is_numeric($id)) return false;
         $filename = MJTC_majesticsupportphplib::MJTC_str_replace(' ', '_', $key);
         $maindir = wp_upload_dir();
         $basedir = $maindir['basedir'];
@@ -2413,6 +2436,7 @@ class MJTC_ticketModel {
     }
 
     function validateTicketDetailForVisitor($id) {
+        if(!is_numeric($id)) return false;
         if (!isset($_COOKIE['majestic-support-token-tkstatus'])) {
             return false;
         }
@@ -2445,6 +2469,7 @@ class MJTC_ticketModel {
         switch ($array['action']) {
             case 'priority':
                 if(!is_numeric($id)) return false;
+                if(!is_numeric($array['id'])) return false;
                 $result = majesticsupport::$_db->get_var('SELECT COUNT(id) FROM `' . majesticsupport::$_db->prefix . 'mjtc_support_tickets` WHERE id = ' . esc_sql($id) . ' AND priorityid = ' . esc_sql($array['id']));
                 break;
             case 'markoverdue':
@@ -2504,7 +2529,7 @@ class MJTC_ticketModel {
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket
                         LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON ticket.departmentid = department.id
                         LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON ticket.priorityid = priority.id
-                        WHERE ticket.uid = ".esc_sql($uid)." AND (ticket.status = 0 OR ticket.status = 1) ORDER BY ticket.status DESC LIMIT $maxrecord";
+                        WHERE ticket.uid = ".esc_sql($uid)." AND (ticket.status = 0 OR ticket.status = 1) ORDER BY ticket.status DESC LIMIT ".esc_sql($maxrecord);
 
             if(in_array('agent',majesticsupport::$_active_addons)){
                 $staffid = MJTC_includer::MJTC_getModel('agent')->getStaffId($uid);
@@ -2515,7 +2540,7 @@ class MJTC_ticketModel {
                                 LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON ticket.departmentid = department.id
                                 LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON ticket.priorityid = priority.id
                                 LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff ON staff.uid = ticket.uid
-                                WHERE (ticket.staffid = ".esc_sql($staffid)." OR ticket.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = ".esc_sql($staffid).")) AND (ticket.status = 0 OR ticket.status = 1) ORDER BY ticket.status DESC LIMIT $maxrecord";
+                                WHERE (ticket.staffid = ".esc_sql($staffid)." OR ticket.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = ".esc_sql($staffid).")) AND (ticket.status = 0 OR ticket.status = 1) ORDER BY ticket.status DESC LIMIT ".esc_sql($maxrecord);
                 }
             }
             if(isset($query)){
@@ -2693,6 +2718,7 @@ class MJTC_ticketModel {
         $ms_search_array['departmentid'] = MJTC_majesticsupportphplib::MJTC_trim(MJTC_request::MJTC_getVar('departmentid' , ''));
         $ms_search_array['list'] = MJTC_majesticsupportphplib::MJTC_trim(MJTC_request::MJTC_getVar('list', null ,1));
         $ms_search_array['staffid'] = MJTC_majesticsupportphplib::MJTC_trim(MJTC_request::MJTC_getVar('staffid' , ''));
+        $ms_search_array['status'] = MJTC_majesticsupportphplib::MJTC_trim(MJTC_request::MJTC_getVar('status' , ''));
         $ms_search_array['sortby'] = MJTC_majesticsupportphplib::MJTC_trim(MJTC_request::MJTC_getVar('sortby' , ''));
         $ms_search_array['search_from_ticket'] = 1;
         if (!empty($search_userfields)) {
@@ -2770,6 +2796,11 @@ class MJTC_ticketModel {
         } else {
             $ms_search_array['staffid'] = '';
         }
+        if (MJTC_request::MJTC_getVar('ms-status' , '') != '') {
+            $ms_search_array['status'] = MJTC_majesticsupportphplib::MJTC_trim(MJTC_request::MJTC_getVar('ms-status' , ''));
+        } else {
+            $ms_search_array['status'] = '';
+        }
         if (MJTC_request::MJTC_getVar('sortby' , '') != '') {
             $ms_search_array['sortby'] = MJTC_majesticsupportphplib::MJTC_trim(MJTC_request::MJTC_getVar('sortby' , ''));
         } else {
@@ -2808,6 +2839,7 @@ class MJTC_ticketModel {
             $ms_search_array['priority'] = $ticket_search_cookie_data['priority'];
             $ms_search_array['departmentid'] = $ticket_search_cookie_data['departmentid'];
             $ms_search_array['staffid'] = $ticket_search_cookie_data['staffid'];
+            $ms_search_array['status'] = $ticket_search_cookie_data['status'];
             $ms_search_array['sortby'] = $ticket_search_cookie_data['sortby'];
             $ms_search_array['list'] = $ticket_search_cookie_data['list'];
             $ms_search_array['assignedtome'] = isset($ticket_search_cookie_data['assignedtome']) ? $ticket_search_cookie_data['assignedtome'] : null;
@@ -2835,6 +2867,7 @@ class MJTC_ticketModel {
         majesticsupport::$_search['ticket']['priority'] = isset($ms_search_array['priority']) ? $ms_search_array['priority'] : null;
         majesticsupport::$_search['ticket']['departmentid'] = isset($ms_search_array['departmentid']) ? $ms_search_array['departmentid'] : null;
         majesticsupport::$_search['ticket']['staffid'] = isset($ms_search_array['staffid']) ? $ms_search_array['staffid'] : null;
+        majesticsupport::$_search['ticket']['status'] = isset($ms_search_array['status']) ? $ms_search_array['status'] : null;
         majesticsupport::$_search['ticket']['sortby'] = isset($ms_search_array['sortby']) ? $ms_search_array['sortby'] : null;
         majesticsupport::$_search['ticket']['list'] = isset($ms_search_array['list']) ? $ms_search_array['list'] : 1;
         // frontend
@@ -2868,7 +2901,6 @@ class MJTC_ticketModel {
             $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_multiform` WHERE is_default = 1 ";
             $id = majesticsupport::$_db->get_row($query);
             if(isset($id)) {
-                
                 return $id->id;
             }
         }
@@ -2876,16 +2908,17 @@ class MJTC_ticketModel {
     }
 
     function MJTC_isFieldRequired(){
+        $field = MJTC_request::MJTC_getVar('field');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'is-field-required') ) {
+        if (! wp_verify_nonce( $nonce, 'is-field-required-'.$field) ) {
             die( 'Security check Failed' );
         }
-        $field = MJTC_request::MJTC_getVar('field');
         $query = "SELECT required  FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE  field ='".esc_sql($field)."'";
         return majesticsupport::$_db->get_var($query);
     }
 
     function getClosedBy($id){
+        if(!is_numeric($id)) return false;
         if ($id == 0) {
             $closedBy = esc_html(__('System', 'majestic-support'));
         } else if($id == -1){

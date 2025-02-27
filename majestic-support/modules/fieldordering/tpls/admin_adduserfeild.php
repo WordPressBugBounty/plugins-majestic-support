@@ -65,7 +65,10 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
         ?>
         <div id="msadmin-data-wrp">
             <?php if(isset(majesticsupport::$_data['formid'])){ $mformid = majesticsupport::$_data['formid']; }else{ $mformid = MJTC_includer::MJTC_getModel('ticket')->getDefaultMultiFormId(); } ?>
-            <form class="msadmin-form" id="adminForm" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_fieldordering&task=saveuserfeild&formid=$mformid"),"save-userfeild")); ?>">
+            <?php
+                $nonce_id = isset(majesticsupport::$_data[0]['userfield']->id) ? majesticsupport::$_data[0]['userfield']->id : '';
+                ?>
+            <form class="msadmin-form" id="adminForm" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_fieldordering&task=saveuserfeild&formid=$mformid"),"save-userfeild-".$nonce_id)); ?>">
                 <div class="mjtc-form-wrapper">
                     <div class="mjtc-form-title"><?php echo esc_html(__('Field Type', 'majestic-support')); ?><font class="required-notifier">*</font></div>
                     <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('userfieldtype', $fieldtypes, isset(majesticsupport::$_data[0]['userfield']->userfieldtype) ? majesticsupport::$_data[0]['userfield']->userfieldtype : 'text', '', array('class' => 'inputbox one mjtc-form-select-field', 'data-validation' => 'required', 'onchange' => 'toggleType(this.options[this.selectedIndex].value);')), MJTC_ALLOWED_TAGS); ?></div>

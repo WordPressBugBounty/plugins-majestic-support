@@ -99,6 +99,7 @@ ul.msadmin-sidebar-menu li.disabled-menu a.ms_mjtc-install-btn {float: right;col
 .mjtc-support-top-sec .mjtc-support-top-sec-left .mjtc-support-main-heading, .mjtc-support-top-sec-header .mjtc-support-top-sec-left-header .mjtc-support-main-heading{line-height: 35px;}
 /* user popup */
 div#multiformpopupblack {background: rgba(0,0,0,0.5);position: fixed;width: 100%;height: 100%;top: 0px;left: 0px;z-index: 9999;}
+div#internalnotespopupblack {background: rgba(0,0,0,0.5);position: fixed;width: 100%;height: 100%;top: 0px;left: 0px;z-index: 9988;}
 div#multiformpopup * {box-sizing: border-box;}
 div#multiformpopup{position: fixed;top:50%;left:50%;width:50%;z-index: 9999999999;transform: translate(-50%, -50%);background: #fff;box-sizing: border-box;max-height: 70%;overflow-x: hidden;overflow-y: auto;}
 div#multiformpopup .multiformpopup-top {float: left;width: 100%;background: #2a1abf;padding: 15px;}
@@ -325,6 +326,7 @@ form.mjtc-filter-form .mjtc-form-cust-rad-fld-wrp .mjtc-support-radio-box {float
 
 /* user popup */
 div#userpopupblack {background: rgba(0,0,0,0.5);position: fixed;width: 100%;height: 100%;top: 0px;left: 0px;z-index: 9999;}
+div#internalnotespopupblack {background: rgba(0,0,0,0.5);position: fixed;width: 100%;height: 100%;top: 0px;left: 0px;z-index: 9988;}
 div#userpopup * {box-sizing: border-box;}
 div#userpopup{position: fixed;top:50%;left:50%;width:50%;z-index: 9999999999;transform: translate(-50%, -50%);background: #fff;box-sizing: border-box;max-height: 70%;overflow-x: hidden;overflow-y: auto;}
 div#userpopup .userpopup-top {float: left;width: 100%;background: #2a1abf;padding: 15px;}
@@ -462,6 +464,7 @@ table#majestic-support-table.mjtc-admin-report-tickets tr td a {display: inline-
 .ms_gen_body{margin-bottom: 30px;border: 1px solid #e0e1e0; scroll-margin-top: 100px;padding-bottom: 15px}
 .ms_gen_body h2{font-size: 30px;padding: 0 0 20px 0;float: left;width: 100%;line-height: 1;}
 .ms_gen_body .mjtc-support-configuration-row .mjtc-support-configuration-value input,.ms_gen_body .mjtc-support-configuration-row .mjtc-support-configuration-value select,.ms_gen_body .mjtc-support-configuration-row .mjtc-support-configuration-value textarea{background-color: #f2f6ff !important;width: 100% !important;max-width: 100% !important;}
+.ms_gen_body .mjtc-support-configuration-row .mjtc-support-configuration-value input[name="del_logo_for_desktop_notfication"] {width: 17px !important;height: 17px !important;}
 .ms_gen_body .mjtc-support-configuration-row .mjtc-support-configuration-value .mjtc-support-configuration-description{font-size: 12px;}
 .ms_gen_body .mjtc-support-configuration-row .mjtc-support-configuration-video{float: left;width: 40%;}
 .ms_gen_body .mjtc-support-configuration-row .mjtc-support-configuration-btn{float: left;margin-left: 15px;border: 1px solid #2a1abf;padding: 11px 15px;text-decoration: none;height: 45px;border-radius: 3px;background-color: #2a1abf;color: #fff;box-shadow: 0 0 4px 1px rgba(0,0,0,0.2) !important;font-size: 15px;line-height: initial;}
@@ -733,7 +736,11 @@ div.mjtc-sprt-det-user div.mjtc-sprt-det-user-cnt div.mjtc-sprt-det-user-data .m
 .mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-note {float: left;color: #6c757d;text-transform: capitalize;padding-top: 5px;}
 .mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-email {float: left;color: #6c757d;padding-top: 5px;}
 .mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-date {float: right;color: #6c757d;}
-.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-time {float: right;color: #6c757d;margin-left: 10px;}
+.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-time {float: left;color: #6c757d;margin-left: 10px;}
+.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-wrp {float: right;margin-left: 10px;cursor: pointer;position: relative;margin-top: -10px;}
+.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-btn {float: right;padding: 5px 5px;border: 1px solid #ebecec;}
+.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-detail {position: absolute;top: 45px;right: 0;color: #6c757d;border: 1px solid #ebecec;box-shadow: 0px 3px 6px #aaa7a7;padding: 0px 8px;padding: 10px;min-width: 280px;display: none;background-color: #FFF;}
+.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-detail .mjtc-support-thread-read-status-row {float: left;width: 100%;color: #575455;line-height: 1.8;}
 .mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data.note-msg {color: #575455;line-height: 1.8;}
 .mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data.note-msg p {color: #575455;line-height: 1.8;margin: 10px 0 20px;}
 .mjtc-support-thread .mjtc-support-thread-cnt-btm {float: left;width: 100%;padding: 10px 0 0;border-top: 1px solid #e0e1e0;}
@@ -817,6 +824,7 @@ div.mjtc-sprt-det-user div.mjtc-sprt-det-user-cnt div.mjtc-sprt-det-user-data .m
 .ms-popup-wrapper .userpopup-top {background: #2a1abf;padding: 15px;}
 .ms-popup-wrapper .userpopup-top .userpopup-heading {display: inline-block;color: #fff;font-weight: bold;font-size: 20px;line-height: initial;text-transform: capitalize;}
 .ms-popup-wrapper .userpopup-top .userpopup-close {float: right;cursor: pointer;}
+.ms-popup-wrapper .userpopup-top .internalnotespopup-close {float: right;cursor: pointer;}
 .ms-popup-wrapper .mjtc-admin-popup-cnt {float: left;width: 100%;padding: 10px;}
 .ms-popup-wrapper .mjtc-admin-popup-cnt .mjtc-form-button {border-top: 0;padding: 0;}
 .ms-popup-wrapper .mjtc-admin-popup-cnt .mjtc-form-button .button {background: #2a1abf;color: #fff;border: 1px solid #2a1abf;}
@@ -2758,6 +2766,9 @@ div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msuppo
 	div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msupportadmin-help-btm-cnt a .msupportadmin-help-btm-cnt-img img {width: 100%;}
 	div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msupportadmin-help-btm-cnt a .msupportadmin-help-btm-cnt-title {width: 100% !important;text-align: center;}
 	div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msupportadmin-help-btm-cnt a .msupportadmin-help-btm-cnt-title span {font-size: 18px !important;padding: 10px 0 0!important;}
+		
+	/* Ticket Detail */
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-detail {min-width: 250px;}
 }
 
 @media only screen and (max-width: 1280px){

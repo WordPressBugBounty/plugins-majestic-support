@@ -119,6 +119,9 @@ div.mjtc-support-edit-options-wrp a.mjtc-button {float: right;}
 .mjtc-support-thread .mjtc-support-thread-image {width: 100%;}
 .mjtc-support-thread .mjtc-support-thread-cnt {width: 100%;padding: 20px;text-align: center;}
 .mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-person {float: none;display: inline-block;width: 100%;}
+.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-wrp {float: none;display: inline-block;margin: 14px 0 0;width: 100%;}
+.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-btn {float: none;display: inline-block;}
+.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-detail {left: 0;min-width: 100%}
 .mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-email {float: none;display: inline-block;width: 100%;}
 .mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-time {float: none;display: inline-block;width: 100%;}
 div.mjtc-support-detail-box div.mjtc-support-detail-left{width: 100%;padding: 10px;text-align: center;}

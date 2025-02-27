@@ -144,7 +144,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                         value="<?php echo esc_attr(wp_create_nonce('ms-support-register-nonce')); ?>" />
                     <div class="mjtc-support-form-btn-wrp">
                         <?php
-                        if($google_recaptcha_3 == true && MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()){ // to handle case of google recpatcha version 3
+                        if(!empty($google_recaptcha_3) && MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()){ // to handle case of google recpatcha version 3
                             echo wp_kses(MJTC_formfield::MJTC_button('save', esc_html(__('Register', 'majestic-support')), array('class' => 'mjtc-support-save-button g-recaptcha', 'data-callback' => 'onSubmit', 'data-action' => 'submit', 'data-sitekey' => esc_attr(majesticsupport::$_config['recaptcha_publickey']))), MJTC_ALLOWED_TAGS);
                         } else {
                             echo wp_kses(MJTC_formfield::MJTC_submitbutton('save', esc_html(__('Register', 'majestic-support')), array('class' => 'mjtc-support-save-button')), MJTC_ALLOWED_TAGS);

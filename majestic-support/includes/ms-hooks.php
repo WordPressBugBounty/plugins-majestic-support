@@ -110,6 +110,8 @@ function MJTC_add_new_member()
                 wp_set_password($user_pass, $new_user_id);
                 update_user_option($new_user_id, 'first_name', $user_first, true);
                 update_user_option($new_user_id, 'last_name', $user_last, true);
+                // Update the user's role according to configuration
+                wp_update_user(['ID'   => $new_user_id,'role' => $default_role,]);
                 MJTC_message::MJTC_setMessage(esc_html(__("User has been successfully registered", 'majestic-support')), 'updated');
             } else {
                 //Something's wrong
@@ -264,7 +266,9 @@ add_action('personal_options_update', 'MJTC_update_user_profile');
 
 function MJTC_update_user_profile($user_id)
 {
-
+    if(!is_numeric($user_id)){
+        return false;
+    }
     $nonce = majesticsupport::$_data['sanitized_args']['_wpnonce'];
     if (! wp_verify_nonce( $nonce, 'VERIFY-MAJESTIC-SUPPORT-INTERNAL-NONCE') ) {
         die( 'Security check Failed' );

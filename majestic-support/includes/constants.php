@@ -135,6 +135,7 @@ if (!defined('MJTC_ALLOWED_TAGS')) {
             'data-validation' => array(),
             'required' => array(),
             'multiple' => array(),
+            'data-nonce' => array(),
             'style' => array(),
         ),
         'option'      => array(
@@ -181,7 +182,7 @@ if (!defined('MJTC_ALLOWED_TAGS')) {
             'data-name' => array(),
             'data-email' => array(),
             'data-ticketid' => array(),
-            'data-name' => array(),
+            'data-username' => array(),
             'data-email' => array(),
             'message' => array(),
             'confirmmessage' => array(),

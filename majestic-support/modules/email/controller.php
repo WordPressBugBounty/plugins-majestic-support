@@ -46,8 +46,9 @@ class MJTC_emailController {
 
     static function saveemail() {
         
+        $id = MJTC_request::MJTC_getVar('id');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-email') ) {
+        if (! wp_verify_nonce( $nonce, 'save-email-'.$id) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -62,11 +63,11 @@ class MJTC_emailController {
     }
 
     static function deleteemail() {
+        $id = MJTC_request::MJTC_getVar('emailid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'delete-email') ) {
+        if (! wp_verify_nonce( $nonce, 'delete-email-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('emailid');
         MJTC_includer::MJTC_getModel('email')->removeEmail($id);
         if (is_admin()) {
             $url = admin_url("admin.php?page=majesticsupport_email&mjslay=emails");

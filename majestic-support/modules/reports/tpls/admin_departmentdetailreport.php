@@ -302,7 +302,7 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 									<div class="mjtc-admin-staff-wrapper mjtc-rep-tkt-list">
 										<div class="mjtc-admin-staff-cnt">
 											<div class="mjtc-report-staff-image">
-									            <?php  echo wp_kses(ms_get_avatar(MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById($ticket->uid)), MJTC_ALLOWED_TAGS); ?>
+									            <?php  echo wp_kses(ms_get_avatar($ticket->uid), MJTC_ALLOWED_TAGS); ?>
 											</div>
 											<div class="mjtc-report-staff-cnt">
 												<div class="mjtc-report-staff-info mjtc-report-staff-name">

@@ -76,10 +76,10 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                                 <?php echo esc_html(date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($request->created))); ?>
                             </td>
                             <td>
-                                <a title="<?php echo esc_attr(__('Erase identifying data', 'majestic-support'));?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure to erase identifying data', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_gdpr&task=eraseidentifyinguserdata&action=mstask&majesticsupportid='.esc_attr($request->uid),'erase-userdata'));?>">
+                                <a title="<?php echo esc_attr(__('Erase identifying data', 'majestic-support'));?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure to erase identifying data', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_gdpr&task=eraseidentifyinguserdata&action=mstask&majesticsupportid='.esc_attr($request->uid),'erase-userdata-'.esc_attr($request->uid)));?>">
                                     <?php echo esc_html(__('Erase identifying data', 'majestic-support'));?>
                                 </a>
-                                <a title="<?php echo esc_attr(__('Delete data', 'majestic-support'));?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_gdpr&task=deleteuserdata&action=mstask&majesticsupportid='.esc_attr($request->uid),'delete-userdata'));?>">
+                                <a title="<?php echo esc_attr(__('Delete data', 'majestic-support'));?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_gdpr&task=deleteuserdata&action=mstask&majesticsupportid='.esc_attr($request->uid),'delete-userdata-'.esc_attr($request->uid)));?>">
                                     <?php echo esc_html(__('Delete data', 'majestic-support'));?>
                                 </a>
                             </td>

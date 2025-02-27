@@ -240,7 +240,7 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                         <div class="mjtc-cp-tkt-list">
                                             <div class="mjtc-cp-tkt-list-left">
                                                 <div class="mjtc-cp-tkt-image">
-                                                    <?php echo wp_kses(ms_get_avatar(MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById($ticket->uid)), MJTC_ALLOWED_TAGS); ?>
+                                                    <?php echo wp_kses(ms_get_avatar($ticket->uid), MJTC_ALLOWED_TAGS); ?>
                                                 </div>
                                                 <div class="mjtc-cp-tkt-cnt">
                                                     <?php
@@ -459,15 +459,8 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                             <div class="mjtc-cp-tkt-list mjtc-cp-tkt-list-new">
                                                 <div class="mjtc-cp-tkt-list-text">
                                                     <span style="margin-right: 10px;">
-                                                        <?php if($agent->staffphoto) {
-                                                            $maindir = wp_upload_dir();
-                                                            $path = $maindir['baseurl'];
-                                                            $file = $path.'/'.esc_attr(majesticsupport::$_config['data_directory']).'/staffdata/staff_'.esc_html($agent->staffid).'/'.esc_html($agent->staffphoto);
-                                                        ?>
-                                                            <img alt="<?php echo esc_html(__('Agent','majestic-support')); ?>" class="mjtc-cp-addon-img" src="<?php echo esc_url($file);?> ">
-                                                        <?php } else {
-                                                            echo wp_kses(ms_get_avatar(MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById($agent->staffid)), MJTC_ALLOWED_TAGS);
-                                                        } ?>    
+                                                        <?php
+                                                        echo wp_kses(ms_get_avatar($agent->staffuid, 'mjtc-cp-addon-img'), MJTC_ALLOWED_TAGS); ?>
                                                     </span>
                                                     <?php echo esc_html($agent->staffname); ?>
                                                 </div>
@@ -2195,11 +2188,11 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/play-btn.png" />
                                 <?php echo esc_html(__('Fields Manager','majestic-support')); ?>
                             </a>
-                            <a target="_blank" href="#"
+                            <a target="_blank" href="https://www.youtube.com/watch?v=6xrHvIgRpZc"
                                 class="mjtc-cp-video-baner-btn mjtc-cp-video-baner-5">
                                 <img alt="<?php echo esc_html(__('arrow','majestic-support')); ?>"
                                     src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/play-btn.png" />
-                                <?php echo esc_html(__('Email Notification Problems','majestic-support')); ?>
+                                <?php echo esc_html(__('Install Add-ons','majestic-support')); ?>
                             </a>
                         </div>
 

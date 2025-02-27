@@ -124,11 +124,11 @@ class MJTC_ticketController {
     }
 
     function closeticket() {
+        $id = MJTC_request::MJTC_getVar('ticketid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'close-ticket') ) {
+        if (! wp_verify_nonce( $nonce, 'close-ticket-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('ticketid');
         $internalid = MJTC_request::MJTC_getVar('internalid');
         MJTC_includer::MJTC_getModel('ticket')->closeTicket($id, $internalid);
         if (is_admin()) {
@@ -165,8 +165,9 @@ class MJTC_ticketController {
     }
 
     static function saveticket() {
+        $id = MJTC_request::MJTC_getVar('id');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-ticket') ) {
+        if (! wp_verify_nonce( $nonce, 'save-ticket-'.$id) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -218,8 +219,9 @@ class MJTC_ticketController {
     }
 
     static function transferdepartment() {
+        $ticketid = MJTC_request::MJTC_getVar('ticketid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'transfer-department') ) {
+        if (! wp_verify_nonce( $nonce, 'transfer-department-'.$ticketid) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -234,8 +236,9 @@ class MJTC_ticketController {
     }
 
     static function assigntickettostaff() {
+        $ticketid = MJTC_request::MJTC_getVar('ticketid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'assign-ticket-to-staff') ) {
+        if (! wp_verify_nonce( $nonce, 'assign-ticket-to-staff-'.$ticketid) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -253,7 +256,7 @@ class MJTC_ticketController {
         $id = MJTC_request::MJTC_getVar('ticketid');
         $internalid = MJTC_request::MJTC_getVar('internalid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'delete-ticket') ) {
+        if (! wp_verify_nonce( $nonce, 'delete-ticket-'.$id) ) {
             die( 'Security check Failed' );
         }
         MJTC_includer::MJTC_getModel('ticket')->removeTicket($id, $internalid);
@@ -261,6 +264,8 @@ class MJTC_ticketController {
             $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=tickets");
         } elseif ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
             $url = majesticsupport::makeUrl(array('mjsmod'=>'agent', 'mjslay'=>'staffmyticket'));
+        } elseif (MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid() == 0) { // visitor
+            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$id));
         } else {
             $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'myticket'));
         }
@@ -271,7 +276,7 @@ class MJTC_ticketController {
     static function enforcedeleteticket() {
         $id = MJTC_request::MJTC_getVar('ticketid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'enforce-delete-ticket') ) {
+        if (! wp_verify_nonce( $nonce, 'enforce-delete-ticket-'.$id) ) {
             die( 'Security check Failed' );
         }
         MJTC_includer::MJTC_getModel('ticket')->removeEnforceTicket($id);
@@ -298,11 +303,11 @@ class MJTC_ticketController {
     }
 
     static function reopenticket() { // for user
+        $ticketid = MJTC_request::MJTC_getVar('ticketid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'reopen-ticket') ) {
+        if (! wp_verify_nonce( $nonce, 'reopen-ticket-'.$ticketid) ) {
             die( 'Security check Failed' );
         }
-        $ticketid = MJTC_request::MJTC_getVar('ticketid');
         $internalid = MJTC_request::MJTC_getVar('internalid');
         $data['ticketid'] = $ticketid;
         $data['internalid'] = $internalid;
@@ -318,8 +323,9 @@ class MJTC_ticketController {
     }
 
     static function actionticket() {
+        $ticketid = MJTC_request::MJTC_getVar('ticketid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'action-ticket') ) {
+        if (! wp_verify_nonce( $nonce, 'action-ticket-'.$ticketid) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -446,8 +452,9 @@ class MJTC_ticketController {
           exit;
     }
     static function downloadallforreply() {
+        $downloadid = MJTC_request::MJTC_getVar('downloadid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'download-all-for-reply') ) {
+        if (! wp_verify_nonce( $nonce, 'download-all-for-reply-'.$downloadid) ) {
             die( 'Security check Failed' );
         }
         MJTC_includer::MJTC_getModel('attachment')->getAllReplyDownloads();

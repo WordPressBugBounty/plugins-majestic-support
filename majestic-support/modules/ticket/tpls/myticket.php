@@ -1,6 +1,10 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-?>
+$ticketstatus = array(
+    (object) array('id' => '1', 'text' => esc_html(__('Replied', 'majestic-support'))),
+    (object) array('id' => '0', 'text' => esc_html(__('Waiting Reply', 'majestic-support')))
+);
+?> 
 <div class="ms-main-up-wrapper">
     <?php
 wp_enqueue_style('status-graph', MJTC_PLUGIN_URL . 'includes/css/status_graph.css');
@@ -325,11 +329,16 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 </div>
 
                                 <?php
-                                }
-                                 $customfields = MJTC_includer::MJTC_getObjectClass('customfields')->userFieldsForSearch(1);
+                                } ?>
+                                <div class="mjtc-col-md-3 mjtc-filter-field-wrp">
+                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('ms-status', $ticketstatus, isset(majesticsupport::$_data['filter']['status']) ? majesticsupport::$_data['filter']['status'] : '', esc_html(__('Select Status', 'majestic-support'))), MJTC_ALLOWED_TAGS); ?>
+                                </div>
+                                <?php
+                                $customfields = MJTC_includer::MJTC_getObjectClass('customfields')->userFieldsForSearch(1);
                                     foreach ($customfields as $field) {
                                         MJTC_includer::MJTC_getObjectClass('customfields')->MJTC_formCustomFieldsForSearch($field, $k);
-                                    }  ?>
+                                    }
+                                ?>
                             </div>
                             <div class="mjtc-col-md-5 mjtc-filter-button-wrp">
                                 <a href="#" class="mjtc-search-filter-btn" id="mjtc-search-filter-toggle-btn">
@@ -436,12 +445,12 @@ if (majesticsupport::$_config['offline'] == 2) {
                     <div class="mjtc-col-xs-12 mjtc-col-md-12 mjtc-support-wrapper">
                         <div class="mjtc-col-xs-12 mjtc-col-md-12 mjtc-support-toparea">
                             <div class="mjtc-col-xs-2 mjtc-col-md-2 mjtc-support-pic">
-                                <?php if (in_array('agent',majesticsupport::$_active_addons) && $ticket->staffphoto) { ?>
+                                <?php /* if (in_array('agent',majesticsupport::$_active_addons) && $ticket->staffphoto) { ?>
                                 <img class="mjtc-support-staff-img"
                                     src="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'agent','task'=>'getStaffPhoto','action'=>'mstask','majesticsupportid'=> $ticket->staffid ,'mspageid'=>get_the_ID())));?> ">
-                                <?php } else { ?>
-                                    <img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/user.png" />
-                                <?php } ?>
+                                <?php } else { */
+                                    echo wp_kses(ms_get_avatar($ticket->uid), MJTC_ALLOWED_TAGS);
+                                // } ?>
                             </div>
                             <div class="mjtc-col-xs-10 mjtc-col-md-6 mjtc-col-xs-10 mjtc-support-data mjtc-nullpadding">
                                 <div class="mjtc-col-xs-12 mjtc-col-md-12 mjtc-support-padding-xs mjtc-support-body-data-elipses name">

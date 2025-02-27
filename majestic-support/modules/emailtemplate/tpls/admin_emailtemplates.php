@@ -8,8 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
     </div>
     <div id="msadmin-data">
         <?php MJTC_includer::MJTC_getModel('majesticsupport')->getPageTitle('emailtemplates'); ?>
+        <?php
+            $nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
+        ?>
         <div id="msadmin-data-wrp">
-            <form method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("?page=majesticsupport_emailtemplate&task=saveemailtemplate"),"save-email-template")); ?>">
+            <form method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("?page=majesticsupport_emailtemplate&task=saveemailtemplate"),"save-email-template-".$nonce_id)); ?>">
                 <div class="mjtc-email-menu">
                     <span class="mjtc-email-menu-link <?php if (majesticsupport::$_data[1] == 'tk-nw') echo esc_attr('selected'); ?>"><a class="mjtc-email-link" href="?page=majesticsupport_emailtemplate&for=tk-nw" title="<?php echo esc_attr(__('New Ticket','majestic-support')); ?>"><?php echo esc_html(__('New Ticket', 'majestic-support')); ?></a></span>
                     <span class="mjtc-email-menu-link <?php if (majesticsupport::$_data[1] == 'sntk-tk') echo esc_attr('selected'); ?>"><a class="mjtc-email-link" href="?page=majesticsupport_emailtemplate&for=sntk-tk" title="<?php echo esc_attr(__('Agent Ticket','majestic-support')); ?>"><?php echo esc_html(__('Agent Ticket', 'majestic-support')); ?><?php if (!in_array('agent', majesticsupport::$_active_addons)) { ?><span style="color: red;"> *</span><?php } ?></a></span>

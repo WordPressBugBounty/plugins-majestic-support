@@ -51,7 +51,10 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                         <div class="mjtc-support-cont-main-wrapper">
                             <div class="mjtc-support-cont-wrapper mjtc-support-cont-wrapper-color">
                                 <div class="mjtc-support-add-form-wrapper">
-                                    <form class="mjtc-support-form" method="post" action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'task'=>'savesmartreply')),"save-smart-reply")); ?>">
+                                    <?php
+                                        $nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
+                                    ?>
+                                    <form class="mjtc-support-form" method="post" action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'task'=>'savesmartreply')),"save-smart-reply-".$nonce_id)); ?>">
                                         <div class="mjtc-support-from-field-wrp">
                                             <div class="mjtc-support-from-field-title">
                                                 <?php echo esc_html(__('Title', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span>

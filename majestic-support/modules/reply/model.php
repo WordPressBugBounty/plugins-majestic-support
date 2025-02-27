@@ -12,10 +12,11 @@ class MJTC_replyModel {
 
         do_action('reset_ms_aadon_query');
         do_action('ms_aadon_getreplies');// to prepare any addon based query (action is defined in two addons)
-        $query = "SELECT replies.*,replies.id AS replyid,user.user_email AS useremail,tickets.id ".majesticsupport::$_addon_query['select']."
+        $query = "SELECT replies.*,replies.id AS replyid,user.user_email AS useremail,viewer.display_name AS viewername,tickets.id,tickets.uid AS ticketsuid  ".majesticsupport::$_addon_query['select']."
                     FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS replies
                     JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS tickets ON  replies.ticketid = tickets.id
                     LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user ON  replies.uid = user.id
+                    LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS viewer ON  replies.viewed_by = viewer.id
                     ".majesticsupport::$_addon_query['join']."
                     WHERE tickets.id = " . esc_sql($id) . " ORDER By replies.id ASC";
         majesticsupport::$_data[4] = majesticsupport::$_db->get_results($query);
@@ -26,6 +27,40 @@ class MJTC_replyModel {
         $attachmentmodel = MJTC_includer::MJTC_getModel('attachment');
         foreach (majesticsupport::$_data[4] AS $reply) {
             $reply->attachments = $attachmentmodel->getAttachmentForReply($reply->id, $reply->replyid);
+            $current_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
+            $viewed_by = isset($current_user) ? $current_user : -1; //-1 for handle visitor case
+            $update_required = false; // Flag to determine if the update is needed
+
+            // Check if the reply has not been viewed
+            if (empty($reply->viewed_by)) {
+
+                // If the current user is an admin
+                if (is_admin()) {
+                    // Admin viewing someone else's reply and it's not staff
+                    if ($reply->uid != $current_user && empty($reply->staffid)) {
+                        $update_required = true; // Mark update as required
+                    }
+                } else { // If the current user is not an admin
+
+                    // Check if the 'agent' addon is active and the user is staff
+                    if (in_array('agent', majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
+                        // Check if the ticket owner is the reply owner
+                        if ($reply->ticketsuid == $reply->uid) {
+                            $update_required = true; // Mark update as required
+                        }
+                    } else { // If the user is not staff or the agent addon is inactive
+                        // Check if the ticket owner is not the reply owner
+                        if ($reply->ticketsuid != $reply->uid) {
+                            $update_required = true; // Mark update as required
+                        }
+                    }
+                }
+            }
+            // Execute the query if an update is required
+            if ($update_required) {
+                $query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_replies` SET viewed_by = " . esc_sql($viewed_by) . ", viewed_on = '" . esc_sql(date_i18n('Y-m-d H:i:s')) . "' WHERE id = " . esc_sql($reply->replyid);
+                majesticsupport::$_db->query($query);
+            }
         }
         return;
     }
@@ -56,8 +91,9 @@ class MJTC_replyModel {
     }
 
     function storeReplies($data) {
+        $nonce_id = $data['ticketid'];
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-reply') ) {
+        if (! wp_verify_nonce( $nonce, 'save-reply-'.$nonce_id) ) {
             die( 'Security check Failed' );
         }
         $checkduplicatereplies = $this->checkIsReplyDuplicate($data);

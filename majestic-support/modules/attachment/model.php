@@ -98,6 +98,7 @@ class MJTC_attachmentModel {
     }
 
     function getAttachmentImage($id){
+        if(!is_numeric($id)) return false;
         $query = "SELECT ticket.attachmentdir AS foldername,ticket.id AS ticketid,attach.filename  "
                 . " FROM `".majesticsupport::$_db->prefix."mjtc_support_attachments` AS attach "
                 . " JOIN `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket ON ticket.id = attach.ticketid "

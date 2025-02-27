@@ -40,6 +40,7 @@ $majesticsupport_css .= '
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-departmentid{width: 100%;border-radius: unset;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / 4% no-repeat;padding: 10px;line-height: initial;height: 50px;}
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-priorityid{width: 100%;border-radius: unset;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / 4% no-repeat ;padding: 10px;line-height: initial;height: 50px;}
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#staffid{width: 100%;border-radius: unset;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / 4% no-repeat ;padding: 10px;line-height: initial;height: 50px;}
+	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-status{width: 100%;border-radius: unset;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / 4% no-repeat ;padding: 10px;line-height: initial;height: 50px;}
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-wrapper div.mjtc-filter-form-fields-wrp input{width:100%;border-radius: unset;padding: 10px;line-height: initial;height: 50px;}
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-wrapper div.mjtc-filter-form-fields-wrp input#assignedtome1 {width: auto;}
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-wrapper div.mjtc-filter-form-fields-wrp label {display: inline-block;}
@@ -172,6 +173,7 @@ $majesticsupport_css .= '
 		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-departmentid{background-color:#fff;border:1px solid'.$color5.';color: '.$color4.';}
 		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-priorityid{background-color:#fff;border:1px solid'.$color5.';color: '.$color4.';}
 		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#staffid{background-color:#fff;border:1px solid'.$color5.';color: '.$color4.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-status{background-color:#fff;border:1px solid'.$color5.';color: '.$color4.';}
 		div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-wrapper div.mjtc-filter-value input.mjtc-support-input-field{background-color:'.$color3.';border:1px solid'.$color5.';}
 		div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-wrapper div.mjtc-filter-value select#ms-departmentid{background-color:'.$color3.';border:1px solid'.$color5.';}
 		div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-wrapper div.mjtc-filter-value select#ms-priorityid{background-color:'.$color3.';border:1px solid'.$color5.';}

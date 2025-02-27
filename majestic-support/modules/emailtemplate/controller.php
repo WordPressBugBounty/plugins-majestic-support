@@ -42,8 +42,9 @@ class MJTC_emailtemplateController {
     }
 
     static function saveemailtemplate() {
+        $id = MJTC_request::MJTC_getVar('id');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-email-template') ) {
+        if (! wp_verify_nonce( $nonce, 'save-email-template-'.$id) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');

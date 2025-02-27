@@ -2103,6 +2103,7 @@ class MJTC_emailModel {
 
     private function getDefaultSenderEmailAndName() {
         $emailid = majesticsupport::$_config['default_alert_email'];
+        if(!is_numeric($emailid)) return false;
         $query = "SELECT email,name FROM `" . majesticsupport::$_db->prefix . "mjtc_support_email` WHERE id = " . esc_sql($emailid);
         $email = majesticsupport::$_db->get_row($query);
         return $email;

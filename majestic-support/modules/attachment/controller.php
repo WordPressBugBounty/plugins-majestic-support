@@ -54,6 +54,10 @@ class MJTC_attachmentController {
 
     static function deleteattachment() {
         $id = MJTC_request::MJTC_getVar('id');
+        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $nonce, 'delete-attachement-'.$id)  && !is_admin()) {
+            die( 'Security check Failed' );
+        }
         $call_from = MJTC_request::MJTC_getVar('call_from','',1);
         MJTC_includer::MJTC_getModel('attachment')->removeAttachment($id);
         if (is_admin()) {

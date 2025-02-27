@@ -235,26 +235,33 @@ class MJTC_premiumpluginModel {
     }
 
     function MJTC_checkAddoneInfo($name){
+        // Load WordPress Plugin API
+        include_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+        // Get all installed plugins
+        $all_plugins = get_plugins();
         $slug = $name.'/'.$name.'.php';
-        if(file_exists(WP_PLUGIN_DIR . '/'.$slug) && is_plugin_active($slug)){
-            $status = esc_html(__("Activated",'majestic-support'));
-            $action = esc_html(__("Deactivate",'majestic-support'));
-            $actionClass = 'ms-admin-adons-status-Deactive';
-            $url = "plugins.php?s=".$name."&plugin_status=active";
-            $disabled = "disabled";
-            $class = "mjtc-btn-activated";
-            $availability = "-1";
-            $version = "";
-        }else if(file_exists(WP_PLUGIN_DIR . '/'.$slug) && !is_plugin_active($slug)){
-            $status = esc_html(__("Deactivated",'majestic-support'));
-            $action = esc_html(__("Activate",'majestic-support'));
-            $actionClass = 'ms-admin-adons-status-Active';
-            $url = "plugins.php?s=".$name."&plugin_status=inactive";
-            $disabled = "";
-            $class = "mjtc-btn-green mjtc-btn-active-now";
-            $availability = "1";
-            $version = "";
-        }else if(!file_exists(WP_PLUGIN_DIR . '/'.$slug)){
+        if (isset($all_plugins[$slug])) {
+            if(is_plugin_active($slug)){
+                $status = esc_html(__("Activated",'majestic-support'));
+                $action = esc_html(__("Deactivate",'majestic-support'));
+                $actionClass = 'ms-admin-adons-status-Deactive';
+                $url = "plugins.php?s=".$name."&plugin_status=active";
+                $disabled = "disabled";
+                $class = "mjtc-btn-activated";
+                $availability = "-1";
+                $version = "";
+            } else {
+                $status = esc_html(__("Deactivated",'majestic-support'));
+                $action = esc_html(__("Activate",'majestic-support'));
+                $actionClass = 'ms-admin-adons-status-Active';
+                $url = "plugins.php?s=".$name."&plugin_status=inactive";
+                $disabled = "";
+                $class = "mjtc-btn-green mjtc-btn-active-now";
+                $availability = "1";
+                $version = "";
+            }
+        } else {
             $status = esc_html(__("Not Installed",'majestic-support'));
             $action = esc_html(__("Install Now",'majestic-support'));
             $actionClass = 'ms-admin-adons-status-Install';

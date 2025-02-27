@@ -58,8 +58,9 @@ class MJTC_departmentController {
     }
 
     static function savedepartment() {
+        $id = MJTC_request::MJTC_getVar('id');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-department') ) {
+        if (! wp_verify_nonce( $nonce, 'save-department-'.$id) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -74,11 +75,11 @@ class MJTC_departmentController {
     }
 
     static function deletedepartment() {
+        $id = MJTC_request::MJTC_getVar('departmentid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'delete-department') ) {
+        if (! wp_verify_nonce( $nonce, 'delete-department-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('departmentid');
         MJTC_includer::MJTC_getModel('department')->removeDepartment($id);
         if (is_admin()) {
             $url = admin_url("admin.php?page=majesticsupport_department&mjslay=departments");
@@ -90,11 +91,11 @@ class MJTC_departmentController {
     }
 
     static function changestatus() {
+        $id = MJTC_request::MJTC_getVar('departmentid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'change-status') ) {
+        if (! wp_verify_nonce( $nonce, 'change-status-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('departmentid');
         MJTC_includer::MJTC_getModel('department')->changeStatus($id);
         $url = admin_url("admin.php?page=majesticsupport_department&mjslay=departments");
         $pagenum = MJTC_request::MJTC_getVar('pagenum');
@@ -105,11 +106,11 @@ class MJTC_departmentController {
     }
 
     static function changedefault() {
+        $id = MJTC_request::MJTC_getVar('departmentid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'change-default') ) {
+        if (! wp_verify_nonce( $nonce, 'change-default-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('departmentid');
         $default = MJTC_request::MJTC_getVar('default',null,0);
         MJTC_includer::MJTC_getModel('department')->changeDefault($id,$default);
         $url = admin_url("admin.php?page=majesticsupport_department&mjslay=departments");
@@ -121,11 +122,11 @@ class MJTC_departmentController {
     }
 
     static function ordering() {
+        $id = MJTC_request::MJTC_getVar('departmentid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'ordering') ) {
+        if (! wp_verify_nonce( $nonce, 'ordering-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('departmentid');
         MJTC_includer::MJTC_getModel('department')->setOrdering($id);
         $pagenum = MJTC_request::MJTC_getVar('pagenum');
         $url = "admin.php?page=majesticsupport_department&mjslay=departments";

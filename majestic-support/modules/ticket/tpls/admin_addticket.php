@@ -26,7 +26,7 @@ $majesticsupport_js ="
             var anchor = jQuery(this);
             jQuery(anchor).click(function (e) {
                 var id = jQuery(this).attr('data-id');
-                var name = jQuery(this).html();
+                var name = jQuery(this).attr('data-username');
                 var email = jQuery(this).attr('data-email');
                 var displayname = jQuery(this).attr('data-name');
                 jQuery('input#username-text').val(name);
@@ -255,7 +255,10 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                     </div>
                 </div>
             </div>
-            <form class="msadmin-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_ticket&task=saveticket"),"save-ticket")); ?>" id="adminTicketform" enctype="multipart/form-data">
+            <?php
+            $nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
+            ?>
+            <form class="msadmin-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_ticket&task=saveticket"),"save-ticket-".$nonce_id)); ?>" id="adminTicketform" enctype="multipart/form-data">
                 <?php
                     $i = '';
                     $requiredTxt = '&nbsp;<span style="color: red;" >*</span>';
@@ -359,7 +362,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                                             if ($field->visible_field != null) {
                                                 $visibleparams = MJTC_includer::MJTC_getModel('fieldordering')->MJTC_getDataForVisibleField($field->visible_field);
                                                 foreach ($visibleparams as $visibleparam) {
-                                                    $wpnonce = wp_create_nonce("is-field-required");
+                                                    $wpnonce = wp_create_nonce("is-field-required-".$visibleparam->visibleParentField);
                                                     $msVisibleFunction .= " MJTC_getDataForVisibleField('".$wpnonce."', this.value, '" . $visibleparam->visibleParent . "','" . $visibleparam->visibleParentField . "','".$visibleparam->visibleValue."','".$visibleparam->visibleCondition."');";
                                                     //for default value
                                                     if (($visibleparam->visibleValue == $departmentid && $visibleparam->visibleCondition == 1) || ($visibleparam->visibleValue != $departmentid && $visibleparam->visibleCondition == 0)) {

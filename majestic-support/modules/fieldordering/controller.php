@@ -87,11 +87,11 @@ class MJTC_fieldorderingController {
     }
 
     static function changepublishstatus() {
+        $id = MJTC_request::MJTC_getVar('fieldorderingid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'change-publish-status') ) {
+        if (! wp_verify_nonce( $nonce, 'change-publish-status-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('fieldorderingid');
         $fieldfor = MJTC_request::MJTC_getVar('fieldfor');
         if($fieldfor == ''){
             $fieldfor = majesticsupport::$_data['fieldfor'];
@@ -105,11 +105,11 @@ class MJTC_fieldorderingController {
     }
 
     static function changevisitorpublishstatus() {
+        $id = MJTC_request::MJTC_getVar('fieldorderingid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'change-visitor-publish-status') ) {
+        if (! wp_verify_nonce( $nonce, 'change-visitor-publish-status-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('fieldorderingid');
         $fieldfor = MJTC_request::MJTC_getVar('fieldfor');
         if($fieldfor == ''){
             $fieldfor = majesticsupport::$_data['fieldfor'];
@@ -123,11 +123,11 @@ class MJTC_fieldorderingController {
     }
 
     static function changerequiredstatus() {
+        $id = MJTC_request::MJTC_getVar('fieldorderingid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'change-required-status') ) {
+        if (! wp_verify_nonce( $nonce, 'change-required-status-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('fieldorderingid');
         $fieldfor = MJTC_request::MJTC_getVar('fieldfor');
         if($fieldfor == ''){
             $fieldfor = majesticsupport::$_data['fieldfor'];
@@ -141,8 +141,9 @@ class MJTC_fieldorderingController {
     }
 
     static function saveuserfeild() {
+        $id = MJTC_request::MJTC_getVar('id');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-userfeild') ) {
+        if (! wp_verify_nonce( $nonce, 'save-userfeild-'.$id) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -163,8 +164,9 @@ class MJTC_fieldorderingController {
     }
 
     static function savefeild() {
+        $id = MJTC_request::MJTC_getVar('id');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-feild') ) {
+        if (! wp_verify_nonce( $nonce, 'save-feild-'.$id) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -184,11 +186,11 @@ class MJTC_fieldorderingController {
     }
 
     static function removeuserfeild() {
+        $id = MJTC_request::MJTC_getVar('majesticsupportid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'remove-userfeild') ) {
+        if (! wp_verify_nonce( $nonce, 'remove-userfeild-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('majesticsupportid');
         $fieldfor = MJTC_request::MJTC_getVar('fieldfor');
         if($fieldfor == ''){
             $fieldfor = majesticsupport::$_data['fieldfor'];

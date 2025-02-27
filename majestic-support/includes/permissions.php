@@ -6,6 +6,9 @@ if (!defined('ABSPATH'))
 class MJTC_permissions {
 
     static function MJTC_checkPermission($userid, $permissionfor) {
+        if(!is_numeric($userid)){
+            return false;
+        }
         $query = "SELECT perm_allowed.status
 					FROM `" . majesticsupport::$_db->prefix . "jsjobs_permissions` AS perm
 					JOIN `" . majesticsupport::$_db->prefix . "jsjobs_permissions_allowed` AS perm_allowed ON perm_allowed.permissionid = perm.id

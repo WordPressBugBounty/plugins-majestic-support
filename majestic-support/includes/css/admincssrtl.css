@@ -207,6 +207,7 @@ div#userpopup .userpopup-search form .userpopup-fields-wrp .userpopup-btn-wrp in
 .userpopup-search-history-row .userpopup-search-history-col {float: right;border-left: 1px solid #e0e1e0;border-right: 0;}
 .userpopup-search-history-row .userpopup-search-history-col:last-child {text-align: right;}
 .ms-popup-wrapper .userpopup-top .userpopup-close {float: left;}
+.ms-popup-wrapper .userpopup-top .internalnotespopup-close {float: left;}
 .ms-merge-popup-wrapper .mjtc-support-wrapper .mjtc-support-data .mjtc-support-title {margin-right: 0;margin-left: 3px;}
 .ms-merge-popup-wrapper .mjtc-support-wrapper .mjtc-support-data1 .mjtc-row .mjtc-col-md-6 {float: right;}
 .ms-merge-popup-wrapper form .mjtc-form-wrapper .mjtc-merge-form-wrp {float: right;}
@@ -246,7 +247,11 @@ div.mjtc-sprt-det-actn-btn-wrp a.mjtc-sprt-det-actn-btn{float: right;}
 .mjtc-support-thread .mjtc-support-thread-image {float: right;}
 .mjtc-support-thread .mjtc-support-thread-cnt {padding-right: 15px;}
 .mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-person {float: right;}
-.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-time {float: left;margin-right: 10px;margin-left: 0;}
+.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-time {float: right;margin-right: 10px;margin-left: 0;}
+.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-wrp {float: left;margin-left: 0px;margin-right: 10px;}
+.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-btn {float: right;}
+.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-detail {right: auto;left: 0;}
+.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-detail .mjtc-support-thread-read-status-row b {float: right;}
 .mjtc-support-thread .mjtc-support-thread-cnt-btm .mjtc-support-thread-date {float: right;}
 .mjtc-support-thread .mjtc-support-thread-actions {float: left;}
 .mjtc-support-thread-add-btn .mjtc-support-thread-add-btn-link img {margin-right: 0;margin-left: 3px;}

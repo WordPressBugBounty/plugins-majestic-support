@@ -293,3 +293,5 @@ div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-suppo
 	
 	/* download button */
 	.my-download-file-btn {vertical-align: top;margin: 0px 2px;padding: 0px 8px;display: inline-block;text-decoration: none;cursor: pointer;border: 1px solid;border-radius: 3px;white-space: nowrap;min-height: 30px;font-size: 13px;line-height: 2.15384615;}
+	/*Loading css*/
+	div#mstran_loading {display: none;z-index: 9999;position: fixed;top: 40%;left: calc(50% - 64px);}

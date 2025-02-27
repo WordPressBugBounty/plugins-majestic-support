@@ -195,16 +195,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                     <div class="nopadding mjtc-festaffreport-img">
                         <div class="mjtc-report-staff-image-wrapper">
                             <?php
-                                        if($agent->photo){
-                                            $maindir = wp_upload_dir();
-                                            $path = $maindir['baseurl'];
-
-                                            $imageurl = $path."/".majesticsupport::$_config['data_directory']."/staffdata/staff_".$agent->id."/".$agent->photo;
-                                        }else{
-                                            $imageurl = MJTC_PLUGIN_URL."includes/images/defaultprofile.png";
-                                        }
-                                    ?>
-                            <img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" class="mjtc-report-staff-pic" src="<?php echo esc_url($imageurl); ?>" />
+                            echo wp_kses_post(ms_get_avatar($agent->uid, 'mjtc-report-staff-pic')); ?>
                         </div>
                         <div class="mjtc-report-staff-cnt-wrapper">
                             <div class="mjtc-report-staff-name">

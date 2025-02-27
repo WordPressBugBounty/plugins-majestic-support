@@ -4,8 +4,8 @@ Contributors: ahmadmj
 Donate link: https://majesticsupport.com
 Tags:  customer support, helpdesk, support desk, support plugin, ticket system
 Requires at least: 5.5
-Tested up to: 6.7.1
-Stable tag: 1.0.7
+Tested up to: 6.7.2
+Stable tag: 1.0.8
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -250,6 +250,12 @@ If you activate certain features in this plugin, the user's personal data, inclu
 * google fcm ([Google](https://policies.google.com/?hl=en))
 
 == Changelog ==
+= 1.0.8 =
+* Add status filter on ticket listing
+* Add configuration base message read icon for administrator on ticket detail
+* Add configuration base message read icon for agent on ticket detail
+* Add configuration base message read icon for user on ticket detail
+
 = 1.0.7 =
 * Security update.
 
@@ -286,4 +292,4 @@ Yes; JS Help Desk will work with any theme.
 Bugs can be reported either in our support forum or preferably on the (https://majesticsupport.com).
 
 = How can I report security bugs? =
-You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/wp-job-portal)
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/majestic-support)

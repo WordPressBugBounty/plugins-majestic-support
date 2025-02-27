@@ -105,14 +105,14 @@ MJTC_message::MJTC_getMessage(); ?>
                                     <?php $url = '?page=majesticsupport_priority&task=makedefault&action=mstask&priorityid='.esc_attr($priority->id);
                                     if($pagenum > 1){
                                         $url .= '&pagenum=' . $pagenum;
-                                    }?><a title="<?php echo esc_attr(__('Default','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'make-default')); ?>" ><img alt="<?php echo esc_html(__('Default','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/<?php echo esc_attr($isdefault); ?>" /></a></td>
+                                    }?><a title="<?php echo esc_attr(__('Default','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'make-default-'.$priority->id)); ?>" ><img alt="<?php echo esc_html(__('Default','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/<?php echo esc_attr($isdefault); ?>" /></a></td>
                                 <td><span class="majestic-support-table-responsive-heading"><?php
                             echo esc_html(__('Color', 'majestic-support'));
                             echo esc_html(" : ");
                             ?></span> <span class="mjtc-support-admin-prirrity-color" style="background:<?php echo esc_attr($priority->prioritycolour); ?>;color:#ffffff;"> <?php echo esc_html($priority->prioritycolour); ?></span></td>
                                 <td>
                                     <a title="<?php echo esc_attr(__('Edit','majestic-support')); ?>" class="action-btn" href="?page=majesticsupport_priority&mjslay=addpriority&majesticsupportid=<?php echo esc_attr($priority->id); ?>"><img alt="<?php echo esc_html(__('Edit','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/edit.png" /></a>&nbsp;&nbsp;
-                                    <a title="<?php echo esc_attr(__('Delete','majestic-support')); ?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_priority&task=deletepriority&action=mstask&priorityid='.esc_attr($priority->id),'delete-priority'));?>"><img alt="<?php echo esc_html(__('Delete','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/delete.png" /></a>
+                                    <a title="<?php echo esc_attr(__('Delete','majestic-support')); ?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_priority&task=deletepriority&action=mstask&priorityid='.esc_attr($priority->id),'delete-priority-'.$priority->id));?>"><img alt="<?php echo esc_html(__('Delete','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/delete.png" /></a>
                                 </td>
                             </tr>
                         <?php

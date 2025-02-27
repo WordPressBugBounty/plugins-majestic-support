@@ -36,7 +36,7 @@ $majesticsupport_js ="
             var anchor = jQuery(this);
             jQuery(anchor).click(function (e) {
                 var id = jQuery(this).attr('data-id');
-                var name = jQuery(this).html();
+                var name = jQuery(this).attr('data-username');
                 var email = jQuery(this).attr('data-email');
                 var displayname = jQuery(this).attr('data-name');
                 jQuery('input#username-text').val(name);
@@ -364,7 +364,7 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 								<a href="<?php echo esc_url(admin_url('admin.php?page=majesticsupport_reports&mjslay=userdetailreport&id='.esc_attr($agent->id).'&date_start='.esc_attr(majesticsupport::$_data['filter']['date_start']).'&date_end='.esc_attr(majesticsupport::$_data['filter']['date_end']))); ?>" class="mjtc-admin-staff-anchor-wrapper" title="<?php echo esc_attr(__('Ticket', 'majestic-support')); ?>">
 									<div class="mjtc-admin-staff-cnt">
 										<div class="mjtc-report-staff-image">
-											<?php echo wp_kses(ms_get_avatar(MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById($agent->id)), MJTC_ALLOWED_TAGS); ?>
+											<?php echo wp_kses(ms_get_avatar($agent->id), MJTC_ALLOWED_TAGS); ?>
 										</div>
 										<div class="mjtc-report-staff-cnt">
 											<div class="mjtc-report-staff-info mjtc-report-staff-name">

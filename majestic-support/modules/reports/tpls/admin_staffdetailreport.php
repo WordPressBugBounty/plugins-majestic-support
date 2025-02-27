@@ -94,15 +94,7 @@ $show_flag = 0;
 							<div class="mjtc-admin-staff-cnt">
 								<div class="mjtc-report-staff-image">
 									<?php
-										if($agent->photo){
-					                        $maindir = wp_upload_dir();
-					                        $path = $maindir['baseurl'];
-											$imageurl = $path."/".majesticsupport::$_config['data_directory']."/staffdata/staff_".$agent->id."/".$agent->photo;
-										}else{
-											$imageurl = MJTC_PLUGIN_URL."includes/images/user.png";
-										}
-									?>
-									<img alt="<?php echo esc_html(__('staff image','majestic-support')); ?>" class="mjtc-report-staff-pic" src="<?php echo esc_url($imageurl); ?>" />
+									echo wp_kses_post(ms_get_avatar($agent->uid, 'mjtc-report-staff-pic')); ?>
 								</div>
 								<div class="mjtc-report-staff-cnt">
 									<div class="mjtc-report-staff-info mjtc-report-staff-name">

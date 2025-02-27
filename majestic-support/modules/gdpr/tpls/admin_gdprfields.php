@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                             </td>
                             <td>
                                 <a title="<?php echo esc_attr(__('Edit','majestic-support')); ?>" class="action-btn" href="?page=majesticsupport_gdpr&mjslay=addgdprfield&majesticsupportid=<?php echo esc_attr($field->id); ?>"><img alt="<?php echo esc_attr(__('Edit','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/edit.png" /></a>&nbsp;&nbsp;
-                                <a title="<?php echo esc_attr(__('Delete','majestic-support')); ?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_gdpr&task=deletegdpr&action=mstask&gdprid='.esc_attr($field->id),'delete-gdpr'));?>"><img alt="<?php echo esc_html(__('Delete','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/delete.png" /></a>
+                                <a title="<?php echo esc_attr(__('Delete','majestic-support')); ?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_gdpr&task=deletegdpr&action=mstask&gdprid='.esc_attr($field->id),'delete-gdpr-'.esc_attr($field->id))) ;?>"><img alt="<?php echo esc_html(__('Delete','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/delete.png" /></a>
                             </td>
                         </tr>
                     <?php

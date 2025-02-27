@@ -60,7 +60,7 @@ $majesticsupport_js ='
             </li>
         </ul>
     </li>
-    <li class="treeview <?php if($c == 'ticket' || ($c == 'fieldordering' && $ff == 1 || $c == 'export' || $c == 'multiform') ) echo esc_attr('active'); ?>">
+    <li class="treeview <?php if($c == 'ticket' || ($c == 'fieldordering' && $ff == 1 || $c == 'export' || $c == 'multiform' || $c == 'ticketclosereason') ) echo esc_attr('active'); ?>">
         <a href="admin.php?page=majesticsupport_ticket" title="<?php echo esc_attr(__('Tickets' , 'majestic-support')); ?>">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Tickets' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu/tickets.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Tickets' , 'majestic-support')); ?></span>
@@ -100,7 +100,7 @@ $majesticsupport_js ='
                 </li>
             <?php } ?>
             <?php if(in_array('multiform', majesticsupport::$_active_addons)){ ?>
-                <li class="<?php if($c == 'multiform') echo esc_attr('active'); ?>">
+                <li class="<?php if($c == 'multiform' || $c == 'fieldordering') echo esc_attr('active'); ?>">
                     <a href="?page=majesticsupport_multiform" title="<?php echo esc_attr(__('multiforms', 'majestic-support')); ?>">
                         <?php echo esc_html(__('Multiforms', 'majestic-support')); ?>
                     </a>
@@ -1139,6 +1139,10 @@ $majesticsupport_js ='
             </div>
         </div>
     </div>
+    <!-- add loading for multiform -->
+    <div id="mstran_loading">
+        <img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/spinning-wheel.gif" />
+    </div>
 <?php } ?>
 <?php
 $majesticsupport_js ="
@@ -1186,14 +1190,16 @@ $majesticsupport_js ="
             var url = jQuery('a#multiformpopup').prop('class');
             jQuery('div#multiformpopupblack').show();
             var ajaxurl ='".esc_url(admin_url('admin-ajax.php'))."';
+            jsShowLoading();
             jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'multiform', task: 'getmultiformlistajax', url:url, '_wpnonce':'". esc_attr(wp_create_nonce("get-multi-form-list-ajax"))."'}, function (data) {
                 if(data){
+                    jsHideLoading();
                     jQuery('div#records').html('');
                     jQuery('div#records').html(data);
-                    setUserLink();
+                    // setUserLink(); generate error
+                    jQuery('div#multiformpopup').slideDown('slow');
                 }
             });
-            jQuery('div#multiformpopup').slideDown('slow');
         });
 
         jQuery('div#multiformpopupblack , div.multiformpopup-header-close-img').click(function (e) {
@@ -1207,10 +1213,19 @@ $majesticsupport_js ="
         jQuery('div.mjtc-support-multiform-row').removeClass('selected');
         jQuery(divelement).addClass('selected');  
     }
+
     function MJTC_makeMultiFormUrl(id){
         var oldUrl = jQuery('a.mjtc-multiformpopup-link').attr('id'); // Get current url
         var newUrl = oldUrl+'&formid='+id; // Create new url
         window.location.href = newUrl;
+    }
+
+    function jsShowLoading(){
+        jQuery('div#mstran_loading').show();
+    }
+
+    function jsHideLoading(){
+        jQuery('div#mstran_loading').hide();
     }
 ";
 wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);

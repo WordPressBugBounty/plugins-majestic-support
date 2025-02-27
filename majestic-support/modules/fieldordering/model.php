@@ -131,6 +131,7 @@ class MJTC_fieldorderingModel {
 	    if(!isset($formid) || $formid==''){
 		    $formid = MJTC_includer::MJTC_getModel('ticket')->getDefaultMultiFormId();
 	    }
+        if(!is_numeric($formid)) return false;
         $query = "SELECT  * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE ".$published." AND fieldfor =  " . esc_sql($fieldfor) ." AND multiformid =  " . esc_sql($formid) . " ORDER BY ordering ";
         majesticsupport::$_data['fieldordering'] = majesticsupport::$_db->get_results($query);
         return;
@@ -155,6 +156,7 @@ class MJTC_fieldorderingModel {
             return false;
         }
         $data = majesticsupport::MJTC_sanitizeData($data);// MJTC_sanitizeData() function uses wordpress santize functions
+        if(!is_numeric($data['fieldfor'])) return false;
         if ($data['isuserfield'] == 1) {
             // value to add as field ordering
             if ($data['id'] == '') { // only for new
@@ -382,6 +384,7 @@ class MJTC_fieldorderingModel {
     }
 
     function updateParentField($parentfield, $field, $fieldfor) {
+        if(!is_numeric($fieldfor)) return false;
         if(!is_numeric($parentfield)) return false;
 
         $query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET depandant_field = '" . esc_sql($field) . "' WHERE id = " . esc_sql($parentfield) . " AND fieldfor = " . esc_sql($fieldfor);
@@ -393,6 +396,7 @@ class MJTC_fieldorderingModel {
     }
 
     function updateChildField($parent, $child){
+        if(!is_numeric($child->id)) return false;
         $userfieldparams = json_decode( $child->userfieldparams);
 
         $childNew =  new stdclass();
@@ -421,6 +425,7 @@ class MJTC_fieldorderingModel {
         }
         $fieldfor = MJTC_request::MJTC_getVar('fieldfor');
         $parentfield = MJTC_request::MJTC_getVar('parentfield');
+        if(!is_numeric($fieldfor)) return false;
         $wherequery = '';
         if(isset($parentfield) && $parentfield !='' ){
             $query = "SELECT id FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE fieldfor = ".esc_sql($fieldfor)." AND (userfieldtype = 'radio' OR userfieldtype = 'combo'OR userfieldtype = 'depandant_field') AND depandant_field = '" . esc_sql($parentfield) . "' ";
@@ -441,6 +446,7 @@ class MJTC_fieldorderingModel {
     }
 
     function getFieldsForVisibleCombobox($fieldfor, $multiformid, $field='', $cid='') {
+        if(!is_numeric($fieldfor)) return false;
         $wherequery = '';
         if(isset($field) && $field !='' ){
             $query = "SELECT id FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE fieldfor = ".esc_sql($fieldfor)." AND (userfieldtype = 'combo') AND visible_field = '" . esc_sql($field) . "' ";
@@ -577,7 +583,7 @@ class MJTC_fieldorderingModel {
                     <img id="popup_cross" class="userpopup-close" onClick="close_popup();" src="' . esc_url(MJTC_PLUGIN_URL) . 'includes/images/close-icon-white.png" alt="'.esc_html(__('Close','majestic-support')).'">
                 </div>';
         $adminurl = admin_url("?page=majesticsupport_fieldordering&task=savefeild&formid=".esc_attr($data->multiformid));
-        $html .= '<form id="adminForm" class="popup-field-from" method="post" action="' . esc_url(wp_nonce_url($adminurl ,"save-feild")).'">';
+        $html .= '<form id="adminForm" class="popup-field-from" method="post" action="' . esc_url(wp_nonce_url($adminurl ,"save-feild-".$data->id)).'">';
         $html .= '<div class="popup-field-wrapper">
                     <div class="popup-field-title">' . esc_html(__('Field Title', 'majestic-support')) . '<font class="required-notifier">*</font></div>
                     <div class="popup-field-obj">' . wp_kses(MJTC_formfield::MJTC_text('fieldtitle', isset($data->fieldtitle) ? $data->fieldtitle : 'text', '', array('class' => 'inputbox one', 'data-validation' => 'required')), MJTC_ALLOWED_TAGS) . '</div>
@@ -793,12 +799,12 @@ class MJTC_fieldorderingModel {
     }
 
     function DataForDepandantField(){
+        $childfield = MJTC_request::MJTC_getVar('child');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'data-for-depandant-field') ) {
+        if (! wp_verify_nonce( $nonce, 'data-for-depandant-field-'.$childfield) ) {
             die( 'Security check Failed' );
         }
         $val = MJTC_request::MJTC_getVar('fvalue');
-        $childfield = MJTC_request::MJTC_getVar('child');
         $query = "SELECT userfieldparams,fieldtitle,depandant_field,field FROM `".majesticsupport::$_db->prefix."mjtc_support_fieldsordering` WHERE field = '".esc_sql($childfield)."'";
         $data = majesticsupport::$_db->get_row($query);
         $decoded_data = json_decode($data->userfieldparams);
@@ -815,7 +821,7 @@ class MJTC_fieldorderingModel {
         }
         $msFunction = '';
         if ($data->depandant_field != null) {
-            $wpnonce = wp_create_nonce("data-for-depandant-field");
+            $wpnonce = wp_create_nonce("data-for-depandant-field-".$data->depandant_field);
             $msFunction = "MJTC_getDataForDepandantField('".$wpnonce."','" . $data->field . "','" . $data->depandant_field . "',1);";
         }
         $textvar =  ($flag == 1) ?  esc_html(__('Select', 'majestic-support')).' '.$data->fieldtitle : '';

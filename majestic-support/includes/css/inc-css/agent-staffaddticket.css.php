@@ -189,6 +189,7 @@ $majesticsupport_css .= '
 	div.mjtc-support-table-body div.mjtc-support-data-row{border: 0;border-bottom:1px solid '.$color5.';}
 	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col{}
 	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col:last-child{}
+	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col a.mjtc-userpopup-link {color:'.$color1.';}
 	th.mjtc-support-table-th{border-right:1px solid '.$color5.';}
 	tbody.mjtc-support-table-tbody{border:1px solid '.$color5.';}
 	td.mjtc-support-table-td{border-right:1px solid '.$color5.';}

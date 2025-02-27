@@ -71,7 +71,8 @@ class MJTC_departmentModel {
 
     function storeDepartment($data) {
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-department') ) {
+        $id = MJTC_request::MJTC_getVar('id');
+        if (! wp_verify_nonce( $nonce, 'save-department-'.$id) ) {
             die( 'Security check Failed' );
         }
         if ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {

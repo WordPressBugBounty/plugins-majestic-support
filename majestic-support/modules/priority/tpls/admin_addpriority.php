@@ -39,7 +39,10 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
     <div id="msadmin-data">
         <?php MJTC_includer::MJTC_getModel('majesticsupport')->getPageTitle('addpriority'); ?>
         <div id="msadmin-data-wrp">
-            <form class="msadmin-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("?page=majesticsupport_priority&task=savepriority"),"save-priority")); ?>">
+            <?php
+            $nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
+            ?>
+            <form class="msadmin-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("?page=majesticsupport_priority&task=savepriority"),"save-priority-".$nonce_id)); ?>">
                 <div class="mjtc-form-wrapper">
                     <div class="mjtc-form-title"><?php echo esc_html(__('Priority', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
                     <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_text('priority', isset(majesticsupport::$_data[0]->priority) ? majesticsupport::$_data[0]->priority : '', array('class' => 'inputbox mjtc-form-input-field', 'data-validation' => 'required')), MJTC_ALLOWED_TAGS) ?></div>

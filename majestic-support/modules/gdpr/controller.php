@@ -50,8 +50,9 @@ class MJTC_gdprController {
     }
 
     static function savegdprfield() {
+        $id = MJTC_request::MJTC_getVar('id');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-gdprfield') ) {
+        if (! wp_verify_nonce( $nonce, 'save-gdprfield-'.$id) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -62,8 +63,9 @@ class MJTC_gdprController {
     }
 
     static function saveusereraserequest() {
+        $id = MJTC_request::MJTC_getVar('id');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-usereraserequest') ) {
+        if (! wp_verify_nonce( $nonce, 'save-usereraserequest-'.$id) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -80,11 +82,11 @@ class MJTC_gdprController {
     }
 
     static function deletegdpr() {
+        $id = MJTC_request::MJTC_getVar('gdprid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'delete-gdpr') ) {
+        if (! wp_verify_nonce( $nonce, 'delete-gdpr-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('gdprid');
         MJTC_includer::MJTC_getModel('fieldordering')->deleteUserField($id);
         if (is_admin()) {
             $url = admin_url("admin.php?page=majesticsupport_gdpr&mjslay=gdprfields");
@@ -96,11 +98,11 @@ class MJTC_gdprController {
     }
 
     static function removeusereraserequest() {
+        $id = MJTC_request::MJTC_getVar('majesticsupportid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'delete-usereraserequest') ) {
+        if (! wp_verify_nonce( $nonce, 'delete-usereraserequest-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('majesticsupportid');
         MJTC_includer::MJTC_getModel('gdpr')->deleteUserEraseRequest($id);
         $url = majesticsupport::makeUrl(array('mjsmod'=>'gdpr', 'mjslay'=>'adderasedatarequest'));
         wp_redirect($url);
@@ -108,13 +110,13 @@ class MJTC_gdprController {
     }
 
     static function exportusereraserequest() {
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-
-        if (! wp_verify_nonce( $nonce, 'export-usereraserequest') ) {
-            die( 'Security check Failed' );
-        }
         // get current user ID by function due to security reasons
         $uid  = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
+        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
+
+        if (! wp_verify_nonce( $nonce, 'export-usereraserequest-'.$uid) ) {
+            die( 'Security check Failed' );
+        }
         $return_value = MJTC_includer::MJTC_getModel('gdpr')->setUserExportByuid($uid);
         if (!empty($return_value)) {
             // Push the report now!
@@ -135,12 +137,12 @@ class MJTC_gdprController {
     }
 
     static function deleteuserdata() {
+        $uid  = MJTC_request::MJTC_getVar('majesticsupportid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
 
-        if (! wp_verify_nonce( $nonce, 'delete-userdata') ) {
+        if (! wp_verify_nonce( $nonce, 'delete-userdata-'.$uid) ) {
             die( 'Security check Failed' );
         }
-        $uid  = MJTC_request::MJTC_getVar('majesticsupportid');
         $return_value = MJTC_includer::MJTC_getModel('gdpr')->deleteUserData($uid);
         $url = admin_url("admin.php?page=majesticsupport_gdpr&mjslay=erasedatarequests");
         wp_redirect($url);
@@ -148,11 +150,11 @@ class MJTC_gdprController {
     }
 
     static function eraseidentifyinguserdata() {
+        $uid  = MJTC_request::MJTC_getVar('majesticsupportid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'erase-userdata') ) {
+        if (! wp_verify_nonce( $nonce, 'erase-userdata-'.$uid) ) {
             die( 'Security check Failed' );
         }
-        $uid  = MJTC_request::MJTC_getVar('majesticsupportid');
         $return_value = MJTC_includer::MJTC_getModel('gdpr')->anonymizeUserData($uid);
         $url = admin_url("admin.php?page=majesticsupport_gdpr&mjslay=erasedatarequests");
         wp_redirect($url);

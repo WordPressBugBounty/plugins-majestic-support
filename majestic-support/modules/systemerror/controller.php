@@ -57,11 +57,11 @@ class MJTC_systemerrorController {
     }
 
     static function deletesystemerror() {
+        $id = MJTC_request::MJTC_getVar('systemerrorid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'delete-systemerror') ) {
+        if (! wp_verify_nonce( $nonce, 'delete-systemerror-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('systemerrorid');
         MJTC_includer::MJTC_getModel('systemerror')->removeSystemError($id);
         if (is_admin()) {
             $url = admin_url("admin.php?page=majesticsupport_systemerror&mjslay=systemerrors");

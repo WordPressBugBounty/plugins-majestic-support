@@ -15,6 +15,8 @@ class MJTC_repliesTable extends MJTC_table {
 	public $status = '';
 	public $created = '';
 	public $ticketviaemail = '';
+	public $viewed_by = '';
+	public $viewed_on = '';
 
 	function __construct() {
 		parent::__construct('replies', 'id'); // tablename, primarykey

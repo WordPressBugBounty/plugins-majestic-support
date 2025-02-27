@@ -35,8 +35,11 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
     </div>
     <div id="msadmin-data">
         <?php MJTC_includer::MJTC_getModel('majesticsupport')->getPageTitle('addgdpr'); ?>
+        <?php
+            $nonce_id = isset(majesticsupport::$_data[0]['userfield']->id) ? majesticsupport::$_data[0]['userfield']->id : '';
+        ?>
         <div id="msadmin-data-wrp">
-            <form class="msadmin-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_gdpr&task=savegdprfield"),"save-gdprfield")); ?>">
+            <form class="msadmin-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_gdpr&task=savegdprfield"),"save-gdprfield-".$nonce_id)); ?>">
                 <div class="mjtc-form-wrapper">
                     <div class="mjtc-form-title"><?php echo esc_html(__('Field Title', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
                     <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_text('fieldtitle', isset(majesticsupport::$_data[0]['userfield']->fieldtitle) ? majesticsupport::$_data[0]['userfield']->fieldtitle : '', array('class' => 'inputbox mjtc-form-input-field', 'data-validation' => 'required')), MJTC_ALLOWED_TAGS) ?></div>

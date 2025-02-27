@@ -905,6 +905,27 @@ $plugin_array = get_option('active_plugins');
                       mjtc_printConfigFieldSingle($title, $field, $description);
                     }
 
+                     if(isset(majesticsupport::$_data[0]['show_read_receipt_to_admin_on_reply'])){
+                        $title = esc_html(__('Show Message Read Icon for Admin On Ticket Detail', 'majestic-support'));
+                        $field = MJTC_formfield::MJTC_select('show_read_receipt_to_admin_on_reply', $yesno, majesticsupport::$_data[0]['show_read_receipt_to_admin_on_reply']);
+                        $description =  esc_html(__('Select whether the message read icon is displayed to the administrator on ticket detail.','majestic-support'));
+                        mjtc_printConfigFieldSingle($title, $field, $description);
+                    }
+
+                    if(isset(majesticsupport::$_data[0]['show_read_receipt_to_agent_on_reply'])){
+                        $title = esc_html(__('Show Message Read Icon For Agents on Ticket Detail', 'majestic-support'));
+                        $field = MJTC_formfield::MJTC_select('show_read_receipt_to_agent_on_reply', $yesno, majesticsupport::$_data[0]['show_read_receipt_to_agent_on_reply']);
+                        $description =  esc_html(__('Select whether the message read icon is displayed to agents on ticket detail.','majestic-support'));
+                        mjtc_printConfigFieldSingle($title, $field, $description);
+                    }
+
+                    if(isset(majesticsupport::$_data[0]['show_read_receipt_to_user_on_reply'])){
+                        $title = esc_html(__('Show Message Read Icon For Users On Ticket Detail', 'majestic-support'));
+                        $field = MJTC_formfield::MJTC_select('show_read_receipt_to_user_on_reply', $yesno, majesticsupport::$_data[0]['show_read_receipt_to_user_on_reply']);
+                        $description =  esc_html(__('Select whether the message read icon is displayed to users on the ticket detail.','majestic-support'));
+                        mjtc_printConfigFieldSingle($title, $field, $description);
+                    }
+
                     if(isset(majesticsupport::$_data[0]['ticket_auto_close'])){
                       $title = esc_html(__('Ticket auto close', 'majestic-support'));
                       $field = MJTC_formfield::MJTC_text('ticket_auto_close', majesticsupport::$_data[0]['ticket_auto_close'], array('class' => 'inputbox'));

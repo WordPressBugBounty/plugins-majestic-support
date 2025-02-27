@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                         </div>
                         <div class="mjtc-support-heading-right">
                             <!-- jssupportticketid removed due to security reasons -->
-                            <a class="mjtc-support-add-download-btn" href="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'gdpr','task'=>'exportusereraserequest','action'=>'mstask','mspageid'=>get_the_ID())),'export-usereraserequest')); ?>"><span
+                            <a class="mjtc-support-add-download-btn" href="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'gdpr','task'=>'exportusereraserequest','action'=>'mstask','mspageid'=>get_the_ID())),'export-usereraserequest-'.MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid())); ?>"><span
                                     class="mjtc-support-add-img-wrp"></span><?php echo esc_html(__('Export', 'majestic-support')) ?></a>
                         </div>
                     </div>
@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                             <?php echo esc_html(__('You have filed a request to remove your data.', 'majestic-support')) ?>
                         </div>
                         <div class="mjtc-support-heading-right">
-                            <a class="mjtc-support-add-download-btn" href="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'gdpr','task'=>'removeusereraserequest','action'=>'mstask','majesticsupportid'=> majesticsupport::$_data[0]->id ,'mspageid'=>get_the_ID())),'delete-usereraserequest')); ?>"><span
+                            <a class="mjtc-support-add-download-btn" href="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'gdpr','task'=>'removeusereraserequest','action'=>'mstask','majesticsupportid'=> majesticsupport::$_data[0]->id ,'mspageid'=>get_the_ID())),'delete-usereraserequest-'.majesticsupport::$_data[0]->id)); ?>"><span
                                     class="mjtc-support-add-img-wrp"></span><?php echo esc_html(__('To withdraw erases data request', 'majestic-support')) ?></a>
                         </div>
                     </div>
@@ -67,7 +67,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                     </div>
                 </div>
                 <?php } ?>
-                <form class="mjtc-support-form" method="post" action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'gdpr', 'task'=>'saveusereraserequest')),"save-usereraserequest")); ?>">
+                <?php
+                $nonce_id = isset(majesticsupport::$_data[0]->id) ?majesticsupport::$_data[0]->id :'';
+                ?>
+                <form class="mjtc-support-form" method="post" action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'gdpr', 'task'=>'saveusereraserequest')),"save-usereraserequest-".$nonce_id)); ?>">
                     <div class="mjtc-support-from-field-wrp mjtc-support-from-field-wrp-full-width">
                         <div class="mjtc-support-from-field-title">
                             <?php echo esc_html(__('Subject', 'majestic-support')); ?>&nbsp;<span style="color: red;">*</span>

@@ -57,7 +57,12 @@ $majesticsupport_js ="
 
 ";
 wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
-MJTC_message::MJTC_getMessage(); ?>
+MJTC_message::MJTC_getMessage();
+$ticketstatus = array(
+    (object) array('id' => '1', 'text' => esc_html(__('Replied', 'majestic-support'))),
+    (object) array('id' => '0', 'text' => esc_html(__('Waiting Reply', 'majestic-support')))
+);
+?>
 <div id="msadmin-wrapper">
     <div id="msadmin-leftmenu">
         <?php
@@ -280,6 +285,7 @@ MJTC_message::MJTC_getMessage(); ?>
                 <?php if(class_exists('WooCommerce') && in_array('woocommerce', majesticsupport::$_active_addons)){  ?>
                     <?php echo wp_kses(MJTC_formfield::MJTC_text('orderid', majesticsupport::$_data['filter']['orderid'], array('placeholder' => majesticsupport::MJTC_getVarValue($field_array['wcorderid']),'class' => 'mjtc-form-input-field')), MJTC_ALLOWED_TAGS); ?>
                 <?php } ?>
+                <?php echo wp_kses(MJTC_formfield::MJTC_select('status', $ticketstatus, majesticsupport::$_data['filter']['status'], esc_html(__('Select Status','majestic-support')), array('class' => 'mjtc-form-select-field')), MJTC_ALLOWED_TAGS); ?>
                 <?php echo wp_kses(MJTC_formfield::MJTC_hidden('MS_form_search', 'MS_SEARCH'), MJTC_ALLOWED_TAGS); ?>
                 <?php echo wp_kses(MJTC_formfield::MJTC_hidden('sortby', majesticsupport::$_data['filter']['sortby']), MJTC_ALLOWED_TAGS); ?>
                 <?php echo wp_kses(MJTC_formfield::MJTC_hidden('list', $list), MJTC_ALLOWED_TAGS); ?>
@@ -367,7 +373,7 @@ MJTC_message::MJTC_getMessage(); ?>
                     <div class="mjtc-support-wrapper">
                         <div class="mjtc-support-toparea">
                             <div class="mjtc-support-pic">
-                                <?php echo wp_kses(ms_get_avatar(MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById($ticket->uid)), MJTC_ALLOWED_TAGS); ?>
+                                <?php echo wp_kses(ms_get_avatar($ticket->uid), MJTC_ALLOWED_TAGS); ?>
                             </div>
                             <div class="mjtc-support-data">
                                 <div class="mjtc-support-left">
@@ -466,10 +472,10 @@ MJTC_message::MJTC_getMessage(); ?>
                         <div class="mjtc-support-bottom-data-part">
                             <div class="mjtc-support-datapart-buttons-action">
                                 <a class="mjtc-support-datapart-action-btn button" title="<?php echo esc_attr(__('Edit Ticket', 'majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=addticket&majesticsupportid=<?php echo esc_attr($ticket->id); ?>"><img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/edit-2.png" /><?php echo esc_html(__('Edit Ticket', 'majestic-support')); ?></a>
-                                <a class="mjtc-support-datapart-action-btn button" title="<?php echo esc_attr(__('Delete Ticket', 'majestic-support')); ?>"  onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_ticket&task=deleteticket&action=mstask&internalid='.esc_attr($ticket->internalid).'&ticketid='.esc_attr($ticket->id),'delete-ticket'));?>">
+                                <a class="mjtc-support-datapart-action-btn button" title="<?php echo esc_attr(__('Delete Ticket', 'majestic-support')); ?>"  onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_ticket&task=deleteticket&action=mstask&internalid='.esc_attr($ticket->internalid).'&ticketid='.esc_attr($ticket->id),'delete-ticket-'.esc_attr($ticket->id)));?>">
                                     <img alt="<?php echo esc_html(__('Delete', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/delete-2.png" />
                                     <?php echo esc_html(__('Delete Ticket', 'majestic-support')); ?></a>
-                                <a title="<?php echo esc_attr(__('Enforce delete', 'majestic-support')); ?>" class="mjtc-support-datapart-action-btn button"  onclick="return confirm('<?php echo esc_html(__('Are you sure to enforce delete', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_ticket&task=enforcedeleteticket&action=mstask&ticketid='.esc_attr($ticket->id),'enforce-delete-ticket'))?>"><img src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/forced-delete.png" alt="<?php echo esc_html(__('Enforce delete', 'majestic-support')); ?>" /><?php echo esc_html(__('Enforce delete', 'majestic-support')); ?></a>
+                                <a title="<?php echo esc_attr(__('Enforce delete', 'majestic-support')); ?>" class="mjtc-support-datapart-action-btn button"  onclick="return confirm('<?php echo esc_html(__('Are you sure to enforce delete', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_ticket&task=enforcedeleteticket&action=mstask&ticketid='.esc_attr($ticket->id),'enforce-delete-ticket-'.esc_attr($ticket->id)))?>"><img src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/forced-delete.png" alt="<?php echo esc_html(__('Enforce delete', 'majestic-support')); ?>" /><?php echo esc_html(__('Enforce delete', 'majestic-support')); ?></a>
                             </div>
                         </div>
                     </div>

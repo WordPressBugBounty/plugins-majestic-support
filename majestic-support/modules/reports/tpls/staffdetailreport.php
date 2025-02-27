@@ -86,7 +86,7 @@ wp_enqueue_script( 'majesticsupport-google-charts-handle' );
                 <div class="mjtc-support-top-search-wrp">
                     <div class="mjtc-support-search-fields-wrp">
                         <form class="mjtc-filter-form" name="majesticsupportform" id="majesticsupportform" method="POST"
-                            action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'reports', 'mjslay'=>'staffdetailreport')),"staff-detail-report")); ?>">
+                            action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'reports', 'mjslay'=>'staffdetailreport','ms-id'=>majesticsupport::$_data['staff_report']->id)),"staff-detail-report")); ?>">
                             <?php
                 $curdate = date_i18n('Y-m-d');
                 $enddate = date_i18n('Y-m-d', MJTC_majesticsupportphplib::MJTC_strtotime("now -1 month"));
@@ -125,16 +125,7 @@ wp_enqueue_script( 'majesticsupport-google-charts-handle' );
                         <div class="mjtc-col-md-4 nopadding mjtc-festaffreport-img">
                             <div class="mjtc-report-staff-image-wrapper">
                                 <?php
-                                if($agent->photo){
-                                    $maindir = wp_upload_dir();
-                                    $path = $maindir['baseurl'];
-
-                                    $imageurl = $path."/".majesticsupport::$_config['data_directory']."/staffdata/staff_".$agent->id."/".$agent->photo;
-                                }else{
-                                    $imageurl = MJTC_PLUGIN_URL."includes/images/defaultprofile.png";
-                                }
-                            ?>
-                                <img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" class="mjtc-report-staff-pic" src="<?php echo esc_url($imageurl); ?>" />
+                                echo wp_kses_post(ms_get_avatar($agent->uid, 'mjtc-report-staff-pic')); ?>
                             </div>
                             <div class="mjtc-report-staff-cnt">
                                 <div class="mjtc-report-staff-name">

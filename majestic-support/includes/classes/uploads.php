@@ -21,6 +21,7 @@ class MJTC_uploads {
             $foldername = '';
 
             if($this->uploadfor == 'ticket'){
+                if(!is_numeric($this->ticketid)) return false;
                 $path = $path . '/ticket';
                 $query = "SELECT attachmentdir FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE id = ".esc_sql($this->ticketid);
                 $foldername = majesticsupport::$_db->get_var($query);

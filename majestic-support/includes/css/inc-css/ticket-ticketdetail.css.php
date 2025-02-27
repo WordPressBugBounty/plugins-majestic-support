@@ -179,10 +179,12 @@ $majesticsupport_css .= '
 	div#userpopup{position: fixed;top:50%;left:50%;width:60%; max-height: 50%; padding-top:0px;z-index: 99999;overflow-y: auto; overflow-x: hidden;transform: translate(-50%,-50%);}
 	.mjtc-support-textalign-center{text-align: center;}
 	div.ms-popup-background{background: rgba(0,0,0,0.5);position: fixed;width: 100%;height: 100%;top:0px;left:0px;z-index: 9999;}
+	div.internalnote-popup-background{background: rgba(0,0,0,0.5);position: fixed;width: 100%;height: 100%;top:0px;left:0px;z-index: 9988;}
 	div.ms-popup-wrapper{position: fixed;top:50%;left:50%;width:40%;z-index: 1000000;overflow-y: auto; overflow-x: hidden;display: inline-block;max-height:60%;transform: translate(-50%,-50%);}
 	div.ms-merge-popup-wrapper{width:50%;max-height:70%;}
 	div.ms-popup-header{width:100%;font-size:17px;float:left;padding: 20px 10px; font-weight: bold;text-transform: capitalize;}
 	div.popup-header-close-img{position: absolute;top:25px;right: 25px;background-image:url('.esc_url(MJTC_PLUGIN_URL).'includes/images/close-icon-white.png);background-size: 100%;width:25px;height: 25px;opacity: 1;cursor: pointer;}
+	div.internalnote-popup-header-close-img{position: absolute;top:25px;right: 25px;background-image:url('.esc_url(MJTC_PLUGIN_URL).'includes/images/close-icon-white.png);background-size: 100%;width:25px;height: 25px;opacity: 1;cursor: pointer;}
 	img.popup-header-close-img{position: absolute;top:25px;right: 25px;background-image:url('.esc_url(MJTC_PLUGIN_URL).'includes/images/close-icon-white.png);background-size: 100%;width:25px;height: 25px;opacity: 1;cursor: pointer;}
 	div.ms-popup-wrapper input{margin-bottom:0px; }
 	div.ms-popup-wrapper input#edited_time{font-size: 16px;width: 100%;}
@@ -224,6 +226,7 @@ $majesticsupport_css .= '
 	div.mjtc-support-detail-wrapper div.mjtc-support-bottombar img.mjtc-hidedetail{float:left;margin-right:5px;-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);-ms-transform: rotate(0deg);transition:all .3s;}
 	label#forcloseonreply{display: inline-block;margin: 0px;}
 	#records{float: left;width: 100%;padding: 0px 10px;}
+	#records .ms-ticket-empty-msg{float: left;width: 100%;padding-bottom: 10px;text-align: center;}
 	th:first-child, td:first-child{padding-left: 10px !important;}
 
 	/*Merge Form Css*/
@@ -270,7 +273,7 @@ $majesticsupport_css .= '
 	.my-ticket-priority-div{margin-top:40px;margin-left:5px;margin-right:10px;    width: calc(25% - 120px);}
 	.my-ticket-priority-div .mjtc-col-md-6.mjtc-col-xs-12 {width: auto;padding: 0;}
 	div.mjtc-support-wrapper div.mjtc-support-pic{margin: 10px 0px;padding: 0px;padding: 0px 10px;text-align: center;position: relative;float: left;width: 120px;height: 96px;}
-	div.mjtc-support-wrapper div.mjtc-support-pic img {width: auto;max-width: 100px;max-height: 93px;height: auto;position: absolute;left: 0;right: 0;bottom: 0;margin: auto;}
+	div.mjtc-support-wrapper div.mjtc-support-pic img {width: auto;max-width: 100px;max-height: 93px;height: auto;position: absolute;left: 0;right: 0;bottom: 0;top: 0;margin: auto;}
 	#mergeticketselection div.mjtc-support-wrapper div.mjtc-support-pic img {border-radius: 50%;}
 	div.mjtc-support-wrapper div.mjtc-support-data{position: relative;padding: 20px 0px;width: 45%;}
 	div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-status{position: absolute;top:41%;right:2%;padding: 10px 10px;border-radius: 20px;font-size: 10px;line-height: 1;font-weight: bold;}
@@ -401,10 +404,14 @@ $majesticsupport_css .= '
 	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data {float: left;width: 100%;padding-bottom: 8px;line-height: initial;}
 	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data:last-child {padding-bottom: 0;}
 	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-person {float: left;text-transform: capitalize;font-size: 15px;text-decoration:underline;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-wrp {float: right;margin-left: 10px;cursor: pointer;position: relative;margin-top: -10px;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-btn {float: right;padding: 5px 5px;border: 1px solid #ebecec;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-detail {position: absolute;top: 45px;right: 0;color: #6c757d;border: 1px solid #ebecec;box-shadow: 0px 3px 6px #aaa7a7;padding: 0px 8px;padding: 10px;min-width: 350px;display: none;background-color: #FFF;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-detail .mjtc-support-thread-read-status-row {float: left;width: 100%;color: #575455;line-height: 1.8;}
 	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-note {float: left;text-transform: capitalize;padding-top: 5px;}
 	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-email {float: left;text-transform: capitalize;padding-top: 5px;}
 	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-date {float: right;}
-	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-time {float: right;margin-left: 10px;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-time {float: left;margin-left: 10px;}
 	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data.note-msg {line-height: 1.8;}
 	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data.note-msg p {line-height: 1.8;margin: 10px 0 20px;}
 	.mjtc-support-thread .mjtc-support-thread-cnt-btm {float: left;width: 100%;padding: 10px 0 0;}

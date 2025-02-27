@@ -143,11 +143,11 @@ $majesticsupport_js ="
         jQuery('a#int-note').click(function (e) {
             e.preventDefault();
             jQuery('div#internalnotes-popup').slideDown('slow');
-            jQuery('div#userpopupblack').show();
+            jQuery('div#internalnotespopupblack').show();
         });
-        jQuery('.userpopup-close, div#userpopupblack').click(function (e) {
+        jQuery('.internalnotespopup-close, div#internalnotespopupblack').click(function (e) {
             jQuery('div#internalnotes-popup').slideUp('slow', function () {
-                jQuery('div#userpopupblack').hide();
+                jQuery('div#internalnotespopupblack').hide();
             });
 
         });
@@ -474,7 +474,7 @@ $majesticsupport_js ="
     }
 
     jQuery('div.popup-header-close-img,div.ms-popup-background,input#cancel').click(function (e) {
-        jQuery('div.ms-popup-wrapper').slideUp('slow');
+        jQuery('div.ms-popup-wrapper:not(#internalnotes-popup)').slideUp('slow');
         jQuery('div.ms-merge-popup-wrapper').slideUp('slow');
         setTimeout(function () {
             jQuery('div.ms-popup-background').hide();
@@ -571,6 +571,14 @@ $majesticsupport_js ="
             }, 1000);
         });
     })
+    jQuery('span.mjtc-support-thread-read-status-wrp').hover(
+        function(e){
+            jQuery(this).find('span.mjtc-support-thread-read-status-detail').css('display','inline-block');
+        },
+        function(e){
+            jQuery(this).find('span.mjtc-support-thread-read-status-detail').css('display','none');
+        }
+    );
 
 ";
 wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
@@ -615,7 +623,10 @@ $yesno = array(
             </div>
         </div>
     </div>
-    <form id="ms-reply-form" style="display:none" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_reply&task=saveeditedreply&action=mstask"),"save-edited-reply")); ?>" >
+    <?php
+        $nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
+    ?>
+    <form id="ms-reply-form" style="display:none" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_reply&task=saveeditedreply&action=mstask"),"save-edited-reply-".$nonce_id)); ?>" >
         <div class="mjtc-form-wrapper-popup">
             <div class="mjtc-form-title-popup"><?php echo esc_html(__('Reply', 'majestic-support')); ?></div>
             <div class="mjtc-form-field-popup"><?php wp_editor('', 'mjsupport_replytext', array('media_buttons' => false,'editor_height' => 200, 'textarea_rows' => 20,)); ?></div>
@@ -633,7 +644,7 @@ $yesno = array(
     </form>
     <?php
     if(in_array('timetracking', majesticsupport::$_active_addons)){ ?>
-        <form id="ms-time-edit-form" style="display:none" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_reply&task=saveeditedtime&action=mstask"),"save-edited-time")); ?>" >
+        <form id="ms-time-edit-form" style="display:none" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_reply&task=saveeditedtime&action=mstask"),"save-edited-time-reply-".majesticsupport::$_data[0]->id)); ?>" >
             <div class="mjtc-form-wrapper-popup">
                 <div class="mjtc-form-title-popup"><?php echo esc_html(__('Time', 'majestic-support')); ?></div>
                 <div class="mjtc-form-field-popup"><?php echo wp_kses(MJTC_formfield::MJTC_text('edited_time', '', array('class' => 'inputbox')), MJTC_ALLOWED_TAGS) ?></div>
@@ -659,7 +670,7 @@ $yesno = array(
             <?php echo wp_kses(MJTC_formfield::MJTC_hidden('time-confilct',''), MJTC_ALLOWED_TAGS); ?>
         </form>
         <?php if(in_array('note', majesticsupport::$_active_addons) && in_array('timetracking', majesticsupport::$_active_addons)){ ?>
-        <form id="ms-note-edit-form" style="display:none" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_note&task=saveeditedtime&action=mstask"),"save-edited-time")); ?>" >
+        <form id="ms-note-edit-form" style="display:none" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_note&task=saveeditedtime&action=mstask"),"save-edited-time-note-".majesticsupport::$_data[0]->id)); ?>" >
             <div class="mjtc-form-wrapper-popup">
                 <div class="mjtc-form-title-popup"><?php echo esc_html(__('Time', 'majestic-support')); ?></div>
                 <div class="mjtc-form-field-popup"><?php echo wp_kses(MJTC_formfield::MJTC_text('edited_time', '', array('class' => 'inputbox')), MJTC_ALLOWED_TAGS) ?></div>
@@ -724,6 +735,7 @@ $yesno = array(
                 ?>
 
                 <div id="userpopupblack" style="display:none;"> </div>
+                <div id="internalnotespopupblack" style="display:none;"> </div>
                 <?php
                 $majesticsupport_js ="
                     jQuery(document).ready(function(){
@@ -872,10 +884,10 @@ $yesno = array(
                             <div class="userpopup-heading">
                                 <?php echo esc_html(__('Add Internal Note','majestic-support')); ?>
                             </div>
-                            <img alt="<?php echo esc_html(__('Close','majestic-support')); ?>" class="userpopup-close" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/close-icon-white.png" />
+                            <img alt="<?php echo esc_html(__('Close','majestic-support')); ?>" class="internalnotespopup-close" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/close-icon-white.png" />
                         </div>
                         <div class="mjtc-admin-popup-cnt">  <!--  postinternalnote Area   -->
-                            <form class="mjtc-det-tkt-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_note&task=savenote"),"save-note")); ?>"  enctype="multipart/form-data">
+                            <form class="mjtc-det-tkt-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_note&task=savenote"),"save-note-".majesticsupport::$_data[0]->id)); ?>"  enctype="multipart/form-data">
                                 <?php if(in_array('timetracking', majesticsupport::$_active_addons)){ ?>
                                     <div class="ms-ticket-detail-timer-wrapper"> <!-- Top Timer Section -->
                                         <div class="timer-left" >
@@ -1013,7 +1025,7 @@ $yesno = array(
                             </div>
                             <img alt="<?php echo esc_html(__('Close','majestic-support')); ?>" class="userpopup-close" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/close-icon-white.png" />
                         </div>
-                        <form class="mjtc-det-tkt-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_ticket&task=transferdepartment"),"transfer-department")); ?>"  enctype="multipart/form-data">
+                        <form class="mjtc-det-tkt-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_ticket&task=transferdepartment"),"transfer-department-".majesticsupport::$_data[0]->id)); ?>"  enctype="multipart/form-data">
                             <div class="mjtc-admin-popup-cnt">
                                 <div class="mjtc-form-wrapper">
                                     <div class="mjtc-form-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])); ?></div>
@@ -1050,7 +1062,7 @@ $yesno = array(
                             <img alt="<?php echo esc_html(__('Close','majestic-support')); ?>" class="userpopup-close" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/close-icon-white.png" />
                         </div>
                         <div class="mjtc-admin-popup-cnt">
-                            <form class="mjtc-det-tkt-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_ticket&task=assigntickettostaff"),"assign-ticket-to-staff")); ?>"  enctype="multipart/form-data">
+                            <form class="mjtc-det-tkt-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_ticket&task=assigntickettostaff"),"assign-ticket-to-staff-".majesticsupport::$_data[0]->id)); ?>"  enctype="multipart/form-data">
                                 <div class="mjtc-form-wrapper">
                                     <div class="mjtc-form-title"><?php echo esc_html(__('Agent', 'majestic-support')); ?></div>
                                     <div class="mjtc-form-value">
@@ -1081,7 +1093,7 @@ $yesno = array(
                         <div class="mjtc-sprt-det-cnt mjtc-sprt-det-info-wrp">
                             <div class="mjtc-sprt-det-user">
                                 <div class="mjtc-sprt-det-user-image">
-                                    <?php echo wp_kses_post(ms_get_avatar(MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById(majesticsupport::$_data[0]->uid))); ?>
+                                    <?php echo wp_kses_post(ms_get_avatar(majesticsupport::$_data[0]->uid)); ?>
                                 </div>
                                 <div class="mjtc-sprt-det-user-cnt">
                                     <?php
@@ -1151,7 +1163,7 @@ $yesno = array(
                                         <span><?php echo esc_html(__('Show History','majestic-support')); ?></span>
                                     </a>
                                 <?php } ?>
-                                <form method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_ticket&task=actionticket"),"action-ticket")); ?>" id="adminTicketform" enctype="multipart/form-data">
+                                <form method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_ticket&task=actionticket"),"action-ticket-".majesticsupport::$_data[0]->id)); ?>" id="adminTicketform" enctype="multipart/form-data">
                                     <?php
                                         if (majesticsupport::$_data[0]->status != 5) { // merged closed ticket can not be reopend.
                                             if (majesticsupport::$_data[0]->status != 4) {
@@ -1280,7 +1292,7 @@ $yesno = array(
                                                 <?php if (in_array('agent',majesticsupport::$_active_addons) && $note->staffphoto) { ?>
                                                     <img alt="<?php echo esc_html(__('agent image','majestic-support')); ?>" src="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'agent','task'=>'getStaffPhoto','action'=>'mstask','majesticsupportid'=>$note->staff_id, 'mspageid'=>majesticsupport::getPageid()))); ?>">
                                                 <?php } else {
-                                                    echo wp_kses(ms_get_avatar(MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById($note->userid)), MJTC_ALLOWED_TAGS);
+                                                    echo wp_kses(ms_get_avatar($note->userid), MJTC_ALLOWED_TAGS);
                                                 } ?>
                                             </div>
                                             <div class="mjtc-support-thread-cnt">
@@ -1360,7 +1372,7 @@ $yesno = array(
                                 <?php if ( in_array('agent',majesticsupport::$_active_addons) &&  majesticsupport::$_data[0]->staffphotophoto) { ?>
                                     <img alt="<?php echo esc_html(__('agent image','majestic-support')); ?>" src="<?php echo esc_url(admin_url('?page=majesticsupport_agent&action=mstask&task=getStaffPhoto&majesticsupportid='.esc_attr(majesticsupport::$_data[0]->staffphotoid ))); ?>">
                                 <?php } else {
-                                    echo wp_kses(ms_get_avatar(MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById(majesticsupport::$_data[0]->uid)), MJTC_ALLOWED_TAGS);
+                                    echo wp_kses(ms_get_avatar(majesticsupport::$_data[0]->uid), MJTC_ALLOWED_TAGS);
                                 } ?>
                             </div>
                             <div class="mjtc-support-thread-cnt">
@@ -1421,15 +1433,15 @@ $yesno = array(
                                         <?php if (in_array('agent',majesticsupport::$_active_addons) && $reply->staffphoto) { ?>
                                             <img alt="<?php echo esc_html(__('agent image','majestic-support')); ?>"  src="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'agent','task'=>'getStaffPhoto','action'=>'mstask','majesticsupportid'=>$reply->staffid,'mspageid'=>majesticsupport::getPageid()))); ?>">
                                         <?php } else {
-                                            echo wp_kses(ms_get_avatar(MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById($reply->uid)), MJTC_ALLOWED_TAGS);
+                                            echo wp_kses(ms_get_avatar($reply->uid), MJTC_ALLOWED_TAGS);
                                         } ?>
                                     </div>
                                     <div class="mjtc-support-thread-cnt">
                                         <div class="mjtc-support-thread-data">
                                             <span class="mjtc-support-thread-person"><?php echo esc_html($reply->name); ?></span>
                                             <?php
-                                           if(in_array('timetracking', majesticsupport::$_active_addons)){
-                                               if($reply->time > 0 ){
+                                            if(in_array('timetracking', majesticsupport::$_active_addons)){
+                                                if($reply->time > 0 ){
                                                    $hours = floor($reply->time / 3600);
                                                    $mins = floor($reply->time / 60);
                                                    $mins = floor($mins % 60);
@@ -1438,9 +1450,32 @@ $yesno = array(
                                                     ?>
                                                     <span class="mjtc-support-thread-time"><?php echo esc_html($time); ?></span>
                                                     <?php
-                                               }
-                                           }
-                                           ?>
+                                                }
+                                            }
+                                            if (majesticsupport::$_config['show_read_receipt_to_admin_on_reply'] == 1 && !empty($reply->viewed_by) && $cur_uid == $reply->uid) { ?>
+                                                <span class="mjtc-support-thread-read-status-wrp">
+                                                    <span class="mjtc-support-thread-read-status-btn">
+                                                       <img alt="<?php echo esc_html(__('View Image','majestic-support')) ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/view.png" />
+                                                    </span>
+                                                    <span class="mjtc-support-thread-read-status-detail">
+                                                        <span class="mjtc-support-thread-read-status-row">
+                                                            <?php 
+                                                            echo '<b>'.esc_html(__('Viewed By','majestic-support').': ').'</b>';
+                                                            if ($reply->viewed_by == -1) {
+                                                                echo esc_html(__('Guest', 'majestic-support'));
+                                                            } else {
+                                                                echo esc_html($reply->viewername);
+                                                            }
+                                                            ?>
+                                                        </span>
+                                                        <span class="mjtc-support-thread-read-status-row">
+                                                            <?php echo esc_html(date_i18n("l F d, Y, H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($reply->viewed_on))); ?>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                                <?php 
+                                            }
+                                            ?>
                                         </div>
                                         <div class="mjtc-support-thread-data">
                                             <span class="mjtc-support-via-email">
@@ -1474,7 +1509,7 @@ $yesno = array(
                                                         echo wp_kses($tktdata, MJTC_ALLOWED_TAGS);
                                                         if(MJTC_majesticsupportphplib::MJTC_strpos($type, "image") !== false) {
                                                             $path = MJTC_includer::MJTC_getModel('attachment')->getAttachmentImage($attachment->id);
-                                                            $tktdata = '<a data-gall="gallery-'.esc_attr($reply->replyid).'" class="button venobox" data-vbtype="image" title="'.esc_html(__('View','majestic-support')).'" href="'. esc_url($path) .'"  target="_blank">
+                                                            $tktdata = '<a data-gall="gallery-'.esc_attr($reply->replyid).'" class="button venobox" data-vbtype="image" title="'.esc_html(__('View','majestic-support')).'" href="'. esc_attr($path) .'"  target="_blank">
                                                                 <img alt="'.esc_html(__('View Image','majestic-support')).'" src="' . esc_url(MJTC_PLUGIN_URL) . 'includes/images/ticket-detail/view.png" />
                                                             </a>';
                                                             echo wp_kses($tktdata, MJTC_ALLOWED_TAGS);
@@ -1513,7 +1548,7 @@ $yesno = array(
                         <?php } ?>
                         <!-- Post Reply Area -->
                         <div id="postreply" class="mjtc-det-tkt-rply-frm">
-                            <form class="mjtc-det-tkt-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_reply&task=savereply"),"save-reply")); ?>"  enctype="multipart/form-data">
+                            <form class="mjtc-det-tkt-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_reply&task=savereply"),"save-reply-".majesticsupport::$_data[0]->id)); ?>"  enctype="multipart/form-data">
                                 <div class="mjtc-sprt-det-title"><?php echo esc_html(__('Post Reply', 'majestic-support')); ?></div>
                                 <?php if(in_array('timetracking', majesticsupport::$_active_addons)){ ?>
                                     <div class="ms-ticket-detail-timer-wrapper"> <!-- Timer Wrapper -->
@@ -1946,14 +1981,7 @@ $yesno = array(
                                         <?php if(majesticsupport::$_data[0]->staffid > 0){ ?>
                                         <div class="mjtc-sprt-det-user">
                                             <div class="mjtc-sprt-det-user-image">
-                                                <?php
-                                                    if(majesticsupport::$_data[0]->staffphoto){
-                                                        ?>
-                                                        <img alt="<?php echo esc_html(__('staff photo','majestic-support')); ?>" src="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'agent','task'=>'getStaffPhoto','action'=>'mstask','majesticsupportid'=>majesticsupport::$_data[0]->staffid, 'mspageid'=>majesticsupport::getPageid()))); ?>">
-                                                        <?php
-                                                    } else { ?>
-                                                        <img alt="<?php echo esc_html(__('staff photo','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL) . '/includes/images/user.png'; ?>" />
-                                                <?php } ?>
+                                                <?php echo wp_kses(ms_get_avatar(majesticsupport::$_data[0]->staffuid), MJTC_ALLOWED_TAGS); ?>
                                             </div>
                                             <div class="mjtc-sprt-det-user-cnt">
                                                 <div class="mjtc-sprt-det-user-data"><?php echo esc_html(majesticsupport::$_data[0]->staffname); ?></div>
@@ -2027,7 +2055,7 @@ $yesno = array(
                                 <?php foreach (majesticsupport::$_data['usertickets'] AS $usertickets) { ?>
                                         <div class="mjtc-sprt-det-user">
                                             <div class="mjtc-sprt-det-user-image">
-                                                <?php echo wp_kses(ms_get_avatar(MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById(majesticsupport::$_data[0]->uid)), MJTC_ALLOWED_TAGS); ?>
+                                                <?php echo wp_kses(ms_get_avatar(majesticsupport::$_data[0]->uid), MJTC_ALLOWED_TAGS); ?>
                                             </div>
                                             <div class="mjtc-sprt-det-user-cnt">
                                                 <div class="mjtc-sprt-det-user-data name">

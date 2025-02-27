@@ -161,11 +161,11 @@ $type = array(
                                 <?php }elseif ($field->published == 1) {
                                     $url  = "?page=majesticsupport_fieldordering&task=changepublishstatus&action=mstask&status=unpublish&fieldorderingid=".esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid);
                                          ?>
-                                        <a title="<?php echo esc_attr(__('good','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'change-publish-status')); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/good.png'; ?>" alt="<?php echo esc_html(__('good','majestic-support')); ?>" /></a>
+                                        <a title="<?php echo esc_attr(__('good','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'change-publish-status-'.esc_attr($field->id))); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/good.png'; ?>" alt="<?php echo esc_html(__('good','majestic-support')); ?>" /></a>
                                 <?php }else{
                                     $url  = "?page=majesticsupport_fieldordering&task=changepublishstatus&action=mstask&status=publish&fieldorderingid=".esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid);
                                          ?>
-                                        <a title="<?php echo esc_attr(__('cross','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'change-publish-status')); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/close.png'; ?>" alt="<?php echo esc_attr(__('cross','majestic-support')); ?>" /></a>
+                                        <a title="<?php echo esc_attr(__('cross','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'change-publish-status-'.esc_attr($field->id))); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/close.png'; ?>" alt="<?php echo esc_attr(__('cross','majestic-support')); ?>" /></a>
                                 <?php } ?>
                             </td>
                             <td>
@@ -175,11 +175,11 @@ $type = array(
                                 <?php }elseif ($field->isvisitorpublished == 1) {
                                     $url  = "?page=majesticsupport_fieldordering&task=changevisitorpublishstatus&action=mstask&status=unpublish&fieldorderingid=".esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid);
                                          ?>
-                                        <a title="<?php echo esc_attr(__('good','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'change-visitor-publish-status')); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/good.png'; ?>" alt="<?php echo esc_html(__('good','majestic-support')); ?>" /></a>
+                                        <a title="<?php echo esc_attr(__('good','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'change-visitor-publish-status-'.esc_attr($field->id))); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/good.png'; ?>" alt="<?php echo esc_html(__('good','majestic-support')); ?>" /></a>
                                 <?php }else{
                                     $url  = "?page=majesticsupport_fieldordering&task=changevisitorpublishstatus&action=mstask&status=publish&fieldorderingid=".esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid);
                                          ?>
-                                        <a title="<?php echo esc_attr(__('cross','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'change-visitor-publish-status')); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/close.png'; ?>" alt="<?php echo esc_html(__('cross','majestic-support')); ?>" /></a>
+                                        <a title="<?php echo esc_attr(__('cross','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'change-visitor-publish-status-'.esc_attr($field->id))); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/close.png'; ?>" alt="<?php echo esc_html(__('cross','majestic-support')); ?>" /></a>
                                 <?php } ?>
                             </td>
                             <td>
@@ -189,11 +189,11 @@ $type = array(
                                 <?php }elseif ($field->required == 1) {
                                     $url  = "?page=majesticsupport_fieldordering&task=changerequiredstatus&action=mstask&status=unrequired&fieldorderingid=".esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid);
                                          ?>
-                                        <a title="<?php echo esc_attr(__('good','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'change-required-status')); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/good.png'; ?>" alt="<?php echo esc_html(__('good','majestic-support')); ?>" /></a>
+                                        <a title="<?php echo esc_attr(__('good','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'change-required-status-'.esc_attr($field->id))); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/good.png'; ?>" alt="<?php echo esc_html(__('good','majestic-support')); ?>" /></a>
                                 <?php }else{
                                     $url  = "?page=majesticsupport_fieldordering&task=changerequiredstatus&action=mstask&status=required&fieldorderingid=".esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid);
                                          ?>
-                                        <a title="<?php echo esc_attr(__('Close','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'change-required-status')); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/close.png'; ?>" title="<?php echo esc_attr(__('Close','majestic-support')); ?>" /></a>
+                                        <a title="<?php echo esc_attr(__('Close','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'change-required-status-'.esc_attr($field->id))); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/close.png'; ?>" title="<?php echo esc_attr(__('Close','majestic-support')); ?>" /></a>
                                 <?php } ?>
                             </td>
                             <td>
@@ -201,7 +201,7 @@ $type = array(
                                 <?php
                                     if($field->isuserfield==1){
                                         $fieldData = '<a title="'.esc_html(__('Edit','majestic-support')).'" class="action-btn" href="?page=majesticsupport_fieldordering&mjslay=adduserfeild&majesticsupportid='.esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid).'"><img alt="'.esc_html(__('Edit','majestic-support')).'" src="'.esc_url(MJTC_PLUGIN_URL).'includes/images/edit.png" /></a>&nbsp;';
-                                        $fieldData = '<a title="'.esc_html(__('Delete','majestic-support')).'" class="action-btn" onclick="return confirm(\''.esc_html(__('Are you sure you want to delete it?','majestic-support')).'\');" href="'.esc_url(wp_nonce_url('?page=majesticsupport_fieldordering&task=removeuserfeild&action=mstask&majesticsupportid='.esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid),'remove-userfeild')).'"><img alt="'.esc_html(__('Delete','majestic-support')).'" src="'.esc_url(MJTC_PLUGIN_URL).'includes/images/delete.png" /></a>';
+                                        $fieldData = '<a title="'.esc_html(__('Delete','majestic-support')).'" class="action-btn" onclick="return confirm(\''.esc_html(__('Are you sure you want to delete it?','majestic-support')).'\');" href="'.esc_url(wp_nonce_url('?page=majesticsupport_fieldordering&task=removeuserfeild&action=mstask&majesticsupportid='.esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid),'remove-userfeild-'.esc_attr($field->id))).'"><img alt="'.esc_html(__('Delete','majestic-support')).'" src="'.esc_url(MJTC_PLUGIN_URL).'includes/images/delete.png" /></a>';
                                         echo wp_kses($fieldData, MJTC_ALLOWED_TAGS); 
                                     }else{
                                         echo esc_html('---');

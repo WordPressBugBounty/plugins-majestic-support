@@ -33,8 +33,9 @@ class MJTC_replyController {
     }
 
     static function savereply() {
+        $ticketid = MJTC_request::MJTC_getVar('ticketid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-reply') ) {
+        if (! wp_verify_nonce( $nonce, 'save-reply-'.$ticketid) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -49,8 +50,9 @@ class MJTC_replyController {
     }
 
     static function saveeditedreply() {
+        $reply_tikcetid = MJTC_request::MJTC_getVar('reply-tikcetid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-edited-reply') ) {
+        if (! wp_verify_nonce( $nonce, 'save-edited-reply-'.$reply_tikcetid) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -65,6 +67,11 @@ class MJTC_replyController {
     }
 
     static function saveeditedtime() {
+        $reply_tikcetid = MJTC_request::MJTC_getVar('reply-tikcetid');
+        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $nonce, 'save-edited-time-reply-'.$reply_tikcetid) ) {
+            die( 'Security check Failed' );
+        }
         if(!in_array('timetracking', majesticsupport::$_active_addons)){
             return;
         }

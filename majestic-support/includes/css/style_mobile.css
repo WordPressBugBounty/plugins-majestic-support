@@ -156,6 +156,9 @@ div.ms-visitor-token-message p.ms-visitor-token-message-token-number a{margin-bo
 	.mjtc_supportattachment {width: 100%;}
 	.mjtc-support-thread .mjtc-support-thread-cnt-btm .mjtc-support-thread-date {width: 100%;}
 	.mjtc-support-thread .mjtc-support-thread-actions {width: 100%;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-wrp {margin: 14px 0 0;width: 100%;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-btn {float: left;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-detail {left: 0;min-width: 100%}
 	.mjtc-det-tkt-form .mjtc-form-wrapper .ms-formfield-radio-button-wrap {width: calc(50% - 5px);margin-bottom: 5px;}
 	.ms-ticket-detail-smartreply-wrp .ms-smartreply-text {width: calc(100% - 30px);}
 	.ms-ticket-detail-smartreply-wrp .ms-smartreply-img {display: none;}

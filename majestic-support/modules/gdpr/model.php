@@ -64,8 +64,9 @@ class MJTC_gdprModel {
     }
 
     function storeUserEraseRequest($data){
+        $nonce_id = isset($data['id']) ? $data['id'] : '';
     	$nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-usereraserequest') ) {
+        if (! wp_verify_nonce( $nonce, 'save-usereraserequest-'.$nonce_id) ) {
             die( 'Security check Failed' );
         }
         if (!$data['id']) { //new
@@ -111,7 +112,7 @@ class MJTC_gdprModel {
     }
 
     function checkCanDelete($id){
-
+        if(!is_numeric($id)) return false;
         if(current_user_can('manage_options')){ // allow admin to delete ??
             return true;
         }
@@ -165,7 +166,7 @@ class MJTC_gdprModel {
         if($id) $query .= " AND uid = ".esc_sql($id);
         $result['overdueticket'] = majesticsupport::$_db->get_results($query);
 
-        $query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 4 AND (lastreply != '0000-00-00 00:00:00' AND lastreply != '') AND created >= '" . esc_sql($curdate) . "' AND created <= '" . esc_sql($fromdate) . "'";
+        $query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 4 AND (lastreply IS NOT NULL AND lastreply != '0000-00-00 00:00:00' AND lastreply != '') AND created >= '" . esc_sql($curdate) . "' AND created <= '" . esc_sql($fromdate) . "'";
         if($id) $query .= " AND uid = ".esc_sql($id);
         $result['pendingticket'] = majesticsupport::$_db->get_results($query);
         //user detail
@@ -174,7 +175,7 @@ class MJTC_gdprModel {
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 4 AND created >= '" . esc_sql($curdate) . "' AND created <= '" . esc_sql($fromdate) . "' AND uid = user.id) AS closeticket,
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 4 AND status != 0 AND created >= '" . esc_sql($curdate) . "' AND created <= '" . esc_sql($fromdate) . "' AND uid = user.id) AS answeredticket,
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 4 AND created >= '" . esc_sql($curdate) . "' AND created <= '" . esc_sql($fromdate) . "' AND uid = user.id) AS overdueticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 4 AND isoverdue = 1 AND (lastreply != '0000-00-00 00:00:00' AND lastreply != '') AND created >= '" . esc_sql($curdate) . "' AND created <= '" . esc_sql($fromdate) . "' AND uid = user.id) AS pendingticket
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 4 AND isoverdue = 1 AND (lastreply IS NOT NULL AND lastreply != '0000-00-00 00:00:00' AND lastreply != '') AND created >= '" . esc_sql($curdate) . "' AND created <= '" . esc_sql($fromdate) . "' AND uid = user.id) AS pendingticket
                     FROM `".majesticsupport::$_wpprefixforuser."mjtc_support_users` AS user
                     WHERE user.id = ".esc_sql($id);
         $user = majesticsupport::$_db->get_row($query);

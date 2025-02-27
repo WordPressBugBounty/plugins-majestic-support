@@ -15,8 +15,7 @@ class MJTC_ajax {
         $task = MJTC_request::MJTC_getVar('task');
         if($task != '' && in_array($task, $functions_allowed)){
             $module = MJTC_request::MJTC_getVar('mjsmod');
-			$module = str_replace("..","",$module);
-			$module = str_replace("/","",$module);
+            $module = MJTC_majesticsupportphplib::MJTC_clean_file_path($module);
             $result = MJTC_includer::MJTC_getModel($module)->$task();
             echo wp_kses($result, MJTC_ALLOWED_TAGS);
             die();

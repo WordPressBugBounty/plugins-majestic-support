@@ -44,8 +44,9 @@ class MJTC_priorityController {
     }
 
     static function savepriority() {
+        $id = MJTC_request::MJTC_getVar('id');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-priority') ) {
+        if (! wp_verify_nonce( $nonce, 'save-priority-'.$id) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -60,11 +61,11 @@ class MJTC_priorityController {
     }
 
     static function deletepriority() {
+        $id = MJTC_request::MJTC_getVar('priorityid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'delete-priority') ) {
+        if (! wp_verify_nonce( $nonce, 'delete-priority-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('priorityid');
         MJTC_includer::MJTC_getModel('priority')->removePriority($id);
         if (is_admin()) {
             $url = admin_url("admin.php?page=majesticsupport_priority&mjslay=priorities");
@@ -76,11 +77,11 @@ class MJTC_priorityController {
     }
 
     static function makedefault() {
+        $id = MJTC_request::MJTC_getVar('priorityid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'make-default') ) {
+        if (! wp_verify_nonce( $nonce, 'make-default-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('priorityid');
         MJTC_includer::MJTC_getModel('priority')->makeDefault($id);
         $pagenum = MJTC_request::MJTC_getVar('pagenum');
         $url = "admin.php?page=majesticsupport_priority&mjslay=priorities";
@@ -91,11 +92,11 @@ class MJTC_priorityController {
     }
 
     static function ordering() {
+        $id = MJTC_request::MJTC_getVar('priorityid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'ordering') ) {
+        if (! wp_verify_nonce( $nonce, 'ordering-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('priorityid');
         MJTC_includer::MJTC_getModel('priority')->setOrdering($id);
         $pagenum = MJTC_request::MJTC_getVar('pagenum');
         $url = "admin.php?page=majesticsupport_priority&mjslay=priorities";

@@ -839,7 +839,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                                                     <?php if (in_array('agent',majesticsupport::$_active_addons) && $ticket->staffphoto) { ?>
                                                         <img class="mjtc-support-staff-img" src="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'agent','task'=>'getStaffPhoto','action'=>'mstask','majesticsupportid'=> $ticket->staffid ,'mspageid'=>get_the_ID())));?> ">
                                                     <?php } else {
-                                                        echo wp_kses(ms_get_avatar(MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById($ticket->uid)), MJTC_ALLOWED_TAGS);
+                                                        echo wp_kses(ms_get_avatar($ticket->uid), MJTC_ALLOWED_TAGS);
                                                     } ?>
                                                 </div>
                                                 <div class="mjtc-support-ticket-subject">
@@ -954,7 +954,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 <div class="mjtc-support-row">
                                     <div class="mjtc-support-first-left">
                                         <div class="mjtc-support-user-img-wrp">
-                                            <?php echo wp_kses(ms_get_avatar(MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById($ticket->uid)), MJTC_ALLOWED_TAGS); ?>
+                                            <?php echo wp_kses(ms_get_avatar($ticket->uid), MJTC_ALLOWED_TAGS); ?>
                                         </div>
                                         <div class="mjtc-support-ticket-subject">
                                             <?php

@@ -153,7 +153,7 @@ class MJTC_majesticsupportModel {
         majesticsupport::$_data['smartreply'] = majesticsupport::$_db->get_results($query);
         // agents
         if(in_array('agent', majesticsupport::$_active_addons)){
-            $query = "SELECT CONCAT(staff.firstname ,'  ' ,staff.lastname) AS staffname,staff.id AS staffid, staff.photo AS staffphoto, (SELECT COUNT(id) FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket WHERE ticket.staffid = staff.id and ticket.status != 4 and ticket.status != 5) AS totalticket
+            $query = "SELECT CONCAT(staff.firstname ,'  ' ,staff.lastname) AS staffname, staff.id AS staffid, staff.uid AS staffuid, staff.photo AS staffphoto, (SELECT COUNT(id) FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket WHERE ticket.staffid = staff.id and ticket.status != 4 and ticket.status != 5) AS totalticket
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff WHERE staff.status = 1 ORDER BY totalticket DESC LIMIT 0, 5";
             majesticsupport::$_data['agents'] = majesticsupport::$_db->get_results($query);
         }
@@ -228,7 +228,7 @@ class MJTC_majesticsupportModel {
     }
 
     function getAgentTicketStats($staffid){
-        if(!is_numeric($staffid) || majesticsupport::$_config['count_on_myticket'] != 1){
+        if(!is_numeric($staffid)){
             return false;
         }
 
@@ -553,7 +553,7 @@ class MJTC_majesticsupportModel {
 
     function makeLanguageCode($lang_name){
         $langarray = wp_get_installed_translations('core');
-        $langarray = $langarray['default'];
+        $langarray = isset($langarray['default']) ? $langarray['default'] : array();
         $match = false;
         if(array_key_exists($lang_name, $langarray)){
             $lang_name = $lang_name;
@@ -905,17 +905,15 @@ class MJTC_majesticsupportModel {
                                 </div>
                                 <div class="mjtc-support-table-body-col mjtc-sprt-tbl-unm">
                                     <span class="mjtc-support-display-block">'.esc_html(__('User Name','majestic-support')).':</span>
-                                    <span class="mjtc-support-title"><a href="#" class="mjtc-userpopup-link" data-id="'.esc_attr($user->userid).'" data-email="'.esc_attr($user->useremail).'" data-name="'.esc_attr($user->userdisplayname).'">';
-                                        if(isset($user->username) && $user->username != ''){
-                                            $result .= esc_html($user->username);
-                                        } else {
-                                            $result .= esc_html($user->useremail);
-                                        }
-                                        $result .='</a></span>
+                                    '.esc_html($user->username).'
                                 </div>
                                 <div class="mjtc-support-table-body-col mjtc-sprt-tbl-eml">
                                     <span class="mjtc-support-display-block">'.esc_html(__('Email','majestic-support')).':</span>
-                                    '.esc_html($user->useremail).'
+                                    <span class="mjtc-support-title">
+                                        <a href="#" class="mjtc-userpopup-link" data-id="'.esc_attr($user->userid).'" data-username="'.esc_attr($user->username).'" data-email="'.esc_attr($user->useremail).'" data-name="'.esc_attr($user->userdisplayname).'">
+                                            '.esc_html($user->useremail).'
+                                        </a>
+                                    </span>
                                 </div>
                                 <div class="mjtc-support-table-body-col mjtc-sprt-tbl-nam">
                                     <span class="mjtc-support-display-block">'.esc_html(__('Name','majestic-support')).':</span>
@@ -992,17 +990,15 @@ class MJTC_majesticsupportModel {
                                 </div>
                                 <div class="mjtc-support-table-body-col mjtc-sprt-tbl-unm">
                                     <span class="mjtc-support-display-block">'.esc_html(__('User Name','majestic-support')).':</span>
-                                    <span class="mjtc-support-title"><a href="#" class="mjtc-userpopup-link" data-id="'.esc_attr($user->userid).'" data-email="'.esc_attr($user->useremail).'" data-name="'.esc_attr($user->userdisplayname).'">';
-                                        if(isset($user->username) && $user->username != ''){
-                                            $html .= esc_html($user->username);
-                                        } else {
-                                            $html .= esc_html($user->useremail);
-                                        }
-                                        $html .='</a></span>
+                                    '.esc_html($user->username).'
                                 </div>
                                 <div class="mjtc-support-table-body-col mjtc-sprt-tbl-eml">
                                     <span class="mjtc-support-display-block">'.esc_html(__('Email','majestic-support')).':</span>
-                                    '.esc_html($user->useremail).'
+                                    <span class="mjtc-support-title">
+                                        <a href="#" class="mjtc-userpopup-link" data-id="'.esc_attr($user->userid).'" data-email="'.esc_attr($user->useremail).'" data-username="'.esc_attr($user->username).'" data-name="'.esc_attr($user->userdisplayname).'">
+                                            '.esc_html($user->useremail).'
+                                        </a>
+                                    </span>
                                 </div>
                                 <div class="mjtc-support-table-body-col mjtc-sprt-tbl-nam">
                                     <span class="mjtc-support-display-block">'.esc_html(__('Name','majestic-support')).':</span>
@@ -1436,7 +1432,7 @@ class MJTC_majesticsupportModel {
                 $title = __("Translations", 'majestic-support');
                 break;
             case 'systemerror':
-                $actionButton = "<a class=\"msadmin-add-link button\" onclick=\"return confirm('". esc_html(__('Are you sure you want to delete it?', 'majestic-support')) ."');\" href=\"". esc_url(wp_nonce_url('?page=majesticsupport_systemerror&task=deletesystemerror&action=mstask&systemerrorid=all','delete-systemerror')) ."\"><img alt=\"". esc_html(__('Add','majestic-support')) ."\" src=\"". esc_url(MJTC_PLUGIN_URL) ."includes/images/delete.png\" />". esc_html(__('Remove All', 'majestic-support')) ."</a>";
+                $actionButton = "<a class=\"msadmin-add-link button\" onclick=\"return confirm('". esc_html(__('Are you sure you want to delete it?', 'majestic-support')) ."');\" href=\"". esc_url(wp_nonce_url('?page=majesticsupport_systemerror&task=deletesystemerror&action=mstask&systemerrorid=all','delete-systemerror-all')) ."\"><img alt=\"". esc_html(__('Add','majestic-support')) ."\" src=\"". esc_url(MJTC_PLUGIN_URL) ."includes/images/delete.png\" />". esc_html(__('Remove All', 'majestic-support')) ."</a>";
                 $title = __("System Errors", 'majestic-support');
             break;
             case 'admin_addticket':

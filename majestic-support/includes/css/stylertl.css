@@ -195,6 +195,11 @@
 	.mjtc-support-thread .mjtc-support-thread-image {float: right;}
 	.mjtc-support-thread .mjtc-support-thread-cnt {padding-right: 15px;}
 	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-person {float: right;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-time {float: right;margin-right: 10px;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-wrp {float: left;margin-left: 0px;margin-right: 10px;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-btn {float: right;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-detail {right: auto;left: 0;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-detail .mjtc-support-thread-read-status-row b {float: right;}
 	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-email {float: right;}
 	.mjtc-support-thread .mjtc-support-thread-cnt-btm .mjtc-support-thread-date {float: right;}
 	.mjtc-sprt-det-hdg .mjtc-sprt-det-hdg-txt {float: right;}
@@ -235,6 +240,7 @@
 	div#usercredentailspopup .mjtc-support-usercredentails-wrp .mjtc-support-usercredentails-single {text-align: right;}
 	div#usercredentailspopup .mjtc-support-usercredentails-wrp .mjtc-support-usercredentails-single .mjtc-support-usercredentail-data {float: right;}
 	img.popup-header-close-img {right: auto;left: 25px;}
+	img.internalnote-popup-header-close-img {right: auto;left: 25px;}
 	.mjtc-popup-search {text-align: right;}
 	div.mjtc-merge-form-wrp {float: right;}
 	span.mjtc-merge-btn {float: right;margin-left: 5px;margin-right: 0;}

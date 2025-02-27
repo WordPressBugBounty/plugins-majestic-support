@@ -129,7 +129,7 @@ class MJTC_customfields {
                     $i = 0;
                     $msFunction = '';
                     if ($field->depandant_field != null) {
-                        $wpnonce = wp_create_nonce("data-for-depandant-field");
+                        $wpnonce = wp_create_nonce("data-for-depandant-field-".$field->depandant_field);
                         $msFunction = "MJTC_getDataForDepandantField('".esc_attr($wpnonce)."','" . esc_attr($field->field) . "','" . esc_attr($field->depandant_field) . "',2);";
                     }
                     $valuearray = array();
@@ -162,7 +162,7 @@ class MJTC_customfields {
                 //code for handling dependent field
                 $msFunction = '';
                 if ($field->depandant_field != null) {
-                    $wpnonce = wp_create_nonce("data-for-depandant-field");
+                    $wpnonce = wp_create_nonce("data-for-depandant-field-".$field->depandant_field);
                     $msFunction = "MJTC_getDataForDepandantField('". esc_js($wpnonce) ."','" . esc_js($field->field) . "','" . esc_js($field->depandant_field) . "',1);";
                 }
                 //code for handling visible field
@@ -170,7 +170,7 @@ class MJTC_customfields {
                 if ($field->visible_field != null) {
                     $visibleparams = MJTC_includer::MJTC_getModel('fieldordering')->MJTC_getDataForVisibleField($field->visible_field);
                     foreach ($visibleparams as $visibleparam) {
-                        $wpnonce = wp_create_nonce("is-field-required");
+                        $wpnonce = wp_create_nonce("is-field-required-".$visibleparam->visibleParentField);
                         $msVisibleFunction .= " MJTC_getDataForVisibleField('". esc_js($wpnonce) ."', this.value, '" . esc_js($visibleparam->visibleParent) . "','" . esc_js($visibleparam->visibleParentField) . "','". esc_js($visibleparam->visibleValue) ."','". esc_js($visibleparam->visibleCondition) ."');";
                     }
                     $msFunction.=$msVisibleFunction;
@@ -192,7 +192,7 @@ class MJTC_customfields {
                 //code for handling dependent field
                 $msFunction = '';
                 if ($field->depandant_field != null) {
-                    $wpnonce = wp_create_nonce("data-for-depandant-field");
+                    $wpnonce = wp_create_nonce("data-for-depandant-field-".$field->depandant_field);
                     $msFunction = "MJTC_getDataForDepandantField('". esc_js($wpnonce) ."','" . esc_js($field->field) . "','" . esc_js($field->depandant_field) . "');";
                 }
                 //end
@@ -368,7 +368,7 @@ class MJTC_customfields {
                     }
                     $msFunction = '';
                     if ($field->depandant_field != null) {
-                        $wpnonce = wp_create_nonce("data-for-depandant-field");
+                        $wpnonce = wp_create_nonce("data-for-depandant-field-".$field->depandant_field);
                         $msFunction = "MJTC_getDataForDepandantField('". esc_js($wpnonce) ."','" . esc_js($field->field) . "','" . esc_js($field->depandant_field) . "',2);";
                     }
                     $html .= '<div class="mjtc-form-cust-rad-fld-wrp">';
@@ -387,7 +387,7 @@ class MJTC_customfields {
                         $i = 0;
                         $msFunction = '';
                         if ($field->depandant_field != null) {
-                            $wpnonce = wp_create_nonce("data-for-depandant-field");
+                            $wpnonce = wp_create_nonce("data-for-depandant-field-".$field->depandant_field);
                             $msFunction = "MJTC_getDataForDepandantField('". esc_js($wpnonce) ."','" . esc_js($field->field) . "','" . esc_js($field->depandant_field) . "',2);";
                         }
                         $valuearray = array();
@@ -424,7 +424,7 @@ class MJTC_customfields {
                 //code for handling dependent field
                 $msFunction = '';
                 if ($field->depandant_field != null) {
-                    $wpnonce = wp_create_nonce("data-for-depandant-field");
+                    $wpnonce = wp_create_nonce("data-for-depandant-field-".$field->depandant_field);
                     $msFunction = "MJTC_getDataForDepandantField('". esc_js($wpnonce) ."','" . esc_js($field->field) . "','" . esc_js($field->depandant_field) . "',1);";
                 }
                 //end
@@ -444,7 +444,7 @@ class MJTC_customfields {
                 //code for handling dependent field
                 $msFunction = '';
                 if ($field->depandant_field != null) {
-                    $wpnonce = wp_create_nonce("data-for-depandant-field");
+                    $wpnonce = wp_create_nonce("data-for-depandant-field-".$field->depandant_field);
                     $msFunction = "MJTC_getDataForDepandantField('". esc_js($wpnonce) ."','" . esc_js($field->field) . "','" . esc_js($field->depandant_field) . "');";
                 }
                 //end
@@ -510,8 +510,14 @@ class MJTC_customfields {
     }
 
     function MJTC_userFieldsData($fieldfor, $listing = null, $multiformid = '') {
+        if(!is_numeric($fieldfor)){
+            return false;
+        }
         if ($multiformid == '') {
             $multiformid = MJTC_includer::MJTC_getModel('ticket')->getDefaultMultiFormId();
+        }
+        if(!is_numeric($multiformid)){
+            return false;
         }
         if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()) {
             $published = ' isvisitorpublished = 1 ';
@@ -531,6 +537,9 @@ class MJTC_customfields {
     }
 
     function userFieldsForSearch($fieldfor) {
+        if(!is_numeric($fieldfor)){
+            return false;
+        }
         if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()) {
             $inquery = ' isvisitorpublished = 1';
         } else {

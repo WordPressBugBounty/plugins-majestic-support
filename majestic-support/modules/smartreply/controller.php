@@ -59,8 +59,9 @@ class MJTC_smartreplyController {
     }
 
     static function savesmartreply() {
+        $id = MJTC_request::MJTC_getVar('id');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-smart-reply') ) {
+        if (! wp_verify_nonce( $nonce, 'save-smart-reply-'.$id) ) {
             die( 'Security check Failed' );
         }
         $data = MJTC_request::get('post');
@@ -75,11 +76,11 @@ class MJTC_smartreplyController {
     }
 
     static function deletesmartreply() {
+        $id = MJTC_request::MJTC_getVar('smartreplyid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'delete-smartreply') ) {
+        if (! wp_verify_nonce( $nonce, 'delete-smartreply-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('smartreplyid');
         MJTC_includer::MJTC_getModel('smartreply')->removeSmartreply($id);
         if (is_admin()) {
             $url = admin_url("admin.php?page=majesticsupport_smartreply&mjslay=smartreplies");

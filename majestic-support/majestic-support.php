@@ -3,14 +3,14 @@
 /**
  * @package Majestic Support
  * @author Majestic Support
- * @version 1.0.7
+ * @version 1.0.8
  */
 /*
   Plugin Name: Majestic Support
   Plugin URI: https://www.majesticsupport.com
   Description: Majestic Support is a trusted open source ticket system. Majestic Support is a simple, easy to use, web-based customer support system. User can create ticket from front-end. Majestic Support comes packed with lot features than most of the expensive(and complex) support ticket system on market. Majestic Support provide you best industry Majestic Support system.
   Author: Majestic Support
-  Version: 1.0.7
+  Version: 1.0.8
   License: GPLv3
   Text Domain: majestic-support
   
@@ -66,7 +66,7 @@ class majesticsupport {
         self::$_data = array();
         self::$_search = array();
         self::$_captcha = array();
-        self::$_currentversion = '107';
+        self::$_currentversion = '108';
         self::$_addon_query = array('select'=>'','join'=>'','where'=>'');
         self::$_mjtcsession = MJTC_includer::MJTC_getObjectClass('wphdsession');
         global $wpdb;
@@ -132,7 +132,7 @@ class majesticsupport {
                     // restore colors data end
                     update_option('ms_currentversion', self::$_currentversion);
                     include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-                    MJTC_updates::MJTC_checkUpdates('107');
+                    MJTC_updates::MJTC_checkUpdates('108');
                     MJTC_includer::MJTC_getModel('majesticsupport')->updateColorFile();
                 }
             }
@@ -1267,15 +1267,42 @@ if(is_admin() && is_file('includes/classes/msadminreviewbox.php')){
     
 }
 
-function ms_get_avatar($uid, $class = ''){
+function ms_get_avatar($uid, $class = '') {
+    // Default avatar image URL
     $defaultImage = MJTC_PLUGIN_URL . '/includes/images/user.png';
-    $avatar = '<img alt="image" src="'.esc_url($defaultImage).'" class="'.esc_attr($class).'" />';
-    if(is_numeric($uid) && $uid){
-        $avatar = get_avatar($uid, 96, $defaultImage, '', array('class'=>$class));
-    }else{
-        $avatar = '<img alt="image" src="'.esc_url($defaultImage).'" class="'.esc_attr($class).'" />';
+
+    // Ensure the UID is valid and numeric
+    if (!is_numeric($uid) || !$uid) {
+        return '<img alt="' . esc_html(__('image', 'majestic-support')) . '" src="' . esc_url($defaultImage) . '" class="' . esc_attr($class) . '" />';
     }
-    return $avatar;
+
+    // in case if user is agent
+    if ( in_array('agent',majesticsupport::$_active_addons)) {
+        $query = "
+        SELECT id, photo FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff WHERE staff.uid = ".esc_sql($uid);
+        $staff_data = majesticsupport::$_db->get_row($query);
+        if (!empty($staff_data->photo)) {
+            $maindir = wp_upload_dir();
+            $path = $maindir['baseurl'];
+
+            $imageurl = $path."/".majesticsupport::$_config['data_directory']."/staffdata/staff_".$staff_data->id."/".$staff_data->photo;
+
+            return '<img alt="' . esc_html(__('image', 'majestic-support')) . '" src="' . esc_url($imageurl) . '" class="' . esc_attr($class) . '" />';
+        }
+    }
+    $uid = MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById($uid);
+
+    // Get the avatar URL
+    $avatar_url = get_avatar_url($uid, array('size' => 96));
+
+    // Check if the avatar URL is valid
+    if (!empty($avatar_url) && @getimagesize($avatar_url)) {
+        // Use WordPress's get_avatar function to generate the avatar HTML
+        return get_avatar($uid, 96, '', '', array('class' => $class));
+    } else {
+        // Fallback to the default image if the avatar URL is invalid
+        return '<img alt="' . esc_html(__('image', 'majestic-support')) . '" src="' . esc_url($defaultImage) . '" class="' . esc_attr($class) . '" />';
+    }
 }
 
 function mjtc_checkPluginInfo($slug){
