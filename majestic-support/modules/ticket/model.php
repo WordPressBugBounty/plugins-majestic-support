@@ -2327,6 +2327,7 @@ class MJTC_ticketModel {
     function removeFileCustom($id,$key){
         if(!is_numeric($id)) return false;
         $filename = MJTC_majesticsupportphplib::MJTC_str_replace(' ', '_', $key);
+        $filename = MJTC_majesticsupportphplib::MJTC_clean_file_path($filename);
         $maindir = wp_upload_dir();
         $basedir = $maindir['basedir'];
         $datadirectory = majesticsupport::$_config['data_directory'];

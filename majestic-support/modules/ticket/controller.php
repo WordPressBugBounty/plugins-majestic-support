@@ -274,18 +274,35 @@ class MJTC_ticketController {
     }
 
     static function enforcedeleteticket() {
+        // Sanitize and validate ticket ID
         $id = MJTC_request::MJTC_getVar('ticketid');
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'enforce-delete-ticket-'.$id) ) {
-            die( 'Security check Failed' );
+        if (!is_numeric($id) || intval($id) <= 0) {
+            die('Invalid ticket ID');
         }
+        $id = absint($id); // Ensure positive integer
+
+        // Validate Nonce
+        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (!wp_verify_nonce($nonce, 'enforce-delete-ticket-' . $id)) {
+            die('Security check Failed');
+        }
+
+        // Only allow admins to delete any ticket
+        if (!current_user_can('manage_options')) {
+            die('You do not have permission to delete this ticket');
+        }
+
+        // Delete the ticket securely
         MJTC_includer::MJTC_getModel('ticket')->removeEnforceTicket($id);
+
+        // Redirect securely
         if (is_admin()) {
             $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=tickets");
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'myticket'));
+            $url = majesticsupport::makeUrl(array('mjsmod' => 'ticket', 'mjslay' => 'myticket'));
         }
-        wp_redirect($url);
+        
+        wp_safe_redirect($url);
         exit;
     }
 
@@ -476,6 +493,7 @@ class MJTC_ticketController {
     function downloadbyname(){
         $name = MJTC_request::MJTC_getVar('name');
         $id = MJTC_request::MJTC_getVar('id');
+        $name = MJTC_majesticsupportphplib::MJTC_clean_file_path($name);
         MJTC_includer::MJTC_getModel('attachment')->getDownloadAttachmentByName($name,$id);
     }
 

@@ -177,6 +177,7 @@ class MJTC_attachmentModel {
         if(empty($file_name)) return false;
         if(!is_numeric($id)) return false;
         $filename = MJTC_majesticsupportphplib::MJTC_str_replace(' ', '_',$file_name);
+        $filename = MJTC_majesticsupportphplib::MJTC_clean_file_path($filename);
         $query = "SELECT attachmentdir FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE id = ".esc_sql($id);
         $foldername = majesticsupport::$_db->get_var($query);
 

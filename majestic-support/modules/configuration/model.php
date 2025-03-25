@@ -301,25 +301,31 @@ class MJTC_configurationModel {
         majesticsupport::$_db->update(majesticsupport::$_db->prefix . 'mjtc_support_config', array('configvalue' => $filename), array('configname' => 'support_custom_img'));
     }
 
-    function deleteSupportCustomImage(){
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'delete-support-customimage') ) {
-            die( 'Security check Failed' );
-        }
-        $maindir = wp_upload_dir();
-        $basedir = $maindir['basedir'];
-        $datadirectory = majesticsupport::$_config['data_directory'];
-        $path = $basedir . '/' . $datadirectory;
-        $path = $path . '/supportImg';
+    function deleteSupportCustomImage() {
 
-        $query = "SELECT configvalue FROM `".majesticsupport::$_db->prefix."mjtc_support_config` WHERE configname = 'support_custom_img'";
+        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (!wp_verify_nonce($nonce, 'delete-support-customimage')) {
+            die('Security check Failed');
+        }
+
+        $maindir = wp_upload_dir();
+        $basedir = trailingslashit($maindir['basedir']);
+        $datadirectory = isset(majesticsupport::$_config['data_directory']) ? sanitize_text_field(majesticsupport::$_config['data_directory']) : '';
+        $path = $basedir . trailingslashit($datadirectory) . 'supportImg/';
+
+        $query = "SELECT configvalue FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configname = 'support_custom_img'";
         $key = majesticsupport::$_db->get_var($query);
         if ($key) {
-            $unlinkPath = $path.'/'.$key;
-            if (is_file($unlinkPath)) {
+            $key = sanitize_file_name($key); // Sanitize filename
+            $unlinkPath = realpath($path . $key); // Get absolute path
+
+            // Ensure the file is within the allowed directory
+            if ($unlinkPath && strpos($unlinkPath, realpath($path)) === 0 && is_file($unlinkPath)) {
                 wp_delete_file($unlinkPath);
             }
         }
+
+        // Update database to remove reference
         majesticsupport::$_db->update(majesticsupport::$_db->prefix . 'mjtc_support_config', array('configvalue' => 0), array('configname' => 'support_custom_img'));
         return 'success';
     }

@@ -14,27 +14,41 @@ class MJTC_PostinstallationModel {
             }
     }
 
-	function storeConfigurations($data){
+    function storeConfigurations($data){
         if (empty($data))
             return false;
+
         $error = false;
         unset($data['action']);
         unset($data['form_request']);
+
+        // Sanitize all input data
+        $data = majesticsupport::MJTC_sanitizeData($data); // JSST_sanitizeData() function uses wordpress santize functions
+
+        // Additional security for specific parameters
+        if (isset($data['support_custom_img'])) {
+            $data['support_custom_img'] = sanitize_file_name($data['support_custom_img']); // Prevent directory traversal
+        }
+
         foreach ($data as $key => $value) {
             $query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_config` SET `configvalue` = '" . esc_sql($value) . "' WHERE `configname`= '" . esc_sql($key) . "'";
             majesticsupport::$_db->query($query);
-            if(majesticsupport::$_db->last_error == null){
+
+            // Track status for error handling
+            if(majesticsupport::$_db->last_error == null) {
                 $status = 0;
-            }else{
+            } else {
                 $status = 1;
             }
         }
+
         if ($status == 0) {
-            MJTC_message::MJTC_setMessage(esc_html(__('Configuration','majestic-support')).' '.esc_html(__('has been changed', 'majestic-support')), 'updated');
+            MJTC_message::MJTC_setMessage(esc_html(__('Configuration','majestic-support')) . ' ' . esc_html(__('has been changed', 'majestic-support')), 'updated');
         } else {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
-            MJTC_message::MJTC_setMessage(esc_html(__('Configuration','majestic-support')).' '.esc_html(__('has not been changed', 'majestic-support')), 'error');
+            MJTC_message::MJTC_setMessage(esc_html(__('Configuration','majestic-support')) . ' ' . esc_html(__('has not been changed', 'majestic-support')), 'error');
         }
+
         return;
     }
 
