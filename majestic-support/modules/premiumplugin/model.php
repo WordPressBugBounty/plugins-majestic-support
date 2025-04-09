@@ -275,6 +275,9 @@ class MJTC_premiumpluginModel {
     }
 
     function downloadandinstalladdonfromAjax(){
+        if(!current_user_can('manage_options')){
+            return false;
+        }
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
         if (! wp_verify_nonce( $nonce, 'download-and-install-addon') ) {
             die( 'Security check Failed' );

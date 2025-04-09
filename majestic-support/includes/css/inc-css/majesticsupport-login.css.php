@@ -32,8 +32,8 @@ $majesticsupport_css .= '
 	form#loginform-custom p.login-username input#user_login{border-radius: unset;width:100%;padding: 10px;height: 50px;}
 	form#loginform-custom p.login-password input#user_pass{border-radius: unset;width:100%;padding: 10px;height: 50px;}
 	form#loginform-custom p.login-submit input#wp-submit{min-width: 120px;border-radius: unset;padding: 20px 10px;line-height: initial;}
-	span.help-block{font-size:14px;}
-	span.help-block{color:red;}
+	span.MJTC_help-block{font-size:14px;}
+	span.MJTC_help-block{color:red;}
 	div.ms-main-up-wrapper a:link:hover{color:blue;text-decoration:underline;}
 	div.ms-main-up-wrapper a:hover{color:blue;text-decoration:underline;}
 	div.ms-main-up-wrapper a{margin-left:5px;}

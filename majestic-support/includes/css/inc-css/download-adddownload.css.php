@@ -48,8 +48,8 @@ $majesticsupport_css .= '
 	div.mjtc-support-attached-files-wrp{float: left;width: calc(100% / 2 - 10px);margin: 0px 5px;margin-top: 15px;} 
 	div.mjtc_supportattachment{float: left;width: 70%;padding: 10px;}
 	a.mjtc-support-delete-attachment{display:inline-block;float: left;width: 30%;padding: 11px 5px;text-align: center;text-decoration: none;outline: 0px;}
-	span.help-block{font-size:14px;}
-	span.help-block{color:red;}
+	span.MJTC_help-block{font-size:14px;}
+	span.MJTC_help-block{color:red;}
 
 	select ::-ms-expand {display:none !important;}
 	select{-webkit-appearance:none !important;}

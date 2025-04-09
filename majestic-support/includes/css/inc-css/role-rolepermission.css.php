@@ -30,8 +30,8 @@ $majesticsupport_css .= '
 	div.mjtc-support-role-wrp div.mjtc-support-add-role-field-wrp.mjtc-support-margin-bottom{margin-bottom: 10px;}
 	input.mjtc-support-checkbox{vertical-align: baseline;}
 	label.mjtc-support-label{display: inline-block;margin: 0px;vertical-align:middle;}
-	span.help-block{font-size:14px;}
-span.help-block{color:red;}
+	span.MJTC_help-block{font-size:14px;}
+span.MJTC_help-block{color:red;}
 
 
 

@@ -59,7 +59,7 @@ $majesticsupport_css .= '
 	div.mjtc-support-attached-files-wrp{float: left;width: calc(100% / 2 - 10px);margin: 0px 5px;margin-top: 15px;} 
 	div.mjtc_supportattachment{float: left;width: 70%;padding: 10px 5px;}
 	a.mjtc-support-delete-attachment{display:inline-block;float: left;width: 30%;padding: 11px 5px;text-align: center;text-decoration: none;outline: 0px;}
-	span.help-block{font-size: 14px;}
+	span.MJTC_help-block{font-size: 14px;}
 	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button{margin-right:10px;width:calc(100% / 2 - 5px);}
 	div.mjtc-support-categories-wrp{float: left;width: 100%;margin-top: 25px;}
 	div.mjtc-support-margin-bottom{margin-bottom: 20px;margin-top: 10px;}

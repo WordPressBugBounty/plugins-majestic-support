@@ -41,8 +41,8 @@ $majesticsupport_css .= '
 	span.tk_attachment_value_text span.tk_attachment_remove{background: url("'.esc_url(MJTC_PLUGIN_URL).'includes/images/close.png") no-repeat;background-size: 100% 100%;position: absolute;width: 30px;height: 30px;top: 3px;right:7px;cursor: pointer;}
 	span.tk_attachments_configform{display: inline-block;float:left;line-height: 25px;margin-top: 10px;width: 100%; font-size: 14px;}
 	span.tk_attachments_addform{text-transform:capitalize; position: relative;display: inline-block;padding: 13px 10px;cursor: pointer;margin-top: 10px;min-width: 120px;text-align: center;line-height: initial;} 
-	span.help-block{font-size:13px;color:red !important;bottom: -30px;}
-	.mjtc-attachment-field span.help-block{bottom: -35px;}
+	span.MJTC_help-block{font-size:13px;color:red !important;bottom: -30px;}
+	.mjtc-attachment-field span.MJTC_help-block{bottom: -35px;}
 	select ::-ms-expand {display:none !important;}
 	select{-webkit-appearance:none !important;}
 	div.mjtc-support-custom-radio-box {width: 20%;}
@@ -80,7 +80,7 @@ $majesticsupport_css .= '
 	div.tk_attachment_value_wrapperform{border: 1px solid '.$color5.';}
 	span.tk_attachment_value_text{border: 1px solid '.$color5.';background-color:'.$color7.';}
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select{border: 1px solid '.$color5.';color: '.$color4.';}
-	span.help-block{color:red !important;}
+	span.MJTC_help-block{color:red !important;}
 ';
 
 

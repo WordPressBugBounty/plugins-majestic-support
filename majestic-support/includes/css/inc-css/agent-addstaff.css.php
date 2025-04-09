@@ -85,8 +85,8 @@ $majesticsupport_css .= '
 	div#records div.ms_userpages{text-align: right;padding:5px; margin: 10px 5px;width: calc(100% - 10px);float:left;}
 	div#records div.ms_userpages a.ms_userlink{display: inline-block;padding:5px 15px;margin-left:5px;text-decoration: none;background:rgba(0, 0, 0, 0.05) none repeat scroll 0 0;line-height: initial;}
 	div#records div.ms_userpages span.ms_userlink{display: inline-block;padding:5px 15px;margin-left:5px;line-height: initial;}
-	span.help-block{font-size:14px;}
-	span.help-block{color:red;}
+	span.MJTC_help-block{font-size:14px;}
+	span.MJTC_help-block{color:red;}
 	div.mjtc-support-append-signature-wrp{float: left;width: calc(100% / 2 - 25px); margin-right:25px;margin-bottom: 20px;}
 	div.mjtc-support-append-signature-wrp.mjtc-support-append-signature-wrp-full-width{width: 100%;}
 	div.mjtc-support-append-signature-wrp div.mjtc-support-signature-radio-box{float: left;width: calc(100% / 3 - 10px);margin: 0px 5px;padding: 11px;}

@@ -73,11 +73,11 @@ class MJTC_layout {
 		                        $is_enable = get_option('users_can_register');/*check to make sure user registration is enabled*/
 	                            if ($is_enable) {
 	                            	if($registerval == 3){
-		                        	    $html .= '<a class="mjtc-support-register-btn" href="'.esc_url(wp_registration_url()).'" title="Login">' . esc_html(__('Register', 'majestic-support')) . '</a>';
+		                        	    $html .= '<a class="mjtc-support-register-btn" href="'.esc_url(wp_registration_url()).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
 		                        	}else if($registerval == 2 && $registerlink != ""){
-		                        	    $html .= '<a class="mjtc-support-register-btn" href="'.esc_url($registerlink).'" title="Login">' . esc_html(__('Register', 'majestic-support')) . '</a>';
+		                        	    $html .= '<a class="mjtc-support-register-btn" href="'.esc_url($registerlink).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
 		                        	}else{
-		                        		$html .= '<a class="mjtc-support-register-btn" href="'.esc_url(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport', 'mjslay'=>'userregister'))).'" title="Login">' . esc_html(__('Register', 'majestic-support')) . '</a>';
+		                        		$html .= '<a class="mjtc-support-register-btn" href="'.esc_url(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport', 'mjslay'=>'userregister'))).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
 		                        	}
 		                        }
 	                    	}
@@ -194,11 +194,11 @@ class MJTC_layout {
 	                        $is_enable = get_option('users_can_register');/*check to make sure user registration is enabled*/
                             if ($is_enable) {
                             	if($registerval == 3){
-	                        	    $html .= '<a class="mjtc-support-register-btn" href="'.esc_url(wp_registration_url()).'" title="Login">' . esc_html(__('Register', 'majestic-support')) . '</a>';
+	                        	    $html .= '<a class="mjtc-support-register-btn" href="'.esc_url(wp_registration_url()).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
 	                        	}else if($registerval == 2 && $registerlink != ""){
-	                        	    $html .= '<a class="mjtc-support-register-btn" href="'.esc_url($registerlink).'" title="Login">' . esc_html(__('Register', 'majestic-support')) . '</a>';
+	                        	    $html .= '<a class="mjtc-support-register-btn" href="'.esc_url($registerlink).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
 	                        	}else{
-	                        		$html .= '<a class="mjtc-support-register-btn" href="'.esc_url(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport', 'mjslay'=>'userregister', 'mjtc_redirecturl'=>$redirect_url))).'" title="Login">' . esc_html(__('Register', 'majestic-support')) . '</a>';
+	                        		$html .= '<a class="mjtc-support-register-btn" href="'.esc_url(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport', 'mjslay'=>'userregister', 'mjtc_redirecturl'=>$redirect_url))).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
 	                        	}
 	                        }
 

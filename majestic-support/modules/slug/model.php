@@ -126,6 +126,9 @@ class MJTC_slugModel {
     }
 
     function getOptionsForEditSlug() {
+        if(!current_user_can('manage_options')){
+            return false;
+        }
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
         if (! wp_verify_nonce( $nonce, 'get-options-for-edit-slug') ) {
             die( 'Security check Failed' );

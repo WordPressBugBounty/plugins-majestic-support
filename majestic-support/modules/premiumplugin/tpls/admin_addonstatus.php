@@ -38,6 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 $install_plugin_matched_name = $install_plugin_name;
                             }
                         }
+                        $status = '';
                         if($matched == 1){ //installed
                             $name = $key1;
                             $title = $value1['title'];

@@ -3,14 +3,14 @@
 /**
  * @package Majestic Support
  * @author Majestic Support
- * @version 1.0.9
+ * @version 1.1.0
  */
 /*
   Plugin Name: Majestic Support
   Plugin URI: https://www.majesticsupport.com
   Description: Majestic Support is a trusted open source ticket system. Majestic Support is a simple, easy to use, web-based customer support system. User can create ticket from front-end. Majestic Support comes packed with lot features than most of the expensive(and complex) support ticket system on market. Majestic Support provide you best industry Majestic Support system.
   Author: Majestic Support
-  Version: 1.0.9
+  Version: 1.1.0
   License: GPLv3
   Text Domain: majestic-support
   
@@ -66,7 +66,7 @@ class majesticsupport {
         self::$_data = array();
         self::$_search = array();
         self::$_captcha = array();
-        self::$_currentversion = '109';
+        self::$_currentversion = '110';
         self::$_addon_query = array('select'=>'','join'=>'','where'=>'');
         self::$_mjtcsession = MJTC_includer::MJTC_getObjectClass('wphdsession');
         global $wpdb;
@@ -112,30 +112,10 @@ class majesticsupport {
             // Schedule the event
             wp_schedule_event( time(), 'daily', 'ms_delete_expire_session_data' );
         }
-        add_action( 'upgrader_process_complete', array($this , 'majesticsupport_upgrade_completed'), 10, 2 );
+        //add_action( 'upgrader_process_complete', array($this , 'majesticsupport_upgrade_completed'), 10, 2 );
         // If seo plugin is activated
         if (is_plugin_active( 'all-in-one-seo-pack/all_in_one_seo_pack.php' ) ){
             add_filter( 'aioseo_disable_shortcode_parsing', '__return_true' );
-        }
-    }
-
-    function majesticsupport_upgrade_completed( $upgrader_object, $options ) {
-        // The path to our plugin's main file
-        $our_plugin = plugin_basename( __FILE__ );
-        // If an update has taken place and the updated type is plugins and the plugins element exists
-        if( $options['action'] == 'update' && $options['type'] == 'plugin' && isset( $options['plugins'] ) ) {
-            // Iterate through the plugins being updated and check if ours is there
-            foreach( $options['plugins'] as $plugin ) {
-                if( $plugin == $our_plugin ) {
-                    // restore colors data
-                    require(MJTC_PLUGIN_PATH . 'includes/css/style.php');
-                    // restore colors data end
-                    update_option('ms_currentversion', self::$_currentversion);
-                    include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-                    MJTC_updates::MJTC_checkUpdates('109');
-                    MJTC_includer::MJTC_getModel('majesticsupport')->updateColorFile();
-                }
-            }
         }
     }
 
@@ -1238,7 +1218,15 @@ function msAddLostPasswordLink($content) {
 add_filter( 'login_form_middle', 'msAddRegisterLink' );
 function msAddRegisterLink($content) {
     if(get_option('users_can_register')){
-        $content .= ' <a href="'.esc_url(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport','mjslay'=>'userregister'))).'">'. esc_html(__('Register','majestic-support')) .'</a>';
+        $registerval = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('set_register_link');
+        $registerlink = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('register_link');
+        if($registerval == 3){
+            $content .= ' <a href="'.esc_url(wp_registration_url()).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
+        }else if($registerval == 2 && $registerlink != ""){
+            $content .= ' <a href="'.esc_url($registerlink).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
+        }else{
+            $content .= ' <a href="'.esc_url(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport','mjslay'=>'userregister'))).'" title="' . esc_html(__('Register', 'majestic-support')) . '">'. esc_html(__('Register','majestic-support')) .'</a>';
+        }
     }
     return $content;
 }
@@ -1323,6 +1311,28 @@ function mjtc_checkPluginInfo($slug){
         $availability = "0";
     }
     return array("text" => $text, "disabled" => $disabled, "class" => $class, "availability" => $availability);
+}
+
+add_action( 'upgrader_process_complete', array($this , 'majesticsupport_upgrade_completed'), 10, 2 );
+function majesticsupport_upgrade_completed( $upgrader_object, $options ) {
+    // The path to our plugin's main file
+    $our_plugin = plugin_basename( __FILE__ );
+    // If an update has taken place and the updated type is plugins and the plugins element exists
+    if( $options['action'] == 'update' && $options['type'] == 'plugin' && isset( $options['plugins'] ) ) {
+        // Iterate through the plugins being updated and check if ours is there
+        foreach( $options['plugins'] as $plugin ) {
+            if( $plugin == $our_plugin ) {
+                // restore colors data
+                require(MJTC_PLUGIN_PATH . 'includes/css/style.php');
+                // restore colors data end
+                update_option('ms_currentversion', majesticsupport::$_currentversion);
+                include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
+                MJTC_updates::MJTC_checkUpdates('110');
+                MJTC_includer::MJTC_getModel('majesticsupport')->updateColorFile();
+                // MJTC_includer::MJTC_getModel('majesticsupport')->MJTCAddonsAutoUpdate();
+            }
+        }
+    }
 }
 
 ?>

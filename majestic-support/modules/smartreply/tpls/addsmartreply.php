@@ -189,7 +189,7 @@ $majesticsupport_js ="
             jQuery('#ms-ticket-subject :input').addClass('error');
             jQuery('#ms-ticket-subject :input').css('border-color','red');
             if(counter==1) {
-                jQuery('#ms-ticket-subject :input').after('<span class=\"help-block form-error\">".esc_html(__("You have not answered all required fields",'majestic-support'))."</span>');
+                jQuery('#ms-ticket-subject :input').after('<span class=\"MJTC_help-block form-error\">".esc_html(__("You have not answered all required fields",'majestic-support'))."</span>');
             }
             counter++;
             return false;

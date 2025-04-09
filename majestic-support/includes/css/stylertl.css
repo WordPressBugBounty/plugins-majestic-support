@@ -85,7 +85,7 @@
 	div.mjtc-support-assigned-tome input {margin-left: 5px !important;}
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field-title {text-align: right;}
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.inputbox {background-position: 10px !important;}
-	span.help-block {text-align: right;}
+	span.MJTC_help-block {text-align: right;}
 	div.mjtc-support-reply-attachments div.mjtc-attachment-field-title {text-align: right;}
 	div.mjtc-support-reply-attachments div.mjtc-attachment-field {text-align: right;}
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field {text-align: right;}

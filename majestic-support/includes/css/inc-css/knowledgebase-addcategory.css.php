@@ -62,8 +62,8 @@ div#msgshowcategory div.mjtc-support-notice-wrapper div.mjtc-support-question{fl
 div.mjtc-support-answer-btn{float: left;width: 100%;padding-top: 10px;}
 div.mjtc-support-answer-btn a.mjtc-support-yes{display: inline-block;min-width: 100px;text-align: center;padding: 8px 5px;margin:0px 10px 0px 0px;}
 div.mjtc-support-answer-btn a.mjtc-support-no{display: inline-block;min-width: 100px;text-align: center;padding: 8px 5px;}
-span.help-block{font-size:14px;}
-span.help-block{color:red;}
+span.MJTC_help-block{font-size:14px;}
+span.MJTC_help-block{color:red;}
 
 select ::-ms-expand {display:none !important;}
 select{-webkit-appearance:none !important;}

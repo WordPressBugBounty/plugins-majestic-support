@@ -76,8 +76,8 @@ $majesticsupport_css .= '
 	div.mjtc-admin-staff-wrapper.padding{padding:10px;}
 	div.mjtc-admin-staff-wrapper .nopadding{padding:0px;float: left;width: 40%;}
 	div.mjtc-admin-staff-wrapper .mjtc-festaffreport-data {float: left;width: 60%;}
-	div.mjtc-admin-staff-wrapper div.mjtc-report-staff-image-wrapper{height: 100px;width: 100px;text-align: center;line-height: 90px;float: left;border-radius: 100%;}
-	div.mjtc-admin-staff-wrapper div.mjtc-report-staff-image-wrapper img.mjtc-report-staff-pic{width:80px;height:80px;margin:0 auto;display: inline-block;border-radius: 100%;}
+	div.mjtc-admin-staff-wrapper div.mjtc-report-staff-image-wrapper{height: 100px;width: 100px;text-align: center;line-height: 90px;float: left;border-radius: 100%;position: relative;}
+	div.mjtc-admin-staff-wrapper div.mjtc-report-staff-image-wrapper img.mjtc-report-staff-pic{width: auto;max-width: 100%;max-height: 100%;height: auto;position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin: auto;border-radius: 100%;}
 	div.mjtc-admin-staff-wrapper div.mjtc-report-staff-name{display: block;padding:3px 0px 0;font-weight: bold;color:'.$color1.';margin-bottom:5px;}
 	div.mjtc-admin-staff-wrapper div.mjtc-report-staff-cnt {float: left;width:calc(100% - 100px);padding: 6px 0 0 10px;}
 	div.mjtc-admin-staff-wrapper div.mjtc-departmentname{font-weight: bold;font-size: 18px;color: '.$color4.'; margin: 15px 0px;}

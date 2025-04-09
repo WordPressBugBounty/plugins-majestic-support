@@ -2571,7 +2571,7 @@ class MJTC_ticketModel {
         //ignore if admin or agent
         if(!current_user_can('manage_options') && !(in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff())){
             if (!$this->validateTicketAction($id, $internalid)) {
-                MJTC_message::MJTC_setMessage(esc_html(__('You are not allowed','majestic-support')), 'error');
+                die('You are not allowed');
                 return false;
             }
         }

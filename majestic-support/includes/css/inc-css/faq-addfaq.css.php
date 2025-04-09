@@ -33,8 +33,8 @@ $majesticsupport_css .= '
 	div.mjtc-support-form-btn-wrp{float: left;width:calc(100% - 20px);margin: 0px 10px;text-align: center;padding: 25px 0px 10px 0px;}
 	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button{padding: 20px 10px;margin-right: 10px;min-width: 120px;border-radius: 0px;line-heght: initial;}
 	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button{display: inline-block; padding: 20px 10px;min-width: 120px;border-radius: 0px;line-heght: initial;text-decoration: none;}
-	span.help-block{font-size:14px;}
-	span.help-block{color:red;}
+	span.MJTC_help-block{font-size:14px;}
+	span.MJTC_help-block{color:red;}
 
 	select ::-ms-expand {display:none !important;}
 	select{-webkit-appearance:none !important;}

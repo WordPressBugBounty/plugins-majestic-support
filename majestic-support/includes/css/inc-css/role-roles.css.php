@@ -52,8 +52,8 @@ $majesticsupport_css .= '
 	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col a.mjtc-support-table-action-btn img {display:inline-block;}
 	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col:first-child{text-align: left;}
 	span.mjtc-support-display-block{display: none;}
-	span.help-block{font-size:14px;}
-	span.help-block{color:red;}
+	span.MJTC_help-block{font-size:14px;}
+	span.MJTC_help-block{color:red;}
 	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col:last-child{padding:17px;}
 
 ';

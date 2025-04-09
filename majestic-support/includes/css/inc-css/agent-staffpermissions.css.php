@@ -41,8 +41,8 @@ $majesticsupport_css .= '
 	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button{display: inline-block; padding: 20px 10px;min-width: 120px;border-radius: 0px;line-height: initial;text-decoration: none;}
 	label.mjtc-support-label{display: inline-block;margin: 0px;vertical-align:middle;}
 
-	span.help-block{font-size:14px;}
-span.help-block{color:red;}
+	span.MJTC_help-block{font-size:14px;}
+span.MJTC_help-block{color:red;}
 
 
 

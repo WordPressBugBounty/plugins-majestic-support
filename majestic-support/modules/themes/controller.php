@@ -46,6 +46,9 @@ class MJTC_themesController {
         }
     }
     static function savetheme() {
+        if(!current_user_can('manage_options')){
+            return false;
+        }
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
         if (! wp_verify_nonce( $nonce, 'save-theme') ) {
             die( 'Security check Failed' );

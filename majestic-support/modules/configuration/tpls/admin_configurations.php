@@ -232,7 +232,7 @@ $defaultcustom = array(
 );
 $defaultregisterpage = array(
     (object) array('id' => '1', 'text' => esc_html(__('Majestic Support Register Page', 'majestic-support'))),
-    (object) array('id' => '3', 'text' => esc_html(__('WordPress Default Login Page', 'majestic-support'))),
+    (object) array('id' => '3', 'text' => esc_html(__('WordPress Default Register Page', 'majestic-support'))),
     (object) array('id' => '2', 'text' => esc_html(__('Custom', 'majestic-support')))
 );
 $screentagposition = array(

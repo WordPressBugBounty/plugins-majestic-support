@@ -74,7 +74,7 @@ $majesticsupport_css .= '
 	span.mjtc-support-apend-radio-btn{float: left;padding:9.5px;background-image: linear-gradient(to right,#324ac1, #2483aa);font-size: 15px;margin: 4px;}
 	span.mjtc-support-apend-radio-btn input{margin: 0 5px;width: 16px;height: 16px;vertical-align: middle !important;}
 	span.mjtc-support-apend-radio-btn input#append_premade1display{vertical-align: middle;}
-	span.help-block{font-size:14px;}
+	span.MJTC_help-block{font-size:14px;}
 	input#append1{vertical-align: baseline;}
 	input#append_premade1{vertical-align: baseline;margin-right:5px;}
 	label#forappend{display: inline-block;margin: 0px 0 0 2px;line-height: initial;}
@@ -129,7 +129,7 @@ $majesticsupport_css .= '
 	div#records div.ms_userpages a.ms_userlink{display: inline-block;padding:5px 15px;margin-left:5px;text-decoration: none;background:rgba(0, 0, 0, 0.05) none repeat scroll 0 0;line-height: initial;}
 	div#records div.ms_userpages span.ms_userlink{display: inline-block;padding:5px 15px;margin-left:5px;line-height: initial;}
 	span.mjtc-support-display-block{display: none;}
-	span.help-block{color:red !important;bottom: -30px;font-size: 13px;}
+	span.MJTC_help-block{color:red !important;bottom: -30px;font-size: 13px;}
 	select ::-ms-expand {display:none !important;}
 	select{-webkit-appearance:none !important;}
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field input.mjtc-support-form-field-input.loading {background-image: url("'.esc_url(MJTC_PLUGIN_URL).'includes/images/spinning-wheel.gif");background-size: 25px 25px;background-position:right center;background-repeat: no-repeat;}
@@ -172,7 +172,7 @@ $majesticsupport_css .= '
 	div.tk_attachment_value_wrapperform{border: 1px solid '.$color5.';background: #fff;}
 	span.tk_attachment_value_text{border: 1px solid '.$color5.';background-color:'.$color7.';}
 	div.mjtc-support-assigned-tome{border:1px solid '.$color5.';background: #fff;}
-	span.help-block{color:red;}
+	span.MJTC_help-block{color:red;}
 	span.tk_attachments_configform {color: '.$color4.';}
 	div#userpopup{background: '.$color7.';}
 	div.ms-popup-header{background: '.$color1.';color:'.$color7.';}

@@ -189,7 +189,7 @@ div.mjtc-support-radio-box input.mjtc-support-radio-btn{margin-right: 5px;vertic
 div.mjtc-support-radio-box label{display: inline-block !important;margin:0px;vertical-align: middle;font-weight: normal;}
 span.mjtc-attachment-file-box{float: left;width:100%; padding: 5px 5px;position: relative;display: inline-block;min-height: 48px;}
 div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp{position: relative;}
-span.help-block {font-size: 14px;position: absolute;bottom: -32px;width: 100%;left: 0;}
+span.MJTC_help-block {font-size: 14px;position: absolute;bottom: -32px;width: 100%;left: 0;}
 select.mjtc-support-select-field{padding-top: 11px;padding-bottom: 11px;}
 select.mjtc-support-premade-select{padding-top: 11px;padding-bottom: 11px;}
 div.mjtc-support-premade-msg-wrp div.mjtc-support-premade-field-wrp select#departmentid{padding-top: 11px;padding-bottom: 11px;}
