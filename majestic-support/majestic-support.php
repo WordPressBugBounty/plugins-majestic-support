@@ -3,14 +3,14 @@
 /**
  * @package Majestic Support
  * @author Majestic Support
- * @version 1.1.0
+ * @version 1.1.1
  */
 /*
   Plugin Name: Majestic Support
   Plugin URI: https://www.majesticsupport.com
   Description: Majestic Support is a trusted open source ticket system. Majestic Support is a simple, easy to use, web-based customer support system. User can create ticket from front-end. Majestic Support comes packed with lot features than most of the expensive(and complex) support ticket system on market. Majestic Support provide you best industry Majestic Support system.
   Author: Majestic Support
-  Version: 1.1.0
+  Version: 1.1.1
   License: GPLv3
   Text Domain: majestic-support
   
@@ -66,7 +66,7 @@ class majesticsupport {
         self::$_data = array();
         self::$_search = array();
         self::$_captcha = array();
-        self::$_currentversion = '110';
+        self::$_currentversion = '111';
         self::$_addon_query = array('select'=>'','join'=>'','where'=>'');
         self::$_mjtcsession = MJTC_includer::MJTC_getObjectClass('wphdsession');
         global $wpdb;
@@ -1313,7 +1313,7 @@ function mjtc_checkPluginInfo($slug){
     return array("text" => $text, "disabled" => $disabled, "class" => $class, "availability" => $availability);
 }
 
-add_action( 'upgrader_process_complete', array($this , 'majesticsupport_upgrade_completed'), 10, 2 );
+add_action( 'upgrader_process_complete', 'majesticsupport_upgrade_completed', 10, 2 ); // some time above hook does not workin, so add this hook.
 function majesticsupport_upgrade_completed( $upgrader_object, $options ) {
     // The path to our plugin's main file
     $our_plugin = plugin_basename( __FILE__ );
@@ -1327,7 +1327,7 @@ function majesticsupport_upgrade_completed( $upgrader_object, $options ) {
                 // restore colors data end
                 update_option('ms_currentversion', majesticsupport::$_currentversion);
                 include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-                MJTC_updates::MJTC_checkUpdates('110');
+                MJTC_updates::MJTC_checkUpdates('111');
                 MJTC_includer::MJTC_getModel('majesticsupport')->updateColorFile();
                 // MJTC_includer::MJTC_getModel('majesticsupport')->MJTCAddonsAutoUpdate();
             }

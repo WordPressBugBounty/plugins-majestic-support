@@ -224,7 +224,7 @@ class MJTC_fieldorderingModel {
                 }
             }
             
-            if (isset($data['visibleParent']) && $data['visibleParent'] != '' && isset($data['visibleValue']) && $data['visibleValue'] != '' && isset($data['visibleCondition']) && $data['visibleCondition'] != ''){
+            if (isset($data['visibleParent']) && $data['visibleParent'] != '' && is_numeric($data['visibleParent']) && isset($data['visibleValue']) && $data['visibleValue'] != '' && isset($data['visibleCondition']) && $data['visibleCondition'] != ''){
                 $visible['visibleParentField'] = $fieldname;
                 $visible['visibleParent'] = $data['visibleParent'];
                 $visible['visibleCondition'] = $data['visibleCondition'];
@@ -264,7 +264,7 @@ class MJTC_fieldorderingModel {
                     MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
                 }
                 
-            } else if($data['id'] != ''){
+            } else if($data['id'] != '' && is_numeric($data['id'])){
                 $data['visibleparams'] = '';
                 $query = "SELECT visibleparams FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE id = " . esc_sql($data['id']);
                 $visibleparams = majesticsupport::$_db->get_var($query);

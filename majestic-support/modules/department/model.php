@@ -82,7 +82,11 @@ class MJTC_departmentModel {
                 MJTC_message::MJTC_setMessage(esc_html(__('You are not allowed', 'majestic-support')) . ' ' . esc_html(majesticsupport::MJTC_getVarValue($task_allow)), 'error');
                 return;
             }
-        }
+        }else{
+			if(!current_user_can('manage_options')){
+				return false;
+			}
+		}
 
         if($data['sendmail'] == 1 && is_numeric($data['emailid'])){
             if ( in_array('emailpiping',majesticsupport::$_active_addons)) {
