@@ -13,7 +13,7 @@ class MJTC_postinstallationController {
     function handleRequest() {
         $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'stepone');
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
-        if($this->canaddfile()){
+        if($this->canaddfile($layout)){
             switch ($layout) {
                 case 'admin_quickconfig':
                     MJTC_includer::MJTC_getModel('postinstallation')->getConfigurationValues();
@@ -57,46 +57,57 @@ class MJTC_postinstallationController {
         }
 
     }
-    function canaddfile() {
+    function canaddfile($layout) {
         $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
         if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
-            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
+            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
-            elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
+            } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
                 return false;
-            else
+            } else {
+                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($layout, 'admin_') === 0){
+                    return false;
+                }
                 return true;
+            }
         }
     }
 
     function save(){
-        $data = MJTC_request::get('post');
-        if($data['step'] != 'translationoption'){
-            $result = MJTC_includer::MJTC_getModel('postinstallation')->storeConfigurations($data);
+        if(!current_user_can('manage_options')){
+            return false;
         }
-        $url = admin_url("admin.php?page=majesticsupport_postinstallation&mjslay=steptwo");
-        if($data['step'] == 2){
-            $url = admin_url("admin.php?page=majesticsupport_postinstallation&mjslay=translationoption");
+        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $nonce, 'save') ) {
+            die( 'Security check Failed' );
         }
-        if($data['step'] == 'translationoption'){
-            $url = admin_url("admin.php?page=majesticsupport_postinstallation&mjslay=stepthree");
+        $MJTC_data = MJTC_request::get('post');
+        if($MJTC_data['step'] != 'translationoption'){
+            $result = MJTC_includer::MJTC_getModel('postinstallation')->storeConfigurations($MJTC_data);
         }
-        if($data['step'] == 3){
-            $url = admin_url("admin.php?page=majesticsupport_postinstallation&mjslay=stepfour");
+        $MJTC_url = admin_url("admin.php?page=majesticsupport_postinstallation&mjslay=steptwo");
+        if($MJTC_data['step'] == 2){
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_postinstallation&mjslay=translationoption");
+        }
+        if($MJTC_data['step'] == 'translationoption'){
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_postinstallation&mjslay=stepthree");
+        }
+        if($MJTC_data['step'] == 3){
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_postinstallation&mjslay=stepfour");
         }
 
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit();
     }
 
     function savesampledata(){
-        $data = MJTC_request::get('post');
-        $sampledata = $data['sampledata'];
-        $jsmenu = $data['jsmenu'];
-        $empmenu = $data['empmenu'];
-        $url = admin_url("admin.php?page=majesticsupport_jslearnmanager");
+        $MJTC_data = MJTC_request::get('post');
+        $sampledata = $MJTC_data['sampledata'];
+        $jsmenu = $MJTC_data['jsmenu'];
+        $empmenu = $MJTC_data['empmenu'];
+        $MJTC_url = admin_url("admin.php?page=majesticsupport_jslearnmanager");
         $result = MJTC_includer::MJTC_getModel('postinstallation')->installSampleData($sampledata);
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit();
     }
 }

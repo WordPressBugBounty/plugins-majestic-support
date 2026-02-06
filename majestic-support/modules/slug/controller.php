@@ -12,7 +12,7 @@ class MJTC_slugController {
     function handleRequest() {
         $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'slug');
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
-        if (self::canaddfile()) {
+        if (self::canaddfile($layout)) {
             switch ($layout) {
                 case 'admin_slug':
                     MJTC_includer::MJTC_getModel('slug')->getSlug();
@@ -27,15 +27,19 @@ class MJTC_slugController {
         }
     }
 
-    function canaddfile() {
+    function canaddfile($layout) {
         $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
         if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
-            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
+            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
-            elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
+            } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
                 return false;
-            else
+            } else {
+                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($layout, 'admin_') === 0){
+                    return false;
+                }
                 return true;
+            }
         }
     }
 
@@ -47,14 +51,14 @@ class MJTC_slugController {
         if (! wp_verify_nonce( $nonce, 'save-slug') ) {
             die( 'Security check Failed' );
         }
-        $data = MJTC_request::get('post');
-        $result = MJTC_includer::MJTC_getModel('slug')->storeSlug($data);
-        if($data['pagenum'] > 0){
-            $url = admin_url("admin.php?page=majesticsupport_slug&pagenum=".$data['pagenum']);
+        $MJTC_data = MJTC_request::get('post');
+        $result = MJTC_includer::MJTC_getModel('slug')->storeSlug($MJTC_data);
+        if($MJTC_data['pagenum'] > 0){
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_slug&pagenum=".esc_attr($MJTC_data['pagenum']));
         }else{
-            $url = admin_url("admin.php?page=majesticsupport_slug");
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_slug");
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -66,10 +70,10 @@ class MJTC_slugController {
         if (! wp_verify_nonce( $nonce, 'save-prefix') ) {
             die( 'Security check Failed' );
         }
-        $data = MJTC_request::get('post');
-        $result = MJTC_includer::MJTC_getModel('slug')->savePrefix($data);
-        $url = admin_url("admin.php?page=majesticsupport_slug");
-        wp_redirect($url);
+        $MJTC_data = MJTC_request::get('post');
+        $result = MJTC_includer::MJTC_getModel('slug')->savePrefix($MJTC_data);
+        $MJTC_url = admin_url("admin.php?page=majesticsupport_slug");
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -81,18 +85,18 @@ class MJTC_slugController {
         if (! wp_verify_nonce( $nonce, 'save-home-prefix') ) {
             die( 'Security check Failed' );
         }
-        $data = MJTC_request::get('post');
-        $result = MJTC_includer::MJTC_getModel('slug')->saveHomePrefix($data);
-        $url = admin_url("admin.php?page=majesticsupport_slug");
-        wp_redirect($url);
+        $MJTC_data = MJTC_request::get('post');
+        $result = MJTC_includer::MJTC_getModel('slug')->saveHomePrefix($MJTC_data);
+        $MJTC_url = admin_url("admin.php?page=majesticsupport_slug");
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
     function resetallslugs() {
-        $data = MJTC_request::get('post');
+        $MJTC_data = MJTC_request::get('post');
         $result = MJTC_includer::MJTC_getModel('slug')->resetAllSlugs();
-        $url = admin_url("admin.php?page=majesticsupport_slug");
-        wp_redirect($url);
+        $MJTC_url = admin_url("admin.php?page=majesticsupport_slug");
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 

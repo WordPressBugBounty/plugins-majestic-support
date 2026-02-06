@@ -117,10 +117,10 @@ class MJTC_majesticsupportphplib {
 
     // The use of function str_rot13() is forbidden
 
-    public static function MJTC_preg_replace($pattern, $replacement, $subject, $limit = -1, &$count = null){
+    public static function MJTC_preg_replace($pattern, $replacement, $MJTC_subject, $limit = -1, &$MJTC_count = null){
         $output = null;
-        if ($pattern !== null && $replacement !== null && $subject !== null) {
-            $output = preg_replace($pattern, $replacement, $subject, $limit, $count);
+        if ($pattern !== null && $replacement !== null && $MJTC_subject !== null) {
+            $output = preg_replace($pattern, $replacement, $MJTC_subject, $limit, $MJTC_count);
         }
         return $output;
     }
@@ -142,10 +142,10 @@ class MJTC_majesticsupportphplib {
         return $output;
     }
 
-    public static function MJTC_preg_match($pattern, $subject, &$matches = null, $flags = 0, $offset = 0){
+    public static function MJTC_preg_match($pattern, $MJTC_subject, &$matches = null, $flags = 0, $offset = 0){
         $output = null;
-        if ($pattern !== null && $subject !== null) {
-            $output = preg_match($pattern, $subject, $matches, $flags, $offset);
+        if ($pattern !== null && $MJTC_subject !== null) {
+            $output = preg_match($pattern, $MJTC_subject, $matches, $flags, $offset);
         }
         return $output;
     }
@@ -190,11 +190,11 @@ class MJTC_majesticsupportphplib {
         return $output;
     }
 
-    public static function MJTC_setcookie($name, $value = "", $expires = 0, $path = "", $domain = "", $secure = false, $httponly = false){
+    public static function MJTC_setcookie($name, $MJTC_value = "", $expires = 0, $path = "", $domain = "", $secure = false, $httponly = false){
         $output = null;
         if ($name != null && $domain !== null) {
             if (!headers_sent()) {
-          	    $output = setcookie($name, $value, $expires, $path, $domain, $secure, $httponly);
+          	    $output = setcookie($name, $MJTC_value, $expires, $path, $domain, $secure, $httponly);
             }
         }
         return $output;
@@ -282,10 +282,10 @@ class MJTC_majesticsupportphplib {
     }
 
 
-    public static function MJTC_preg_split($pattern, $subject, $limit = -1, $flags = 0){
+    public static function MJTC_preg_split($pattern, $MJTC_subject, $limit = -1, $flags = 0){
         $output = null;
-        if ($pattern !== null && $subject !== null) {
-            $output = preg_split($pattern, $subject, $limit, $flags);
+        if ($pattern !== null && $MJTC_subject !== null) {
+            $output = preg_split($pattern, $MJTC_subject, $limit, $flags);
         }
         return $output;
     }

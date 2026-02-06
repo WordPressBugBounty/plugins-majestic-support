@@ -3,15 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
 
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 
 $majesticsupport_css = '';
@@ -60,27 +60,27 @@ $majesticsupport_css .= '
 ';
 /*Code For Colors*/
 $majesticsupport_css .= '
-	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link{background-color: '.$color3.';border:1px solid  '.$color5.'; color: '.$color2.';}
-	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link:hover{background-color: '.$color1.';border:1px solid  '.$color2.'; color: '.$color7.';}
-	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link.active{background-color: '.$color1.' !important; border:1px solid  '.$color2.' !important; color: '.$color7.' !important;}
+	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link{background-color: '.$MJTC_color3.';border:1px solid  '.$MJTC_color5.'; color: '.$MJTC_color2.';}
+	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link:hover{background-color: '.$MJTC_color1.';border:1px solid  '.$MJTC_color2.'; color: '.$MJTC_color7.';}
+	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link.active{background-color: '.$MJTC_color1.' !important; border:1px solid  '.$MJTC_color2.' !important; color: '.$MJTC_color7.' !important;}
 	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link img{display:inline-block;}
-	div.mjtc-support-detail-box{border:1px solid  '.$color5.';}
-	div.mjtc-support-detail-box div.mjtc-support-detail-right div.mjtc-support-rows-wrp{color: '.$color2	.';}
-	div.mjtc-support-detail-box div.mjtc-support-detail-right{border-left:1px solid  '.$color5.';}
-	div.mjtc-support-detail-right div.mjtc-support-row div.mjtc-support-field-title{color: '.$color1.';}
-	div.mjtc-support-detail-right div.mjtc-support-row div.mjtc-support-field-value span.mjtc-support-subject-link{color: '.$color2.';}
-	div.mjtc-support-detail-right div.mjtc-support-openclosed-box{color: '.$color7.';}
-	div.mjtc-support-detail-left div.mjtc-support-user-name-wrp{color: '.$color4.';}
-	div.mjtc-support-detail-left div.mjtc-support-user-email-wrp{color: '.$color4.';}
-	div.mjtc-support-detail-right div.mjtc-support-row div.mjtc-support-field-value{color: '.$color4.';}
-	div.mjtc-support-detail-right div.mjtc-support-right-bottom{background-color:#fef1e6;color: '.$color4.';border-top:1px solid  '.$color5.';}
-	div.mjtc-support-detail-wrapper div.mjtc-support-action-btn-wrp div.mjtc-support-btn-box{background-color:#e7ecf2;border:1px solid  '.$color5.';}
-	div.mjtc-support-post-reply-wrapper div.mjtc-support-thread-heading{background-color:'.$color2.';border:1px solid '.$color5.';color:'.$color7.';}
-	div.mjtc-support-form-btn-wrp{border-top:2px solid '.$color2.';}
-	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button{background-color:'.$color1.' !important;color:'.$color7.' !important;border: 1px solid '.$color5.';}
-	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button:hover {border-color:'.$color2.';}
-	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button{background: '.$color2.';color:'.$color7.';border: 1px solid '.$color5.';}
-	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button:hover{border-color: '.$color1.';}
+	div.mjtc-support-detail-box{border:1px solid  '.$MJTC_color5.';}
+	div.mjtc-support-detail-box div.mjtc-support-detail-right div.mjtc-support-rows-wrp{color: '.$MJTC_color2	.';}
+	div.mjtc-support-detail-box div.mjtc-support-detail-right{border-left:1px solid  '.$MJTC_color5.';}
+	div.mjtc-support-detail-right div.mjtc-support-row div.mjtc-support-field-title{color: '.$MJTC_color1.';}
+	div.mjtc-support-detail-right div.mjtc-support-row div.mjtc-support-field-value span.mjtc-support-subject-link{color: '.$MJTC_color2.';}
+	div.mjtc-support-detail-right div.mjtc-support-openclosed-box{color: '.$MJTC_color7.';}
+	div.mjtc-support-detail-left div.mjtc-support-user-name-wrp{color: '.$MJTC_color4.';}
+	div.mjtc-support-detail-left div.mjtc-support-user-email-wrp{color: '.$MJTC_color4.';}
+	div.mjtc-support-detail-right div.mjtc-support-row div.mjtc-support-field-value{color: '.$MJTC_color4.';}
+	div.mjtc-support-detail-right div.mjtc-support-right-bottom{background-color:#fef1e6;color: '.$MJTC_color4.';border-top:1px solid  '.$MJTC_color5.';}
+	div.mjtc-support-detail-wrapper div.mjtc-support-action-btn-wrp div.mjtc-support-btn-box{background-color:#e7ecf2;border:1px solid  '.$MJTC_color5.';}
+	div.mjtc-support-post-reply-wrapper div.mjtc-support-thread-heading{background-color:'.$MJTC_color2.';border:1px solid '.$MJTC_color5.';color:'.$MJTC_color7.';}
+	div.mjtc-support-form-btn-wrp{border-top:2px solid '.$MJTC_color2.';}
+	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button{background-color:'.$MJTC_color1.' !important;color:'.$MJTC_color7.' !important;border: 1px solid '.$MJTC_color5.';}
+	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button:hover {border-color:'.$MJTC_color2.';}
+	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button{background: '.$MJTC_color2.';color:'.$MJTC_color7.';border: 1px solid '.$MJTC_color5.';}
+	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button:hover{border-color: '.$MJTC_color1.';}
 
 
 ';

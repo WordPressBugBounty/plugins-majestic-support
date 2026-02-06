@@ -12,19 +12,19 @@ class MJTC_SupportTicketServerCalls extends MJTC_SUPPORTTICKETUpdater{
 		$args = array(
 			'request' => 'pluginupdatecheck',
 			'token' => $token_arrray_json,
-			'domain' => site_url()
+			'domain' => MJTC_includer::MJTC_getModel('majesticsupport')->getSiteUrl()
 		);
 
-		$url = self::$server_url . '?' . http_build_query( $args, '', '&' );
-		$request = wp_remote_get($url);
+		$MJTC_url = self::$server_url . '?' . http_build_query( $args, '', '&' );
+		$MJTC_request = wp_remote_get($MJTC_url);
 
-		if ( is_wp_error( $request ) || wp_remote_retrieve_response_code( $request ) != 200 ) {
+		if ( is_wp_error( $MJTC_request ) || wp_remote_retrieve_response_code( $MJTC_request ) != 200 ) {
 			$error_message = 'pluginupdatecheck case returned error';
 			MJTC_includer::MJTC_getModel('systemerror')->addSystemError($error_message);
 			return false;
 		}
 
-		$response = wp_remote_retrieve_body( $request );
+		$response = wp_remote_retrieve_body( $MJTC_request );
 		$response = json_decode($response);
 
 		if ( is_object( $response ) ) {
@@ -38,16 +38,16 @@ class MJTC_SupportTicketServerCalls extends MJTC_SUPPORTTICKETUpdater{
 
 	public static function MJTC_PluginUpdateCheckFromCDN() {
 
-		$url = "http://d2k6fm08zy0hmd.cloudfront.net/addonslatestversions.txt";
-		$request = wp_remote_get($url);
+		$MJTC_url = "http://d2k6fm08zy0hmd.cloudfront.net/addonslatestversions.txt";
+		$MJTC_request = wp_remote_get($MJTC_url);
 
-		if ( is_wp_error( $request ) || wp_remote_retrieve_response_code( $request ) != 200 ) {
+		if ( is_wp_error( $MJTC_request ) || wp_remote_retrieve_response_code( $MJTC_request ) != 200 ) {
 			$error_message = 'pluginupdatecheck cdn case returned error';
 			MJTC_includer::MJTC_getModel('systemerror')->addSystemError($error_message);
 			return false;
 		}
 
-		$response = wp_remote_retrieve_body( $request );
+		$response = wp_remote_retrieve_body( $MJTC_request );
 		$response = json_decode($response);
 
 		if ( is_object( $response ) ) {
@@ -64,18 +64,18 @@ class MJTC_SupportTicketServerCalls extends MJTC_SUPPORTTICKETUpdater{
 				'request' => 'generatetoken',
 				'transactionkey' => $transaction_key,
 				'productcode' => $addon_name,
-				'domain' => site_url()
+				'domain' => MJTC_includer::MJTC_getModel('majesticsupport')->getSiteUrl()
 			);
 
-			$url = self::$server_url . '?' . http_build_query( $args, '', '&' );
-			$request = wp_remote_get($url);
-			if ( is_wp_error( $request ) || wp_remote_retrieve_response_code( $request ) != 200 ) {
+			$MJTC_url = self::$server_url . '?' . http_build_query( $args, '', '&' );
+			$MJTC_request = wp_remote_get($MJTC_url);
+			if ( is_wp_error( $MJTC_request ) || wp_remote_retrieve_response_code( $MJTC_request ) != 200 ) {
 				$error_message = 'generatetoken case returned error';
 				MJTC_includer::MJTC_getModel('systemerror')->addSystemError($error_message);
 				return array('error'=>$error_message);
 			}
 
-			$response = wp_remote_retrieve_body( $request );
+			$response = wp_remote_retrieve_body( $MJTC_request );
 			$response = json_decode($response,true);
 
 			if ( is_array( $response ) ) {
@@ -93,15 +93,15 @@ class MJTC_SupportTicketServerCalls extends MJTC_SUPPORTTICKETUpdater{
 		$args = array(
 				'request' => 'getlatestversions'
 			);
-		$request = wp_remote_get( 'https://majesticsupport.com/appsys/addoninfo/index.php' . '?' . http_build_query( $args, '', '&' ) );
+		$MJTC_request = wp_remote_get( 'https://majesticsupport.com/appsys/addoninfo/index.php' . '?' . http_build_query( $args, '', '&' ) );
 
-		if ( is_wp_error( $request ) || wp_remote_retrieve_response_code( $request ) != 200 ) {
+		if ( is_wp_error( $MJTC_request ) || wp_remote_retrieve_response_code( $MJTC_request ) != 200 ) {
 			$error_message = 'getlatestversions case returned error';
 			MJTC_includer::MJTC_getModel('systemerror')->addSystemError($error_message);
 			return false;
 		}
 
-		$response = wp_remote_retrieve_body( $request );
+		$response = wp_remote_retrieve_body( $MJTC_request );
 		$response = json_decode($response,true);
 		if ( is_array( $response ) ) {
 			return $response;
@@ -113,7 +113,7 @@ class MJTC_SupportTicketServerCalls extends MJTC_SUPPORTTICKETUpdater{
 	}
 
 	public static function MJTC_PluginInformation( $args ) {
-		$defaults = array(
+		$MJTC_defaults = array(
 			'request'        => 'plugininformation',
 			'plugin_slug'    => '',
 			'version'        => '',
@@ -121,15 +121,15 @@ class MJTC_SupportTicketServerCalls extends MJTC_SUPPORTTICKETUpdater{
 			'domain'          => site_url()
 		);
 
-		$args    = wp_parse_args( $args, $defaults );
-		$request = wp_remote_get( 'https://majesticsupport.com/appsys/addoninfo/index.php' . '?' . http_build_query( $args, '', '&' ) );
+		$args    = wp_parse_args( $args, $MJTC_defaults );
+		$MJTC_request = wp_remote_get( 'https://majesticsupport.com/appsys/addoninfo/index.php' . '?' . http_build_query( $args, '', '&' ) );
 
-		if ( is_wp_error( $request ) || wp_remote_retrieve_response_code( $request ) != 200 ) {
+		if ( is_wp_error( $MJTC_request ) || wp_remote_retrieve_response_code( $MJTC_request ) != 200 ) {
 			$error_message = 'plugininformation case returned data error';
 			MJTC_includer::MJTC_getModel('systemerror')->addSystemError($error_message);
 			return false;
 		}
-		$response = wp_remote_retrieve_body( $request );
+		$response = wp_remote_retrieve_body( $MJTC_request );
 
 		$response = json_decode($response);
 

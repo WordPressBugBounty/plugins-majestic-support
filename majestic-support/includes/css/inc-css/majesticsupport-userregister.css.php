@@ -3,15 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
 
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 $majesticsupport_css = '';
 
@@ -28,7 +28,7 @@ $majesticsupport_css .= '
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp.mjtc-support-from-field-wrp-full-width{float: left;width: 100%; margin-bottom: 20px; }
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field-title{text-transform: capitalize;float: left;width: 100%;margin-bottom: 5px;}
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field{float: left;width: 100%;}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field label {margin-bottom: 7px;}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field label {margin: 0 7px 7px;}
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field input.mjtc-support-form-field-input{float: left;width: 100%;border-radius: 0px;padding: 10px;height: 50px;line-height: initial;}
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.mjtc-support-form-field-select{float: left;width: 100%;border-radius: 0px;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / 4% no-repeat #eee;padding: 10px;height: 50px;line-height: initial;}
 	div.mjtc-support-form-btn-wrp{float: left;width:calc(100% - 20px);margin: 20px 10px 0;text-align: center;padding: 25px 0px 10px 0px;}
@@ -44,14 +44,14 @@ $majesticsupport_css .= '
 $majesticsupport_css .= '
 
 /* Add Form */
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field-title {color:'.$color2.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field label {color:'.$color2.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field input.mjtc-support-form-field-input{background-color:#fff;border:1px solid '.$color5.';color:'.$color4.';}
-	div.mjtc-support-form-btn-wrp{border-top:2px solid '.$color2.';}
-	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button{background-color:'.$color1.' !important;color:'.$color7.' !important;border:1px solid '.$color5.';}
-	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button:hover{border-color:'.$color2.';}
-	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button{background: '.$color2.';color:'.$color7.';border:1px solid '.$color5.';}
-	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button:hover{border-color:'.$color1.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field-title {color:'.$MJTC_color2.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field label {color:'.$MJTC_color2.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field input.mjtc-support-form-field-input{background-color:#fff;border:1px solid '.$MJTC_color5.';color:'.$MJTC_color4.';}
+	div.mjtc-support-form-btn-wrp{border-top:2px solid '.$MJTC_color2.';}
+	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button{background-color:'.$MJTC_color1.' !important;color:'.$MJTC_color7.' !important;border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button:hover{border-color:'.$MJTC_color2.';}
+	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button{background: '.$MJTC_color2.';color:'.$MJTC_color7.';border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button:hover{border-color:'.$MJTC_color1.';}
 
 /* Add Form */
 

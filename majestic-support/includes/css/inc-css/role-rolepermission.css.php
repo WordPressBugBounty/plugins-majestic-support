@@ -3,15 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
 
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 $majesticsupport_css = '';
 
@@ -40,13 +40,13 @@ span.MJTC_help-block{color:red;}
 /*Code For Colors*/
 $majesticsupport_css .= '
 
-	div.mjtc-support-top-search-wrp{border:1px solid '.$color5.';}
-	div.mjtc-support-search-heading-wrp{background-color:'.$color3.';color:'.$color2.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field input.mjtc-support-form-field-input{background-color:'.$color3.';border:1px solid '.$color5.';}
+	div.mjtc-support-top-search-wrp{border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-search-heading-wrp{background-color:'.$MJTC_color3.';color:'.$MJTC_color2.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field input.mjtc-support-form-field-input{background-color:'.$MJTC_color3.';border:1px solid '.$MJTC_color5.';}
 
-	div.mjtc-support-categories-heading-wrp{background-color:'.$color2.';border:1px solid '.$color5.';color: '.$color7.';}
-	div.mjtc-support-add-role-field-wrp{background-color: #fff;border:1px solid '.$color5.';color: '.$color4.';}
-	label.mjtc-support-label{color:'.$color4.';}
+	div.mjtc-support-categories-heading-wrp{background-color:'.$MJTC_color2.';border:1px solid '.$MJTC_color5.';color: '.$MJTC_color7.';}
+	div.mjtc-support-add-role-field-wrp{background-color: #fff;border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+	label.mjtc-support-label{color:'.$MJTC_color4.';}
 
 
 ';

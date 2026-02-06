@@ -4,7 +4,7 @@ if(in_array('notification', majesticsupport::$_active_addons)){
     wp_enqueue_script('majesticsupport-notify-app', MJTC_PLUGIN_URL . 'includes/js/firebase-app.js');
     wp_enqueue_script('majesticsupport-notify-message', MJTC_PLUGIN_URL . 'includes/js/firebase-messaging.js');
 }
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$MJTC_protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 MJTC_message::MJTC_getMessage();
 if(in_array('notification', majesticsupport::$_active_addons)){
     if(majesticsupport::$_data[0]['apiKey_firebase'] != "" && majesticsupport::$_data[0]['databaseURL_firebase'] != "" && majesticsupport::$_data[0]['authDomain_firebase'] != "" && majesticsupport::$_data[0]['projectId_firebase'] != "" && majesticsupport::$_data[0]['storageBucket_firebase'] != "" && majesticsupport::$_data[0]['messagingSenderId_firebase'] != "" && majesticsupport::$_data[0]['server_key_firebase'] != ""){
@@ -217,7 +217,7 @@ $recaptcha_version = array(
     (object) array('id' => '1', 'text' => esc_html(__('Recaptcha Version 2', 'majestic-support'))),
     (object) array('id' => '2', 'text' => esc_html(__('Recaptcha Version 3', 'majestic-support')))
 );
-$yesno = array(
+$MJTC_yesno = array(
     (object) array('id' => '1', 'text' => esc_html(__('Yes', 'majestic-support'))),
     (object) array('id' => '2', 'text' => esc_html(__('No', 'majestic-support')))
 );
@@ -225,12 +225,12 @@ $showhide = array(
     (object) array('id' => '1', 'text' => esc_html(__('Show', 'majestic-support'))),
     (object) array('id' => '0', 'text' => esc_html(__('Hide', 'majestic-support')))
 );
-$defaultcustom = array(
+$MJTC_defaultcustom = array(
     (object) array('id' => '1', 'text' => esc_html(__('Majestic Support Login Page', 'majestic-support'))),
     (object) array('id' => '3', 'text' => esc_html(__('WordPress Default Login Page', 'majestic-support'))),
     (object) array('id' => '2', 'text' => esc_html(__('Custom', 'majestic-support')))
 );
-$defaultregisterpage = array(
+$MJTC_defaultregisterpage = array(
     (object) array('id' => '1', 'text' => esc_html(__('Majestic Support Register Page', 'majestic-support'))),
     (object) array('id' => '3', 'text' => esc_html(__('WordPress Default Register Page', 'majestic-support'))),
     (object) array('id' => '2', 'text' => esc_html(__('Custom', 'majestic-support')))
@@ -274,11 +274,16 @@ $hosttype = array(
     (object) array('id' => '4', 'text' => esc_html(__('Other', 'majestic-support')))
 );
 
-$ticketordering = array(
+$MJTC_ticketordering = array(
     (object) array('id' => '1', 'text' => esc_html(__('Default', 'majestic-support'))),
     (object) array('id' => '2', 'text' => esc_html(__('Created', 'majestic-support')))
 );
-$ticketsorting = array(
+
+$repliesordering = array(
+    (object) array('id' => 'ASC', 'text' => esc_html(__('Oldest First', 'majestic-support'))),
+    (object) array('id' => 'DESC', 'text' => esc_html(__('Newest First', 'majestic-support')))
+);
+$MJTC_ticketsorting = array(
     (object) array('id' => '1', 'text' => esc_html(__('Ascending', 'majestic-support'))),
     (object) array('id' => '2', 'text' => esc_html(__('Descending', 'majestic-support')))
 );
@@ -295,8 +300,8 @@ $reasontype = array(
 global $wp_roles;
 $roles = $wp_roles->get_names();
 $userroles = array();
-foreach ($roles as $key => $value) {
-    $userroles[] = (object) array('id' => $key, 'text' => $value);
+foreach ($roles as $MJTC_key => $MJTC_value) {
+    $userroles[] = (object) array('id' => $MJTC_key, 'text' => $MJTC_value);
 }
 $plugin_array = get_option('active_plugins');
 ?>
@@ -615,9 +620,16 @@ $plugin_array = get_option('active_plugins');
                               mjtc_printConfigFieldSingle($title, $field, $description);
                             }
 
+                            if(isset(majesticsupport::$_data[0]['show_avatar'])){
+                              $title = esc_html(__('Show User Avatar', 'majestic-support'));
+                              $field = MJTC_formfield::MJTC_select('show_avatar', $MJTC_yesno, majesticsupport::$_data[0]['show_avatar']);
+                              $description =  esc_html(__('Showing avatars may slightly slow down page loading', 'majestic-support'));
+                              mjtc_printConfigFieldSingle($title, $field, $description);
+                            }
+
                             if(isset(majesticsupport::$_data[0]['count_on_myticket'])){
                               $title = esc_html(__('Show count on tickets', 'majestic-support'));
-                              $field = MJTC_formfield::MJTC_select('count_on_myticket', $yesno, majesticsupport::$_data[0]['count_on_myticket']);
+                              $field = MJTC_formfield::MJTC_select('count_on_myticket', $MJTC_yesno, majesticsupport::$_data[0]['count_on_myticket']);
                               $description =  esc_html(__('Show the number of open, closed, and answered tickets in my tickets and dashboard', 'majestic-support'));
                               $video = 'gCB-wGVZph8';
                               $videotext = 'Show count on tickets';
@@ -668,7 +680,7 @@ $plugin_array = get_option('active_plugins');
 
                             if(isset(majesticsupport::$_data[0]['set_login_link'])){
                               $title = esc_html(__('Set Login Link', 'majestic-support'));
-                              $field = MJTC_formfield::MJTC_select('set_login_link', $defaultcustom, majesticsupport::$_data[0]['set_login_link']);
+                              $field = MJTC_formfield::MJTC_select('set_login_link', $MJTC_defaultcustom, majesticsupport::$_data[0]['set_login_link']);
                               $description =  esc_html(__('Set login link default or custom', 'majestic-support'));
                               $childfield = '';
                               $video = 'bzK2IxQ0QaU';
@@ -687,7 +699,7 @@ $plugin_array = get_option('active_plugins');
                             <?php
                             if(isset(majesticsupport::$_data[0]['set_register_link'])){
                                 $title = esc_html(__('Set register Link', 'majestic-support'));
-                                $field = MJTC_formfield::MJTC_select('set_register_link', $defaultregisterpage, majesticsupport::$_data[0]['set_register_link']);
+                                $field = MJTC_formfield::MJTC_select('set_register_link', $MJTC_defaultregisterpage, majesticsupport::$_data[0]['set_register_link']);
                                 $description =  esc_html(__('Set register link default or custom', 'majestic-support')).'.<br />'.esc_html(__('To enable registrations, WordPress admin > General > Settings > Membership: Anyone can register', 'majestic-support'));
                                 $childfield = '';
                                 if(isset(majesticsupport::$_data[0]['register_link'])){
@@ -719,8 +731,8 @@ $plugin_array = get_option('active_plugins');
                                       <?php if(majesticsupport::$_data[0]['support_custom_img'] != '0'){
                                         $maindir = wp_upload_dir();
                                         $basedir = $maindir['baseurl'];
-                                        $datadirectory = majesticsupport::$_config['data_directory'];
-                                        $path = $basedir . '/' . $datadirectory;
+                                        $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
+                                        $path = $basedir . '/' . $MJTC_datadirectory;
                                         $path .= "/supportImg/" . majesticsupport::$_data[0]['support_custom_img'];
                                         ?>
                                         <img alt="<?php echo esc_html(__('image','majestic-support')); ?>" width="50px" height="50px" src="<?php echo esc_url($path); ?>">
@@ -876,7 +888,7 @@ $plugin_array = get_option('active_plugins');
                     if(in_array('actions',majesticsupport::$_active_addons)){
                         if(isset(majesticsupport::$_data[0]['print_ticket_user'])){
                           $title = esc_html(__('User can print ticket', 'majestic-support'));
-                          $field = MJTC_formfield::MJTC_select('print_ticket_user', $yesno, majesticsupport::$_data[0]['print_ticket_user']);
+                          $field = MJTC_formfield::MJTC_select('print_ticket_user', $MJTC_yesno, majesticsupport::$_data[0]['print_ticket_user']);
                           $description =  esc_html(__('Can users print a ticket from the ticket detail or not?', 'majestic-support'));
                           mjtc_printConfigFieldSingle($title, $field, $description);
                         }
@@ -885,7 +897,7 @@ $plugin_array = get_option('active_plugins');
                     if(in_array('emailpiping', majesticsupport::$_active_addons)){
                         if(isset(majesticsupport::$_data[0]['reply_to_closed_ticket'])){
                           $title = esc_html(__('Allow Users To Reply via Email On Closed Ticket', 'majestic-support'));
-                          $field = MJTC_formfield::MJTC_select('reply_to_closed_ticket', $yesno, majesticsupport::$_data[0]['reply_to_closed_ticket']);
+                          $field = MJTC_formfield::MJTC_select('reply_to_closed_ticket', $MJTC_yesno, majesticsupport::$_data[0]['reply_to_closed_ticket']);
                           $description =  esc_html(__('Select whether users can reply to closed email piping tickets or not','majestic-support'));
                           mjtc_printConfigFieldSingle($title, $field, $description);
                         }
@@ -893,35 +905,42 @@ $plugin_array = get_option('active_plugins');
 
                     if(isset(majesticsupport::$_data[0]['show_email_on_ticket_reply'])){
                       $title = esc_html(__('Show Admin OR Agent Email On Ticket Reply', 'majestic-support'));
-                      $field = MJTC_formfield::MJTC_select('show_email_on_ticket_reply', $yesno, majesticsupport::$_data[0]['show_email_on_ticket_reply']);
+                      $field = MJTC_formfield::MJTC_select('show_email_on_ticket_reply', $MJTC_yesno, majesticsupport::$_data[0]['show_email_on_ticket_reply']);
                       $description =  esc_html(__('Select whether users can see the email of administrator or agent on the ticket reply','majestic-support'));
+                      mjtc_printConfigFieldSingle($title, $field, $description);
+                    }
+
+                    if(isset(majesticsupport::$_data[0]['ticket_replies_ordering'])){
+                      $title = esc_html(__('Ticket Replies ordering', 'majestic-support'));
+                      $field = MJTC_formfield::MJTC_select('ticket_replies_ordering', $repliesordering, majesticsupport::$_data[0]['ticket_replies_ordering']);
+                      $description =  esc_html(__('Set the default ordering for ticket replies in the detail page.', 'majestic-support'));
                       mjtc_printConfigFieldSingle($title, $field, $description);
                     }
 
                     if(isset(majesticsupport::$_data[0]['anonymous_name_on_ticket_reply'])){
                       $title = esc_html(__('Show Anonymous Name On Ticket Reply', 'majestic-support'));
-                      $field = MJTC_formfield::MJTC_select('anonymous_name_on_ticket_reply', $yesno, majesticsupport::$_data[0]['anonymous_name_on_ticket_reply']);
+                      $field = MJTC_formfield::MJTC_select('anonymous_name_on_ticket_reply', $MJTC_yesno, majesticsupport::$_data[0]['anonymous_name_on_ticket_reply']);
                       $description =  esc_html(__('Select whether users can see the name of administrator or agent on ticket reply','majestic-support'));
                       mjtc_printConfigFieldSingle($title, $field, $description);
                     }
 
                      if(isset(majesticsupport::$_data[0]['show_read_receipt_to_admin_on_reply'])){
                         $title = esc_html(__('Show Message Read Icon for Admin On Ticket Detail', 'majestic-support'));
-                        $field = MJTC_formfield::MJTC_select('show_read_receipt_to_admin_on_reply', $yesno, majesticsupport::$_data[0]['show_read_receipt_to_admin_on_reply']);
+                        $field = MJTC_formfield::MJTC_select('show_read_receipt_to_admin_on_reply', $MJTC_yesno, majesticsupport::$_data[0]['show_read_receipt_to_admin_on_reply']);
                         $description =  esc_html(__('Select whether the message read icon is displayed to the administrator on ticket detail.','majestic-support'));
                         mjtc_printConfigFieldSingle($title, $field, $description);
                     }
 
                     if(isset(majesticsupport::$_data[0]['show_read_receipt_to_agent_on_reply'])){
                         $title = esc_html(__('Show Message Read Icon For Agents on Ticket Detail', 'majestic-support'));
-                        $field = MJTC_formfield::MJTC_select('show_read_receipt_to_agent_on_reply', $yesno, majesticsupport::$_data[0]['show_read_receipt_to_agent_on_reply']);
+                        $field = MJTC_formfield::MJTC_select('show_read_receipt_to_agent_on_reply', $MJTC_yesno, majesticsupport::$_data[0]['show_read_receipt_to_agent_on_reply']);
                         $description =  esc_html(__('Select whether the message read icon is displayed to agents on ticket detail.','majestic-support'));
                         mjtc_printConfigFieldSingle($title, $field, $description);
                     }
 
                     if(isset(majesticsupport::$_data[0]['show_read_receipt_to_user_on_reply'])){
                         $title = esc_html(__('Show Message Read Icon For Users On Ticket Detail', 'majestic-support'));
-                        $field = MJTC_formfield::MJTC_select('show_read_receipt_to_user_on_reply', $yesno, majesticsupport::$_data[0]['show_read_receipt_to_user_on_reply']);
+                        $field = MJTC_formfield::MJTC_select('show_read_receipt_to_user_on_reply', $MJTC_yesno, majesticsupport::$_data[0]['show_read_receipt_to_user_on_reply']);
                         $description =  esc_html(__('Select whether the message read icon is displayed to users on the ticket detail.','majestic-support'));
                         mjtc_printConfigFieldSingle($title, $field, $description);
                     }
@@ -937,7 +956,7 @@ $plugin_array = get_option('active_plugins');
 
                     if(isset(majesticsupport::$_data[0]['show_ticket_delete_button'])){
                       $title = esc_html(__('Show ticket delete button', 'majestic-support'));
-                      $field = MJTC_formfield::MJTC_select('show_ticket_delete_button', $yesno, majesticsupport::$_data[0]['show_ticket_delete_button']);
+                      $field = MJTC_formfield::MJTC_select('show_ticket_delete_button', $MJTC_yesno, majesticsupport::$_data[0]['show_ticket_delete_button']);
                       $description =  esc_html(__('Select whether users can see the ticket delete button','majestic-support'));
                       mjtc_printConfigFieldSingle($title, $field, $description);
                     }
@@ -975,7 +994,7 @@ $plugin_array = get_option('active_plugins');
                     <?php
                    if(isset(majesticsupport::$_data[0]['tickets_ordering'])){
                       $title = esc_html(__('Ticket listing ordering', 'majestic-support'));
-                      $field = MJTC_formfield::MJTC_select('tickets_ordering', $ticketordering, majesticsupport::$_data[0]['tickets_ordering']);
+                      $field = MJTC_formfield::MJTC_select('tickets_ordering', $MJTC_ticketordering, majesticsupport::$_data[0]['tickets_ordering']);
                       $description =  esc_html(__('Set default ordering for ticket listing', 'majestic-support'));
                       $video = '';
                       $videotext = 'Ticket listing ordering';
@@ -984,7 +1003,7 @@ $plugin_array = get_option('active_plugins');
 
                     if(isset(majesticsupport::$_data[0]['tickets_sorting'])){
                       $title = esc_html(__('Ticket listing sorting', 'majestic-support'));
-                      $field = MJTC_formfield::MJTC_select('tickets_sorting', $ticketsorting, majesticsupport::$_data[0]['tickets_sorting']);
+                      $field = MJTC_formfield::MJTC_select('tickets_sorting', $MJTC_ticketsorting, majesticsupport::$_data[0]['tickets_sorting']);
                       $description =  esc_html(__('Set default sorting for ticket listing', 'majestic-support'));
                       mjtc_printConfigFieldSingle($title, $field, $description);
                     }
@@ -1039,7 +1058,7 @@ $plugin_array = get_option('active_plugins');
                   <?php
                     if(isset(majesticsupport::$_data[0]['visitor_can_create_ticket'])){
                       $title = esc_html(__('Visitors can create tickets', 'majestic-support'));
-                      $field = MJTC_formfield::MJTC_select('visitor_can_create_ticket', $yesno, majesticsupport::$_data[0]['visitor_can_create_ticket']);
+                      $field = MJTC_formfield::MJTC_select('visitor_can_create_ticket', $MJTC_yesno, majesticsupport::$_data[0]['visitor_can_create_ticket']);
                       $description =  esc_html(__('Allow visitors to create tickets or not', 'majestic-support'));
                       $video = '9NvBOu_ojMo';
                       $videotext = 'Visitor can create ticket';
@@ -1094,7 +1113,7 @@ $plugin_array = get_option('active_plugins');
 
                     if(isset(majesticsupport::$_data[0]['department_email_on_ticket_create'])){
                         $title = esc_html(__('Department Email', 'majestic-support'));
-                        $field = MJTC_formfield::MJTC_select('department_email_on_ticket_create', $yesno, majesticsupport::$_data[0]['department_email_on_ticket_create']);
+                        $field = MJTC_formfield::MJTC_select('department_email_on_ticket_create', $MJTC_yesno, majesticsupport::$_data[0]['department_email_on_ticket_create']);
                         $description =  esc_html(__('Send email to all departments on ticket create', 'majestic-support'));
                         mjtc_printConfigFieldSingle($title, $field, $description);
                     }
@@ -1773,12 +1792,12 @@ $plugin_array = get_option('active_plugins');
                     <?php
                       if (isset(majesticsupport::$_data[0]['read_utf_ticket_via_email'])) {
                         $title = esc_html(__('UTF Auto Switch', 'majestic-support'));
-                        $field = MJTC_formfield::MJTC_select('read_utf_ticket_via_email',$yesno, majesticsupport::$_data[0]['read_utf_ticket_via_email']);
+                        $field = MJTC_formfield::MJTC_select('read_utf_ticket_via_email',$MJTC_yesno, majesticsupport::$_data[0]['read_utf_ticket_via_email']);
                         mjtc_printConfigFieldSingle($title, $field);
                       }
                       if(isset(majesticsupport::$_data[0]['create_user_via_email'])){
                         $title = esc_html(__('Create User via email', 'majestic-support'));
-                        $field = MJTC_formfield::MJTC_select('create_user_via_email',$yesno, majesticsupport::$_data[0]['create_user_via_email']);
+                        $field = MJTC_formfield::MJTC_select('create_user_via_email',$MJTC_yesno, majesticsupport::$_data[0]['create_user_via_email']);
                         mjtc_printConfigFieldSingle($title, $field);
                       }
                     ?>
@@ -1862,7 +1881,7 @@ $plugin_array = get_option('active_plugins');
 
                       if(isset(majesticsupport::$_data[0]['logo_for_desktop_notfication_url'])){
                         $title = esc_html(__('Logo Image for Desktop Notifications', 'majestic-support'));
-                        $value = '<input type="file" name="logo_for_desktop_notfication" id="logo_for_desktop_notfication">';
+                        $MJTC_value = '<input type="file" name="logo_for_desktop_notfication" id="logo_for_desktop_notfication">';
                         $description = '';
                         if(majesticsupport::$_config['logo_for_desktop_notfication_url'] != ''){
                           $maindir = wp_upload_dir();
@@ -1871,7 +1890,7 @@ $plugin_array = get_option('active_plugins');
                         }else{
                           $description = esc_html(__('No Firebase Notification Logo', 'majestic-support'));
                         }
-                        mjtc_printConfigFieldSingle($title, $value, $description);
+                        mjtc_printConfigFieldSingle($title, $MJTC_value, $description);
                       }
                     ?>
               </div>
@@ -1897,7 +1916,7 @@ $plugin_array = get_option('active_plugins');
                       $privatecredentialsurl = WP_PLUGIN_DIR.'/majestic-support-privatecredentials/classes/privatecredentials.php';
                       $title = esc_html(__('Second Level Security', 'majestic-support'));
                       $field = '';
-                      $description =  sprintf(esc_html(__('For enhanced security, change the encryption method in %s on line %s', 'majestic-support')),$privatecredentialsurl,10);
+                      $description = esc_html(__('For enhanced security, change the encryption method in ', 'majestic-support')) . esc_html($privatecredentialsurl) . esc_html(__( ' on line ', 'majestic-support' )) . 10;
                       mjtc_printConfigFieldSingle($title, $field, $description);
                     ?>
                 </div>
@@ -1923,7 +1942,7 @@ $plugin_array = get_option('active_plugins');
                       }
                       if(isset(majesticsupport::$_data[0]['envato_license_required'])){
                           $title = esc_html(__('License Mandatory', 'majestic-support'));
-                          $field = MJTC_formfield::MJTC_select('envato_license_required', $yesno, majesticsupport::$_data[0]['envato_license_required']);
+                          $field = MJTC_formfield::MJTC_select('envato_license_required', $MJTC_yesno, majesticsupport::$_data[0]['envato_license_required']);
                           $description =  esc_html(__('Prevent users from submitting a ticket without a valid license for one of your product', 'majestic-support'));
                           mjtc_printConfigFieldSingle($title, $field, $description);
                       }
@@ -1962,7 +1981,7 @@ $plugin_array = get_option('active_plugins');
                       }
                       if(isset(majesticsupport::$_data[0]['mailchimp_double_optin'])){
                           $title = esc_html(__('Enable double opt-in', 'majestic-support'));
-                          $field = MJTC_formfield::MJTC_select('mailchimp_double_optin', $yesno, majesticsupport::$_data[0]['mailchimp_double_optin']);
+                          $field = MJTC_formfield::MJTC_select('mailchimp_double_optin', $MJTC_yesno, majesticsupport::$_data[0]['mailchimp_double_optin']);
                           $description =  esc_html(__('You must also enable double opt-in in your MailChimp account', 'majestic-support'));
                           mjtc_printConfigFieldSingle($title, $field, $description);
                       }
@@ -1987,7 +2006,7 @@ $plugin_array = get_option('active_plugins');
                     <?php
                       if(isset(majesticsupport::$_data[0]['verify_license_on_ticket_creation'])){
                           $title = esc_html(__('Verify License On Ticket Creation', 'majestic-support'));
-                          $field = MJTC_formfield::MJTC_select('verify_license_on_ticket_creation', $yesno, majesticsupport::$_data[0]['verify_license_on_ticket_creation']);
+                          $field = MJTC_formfield::MJTC_select('verify_license_on_ticket_creation', $MJTC_yesno, majesticsupport::$_data[0]['verify_license_on_ticket_creation']);
                           mjtc_printConfigFieldSingle($title, $field);
                       }
                     ?>
@@ -2007,14 +2026,14 @@ $plugin_array = get_option('active_plugins');
         
                     if(isset(majesticsupport::$_data[0]['captcha_on_registration'])){
                         $title = esc_html(__('Show captcha on registration form', 'majestic-support'));
-                        $field = MJTC_formfield::MJTC_select('captcha_on_registration', $yesno, majesticsupport::$_data[0]['captcha_on_registration']);
+                        $field = MJTC_formfield::MJTC_select('captcha_on_registration', $MJTC_yesno, majesticsupport::$_data[0]['captcha_on_registration']);
                         $description =  esc_html(__('Select whether you want to show captcha on the registration form or not', 'majestic-support'));
                         mjtc_printConfigFieldSingle($title, $field, $description);
                     }
 
                     if(isset(majesticsupport::$_data[0]['show_captcha_on_visitor_from_ticket'])){
                         $title = esc_html(__('Show captcha on the visitor ticket form', 'majestic-support'));
-                        $field = MJTC_formfield::MJTC_select('show_captcha_on_visitor_from_ticket', $yesno, majesticsupport::$_data[0]['show_captcha_on_visitor_from_ticket']);
+                        $field = MJTC_formfield::MJTC_select('show_captcha_on_visitor_from_ticket', $MJTC_yesno, majesticsupport::$_data[0]['show_captcha_on_visitor_from_ticket']);
                         $description =  esc_html(__('Show captcha when a visitor wants to create a ticket', 'majestic-support'));
                         $video = '';
                         $videotext = 'Show captcha on the visitor ticket form';
@@ -2073,7 +2092,7 @@ $plugin_array = get_option('active_plugins');
 
                     if(isset(majesticsupport::$_data[0]['owncaptcha_subtractionans'])){
                       $title = esc_html(__('Positive Answer Upon Own Captcha Subtraction', 'majestic-support'));
-                      $field = MJTC_formfield::MJTC_select('owncaptcha_subtractionans', $yesno, majesticsupport::$_data[0]['owncaptcha_subtractionans']);
+                      $field = MJTC_formfield::MJTC_select('owncaptcha_subtractionans', $MJTC_yesno, majesticsupport::$_data[0]['owncaptcha_subtractionans']);
                       $description =  esc_html(__('Selecting "Yes" ensures that the result of the subtraction will always be positive', 'majestic-support'));
                       mjtc_printConfigFieldSingle($title, $field, $description);
                     }

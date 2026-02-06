@@ -9,7 +9,7 @@ $majesticsupport_js ="
 wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
 ?>  
 <?php
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$MJTC_protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
 MJTC_message::MJTC_getMessage(); ?>
 <div id="msadmin-wrapper">
@@ -29,9 +29,9 @@ MJTC_message::MJTC_getMessage(); ?>
             <?php if (!empty(majesticsupport::$_data[0])) { ?>
                 <form class="msadmin-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_majesticsupport&task=saveordering"),"save-ordering")); ?>">
                     <?php
-                    $number = 0;
-                    $pagenum = MJTC_request::MJTC_getVar('pagenum', 'get', 1);
-                    $islastordershow = MJTC_pagination::MJTC_isLastOrdering(majesticsupport::$_data['total'], $pagenum);
+                    $MJTC_number = 0;
+                    $MJTC_pagenum = MJTC_request::MJTC_getVar('pagenum', 'get', 1);
+                    $MJTC_islastordershow = MJTC_pagination::MJTC_isLastOrdering(majesticsupport::$_data['total'], $MJTC_pagenum);
                     foreach (majesticsupport::$_data[0] AS $smartreply) {
                         ?>
                         <div class="ms-smart-reply-listing-wrp">
@@ -48,20 +48,20 @@ MJTC_message::MJTC_getMessage(); ?>
                             </div>
                             <div class="ms-smart-reply-listing-body">
                                 <?php 
-                                $ticketsubjects = json_decode($smartreply->ticketsubjects);
-                                foreach ($ticketsubjects as $ticketsubject) { ?>
+                                $MJTC_ticketsubjects = json_decode($smartreply->ticketsubjects);
+                                foreach ($MJTC_ticketsubjects as $MJTC_ticketsubject) { ?>
                                     <div class="ms-smart-reply-listing-ticket-subject">
-                                        <?php echo esc_html(majesticsupport::MJTC_getVarValue($ticketsubject)); ?>
+                                        <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_ticketsubject)); ?>
                                     </div>
                                 <?php } ?>
                                 <div class="ms-smart-reply-listing-ticket-reply">
                                     <img alt="<?php echo esc_html(__('Edit','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/smart-reply/text.png" />
-                                    <span><?php echo esc_html(esc_html(majesticsupport::MJTC_getVarValue(MJTC_majesticsupportphplib::MJTC_strip_tags($smartreply->reply)))); ?></span>
+                                    <span><?php echo esc_html(majesticsupport::MJTC_getVarValue(MJTC_majesticsupportphplib::MJTC_strip_tags($smartreply->reply))); ?></span>
                                 </div>
                             </div>
                         </div>
                         <?php
-                        $number++;
+                        $MJTC_number++;
                     }
                     ?>
                        <?php echo wp_kses(MJTC_formfield::MJTC_hidden('form_request', 'majesticsupport'), MJTC_ALLOWED_TAGS); ?>
@@ -72,8 +72,8 @@ MJTC_message::MJTC_getMessage(); ?>
                    </form>
                 <?php
                 if (majesticsupport::$_data[1]) {
-                    $data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
-                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+                    $MJTC_data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
+                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
                 }
             } else {
                 MJTC_layout::MJTC_getNoRecordFound();

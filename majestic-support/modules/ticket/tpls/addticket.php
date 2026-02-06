@@ -12,12 +12,9 @@ if (majesticsupport::$_config['offline'] == 2) {
         wp_enqueue_script('jquery-ui-datepicker');
         wp_enqueue_script('majesticsupport-file_validate.js', MJTC_PLUGIN_URL . 'includes/js/file_validate.js');
 
-		$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 		wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
-        ?>
-        <?php
         $majesticsupport_js ="
-			var ajaxurl ='".esc_url(admin_url('admin-ajax.php'))."';
+            var ajaxurl ='".esc_url(admin_url('admin-ajax.php'))."';
             function onSubmit(token) {
                 document.getElementById('adminTicketform').submit();
             }
@@ -28,9 +25,8 @@ if (majesticsupport::$_config['offline'] == 2) {
                 jQuery('#tk_attachment_add').click(function() {
                     var obj = this;
                     var current_files = jQuery('input[name=\'filename[]\']').length;
-                    var total_allow = ". majesticsupport::$_config['no_of_attachement'].";
-                    var append_text =
-                        '<span class=\"tk_attachment_value_text\"><input name=\"filename[]\" type=\"file\" onchange=\"MJTC_uploadfile(this,\"". esc_js(majesticsupport::$_config['file_maximum_size'])."\",". esc_js(majesticsupport::$_config['file_extension'])."\"); size=\"20\" maxlenght=\"30\"  /><span  class=\"tk_attachment_remove\"></span></span>';
+                    var total_allow = ". esc_attr(majesticsupport::$_config['no_of_attachement']) .";
+                    var append_text = '<span class=\'tk_attachment_value_text\'><input name=\'filename[]\' type=\"file\" onchange=\"MJTC_uploadfile(this,\"". esc_js(majesticsupport::$_config['file_maximum_size'])."\",". esc_js(majesticsupport::$_config['file_extension']) ."\'); size=\'20\' maxlenght=\'30\'  /><span  class=\'tk_attachment_remove\'></span></span>';
                     if (current_files < total_allow) {
                         jQuery('.tk_attachment_value_wrapperform').append(append_text);
                     } else if ((current_files === total_allow) || (current_files > total_allow)) {
@@ -41,7 +37,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                 jQuery(document).delegate('.tk_attachment_remove', 'click', function(e) {
                     jQuery(this).parent().remove();
                     var current_files = jQuery('input[name=\'filename[]\']').length;
-                    var total_allow = ". majesticsupport::$_config['no_of_attachement'].";
+                    var total_allow = ". esc_attr(majesticsupport::$_config['no_of_attachement']) .";
                     if (current_files < total_allow) {
                         jQuery('#tk_attachment_add').show();
                     }
@@ -118,7 +114,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                 jQuery('select#eddorderid').change(function() {
                     ms_edd_order_products();
                 });";
-                if(!isset(majesticsupport::$_data[0]->id)){ 
+                if(!isset(majesticsupport::$_data[0]->id)) {
                     $majesticsupport_js .="
                     if (jQuery('select#eddorderid').val()) {
                         ms_edd_order_products();
@@ -142,10 +138,9 @@ if (majesticsupport::$_config['offline'] == 2) {
         ";
         wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
         ?>
-    <span style="display:none" id="filesize"><?php echo esc_html(__('Error file size too large', 'majestic-support')); ?></span>
-    <span style="display:none"
-        id="fileext"><?php echo esc_html(__('The uploaded file extension not valid', 'majestic-support')); ?></span>
-    <?php
+        <span style="display:none" id="filesize"><?php echo esc_html(__('Error file size too large', 'majestic-support')); ?></span>
+        <span style="display:none" id="fileext"><?php echo esc_html(__('The uploaded file extension not valid', 'majestic-support')); ?></span>
+        <?php
         $loginuser_name = '';
         $loginuser_email = '';
         if (!MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()) {
@@ -157,11 +152,11 @@ if (majesticsupport::$_config['offline'] == 2) {
             }
             $loginuser_email = $current_user->user_email;
         }
-    ?>
-    <?php MJTC_message::MJTC_getMessage(); ?>
-    <?php $formdata = MJTC_formfield::MJTC_getFormData(); ?>
-    <?php include_once(MJTC_PLUGIN_PATH . 'includes/header.php'); ?>
-    <div class="mjtc-support-top-sec-header">
+        ?>
+        <?php MJTC_message::MJTC_getMessage(); ?>
+        <?php $MJTC_formdata = MJTC_formfield::MJTC_getFormData(); ?>
+        <?php include_once(MJTC_PLUGIN_PATH . 'includes/header.php'); ?>
+        <div class="mjtc-support-top-sec-header">
         <img class="mjtc-transparent-header-img1" alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/tp-image.png" />
         <div class="mjtc-support-top-sec-left-header">
             <div class="mjtc-support-main-heading">
@@ -293,7 +288,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                                         </td>
                                         <td>
                                             <a href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'addticket','paidsupportid'=>$row->itemid))); ?>">
-                                                <?php echo esc_html(__("Select",'majestic-support')) ?>
+                                                <?php echo esc_html(__("Select",'majestic-support')); ?>
                                             </a>
                                         </td>
                                     </tr>
@@ -305,19 +300,31 @@ if (majesticsupport::$_config['offline'] == 2) {
                     }
                 }
                 if($showform): ?>
+                    <?php $MJTC_nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : ''; ?>
+                    <form class="mjtc-support-form1 majestic-support-form" method="post" action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'task'=>'saveticket')),"save-ticket-".$MJTC_nonce_id)); ?>" id="adminTicketform" enctype="multipart/form-data">
                     <?php
-                    $nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
-                    ?>
-                    <form class="mjtc-support-form1" method="post" action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'task'=>'saveticket')),"save-ticket-".$nonce_id)); ?>"id="adminTicketform" enctype="multipart/form-data">
-                        <?php
-                        $i = '';
-                        $fieldcounter = 0;
-                        $eddorderid = '';
+                    $i = '';
+                    $fieldcounter = 0;
+                    $eddorderid = '';
                         $requiredTxt = '&nbsp;<span style="color:red">*</span>';
                         $openingTag = '<div class="mjtc-support-add-form-wrapper">';
                         $closingTag = '</div>';
                         apply_filters('mjtc_support_ticket_frontend_ticket_form_start',1);
                         foreach (majesticsupport::$_data['fieldordering'] AS $field):
+                            $readonlyclass = $field->readonly ? " mjtc-form-ticket-readonly " : "";
+                        $visibleclass = "";
+                        if (!empty($field->visibleparams) && $field->visibleparams != '[]'){
+                            $visibleclass = ' visible ';
+                        }
+                        $msVisibleFunction = '';
+                        if ($field->visible_field != null) {
+                            $visibleparams = MJTC_includer::MJTC_getModel('fieldordering')->MJTC_getDataForVisibleField($field->visible_field);
+                            if (!empty($visibleparams)) {
+                                $wpnonce = wp_create_nonce("is-field-required-".$field->visible_field);
+                                $jsObject = wp_json_encode($visibleparams);
+                                $msVisibleFunction = " MJTC_getDataForVisibleField('".$wpnonce."', this.value, '".esc_js($field->visible_field)."', ".$jsObject.");";
+                            }
+                        }
                             switch ($field->field) {
                                 case 'email':
                                     if($fieldcounter % 2 == 0){
@@ -326,68 +333,78 @@ if (majesticsupport::$_config['offline'] == 2) {
                                         }
                                         echo wp_kses($openingTag, MJTC_ALLOWED_TAGS);
                                     }
-                                    $fieldcounter++; ?>
-                                    <div class="mjtc-support-from-field-wrp">
-                                        <div class="mjtc-support-from-field-title">
-                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;
-                                            <?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                                        </div>
-                                        <div class="mjtc-support-from-field">
-                                            <?php
-                                            if(isset($formdata['email'])) $email = $formdata['email'];
-                                            elseif(isset(majesticsupport::$_data[0]->email)) $email = majesticsupport::$_data[0]->email;
-                                            else $email = $loginuser_email;
-                                            echo wp_kses(MJTC_formfield::MJTC_email('email', $email, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => ($field->required) ? 'required email' : '')), MJTC_ALLOWED_TAGS); ?>
-                                        </div>
-                                    </div>
-                                    <?php
-                                    break;
-                                case 'fullname':
-                                    if($fieldcounter % 2 == 0){
-                                        if($fieldcounter != 0){
-                                            echo wp_kses($closingTag, MJTC_ALLOWED_TAGS);
-                                        }
-                                        echo wp_kses($openingTag, MJTC_ALLOWED_TAGS);
-                                    }
-                                    $fieldcounter++; ?>
-                                    <div class="mjtc-support-from-field-wrp">
-                                        <div class="mjtc-support-from-field-title">
-                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;
-                                            <?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
-                                        <div class="mjtc-support-from-field">
-                                            <?php
-                                            if(isset($formdata['name'])) $name = $formdata['name'];
-                                            elseif(isset(majesticsupport::$_data[0]->name)) $name = majesticsupport::$_data[0]->name;
-                                            else $name = $loginuser_name;
-                                            echo wp_kses(MJTC_formfield::MJTC_text('name', $name, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS);
-                                            ?>
-                                        </div>
-                                    </div>
-                                    <?php
-                                    break;
-                                case 'phone':
-                                    if($fieldcounter % 2 == 0){
-                                        if($fieldcounter != 0){
-                                            echo wp_kses($closingTag, MJTC_ALLOWED_TAGS);
-                                        }
-                                        echo wp_kses($openingTag, MJTC_ALLOWED_TAGS);
-                                    }
-                                    $fieldcounter++; ?>
-                                    <div class="mjtc-support-from-field-wrp">
-                                        <div class="mjtc-support-from-field-title">
-                                            <?php
-                                            echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                                        </div>
-                                        <div class="mjtc-support-from-field">
-                                            <?php
-                                            if(isset($formdata['phone'])) $phone = $formdata['phone'];
-                                            elseif(isset(majesticsupport::$_data[0]->phone)) $phone = majesticsupport::$_data[0]->phone;
-                                            else $phone = '';
-                                            echo wp_kses(MJTC_formfield::MJTC_text('phone', $phone, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS);
-                                            ?>
-                                        </div>
-                                    </div>
+                                $fieldcounter++; ?>
+                                <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                    <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                    <div class="mjtc-support-from-field">
                                         <?php
+                                            if(isset($MJTC_formdata['email'])) $email = $MJTC_formdata['email'];
+                                            elseif(isset(majesticsupport::$_data[0]->email)) $email = majesticsupport::$_data[0]->email;
+                                            elseif(!empty($field->defaultvalue)) $email = $field->defaultvalue;
+                                            else $email = $loginuser_email;
+                                            $email = MJTC_majesticsupportphplib::MJTC_strip_tags($email); // in some case, p tag is attached to email
+                                            echo wp_kses(MJTC_formfield::MJTC_email('email', $email, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => ($field->required) ? 'required email' : 'email', 'data-validation-optional' => ($field->required) ? 'false' : 'true', 'onchange' => $msVisibleFunction, 'placeholder'=> majesticsupport::MJTC_getVarValue($field->placeholder)) + ($field->readonly ? ['readonly' => 'readonly'] : [])), MJTC_ALLOWED_TAGS);?>
+                                    </div>
+                                    <?php if(!empty($field->description)): ?>
+                                        <div class="mjtc-support-from-field-description">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                <?php
+                                break;
+                            case 'fullname':
+                                if($fieldcounter % 2 == 0){
+                                    if($fieldcounter != 0){
+                                        echo wp_kses($closingTag, MJTC_ALLOWED_TAGS);
+                                    }
+                                    echo wp_kses($openingTag, MJTC_ALLOWED_TAGS);
+                                }
+                                $fieldcounter++; ?>
+                                <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                    <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                    <div class="mjtc-support-from-field">
+                                        <?php
+                                            if(isset($MJTC_formdata['name'])) $name = $MJTC_formdata['name'];
+                                            elseif(isset(majesticsupport::$_data[0]->name)) $name = majesticsupport::$_data[0]->name;
+                                            elseif(!empty($field->defaultvalue)) $name = $field->defaultvalue;
+                                            else $name = $loginuser_name;
+                                            echo wp_kses(MJTC_formfield::MJTC_text('name', $name, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => ($field->required) ? 'required' : '', 'onchange' => $msVisibleFunction, 'placeholder'=> majesticsupport::MJTC_getVarValue($field->placeholder)) + ($field->readonly ? ['readonly' => 'readonly'] : [])), MJTC_ALLOWED_TAGS);
+                                        ?>
+                                    </div>
+                                    <?php if(!empty($field->description)): ?>
+                                        <div class="mjtc-support-from-field-description">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                <?php
+                                break;
+                            case 'phone':
+                                if($fieldcounter % 2 == 0){
+                                    if($fieldcounter != 0){
+                                        echo wp_kses($closingTag, MJTC_ALLOWED_TAGS);
+                                    }
+                                    echo wp_kses($openingTag, MJTC_ALLOWED_TAGS);
+                                }
+                                $fieldcounter++; ?>
+                                <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                    <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                    <div class="mjtc-support-from-field">
+                                        <?php
+                                            if(isset($MJTC_formdata['phone'])) $phone = $MJTC_formdata['phone'];
+                                            elseif(isset(majesticsupport::$_data[0]->phone)) $phone = majesticsupport::$_data[0]->phone;
+                                            else $phone = $field->defaultvalue;
+                                            echo wp_kses(MJTC_formfield::MJTC_text('phone', $phone, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => ($field->required) ? 'required' : '', 'onchange' => $msVisibleFunction, 'placeholder'=> majesticsupport::MJTC_getVarValue($field->placeholder)) + ($field->readonly ? ['readonly' => 'readonly'] : [])), MJTC_ALLOWED_TAGS);
+                                        ?>
+                                    </div>
+                                    <?php if(!empty($field->description)): ?>
+                                        <div class="mjtc-support-from-field-description">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                <?php
                                 break;
                             case 'phoneext':
                                 if($fieldcounter % 2 == 0){
@@ -398,20 +415,23 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 }
                                 $fieldcounter++;
                                 ?>
-                        <div class="mjtc-support-from-field-wrp">
-                            <div class="mjtc-support-from-field-title">
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                            <div class="mjtc-support-from-field">
-                                <?php
-                                            if(isset($formdata['phoneext'])) $phoneext = $formdata['phoneext'];
+                                <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                    <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                    <div class="mjtc-support-from-field">
+                                        <?php
+                                            if(isset($MJTC_formdata['phoneext'])) $phoneext = $MJTC_formdata['phoneext'];
                                             elseif(isset(majesticsupport::$_data[0]->phoneext)) $phoneext = majesticsupport::$_data[0]->phoneext;
-                                            else $phoneext = '';
-                                            echo wp_kses(MJTC_formfield::MJTC_text('phoneext', $phoneext, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS);
+                                            else $phoneext = $field->defaultvalue;
+                                            echo wp_kses(MJTC_formfield::MJTC_text('phoneext', $phoneext, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => ($field->required) ? 'required' : '', 'placeholder'=> majesticsupport::MJTC_getVarValue($field->placeholder)) + ($field->readonly ? ['readonly' => 'readonly'] : [])), MJTC_ALLOWED_TAGS);
                                         ?>
-                            </div>
-                        </div>
-                        <?php
+                                    </div>
+                                    <?php if(!empty($field->description)): ?>
+                                        <div class="mjtc-support-from-field-description">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                <?php
                                 break;
                             case 'department':
                                 if($fieldcounter % 2 == 0){
@@ -422,57 +442,57 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 }
                                 $fieldcounter++;
                                 ?>
-                        <div class="mjtc-support-from-field-wrp">
-                            <div class="mjtc-support-from-field-title">
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                            <div class="mjtc-support-from-field mjtc-support-form-field-select">
-                                <?php 
+                                <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                    <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                    <div class="mjtc-support-from-field mjtc-support-form-field-select">
+                                        <?php 
     										$disabled ="";
-                                            if(isset($formdata['departmentid'])) $departmentid = $formdata['departmentid'];
-                                            elseif(isset(majesticsupport::$_data[0]->departmentid)) $departmentid = majesticsupport::$_data[0]->departmentid;
-                                            elseif(MJTC_request::MJTC_getVar('departmentid','get',0) > 0) $departmentid = MJTC_request::MJTC_getVar('departmentid','get');
-                                            else $departmentid = MJTC_includer::MJTC_getModel('department')->getDefaultDepartmentID();
+                                            if(isset($MJTC_formdata['departmentid'])) $MJTC_departmentid = $MJTC_formdata['departmentid'];
+                                            elseif(isset(majesticsupport::$_data[0]->departmentid)) $MJTC_departmentid = majesticsupport::$_data[0]->departmentid;
+                                            elseif(MJTC_request::MJTC_getVar('departmentid','get',0) > 0) $MJTC_departmentid = MJTC_request::MJTC_getVar('departmentid','get');
+                                            else $MJTC_departmentid = MJTC_includer::MJTC_getModel('department')->getDefaultDepartmentID();
     										if(isset(majesticsupport::$_data['formid'])){
     											if(in_array('multiform',majesticsupport::$_active_addons)){
-    												$departmentid = MJTC_includer::MJTC_getModel('multiform')->getDepartmentIdByFormId(majesticsupport::$_data['formid']);
-    												if($departmentid > 0){
+    												$MJTC_departmentid = MJTC_includer::MJTC_getModel('multiform')->getDepartmentIdByFormId(majesticsupport::$_data['formid']);
+    												if($MJTC_departmentid > 0){
     												}
     											}
     											
     										}
-                                            $msVisibleFunction = '';
-                                            $defaultFunc = '';
                                             // code for visible field
                                             if ($field->visible_field != null) {
                                                 $visibleparams = MJTC_includer::MJTC_getModel('fieldordering')->MJTC_getDataForVisibleField($field->visible_field);
-                                                foreach ($visibleparams as $visibleparam) {
-                                                    $wpnonce = wp_create_nonce("is-field-required-".$visibleparam->visibleParentField);
-                                                    $msVisibleFunction .= " MJTC_getDataForVisibleField('".$wpnonce."', this.value, '" . $visibleparam->visibleParent . "','" . $visibleparam->visibleParentField . "','".$visibleparam->visibleValue."','".$visibleparam->visibleCondition."');";
-                                                    //for default value
-                                                    if (($visibleparam->visibleValue == $departmentid && $visibleparam->visibleCondition == 1) || ($visibleparam->visibleValue != $departmentid && $departmentid != 0 && $visibleparam->visibleCondition == 0)) {
-                                                        $defaultFunc .= " MJTC_getDataForVisibleField('".$wpnonce."', '".$departmentid."', '" . $visibleparam->visibleParent . "','" . $visibleparam->visibleParentField . "','".$visibleparam->visibleValue."','".$visibleparam->visibleCondition."');";
+                                                // For default function (initial value setting)
+                                                if (!empty($visibleparams)) {
+                                                    $wpnonce = wp_create_nonce("is-field-required-" . $field->visible_field);
+                                                    $jsObject = wp_json_encode($visibleparams);
+                                                    // Build JS function without esc_js on JSON
+                                                    $MJTC_defaultFunc = "MJTC_getDataForVisibleField('" . esc_js($wpnonce) . "', '" . esc_js($MJTC_departmentid) . "', '" . esc_js($field->visible_field) . "', " . $jsObject . ");";
+                                                    // Attach default function on document ready
+                                                    if (!isset(majesticsupport::$_data[0]->id)) {
+                                                        $majesticsupport_js = "
+                                                            jQuery(document).ready(function(){
+                                                                ".$MJTC_defaultFunc."
+                                                            });
+                                                        ";
+                                                        wp_add_inline_script('majestic-support-cmain-js', $majesticsupport_js);
                                                     }
-                                                }
-                                                $script = '';
-                                                if (isset($defaultFunc) && !isset(majesticsupport::$_data[0]->id)) {
-                                                    $majesticsupport_js ='
-                                                        jQuery(document).ready(function(){
-                                                            '.esc_js($defaultFunc).'
-                                                        });
-                                                    ';
-                                                    wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                                                 }
                                             }
     										if($disabled == ""){
-    											echo wp_kses(MJTC_formfield::MJTC_select('departmentid', MJTC_includer::MJTC_getModel('department')->getDepartmentForCombobox(), $departmentid, esc_html(__('Select Department', 'majestic-support')), array('class' => 'inputbox mjtc-support-select-field', 'onchange' => $msVisibleFunction.' getHelpTopicByDepartment(this.value);', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS);
+    											echo wp_kses(MJTC_formfield::MJTC_select('departmentid', MJTC_includer::MJTC_getModel('department')->getDepartmentForCombobox(), $MJTC_departmentid, esc_html(__('Select', 'majestic-support')).' '.esc_html($field->fieldtitle), array('class' => 'inputbox mjtc-support-select-field' . esc_attr($readonlyclass), 'onchange' => $msVisibleFunction.' getHelpTopicByDepartment(this.value);', 'data-validation' => ($field->required) ? 'required' : '') + ($field->readonly ? ['tabindex' => '-1'] : [])), MJTC_ALLOWED_TAGS);
     										}else{
-    											echo wp_kses(MJTC_formfield::MJTC_select('departmentid', MJTC_includer::MJTC_getModel('department')->getDepartmentForCombobox(), $departmentid, esc_html(__('Select Department', 'majestic-support')), array('class' => 'inputbox mjtc-support-select-field', 'onchange' => $msVisibleFunction.' getHelpTopicByDepartment(this.value);', 'data-validation' => ($field->required) ? 'required' : '','disabled'=>'disabled')), MJTC_ALLOWED_TAGS);
+    											echo wp_kses(MJTC_formfield::MJTC_select('departmentid', MJTC_includer::MJTC_getModel('department')->getDepartmentForCombobox(), $MJTC_departmentid, esc_html(__('Select', 'majestic-support')).' '.esc_html($field->fieldtitle), array('class' => 'inputbox mjtc-support-select-field', 'onchange' => $msVisibleFunction.' getHelpTopicByDepartment(this.value);', 'data-validation' => ($field->required) ? 'required' : '','disabled'=>'disabled')), MJTC_ALLOWED_TAGS);
     										}
                                         ?>
-                            </div>
-                        </div>
-                        <?php
+                                    </div>
+                                    <?php if(!empty($field->description)): ?>
+                                        <div class="mjtc-support-from-field-description">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                <?php
                                 break;
                             case 'helptopic':
                                 if(!in_array('helptopic', majesticsupport::$_active_addons)){
@@ -486,26 +506,56 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 }
                                 $fieldcounter++;
                                 ?>
-                        <div class="mjtc-support-from-field-wrp">
-                            <div class="mjtc-support-from-field-title">
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                            <div class="mjtc-support-from-field mjtc-support-form-field-select" id="helptopic">
-                                <?php
-                                            if(isset($formdata['helptopicid'])) $helptopicid = $formdata['helptopicid'];
+                                <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                    <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                    <div class="mjtc-support-from-field mjtc-support-form-field-select" id="helptopic">
+                                        <?php
+                                            if(isset($MJTC_formdata['helptopicid'])) $helptopicid = $MJTC_formdata['helptopicid'];
                                             elseif(isset(majesticsupport::$_data[0]->helptopicid)) $helptopicid = majesticsupport::$_data[0]->helptopicid;
                                             elseif(MJTC_request::MJTC_getVar('helptopicid','get',0) > 0) $helptopicid = MJTC_request::MJTC_getVar('helptopicid','get');
                                             else $helptopicid = '';
-                                            if (isset($departmentid)) {
-                                                $dep_id = $departmentid;
+                                            if (isset($MJTC_departmentid)) {
+                                                $dep_id = $MJTC_departmentid;
                                             } else{
                                                 $dep_id = 0;
                                             }
-                                            echo wp_kses(MJTC_formfield::MJTC_select('helptopicid', MJTC_includer::MJTC_getModel('helptopic')->getHelpTopicsForCombobox($dep_id), $helptopicid, esc_html(__('Select Help Topic', 'majestic-support')), array('class ' => 'mjtc-support-select-field', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS);
+                                            echo wp_kses(MJTC_formfield::MJTC_select('helptopicid', MJTC_includer::MJTC_getModel('helptopic')->getHelpTopicsForCombobox($dep_id), $helptopicid, esc_html(__('Select', 'majestic-support')).' '.esc_html($field->fieldtitle), array('class ' => 'mjtc-support-select-field' .esc_attr($readonlyclass), 'data-validation' => ($field->required) ? 'required' : '', 'onchange' => $msVisibleFunction) + ($field->readonly ? ['tabindex' => '-1'] : [])), MJTC_ALLOWED_TAGS);
                                         ?>
-                            </div>
-                        </div>
-                        <?php
+                                    </div>
+                                    <?php if(!empty($field->description)): ?>
+                                        <div class="mjtc-support-from-field-description">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                <?php
+                                break;
+                            case 'product':
+                                if($fieldcounter % 2 == 0){
+                                    if($fieldcounter != 0){
+                                        echo wp_kses($closingTag, MJTC_ALLOWED_TAGS);
+                                    }
+                                    echo wp_kses($openingTag, MJTC_ALLOWED_TAGS);
+                                }
+                                $fieldcounter++;
+                                ?>
+                                <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                    <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                    <div class="mjtc-support-from-field mjtc-support-form-field-select" id="product">
+                                        <?php
+                                            if(isset($MJTC_formdata['productid'])) $productid = $MJTC_formdata['productid'];
+                                            elseif(isset(majesticsupport::$_data[0]->productid)) $productid = majesticsupport::$_data[0]->productid;
+                                            else $productid = '';
+                                            echo wp_kses(MJTC_formfield::MJTC_select('productid', MJTC_includer::MJTC_getModel('product')->getProductForCombobox(), $productid, esc_html(__('Select', 'majestic-support')).' '.esc_html($field->fieldtitle), array('class ' => 'mjtc-support-select-field' .esc_attr($readonlyclass), 'data-validation' => ($field->required) ? 'required' : '', 'onchange' => $msVisibleFunction) + ($field->readonly ? ['tabindex' => '-1'] : [])), MJTC_ALLOWED_TAGS);
+                                        ?>
+                                    </div>
+                                    <?php if(!empty($field->description)): ?>
+                                        <div class="mjtc-support-from-field-description">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                <?php
                                 break;
                             case 'priority':
                                 if($fieldcounter % 2 == 0){
@@ -516,38 +566,63 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 }
                                 $fieldcounter++;
                                 ?>
-                                <div class="mjtc-support-from-field-wrp">
-                                    <div class="mjtc-support-from-field-title">
-                                        <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                                    </div>
+                                <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                    <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
                                     <div class="mjtc-support-from-field mjtc-support-form-field-select">
                                         <?php
-                                            if(isset($formdata['priorityid'])) $priorityid = $formdata['priorityid'];
+                                            if(isset($MJTC_formdata['priorityid'])) $priorityid = $MJTC_formdata['priorityid'];
                                             elseif(isset(majesticsupport::$_data[0]->priorityid)) $priorityid = majesticsupport::$_data[0]->priorityid;
                                             else $priorityid = MJTC_includer::MJTC_getModel('priority')->getDefaultPriorityID();
-                                            echo wp_kses(MJTC_formfield::MJTC_select('priorityid', MJTC_includer::MJTC_getModel('priority')->getPriorityForCombobox(), $priorityid, esc_html(__('Select Priority', 'majestic-support')), array('class' => 'inputbox mjtc-support-select-field', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS);
+                                            if (!empty($visibleparams)) {
+                                                $wpnonce = wp_create_nonce("is-field-required-" . $field->visible_field);
+                                                // Build JS function without esc_js on JSON
+                                                $jsObject = wp_json_encode($visibleparams);
+                                                $MJTC_defaultFunc = "MJTC_getDataForVisibleField('" . esc_js($wpnonce) . "', '" . esc_js($priorityid) . "', '" . esc_js($field->visible_field) . "', " . $jsObject . ");";
+                                                // Attach default function on document ready
+                                                if (!isset(majesticsupport::$_data[0]->id)) {
+                                                    $majesticsupport_js = "
+                                                        jQuery(document).ready(function(){
+                                                            ".$MJTC_defaultFunc."
+                                                        });
+                                                    ";
+                                                    wp_add_inline_script('majestic-support-cmain-js', $majesticsupport_js);
+                                                }
+                                            }
+                                            echo wp_kses(MJTC_formfield::MJTC_select('priorityid', MJTC_includer::MJTC_getModel('priority')->getPriorityForCombobox(), $priorityid, esc_html(__('Select', 'majestic-support')).' '.esc_html($field->fieldtitle), array('class' => 'inputbox mjtc-support-select-field' . esc_attr($readonlyclass), 'data-validation' => ($field->required) ? 'required' : '', 'onchange' => $msVisibleFunction) + ($field->readonly ? ['tabindex' => '-1'] : [])), MJTC_ALLOWED_TAGS);
                                         ?>
                                     </div>
+                                    <?php if(!empty($field->description)): ?>
+                                        <div class="mjtc-support-from-field-description">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                                 <?php
                                 break;
                             case 'subject':
-                                if($fieldcounter != 0){
-                                    echo '</div>';
-                                    $fieldcounter = 0;
-                                } ?>
+                                if($fieldcounter % 2 == 0){
+                                    if($fieldcounter != 0){
+                                        echo '</div>';
+                                    }
+                                    echo '<div class="mjtc-support-add-form-wrapper">';
+                                }
+                                $fieldcounter++;
+                                ?>
                                 <div class="mjtc-support-from-field-wrp mjtc-support-from-field-wrp-full-width">
-                                    <div class="mjtc-support-from-field-title">
-                                        <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<span
-                                            style="color:red">*</span></div>
+                                    <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<span style="color:red">*</span></div>
                                     <div class="mjtc-support-from-field">
                                         <?php
-                                            if(isset($formdata['subject'])) $subject = $formdata['subject'];
-                                            elseif(isset(majesticsupport::$_data[0]->subject)) $subject = majesticsupport::$_data[0]->subject;
-                                            else $subject = '';
-                                            echo wp_kses(MJTC_formfield::MJTC_text('subject', $subject, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS);
+                                            if(isset($MJTC_formdata['subject'])) $MJTC_subject = $MJTC_formdata['subject'];
+                                            elseif(isset(majesticsupport::$_data[0]->subject)) $MJTC_subject = majesticsupport::$_data[0]->subject;
+                                            else $MJTC_subject = $field->defaultvalue;
+                                            echo wp_kses(MJTC_formfield::MJTC_text('subject', $MJTC_subject, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => 'required', 'onchange' => $msVisibleFunction, 'placeholder'=> majesticsupport::MJTC_getVarValue($field->placeholder)) + ($field->readonly ? ['readonly' => 'readonly'] : [])), MJTC_ALLOWED_TAGS);
                                         ?>
                                     </div>
+                                    <?php if(!empty($field->description)): ?>
+                                        <div class="mjtc-support-from-field-description">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                                 <?php
                                 break;
@@ -557,20 +632,29 @@ if (majesticsupport::$_config['offline'] == 2) {
                                     $fieldcounter = 0;
                                 }
                                 ?>
-                                <div class="mjtc-support-from-field-wrp mjtc-support-from-field-wrp-full-width">
-                                    <div class="mjtc-support-from-field-title">
-                                        <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                <div class="mjtc-support-from-field-wrp mjtc-support-from-field-wrp-full-width <?php echo esc_attr($visibleclass); ?>">
+                                    <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
                                     <div class="mjtc-support-from-field">
                                         <?php
-                                            if(isset($formdata['message'])) $message = wpautop(wptexturize(MJTC_majesticsupportphplib::MJTC_stripslashes($formdata['message'])));
+                                            if(isset($MJTC_formdata['message'])) $message = wpautop(wptexturize(MJTC_majesticsupportphplib::MJTC_stripslashes($MJTC_formdata['message'])));
                                             elseif(isset(majesticsupport::$_data[0]->message)) $message = majesticsupport::$_data[0]->message;
-                                            else $message = '';
-                                            wp_editor($message, 'mjsupport_message', array('media_buttons' => false));
+                                            else $message = $field->defaultvalue;
+                                            if ($field->readonly) {
+                                                echo wp_kses(MJTC_formfield::MJTC_textarea('mjsupport_message', $message, array('class' => 'inputbox mjtc-form-textarea-field one', 'rows' => 5, 'cols' => 25, 'placeholder'=> majesticsupport::MJTC_getVarValue($field->placeholder), 'readonly'=> 'readonly')), MJTC_ALLOWED_TAGS);
+                                            } else {
+                                                $message = is_string( $message ) ? $message : '';
+                                                wp_editor($message, 'mjsupport_message', array('media_buttons' => false));
+                                            }
                                             /*
                                             * Use following settings for minimal editor as all are offering
                                             */
                                         ?>
                                     </div>
+                                    <?php if(!empty($field->description)): ?>
+                                        <div class="mjtc-support-from-field-description">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                                 <?php
                                 break;
@@ -580,50 +664,50 @@ if (majesticsupport::$_config['offline'] == 2) {
                                     $fieldcounter = 0;
                                 }
                                 ?>
-                        <div class="mjtc-support-reply-attachments">
-                            <!-- Attachments -->
-                            <div class="mjtc-attachment-field-title">
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?><?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                            <?php
-                                if(isset(majesticsupport::$_data[5]) && count(majesticsupport::$_data[5]) > 0){
-                                    $attachmentreq = '';
-                                }else{
-                                    $attachmentreq = $field->required == 1 ? 'required' : '';
-                                }
-                            ?>
-                            <div class="mjtc-attachment-field">
-                                <div class="tk_attachment_value_wrapperform tk_attachment_user_reply_wrapper">
-                                    <span class="tk_attachment_value_text">
-                                        <input type="file" class="inputbox mjtc-attachment-inputbox" name="filename[]"
-                                            onchange="MJTC_uploadfile(this, '<?php echo esc_js(majesticsupport::$_config['file_maximum_size']); ?>', '<?php echo esc_js(majesticsupport::$_config['file_extension']); ?>');"
-                                            size="20" data-validation="<?php echo esc_attr($attachmentreq); ?>" />
-                                        <span class='tk_attachment_remove'></span>
-                                    </span>
-                                </div>
-                                <span class="tk_attachments_configform">
+                                <div class="mjtc-support-reply-attachments"><!-- Attachments -->
+                                    <div class="mjtc-attachment-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?><?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                    <?php
+                                    if(isset(majesticsupport::$_data[5]) && count(majesticsupport::$_data[5]) > 0){
+                                        $attachmentreq = '';
+                                    }else{
+                                        $attachmentreq = $field->required == 1 ? 'required' : '';
+                                    }
+                                    ?>
+                                    <div class="mjtc-attachment-field">
+                                        <div class="tk_attachment_value_wrapperform tk_attachment_user_reply_wrapper">
+                                            <span class="tk_attachment_value_text">
+                                                <input type="file" class="inputbox mjtc-attachment-inputbox" name="filename[]" onchange="MJTC_uploadfile(this, '<?php echo esc_js(majesticsupport::$_config['file_maximum_size']); ?>', '<?php echo esc_js(majesticsupport::$_config['file_extension']); ?>');" size="20" data-validation="<?php echo esc_attr($attachmentreq); ?>" />
+                                                <span class='tk_attachment_remove'></span>
+                                            </span>
+                                        </div>
+                                        <span class="tk_attachments_configform">
+                                             <?php 
+                                             $tktdata = esc_html(__('Maximum File Size', 'majestic-support')).' (' . esc_html(majesticsupport::$_config['file_maximum_size']).'KB)<br>'.esc_html(__('File Extension Type', 'majestic-support')).' (' . esc_html(majesticsupport::$_config['file_extension']) . ')';
+                                             echo wp_kses($tktdata, MJTC_ALLOWED_TAGS);
+                                            ?>
+                                        </span>
+                                        <span id="tk_attachment_add" data-ident="tk_attachment_user_reply_wrapper" class="tk_attachments_addform"><?php echo esc_html(__('Add more', 'majestic-support')); ?></span>
+                                    </div>
                                     <?php 
-                                    $tktdata = esc_html(__('Maximum File Size', 'majestic-support')).' (' . esc_html(majesticsupport::$_config['file_maximum_size']).'KB)<br>'.esc_html(__('File Extension Type', 'majestic-support')).' (' . esc_html(majesticsupport::$_config['file_extension']) . ')';
-                                    echo wp_kses($tktdata, MJTC_ALLOWED_TAGS);
-                                     ?>
-                                </span>
-                                <span id="tk_attachment_add" data-ident="tk_attachment_user_reply_wrapper"
-                                    class="tk_attachments_addform"><?php echo esc_html(__('Add more', 'majestic-support')); ?></span>
-                            </div>
-                            <?php 
-                            if (!empty(majesticsupport::$_data[5])) {
-                                foreach (majesticsupport::$_data[5] AS $attachment) {
-                                    echo wp_kses('
-                                        <div class="mjtc-support-attached-files-wrp">
-                                            <div class="mjtc_supportattachment">
-                                                ' . esc_html($attachment->filename) . ' ( ' . esc_html($attachment->filesize) . ' ) ' . '
-                                            </div>
-                                            <a class="mjtc-support-delete-attachment" href="'.wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'attachment', 'task'=>'deleteattachment', 'action'=>'mstask', 'id'=>$attachment->id, 'tikcetid'=>majesticsupport::$_data[0]->id, 'mspageid'=>majesticsupport::getPageid())),'delete-attachement-'.$attachment->id) . '">' . esc_html(__('Remove','majestic-support')) . '</a>
-                                        </div>', MJTC_ALLOWED_TAGS);
-                                }
-                            } ?>
-                        </div>
-                        <?php
+                                    if (!empty(majesticsupport::$_data[5])) {
+                                        foreach (majesticsupport::$_data[5] AS $attachment) {
+                                            echo wp_kses('
+                                            <div class="mjtc-support-attached-files-wrp">
+                                                <div class="mjtc_supportattachment">
+                                                    ' . esc_html($attachment->filename) . ' ( ' . esc_html($attachment->filesize) . ' ) ' . '
+                                                </div>
+                                                <a class="mjtc-support-delete-attachment" href="'.wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'attachment', 'task'=>'deleteattachment', 'action'=>'mstask', 'id'=>$attachment->id, 'tikcetid'=>majesticsupport::$_data[0]->id, 'mspageid'=>majesticsupport::getPageid())),'delete-attachement-'.$attachment->id) . '">' . esc_html(__('Remove','majestic-support')) . '</a>
+                                            </div>', MJTC_ALLOWED_TAGS);
+                                        }
+                                    }
+                                    if(!empty($field->description)): ?>
+                                        <div class="mjtc-support-from-field-description">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                        </div>
+                                        <?php 
+                                    endif; ?>
+                                </div>
+                                <?php
                                 break;
                                 case 'wcorderid':
                                     if(!in_array('woocommerce', majesticsupport::$_active_addons)){
@@ -646,18 +730,21 @@ if (majesticsupport::$_config['offline'] == 2) {
     										$orderlist[] = (object) array('id' => $order->get_id(),'text'=>'#'.esc_html($order->get_id()).' - '.esc_html($order->get_date_created()->date_i18n(wc_date_format())));
     									}
     								}
-                                    if(isset($formdata['wcorderid'])) $wcorderid = $formdata['wcorderid'];
+                                    if(isset($MJTC_formdata['wcorderid'])) $wcorderid = $MJTC_formdata['wcorderid'];
                                     elseif(isset(majesticsupport::$_data[0]->wcorderid)) $wcorderid = majesticsupport::$_data[0]->wcorderid;
                                     else $wcorderid = '';  ?>
-                        <div class="mjtc-support-from-field-wrp">
-                            <div class="mjtc-support-from-field-title">
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                            <div class="mjtc-support-from-field mjtc-support-form-field-select">
-                                <?php echo wp_kses(MJTC_formfield::MJTC_select('wcorderid', $orderlist, $wcorderid, esc_html(__('Select Order', 'majestic-support')), array('class' => 'inputbox mjtc-support-select-field', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                        </div>
-                        <?php
+                                    <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                        <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                        <div class="mjtc-support-from-field mjtc-support-form-field-select">
+                                            <?php echo wp_kses(MJTC_formfield::MJTC_select('wcorderid', $orderlist, $wcorderid, esc_html(__('Select', 'majestic-support')).' '.esc_html($field->fieldtitle), array('class' => 'inputbox mjtc-support-select-field', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS); ?>
+                                        </div>
+                                        <?php if(!empty($field->description)): ?>
+                                            <div class="mjtc-support-from-field-description">
+                                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <?php
                                     break;
                                 case 'wcproductid':
                                     if(!in_array('woocommerce', majesticsupport::$_active_addons)){
@@ -675,18 +762,21 @@ if (majesticsupport::$_config['offline'] == 2) {
                                     $fieldcounter++;
 
                                     $itemlist = array();
-                                    if(isset($formdata['wcproductid'])) $wcproductid = $formdata['wcproductid'];
+                                    if(isset($MJTC_formdata['wcproductid'])) $wcproductid = $MJTC_formdata['wcproductid'];
                                     elseif(isset(majesticsupport::$_data[0]->wcproductid)) $wcproductid = majesticsupport::$_data[0]->wcproductid;
                                     else $wcproductid = '';  ?>
-                        <div class="mjtc-support-from-field-wrp">
-                            <div class="mjtc-support-from-field-title">
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                            <div class="mjtc-support-from-field mjtc-support-form-field-select" id="wcproductid-wrap">
-                                <?php echo wp_kses(MJTC_formfield::MJTC_select('wcproductid', $itemlist, $wcproductid, esc_html(__('Select Product', 'majestic-support')), array('class' => 'inputbox mjtc-support-select-field', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                        </div>
-                        <?php
+                                    <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                        <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                        <div class="mjtc-support-from-field mjtc-support-form-field-select" id="wcproductid-wrap">
+                                            <?php echo wp_kses(MJTC_formfield::MJTC_select('wcproductid', $itemlist, $wcproductid, esc_html(__('Select', 'majestic-support')).' '.esc_html($field->fieldtitle), array('class' => 'inputbox mjtc-support-select-field', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS); ?>
+                                        </div>
+                                        <?php if(!empty($field->description)): ?>
+                                            <div class="mjtc-support-from-field-description">
+                                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <?php
                                     break;
                                 case 'eddorderid':
                                     if(!in_array('easydigitaldownloads', majesticsupport::$_active_addons)){
@@ -705,7 +795,7 @@ if (majesticsupport::$_config['offline'] == 2) {
 
                                     $itemlist = array();
 
-                                    if(isset($formdata['eddorderid'])) $eddorderid = $formdata['eddorderid'];
+                                    if(isset($MJTC_formdata['eddorderid'])) $eddorderid = $MJTC_formdata['eddorderid'];
                                     elseif(isset(majesticsupport::$_data[0]->eddorderid)) $eddorderid = majesticsupport::$_data[0]->eddorderid;
                                     elseif(isset(majesticsupport::$_data['edd_order_id'])) $eddorderid = majesticsupport::$_data['edd_order_id'];
                                     $user_id = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
@@ -718,25 +808,31 @@ if (majesticsupport::$_config['offline'] == 2) {
                                             }
                                         }
                                          ?>
-                        <div class="mjtc-support-from-field-wrp">
-                            <div class="mjtc-support-from-field-title">
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                            <div class="mjtc-support-from-field mjtc-support-form-field-select" id="eddorderid-wrap">
-                                <?php echo wp_kses(MJTC_formfield::MJTC_select('eddorderid', $user_purchase_array, $eddorderid, esc_html(__('Select Order ID', 'majestic-support')), array('class' => 'inputbox mjtc-support-select-field', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                        </div>
-                        <?php
+                                        <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                            <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                            <div class="mjtc-support-from-field mjtc-support-form-field-select" id="eddorderid-wrap">
+                                                <?php echo wp_kses(MJTC_formfield::MJTC_select('eddorderid', $user_purchase_array, $eddorderid, esc_html(__('Select', 'majestic-support')).' '.esc_html($field->fieldtitle), array('class' => 'inputbox mjtc-support-select-field', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS); ?>
+                                            </div>
+                                            <?php if(!empty($field->description)): ?>
+                                                <div class="mjtc-support-from-field-description">
+                                                    <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php
                                     }else{ ?>
-                        <div class="mjtc-support-from-field-wrp">
-                            <div class="mjtc-support-from-field-title">
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                            <div class="mjtc-support-from-field mjtc-support-form-field-select" id="eddorderid-wrap">
-                                <?php  echo wp_kses(MJTC_formfield::MJTC_text('eddorderid', $eddorderid, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                        </div>
-                        <?php
+                                        <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                            <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                            <div class="mjtc-support-from-field mjtc-support-form-field-select" id="eddorderid-wrap">
+                                                <?php  echo wp_kses(MJTC_formfield::MJTC_text('eddorderid', $eddorderid, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => ($field->required) ? 'required' : '', 'placeholder'=> majesticsupport::MJTC_getVarValue($field->placeholder))), MJTC_ALLOWED_TAGS); ?>
+                                            </div>
+                                            <?php if(!empty($field->description)): ?>
+                                                <div class="mjtc-support-from-field-description">
+                                                    <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php
                                     }
                                     break;
                                 case 'eddproductid':
@@ -763,18 +859,21 @@ if (majesticsupport::$_config['offline'] == 2) {
                                             }
                                         }
 
-                                        if(isset($formdata['eddproductid'])) $eddproductid = $formdata['eddproductid'];
+                                        if(isset($MJTC_formdata['eddproductid'])) $eddproductid = $MJTC_formdata['eddproductid'];
                                         elseif(isset(majesticsupport::$_data[0]->eddproductid)) $eddproductid = majesticsupport::$_data[0]->eddproductid;
                                         else $eddproductid = '';  ?>
-                        <div class="mjtc-support-from-field-wrp">
-                            <div class="mjtc-support-from-field-title">
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                            <div class="mjtc-support-from-field" id="eddproductid-wrap">
-                                <?php echo wp_kses(MJTC_formfield::MJTC_select('eddproductid', $order_products_array, $eddproductid, esc_html(__('Select Product', 'majestic-support')), array('class' => 'inputbox mjtc-form-select-field', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                        </div>
-                        <?php
+                                        <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                            <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                            <div class="mjtc-support-from-field" id="eddproductid-wrap">
+                                                <?php echo wp_kses(MJTC_formfield::MJTC_select('eddproductid', $order_products_array, $eddproductid, esc_html(__('Select', 'majestic-support')).' '.esc_html($field->fieldtitle), array('class' => 'inputbox mjtc-form-select-field', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS); ?>
+                                            </div>
+                                            <?php if(!empty($field->description)): ?>
+                                                <div class="mjtc-support-from-field-description">
+                                                    <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php
                                 }
                                     break;
                                 case 'eddlicensekey':
@@ -807,32 +906,38 @@ if (majesticsupport::$_config['offline'] == 2) {
                                     }
 
                                     $itemlist = array();
-                                    if(isset($formdata['eddlicensekey'])) $eddlicensekey = $formdata['eddlicensekey'];
+                                    if(isset($MJTC_formdata['eddlicensekey'])) $eddlicensekey = $MJTC_formdata['eddlicensekey'];
                                     elseif(isset(majesticsupport::$_data[0]->eddlicensekey)) $eddlicensekey = majesticsupport::$_data[0]->eddlicensekey;
                                     else $eddlicensekey = '';
                                     $user_id = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
                                     if(is_numeric($user_id) && $user_id > 0){
                                     ?>
-                        <div class="mjtc-support-from-field-wrp">
-                            <div class="mjtc-support-from-field-title">
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                            <div class="mjtc-support-from-field mjtc-support-form-field-select" id="eddlicensekey-wrap">
-                                <?php echo wp_kses(MJTC_formfield::MJTC_select('eddlicensekey', $license_key_array, $eddlicensekey, esc_html(__('Select license key', 'majestic-support')), array('class' => 'inputbox mjtc-support-select-field', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                        </div>
-                        <?php
+                                        <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                            <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                            <div class="mjtc-support-from-field mjtc-support-form-field-select" id="eddlicensekey-wrap">
+                                                <?php echo wp_kses(MJTC_formfield::MJTC_select('eddlicensekey', $license_key_array, $eddlicensekey, esc_html(__('Select', 'majestic-support')).' '.esc_html($field->fieldtitle), array('class' => 'inputbox mjtc-support-select-field', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS); ?>
+                                            </div>
+                                            <?php if(!empty($field->description)): ?>
+                                                <div class="mjtc-support-from-field-description">
+                                                    <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <?php
                                     }else{
                                         ?>
-                        <div class="mjtc-support-from-field-wrp">
-                            <div class="mjtc-support-from-field-title">
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                            <div class="mjtc-support-from-field mjtc-support-form-field-select" id="eddlicensekey-wrap">
-                                <?php  echo wp_kses(MJTC_formfield::MJTC_text('eddlicensekey', $eddlicensekey, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => ($field->required) ? 'required' : '')), MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                        </div>
-                        <?php
+                                        <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                            <div class="mjtc-support-from-field-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?></div>
+                                            <div class="mjtc-support-from-field mjtc-support-form-field-select" id="eddlicensekey-wrap">
+                                                <?php  echo wp_kses(MJTC_formfield::MJTC_text('eddlicensekey', $eddlicensekey, array('class' => 'inputbox mjtc-support-form-field-input', 'data-validation' => ($field->required) ? 'required' : '', 'placeholder'=> majesticsupport::MJTC_getVarValue($field->placeholder))), MJTC_ALLOWED_TAGS); ?>
+                                            </div>
+                                            <?php if(!empty($field->description)): ?>
+                                                <div class="mjtc-support-from-field-description">
+                                                    <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php
                                     }
                                     break;
                                 case 'envatopurchasecode':
@@ -852,24 +957,30 @@ if (majesticsupport::$_config['offline'] == 2) {
                                     }
                                     $fieldcounter++;
 
-                                    if(isset($formdata['envatopurchasecode'])) $envatopurchasecode = $formdata['envatopurchasecode'];
+                                    if(isset($MJTC_formdata['envatopurchasecode'])) $envatopurchasecode = $MJTC_formdata['envatopurchasecode'];
                                     elseif(isset($envlicense['license'])) $envatopurchasecode = $envlicense['license'];
                                     else $envatopurchasecode = '';  ?>
-                        <div class="mjtc-support-from-field-wrp">
-                            <div class="mjtc-support-from-field-title">
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                            <div class="mjtc-support-from-field mjtc-support-form-field-select"
-                                id="envatopurchasecode-wrap">
-                                <?php echo wp_kses(MJTC_formfield::MJTC_text('envatopurchasecode', $envatopurchasecode, array('class' => 'inputbox mjtc-support-form-field-input','data-validation'=>($field->required ? 'required' : ''))), MJTC_ALLOWED_TAGS); ?>
-                            </div>
-                        </div>
-                        <?php
+                                    <div class="mjtc-support-from-field-wrp <?php echo esc_attr($visibleclass); ?>">
+                                        <div class="mjtc-support-from-field-title">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)); ?>&nbsp;<?php if($field->required == 1) echo wp_kses($requiredTxt, MJTC_ALLOWED_TAGS); ?>
+                                        </div>
+                                        <div class="mjtc-support-from-field mjtc-support-form-field-select" id="envatopurchasecode-wrap">
+                                            <?php echo wp_kses(MJTC_formfield::MJTC_text('envatopurchasecode', $envatopurchasecode, array('class' => 'inputbox mjtc-support-form-field-input','data-validation'=>($field->required ? 'required' : ''), 'placeholder'=> majesticsupport::MJTC_getVarValue($field->placeholder))), MJTC_ALLOWED_TAGS); ?>
+                                        </div>
+                                        <?php if(!empty($field->description)): ?>
+                                            <div class="mjtc-support-from-field-description">
+                                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field->description)); ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <?php
                                     break;
                             default:
-                                $customfields = MJTC_includer::MJTC_getObjectClass('customfields')->MJTC_formCustomFields($field);
-                                if (isset($customfields)) {
-                                    echo wp_kses($customfields, MJTC_ALLOWED_TAGS);
+                                if ($field->userfieldtype != 'termsandconditions') {
+                                    $customfields = MJTC_includer::MJTC_getObjectClass('customfields')->MJTC_formCustomFields($field);
+                                    if (isset($customfields)) {
+                                        echo wp_kses($customfields, MJTC_ALLOWED_TAGS);
+                                    }
                                 }
                                 break;
                         }
@@ -894,6 +1005,78 @@ if (majesticsupport::$_config['offline'] == 2) {
                     if(isset($paidsupportid)){
                         echo wp_kses(MJTC_formfield::MJTC_hidden('paidsupportid', $paidsupportid), MJTC_ALLOWED_TAGS);
                     }
+                ?>
+                <?php
+                foreach (majesticsupport::$_data['fieldordering'] AS $field):
+                    $visibleclass = "";
+                    if (!empty($field->visibleparams) && $field->visibleparams != '[]'){
+                        $visibleclass = ' visible ';
+                    }
+                    $msVisibleFunction = '';
+                    if ($field->visible_field != null) {
+                        $visibleparams = MJTC_includer::MJTC_getModel('fieldordering')->MJTC_getDataForVisibleField($field->visible_field);
+                        if (!empty($visibleparams)) {
+                            $wpnonce = wp_create_nonce("is-field-required-".$field->visible_field);
+                            $jsObject = wp_json_encode($visibleparams);
+                            $msVisibleFunction = " MJTC_getDataForVisibleField('".$wpnonce."', this.value, '".esc_js($field->visible_field)."', ".$jsObject.");";
+                        }
+                    }
+                    switch ($field->field) {
+                        case 'termsandconditions1':
+                        case 'termsandconditions2':
+                        case 'termsandconditions3':
+                            if (isset(majesticsupport::$_data[0]->id)) {
+                                break;
+                            }
+                            if (!empty($field->userfieldparams)) {
+                                $obj_option = json_decode($field->userfieldparams,true);
+
+                                $MJTC_url = '#';
+                                if( isset($obj_option['termsandconditions_linktype']) && $obj_option['termsandconditions_linktype'] == 1){
+                                    $MJTC_url = $obj_option['termsandconditions_link'];
+                                }if( isset($obj_option['termsandconditions_linktype']) && $obj_option['termsandconditions_linktype'] == 2){
+                                    $MJTC_url  = get_permalink($obj_option['termsandconditions_page']);
+                                }
+
+                                $link_start = '<a href="' . esc_url($MJTC_url) . '" class="termsandconditions_link_anchor" target="_blank" >';
+                                $link_end = '</a>';
+
+                                if(MJTC_majesticsupportphplib::MJTC_strstr($obj_option['termsandconditions_text'], '[link]') && MJTC_majesticsupportphplib::MJTC_strstr($obj_option['termsandconditions_text'], '[/link]')){
+                                    $label_string = MJTC_majesticsupportphplib::MJTC_str_replace('[link]', $link_start, $obj_option['termsandconditions_text']);
+                                    $label_string = MJTC_majesticsupportphplib::MJTC_str_replace('[/link]', $link_end, $label_string);
+                                }elseif($obj_option['termsandconditions_linktype'] == 3){
+                                    $label_string = $obj_option['termsandconditions_text'];
+                                }else{
+                                    $label_string = $link_start.$obj_option['termsandconditions_text'].$link_end;
+                                }
+                                $c_field_required = '';
+                                if($field->required == 1){
+                                    $c_field_required = 'required';
+                                }
+                                // ticket terms and conditonions are required.
+                                if($field->fieldfor == 1){
+                                    if (!isset($field->visibleparams)) {
+                                        $c_field_required = 'required';
+                                    } else {
+                                        $c_field_required = '';
+                                    }
+                                } ?>
+                                <div class="mjtc-support-from-field-wrp mjtc-support-from-field-wrp-full-width mjtc-support-system-terms-and-condition-box ">
+                                    <div class="mjtc-support-from-field mjtc-support-form-field-select" id="envatopurchasecode-wrap">
+                                        <input type="checkbox" class="radiobutton mjtc-support-append-radio-btn" value="1" id="<?php echo esc_attr($field->field); ?>" name="<?php echo esc_attr($field->field) ?>" data-validation="<?php echo esc_attr($c_field_required) ?>">
+                                        <label for="<?php echo esc_attr($field->field) ?>" id="foruf_checkbox1"><?php echo wp_kses($label_string, MJTC_ALLOWED_TAGS) ?></label>
+                                    </div>
+                                </div>   
+                                <?php
+                            }
+                            break;
+                        default:
+                            if ($field->userfieldtype == 'termsandconditions') {
+                                MJTC_includer::MJTC_getObjectClass('customfields')->MJTC_formCustomFields($field);
+                            }
+                            break;
+                    }
+                    endforeach;
                     // captcha
                     $google_recaptcha_3 = false;
                     if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()) {
@@ -938,9 +1121,9 @@ if (majesticsupport::$_config['offline'] == 2) {
             </div>
             <?php
     } else {// User is guest
-        $redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'addticket'));
-        $redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($redirect_url);
-        MJTC_layout::MJTC_getUserGuest($redirect_url);
+        $MJTC_redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'addticket'));
+        $MJTC_redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_redirect_url);
+        MJTC_layout::MJTC_getUserGuest($MJTC_redirect_url);
     }
 } else { // System is offline
     MJTC_layout::MJTC_getSystemOffline();

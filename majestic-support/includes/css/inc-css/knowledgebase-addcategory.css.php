@@ -3,15 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
 
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 $majesticsupport_css = '';
 
@@ -77,24 +77,24 @@ div.mjtc_category-image-wrp img#mjtc_delete-category-image{position: absolute;to
 $majesticsupport_css .= '
 
 /* Add Form */
-div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field-title {color: '.$color2.';}
-div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field input.mjtc-support-form-field-input{background-color:#fff;border:1px solid '.$color5.';color:'.$color4.';}
-div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select#categoryid{background-color:'.$color3.';border:1px solid '.$color5.';}
-div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field textarea {background-color:#fff;border:1px solid '.$color5.';color:'.$color4.';}
-div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.mjtc-support-form-field-select{background-color:'.$color3.' !important;border:1px solid '.$color5.';}
-div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select#status{background-color:#fff !important;border:1px solid '.$color5.';color: '.$color4.';}
-div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select#parentid{background-color:#fff !important;border:1px solid '.$color5.';color: '.$color4.';}
-span.mjtc-support-sub-fields{background-color:#fff !important;border:1px solid '.$color5.';color: '.$color4.';}
-div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp .tk_attachments_configform {color: '.$color4.';}
-.mjtc-userpopup-link{color:'.$color2.';}
-div.mjtc-support-form-btn-wrp{border-top:2px solid '.$color2.';}
-div.mjtc-support-form-btn-wrp input.mjtc-support-save-button{background-color:'.$color1.' !important;color:'.$color7.' !important;border:1px solid '.$color5.';}
-div.mjtc-support-form-btn-wrp input.mjtc-support-save-button:hover{border-color:'.$color2.';}
-div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button{background: '.$color2.';color:'.$color7.';border:1px solid '.$color5.';}
-div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button:hover{border-color:'.$color1.';}
-a.mjtc-support-delete-attachment{background-color:#ed3237;color:'.$color7.';}
-div.mjtc-support-radio-btn-wrp{background-color:'.$color3.';border:1px solid '.$color5.';}
-span.tk_attachments_addform{background-color:'.$color2.';color:'.$color7.';}
+div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field-title {color: '.$MJTC_color2.';}
+div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field input.mjtc-support-form-field-input{background-color:#fff;border:1px solid '.$MJTC_color5.';color:'.$MJTC_color4.';}
+div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select#categoryid{background-color:'.$MJTC_color3.';border:1px solid '.$MJTC_color5.';}
+div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field textarea {background-color:#fff;border:1px solid '.$MJTC_color5.';color:'.$MJTC_color4.';}
+div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.mjtc-support-form-field-select{background-color:'.$MJTC_color3.' !important;border:1px solid '.$MJTC_color5.';}
+div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select#status{background-color:#fff !important;border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select#parentid{background-color:#fff !important;border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+span.mjtc-support-sub-fields{background-color:#fff !important;border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp .tk_attachments_configform {color: '.$MJTC_color4.';}
+.mjtc-userpopup-link{color:'.$MJTC_color2.';}
+div.mjtc-support-form-btn-wrp{border-top:2px solid '.$MJTC_color2.';}
+div.mjtc-support-form-btn-wrp input.mjtc-support-save-button{background-color:'.$MJTC_color1.' !important;color:'.$MJTC_color7.' !important;border:1px solid '.$MJTC_color5.';}
+div.mjtc-support-form-btn-wrp input.mjtc-support-save-button:hover{border-color:'.$MJTC_color2.';}
+div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button{background: '.$MJTC_color2.';color:'.$MJTC_color7.';border:1px solid '.$MJTC_color5.';}
+div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button:hover{border-color:'.$MJTC_color1.';}
+a.mjtc-support-delete-attachment{background-color:#ed3237;color:'.$MJTC_color7.';}
+div.mjtc-support-radio-btn-wrp{background-color:'.$MJTC_color3.';border:1px solid '.$MJTC_color5.';}
+span.tk_attachments_addform{background-color:'.$MJTC_color2.';color:'.$MJTC_color7.';}
 /* Add Form */
 
 ';

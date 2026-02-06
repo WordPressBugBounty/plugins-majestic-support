@@ -3,15 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
 
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 $majesticsupport_css = '';
 
@@ -41,13 +41,13 @@ $majesticsupport_css .= '
 /*Code For Colors*/
 $majesticsupport_css .= '
 	/* Login Page */
-		form#loginform-custom p.login-username label{color:'.$color2.';}
-		form#loginform-custom p.login-submit{border-top:2px solid '.$color2.';}
-		form#loginform-custom p.login-username input#user_login{background-color:#fff; border:1px solid '.$color5.';color:'.$color4.';}
-		form#loginform-custom p.login-password input#user_pass{background-color:#fff; border:1px solid '.$color5.';color:'.$color4.';}
-		form#loginform-custom p.login-submit input#wp-submit{background-color:'.$color1.';color:'.$color7.';border:1px solid '.$color5.';}
-		form#loginform-custom p.login-submit input#wp-submit:hover{border-color:'.$color2.';}
-		form#loginform-custom p.login-remember {color:'.$color2.';}
+		form#loginform-custom p.login-username label{color:'.$MJTC_color2.';}
+		form#loginform-custom p.login-submit{border-top:2px solid '.$MJTC_color2.';}
+		form#loginform-custom p.login-username input#user_login{background-color:#fff; border:1px solid '.$MJTC_color5.';color:'.$MJTC_color4.';}
+		form#loginform-custom p.login-password input#user_pass{background-color:#fff; border:1px solid '.$MJTC_color5.';color:'.$MJTC_color4.';}
+		form#loginform-custom p.login-submit input#wp-submit{background-color:'.$MJTC_color1.';color:'.$MJTC_color7.';border:1px solid '.$MJTC_color5.';}
+		form#loginform-custom p.login-submit input#wp-submit:hover{border-color:'.$MJTC_color2.';}
+		form#loginform-custom p.login-remember {color:'.$MJTC_color2.';}
 	/* Login Page */
 ';
 

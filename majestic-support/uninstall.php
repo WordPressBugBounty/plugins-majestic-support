@@ -17,18 +17,18 @@ global $wpdb;
 include_once 'includes/deactivation.php';
 
 if(function_exists('is_multisite') && is_multisite()){
-	$blogs = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
-    foreach($blogs as $blog_id){
+	$MJTC_blogs = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
+    foreach($MJTC_blogs as $blog_id){
         switch_to_blog( $blog_id );
-		$tablestodrop = MJTC_deactivation::MJTC_tables_to_drop();
-        foreach($tablestodrop as $tablename){
-            $wpdb->query( "DROP TABLE IF EXISTS ".$tablename );
+		$MJTC_tablestodrop = MJTC_deactivation::MJTC_tables_to_drop();
+        foreach($MJTC_tablestodrop as $MJTC_tablename){
+            $wpdb->query( "DROP TABLE IF EXISTS `" . esc_sql( $MJTC_tablename ) . "`" );
         }
         restore_current_blog();
     }
 }else{
-	$tablestodrop = MJTC_deactivation::MJTC_tables_to_drop();
-	foreach($tablestodrop as $tablename){
-        $wpdb->query( "DROP TABLE IF EXISTS ".$tablename );
+	$MJTC_tablestodrop = MJTC_deactivation::MJTC_tables_to_drop();
+	foreach($MJTC_tablestodrop as $MJTC_tablename){
+        $wpdb->query( "DROP TABLE IF EXISTS `" . esc_sql( $MJTC_tablename ) . "`" );
     }
 }

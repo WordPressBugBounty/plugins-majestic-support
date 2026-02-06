@@ -10,6 +10,8 @@ class MJTC_fieldsorderingTable extends MJTC_table {
 	public $fieldtitle = '';
 	public $ordering = '';
 	public $section = '';
+	public $placeholder = '';
+	public $description = '';
 	public $fieldfor = '';
 	public $published = '';
 	public $sys = '';
@@ -26,11 +28,15 @@ class MJTC_fieldsorderingTable extends MJTC_table {
 	public $showonlisting = '';
 	public $cannotshowonlisting = '';
 	public $search_user = '';
+	public $search_admin = '';
 	public $cannotsearch = '';
 	public $isvisitorpublished = '';
 	public $userfieldparams = '';
 	public $multiformid = '';
 	public $visibleparams = '';
+	public $readonly = '';
+	public $adminonly = '';
+	public $defaultvalue = '';
 
 	function __construct() {
 		parent::__construct('fieldsordering', 'id'); // tablename, primarykey

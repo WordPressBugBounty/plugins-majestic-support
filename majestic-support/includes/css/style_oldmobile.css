@@ -153,6 +153,7 @@ div#userpopup {width: 90%;}
 div#usercredentailspopup {width: 90%;}
 div#popupforagenttransfer {width: 90%;}
 div#popupfordepartmenttransfer {width: 90%;}
+div#userpopupforchangestatus {width: 90%;}
 .ms-ticket-detail-smartreply-wrp-ticket-admin-details {display: flex;flex-direction: column;justify-content: center;align-items: center;}
 .ms-ticket-detail-smartreply-wrp {background-size: cover;}
 .ms-ticket-detail-smartreply-wrp .ms-smartreply-text {width: calc(100% - 30px);}
@@ -164,8 +165,8 @@ div#popupfordepartmenttransfer {width: 90%;}
 /*Merge Ticket Responsive*/
 .mjtc-support-merge-ticket-wrapper div.mjtc-support-wrapper div.mjtc-support-pic {width: 100%;}
 .mjtc-support-merge-ticket-wrapper .mjtc-col-xs-12.mjtc-col-md-12.mjtc-support-toparea {display: inline-block;}
-.mjtc-support-merge-ticket-wrapper .my-ticket-priority-div {float: left;width: 100%;margin: 0 0 10px;text-align: center;}
-.mjtc-support-merge-ticket-wrapper .my-ticket-priority-div .mjtc-col-md-6.mjtc-col-xs-12 {width: 100%;}
+.mjtc-support-merge-ticket-wrapper .mjtc-ticket-priority {float: left;width: 100%;margin: 0 0 10px;text-align: center;}
+.mjtc-support-merge-ticket-wrapper .mjtc-ticket-priority .mjtc-col-md-6.mjtc-col-xs-12 {width: 100%;}
 div.mjtc-merge-ticket{margin:15px 0px;}
 span.mjtc-merge-ticket-left{width: 100%;}
 span.mjtc-img-wrp{margin: auto;width: 80px;height: 80px;float: none;}
@@ -179,12 +180,12 @@ div.mjtc-view-last-tickets{margin-top: 20px !important;}
 span.mjtc-heading-text{padding-bottom: 20px !important;}
 
 .mjtc-merge-ticket-overlay .mjtc-col-xs-12.mjtc-col-md-12.mjtc-support-toparea {display: inline-block;}
-.mjtc-merge-ticket-overlay .my-ticket-priority-div {float: left;width: 100%;margin: 0 0 10px;text-align: center;}
-.mjtc-merge-ticket-overlay .my-ticket-priority-div .mjtc-col-md-6.mjtc-col-xs-12 {width: 100%;}
-.mjtc-merge-ticket-overlay .my-ticket-priority-div div.mjtc-support-wrapper div.mjtc-support-data1 div.mjtc-row {display: flex;align-items: center;justify-content: center;}
+.mjtc-merge-ticket-overlay .mjtc-ticket-priority {float: left;width: 100%;margin: 0 0 10px;text-align: center;}
+.mjtc-merge-ticket-overlay .mjtc-ticket-priority .mjtc-col-md-6.mjtc-col-xs-12 {width: 100%;}
+.mjtc-merge-ticket-overlay .mjtc-ticket-priority div.mjtc-support-wrapper div.mjtc-support-data1 div.mjtc-row {display: flex;align-items: center;justify-content: center;}
 .mjtc-col-xs-12.mjtc-col-md-12.mjtc-support-toparea {display: inline-block;}
-.my-ticket-priority-div {float: left;width: 100%;margin: 0 0 10px;text-align: center;}
-.my-ticket-priority-div .mjtc-col-md-6.mjtc-col-xs-12 {width: 100%;}
+.mjtc-ticket-priority {float: left;width: 100%;margin: 0 0 10px;text-align: center;}
+.mjtc-ticket-priority .mjtc-col-md-6.mjtc-col-xs-12 {width: 100%;}
 div.mjtc-support-wrapper div.mjtc-support-data1 div.mjtc-row {display: flex;justify-content: center;}
 div.mjtc-support-attachments-wrp div.mjtc_supportattachment span.mjtc_supportattachment_fname{width: 33%;}
 div.mjtc-support-attachments-wrp a.mjtc-all-download-button{width: 100%;}

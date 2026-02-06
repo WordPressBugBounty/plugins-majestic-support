@@ -2,15 +2,15 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 
 
@@ -227,8 +227,8 @@ $majesticsupport_css .= '
 .mjtc-support-answer {background-color: #2168A2;}
 .mjtc-support-overdue {background-color: #B82B2B;}
 .mjtc-support-allticket {background-color: #621166;}
-.mjtc-support-count {background: '.$color7.';;border: 1px solid '.$color5.';}
-.mjtc-support-count a.mjtc-support-link {background-color: '.$color7.';border: 1px solid '.$color5.';}
+.mjtc-support-count {background: '.$MJTC_color7.';;border: 1px solid '.$MJTC_color5.';}
+.mjtc-support-count a.mjtc-support-link {background-color: '.$MJTC_color7.';border: 1px solid '.$MJTC_color5.';}
 .mjtc-support-count a.mjtc-support-link:hover {box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302),0 4px 8px 3px rgba(60,64,67,0.149);}
 .mjtc-support-count a.mjtc-support-link.mjtc-support-brown.active {border-color: #2168A2;}
 .mjtc-support-count a.mjtc-support-link.mjtc-support-brown:hover{border-color: #2168A2;}
@@ -252,65 +252,65 @@ $majesticsupport_css .= '
 /*download popup */	
 
 div#mjtc-support-main-popup {background: #fff !important;}
-span#mjtc-support-popup-title {background: '.$color1.';color: '.$color7.';}
-div.mjtc-support-download-description {color: '.$color4.';}
-div.mjtc-support-downloads-content div.mjtc-support-download-box {border: 1px solid '.$color5.';box-shadow: 0 8px 6px -6px #dedddd;}
-div.mjtc-support-downloads-content div.mjtc-support-download-box div.mjtc-support-download-left a.mjtc-support-download-title span.mjtc-support-download-name {color: '.$color4.';}
-div.mjtc-support-downloads-content div.mjtc-support-download-box div.mjtc-support-download-left a.mjtc-support-download-title span.mjtc-support-download-name:hover {color: '.$color2.';}
-div.mjtc-support-download-btn a.mjtc-support-download-btn-style {color: '.$color1.';border: 1px solid '.$color1.';}
-div.mjtc-support-download-btn a.mjtc-support-download-btn-style:hover {color: '.$color2.';border: 1px solid '.$color2.';}
-#mjtc-support-main-popup #mjtc-support-main-downloadallbtn .mjtc-support-download-btn a.mjtc-support-download-btn-style {background-color: '.$color1.';color: #ffffff;border-color: '.$color1.';}
-#mjtc-support-main-popup #mjtc-support-main-downloadallbtn .mjtc-support-download-btn a.mjtc-support-download-btn-style:hover {border-color: '.$color2.';}
+span#mjtc-support-popup-title {background: '.$MJTC_color1.';color: '.$MJTC_color7.';}
+div.mjtc-support-download-description {color: '.$MJTC_color4.';}
+div.mjtc-support-downloads-content div.mjtc-support-download-box {border: 1px solid '.$MJTC_color5.';box-shadow: 0 8px 6px -6px #dedddd;}
+div.mjtc-support-downloads-content div.mjtc-support-download-box div.mjtc-support-download-left a.mjtc-support-download-title span.mjtc-support-download-name {color: '.$MJTC_color4.';}
+div.mjtc-support-downloads-content div.mjtc-support-download-box div.mjtc-support-download-left a.mjtc-support-download-title span.mjtc-support-download-name:hover {color: '.$MJTC_color2.';}
+div.mjtc-support-download-btn a.mjtc-support-download-btn-style {color: '.$MJTC_color1.';border: 1px solid '.$MJTC_color1.';}
+div.mjtc-support-download-btn a.mjtc-support-download-btn-style:hover {color: '.$MJTC_color2.';border: 1px solid '.$MJTC_color2.';}
+#mjtc-support-main-popup #mjtc-support-main-downloadallbtn .mjtc-support-download-btn a.mjtc-support-download-btn-style {background-color: '.$MJTC_color1.';color: #ffffff;border-color: '.$MJTC_color1.';}
+#mjtc-support-main-popup #mjtc-support-main-downloadallbtn .mjtc-support-download-btn a.mjtc-support-download-btn-style:hover {border-color: '.$MJTC_color2.';}
 
 /* User Links */
-.majestic-support-cont .majestic-support-box {background: #f6f6f6;border: 1px solid '.$color5.';box-shadow: 3px solid rgba(0,0,0,0.5);}
-.majestic-support-cont .majestic-support-box .majestic-support-title {color: '.$color2.';}
-.majestic-support-cont .majestic-support-box .majestic-support-desc {color: '.$color2.';}
-.majestic-support-cont .majestic-support-box .majestic-support-btn {color: '.$color7.';background: '.$color2.';border-bottom: 3px solid rgba(0,0,0,0.5);}
-.majestic-support-cont .majestic-support-box .majestic-support-btn:hover {background: '.$color1.';}
+.majestic-support-cont .majestic-support-box {background: #f6f6f6;border: 1px solid '.$MJTC_color5.';box-shadow: 3px solid rgba(0,0,0,0.5);}
+.majestic-support-cont .majestic-support-box .majestic-support-title {color: '.$MJTC_color2.';}
+.majestic-support-cont .majestic-support-box .majestic-support-desc {color: '.$MJTC_color2.';}
+.majestic-support-cont .majestic-support-box .majestic-support-btn {color: '.$MJTC_color7.';background: '.$MJTC_color2.';border-bottom: 3px solid rgba(0,0,0,0.5);}
+.majestic-support-cont .majestic-support-box .majestic-support-btn:hover {background: '.$MJTC_color1.';}
 
 /* User Links */
 
 
 /* Ticket Data Lists */
-.mjtc-support-data-list-wrp {border: 1px solid '.$color5.';}
-.mjtc-support-data-list .mjtc-support-data .mjtc-support-data-tit {color: '.$color4.';}
-.mjtc-support-data-list .mjtc-support-data .mjtc-support-data-tit:hover {color: '.$color2.';cursor:pointer}
-.mjtc-support-data-list .mjtc-support-data, .mjtc-support-haeder {border-bottom: 1px solid '.$color5.';}
-.mjtc-support-data-list .mjtc-support-data .mjtc-support-data-btn {border: 1px solid '.$color1.';background: '.$color3.';color: '.$color1.';}
-.mjtc-support-data-list .mjtc-support-data .mjtc-support-data-btn:hover {border-color: '.$color2.';background: #fff;color: '.$color2.';}
+.mjtc-support-data-list-wrp {border: 1px solid '.$MJTC_color5.';}
+.mjtc-support-data-list .mjtc-support-data .mjtc-support-data-tit {color: '.$MJTC_color4.';}
+.mjtc-support-data-list .mjtc-support-data .mjtc-support-data-tit:hover {color: '.$MJTC_color2.';cursor:pointer}
+.mjtc-support-data-list .mjtc-support-data, .mjtc-support-haeder {border-bottom: 1px solid '.$MJTC_color5.';}
+.mjtc-support-data-list .mjtc-support-data .mjtc-support-data-btn {border: 1px solid '.$MJTC_color1.';background: '.$MJTC_color3.';color: '.$MJTC_color1.';}
+.mjtc-support-data-list .mjtc-support-data .mjtc-support-data-btn:hover {border-color: '.$MJTC_color2.';background: #fff;color: '.$MJTC_color2.';}
 
 /* Ticket Data Lists */
 
 /*Ticket Stats*/
-	div.mjtc-pm-graphtitle{border:1px solid '.$color5.';background-color: #ffff;border-bottom:1px solid '.$color5.';color :'.$color2.';}
-	a.mjtc-support-latest-ticket-link {color: '.$color4.';background: '.$color7.';}
+	div.mjtc-pm-graphtitle{border:1px solid '.$MJTC_color5.';background-color: #ffff;border-bottom:1px solid '.$MJTC_color5.';color :'.$MJTC_color2.';}
+	a.mjtc-support-latest-ticket-link {color: '.$MJTC_color4.';background: '.$MJTC_color7.';}
 /*Ticket Stats*/
 /* Dashboard Menu Links */
-	div#mjtc-dash-menu-link-wrp {border:1px solid '.$color5.'; background: #fff;padding: 10px }
-	div.mjtc-section-heading{border-bottom:1px solid '.$color5.';color :'.$color2.';}
-	a.mjtc-support-dash-menu{border-bottom:1px solid '.$color5.';}
+	div#mjtc-dash-menu-link-wrp {border:1px solid '.$MJTC_color5.'; background: #fff;padding: 10px }
+	div.mjtc-section-heading{border-bottom:1px solid '.$MJTC_color5.';color :'.$MJTC_color2.';}
+	a.mjtc-support-dash-menu{border-bottom:1px solid '.$MJTC_color5.';}
 	a.mjtc-support-dash-menu:last-child{border-bottom:0;}
-	a.mjtc-support-dash-menu span.mjtc-support-dash-menu-text{color:'.$color4.';}
-	a.mjtc-support-dash-menu span.mjtc-support-dash-menu-text:hover{color:'.$color2.';}
+	a.mjtc-support-dash-menu span.mjtc-support-dash-menu-text{color:'.$MJTC_color4.';}
+	a.mjtc-support-dash-menu span.mjtc-support-dash-menu-text:hover{color:'.$MJTC_color2.';}
 	
 /* Dashboard Menu Links */
 /* latest Tickets */
-	div.mjtc-support-latest-ticket-wrapper{border: 1px solid '.$color5.';}
-	div.mjtc-support-haeder, div.mjtc-support-haeder-tickets {background-color: '.$color3.';color: '.$color2.';}
-	div.mjtc-support-haeder div.mjtc-support-header-txt {color: '.$color2.';}
-	div.mjtc-support-haeder a.mjtc-support-header-link {color: '.$color2.';}
-	div.mjtc-support-haeder a.mjtc-support-header-link:hover {color: '.$color1.';}
-	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row{border-bottom:1px solid '.$color5.';}
+	div.mjtc-support-latest-ticket-wrapper{border: 1px solid '.$MJTC_color5.';}
+	div.mjtc-support-haeder, div.mjtc-support-haeder-tickets {background-color: '.$MJTC_color3.';color: '.$MJTC_color2.';}
+	div.mjtc-support-haeder div.mjtc-support-header-txt {color: '.$MJTC_color2.';}
+	div.mjtc-support-haeder a.mjtc-support-header-link {color: '.$MJTC_color2.';}
+	div.mjtc-support-haeder a.mjtc-support-header-link:hover {color: '.$MJTC_color1.';}
+	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row{border-bottom:1px solid '.$MJTC_color5.';}
 	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row:last-child{border-bottom:none;}
-	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-first-left div.mjtc-support-ticket-subject div.mjtc-support-data-row {color: '.$color4.';}
-	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-first-left div.mjtc-support-ticket-subject div.mjtc-support-data-row.name {color: '.$color2.';}
-	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-first-left div.mjtc-support-ticket-subject div.mjtc-support-data-row a.mjtc-support-data-link {color: '.$color1.';}
-	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-first-left div.mjtc-support-ticket-subject div.mjtc-support-data-row a.mjtc-support-data-link:hover {color: '.$color2.';}
-	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-first-left div.mjtc-support-ticket-subject div.mjtc-support-data-row span.mjtc-support-title {color: '.$color2.';}
-	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-second-left span.mjtc-support-status {border: 1px solid '.$color5.';background: #fff;}
-	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-third-left {color: '.$color4.';}
-	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-fourth-left span.mjtc-support-priorty{color:'.$color7.';}
+	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-first-left div.mjtc-support-ticket-subject div.mjtc-support-data-row {color: '.$MJTC_color4.';}
+	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-first-left div.mjtc-support-ticket-subject div.mjtc-support-data-row.name {color: '.$MJTC_color2.';}
+	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-first-left div.mjtc-support-ticket-subject div.mjtc-support-data-row a.mjtc-support-data-link {color: '.$MJTC_color1.';}
+	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-first-left div.mjtc-support-ticket-subject div.mjtc-support-data-row a.mjtc-support-data-link:hover {color: '.$MJTC_color2.';}
+	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-first-left div.mjtc-support-ticket-subject div.mjtc-support-data-row span.mjtc-support-title {color: '.$MJTC_color2.';}
+	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-second-left span.mjtc-support-status {border: 1px solid '.$MJTC_color5.';background: #fff;}
+	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-third-left {color: '.$MJTC_color4.';}
+	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-fourth-left span.mjtc-support-priorty{color:'.$MJTC_color7.';}
 /* latest Tickets */
 
 ';

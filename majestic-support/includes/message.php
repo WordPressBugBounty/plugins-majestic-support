@@ -21,9 +21,9 @@ class MJTC_message {
         $option = get_option('majesticsupport', array());
         $notificationdata = MJTC_includer::MJTC_getObjectClass('wphdnotification')->MJTC_getNotificationDatabySessionId('notification',true);
         if (isset($notificationdata) && !empty($notificationdata)) {
-            $data = $notificationdata;
-            for ($i = 0; $i < COUNT($data['msg']); $i++){
-                $divHtml .= '<div class=" ' . esc_attr($frontend) . ' ' . esc_attr($data['type'][$i]) . '"><p>' . wp_kses($data['msg'][$i], MJTC_ALLOWED_TAGS) . '</p></div>';
+            $MJTC_data = $notificationdata;
+            for ($i = 0; $i < COUNT($MJTC_data['msg']); $i++){
+                $divHtml .= '<div class=" ' . esc_attr($frontend) . ' ' . esc_attr($MJTC_data['type'][$i]) . '"><p>' . wp_kses($MJTC_data['msg'][$i], MJTC_ALLOWED_TAGS) . '</p></div>';
             }
         }
         echo wp_kses($divHtml, MJTC_ALLOWED_TAGS);

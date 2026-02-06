@@ -40,12 +40,15 @@ class MJTC_slugModel {
     }
 
 
-    function storeSlug($data) {
-        if (empty($data)) {
+    function storeSlug($MJTC_data) {
+        if (empty($MJTC_data)) {
+            return false;
+        }
+        if (!current_user_can('manage_options')) { //only admin can change it.
             return false;
         }
         $row = MJTC_includer::MJTC_getTable('slug');
-        foreach ($data as $id => $slug) {
+        foreach ($MJTC_data as $id => $slug) {
             if($id != '' && is_numeric($id)){
                 $slug = sanitize_title($slug);
                 if($slug != ''){
@@ -65,17 +68,17 @@ class MJTC_slugModel {
         return;
     }
 
-    function savePrefix($data) {
-        if (empty($data)) {
+    function savePrefix($MJTC_data) {
+        if (empty($MJTC_data)) {
             return false;
         }
-        $data['prefix'] = ($data['prefix']);
-        if($data['prefix'] == ''){
+        $MJTC_data['prefix'] = ($MJTC_data['prefix']);
+        if($MJTC_data['prefix'] == ''){
             MJTC_message::MJTC_setMessage(esc_html(__('Prefix has not been stored', 'majestic-support')), 'error');
             return;
         }
         $query = "UPDATE " . majesticsupport::$_db->prefix . "mjtc_support_config
-                    SET configvalue = '".esc_sql($data['prefix'])."'
+                    SET configvalue = '".esc_sql($MJTC_data['prefix'])."'
                     WHERE configname = 'slug_prefix'";
         if(majesticsupport::$_db->query($query)){
             update_option('rewrite_rules', '');
@@ -88,17 +91,17 @@ class MJTC_slugModel {
         }
     }
 
-    function saveHomePrefix($data) {
-        if (empty($data)) {
+    function saveHomePrefix($MJTC_data) {
+        if (empty($MJTC_data)) {
             return false;
         }
-        $data['prefix'] = ($data['prefix']);
-        if($data['prefix'] == ''){
+        $MJTC_data['prefix'] = ($MJTC_data['prefix']);
+        if($MJTC_data['prefix'] == ''){
             MJTC_message::MJTC_setMessage(esc_html(__('Prefix has not been stored', 'majestic-support')), 'error');
             return;
         }
         $query = "UPDATE " . majesticsupport::$_db->prefix . "mjtc_support_config
-                    SET configvalue = '".esc_sql($data['prefix'])."'
+                    SET configvalue = '".esc_sql($MJTC_data['prefix'])."'
                     WHERE configname = 'home_slug_prefix'";
         if(majesticsupport::$_db->query($query)){
             update_option('rewrite_rules', '');
@@ -129,14 +132,15 @@ class MJTC_slugModel {
         if(!current_user_can('manage_options')){
             return false;
         }
+        $id = MJTC_request::MJTC_getVar('id');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'get-options-for-edit-slug') ) {
+        if (! wp_verify_nonce( $nonce, 'get-options-for-edit-slug-'.$id) ) {
             die( 'Security check Failed' );
         }
         $slug = MJTC_request::MJTC_getVar('slug');
         $html = '<span class="userpopup-top">
-                    <span id="userpopup-heading" class="userpopup-heading" >' . esc_html(__("Edit",'majestic-support'))." ". esc_html(__("Slug",'majestic-support')) . '</span>
-                        <img alt="'. esc_html(__("Close",'majestic-support')).'" onClick="closePopup();" class="userpopup-close" src="'.esc_url(MJTC_PLUGIN_URL).'includes/images/close-icon-white.png" />
+                    <span id="userpopup-heading" class="userpopup-heading" >' . esc_html(__("Edit",'majestic-support'))." ". esc_html(__("Slug", 'majestic-support')) . '</span>
+                        <img alt="'. esc_html(__("Close",'majestic-support')).'" onClick="closePopup();" class="userpopup-close" src="'. esc_url(MJTC_PLUGIN_URL).'includes/images/close-icon-white.png" />
                     </span>';
         $html .= '<div class="userpopup-search">
                     <div class="popup-field-title">' . esc_html(__('Slug','majestic-support')).' '. esc_html(__('Name','majestic-support')) . ' <span style="color: red;"> *</span></div>
@@ -151,27 +155,27 @@ class MJTC_slugModel {
 
     function getDefaultSlugFromSlug($layout) {
         $query = "SELECT  defaultslug FROM `".majesticsupport::$_db->prefix."mjtc_support_slug` WHERE defaultslug = '".esc_sql($layout)."'";
-        $val = majesticsupport::$_db->get_var($query);
-        return sanitize_title($val);
+        $MJTC_val = majesticsupport::$_db->get_var($query);
+        return sanitize_title($MJTC_val);
     }
 
     function getSlugFromFileName($layout,$module) {
         $query = "SELECT slug FROM `".majesticsupport::$_db->prefix."mjtc_support_slug` WHERE filename = '".esc_sql($layout)."'";
-        $val = majesticsupport::$_db->get_var($query);
-        return $val;
+        $MJTC_val = majesticsupport::$_db->get_var($query);
+        return $MJTC_val;
     }
 
     function getSlugString($home_page = 0) {
         global $wp_rewrite;
         $rules = wp_json_encode($wp_rewrite->rules);
         $query = "SELECT slug AS value FROM `".majesticsupport::$_db->prefix."mjtc_support_slug`";
-        $val = majesticsupport::$_db->get_results($query);
+        $MJTC_val = majesticsupport::$_db->get_results($query);
         $string = '';
         $bstring = '';
         //$rules = wp_json_encode($rules);
         $prefix = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('slug_prefix');
         $homeprefix = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('home_slug_prefix');
-        foreach ($val as $slug) {
+        foreach ($MJTC_val as $slug) {
             if($home_page == 1){
                 $slug->value = $homeprefix.$slug->value;
             }
@@ -191,10 +195,10 @@ class MJTC_slugModel {
         $homeprefix = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('home_slug_prefix');
         $rules = wp_json_encode($wp_rewrite->rules);
         $query = "SELECT slug AS value FROM `".majesticsupport::$_db->prefix."mjtc_support_slug`";
-        $val = majesticsupport::$_db->get_results($query);
+        $MJTC_val = majesticsupport::$_db->get_results($query);
         $string = array();
         $bstring = '';
-        foreach ($val as $slug) {
+        foreach ($MJTC_val as $slug) {
             $slug->value = $homeprefix.$slug->value;
             $string[] = $bstring.$slug->value;
             $bstring = '/';

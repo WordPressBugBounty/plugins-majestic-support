@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$MJTC_protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 wp_enqueue_script('jquery-ui-datepicker');
 wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
 wp_enqueue_style('majesticsupport-status-graph', MJTC_PLUGIN_URL . 'includes/css/status_graph.css');
@@ -8,7 +8,7 @@ wp_enqueue_script('majesticsupport-google-charts', MJTC_PLUGIN_URL . 'includes/j
 wp_register_script( 'majesticsupport-google-charts-handle', '' );
 wp_enqueue_script( 'majesticsupport-google-charts-handle' );
 MJTC_message::MJTC_getMessage();
-$formdata = MJTC_formfield::MJTC_getFormData();
+$MJTC_formdata = MJTC_formfield::MJTC_getFormData();
 $mjtc_scriptdateformat = MJTC_includer::MJTC_getModel('majesticsupport')->MJTC_getDateFormat();
 $majesticsupport_js ="
     function updateuserlist(pagenum){
@@ -170,13 +170,13 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
         	<div class="mjtc-admin-staff-boxes">
 				<?php
 					$open_percentage = 0;
-					$close_percentage = 0;
+					$MJTC_close_percentage = 0;
 					$overdue_percentage = 0;
 					$answered_percentage = 0;
 					$pending_percentage = 0;
 					if(isset(majesticsupport::$_data['ticket_total']) && isset(majesticsupport::$_data['ticket_total']['allticket']) && majesticsupport::$_data['ticket_total']['allticket'] != 0){
 					    $open_percentage = round((majesticsupport::$_data['ticket_total']['openticket'] / majesticsupport::$_data['ticket_total']['allticket']) * 100);
-					    $close_percentage = round((majesticsupport::$_data['ticket_total']['closeticket'] / majesticsupport::$_data['ticket_total']['allticket']) * 100);
+					    $MJTC_close_percentage = round((majesticsupport::$_data['ticket_total']['closeticket'] / majesticsupport::$_data['ticket_total']['allticket']) * 100);
 					    $overdue_percentage = round((majesticsupport::$_data['ticket_total']['overdueticket'] / majesticsupport::$_data['ticket_total']['allticket']) * 100);
 					    $answered_percentage = round((majesticsupport::$_data['ticket_total']['answeredticket'] / majesticsupport::$_data['ticket_total']['allticket']) * 100);
 					    $pending_percentage = round((majesticsupport::$_data['ticket_total']['pendingticket'] / majesticsupport::$_data['ticket_total']['allticket']) * 100);
@@ -206,8 +206,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 				            </div>
 				            <div class="mjtc-support-link-text mjtc-support-green">
 				                <?php
-				                    $data = esc_html(__('Open', 'majestic-support')).' ( '.esc_html(majesticsupport::$_data['ticket_total']['openticket']).' )';
-				                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+				                    $MJTC_data = esc_html(__('Open', 'majestic-support')).' ( '.esc_html(majesticsupport::$_data['ticket_total']['openticket']).' )';
+				                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 				                ?>
 				            </div>
 				        </a>
@@ -232,8 +232,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 				            </div>
 				            <div class="mjtc-support-link-text mjtc-support-brown">
 				                <?php
-				                    $data = esc_html(__('Answered', 'majestic-support')).' ( '. esc_html(majesticsupport::$_data['ticket_total']['answeredticket']).' )';
-				                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+				                    $MJTC_data = esc_html(__('Answered', 'majestic-support')).' ( '. esc_html(majesticsupport::$_data['ticket_total']['answeredticket']).' )';
+				                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 				                ?>
 				            </div>
 				        </a>
@@ -258,8 +258,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 	                        </div>
 	                        <div class="mjtc-support-link-text mjtc-support-yellow">
 	                            <?php
-	                                $data = esc_html(__('Pending', 'majestic-support')).' ( '. esc_html(majesticsupport::$_data['ticket_total']['pendingticket']).' )';
-	                                echo wp_kses($data, MJTC_ALLOWED_TAGS);
+	                                $MJTC_data = esc_html(__('Pending', 'majestic-support')).' ( '. esc_html(majesticsupport::$_data['ticket_total']['pendingticket']).' )';
+	                                echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 	                            ?>
 	                        </div>
 	                    </a>
@@ -285,8 +285,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 					            </div>
 					            <div class="mjtc-support-link-text mjtc-support-orange">
 					                <?php
-					                    $data = esc_html(__('Overdue', 'majestic-support')).' ( '. esc_html(majesticsupport::$_data['ticket_total']['overdueticket']).' )';
-					                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+					                    $MJTC_data = esc_html(__('Overdue', 'majestic-support')).' ( '. esc_html(majesticsupport::$_data['ticket_total']['overdueticket']).' )';
+					                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 					                ?>
 					            </div>
 					        </a>
@@ -294,8 +294,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 					<?php } ?>
 				    <div class="mjtc-support-link">
 				        <a class="mjtc-support-link mjtc-support-red" href="#" data-tab-number="5" title="<?php echo esc_attr(__('Close Ticket', 'majestic-support')); ?>">
-				            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($close_percentage); ?>" >
-				                <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($close_percentage); ?>">
+				            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($MJTC_close_percentage); ?>" >
+				                <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($MJTC_close_percentage); ?>">
 				                    <div class="circle">
 				                        <div class="mask full">
 				                             <div class="fill mjtc-support-close"></div>
@@ -312,8 +312,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 				            </div>
 				            <div class="mjtc-support-link-text mjtc-support-red">
 				                <?php
-				                    $data = esc_html(__('Closed', 'majestic-support')).' ( '. esc_html(majesticsupport::$_data['ticket_total']['closeticket']).' )';
-				                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+				                    $MJTC_data = esc_html(__('Closed', 'majestic-support')).' ( '. esc_html(majesticsupport::$_data['ticket_total']['closeticket']).' )';
+				                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 				                ?>
 				            </div>
 				        </a>
@@ -417,13 +417,13 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 								<div class="mjtc-admin-staff-boxes">
 									<?php
 										$open_percentage = 0;
-										$close_percentage = 0;
+										$MJTC_close_percentage = 0;
 										$overdue_percentage = 0;
 										$answered_percentage = 0;
 										$pending_percentage = 0;
 										if(isset(majesticsupport::$_data['ticket_total']) && isset($agent->allticket) && $agent->allticket != 0){
 										    $open_percentage = round(($agent->openticket / $agent->allticket) * 100);
-										    $close_percentage = round(($agent->closeticket / $agent->allticket) * 100);
+										    $MJTC_close_percentage = round(($agent->closeticket / $agent->allticket) * 100);
 										    $overdue_percentage = round(($agent->overdueticket / $agent->allticket) * 100);
 										    $answered_percentage = round(($agent->answeredticket / $agent->allticket) * 100);
 										    $pending_percentage = round(($agent->pendingticket / $agent->allticket) * 100);
@@ -453,8 +453,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 									            </div>
 									            <div class="mjtc-support-link-text mjtc-support-green">
 									                <?php
-									                    $data = esc_html(__('Open', 'majestic-support')).' ( '.esc_html($agent->openticket).' )';
-									                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+									                    $MJTC_data = esc_html(__('Open', 'majestic-support')).' ( '.esc_html($agent->openticket).' )';
+									                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 									                ?>
 									            </div>
 									        </a>
@@ -479,8 +479,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 									            </div>
 									            <div class="mjtc-support-link-text mjtc-support-brown">
 									                <?php
-									                    $data = esc_html(__('Answered', 'majestic-support')).' ( '. esc_html($agent->answeredticket).' )';
-									                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+									                    $MJTC_data = esc_html(__('Answered', 'majestic-support')).' ( '. esc_html($agent->answeredticket).' )';
+									                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 									                ?>
 									            </div>
 									        </a>
@@ -505,8 +505,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 						                        </div>
 						                        <div class="mjtc-support-link-text mjtc-support-yellow">
 						                            <?php
-						                                $data = esc_html(__('Pending', 'majestic-support')).' ( '. esc_html($agent->pendingticket).' )';
-						                                echo wp_kses($data, MJTC_ALLOWED_TAGS);
+						                                $MJTC_data = esc_html(__('Pending', 'majestic-support')).' ( '. esc_html($agent->pendingticket).' )';
+						                                echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 						                            ?>
 						                        </div>
 						                    </a>
@@ -532,8 +532,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 										            </div>
 										            <div class="mjtc-support-link-text mjtc-support-orange">
 										                <?php
-										                    $data = esc_html(__('Overdue', 'majestic-support')).' ( '. esc_html($agent->overdueticket).' )';
-										                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+										                    $MJTC_data = esc_html(__('Overdue', 'majestic-support')).' ( '. esc_html($agent->overdueticket).' )';
+										                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 										                ?>
 										            </div>
 										        </a>
@@ -541,8 +541,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 										<?php } ?>
 									    <div class="mjtc-support-link">
 									        <a class="mjtc-support-link mjtc-support-red" href="#" data-tab-number="5" title="<?php echo esc_attr(__('Close Ticket', 'majestic-support')); ?>">
-									            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($close_percentage); ?>" >
-									                <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($close_percentage); ?>">
+									            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($MJTC_close_percentage); ?>" >
+									                <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($MJTC_close_percentage); ?>">
 									                    <div class="circle">
 									                        <div class="mask full">
 									                             <div class="fill mjtc-support-close"></div>
@@ -559,8 +559,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 									            </div>
 									            <div class="mjtc-support-link-text mjtc-support-red">
 									                <?php
-									                    $data = esc_html(__('Closed', 'majestic-support')).' ( '. esc_html($agent->closeticket).' )';
-									                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+									                    $MJTC_data = esc_html(__('Closed', 'majestic-support')).' ( '. esc_html($agent->closeticket).' )';
+									                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 									                ?>
 									            </div>
 									        </a>
@@ -607,8 +607,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 					<?php
 					}
 				    if (majesticsupport::$_data[1]) {
-				        $data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
-				        echo wp_kses($data, MJTC_ALLOWED_TAGS);
+				        $MJTC_data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
+				        echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 				    }
 				} else {
 					MJTC_layout::MJTC_getNoRecordFound();

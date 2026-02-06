@@ -12,7 +12,7 @@ class MJTC_emailController {
     function handleRequest() {
         $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'emails');
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
-        if (self::canaddfile()) {
+        if (self::canaddfile($layout)) {
             switch ($layout) {
                 case 'admin_emails':
                     MJTC_includer::MJTC_getModel('email')->getEmails();
@@ -32,33 +32,39 @@ class MJTC_emailController {
         }
     }
 
-    function canaddfile() {
+    function canaddfile($layout) {
         $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
         if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
-            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
+            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
-            elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
+            } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
                 return false;
-            else
+            } else {
+                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($layout, 'admin_') === 0){
+                    return false;
+                }
                 return true;
+            }
         }
     }
 
     static function saveemail() {
-        
         $id = MJTC_request::MJTC_getVar('id');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
         if (! wp_verify_nonce( $nonce, 'save-email-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $data = MJTC_request::get('post');
-        MJTC_includer::MJTC_getModel('email')->storeEmail($data);
-        if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_email&mjslay=emails");
-        } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'email', 'mjslay'=>'emails'));
+        if (!current_user_can('manage_options')) { //only admin can change it.
+            return false;
         }
-        wp_redirect($url);
+        $MJTC_data = MJTC_request::get('post');
+        MJTC_includer::MJTC_getModel('email')->storeEmail($MJTC_data);
+        if (is_admin()) {
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_email&mjslay=emails");
+        } else {
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'email', 'mjslay'=>'emails'));
+        }
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -70,11 +76,11 @@ class MJTC_emailController {
         }
         MJTC_includer::MJTC_getModel('email')->removeEmail($id);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_email&mjslay=emails");
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_email&mjslay=emails");
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'email', 'mjslay'=>'emails'));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'email', 'mjslay'=>'emails'));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 

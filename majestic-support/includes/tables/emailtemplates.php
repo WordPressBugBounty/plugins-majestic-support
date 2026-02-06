@@ -12,6 +12,7 @@ class MJTC_emailtemplatesTable extends MJTC_table {
 	public $body = '';
 	public $created = '';
 	public $status = '';
+	public $multiformid = '';
 
 	function __construct() {
 		parent::__construct('emailtemplates', 'id'); // tablename, primarykey

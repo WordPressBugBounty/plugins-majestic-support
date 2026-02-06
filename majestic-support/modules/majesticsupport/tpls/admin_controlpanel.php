@@ -184,7 +184,7 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                     <div class="mjtc-cp-cnt-left">
                     <?php
                             $open_percentage = 0;
-                            $close_percentage = 0;
+                            $MJTC_close_percentage = 0;
                             $answered_percentage = 0;
                             $pending_percentage = 0;
                             $overdue_percentage = 0;
@@ -236,23 +236,23 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                             </div>
                             <div class="mjtc-support-admin-cp-tickets">
                                 <?php if(count(majesticsupport::$_data['tickets']) > 0){
-                                    foreach (majesticsupport::$_data['tickets'] AS $ticket): ?>
+                                    foreach (majesticsupport::$_data['tickets'] AS $MJTC_ticket): ?>
                                         <div class="mjtc-cp-tkt-list">
                                             <div class="mjtc-cp-tkt-list-left">
                                                 <div class="mjtc-cp-tkt-image">
-                                                    <?php echo wp_kses(ms_get_avatar($ticket->uid), MJTC_ALLOWED_TAGS); ?>
+                                                    <?php echo wp_kses(ms_get_avatar($MJTC_ticket->uid), MJTC_ALLOWED_TAGS); ?>
                                                 </div>
                                                 <div class="mjtc-cp-tkt-cnt">
                                                     <?php
                                                     if (isset($field_array['fullname'])) { ?>
-                                                        <div class="mjtc-cp-tkt-info name"><?php echo esc_html($ticket->name); ?>
+                                                        <div class="mjtc-cp-tkt-info name"><?php echo esc_html($MJTC_ticket->name); ?>
                                                         </div>
                                                         <?php
                                                     }
                                                     if (isset($field_array['subject'])) { ?>
                                                         <div class="mjtc-cp-tkt-info subject">
                                                             <a title="<?php echo esc_attr(__('Subject','majestic-support')); ?>"
-                                                                href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($ticket->id); ?>"><?php echo esc_html($ticket->subject); ?></a>
+                                                                href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_ticket->id); ?>"><?php echo esc_html($MJTC_ticket->subject); ?></a>
                                                         </div>
                                                         <?php
                                                     }
@@ -261,7 +261,7 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                                             <span class="mjtc-cp-tkt-info-label">
                                                                 <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])). " : "; ?>
                                                             </span>
-                                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($ticket->departmentname)); ?>
+                                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_ticket->departmentname)); ?>
                                                         </div>
                                                         <?php
                                                     } ?>
@@ -269,13 +269,13 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                             </div>
                                             <div class="mjtc-cp-tkt-list-left-below-section">
                                                 <div class="mjtc-cp-tkt-crted">
-                                                    <?php echo esc_html(date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($ticket->created))); ?>
+                                                    <?php echo esc_html(date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_ticket->created))); ?>
                                                 </div>
                                                 <?php
                                                 if (isset($field_array['priority'])) { ?>
                                                     <div class="mjtc-cp-tkt-prorty">
-                                                        <span style="background-color:<?php echo esc_attr($ticket->prioritycolour); ?>;">
-                                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($ticket->priority)); ?>
+                                                        <span style="background-color:<?php echo esc_attr($MJTC_ticket->prioritycolour); ?>;">
+                                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_ticket->priority)); ?>
                                                         </span>
                                                     </div>
                                                     <?php
@@ -706,16 +706,57 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-agent/majestic-support-agent.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-agent&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-agent&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/agents/";
+                                        $MJTC_url = "https://majesticsupport.com/product/agents/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
                                 mjtc_printAddoneStatus('majestic-support-agent',$cdnversiondata->majesticsupportagent);
+                                ?>
+                            </div>
+                            <?php
+                                $addonBackground = '';
+                                $addoneinfo = MJTC_includer::MJTC_getModel('premiumplugin')->MJTC_checkAddoneInfo('majestic-support-aipoweredreply');
+                            ?>
+                            <div class="mjtc-cp-addon" style="background-color: <?php echo esc_attr($addonBackground); ?>;">
+                                <div class="mjtc-cp-addon-image">
+                                    <img alt="<?php echo esc_html(__('AI Powered Reply','majestic-support')); ?>" class="mjtc-cp-addon-img" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/admincp/addon/aipoweredreply.png"/>
+                                </div>
+                                <div class="mjtc-cp-addon-cnt">
+                                    <div class="mjtc-cp-addon-tit">
+                                        <?php echo esc_html(__('AI Powered Reply', 'majestic-support')); ?>
+                                    </div>
+                                    <div class="mjtc-cp-addon-desc">
+                                        <span class="mjtc-cp-addon-desc-title">
+                                            <?php echo esc_html(__('Status', 'majestic-support')).': '; ?>
+                                        </span>
+                                        <span class="mjtc-cp-addon-desc-value">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($addoneinfo['status'])); ?>
+                                        </span>
+                                    </div>
+                                    <div class="mjtc-cp-addon-desc">
+                                        <?php echo esc_html(__('Version', 'majestic-support')).': '; ?>
+                                        <?php echo esc_html(majesticsupport::MJTC_getVarValue($addoneinfo['version'])); ?>
+                                    </div>
+                                </div>
+                                <?php if ( !in_array('aipoweredreply',majesticsupport::$_active_addons)) { ?>
+                                    <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-aipoweredreply/majestic-support-aipoweredreply.php');
+                                    if($plugininfo['availability'] == "1"){
+                                        $text = $plugininfo['text'];
+                                        $MJTC_url = "plugins.php?s=majestic-support-aipoweredreply&plugin_status=inactive";
+                                    }elseif($plugininfo['availability'] == "0"){
+                                        $text = $plugininfo['text'];
+                                        $MJTC_url = "https://majesticsupport.com/product/aipoweredreply/";
+                                    } ?>
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                        <?php echo esc_html($text); ?>
+                                    </a>
+                                <?php }
+                                mjtc_printAddoneStatus('majestic-support-aipoweredreply',$cdnversiondata->majesticsupportaipoweredreply);
                                 ?>
                             </div>
                             <?php
@@ -747,12 +788,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-autoclose/majestic-support-autoclose.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-autoclose&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-autoclose&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/close-ticket/";
+                                        $MJTC_url = "https://majesticsupport.com/product/close-ticket/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -788,12 +829,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-feedback/majestic-support-feedback.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-feedback&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-feedback&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/feedback/";
+                                        $MJTC_url = "https://majesticsupport.com/product/feedback/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -829,12 +870,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-helptopic/majestic-support-helptopic.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-helptopic&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-helptopic&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/helptopic/";
+                                        $MJTC_url = "https://majesticsupport.com/product/helptopic/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -870,12 +911,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-note/majestic-support-note.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-note&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-note&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/internal-note/";
+                                        $MJTC_url = "https://majesticsupport.com/product/internal-note/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -911,12 +952,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-knowledgebase/majestic-support-knowledgebase.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-knowledgebase&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-knowledgebase&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/knowledge-base/";
+                                        $MJTC_url = "https://majesticsupport.com/product/knowledge-base/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -952,12 +993,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-maxticket/majestic-support-maxticket.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-maxticket&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-maxticket&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/max-ticket/";
+                                        $MJTC_url = "https://majesticsupport.com/product/max-ticket/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -993,12 +1034,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-mergeticket/majestic-support-mergeticket.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-mergeticket&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-mergeticket&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/merge-ticket/";
+                                        $MJTC_url = "https://majesticsupport.com/product/merge-ticket/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1034,12 +1075,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-overdue/majestic-support-overdue.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-overdue&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-overdue&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/overdue/";
+                                        $MJTC_url = "https://majesticsupport.com/product/overdue/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1075,12 +1116,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-smtp/majestic-support-smtp.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-smtp&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-smtp&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/smtp/";
+                                        $MJTC_url = "https://majesticsupport.com/product/smtp/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1116,12 +1157,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-tickethistory/majestic-support-tickethistory.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-tickethistory&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-tickethistory&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/ticket-history/";
+                                        $MJTC_url = "https://majesticsupport.com/product/ticket-history/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1157,12 +1198,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-cannedresponses/majestic-support-cannedresponses.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-cannedresponses&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-cannedresponses&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/canned-responses/";
+                                        $MJTC_url = "https://majesticsupport.com/product/canned-responses/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1198,12 +1239,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-emailpiping/majestic-support-emailpiping.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-emailpiping&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-emailpiping&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/email-piping/";
+                                        $MJTC_url = "https://majesticsupport.com/product/email-piping/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1239,12 +1280,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-timetracking/majestic-support-timetracking.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-timetracking&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-timetracking&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/time-tracking/";
+                                        $MJTC_url = "https://majesticsupport.com/product/time-tracking/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1280,12 +1321,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-useroptions/majestic-support-useroptions.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-useroptions&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-useroptions&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/user-options/";
+                                        $MJTC_url = "https://majesticsupport.com/product/user-options/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1321,12 +1362,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-actions/majestic-support-actions.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-actions&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-actions&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/actions/";
+                                        $MJTC_url = "https://majesticsupport.com/product/actions/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1362,12 +1403,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-announcement/majestic-support-announcement.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-announcement&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-announcement&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/announcements/";
+                                        $MJTC_url = "https://majesticsupport.com/product/announcements/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1403,12 +1444,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-banemail/majestic-support-banemail.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-banemail&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-banemail&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/ban-email/";
+                                        $MJTC_url = "https://majesticsupport.com/product/ban-email/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1444,12 +1485,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-notification/majestic-support-notification.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-notification&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-notification&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/desktop-notification/";
+                                        $MJTC_url = "https://majesticsupport.com/product/desktop-notification/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1485,12 +1526,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-export/majestic-support-export.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-export&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-export&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/export/";
+                                        $MJTC_url = "https://majesticsupport.com/product/export/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1526,12 +1567,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-download/majestic-support-download.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-download&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-download&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/downloads/";
+                                        $MJTC_url = "https://majesticsupport.com/product/downloads/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1567,12 +1608,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-faq/majestic-support-faq.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-faq&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-faq&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/faq/";
+                                        $MJTC_url = "https://majesticsupport.com/product/faq/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1608,12 +1649,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-dashboardwidgets/majestic-support-dashboardwidgets.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-dashboardwidgets&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-dashboardwidgets&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/admin-widget/";
+                                        $MJTC_url = "https://majesticsupport.com/product/admin-widget/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1649,12 +1690,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-mail/majestic-support-mail.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-mail&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-mail&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/internal-mail/";
+                                        $MJTC_url = "https://majesticsupport.com/product/internal-mail/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1690,12 +1731,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-widgets/majestic-support-widgets.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-widgets&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-widgets&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/widget/";
+                                        $MJTC_url = "https://majesticsupport.com/product/widget/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1731,12 +1772,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-woocommerce/majestic-support-woocommerce.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-woocommerce&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-woocommerce&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/woocommerce/";
+                                        $MJTC_url = "https://majesticsupport.com/product/woocommerce/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1772,12 +1813,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-privatecredentials/majestic-support-privatecredentials.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-privatecredentials&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-privatecredentials&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/private-credentials/";
+                                        $MJTC_url = "https://majesticsupport.com/product/private-credentials/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1813,12 +1854,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-envatovalidation/majestic-support-envatovalidation.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-envatovalidation&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-envatovalidation&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/envato/";
+                                        $MJTC_url = "https://majesticsupport.com/product/envato/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1854,12 +1895,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-mailchimp/majestic-support-mailchimp.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-mailchimp&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-mailchimp&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/mail-chimp/";
+                                        $MJTC_url = "https://majesticsupport.com/product/mail-chimp/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1895,12 +1936,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-paidsupport/majestic-support-paidsupport.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-paidsupport&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-paidsupport&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/paid-support/";
+                                        $MJTC_url = "https://majesticsupport.com/product/paid-support/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1936,12 +1977,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-easydigitaldownloads/majestic-support-easydigitaldownloads.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-easydigitaldownloads&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-easydigitaldownloads&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/easy-digital-download/";
+                                        $MJTC_url = "https://majesticsupport.com/product/easy-digital-download/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -1977,12 +2018,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-multilanguageemailtemplates/majestic-support-multilanguageemailtemplates.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-multilanguageemailtemplates&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-multilanguageemailtemplates&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/multi-language-email-templates";
+                                        $MJTC_url = "https://majesticsupport.com/product/multi-language-email-templates";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -2018,12 +2059,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-emailcc/majestic-support-emailcc.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-emailcc&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-emailcc&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/emailcc/";
+                                        $MJTC_url = "https://majesticsupport.com/product/emailcc/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -2059,12 +2100,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-multiform/majestic-support-multiform.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-multiform&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-multiform&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/multiform/";
+                                        $MJTC_url = "https://majesticsupport.com/product/multiform/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -2100,12 +2141,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-agentautoassign/majestic-support-agentautoassign.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-agentautoassign&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-agentautoassign&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/agentautoassign/";
+                                        $MJTC_url = "https://majesticsupport.com/product/agentautoassign/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -2141,12 +2182,12 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-ticketclosereason/majestic-support-ticketclosereason.php');
                                     if($plugininfo['availability'] == "1"){
                                         $text = $plugininfo['text'];
-                                        $url = "plugins.php?s=majestic-support-ticketclosereason&plugin_status=inactive";
+                                        $MJTC_url = "plugins.php?s=majestic-support-ticketclosereason&plugin_status=inactive";
                                     }elseif($plugininfo['availability'] == "0"){
                                         $text = $plugininfo['text'];
-                                        $url = "https://majesticsupport.com/product/ticketclosereason/";
+                                        $MJTC_url = "https://majesticsupport.com/product/ticketclosereason/";
                                     } ?>
-                                    <a href="<?php echo esc_url($url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
+                                    <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-cp-addon-btn" title="<?php $text; ?>">
                                         <?php echo esc_html($text); ?>
                                     </a>
                                 <?php }
@@ -2212,8 +2253,8 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
                         </div>
                         <div class="mjtc-cp-baner-cnt">
                             <div class="mjtc-cp-banner-tit-bold">
-                                <?php $data = esc_html(__('Premium Addons List','majestic-support')).' & '.esc_html(__('Features','majestic-support'));
-                                echo esc_html($data); ?>
+                                <?php $MJTC_data = esc_html(__('Premium Addons List','majestic-support')).' & '.esc_html(__('Features','majestic-support'));
+                                echo esc_html($MJTC_data); ?>
                             </div>
                             <div class="mjtc-cp-banner-desc">
                                 <?php echo esc_html(__('The best support system plugin for WordPress has everything you need.','majestic-support')); ?>
@@ -2261,22 +2302,22 @@ wp_add_inline_script('majesticsupport-inlinescript-handle',$majesticsupport_js);
     </div>
 </div>
 <?php
-function mjtc_printAddoneStatus($key1,$cdnversion){
+function mjtc_printAddoneStatus($MJTC_key1,$cdnversion){
     $matched = 0;
     $version = "";
     $installed_plugins = get_plugins();
-    foreach ($installed_plugins as $name => $value) {
+    foreach ($installed_plugins as $name => $MJTC_value) {
         $install_plugin_name = MJTC_majesticsupportphplib::MJTC_str_replace(".php","",MJTC_majesticsupportphplib::MJTC_basename($name));
-        if($key1 == $install_plugin_name){
+        if($MJTC_key1 == $install_plugin_name){
             $matched = 1;
-            $version = $value["Version"];
+            $version = $MJTC_value["Version"];
             $install_plugin_matched_name = $install_plugin_name;
         }
     }
     if($matched == 1){ //installed
-        $name = $key1;
+        $name = $MJTC_key1;
         $title = 'auto close';
-        $img = MJTC_majesticsupportphplib::MJTC_str_replace("majestic-support-", "", $key1).'.png';
+        $img = MJTC_majesticsupportphplib::MJTC_str_replace("majestic-support-", "", $MJTC_key1).'.png';
         if($cdnversion > $version){ // new version available
             $status = 'update_available';
         }else{

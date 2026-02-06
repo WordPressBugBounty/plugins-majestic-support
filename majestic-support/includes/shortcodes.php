@@ -17,11 +17,11 @@ class MJTC_shortcodes {
     function MJTC_show_main_ticket($raw_args, $content = null) {
         //default set of parameters for the front end shortcodes
         ob_start();
-        $defaults = array(
+        $MJTC_defaults = array(
             'mjsmod' => '',
             'mjslay' => '',
         );
-        $sanitized_args = shortcode_atts($defaults, $raw_args);
+        $sanitized_args = shortcode_atts($MJTC_defaults, $raw_args);
         if(isset(majesticsupport::$_data['sanitized_args']) && !empty(majesticsupport::$_data['sanitized_args'])){
             majesticsupport::$_data['sanitized_args'] += $sanitized_args;
         }else{
@@ -45,12 +45,12 @@ class MJTC_shortcodes {
             $module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $module);
             MJTC_includer::MJTC_include_file($module);
         } else {
-            $defaults = array(
+            $MJTC_defaults = array(
                 'job_type' => '',
                 'city' => '',
                 'company' => '',
             );
-            $sanitized_args = shortcode_atts($defaults, $raw_args);
+            $sanitized_args = shortcode_atts($MJTC_defaults, $raw_args);
             if(isset(majesticsupport::$_data['sanitized_args']) && !empty(majesticsupport::$_data['sanitized_args'])){
                 majesticsupport::$_data['sanitized_args'] += $sanitized_args;
             }else{
@@ -86,12 +86,12 @@ class MJTC_shortcodes {
             $module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $module);
             MJTC_includer::MJTC_include_file($module);
         } else {
-            $defaults = array(
+            $MJTC_defaults = array(
                 'job_type' => '',
                 'city' => '',
                 'company' => '',
             );
-            $sanitized_args = shortcode_atts($defaults, $raw_args);
+            $sanitized_args = shortcode_atts($MJTC_defaults, $raw_args);
             if(isset(majesticsupport::$_data['sanitized_args']) && !empty(majesticsupport::$_data['sanitized_args'])){
                 majesticsupport::$_data['sanitized_args'] += $sanitized_args;
             }else{
@@ -126,13 +126,13 @@ class MJTC_shortcodes {
             $module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $module);
             MJTC_includer::MJTC_include_file($module);
         } else {
-            $defaults = array(
+            $MJTC_defaults = array(
                 'list' => '',
                 'ticketid' => '',
             );
             $list = MJTC_request::MJTC_getVar('list', 'get', null);
-            $ticketid = MJTC_request::MJTC_getVar('ticketid', null, null);
-            $args = shortcode_atts($defaults, $raw_args);
+            $MJTC_ticketid = MJTC_request::MJTC_getVar('ticketid', null, null);
+            $args = shortcode_atts($MJTC_defaults, $raw_args);
             if(isset(majesticsupport::$_data['sanitized_args']) && !empty(majesticsupport::$_data['sanitized_args'])){
                 majesticsupport::$_data['sanitized_args'] += $args;
             }else{
@@ -140,14 +140,14 @@ class MJTC_shortcodes {
             }
             if ($list == null)
                 $list = $args['list'];
-            if ($ticketid == null)
-                $ticketid = $args['ticketid'];
+            if ($MJTC_ticketid == null)
+                $MJTC_ticketid = $args['ticketid'];
             majesticsupport::$_data['short_code_header'] = 'myticket';
             if ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
                 MJTC_includer::MJTC_getModel('ticket')->getStaffTickets();
                 MJTC_includer::MJTC_include_file('staffmyticket', 'agent');
             } else {
-                MJTC_includer::MJTC_getModel('ticket')->getMyTickets($list, $ticketid);
+                MJTC_includer::MJTC_getModel('ticket')->getMyTickets($list, $MJTC_ticketid);
                 MJTC_includer::MJTC_include_file('myticket', 'ticket');
             }
         }

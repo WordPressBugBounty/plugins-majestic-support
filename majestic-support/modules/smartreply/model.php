@@ -61,23 +61,23 @@ class MJTC_smartreplyModel {
         return;
     }
 
-    function storeSmartReply($data) {
-        if ($data['id'] == '') {
-            if ($this->validateSmartReply($data['title'])) {
+    function storeSmartReply($MJTC_data) {
+        if ($MJTC_data['id'] == '') {
+            if ($this->validateSmartReply($MJTC_data['title'])) {
                 MJTC_message::MJTC_setMessage(esc_html(__('Smart Reply Title Already Exist', 'majestic-support')), 'error');
                 return;
             }
         }
-        $newdata = majesticsupport::MJTC_sanitizeData($data);// MJTC_sanitizeData() function uses wordpress santize functions
-        $ticketsubjects = [];
-        foreach ($newdata['ticketsubjects'] as $ticketsubject) {
-            if($ticketsubject!='')
+        $newdata = majesticsupport::MJTC_sanitizeData($MJTC_data);// MJTC_sanitizeData() function uses wordpress santize functions
+        $MJTC_ticketsubjects = [];
+        foreach ($newdata['ticketsubjects'] as $MJTC_ticketsubject) {
+            if($MJTC_ticketsubject!='')
             {
-                $ticketsubjects[] = MJTC_majesticsupportphplib::MJTC_stripslashes($ticketsubject);
+                $MJTC_ticketsubjects[] = MJTC_majesticsupportphplib::MJTC_stripslashes($MJTC_ticketsubject);
             }
 
         }
-        $newdata['ticketsubjects'] = wp_json_encode($ticketsubjects, true);
+        $newdata['ticketsubjects'] = wp_json_encode($MJTC_ticketsubjects, true);
 
         $row = MJTC_includer::MJTC_getTable('smartreplies');
         if (isset($_POST['reply'])) {
@@ -142,34 +142,34 @@ class MJTC_smartreplyModel {
         return $smartreply;
     }
 
-    function checkSmartReply(){
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'check-smart-reply') ) {
-            die( 'Security check Failed' );
-        }
-        $limit = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('maximum_record_for_smart_reply');
-        $subject = MJTC_request::MJTC_getVar('ticketSubject');
-        $query = 'SELECT id,title, MATCH (ticketsubjects)
-                    AGAINST ("'.esc_sql($subject).'"
-                    IN NATURAL LANGUAGE MODE) AS relevance 
-                    FROM `' . majesticsupport::$_db->prefix . 'mjtc_support_smartreplies`
-                    WHERE MATCH (ticketsubjects)
-                    AGAINST("'.esc_sql($subject).'"
-                    IN NATURAL LANGUAGE MODE) LIMIT '.esc_sql($limit).';';
-        $replies = majesticsupport::$_db->get_results($query);
-        $html = '';
-        foreach ($replies as $reply) {
-            $html .= "<span class=\"ms-ticket-detail-smartreply-add smartReplyFound\"  onclick=\"getSmartReply(".$reply->id.");\">
-                        <span class=\"ms-smartreply-btn-text\" id=\"possible-reply\">
-                            ". majesticsupport::MJTC_getVarValue($reply->title)."
-                        </span>
-                    </span>";
-        }
-        if (isset($html) && $html != '') {
-            return wp_json_encode(MJTC_majesticsupportphplib::MJTC_htmlentities($html));
-        }
-        return;
+function checkSmartReply(){
+    $nonce = MJTC_request::MJTC_getVar('_wpnonce');
+    if (! wp_verify_nonce( $nonce, 'check-smart-reply') ) {
+        die( 'Security check Failed' );
     }
+    $limit = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('maximum_record_for_smart_reply');
+    $MJTC_subject = MJTC_request::MJTC_getVar('ticketSubject');
+    $query = 'SELECT id,title, MATCH (ticketsubjects)
+                AGAINST ("'.esc_sql($MJTC_subject).'"
+                IN NATURAL LANGUAGE MODE) AS relevance 
+                FROM `' . majesticsupport::$_db->prefix . 'mjtc_support_smartreplies`
+                WHERE MATCH (ticketsubjects)
+                AGAINST("'.esc_sql($MJTC_subject).'"
+                IN NATURAL LANGUAGE MODE) LIMIT '.esc_sql($limit).';';
+    $replies = majesticsupport::$_db->get_results($query);
+    $html = '';
+    foreach ($replies as $reply) {
+        $html .= "<span class=\"ms-ticket-detail-smartreply-add smartReplyFound\"  onclick=\"getSmartReply(".$reply->id.");\">
+                    <span class=\"ms-smartreply-btn-text\" id=\"possible-reply\">
+                        ". majesticsupport::MJTC_getVarValue($reply->title)."
+                    </span>
+                </span>";
+    }
+    if (isset($html) && $html != '') {
+        return wp_json_encode(MJTC_majesticsupportphplib::MJTC_htmlentities($html));
+    }
+    return;
+}
 
     function getSmartReply(){
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
@@ -197,6 +197,39 @@ class MJTC_smartreplyModel {
         $ms_search_array['pagesize'] = absint(MJTC_request::MJTC_getVar('pagesize'));
         $ms_search_array['search_from_smartreply'] = 1;
         return $ms_search_array;
+    }
+
+    function getSmartReplyResponse() {
+        // Verify nonce
+        check_ajax_referer('get-smart-reply', '_wpnonce');
+
+        $reply_id = intval(MJTC_request::MJTC_getVar('reply_id'));
+
+        if (!$reply_id) {
+            wp_send_json_error(['message' => __('Reply ID is required.', 'majestic-support')]);
+        }
+
+        $query = "
+        SELECT sr.*
+            FROM `" . majesticsupport::$_db->prefix . "mjtc_support_smartreplies` AS sr
+            WHERE sr.id = " . esc_sql($reply_id);
+        $reply = majesticsupport::$_db->get_row($query);
+
+
+        if (majesticsupport::$_db->last_error) {
+            wp_send_json_error(['message' => __('Database error occurred.', 'majestic-support')]);
+        }
+
+        $formatted_replies[] = [
+            'id'        => $reply->id,
+            'text'      => $reply->reply,
+            'usedby'      => $reply->usedby,
+            'timestamp' => $reply->created
+        ];
+        wp_send_json_success([
+            'replies' => $formatted_replies,
+            'count'   => count($formatted_replies)
+        ]);
     }
 }
 

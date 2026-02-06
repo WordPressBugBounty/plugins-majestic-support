@@ -96,6 +96,8 @@
 	input#duedate{background-position: 3% 14px;}
 	span#premade select#premadeid{background-position: 10px !important;}
 	div.mjtc-support-assigned-tome {text-align: right;}
+	input.radiobutton.mjtc-support-append-radio-btn{vertical-align: middle;margin: 0 0 0 5px !important }
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp.mjtc-support-from-field-wrp-full-width.mjtc-support-system-terms-and-condition-box input {margin: 0 0 0 5px !important;}
 
 /*Annoucement*/
 	div.mjtc-support-search-heading-wrp div.mjtc-support-heading-left{float: right;text-align: right;} 
@@ -157,7 +159,10 @@
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-field-wrp input#ms-dateend{background-position: 3% 14px;}
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-field-wrp{float: right;}
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-field-wrp select#ms-departmentid{background: url(../images/selecticon.png) 3% / 4% no-repeat}
+	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-field-wrp select#ms-helptopicid{background: url(../images/selecticon.png) 3% / 4% no-repeat}
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-field-wrp select#ms-priorityid{background: url(../images/selecticon.png) 3% / 4% no-repeat}
+	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-field-wrp select#ms-productid{background: url(../images/selecticon.png) 3% / 4% no-repeat}
+	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-field-wrp select#ms-productid{background: url(../images/selecticon.png) 3% / 4% no-repeat}
 	div#userpopupforchangepriority div.mjtc-support-priorty-fields-wrp div.mjtc-support-select-priorty select#priority{background: url(../images/selecticon.png) 3% / 4% no-repeat}
 	div#mjtc-total-count-cp a.mjtc-support-count-wrp{float: right;}
 	div.mjtc-support-latest-tickets-wrp div.mjtc-support-row div.mjtc-support-second-left{float: right;}

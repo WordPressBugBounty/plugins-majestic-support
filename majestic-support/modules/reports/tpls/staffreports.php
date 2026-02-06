@@ -9,7 +9,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                 if (majesticsupport::$_data['staff_enabled']) { ?>
 
     <?php
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+    $MJTC_protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
     wp_enqueue_script('jquery-ui-datepicker');
     wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
     $mjtc_scriptdateformat = MJTC_includer::MJTC_getModel('majesticsupport')->MJTC_getDateFormat();
@@ -264,8 +264,8 @@ if (majesticsupport::$_config['offline'] == 2) {
             <?php
                 }
                 if (majesticsupport::$_data[1]) {
-                    $data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
-                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+                    $MJTC_data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
+                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
                 }
             }
             ?>
@@ -277,9 +277,9 @@ if (majesticsupport::$_config['offline'] == 2) {
                 MJTC_layout::MJTC_getNotStaffMember();
             }
         } else {
-            $redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'reports','mjslay'=>'staffreports'));
-            $redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($redirect_url);
-            MJTC_layout::MJTC_getUserGuest($redirect_url);
+            $MJTC_redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'reports','mjslay'=>'staffreports'));
+            $MJTC_redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_redirect_url);
+            MJTC_layout::MJTC_getUserGuest($MJTC_redirect_url);
         }
     } else { // User permission not granted
         MJTC_layout::MJTC_getPermissionNotGranted();

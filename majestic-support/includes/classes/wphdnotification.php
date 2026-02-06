@@ -9,66 +9,66 @@ class MJTC_wphdnotification {
 
     }
 
-    public function MJTC_addSessionNotificationDataToTable($message, $msgtype, $sessiondatafor = 'notification',$ticketid = null){
+    public function MJTC_addSessionNotificationDataToTable($message, $msgtype, $sessiondatafor = 'notification',$MJTC_ticketid = null){
         if($message == ''){
             if(!is_numeric($message))
                 return false;
         }
         global $wpdb;
-        $data = array();
+        $MJTC_data = array();
         $update = false;
         if(isset($_COOKIE['_wpms_session_']) && isset(majesticsupport::$_mjtcsession->sessionid)){
             if($sessiondatafor == 'notification'){
-                $data = $this->MJTC_getNotificationDatabySessionId($sessiondatafor);
-                if(empty($data)){
-                    $data['msg'][0] = $message;
-                    $data['type'][0] = $msgtype;
+                $MJTC_data = $this->MJTC_getNotificationDatabySessionId($sessiondatafor);
+                if(empty($MJTC_data)){
+                    $MJTC_data['msg'][0] = $message;
+                    $MJTC_data['type'][0] = $msgtype;
                 }else{
                     $update = true;
-                    $count = count($data['msg']);
-                    $data['msg'][$count] = $message;
-                    $data['type'][$count] = $msgtype;
+                    $MJTC_count = count($MJTC_data['msg']);
+                    $MJTC_data['msg'][$MJTC_count] = $message;
+                    $MJTC_data['type'][$MJTC_count] = $msgtype;
                 }
             }elseif($sessiondatafor == 'submitform'){
-                $data = $this->MJTC_getNotificationDatabySessionId($sessiondatafor,true);
-                $data = $message;
+                $MJTC_data = $this->MJTC_getNotificationDatabySessionId($sessiondatafor,true);
+                $MJTC_data = $message;
             }elseif($sessiondatafor == 'ticket_time_start_'){
-                $data = $this->MJTC_getNotificationDatabySessionId($sessiondatafor.$ticketid);
-                $sessiondatafor = $sessiondatafor.$ticketid;
-                if($data != ""){
+                $MJTC_data = $this->MJTC_getNotificationDatabySessionId($sessiondatafor.$MJTC_ticketid);
+                $sessiondatafor = $sessiondatafor.$MJTC_ticketid;
+                if($MJTC_data != ""){
                     $update = true;
                 }
-                $data = $message;
+                $MJTC_data = $message;
             }
             if($sessiondatafor == 'majesticsupport_spamcheckid'){
-                $data = $this->MJTC_getNotificationDatabySessionId($sessiondatafor);
-                if($data != ""){
+                $MJTC_data = $this->MJTC_getNotificationDatabySessionId($sessiondatafor);
+                if($MJTC_data != ""){
                     $update = true;
-                    $data = $message;
+                    $MJTC_data = $message;
                 }else{
-                    $data = $message;
+                    $MJTC_data = $message;
                 }
             }
             if($sessiondatafor == 'majesticsupport_rot13'){
-                $data = $this->MJTC_getNotificationDatabySessionId($sessiondatafor);
-                if($data != ""){
+                $MJTC_data = $this->MJTC_getNotificationDatabySessionId($sessiondatafor);
+                if($MJTC_data != ""){
                     $update = true;
-                    $data = $message;
+                    $MJTC_data = $message;
                 }else{
-                    $data = $message;
+                    $MJTC_data = $message;
                 }
             }
             if($sessiondatafor == 'majesticsupport_spamcheckresult'){
-                $data = $this->MJTC_getNotificationDatabySessionId($sessiondatafor);
-                if($data != ""){
+                $MJTC_data = $this->MJTC_getNotificationDatabySessionId($sessiondatafor);
+                if($MJTC_data != ""){
                     $update = true;
-                    $data = $message;
+                    $MJTC_data = $message;
                 }else{
-                    $data = $message;
+                    $MJTC_data = $message;
                 }
             }
-            $data = wp_json_encode($data , true);
-            $sessionmsg = MJTC_majesticsupportphplib::MJTC_safe_encoding($data);
+            $MJTC_data = wp_json_encode($MJTC_data , true);
+            $sessionmsg = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_data);
             if(!$update){
                 $wpdb->insert( "{$wpdb->prefix}mjtc_support_mjtcsessiondata", array("usersessionid" => majesticsupport::$_mjtcsession->sessionid, "sessionmsg" => $sessionmsg, "sessionexpire" => majesticsupport::$_mjtcsession->sessionexpire, "sessionfor" => $sessiondatafor) );
             }else{
@@ -81,16 +81,16 @@ class MJTC_wphdnotification {
     public function MJTC_getNotificationDatabySessionId($sessionfor , $deldata = false){
         if(majesticsupport::$_mjtcsession->sessionid == '')
             return false;
-        $query = "SELECT sessionmsg FROM `" . majesticsupport::$_db->prefix . "mjtc_support_mjtcsessiondata` WHERE usersessionid = '" . majesticsupport::$_mjtcsession->sessionid . "' AND sessionfor = '" . esc_sql($sessionfor) . "' AND sessionexpire > '" . time() . "'";
-        $data = majesticsupport::$_db->get_var($query);
-        if(!empty($data)){
-            $data = MJTC_majesticsupportphplib::MJTC_safe_decoding($data);
-            $data = json_decode( $data , true);
+        $query = "SELECT sessionmsg FROM `" . majesticsupport::$_db->prefix . "mjtc_support_mjtcsessiondata` WHERE usersessionid = '" . esc_sql(majesticsupport::$_mjtcsession->sessionid) . "' AND sessionfor = '" . esc_sql($sessionfor) . "' AND sessionexpire > '" . time() . "'";
+        $MJTC_data = majesticsupport::$_db->get_var($query);
+        if(!empty($MJTC_data)){
+            $MJTC_data = MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_data);
+            $MJTC_data = json_decode( $MJTC_data , true);
         }
         if($deldata){
             majesticsupport::$_db->delete(majesticsupport::$_db->prefix . "mjtc_support_mjtcsessiondata", array( 'usersessionid' => majesticsupport::$_mjtcsession->sessionid , 'sessionfor' => $sessionfor) );
         }
-        return $data;
+        return $MJTC_data;
     }
 
 }

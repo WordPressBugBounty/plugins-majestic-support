@@ -3,15 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
 
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 $majesticsupport_css = '';
 
@@ -63,38 +63,38 @@ $majesticsupport_css .= '
 ';
 /*Code For Colors*/
 $majesticsupport_css .= '
-	div.mjtc-support-search-fields-wrp {background: '.$color3.';}
-	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link{background-color: '.$color3.';border:1px solid  '.$color5.'; color: '.$color2.';}
-	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link:hover{background-color: '.$color1.';border:1px solid  '.$color2.'; color: '.$color7.';}
+	div.mjtc-support-search-fields-wrp {background: '.$MJTC_color3.';}
+	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link{background-color: '.$MJTC_color3.';border:1px solid  '.$MJTC_color5.'; color: '.$MJTC_color2.';}
+	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link:hover{background-color: '.$MJTC_color1.';border:1px solid  '.$MJTC_color2.'; color: '.$MJTC_color7.';}
 	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link:hover img{ filter: invert(100%);}
-	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link.active{background-color: '.$color1.' !important; border:1px solid  '.$color2.' !important; color: '.$color7.' !important;}
+	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link.active{background-color: '.$MJTC_color1.' !important; border:1px solid  '.$MJTC_color2.' !important; color: '.$MJTC_color7.' !important;}
 	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link.active img{filter: invert(100%) !important;}
 	div.mjtc-support-mails-btn-wrp div.mjtc-support-mail-btn a.mjtc-add-link img{display:inline-block;}
-	div.mjtc-support-top-search-wrp{border:1px solid '.$color5.';}
-	div.mjtc-support-table-heading-wrp{background-color:'.$color3.';color:'.$color2.';}
-	div.mjtc-support-table-heading-wrp div.mjtc-support-table-heading-right a.mjtc-support-table-add-btn{background:'.$color2.';color:'.$color7.';border:1px solid '.$color5.';}
-	div.mjtc-support-table-heading-wrp div.mjtc-support-table-heading-right a.mjtc-support-table-add-btn:hover{border-color:'.$color1.';}
-	div.mjtc-support-fields-wrp div.mjtc-support-form-field input.mjtc-support-field-input{background-color:#fff;border:1px solid '.$color5.';color: '.$color4.';}
-	select.mjtc-support-select-field{background-color:#fff !important;border:1px solid '.$color5.';color: '.$color4.';}
-	span.mjtc-support-display-block {color: '.$color2.';}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button{background: '.$color1.' !important;color:'.$color7.' !important;border: 1px solid '.$color5.';}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button:hover {border-color: '.$color2.';}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button{background: '.$color2.';color:'.$color7.';border: 1px solid '.$color5.';}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button:hover{border-color: '.$color1.';}
-	div.mjtc-support-table-header{background-color:'.$color2.';color:'.$color7.'; border:1px solid '.$color5.';}
-	div.mjtc-support-table-header div.mjtc-support-table-header-col{color: '.$color7.';}
+	div.mjtc-support-top-search-wrp{border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-table-heading-wrp{background-color:'.$MJTC_color3.';color:'.$MJTC_color2.';}
+	div.mjtc-support-table-heading-wrp div.mjtc-support-table-heading-right a.mjtc-support-table-add-btn{background:'.$MJTC_color2.';color:'.$MJTC_color7.';border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-table-heading-wrp div.mjtc-support-table-heading-right a.mjtc-support-table-add-btn:hover{border-color:'.$MJTC_color1.';}
+	div.mjtc-support-fields-wrp div.mjtc-support-form-field input.mjtc-support-field-input{background-color:#fff;border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+	select.mjtc-support-select-field{background-color:#fff !important;border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+	span.mjtc-support-display-block {color: '.$MJTC_color2.';}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button{background: '.$MJTC_color1.' !important;color:'.$MJTC_color7.' !important;border: 1px solid '.$MJTC_color5.';}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button:hover {border-color: '.$MJTC_color2.';}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button{background: '.$MJTC_color2.';color:'.$MJTC_color7.';border: 1px solid '.$MJTC_color5.';}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button:hover{border-color: '.$MJTC_color1.';}
+	div.mjtc-support-table-header{background-color:'.$MJTC_color2.';color:'.$MJTC_color7.'; border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-table-header div.mjtc-support-table-header-col{color: '.$MJTC_color7.';}
 	div.mjtc-support-table-header div.mjtc-support-table-header-col:last-child{}
-	div.mjtc-support-table-body div.mjtc-support-data-row{border:1px solid '.$color5.';}
-	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col .mjtc-support-title-anchor{color: '.$color2.';}
-div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col .mjtc-support-title-anchor:hover {color: '.$color1.';}
-	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col{color: '.$color4.';}
+	div.mjtc-support-table-body div.mjtc-support-data-row{border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col .mjtc-support-title-anchor{color: '.$MJTC_color2.';}
+div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col .mjtc-support-title-anchor:hover {color: '.$MJTC_color1.';}
+	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col{color: '.$MJTC_color4.';}
 	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col:last-child{}
-	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col .mjtc-support-table-action-btn {border: 1px solid '.$color5.';background: #fff;}
-	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col .mjtc-support-table-action-btn:hover {border-color: '.$color1.';}
-	div.mjtc-support-download-content-wrp div.mjtc-support-table-body div.mjtc-support-data-row {border:1px solid'.$color5.';}
-	th.mjtc-support-table-th{border-right:1px solid '.$color5.';}
-	tbody.mjtc-support-table-tbody{border:1px solid '.$color5.';}
-	td.mjtc-support-table-td{border-right:1px solid '.$color5.';}
+	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col .mjtc-support-table-action-btn {border: 1px solid '.$MJTC_color5.';background: #fff;}
+	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col .mjtc-support-table-action-btn:hover {border-color: '.$MJTC_color1.';}
+	div.mjtc-support-download-content-wrp div.mjtc-support-table-body div.mjtc-support-data-row {border:1px solid'.$MJTC_color5.';}
+	th.mjtc-support-table-th{border-right:1px solid '.$MJTC_color5.';}
+	tbody.mjtc-support-table-tbody{border:1px solid '.$MJTC_color5.';}
+	td.mjtc-support-table-td{border-right:1px solid '.$MJTC_color5.';}
 ';
 
 

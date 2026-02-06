@@ -101,15 +101,15 @@ class MJTC_SUPPORTTICKETUpdater {
 		$newversionfound = 0;
 		if ( $cdnversiondata) {
 			if(is_object($cdnversiondata) ){
-				foreach ($update_data->checked AS $key => $value) {
-					$c_key_array = MJTC_majesticsupportphplib::MJTC_explode('/', $key);
+				foreach ($update_data->checked AS $MJTC_key => $MJTC_value) {
+					$c_key_array = MJTC_majesticsupportphplib::MJTC_explode('/', $MJTC_key);
 					$c_key = $c_key_array[0];
 					if($c_key != ''){
 						$c_key = MJTC_majesticsupportphplib::MJTC_str_replace("-","",$c_key);
 					}
 					$newversion = $this->MJTC_getVersionFromLiveData($cdnversiondata, $c_key);
 					if($newversion){
-						if(version_compare( $newversion, $value, '>' )){
+						if(version_compare( $newversion, $MJTC_value, '>' )){
 							$newversionfound = 1;
 						}
 					}
@@ -128,36 +128,36 @@ class MJTC_SUPPORTTICKETUpdater {
 			if ( $response) {
 				if(is_object($response) ){
 					if(isset($response->addon_response_type) && $response->addon_response_type == 'no_key'){
-						foreach ($update_data->checked AS $key => $value) {
-							$c_key_array = MJTC_majesticsupportphplib::MJTC_explode('/', $key);
+						foreach ($update_data->checked AS $MJTC_key => $MJTC_value) {
+							$c_key_array = MJTC_majesticsupportphplib::MJTC_explode('/', $MJTC_key);
 							$c_key = $c_key_array[0];
 							if(isset($response->addon_version_data->{$c_key})){
-								if(version_compare( $response->addon_version_data->{$c_key}, $value, '>' )){
+								if(version_compare( $response->addon_version_data->{$c_key}, $MJTC_value, '>' )){
 									$transient_val = get_transient('ms_addon_hide_update_notice');
 									if($transient_val === false){
 										set_transient('ms_addon_hide_update_notice', 1, DAY_IN_SECONDS );
 									}
-									$this->addon_update_data[$key] = $response->addon_version_data->{$c_key};
+									$this->addon_update_data[$MJTC_key] = $response->addon_version_data->{$c_key};
 								}
 							}
 						}
 					}else{// addon_response_type other than no_key
-						foreach ($update_data->checked AS $key => $value) {
-							$c_key_array = MJTC_majesticsupportphplib::MJTC_explode('/', $key);
+						foreach ($update_data->checked AS $MJTC_key => $MJTC_value) {
+							$c_key_array = MJTC_majesticsupportphplib::MJTC_explode('/', $MJTC_key);
 							$c_key = $c_key_array[0];
 							if(isset($response->addon_update_data) && !empty($response->addon_update_data) && isset( $response->addon_update_data->{$c_key})){
-								if(version_compare( $response->addon_update_data->{$c_key}->new_version, $value, '>' )){
-									$update_data->response[ $key ] = $response->addon_update_data->{$c_key};
-									$this->addon_update_data[$key] = $response->addon_update_data->{$c_key};
+								if(version_compare( $response->addon_update_data->{$c_key}->new_version, $MJTC_value, '>' )){
+									$update_data->response[ $MJTC_key ] = $response->addon_update_data->{$c_key};
+									$this->addon_update_data[$MJTC_key] = $response->addon_update_data->{$c_key};
 								}
 							}elseif(isset($response->addon_version_data->{$c_key})){
-								if(version_compare( $response->addon_version_data->{$c_key}, $value, '>' )){
+								if(version_compare( $response->addon_version_data->{$c_key}, $MJTC_value, '>' )){
 									$transient_val = get_transient('ms_addon_hide_update_expired_key_notice');
 									if($transient_val === false){
 										set_transient('ms_addon_hide_update_expired_key_notice', 1, DAY_IN_SECONDS );
 									}
-									$this->addon_update_data_errors[$key] = $response->addon_version_data->{$c_key};
-									$this->addon_update_data[$key] = $response->addon_version_data->{$c_key};
+									$this->addon_update_data_errors[$MJTC_key] = $response->addon_version_data->{$c_key};
+									$this->addon_update_data[$MJTC_key] = $response->addon_version_data->{$c_key};
 								}
 							}else{ // set latest version from cdn data
 								if ( $cdnversiondata) {
@@ -165,13 +165,13 @@ class MJTC_SUPPORTTICKETUpdater {
 										$c_key_plain = MJTC_majesticsupportphplib::MJTC_str_replace("-","",$c_key);
 										$newversion = $this->MJTC_getVersionFromLiveData($cdnversiondata, $c_key_plain);
 										if($newversion){
-											if(version_compare( $newversion, $value, '>' )){
+											if(version_compare( $newversion, $MJTC_value, '>' )){
 
 												$option_name = 'transaction_key_for_'.$c_key;
 												$transaction_key = MJTC_includer::MJTC_getModel('majesticsupport')->getAddonTransationKey($option_name);
 												$addon_json_array = array();
 												$addon_json_array[] = MJTC_majesticsupportphplib::MJTC_str_replace('majestic-support-', '', $c_key);
-												$url = 'https://majesticsupport.com/setup/index.php?token='.$transaction_key.'&productcode='. wp_json_encode($addon_json_array).'&domain='. site_url();
+												$MJTC_url = 'https://majesticsupport.com/setup/index.php?token='.$transaction_key.'&productcode='. wp_json_encode($addon_json_array).'&domain='. site_url();
 
 												// prepping data for seamless update of allowed addons
 												$plugin = new stdClass();
@@ -184,12 +184,12 @@ class MJTC_SUPPORTTICKETUpdater {
 												$addonwithoutslash = MJTC_majesticsupportphplib::MJTC_str_replace('-', '', $addon_slug);
 												$plugin->new_version = $newversion; 
 												$plugin->url = 'https://www.majesticsupport.com/';
-												$plugin->download_url = $url;
-												$plugin->package = $url;
-												$plugin->trunk = $url;
+												$plugin->download_url = $MJTC_url;
+												$plugin->package = $MJTC_url;
+												$plugin->trunk = $MJTC_url;
 												
-												$update_data->response[ $key ] = $plugin;
-												$this->addon_update_data[$key] = $plugin;
+												$update_data->response[ $MJTC_key ] = $plugin;
+												$this->addon_update_data[$MJTC_key] = $plugin;
 											}
 										}
 
@@ -266,10 +266,10 @@ class MJTC_SUPPORTTICKETUpdater {
 		if ( isset($_POST['ms_addon_array_for_token']) && ! empty( $_POST[ 'ms_addon_array_for_token' ])){
 			$transaction_key = '';
 			$addon_name = '';
-			foreach ($_POST['ms_addon_array_for_token'] as $key => $value) {
-				if(isset($_POST[$value.'_transaction_key']) && $_POST[$value.'_transaction_key'] != ''){
-					$transaction_key = majesticsupport::MJTC_sanitizeData($_POST[$value.'_transaction_key']);// MJTC_sanitizeData() function uses wordpress santize functions
-					$addon_name = $value;
+			foreach ($_POST['ms_addon_array_for_token'] as $MJTC_key => $MJTC_value) {
+				if(isset($_POST[$MJTC_value.'_transaction_key']) && $_POST[$MJTC_value.'_transaction_key'] != ''){
+					$transaction_key = majesticsupport::MJTC_sanitizeData($_POST[$MJTC_value.'_transaction_key']);// MJTC_sanitizeData() function uses wordpress santize functions
+					$addon_name = $MJTC_value;
 					break;
 				}
 			}
@@ -277,17 +277,17 @@ class MJTC_SUPPORTTICKETUpdater {
 			if($transaction_key != ''){
 				$token = $this->MJTC_getTokenFromTransactionKey( $transaction_key,$addon_name);
 				if($token){
-					foreach ($_POST['ms_addon_array_for_token'] as $key => $value) {
-						update_option('transaction_key_for_'.$value,$token);
+					foreach ($_POST['ms_addon_array_for_token'] as $MJTC_key => $MJTC_value) {
+						update_option('transaction_key_for_'.$MJTC_value,$token);
 					}
 				}else{
 					update_option( 'ms-addon-key-error-message','Something went wrong');
 				}
 			}
 		}else{
-			foreach ($this->addon_installed_array as $key) {
-				if ( ! empty( $_GET[ 'dismiss-ms-addon-update-notice-'.$key] ) ) {
-					set_transient('dismiss-ms-addon-update-notice-'.$key, 1, DAY_IN_SECONDS );
+			foreach ($this->addon_installed_array as $MJTC_key) {
+				if ( ! empty( $_GET[ 'dismiss-ms-addon-update-notice-'.$MJTC_key] ) ) {
+					set_transient('dismiss-ms-addon-update-notice-'.$MJTC_key, 1, DAY_IN_SECONDS );
 				}
 			}
 		}
@@ -324,10 +324,10 @@ class MJTC_SUPPORTTICKETUpdater {
 	}
 
 
-	private function MJTC_getVersionFromLiveData($data, $addon_name){
-		foreach ($data as $key => $value) {
-			if($key == $addon_name){
-				return $value;
+	private function MJTC_getVersionFromLiveData($MJTC_data, $addon_name){
+		foreach ($MJTC_data as $MJTC_key => $MJTC_value) {
+			if($MJTC_key == $addon_name){
+				return $MJTC_value;
 			}
 		}
 		return;

@@ -30,10 +30,10 @@ MJTC_message::MJTC_getMessage();
                 jQuery('form#msadmin-form').submit();
             }
 
-            function showPopupAndSetValues(id,slug) {//Showing PopUp
+            function showPopupAndSetValues(nonce, id,slug) {//Showing PopUp
                 slug = jQuery('td#td_'+id).html();
                 slug_for_edit = id;
-                jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'slug', task: 'getOptionsForEditSlug',id:id ,slug:slug, '_wpnonce':'". esc_attr(wp_create_nonce("get-options-for-edit-slug"))."'}, function (data) {
+                jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'slug', task: 'getOptionsForEditSlug',id:id ,slug:slug, '_wpnonce': nonce}, function (data) {
                     if (data) {
                         var d = jQuery.parseJSON(data);
                         jQuery('div#userpopupblack').css('display', 'block');
@@ -60,7 +60,7 @@ MJTC_message::MJTC_getMessage();
 
         ";
         wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
-        ?>  
+        ?>
         <!-- page content -->
         <div id="msadmin-data-wrp">
             <!-- filter form -->
@@ -110,8 +110,8 @@ MJTC_message::MJTC_getMessage();
                             </thead>
                             <tbody>
                                 <?php
-                                    $pagenum = MJTC_request::MJTC_getVar('pagenum', 'get', 1);
-                                    $pageid = ($pagenum > 1) ? '&pagenum=' . $pagenum : '';
+                                    $MJTC_pagenum = MJTC_request::MJTC_getVar('pagenum', 'get', 1);
+                                    $pageid = ($MJTC_pagenum > 1) ? '&pagenum=' . $MJTC_pagenum : '';
                                     foreach (majesticsupport::$_data[0] as $row){
                                         ?>
                                         <tr>
@@ -122,7 +122,8 @@ MJTC_message::MJTC_getMessage();
                                                 <?php echo esc_html(majesticsupport::MJTC_getVarValue($row->description));?>
                                             </td>
                                             <td>
-                                                <a class="action-btn" href="#" onclick="showPopupAndSetValues(<?php echo esc_js($row->id); ?>)" title="<?php echo esc_attr(__('edit','majestic-support')); ?>">
+                                                <?php $nonce = wp_create_nonce("get-options-for-edit-slug-".$row->id); ?>
+                                                <a class="action-btn" href="#" onclick="showPopupAndSetValues('<?php echo esc_js($nonce); ?>' ,<?php echo esc_js($row->id); ?>)" title="<?php echo esc_attr(__('edit','majestic-support')); ?>">
                                                     <img src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/edit.png" alt="<?php echo esc_html(__('edit','majestic-support')); ?>">
                                                 </a>
                                             </td>
@@ -137,17 +138,17 @@ MJTC_message::MJTC_getMessage();
                         <div class="mjtc-filter-form-action-wrp">
                             <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('btnsubmit', esc_html(__('Save','majestic-support')), array('class' => 'button savebutton mjtc-form-act-btn mjtc-form-act-btn')),MJTC_ALLOWED_TAGS); ?>
                             <div class="mjtc-form-act-msg">
-                                <?php echo  esc_html(__('This button will only save slugs on the current page','majestic-support')); ?>!
+                                <?php echo esc_html(__('This button will only save slugs on the current page','majestic-support')); ?> !
                             </div>
                         </div>
                         <?php echo wp_kses(MJTC_formfield::MJTC_hidden('task', ''),MJTC_ALLOWED_TAGS); ?>
-                        <?php echo wp_kses(MJTC_formfield::MJTC_hidden('pagenum', ($pagenum > 1) ? $pagenum : ''),MJTC_ALLOWED_TAGS); ?>
+                        <?php echo wp_kses(MJTC_formfield::MJTC_hidden('pagenum', ($MJTC_pagenum > 1) ? $MJTC_pagenum : ''),MJTC_ALLOWED_TAGS); ?>
                         <?php echo wp_kses(MJTC_formfield::MJTC_hidden('form_request', 'majesticsupport'),MJTC_ALLOWED_TAGS); ?>
                     </form>
                     <?php
                     if (majesticsupport::$_data[1]) {
-                        $data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
-                        echo wp_kses($data, MJTC_ALLOWED_TAGS);
+                        $MJTC_data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
+                        echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
                     }
                 } else {
                     MJTC_layout::MJTC_getNoRecordFound();

@@ -10,13 +10,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     $majesticsupport_addons = MJTC_includer::MJTC_getModel('premiumplugin')->MJTC_getAddonsArray();
 ?>
+<?php MJTC_message::MJTC_getMessage(); ?>
 <div id="msadmin-wrapper">
     <div id="msadmin-leftmenu">
         <?php  MJTC_includer::MJTC_getClassesInclude('msadminsidemenu'); ?>
     </div>
     <div id="msadmin-data">
         <?php MJTC_includer::MJTC_getModel('majesticsupport')->getPageTitle('admin_addons_status'); ?>
-    	<div id="msadmin-data-wrp"class="msadmin-addons-list-data">
+    	<div id="msadmin-data-wrp" class="msadmin-addons-list-data">
+            <div class="msadmin-autoupdte-addons-title">
+                <?php echo esc_html(__('Auto Update Add-Ons','majestic-support')); ?>
+            </div>
+            <div class="msadmin-autoupdte-addons-cardwrp">
+                <div class="msadmin-autoupdte-addons-cardlogo">
+                    <img alt="<?php echo esc_html(__('Auto Update','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/addon-images/addons/icon.png" />
+                </div>
+                <div class="msadmin-autoupdte-addons-cardwrp-rightwrp">
+                    <div class="msadmin-autoupdte-addons-card-title">
+                        <?php echo esc_html(__('Addon will automatically update to the newest version','majestic-support')); ?>
+                    </div>
+                    <?php
+                    $mjtc_addons_auto_update = majesticsupport::$_config['mjtc_addons_auto_update'];
+                    if($mjtc_addons_auto_update == 1 ){ ?>
+                        <a href="<?php echo esc_url(wp_nonce_url(admin_url('admin.php?page=majesticsupport_configuration&task=saveautoupdateconfiguration&action=mstask&mjtc_addons_auto_update=0'),'mjtc_configuration_nonce')); ?>" class="msadmin-autoupdte-addons-card-btn">
+                            <?php echo esc_html(__('Auto Update','majestic-support')).': '.esc_html(__('On','majestic-support')); ?>
+                        </a>
+                        <?php
+                    } else { ?>
+                        <a href="<?php echo esc_url(wp_nonce_url(admin_url('admin.php?page=majesticsupport_configuration&task=saveautoupdateconfiguration&action=mstask&mjtc_addons_auto_update=1'),'mjtc_configuration_nonce')); ?>"  class="msadmin-autoupdte-addons-card-btn msadmin-autoupdte-addons-card-offbtn">
+                            <?php echo esc_html(__('Auto Update','majestic-support')).': '.esc_html(__('Off','majestic-support')); ?>
+                        </a>
+                        <?php
+                    } ?>
+                </div>
+            </div>
+            <div class="msadmin-addons-alladdon-title">
+                <?php echo esc_html(__('Add-Ons','majestic-support')); ?>
+            </div>
     		<!-- admin addons status -->
             <div id="black_wrapper_translation"></div>
             <div id="mstran_loading">
@@ -27,22 +57,22 @@ if ( ! defined( 'ABSPATH' ) ) {
                 $installed_plugins = get_plugins();
                 ?>
                 <?php
-                    foreach ($majesticsupport_addons as $key1 => $value1) {
+                    foreach ($majesticsupport_addons as $MJTC_key1 => $MJTC_value1) {
                         $matched = 0;
                         $version = "";
-                        foreach ($installed_plugins as $name => $value) {
+                        foreach ($installed_plugins as $name => $MJTC_value) {
                             $install_plugin_name = MJTC_majesticsupportphplib::MJTC_str_replace(".php","",MJTC_majesticsupportphplib::MJTC_basename($name));
-                            if($key1 == $install_plugin_name){
+                            if($MJTC_key1 == $install_plugin_name){
                                 $matched = 1;
-                                $version = $value["Version"];
+                                $version = $MJTC_value["Version"];
                                 $install_plugin_matched_name = $install_plugin_name;
                             }
                         }
                         $status = '';
                         if($matched == 1){ //installed
-                            $name = $key1;
-                            $title = $value1['title'];
-                            $img = MJTC_majesticsupportphplib::MJTC_str_replace("majestic-support-", "", $key1).'.png';
+                            $name = $MJTC_key1;
+                            $title = $MJTC_value1['title'];
+                            $img = MJTC_majesticsupportphplib::MJTC_str_replace("majestic-support-", "", $MJTC_key1).'.png';
                             $cdnavailableversion = "";
                             foreach ($cdnversiondata as $cdnname => $cdnversion) {
                                 $install_plugin_name_simple = MJTC_majesticsupportphplib::MJTC_str_replace("-", "", $install_plugin_matched_name);
@@ -57,8 +87,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                             }
                             mjtc_printAddoneStatus($name, $title, $img, $version, $status, $cdnavailableversion);
                         }else{ // not installed
-                            $img = MJTC_majesticsupportphplib::MJTC_str_replace("majestic-support-", "", $key1).'.png';
-                            $not_installed[] = array("name" => $key1, "title" => $value1['title'], "img" => $img, "status" => 'not-installed', "version" => "---");
+                            $img = MJTC_majesticsupportphplib::MJTC_str_replace("majestic-support-", "", $MJTC_key1).'.png';
+                            $not_installed[] = array("name" => $MJTC_key1, "title" => $MJTC_value1['title'], "img" => $img, "status" => 'not-installed', "version" => "---");
                         }
                     }
                     foreach ($not_installed as $notinstall_addon) {
@@ -163,7 +193,7 @@ $majesticsupport_js ="
                         jQuery('#' + dataFor + ' .ms-admin-addon-status-title-wrp span').hide();
                         jQuery('#' + dataFor + ' .msadmin-addon-status-msg.msadmin_error').show();
                         jQuery('#' + dataFor + ' .msadmin-addon-status-msg.msadmin_error span.msadmin-addon-status-msg-txt').html(data['error']);
-                        jQuery('#' + dataFor + ' .msadmin-addon-status-msg.mmsadmin_error').slideDown('slow');
+                        jQuery('#' + dataFor + ' .msadmin-addon-status-msg.msadmin_error').slideDown('slow');
                     } else if(data['success']) {
                         jQuery('#' + dataFor).css('background-color', '#fff');
                         jQuery('#' + dataFor).css('border-color', '#0C6E45');

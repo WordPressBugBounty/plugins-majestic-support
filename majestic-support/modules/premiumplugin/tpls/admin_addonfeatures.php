@@ -190,6 +190,17 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                             <?php } ?>
                         </div>
 
+                        <div class="add-on-item aipoweredreply">
+                            <img class="add-on-img" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/add-on-list/aipoweredreply.png" alt="<?php echo esc_html(__('AI Powered Reply','majestic-support')); ?>" />
+                            <div class="add-on-name"><?php echo esc_html(__('AI Powered Reply','majestic-support')); ?></div>
+                            <div class="add-on-txt"><?php echo esc_html(__('Get AI-powered, context-based suggestions to effortlessly create clear, relevant, and helpful replies.','majestic-support')); ?></div>
+                            <?php if(in_array('aipoweredreply', majesticsupport::$_active_addons)){ ?>
+                                <a title="<?php echo esc_attr(__('buy now','majestic-support')); ?>" class="add-on-btn"><?php echo esc_attr(__('Installed','majestic-support')); ?></a>
+                            <?php } else { ?>
+                                <a title="<?php echo esc_attr(__('buy now','majestic-support')); ?>" href="https://majesticsupport.com/product/ai-powered-reply/" class="add-on-btn"><?php echo esc_html(__('buy now','majestic-support')); ?></a>
+                            <?php } ?>
+                        </div>
+
                         <div class="add-on-item canned-resp">
                             <img class="add-on-img" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/add-on-list/canned-responses.png" alt="<?php echo esc_html(__('Premade Responses','majestic-support')); ?>" />
                             <div class="add-on-name"><?php echo esc_html(__('Premade Responses','majestic-support')); ?></div>

@@ -14,7 +14,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                     $status = array((object) array('id' => '1', 'text' => esc_html(__('Enabled', 'majestic-support'))),
                         (object) array('id' => '0', 'text' => esc_html(__('Disabled', 'majestic-support')))
                     );
-                    $yesno = array((object) array('id' => '1', 'text' => esc_html(__('Yes', 'majestic-support'))),
+                    $MJTC_yesno = array((object) array('id' => '1', 'text' => esc_html(__('Yes', 'majestic-support'))),
                         (object) array('id' => '0', 'text' => esc_html(__('No', 'majestic-support')))
                     );
                     ?>
@@ -42,9 +42,9 @@ if (majesticsupport::$_config['offline'] == 2) {
         <div class="mjtc-support-cont-wrapper mjtc-support-cont-wrapper-color">
             <div class="mjtc-support-add-form-wrapper">
                 <?php
-                $nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
+                $MJTC_nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
                 ?>
-                <form class="mjtc-support-form" method="post" action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'department', 'task'=>'savedepartment')),"save-department-".$nonce_id)); ?>">
+                <form class="mjtc-support-form" method="post" action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'department', 'task'=>'savedepartment')),"save-department-".$MJTC_nonce_id)); ?>">
                     <div class="mjtc-support-from-field-wrp mjtc-support-from-field-wrp-full-width">
                         <div class="mjtc-support-from-field-title">
                             <?php echo esc_html(__('Title', 'majestic-support')); ?>&nbsp;<span style="color: red;">*</span>
@@ -133,9 +133,9 @@ if (majesticsupport::$_config['offline'] == 2) {
                 MJTC_layout::MJTC_getNotStaffMember();
             }
         } else {
-            $redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'department', 'mjslay'=>'adddepartment'));
-            $redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($redirect_url);
-            MJTC_layout::MJTC_getUserGuest($redirect_url);
+            $MJTC_redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'department', 'mjslay'=>'adddepartment'));
+            $MJTC_redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_redirect_url);
+            MJTC_layout::MJTC_getUserGuest($MJTC_redirect_url);
         }
     } else { // User permission not granted
         MJTC_layout::MJTC_getPermissionNotGranted();

@@ -12,7 +12,7 @@ class MJTC_systemerrorController {
     function handleRequest() {
         $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'systemerrors');
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
-        if (self::canaddfile()) {
+        if (self::canaddfile($layout)) {
             switch ($layout) {
                 case 'admin_systemerrors':
                     MJTC_includer::MJTC_getModel('systemerror')->getSystemErrors();
@@ -32,27 +32,31 @@ class MJTC_systemerrorController {
         }
     }
 
-    function canaddfile() {
+    function canaddfile($layout) {
         $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
         if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
-            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
+            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
-            elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
+            } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
                 return false;
-            else
+            } else {
+                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($layout, 'admin_') === 0){
+                    return false;
+                }
                 return true;
+            }
         }
     }
 
     static function savesystemerror() {
-        $data = MJTC_request::get('post');
-        MJTC_includer::MJTC_getModel('systemerror')->storesystemerror($data);
+        $MJTC_data = MJTC_request::get('post');
+        MJTC_includer::MJTC_getModel('systemerror')->storesystemerror($MJTC_data);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_systemerror&mjslay=systemerrors");
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_systemerror&mjslay=systemerrors");
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'systemerror','mjslay'=>'systemerrors'));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'systemerror','mjslay'=>'systemerrors'));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -64,11 +68,11 @@ class MJTC_systemerrorController {
         }
         MJTC_includer::MJTC_getModel('systemerror')->removeSystemError($id);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_systemerror&mjslay=systemerrors");
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_systemerror&mjslay=systemerrors");
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'systemerror','mjslay'=>'systemerrors'));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'systemerror','mjslay'=>'systemerrors'));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 

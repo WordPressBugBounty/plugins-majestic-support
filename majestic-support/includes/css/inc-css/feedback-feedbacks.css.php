@@ -3,15 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
 
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 $majesticsupport_css = '';
 
@@ -81,26 +81,26 @@ $majesticsupport_css .= '
 ';
 /*Code For Colors*/
 $majesticsupport_css .= '
-	div.mjtc-support-search-fields-wrp {background: '.$color3.';}
-	div.mjtc-support-top-search-wrp{border:1px solid '.$color5.';}
-	div.mjtc-support-search-heading-wrp{background-color:'.$color4.';color:'.$color7.';}
-	div.mjtc-support-search-heading-wrp div.mjtc-support-heading-right a.mjtc-support-add-download-btn{background:'.$color2.';color:'.$color7.';}
-	div.mjtc-support-search-heading-wrp div.mjtc-support-heading-right a.mjtc-support-add-download-btn:hover{background:rgba(125, 135, 141, 0.4);color:'.$color7.';}
-	div.ms-feedback-det-list-data-row div.ms-feedback-det-list-data-val a.ms-feedback-det-list-data-anch {color: '.$color4.';}
-	div.ms-feedback-det-list-data-row div.ms-feedback-det-list-data-val.name {color: '.$color1.';}
-	div.ms-feedback-det-list-data-row div.ms-feedback-det-list-data-title {color: '.$color2.';}
-	div.ms-feedback-det-list-data-row div.ms-feedback-det-list-data-val {color: '.$color4.';}
-	div.mjtc-support-fields-wrp div.mjtc-support-form-field input.mjtc-support-field-input{background-color:#fff;border:1px solid '.$color5.';color: '.$color4.';}
-	select.mjtc-support-select-field{background-color:#fff !important;border:1px solid '.$color5.';color: '.$color4.';}
-	select#departmentid{background-color:'.$color3.';border:1px solid '.$color5.';}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button{background: '.$color1.' !important;color:'.$color7.' !important;border: 1px solid '.$color5.';}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button:hover{border-color: '.$color2.';}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button{background: '.$color2.';color:'.$color7.';border: 1px solid '.$color5.';}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button:hover{border-color: '.$color1.';}
-	div.ms-feedback-det-list-cust-flds .ms-feedback-det-list-cust-flds-title {color: '.$color2.';}
-	div.ms-feedback-det-list-cust-flds .ms-feedback-det-list-cust-flds-value {color: '.$color4.';}
-	div.ms-feedback-det-wrp div.ms-feedback-det-list div.ms-feedback-det-list-btm div.ms-feedback-det-list-btm-title {color: '.$color4.';}
-	div.ms-feedback-det-wrp div.ms-feedback-det-list div.ms-feedback-det-list-btm div.ms-feedback-det-list-btm-val {color: '.$color2.';}
+	div.mjtc-support-search-fields-wrp {background: '.$MJTC_color3.';}
+	div.mjtc-support-top-search-wrp{border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-search-heading-wrp{background-color:'.$MJTC_color4.';color:'.$MJTC_color7.';}
+	div.mjtc-support-search-heading-wrp div.mjtc-support-heading-right a.mjtc-support-add-download-btn{background:'.$MJTC_color2.';color:'.$MJTC_color7.';}
+	div.mjtc-support-search-heading-wrp div.mjtc-support-heading-right a.mjtc-support-add-download-btn:hover{background:rgba(125, 135, 141, 0.4);color:'.$MJTC_color7.';}
+	div.ms-feedback-det-list-data-row div.ms-feedback-det-list-data-val a.ms-feedback-det-list-data-anch {color: '.$MJTC_color4.';}
+	div.ms-feedback-det-list-data-row div.ms-feedback-det-list-data-val.name {color: '.$MJTC_color1.';}
+	div.ms-feedback-det-list-data-row div.ms-feedback-det-list-data-title {color: '.$MJTC_color2.';}
+	div.ms-feedback-det-list-data-row div.ms-feedback-det-list-data-val {color: '.$MJTC_color4.';}
+	div.mjtc-support-fields-wrp div.mjtc-support-form-field input.mjtc-support-field-input{background-color:#fff;border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+	select.mjtc-support-select-field{background-color:#fff !important;border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+	select#departmentid{background-color:'.$MJTC_color3.';border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button{background: '.$MJTC_color1.' !important;color:'.$MJTC_color7.' !important;border: 1px solid '.$MJTC_color5.';}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button:hover{border-color: '.$MJTC_color2.';}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button{background: '.$MJTC_color2.';color:'.$MJTC_color7.';border: 1px solid '.$MJTC_color5.';}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button:hover{border-color: '.$MJTC_color1.';}
+	div.ms-feedback-det-list-cust-flds .ms-feedback-det-list-cust-flds-title {color: '.$MJTC_color2.';}
+	div.ms-feedback-det-list-cust-flds .ms-feedback-det-list-cust-flds-value {color: '.$MJTC_color4.';}
+	div.ms-feedback-det-wrp div.ms-feedback-det-list div.ms-feedback-det-list-btm div.ms-feedback-det-list-btm-title {color: '.$MJTC_color4.';}
+	div.ms-feedback-det-wrp div.ms-feedback-det-list div.ms-feedback-det-list-btm div.ms-feedback-det-list-btm-val {color: '.$MJTC_color2.';}
 
 
 ';

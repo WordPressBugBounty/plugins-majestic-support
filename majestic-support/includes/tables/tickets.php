@@ -54,6 +54,8 @@ class MJTC_ticketsTable extends MJTC_table {
 	public $envatodata = '';
 	public $paidsupportitemid = '';
 	public $customticketno = '';
+	public $productid = '';
+	public $aireplymode = '';
 
 	function __construct() {
 		parent::__construct('tickets', 'id'); // tablename, primarykey

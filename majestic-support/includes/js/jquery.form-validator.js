@@ -989,7 +989,7 @@
         /**
          * Test numeric against allowed range
          *
-         * @param $value int
+         * @param $MJTC_value int
          * @param $rangeAllowed str; (1-2, min1, max2)
          * @return array 
          */

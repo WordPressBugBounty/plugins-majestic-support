@@ -33,16 +33,16 @@ class MJTC_attachmentModel {
         return $result;
     }
 
-    function storeAttachments($data) {
-        MJTC_includer::MJTC_getObjectClass('uploads')->MJTC_storeTicketAttachment($data, $this);
+    function storeAttachments($MJTC_data) {
+        MJTC_includer::MJTC_getObjectClass('uploads')->MJTC_storeTicketAttachment($MJTC_data, $this);
         return;
     }
 
-    function MJTC_storeTicketAttachment($ticketid, $replyattachmentid, $filesize, $filename) {
-        if (!is_numeric($ticketid))
+    function MJTC_storeTicketAttachment($MJTC_ticketid, $replyattachmentid, $filesize, $filename) {
+        if (!is_numeric($MJTC_ticketid))
             return false;
         $created = date_i18n('Y-m-d H:i:s');
-        $data = array('ticketid' => $ticketid,
+        $MJTC_data = array('ticketid' => $MJTC_ticketid,
             'replyattachmentid' => $replyattachmentid,
             'filesize' => $filesize,
             'filename' => $filename,
@@ -52,9 +52,9 @@ class MJTC_attachmentModel {
 
         $row = MJTC_includer::MJTC_getTable('attachments');
 
-        $data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($data);// remove slashes with quotes.
+        $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);// remove slashes with quotes.
         $error = 0;
-        if (!$row->bind($data)) {
+        if (!$row->bind($MJTC_data)) {
             $error = 1;
         }
         if (!$row->store()) {
@@ -74,18 +74,18 @@ class MJTC_attachmentModel {
         $query = $query = "SELECT ticket.attachmentdir AS foldername,ticket.id AS ticketid,attach.filename  "
                 . " FROM `".majesticsupport::$_db->prefix."mjtc_support_attachments` AS attach "
                 . " JOIN `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket ON ticket.id = attach.ticketid "
-                . " WHERE attach.id = ".esc_sql($id);
+                . " WHERE attach.id = ". esc_sql($id);
         $obj = majesticsupport::$_db->get_row($query);
         $filename = $obj->filename;
         $foldername = $obj->foldername;
 
         $row = MJTC_includer::MJTC_getTable('attachments');
         if ($row->delete($id)) {
-            $datadirectory = majesticsupport::$_config['data_directory'];
+            $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
 
             $maindir = wp_upload_dir();
             $path = $maindir['basedir'];
-            $path = $path .'/'.$datadirectory;
+            $path = $path .'/'.$MJTC_datadirectory;
             $path = $path . '/attachmentdata';
 
             $path = $path . '/ticket/'.$foldername.'/' . $filename;
@@ -104,13 +104,13 @@ class MJTC_attachmentModel {
                 . " JOIN `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket ON ticket.id = attach.ticketid "
                 . " WHERE attach.id = " . esc_sql($id);
         $object = majesticsupport::$_db->get_row($query);
-        $datadirectory = majesticsupport::$_config['data_directory'];
+        $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
         $foldername = $object->foldername;
         $filename = $object->filename;
 
         $maindir = wp_upload_dir();
         $path = $maindir['baseurl'];
-        $path = $path .'/'.$datadirectory;
+        $path = $path .'/'.$MJTC_datadirectory;
         $path = $path . '/attachmentdata';
         $path = $path . '/ticket/' . $foldername;
         $file = $path . '/'.$filename;
@@ -123,10 +123,10 @@ class MJTC_attachmentModel {
         $query = "SELECT ticket.attachmentdir AS foldername,ticket.id AS ticketid,attach.filename  "
                 . " FROM `".majesticsupport::$_db->prefix."mjtc_support_attachments` AS attach "
                 . " JOIN `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket ON ticket.id = attach.ticketid "
-                . " WHERE attach.id = " .esc_sql($id);
+                . " WHERE attach.id = " . esc_sql($id);
         $object = majesticsupport::$_db->get_row($query);
         $foldername = $object->foldername;
-        $ticketid = $object->ticketid;
+        $MJTC_ticketid = $object->ticketid;
         $filename = $object->filename;
         $download = false;
         if(!MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()){
@@ -136,19 +136,19 @@ class MJTC_attachmentModel {
                 if( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()){
                     $download = true;
                 }else{
-                    if(MJTC_includer::MJTC_getModel('ticket')->validateTicketDetailForUser($ticketid)){
+                    if(MJTC_includer::MJTC_getModel('ticket')->validateTicketDetailForUser($MJTC_ticketid)){
                         $download = true;
                     }
                 }
             }
         }else{ // user is visitor
-            $download = MJTC_includer::MJTC_getModel('ticket')->validateTicketDetailForVisitor($ticketid);
+            $download = MJTC_includer::MJTC_getModel('ticket')->validateTicketDetailForVisitor($MJTC_ticketid);
         }
         if($download == true){
-            $datadirectory = majesticsupport::$_config['data_directory'];
+            $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
             $maindir = wp_upload_dir();
             $path = $maindir['basedir'];
-            $path = $path .'/'.$datadirectory;
+            $path = $path .'/'.$MJTC_datadirectory;
             $path = $path . '/attachmentdata';
             $path = $path . '/ticket/' . $foldername;
             $file = $path . '/'.$filename;
@@ -181,10 +181,10 @@ class MJTC_attachmentModel {
         $query = "SELECT attachmentdir FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE id = ".esc_sql($id);
         $foldername = majesticsupport::$_db->get_var($query);
 
-        $datadirectory = majesticsupport::$_config['data_directory'];
+        $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
         $maindir = wp_upload_dir();
         $path = $maindir['basedir'];
-        $path = $path .'/'.$datadirectory;
+        $path = $path .'/'.$MJTC_datadirectory;
 
         $path = $path . '/attachmentdata';
         $path = $path . '/ticket/' . $foldername;
@@ -211,7 +211,7 @@ class MJTC_attachmentModel {
     function getAllDownloads() {
         $downloadid = MJTC_request::MJTC_getVar('downloadid');
         $internalid = MJTC_request::MJTC_getVar('internalid');
-        $ticketattachment = MJTC_includer::MJTC_getModel('ticket')->getAttachmentByTicketId($downloadid, $internalid);
+        $MJTC_ticketattachment = MJTC_includer::MJTC_getModel('ticket')->getAttachmentByTicketId($downloadid, $internalid);
         if(!class_exists('PclZip')){
             do_action('majesticsupport_load_wp_pcl_zip');
         }
@@ -223,14 +223,14 @@ class MJTC_attachmentModel {
 
         MJTC_includer::MJTC_getModel('majesticsupport')->makeDir($path);
         $archive = new PclZip($path . '/alldownloads.zip');
-        $datadirectory = majesticsupport::$_config['data_directory'];
+        $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
         $maindir = wp_upload_dir();
         $jpath = $maindir['basedir'];
-        $jpath = $jpath .'/'.$datadirectory;
+        $jpath = $jpath .'/'.$MJTC_datadirectory;
         $scanned_directory = [];
-        foreach ($ticketattachment AS $ticketattachments) {
-            $directory = $jpath . '/attachmentdata/ticket/' . $ticketattachments->attachmentdir . '/';
-            array_push($scanned_directory,$ticketattachments->filename);
+        foreach ($MJTC_ticketattachment AS $MJTC_ticketattachments) {
+            $directory = $jpath . '/attachmentdata/ticket/' . $MJTC_ticketattachments->attachmentdir . '/';
+            array_push($scanned_directory,$MJTC_ticketattachments->filename);
         }
         // remove this code after version "1.0.7"
         if (!empty($directory)) {
@@ -288,10 +288,10 @@ class MJTC_attachmentModel {
 
         MJTC_includer::MJTC_getModel('majesticsupport')->makeDir($path);
         $archive = new PclZip($path . '/alldownloads.zip');
-        $datadirectory = majesticsupport::$_config['data_directory'];
+        $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
         $maindir = wp_upload_dir();
         $jpath = $maindir['basedir'];
-        $jpath = $jpath .'/'.$datadirectory;
+        $jpath = $jpath .'/'.$MJTC_datadirectory;
         $scanned_directory = [];
         foreach ($replyattachment AS $replyattachments) {
             $directory = $jpath . '/attachmentdata/ticket/' . $replyattachments->attachmentdir . '/';

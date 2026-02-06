@@ -109,17 +109,17 @@ $majesticsupport_js ='
                 <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-multiform/majestic-support-multiform.php');
                     if($plugininfo['availability'] == "1"){
                         $text = $plugininfo['text'];
-                        $url = "plugins.php?s=majestic-support-multiform&plugin_status=inactive";
+                        $MJTC_url = "plugins.php?s=majestic-support-multiform&plugin_status=inactive";
                     }elseif($plugininfo['availability'] == "0"){
                         $text = $plugininfo['text'];
-                        $url = "https://majesticsupport.com/product/multiform/";
+                        $MJTC_url = "https://majesticsupport.com/product/multiform/";
                     }
                 ?>
                 <li>
                     <a class="msadmin-sidebar-submenu-grey" href="javascript:void(0);" title="<?php echo esc_attr(__('Multiform', 'majestic-support')); ?>">
                         <?php echo esc_html(__('Multiform', 'majestic-support')); ?>
                     </a>
-                    <a class="msadmin-sidebar-active-btn" href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>">
+                    <a class="msadmin-sidebar-active-btn" href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>">
                         <?php echo esc_html($text); ?>
                     </a>
                 </li>
@@ -134,17 +134,17 @@ $majesticsupport_js ='
                 <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-ticketclosereason/majestic-support-ticketclosereason.php');
                     if($plugininfo['availability'] == "1"){
                         $text = $plugininfo['text'];
-                        $url = "plugins.php?s=majestic-support-ticketclosereason&plugin_status=inactive";
+                        $MJTC_url = "plugins.php?s=majestic-support-ticketclosereason&plugin_status=inactive";
                     }elseif($plugininfo['availability'] == "0"){
                         $text = $plugininfo['text'];
-                        $url = "https://majesticsupport.com/product/ticketclosereason/";
+                        $MJTC_url = "https://majesticsupport.com/product/ticketclosereason/";
                     }
                 ?>
                 <li>
                     <a class="msadmin-sidebar-submenu-grey" href="javascript:void(0);" title="<?php echo esc_attr(__('Ticket Close Reason', 'majestic-support')); ?>">
                         <?php echo esc_html(__('Ticket Close Reason', 'majestic-support')); ?>
                     </a>
-                    <a class="msadmin-sidebar-active-btn" href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>">
+                    <a class="msadmin-sidebar-active-btn" href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>">
                         <?php echo esc_html($text); ?>
                     </a>
                 </li>
@@ -198,17 +198,17 @@ $majesticsupport_js ='
                     <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-agentautoassign/majestic-support-agentautoassign.php');
                         if($plugininfo['availability'] == "1"){
                             $text = $plugininfo['text'];
-                            $url = "plugins.php?s=majestic-support-agentautoassign&plugin_status=inactive";
+                            $MJTC_url = "plugins.php?s=majestic-support-agentautoassign&plugin_status=inactive";
                         }elseif($plugininfo['availability'] == "0"){
                             $text = $plugininfo['text'];
-                            $url = "https://majesticsupport.com/product/agentautoassign/";
+                            $MJTC_url = "https://majesticsupport.com/product/agentautoassign/";
                         }
                     ?>
                     <li>
                         <a class="msadmin-sidebar-submenu-grey" href="javascript:void(0);" title="<?php echo esc_attr(__('Agent Auto Assign', 'majestic-support')); ?>">
                             <?php echo esc_html(__('Auto Assign', 'majestic-support')); ?>
                         </a>
-                        <a class="msadmin-sidebar-active-btn" href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>">
+                        <a class="msadmin-sidebar-active-btn" href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>">
                             <?php echo esc_html($text); ?>
                         </a>
                     </li>
@@ -219,22 +219,22 @@ $majesticsupport_js ='
         <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-agent/majestic-support-agent.php');
             if($plugininfo['availability'] == "1"){
                 $text = $plugininfo['text'];
-                $url = "plugins.php?s=majestic-support-agent&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=majestic-support-agent&plugin_status=inactive";
             }elseif($plugininfo['availability'] == "0"){
                 $text = $plugininfo['text'];
-                $url = "https://majesticsupport.com/product/agents/";
+                $MJTC_url = "https://majesticsupport.com/product/agents/";
             } ?>
         <li class="disabled-menu treeview">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Agents' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/staff.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Agents' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'agent' && ($layout == '')) echo esc_attr('active'); ?>">
                     <span>
                         <?php echo esc_html(__('Agents', 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>
@@ -258,10 +258,10 @@ $majesticsupport_js ='
             </li>
         </ul>
     </li>
-    <li class="treeview <?php if($c == 'premiumplugin' && $layout != 'addonstatus') echo esc_attr('active'); ?>">
-        <a class="" href="admin.php?page=majesticsupport_premiumplugin" title="<?php echo esc_attr(__('Premium Addons' , 'majestic-support')); ?>">
-            <img class="ms_menu-icon" alt="<?php echo esc_html(__('Premium Addons' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu/ad.png'; ?>"/>
-            <span class="ms_text"><?php echo esc_html(__('Premium Addons' , 'majestic-support')); ?></span>
+    <li class="treeview <?php if($c == 'premiumplugin' || $layout == 'addonstatus') echo esc_attr('active'); ?>">
+        <a class="" href="admin.php?page=majesticsupport_premiumplugin" title="<?php echo esc_attr(__('Addons' , 'majestic-support')); ?>">
+            <img class="ms_menu-icon" alt="<?php echo esc_html(__('Addons' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu/ad.png'; ?>"/>
+            <span class="ms_text"><?php echo esc_html(__('Addons' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
         </a>
         <ul class="msadmin-sidebar-submenu treeview-menu">
@@ -270,6 +270,16 @@ $majesticsupport_js ='
                     <?php echo esc_html(__('Install Add-ons', 'majestic-support')); ?>
                 </a>    
             </li>
+            <li class="<?php if($c == 'premiumplugin' && $layout == 'addonstatus') echo esc_attr('active'); ?>">
+                <a href="?page=majesticsupport_premiumplugin&mjslay=addonstatus" title="<?php echo esc_attr(__('Add-ons Status', 'majestic-support')); ?>">
+                    <?php echo esc_html(__('Add-ons Status', 'majestic-support')); ?>
+                </a>
+            </li>
+            <li class="<?php if($c == 'premiumplugin' && $layout == 'updatekey') echo esc_attr('active'); ?>">
+                <a href="?page=majesticsupport_premiumplugin&mjslay=updatekey" title="<?php echo esc_attr(__('Update Key', 'majestic-support')); ?>">
+                    <?php echo esc_html(__('Update Key', 'majestic-support')); ?>
+                </a>
+            </li>
             <li class="<?php if($c == 'premiumplugin' && ($layout == 'addonfeatures')) echo esc_attr('active'); ?>">
                 <a href="?page=majesticsupport_premiumplugin&mjslay=addonfeatures" title="<?php echo esc_attr(__('Add-ons List', 'majestic-support')); ?>">
                     <?php echo esc_html(__('Add-ons List', 'majestic-support')); ?>
@@ -277,31 +287,16 @@ $majesticsupport_js ='
             </li>
         </ul>
     </li>
-    <li class="treeview <?php if($c == 'premiumplugin' && $layout == 'addonstatus') echo esc_attr('active'); ?>">
-        <a class="" href="admin.php?page=majesticsupport_premiumplugin" title="<?php echo esc_attr(__('Add-ons Status' , 'majestic-support')); ?>">
-            <img class="ms_menu-icon" alt="<?php echo esc_html(__('Add-ons Status' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu/addon-status.png'; ?>"/>
-            <span class="ms_text"><?php echo esc_html(__('Add-ons Status' , 'majestic-support')); ?></span>
-            <span class="ms_active"></span>
-        </a>
-        <ul class="msadmin-sidebar-submenu treeview-menu">
-            <li class="<?php if($c == 'premiumplugin' && $layout == 'addonstatus') echo esc_attr('active'); ?>">
-                <a href="?page=majesticsupport_premiumplugin&mjslay=addonstatus" title="<?php echo esc_attr(__('Add-ons Status', 'majestic-support')); ?>">
-                    <?php echo esc_html(__('Add-ons Status', 'majestic-support')); ?>
-                </a>
-            </li>
-        </ul>
-    </li>
-    
     <li class="treeview <?php if($c == 'majesticsupport' && $layout == 'shortcodes') echo esc_attr('active'); ?>">
         <a class="" href="?page=majesticsupport_shortcodes" title="<?php echo esc_attr(__('Shortcodes' , 'majestic-support')); ?>">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Shortcodes' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu/short-code.png'; ?>"/>
-            <span class="ms_text"><?php echo esc_html(__('Short Codes' , 'majestic-support')); ?></span>
+            <span class="ms_text"><?php echo esc_html(__('Shortcodes' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
         </a>
         <ul class="msadmin-sidebar-submenu treeview-menu">
             <li class="<?php if($c == 'majesticsupport' && $layout == 'shortcodes') echo esc_attr('active'); ?>">
-                <a href="?page=majesticsupport&mjslay=shortcodes" title="<?php echo esc_attr(__('Short Codes', 'majestic-support'));; ?>">
-                    <?php echo esc_html(__('Short Codes', 'majestic-support'));; ?>
+                <a href="?page=majesticsupport&mjslay=shortcodes" title="<?php echo esc_attr(__('Shortcodes', 'majestic-support'));; ?>">
+                    <?php echo esc_html(__('Shortcodes', 'majestic-support'));; ?>
                 </a>
             </li>
 
@@ -378,22 +373,22 @@ $majesticsupport_js ='
         <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-emailpiping/majestic-support-emailpiping.php');
             if($plugininfo['availability'] == "1"){
                 $text = $plugininfo['text'];
-                $url = "plugins.php?s=majestic-support-emailpiping&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=majestic-support-emailpiping&plugin_status=inactive";
             }elseif($plugininfo['availability'] == "0"){
                 $text = $plugininfo['text'];
-                $url = "https://majesticsupport.com/product/email-piping/";
+                $MJTC_url = "https://majesticsupport.com/product/email-piping/";
             } ?>
         <li class="disabled-menu treeview">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Email Piping' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/email-piping-grey.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Email Piping' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'emailpiping') echo esc_attr('active'); ?>">
                     <span>
                         <?php echo esc_html(__('Email Piping', 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>
@@ -417,6 +412,58 @@ $majesticsupport_js ='
             </li>
         </ul>
     </li>
+    <li class="treeview <?php if($c == 'status') echo esc_attr('active'); ?>">
+        <a class="" href="admin.php?page=majesticsupport_status" title="<?php echo esc_attr(__('Ticket Statuses' , 'majestic-support')); ?>">
+            <img class="ms_menu-icon" alt="<?php echo esc_html(__('Ticket Statuses' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu/statuses.png'; ?>"/>
+            <span class="ms_text"><?php echo esc_html(__('Ticket Statuses' , 'majestic-support')); ?></span>
+            <span class="ms_active"></span>
+        </a>
+        <ul class="msadmin-sidebar-submenu treeview-menu">
+            <li class="<?php if($c == 'status' && ($layout == '')) echo esc_attr('active'); ?>">
+                <a href="?page=majesticsupport_status" title="<?php echo esc_attr(__('Ticket Statuses' , 'majestic-support')); ?>">
+                    <?php echo esc_html(__('Ticket Statuses', 'majestic-support')); ?>
+                </a>
+            </li>
+            <li class="<?php if($c == 'status' && ($layout == 'addstatus')) echo esc_attr('active'); ?>">
+                <a href="?page=majesticsupport_status&mjslay=addstatus" title="<?php echo esc_attr(__('Add Ticket Status' , 'majestic-support')); ?>">
+                    <?php echo esc_html(__('Add Ticket Status', 'majestic-support')); ?>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="treeview <?php if($c == 'thirdpartyimport') echo esc_attr('active'); ?>">
+        <a class="" href="admin.php?page=majesticsupport_thirdpartyimport" title="<?php echo esc_attr(__('Import Data' , 'majestic-support')); ?>">
+            <img class="ms_menu-icon" alt="<?php echo esc_html(__('Import Data' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu/import.png'; ?>"/>
+            <span class="ms_text"><?php echo esc_html(__('Import Data' , 'majestic-support')); ?></span>
+            <span class="ms_active"></span>
+        </a>
+        <ul class="msadmin-sidebar-submenu treeview-menu">
+            <li class="<?php if($c == 'thirdpartyimport' && ($layout == '')) echo esc_attr('active'); ?>">
+                <a href="?page=majesticsupport_thirdpartyimport" title="<?php echo esc_attr(__('Import Data' , 'majestic-support')); ?>">
+                    <?php echo esc_html(__('Import Data', 'majestic-support')); ?>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="treeview <?php if($c == 'product') echo esc_attr('active'); ?>">
+        <a class="" href="admin.php?page=majesticsupport_product" title="<?php echo esc_attr(__('Products' , 'majestic-support')); ?>">
+            <img class="ms_menu-icon" alt="<?php echo esc_html(__('Products' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu/products.png'; ?>"/>
+            <span class="ms_text"><?php echo esc_html(__('Products' , 'majestic-support')); ?></span>
+            <span class="ms_active"></span>
+        </a>
+        <ul class="msadmin-sidebar-submenu treeview-menu">
+            <li class="<?php if($c == 'product' && ($layout == '')) echo esc_attr('active'); ?>">
+                <a href="?page=majesticsupport_product" title="<?php echo esc_attr(__('Products' , 'majestic-support')); ?>">
+                    <?php echo esc_html(__('Products', 'majestic-support')); ?>
+                </a>
+            </li>
+            <li class="<?php if($c == 'product' && ($layout == 'addproduct')) echo esc_attr('active'); ?>">
+                <a href="?page=majesticsupport_product&mjslay=addproduct" title="<?php echo esc_attr(__('Add Product' , 'majestic-support')); ?>">
+                    <?php echo esc_html(__('Add Product', 'majestic-support')); ?>
+                </a>
+            </li>
+        </ul>
+    </li>
     <li class="treeview <?php if($c == 'gdpr') echo esc_attr('active'); ?>">
         <a class="" href="admin.php?page=majesticsupport_gdpr&mjslay=gdprfields" title="<?php echo esc_attr(__('GDPR' , 'majestic-support')); ?>">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('GDPR' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu/gdpr.png'; ?>"/>
@@ -424,6 +471,11 @@ $majesticsupport_js ='
             <span class="ms_active"></span>
         </a>
         <ul class="msadmin-sidebar-submenu treeview-menu">
+            <li class="<?php if($c == 'gdpr' && ($layout == 'gdprfields' || $layout == 'addgdprfield')) echo esc_attr('active'); ?>">
+                <a href="?page=majesticsupport_gdpr&mjslay=gdprfields" title="<?php echo esc_attr(__('GDPR Fields', 'majestic-support')); ?>">
+                    <?php echo esc_html(__('GDPR Fields', 'majestic-support')); ?>
+                </a>
+            </li>
             <li class="<?php if($c == 'gdpr' && ($layout == 'erasedatarequests')) echo esc_attr('active'); ?>">
                 <a href="?page=majesticsupport_gdpr&mjslay=erasedatarequests" title="<?php echo esc_attr(__('Erase Data Requests', 'majestic-support')); ?>">
                     <?php echo esc_html(__('Erase Data Requests', 'majestic-support')); ?>
@@ -455,22 +507,22 @@ $majesticsupport_js ='
         <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-feedback/majestic-support-feedback.php');
             if($plugininfo['availability'] == "1"){
                 $text = $plugininfo['text'];
-                $url = "plugins.php?s=majestic-support-feedback&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=majestic-support-feedback&plugin_status=inactive";
             }elseif($plugininfo['availability'] == "0"){
                 $text = $plugininfo['text'];
-                $url = "https://majesticsupport.com/product/feedback/";
+                $MJTC_url = "https://majesticsupport.com/product/feedback/";
             } ?>
         <li class="disabled-menu treeview">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Feedback' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/feedback.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Feedback' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'feedback' && ($layout == 'feedbacks')) echo esc_attr('active'); ?>">
                     <span>
                         <?php echo esc_html(__('Feedback', 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>
@@ -557,22 +609,22 @@ $majesticsupport_js ='
         <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-knowledgebase/majestic-support-knowledgebase.php');
             if($plugininfo['availability'] == "1"){
                 $text = $plugininfo['text'];
-                $url = "plugins.php?s=majestic-support-knowledgebase&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=majestic-support-knowledgebase&plugin_status=inactive";
             }elseif($plugininfo['availability'] == "0"){
                 $text = $plugininfo['text'];
-                $url = "https://majesticsupport.com/product/knowledge-base/";
+                $MJTC_url = "https://majesticsupport.com/product/knowledge-base/";
             } ?>
         <li class="disabled-menu treeview">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Categories' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/category.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Categories' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'knowledgebase' && ($layout == 'listcategories')) echo esc_attr('active'); ?>">
                     <span>
                         <?php echo esc_html(__('Categories', 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>
@@ -580,13 +632,13 @@ $majesticsupport_js ='
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Knowledge Base' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/kb.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Knowledge Base' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'knowledgebase' && ($layout == 'listarticles')) echo esc_attr('active'); ?>">
                     <span href="?page=majesticsupport_knowledgebase&mjslay=listarticles" title="<?php echo esc_attr(__('Knowledge Base' , 'majestic-support')); ?>">
                         <?php echo esc_html(__('Knowledge Base', 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>
@@ -615,22 +667,22 @@ $majesticsupport_js ='
         <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-download/majestic-support-download.php');
             if($plugininfo['availability'] == "1"){
                 $text = $plugininfo['text'];
-                $url = "plugins.php?s=majestic-support-download&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=majestic-support-download&plugin_status=inactive";
             }elseif($plugininfo['availability'] == "0"){
                 $text = $plugininfo['text'];
-                $url = "https://majesticsupport.com/product/download/";
+                $MJTC_url = "https://majesticsupport.com/product/download/";
             } ?>
         <li class="disabled-menu treeview">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Download' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/download.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Download' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'download' && ($layout == '')) echo esc_attr('active'); ?>">
                     <span>
                         <?php echo esc_html(__('Downloads', 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>
@@ -659,22 +711,22 @@ $majesticsupport_js ='
         <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-announcement/majestic-support-announcement.php');
             if($plugininfo['availability'] == "1"){
                 $text = $plugininfo['text'];
-                $url = "plugins.php?s=majestic-support-announcement&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=majestic-support-announcement&plugin_status=inactive";
             }elseif($plugininfo['availability'] == "0"){
                 $text = $plugininfo['text'];
-                $url = "https://majesticsupport.com/product/announcements/";
+                $MJTC_url = "https://majesticsupport.com/product/announcements/";
             } ?>
         <li class="disabled-menu treeview">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Announcements' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/announcements.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Announcements' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'announcement' && ($layout == '')) echo esc_attr('active'); ?>">
                     <span>
                         <?php echo esc_html(__('Announcements', 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>
@@ -703,22 +755,22 @@ $majesticsupport_js ='
         <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-faq/majestic-support-faq.php');
             if($plugininfo['availability'] == "1"){
                 $text = $plugininfo['text'];
-                $url = "plugins.php?s=majestic-support-faq&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=majestic-support-faq&plugin_status=inactive";
             }elseif($plugininfo['availability'] == "0"){
                 $text = $plugininfo['text'];
-                $url = "https://majesticsupport.com/product/faq/";
+                $MJTC_url = "https://majesticsupport.com/product/faq/";
             } ?>
         <li class="disabled-menu treeview">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('FAQs' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/faq.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('FAQs' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'faq' && ($layout == '')) echo esc_attr('active'); ?>">
                     <span>
                         <?php echo esc_html(__("FAQs", 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>
@@ -747,22 +799,22 @@ $majesticsupport_js ='
         <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-helptopic/majestic-support-helptopic.php');
             if($plugininfo['availability'] == "1"){
                 $text = $plugininfo['text'];
-                $url = "plugins.php?s=majestic-support-helptopic&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=majestic-support-helptopic&plugin_status=inactive";
             }elseif($plugininfo['availability'] == "0"){
                 $text = $plugininfo['text'];
-                $url = "https://majesticsupport.com/product/helptopic/";
+                $MJTC_url = "https://majesticsupport.com/product/helptopic/";
             } ?>
         <li class="disabled-menu treeview">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Help Topics' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/help-topic.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Help Topics' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'helptopic' && ($layout == '')) echo esc_attr('active'); ?>">
                     <span>
                         <?php echo esc_html(__('Help Topics', 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>
@@ -791,31 +843,31 @@ $majesticsupport_js ='
         <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-cannedresponses/majestic-support-cannedresponses.php');
             if($plugininfo['availability'] == "1"){
                 $text = $plugininfo['text'];
-                $url = "plugins.php?s=majestic-support-cannedresponses&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=majestic-support-cannedresponses&plugin_status=inactive";
             }elseif($plugininfo['availability'] == "0"){
                 $text = $plugininfo['text'];
-                $url = "https://majesticsupport.com/product/canned-responses/";
+                $MJTC_url = "https://majesticsupport.com/product/canned-responses/";
             } ?>
         <li class="disabled-menu treeview">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Premade Responses' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/canned-response.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Premade Responses' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'cannedresponses' && ($layout == '')) echo esc_attr('active'); ?>">
                     <span>
                         <?php echo esc_html(__('Premade Responses', 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>
     <?php } ?>
     <?php if ( in_array('agent',majesticsupport::$_active_addons)) { ?>
         <li class="treeview <?php if($c == 'role') echo esc_attr('active'); ?>">
-            <a class="" href="admin.php?page=majesticsupport_role" title="<?php echo esc_attr(__('Roles' , 'majestic-support')); ?>">
-                <img class="ms_menu-icon" alt="<?php echo esc_html(__('Roles' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu/role.png'; ?>"/>
-                <span class="ms_text"><?php echo esc_html(__('Roles' , 'majestic-support')); ?></span>
+            <a class="" href="admin.php?page=majesticsupport_role" title="<?php echo esc_attr(__('Agent Roles' , 'majestic-support')); ?>">
+                <img class="ms_menu-icon" alt="<?php echo esc_html(__('Agent Roles' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu/role.png'; ?>"/>
+                <span class="ms_text"><?php echo esc_html(__('Agent Roles' , 'majestic-support')); ?></span>
                 <span class="ms_active"></span>
             </a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
@@ -825,8 +877,8 @@ $majesticsupport_js ='
                     </a>
                 </li>
                 <li class="<?php if($c == 'role' && ($layout == 'addrole')) echo esc_attr('active'); ?>">
-                    <a href="?page=majesticsupport_role&mjslay=addrole" title="<?php echo esc_attr(__('Add Role' , 'majestic-support')); ?>">
-                        <?php echo esc_html(__('Add Role', 'majestic-support')); ?>
+                    <a href="?page=majesticsupport_role&mjslay=addrole" title="<?php echo esc_attr(__('Add Agent Role' , 'majestic-support')); ?>">
+                        <?php echo esc_html(__('Add Agent Role', 'majestic-support')); ?>
                     </a>
                 </li>
             </ul>
@@ -835,22 +887,22 @@ $majesticsupport_js ='
         <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-agent/majestic-support-agent.php');
             if($plugininfo['availability'] == "1"){
                 $text = $plugininfo['text'];
-                $url = "plugins.php?s=majestic-support-agent&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=majestic-support-agent&plugin_status=inactive";
             }elseif($plugininfo['availability'] == "0"){
                 $text = $plugininfo['text'];
-                $url = "https://majesticsupport.com/product/agents/";
+                $MJTC_url = "https://majesticsupport.com/product/agents/";
             } ?>
         <li class="disabled-menu treeview">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Roles' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/role.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Roles' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'role' && ($layout == '')) echo esc_attr('active'); ?>">
                     <span>
                         <?php echo esc_html(__('Roles', 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>
@@ -874,22 +926,22 @@ $majesticsupport_js ='
         <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-mail/majestic-support-mail.php');
             if($plugininfo['availability'] == "1"){
                 $text = $plugininfo['text'];
-                $url = "plugins.php?s=majestic-support-mail&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=majestic-support-mail&plugin_status=inactive";
             }elseif($plugininfo['availability'] == "0"){
                 $text = $plugininfo['text'];
-                $url = "https://majesticsupport.com/product/internal-mail/";
+                $MJTC_url = "https://majesticsupport.com/product/internal-mail/";
             } ?>
         <li class="disabled-menu treeview">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Mail' , 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/mails.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Mail' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'mail') echo esc_attr('active'); ?>">
                     <span>
                         <?php echo esc_html(__('Mail', 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>
@@ -918,22 +970,22 @@ $majesticsupport_js ='
         <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-banemail/majestic-support-banemail.php');
             if($plugininfo['availability'] == "1"){
                 $text = $plugininfo['text'];
-                $url = "plugins.php?s=majestic-support-banemail&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=majestic-support-banemail&plugin_status=inactive";
             }elseif($plugininfo['availability'] == "0"){
                 $text = $plugininfo['text'];
-                $url = "https://majesticsupport.com/product/ban-email/";
+                $MJTC_url = "https://majesticsupport.com/product/ban-email/";
             } ?>
         <li class="disabled-menu treeview">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Ban Emails', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/ban.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Ban Emails' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'banemail') echo esc_attr('active'); ?>">
                     <span>
                         <?php echo esc_html(__('Ban Emails', 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>
@@ -962,22 +1014,22 @@ $majesticsupport_js ='
         <?php $plugininfo = mjtc_checkPluginInfo('majestic-support-emailcc/majestic-support-emailcc.php');
             if($plugininfo['availability'] == "1"){
                 $text = $plugininfo['text'];
-                $url = "plugins.php?s=majestic-support-emailcc&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=majestic-support-emailcc&plugin_status=inactive";
             }elseif($plugininfo['availability'] == "0"){
                 $text = $plugininfo['text'];
-                $url = "https://majesticsupport.com/product/email-cc/";
+                $MJTC_url = "https://majesticsupport.com/product/email-cc/";
             } ?>
         <li class="disabled-menu treeview">
             <img class="ms_menu-icon" alt="<?php echo esc_html(__('Email CC', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/left-icons/menu-grey/emailcc.png'; ?>"/>
             <span class="ms_text"><?php echo esc_html(__('Email CC' , 'majestic-support')); ?></span>
             <span class="ms_active"></span>
-            <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
                 <li class="<?php if($c == 'emailcc') echo esc_attr('active'); ?>">
                     <span>
                         <?php echo esc_html(__('Email CC', 'majestic-support')); ?>
                     </span>
-                    <a href="<?php echo esc_url($url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
+                    <a href="<?php echo esc_url($MJTC_url); ?>" class="ms_mjtc-install-btn" title="<?php echo esc_attr($text); ?>"><?php echo esc_html($text); ?></a>
                 </li>
             </ul>
         </li>

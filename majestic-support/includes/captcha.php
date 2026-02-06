@@ -118,8 +118,8 @@ class MJTC_captcha {
         $pw .= $characters[wp_rand(0, 25)];
 
         // other characters arbitrarily
-        $numbers = range(0, 9);
-        $characters = array_merge($characters, $numbers);
+        $MJTC_numbers = range(0, 9);
+        $characters = array_merge($characters, $MJTC_numbers);
 
         $pw_length = wp_rand(4, 12);
 

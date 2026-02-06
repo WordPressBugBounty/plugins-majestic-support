@@ -3,15 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
 
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 $majesticsupport_css = '';
 
@@ -104,8 +104,8 @@ div.mjtc-support-downloads-wrp div.mjtc-support-downloads-heading-wrp{float: lef
 	form div.mjtc-form-wrapper div.mjtc-form-value input#sendmail2.radiobutton{margin-left: 15px;}
 	h1.mjtc-department-margin{padding-top: 15px;}
 	.leftrightnull{padding-left: 0px; padding-right: 0px;}
-	div#records div.ms_userpages a.ms_userlink:last-child{background-color:'.$color2.';color:'.$color7.';}
-	div#records div.ms_userpages a.ms_userlink:last-child:hover{background-color:'.$color1.';color:'.$color7.';}
+	div#records div.ms_userpages a.ms_userlink:last-child{background-color:'.$MJTC_color2.';color:'.$MJTC_color7.';}
+	div#records div.ms_userpages a.ms_userlink:last-child:hover{background-color:'.$MJTC_color1.';color:'.$MJTC_color7.';}
 
 ';
 /*Code For Colors*/

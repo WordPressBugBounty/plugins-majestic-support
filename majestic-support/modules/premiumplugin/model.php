@@ -30,10 +30,10 @@ class MJTC_premiumpluginModel {
             }
             throw new Exception( 'License could not activate. Please contact support.' );
         } catch ( Exception $e ) {
-            $data = '<div class="notice notice-error is-dismissible">
-                    <p>'.wp_kses_post($e->MJTC_getMessage()).'.</p>
+            $MJTC_data = '<div class="notice notice-error is-dismissible">
+                    <p>'.wp_kses_post($e->getMessage()).'.</p>
                 </div>';
-            echo wp_kses($data, MJTC_ALLOWED_TAGS);
+            echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
             return false;
         }
     }
@@ -59,23 +59,22 @@ class MJTC_premiumpluginModel {
 
     public static function activate( $args ) {
         $site_url = MJTC_includer::MJTC_getModel('majesticsupport')->getSiteUrl();
-        $defaults = array(
+        $MJTC_defaults = array(
             'request'  => 'activate',
             'domain' => $site_url,
             'activation_call' => 1
         );
 
-        $args    = wp_parse_args( $defaults, $args );
-        $url = self::$server_url . '?' . http_build_query( $args, '', '&' );
-        $request = wp_remote_get( self::$server_url . '?' . http_build_query( $args, '', '&' ) );
-        if ( is_wp_error( $request ) ) {
-            return wp_json_encode( array( 'error_code' => $request->get_error_code(), 'error' => $request->get_error_message() ) );
+        $args    = wp_parse_args( $MJTC_defaults, $args );
+        $MJTC_request = wp_remote_get( self::$server_url . '?' . http_build_query( $args, '', '&' ) );
+        if ( is_wp_error( $MJTC_request ) ) {
+            return wp_json_encode( array( 'error_code' => $MJTC_request->get_error_code(), 'error' => $MJTC_request->get_error_message() ) );
         }
 
-        if ( wp_remote_retrieve_response_code( $request ) != 200 ) {
-            return wp_json_encode( array( 'error_code' => wp_remote_retrieve_response_code( $request ), 'error' => 'Error code: ' . wp_remote_retrieve_response_code( $request ) ) );
+        if ( wp_remote_retrieve_response_code( $MJTC_request ) != 200 ) {
+            return wp_json_encode( array( 'error_code' => wp_remote_retrieve_response_code( $MJTC_request ), 'error' => 'Error code: ' . wp_remote_retrieve_response_code( $MJTC_request ) ) );
         }
-        $response =  wp_remote_retrieve_body( $request );
+        $response =  wp_remote_retrieve_body( $MJTC_request );
         $response = json_decode($response,true);
         return $response;
     }
@@ -85,17 +84,17 @@ class MJTC_premiumpluginModel {
      */
     public static function deactivate( $dargs ) {
         $site_url = MJTC_includer::MJTC_getModel('majesticsupport')->getSiteUrl();
-        $defaults = array(
+        $MJTC_defaults = array(
             'request'  => 'deactivate',
             'domain' => $site_url
         );
 
-        $args    = wp_parse_args( $defaults, $dargs );
-        $request = wp_remote_get( self::$server_url . '?' . http_build_query( $args, '', '&' ) );
-        if ( is_wp_error( $request ) || wp_remote_retrieve_response_code( $request ) != 200 ) {
+        $args    = wp_parse_args( $MJTC_defaults, $dargs );
+        $MJTC_request = wp_remote_get( self::$server_url . '?' . http_build_query( $args, '', '&' ) );
+        if ( is_wp_error( $MJTC_request ) || wp_remote_retrieve_response_code( $MJTC_request ) != 200 ) {
             return false;
         } else {
-            return wp_remote_retrieve_body( $request );
+            return wp_remote_retrieve_body( $MJTC_request );
         }
     }
     /**
@@ -103,14 +102,14 @@ class MJTC_premiumpluginModel {
      */
     public static function delete( $args ) {
         $site_url = MJTC_includer::MJTC_getModel('majesticsupport')->getSiteUrl();
-        $defaults = array(
+        $MJTC_defaults = array(
             'request'  => 'delete',
             'domain' => $site_url,
         );
 
-        $args    = wp_parse_args( $defaults, $args );
-        $request = wp_remote_get( self::$server_url . '?' . http_build_query( $args, '', '&' ) );
-        if ( is_wp_error( $request ) || wp_remote_retrieve_response_code( $request ) != 200 ) {
+        $args    = wp_parse_args( $MJTC_defaults, $args );
+        $MJTC_request = wp_remote_get( self::$server_url . '?' . http_build_query( $args, '', '&' ) );
+        if ( is_wp_error( $MJTC_request ) || wp_remote_retrieve_response_code( $MJTC_request ) != 200 ) {
             return false;
         } else {
             return;
@@ -122,7 +121,7 @@ class MJTC_premiumpluginModel {
         $transaction_key = MJTC_includer::MJTC_getModel('majesticsupport')->getAddonTransationKey($option_name);
         $network_site_url = MJTC_includer::MJTC_getModel('majesticsupport')->getNetworkSiteUrl();
         $site_url = MJTC_includer::MJTC_getModel('majesticsupport')->getSiteUrl();
-        $defaults = array(
+        $MJTC_defaults = array(
             'request'  => 'getactivatesql',
             'domain' => $network_site_url,
             'subsite' => $site_url,
@@ -131,16 +130,16 @@ class MJTC_premiumpluginModel {
             'addonversion' => $addon_version,
             'token' => $transaction_key
         );
-        $request = wp_remote_get( self::$server_url . '?' . http_build_query( $defaults, '', '&' ) );
-        if ( is_wp_error( $request ) ) {
-            return wp_json_encode( array( 'error_code' => $request->get_error_code(), 'error' => $request->get_error_message() ) );
+        $MJTC_request = wp_remote_get( self::$server_url . '?' . http_build_query( $MJTC_defaults, '', '&' ) );
+        if ( is_wp_error( $MJTC_request ) ) {
+            return wp_json_encode( array( 'error_code' => $MJTC_request->get_error_code(), 'error' => $MJTC_request->get_error_message() ) );
         }
 
-        if ( wp_remote_retrieve_response_code( $request ) != 200 ) {
-            return wp_json_encode( array( 'error_code' => wp_remote_retrieve_response_code( $request ), 'error' => 'Error code: ' . wp_remote_retrieve_response_code( $request ) ) );
+        if ( wp_remote_retrieve_response_code( $MJTC_request ) != 200 ) {
+            return wp_json_encode( array( 'error_code' => wp_remote_retrieve_response_code( $MJTC_request ), 'error' => 'Error code: ' . wp_remote_retrieve_response_code( $MJTC_request ) ) );
         }
 
-        $response =  wp_remote_retrieve_body( $request );
+        $response =  wp_remote_retrieve_body( $MJTC_request );
         return $response;
     }
 
@@ -149,7 +148,7 @@ class MJTC_premiumpluginModel {
         $transaction_key = MJTC_includer::MJTC_getModel('majesticsupport')->getAddonTransationKey($option_name);
         $network_site_url = MJTC_includer::MJTC_getModel('majesticsupport')->getNetworkSiteUrl();
         $site_url = MJTC_includer::MJTC_getModel('majesticsupport')->getSiteUrl();
-        $defaults = array(
+        $MJTC_defaults = array(
             'request'  => 'getupdatesql',
             'domain' => $network_site_url,
             'subsite' => $site_url,
@@ -160,16 +159,16 @@ class MJTC_premiumpluginModel {
             'token' => $transaction_key
         );
 
-        $request = wp_remote_get( self::$server_url . '?' . http_build_query( $defaults, '', '&' ) );
-        if ( is_wp_error( $request ) ) {
-            return wp_json_encode( array( 'error_code' => $request->get_error_code(), 'error' => $request->get_error_message() ) );
+        $MJTC_request = wp_remote_get( self::$server_url . '?' . http_build_query( $MJTC_defaults, '', '&' ) );
+        if ( is_wp_error( $MJTC_request ) ) {
+            return wp_json_encode( array( 'error_code' => $MJTC_request->get_error_code(), 'error' => $MJTC_request->get_error_message() ) );
         }
 
-        if ( wp_remote_retrieve_response_code( $request ) != 200 ) {
-            return wp_json_encode( array( 'error_code' => wp_remote_retrieve_response_code( $request ), 'error' => 'Error code: ' . wp_remote_retrieve_response_code( $request ) ) );
+        if ( wp_remote_retrieve_response_code( $MJTC_request ) != 200 ) {
+            return wp_json_encode( array( 'error_code' => wp_remote_retrieve_response_code( $MJTC_request ), 'error' => 'Error code: ' . wp_remote_retrieve_response_code( $MJTC_request ) ) );
         }
 
-        $response =  wp_remote_retrieve_body( $request );
+        $response =  wp_remote_retrieve_body( $MJTC_request );
         return $response;
     }
 
@@ -187,7 +186,7 @@ class MJTC_premiumpluginModel {
                         while (feof($file) === false) {
                             $query[] = fgets($file);
                             if (MJTC_majesticsupportphplib::MJTC_preg_match('~' . preg_quote($delimiter, '~') . '\s*$~iS', end($query)) === 1) {
-                                $query = trim(implode('', $query));
+                                $query = MJTC_majesticsupportphplib::MJTC_trim(implode('', $query));
                                 if($query != ''){
                                     $query = MJTC_majesticsupportphplib::MJTC_str_replace("#__", majesticsupport::$_db->prefix, $query);
                                 }
@@ -217,7 +216,7 @@ class MJTC_premiumpluginModel {
                     foreach($lines as $line){
                         $query[] = $line;
                         if (MJTC_majesticsupportphplib::MJTC_preg_match('~' . preg_quote($delimiter, '~') . '\s*$~iS', end($query)) === 1) {
-                            $query = trim(implode('', $query));
+                            $query = MJTC_majesticsupportphplib::MJTC_trim(implode('', $query));
                             if($query != ''){
                                 $query = MJTC_majesticsupportphplib::MJTC_str_replace("#__", majesticsupport::$_db->prefix, $query);
                             }
@@ -246,7 +245,7 @@ class MJTC_premiumpluginModel {
                 $status = esc_html(__("Activated",'majestic-support'));
                 $action = esc_html(__("Deactivate",'majestic-support'));
                 $actionClass = 'ms-admin-adons-status-Deactive';
-                $url = "plugins.php?s=".$name."&plugin_status=active";
+                $MJTC_url = "plugins.php?s=".$name."&plugin_status=active";
                 $disabled = "disabled";
                 $class = "mjtc-btn-activated";
                 $availability = "-1";
@@ -255,7 +254,7 @@ class MJTC_premiumpluginModel {
                 $status = esc_html(__("Deactivated",'majestic-support'));
                 $action = esc_html(__("Activate",'majestic-support'));
                 $actionClass = 'ms-admin-adons-status-Active';
-                $url = "plugins.php?s=".$name."&plugin_status=inactive";
+                $MJTC_url = "plugins.php?s=".$name."&plugin_status=inactive";
                 $disabled = "";
                 $class = "mjtc-btn-green mjtc-btn-active-now";
                 $availability = "1";
@@ -265,13 +264,13 @@ class MJTC_premiumpluginModel {
             $status = esc_html(__("Not Installed",'majestic-support'));
             $action = esc_html(__("Install Now",'majestic-support'));
             $actionClass = 'ms-admin-adons-status-Install';
-            $url = admin_url("admin.php?page=majesticsupport_premiumplugin&mjslay=step1");
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_premiumplugin&mjslay=step1");
             $disabled = "";
             $class = "mjtc-btn-install-now";
             $availability = "0";
             $version = "---";
         }
-        return array("status" => $status, "action" => $action, "url" => $url, "disabled" => $disabled, "class" => $class, "availability" => $availability, "actionClass" => $actionClass, "version" => $version);
+        return array("status" => $status, "action" => $action, "url" => $MJTC_url, "disabled" => $disabled, "class" => $class, "availability" => $availability, "actionClass" => $actionClass, "version" => $version);
     }
 
     function downloadandinstalladdonfromAjax(){
@@ -283,16 +282,16 @@ class MJTC_premiumpluginModel {
             die( 'Security check Failed' );
         }
 
-        $key = MJTC_request::MJTC_getVar('dataFor');
+        $MJTC_key = MJTC_request::MJTC_getVar('dataFor');
         $installedversion = MJTC_request::MJTC_getVar('currentVersion');
         $newversion = MJTC_request::MJTC_getVar('cdnVersion');
         $addon_json_array = array();
 
-        if($key != ''){
-            $addon_json_array[] = MJTC_majesticsupportphplib::MJTC_str_replace('majestic-support-', '', $key);
-            $plugin_slug = MJTC_majesticsupportphplib::MJTC_str_replace('majestic-support-', '', $key);
+        if($MJTC_key != ''){
+            $addon_json_array[] = MJTC_majesticsupportphplib::MJTC_str_replace('majestic-support-', '', $MJTC_key);
+            $plugin_slug = MJTC_majesticsupportphplib::MJTC_str_replace('majestic-support-', '', $MJTC_key);
         }
-        $token = get_option('transaction_key_for_'.esc_attr($key));
+        $token = get_option('transaction_key_for_'.esc_attr($MJTC_key));
         $result = array();
         $result['error'] = false;
         if($token == ''){
@@ -305,9 +304,9 @@ class MJTC_premiumpluginModel {
             $site_url = MJTC_majesticsupportphplib::MJTC_str_replace("https://","",$site_url);
             $site_url = MJTC_majesticsupportphplib::MJTC_str_replace("http://","",$site_url);
         }
-        $url = 'https://majesticsupport.com/setup/index.php?token='.esc_attr($token).'&productcode='. wp_json_encode($addon_json_array).'&domain='. $site_url;
+        $MJTC_url = 'https://majesticsupport.com/setup/index.php?token='.esc_attr($token).'&productcode='. wp_json_encode($addon_json_array).'&domain='. $site_url;
         // verify token
-        $verifytransactionkey = $this->verifytransactionkey($token, $url);
+        $verifytransactionkey = $this->verifytransactionkey($token, $MJTC_url);
         if($verifytransactionkey['status'] == 0){
             $result['error'] = $verifytransactionkey['message'];
             $result = wp_json_encode($result);
@@ -315,15 +314,15 @@ class MJTC_premiumpluginModel {
         }
         $install_count = 0;
 
-        $installed = $this->install_plugin($url);
+        $installed = $this->install_plugin($MJTC_url);
         if ( !is_wp_error( $installed ) && $installed ) {
             // had to run two seprate loops to save token for all the addons even if some error is triggered by activation.
-            if(MJTC_majesticsupportphplib::MJTC_strstr($key, 'majestic-support-')){
-                update_option('transaction_key_for_'.$key,$token);
+            if(MJTC_majesticsupportphplib::MJTC_strstr($MJTC_key, 'majestic-support-')){
+                update_option('transaction_key_for_'.$MJTC_key,$token);
             }
 
-            if(MJTC_majesticsupportphplib::MJTC_strstr($key, 'majestic-support-')){
-                $activate = activate_plugin( $key.'/'.$key.'.php' );
+            if(MJTC_majesticsupportphplib::MJTC_strstr($MJTC_key, 'majestic-support-')){
+                $activate = activate_plugin( $MJTC_key.'/'.$MJTC_key.'.php' );
                 $install_count++;
             }
 
@@ -332,7 +331,7 @@ class MJTC_premiumpluginModel {
                 $optionname = 'ms-addon-'. $plugin_slug .'s-version';
                 update_option($optionname, $newversion);
                 $plugin_path = WP_CONTENT_DIR;
-                $plugin_path = $plugin_path.'/plugins/'.$key.'/includes';
+                $plugin_path = $plugin_path.'/plugins/'.$MJTC_key.'/includes';
                 if(is_dir($plugin_path . '/sql/') && is_readable($plugin_path . '/sql/')){
                     if($installedversion != ''){
                         $installedversion = MJTC_majesticsupportphplib::MJTC_str_replace('.','', $installedversion);
@@ -343,7 +342,7 @@ class MJTC_premiumpluginModel {
                     $this->getAddonUpdateSqlFromUpdateDir($installedversion,$newversion,$plugin_path . '/sql/');
                     $updatesdir = $plugin_path.'/sql/';
                     if(MJTC_majesticsupportphplib::MJTC_preg_match('/majestic-support-[a-zA-Z]+/', $updatesdir)){
-                        msRemoveAddonUpdatesFolder($updatesdir);
+                        MJTC_includer::MJTC_getModel('majesticsupport')->msRemoveAddonUpdatesFolder($updatesdir);
                     }
                 }else{
                     $this->getAddonUpdateSqlFromLive($installedversion,$newversion,$plugin_slug);
@@ -398,10 +397,10 @@ class MJTC_premiumpluginModel {
         }
     }
 
-    function verifytransactionkey($transactionkey, $url){
+    function verifytransactionkey($transactionkey, $MJTC_url){
         $message = 1;
         if($transactionkey != ''){
-            $response = wp_remote_post( $url );
+            $response = wp_remote_post( $MJTC_url );
             if( !is_wp_error($response) && $response['response']['code'] == 200 && isset($response['body']) ){
                 $result = $response['body'];
                 $result = json_decode($result,true);
@@ -444,10 +443,119 @@ class MJTC_premiumpluginModel {
         
     }
 
+    function MSAddonsAutoUpdate(){
+        /*
+            code for auto update check from configuration
+        */
+
+        $mjtc_addons_auto_update = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('mjtc_addons_auto_update');
+        if( $mjtc_addons_auto_update != 1){
+            return;
+        }
+        
+        require_once MJTC_PLUGIN_PATH.'includes/addon-updater/msupdater.php';
+        $MJTC_SUPPORTTICKETUpdater  = new MJTC_SUPPORTTICKETUpdater();
+        $cdnversiondata = $MJTC_SUPPORTTICKETUpdater->MJTC_getPluginVersionDataFromCDN();
+
+        $majesticsupport_addons = $this->MJTC_getAddonsArray();
+
+        $installed_plugins = get_plugins();
+        $need_to_update = array();
+        $site_url = MJTC_includer::MJTC_getModel('majesticsupport')->getSiteUrl();
+        $status_prefix = 'key_status_for_majestic-support_';
+        $final_addon_json_array = array();
+        foreach ($majesticsupport_addons as $MJTC_key1 => $MJTC_value1) {
+            $matched = 0;
+            $version = "";
+            foreach ($installed_plugins as $name => $MJTC_value) {
+                $install_plugin_name = MJTC_majesticsupportphplib::MJTC_str_replace(".php","",MJTC_majesticsupportphplib::MJTC_basename($name));
+                if($MJTC_key1 == $install_plugin_name){
+                    $matched = 1;
+                    $version = $MJTC_value["Version"];
+                    $install_plugin_matched_name = $install_plugin_name;
+                }
+            }
+            if($matched == 1){ //installed
+                $name = $MJTC_key1;
+                $title = $MJTC_value1['title'];
+                $cdnavailableversion = "";
+                foreach ($cdnversiondata as $cdnname => $cdnversion) {
+                    $addon_json_array = array();
+                    $addon_json_final_array = array();
+                    $install_plugin_name_simple = MJTC_majesticsupportphplib::MJTC_str_replace("-", "", $install_plugin_matched_name);
+                    if($cdnname == MJTC_majesticsupportphplib::MJTC_str_replace("-", "", $install_plugin_matched_name)){
+                        if($cdnversion > $version){ // new version available
+                            $status = 'update_available';
+                            $cdnavailableversion = $cdnversion;
+                            $plugin_slug = MJTC_majesticsupportphplib::MJTC_str_replace('majestic-support-', '', $name);
+                            // get key status from local
+                            $token = get_option('transaction_key_for_'.esc_attr($name));
+                            $MJTC_key_local_status = get_option($status_prefix . $token);
+                            if($MJTC_key_local_status == 1){
+                                $addon_json_array[] = MJTC_majesticsupportphplib::MJTC_str_replace('majestic-support-', '', $name);
+                                $MJTC_url = 'https://majesticsupport.com/setup/index.php?token='.esc_attr($token).'&productcode='. wp_json_encode($addon_json_array).'&domain='.$site_url;
+                                // verify token
+                                $verifytransactionkey = $this->verifytransactionkey($token, $MJTC_url);
+                                
+                                if($verifytransactionkey['status'] == 1){
+                                    $final_addon_json_array[] = MJTC_majesticsupportphplib::MJTC_str_replace('majestic-support-', '', $name);
+                                    $addon_json_final_array[] = MJTC_majesticsupportphplib::MJTC_str_replace('majestic-support-', '', $name);
+                                    $need_to_update[] = array("name" => $name, "current_version" => $version, "available_version" => $cdnavailableversion, "plugin_slug" => $plugin_slug );
+                                    $final_url = 'https://majesticsupport.com/setup/index.php?token='.esc_attr($token).'&productcode='. wp_json_encode($final_addon_json_array).'&domain='.$site_url;
+                                }
+                            }
+                        }
+                    }    
+                }
+            }
+        }
+        $token = "";
+        if(!empty($need_to_update)){
+            $installed = $this->install_plugin($final_url);
+            if ( !is_wp_error( $installed ) && $installed ) {
+                // had to run two seprate loops to save token for all the addons even if some error is triggered by activation.
+
+                // run update sql
+                foreach($need_to_update AS $update){
+                    $installedversion = $update["current_version"];
+                    $newversion = $update["available_version"];
+                    $plugin_slug = $update["plugin_slug"];
+                    $MJTC_key = $update["name"];
+                    if ($installedversion != $newversion) {
+                        $optionname = 'ms-addon-'. $plugin_slug .'s-version';
+                        update_option($optionname, $newversion);
+                        $plugin_path = WP_CONTENT_DIR;
+                        $plugin_path = $plugin_path.'/plugins/'.$MJTC_key.'/includes';
+                        if(is_dir($plugin_path . '/sql/') && is_readable($plugin_path . '/sql/')){
+                            if($installedversion != ''){
+                                $installedversion = str_replace('.','', $installedversion);
+                            }
+                            if($newversion != ''){
+                                $newversion = str_replace('.','', $newversion);
+                            }
+                            $this->getAddonUpdateSqlFromUpdateDir($installedversion,$newversion,$plugin_path . '/sql/');
+                            $updatesdir = $plugin_path.'/sql/';
+                            if(MJTC_majesticsupportphplib::MJTC_preg_match('/majestic-support-[a-zA-Z]+/', $updatesdir)){
+                                $this->msRemoveAddonUpdatesFolder($updatesdir);
+                            }
+                        }else{
+                            $this->getAddonUpdateSqlFromLive($installedversion,$newversion,$plugin_slug);
+                        }
+                    }
+                }
+
+            }else{
+                return;
+            }
+        }
+        return;
+    }
+
     function MJTC_getAddonsArray(){
         return array(
             'majestic-support-actions' => array('title' => esc_html(__('Ticket Actions','majestic-support')), 'price' => 0, 'status' => 1),
             'majestic-support-agent' => array('title' => esc_html(__('Agents','majestic-support')), 'price' => 0, 'status' => 1),
+            'majestic-support-aipoweredreply' => array('title' => esc_html(__('AI Powered Reply','majestic-support')), 'price' => 0, 'status' => 1),
             'majestic-support-autoclose' => array('title' => esc_html(__('Ticket Auto Close','majestic-support')), 'price' => 0, 'status' => 1),
             'majestic-support-faq' => array('title' => esc_html(__('FAQs','majestic-support')), 'price' => 0, 'status' => 1),
             'majestic-support-helptopic' => array('title' => esc_html(__('Help Topic','majestic-support')), 'price' => 0, 'status' => 1),

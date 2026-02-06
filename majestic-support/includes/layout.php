@@ -165,7 +165,7 @@ class MJTC_layout {
         echo wp_kses($html, MJTC_ALLOWED_TAGS);
     }
 
-    static function MJTC_getUserGuest($redirect_url = '') {
+    static function MJTC_getUserGuest($MJTC_redirect_url = '') {
         $loginval = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('set_login_link');
         $loginlink = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('login_link');
         $registerval = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('set_register_link');
@@ -189,7 +189,7 @@ class MJTC_layout {
 	                        else if($loginval == 2 && $loginlink != ""){
 	                            $html .= '<a class="mjtc-support-login-btn" href="'.esc_url($loginlink).'" title="Login">' . esc_html(__('Login', 'majestic-support')) . '</a>';
 	                        }else{
-	                            $html .= '<a class="mjtc-support-login-btn" href="'.esc_url(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport', 'mjslay'=>'login', 'mjtc_redirecturl'=>$redirect_url))).'" title="Login">' . esc_html(__('Login', 'majestic-support')) . '</a>';
+	                            $html .= '<a class="mjtc-support-login-btn" href="'.esc_url(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport', 'mjslay'=>'login', 'mjtc_redirecturl'=>$MJTC_redirect_url))).'" title="Login">' . esc_html(__('Login', 'majestic-support')) . '</a>';
 	                        }
 	                        $is_enable = get_option('users_can_register');/*check to make sure user registration is enabled*/
                             if ($is_enable) {
@@ -198,7 +198,7 @@ class MJTC_layout {
 	                        	}else if($registerval == 2 && $registerlink != ""){
 	                        	    $html .= '<a class="mjtc-support-register-btn" href="'.esc_url($registerlink).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
 	                        	}else{
-	                        		$html .= '<a class="mjtc-support-register-btn" href="'.esc_url(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport', 'mjslay'=>'userregister', 'mjtc_redirecturl'=>$redirect_url))).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
+	                        		$html .= '<a class="mjtc-support-register-btn" href="'.esc_url(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport', 'mjslay'=>'userregister', 'mjtc_redirecturl'=>$MJTC_redirect_url))).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
 	                        	}
 	                        }
 

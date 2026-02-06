@@ -15,6 +15,7 @@ a {box-shadow: unset !important;}
 .ui-sortable-helper {display: table;}
 .orange-bg {background: #feac47 !important;color: #fff !important;}
 .black-bg {background: #23282d !important;color: #fff !important;}
+.mjtc-form-ticket-readonly {pointer-events: none !important;}
 div#msadmin-data .ms_updated,
 div#msadmin-data .ms_error,
 div#msadmin-data .ms_update-nag {margin:0px;margin-bottom: 5px;}
@@ -32,7 +33,6 @@ form.mjtc-filter-form input.custom_date.mjtc-form-date-field, input.custom_date.
 input#dateend, input#datestart, input#date_end, input#date_start{background-image: url(../images/calender.png);background-repeat: no-repeat;background-position: 94% 10px;background-size: 20px;}
 .required-notifier{color: red;}
 /* admin-addons-status */
-
 div.msadmin-addons-list-data{font-size:16px;color: #4b4b4d;}
 div#msadmin-data-wrp div.msadmin-addons-list-wrp{float: left;width: 100%;}
 div.msadmin-addons-list-wrp div.ms-admin-addon-status{float: left;width: 100%;padding:20px 10px;border: 1px solid #e0e1e0;display: flex; align-items: center;margin-bottom: 20px;background: #f0f0f1;flex-wrap: wrap}
@@ -58,6 +58,18 @@ div.msadmin-addons-list-wrp div.ms-admin-addon-status div.msadmin-addon-status-m
 div.msadmin-addons-list-wrp div.ms-admin-addon-status div.msadmin-addon-status-msg.msadmin_success{color: #0C6E45;border: 1px solid #0C6E45;background-color: #d6ece2;}
 div.msadmin-addons-list-wrp div.ms-admin-addon-status div.msadmin-addon-status-msg.msadmin_error{color: #FF4F4E;border: 1px solid #FF4F4E;background-color: #fae1e1;}
 div.msadmin-addons-list-wrp div.ms-admin-addon-status div.msadmin-addon-status-msg .msadmin-addon-status-msg-txt{margin: 2px 5px 0;}
+/* autoupdte */
+div.msadmin-addons-list-data .msadmin-autoupdte-addons-title{padding-bottom: 25px;font-size: 22px;line-height: 35px;font-weight: bold;}
+div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp{display: flex;align-items: center;gap: 30px;padding: 10px;border:1px solid #4b87d2;background-color: #f5faff;}
+div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp .msadmin-autoupdte-addons-cardlogo{width: 80px;height: auto;border: 1px solid #1562c3;min-width: 80px;background-color: #fff;}
+div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp .msadmin-autoupdte-addons-cardlogo img{max-width: 100%;height: auto;padding: 10px;}
+div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp .msadmin-autoupdte-addons-cardwrp-rightwrp{display: flex;align-items: center;flex: 1 1 auto;flex-wrap: wrap;justify-content: space-between;gap: 15px;padding-top: 5px;}
+div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp .msadmin-autoupdte-addons-card-btn{margin-right:10px;padding: 13px 20px;border: 2px solid #057a43;background-color: #00a859;color: white;font-weight: bold;display: inline-block;text-decoration: unset;}
+div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp .msadmin-autoupdte-addons-card-btn:hover{background-color:#fff;color: #00a859;}
+div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp .msadmin-autoupdte-addons-card-btn.msadmin-autoupdte-addons-card-offbtn{border: 2px solid #832a2c;background-color: #c03437;}
+div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp .msadmin-autoupdte-addons-card-btn.msadmin-autoupdte-addons-card-offbtn:hover{color: #c03437;background-color: #fff;}
+div.msadmin-addons-list-data .msadmin-addons-alladdon-title{padding:40px 0 25px;margin-top: 20px;font-size: 22px;line-height: 35px;font-weight: bold;margin-top: 30px;border-top: 1px solid #e0e1e0;}
+div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp .msadmin-autoupdte-addons-card-title{line-height: 26px;}
 /* left menu */
 div#msadmin-leftmenu {width: 60px;display: inline-block; background: #fff;position: absolute;left: 0;top: 0;z-index: 2;transition: all 500ms;border-radius: 10px;border-top-right-radius: 0;}
 div#msadmin-data{width:100%;float:left;position: relative;padding-left: 50px;transition: all 500ms;}
@@ -98,7 +110,7 @@ ul.msadmin-sidebar-menu li.disabled-menu span.ms_text {display: inline-block;ver
 ul.msadmin-sidebar-menu li.disabled-menu a.ms_mjtc-install-btn {float: right;color: #2a1abf;}
 .mjtc-support-top-sec .mjtc-support-top-sec-left .mjtc-support-main-heading, .mjtc-support-top-sec-header .mjtc-support-top-sec-left-header .mjtc-support-main-heading{line-height: 35px;}
 /* user popup */
-div#multiformpopupblack {background: rgba(0,0,0,0.5);position: fixed;width: 100%;height: 100%;top: 0px;left: 0px;z-index: 9999;}
+div#multiformpopupblack, div#black_wrapper_ai_reply {background: rgba(0,0,0,0.5);position: fixed;width: 100%;height: 100%;top: 0px;left: 0px;z-index: 9999;}
 div#internalnotespopupblack {background: rgba(0,0,0,0.5);position: fixed;width: 100%;height: 100%;top: 0px;left: 0px;z-index: 9988;}
 div#multiformpopup * {box-sizing: border-box;}
 div#multiformpopup{position: fixed;top:50%;left:50%;width:50%;z-index: 9999999999;transform: translate(-50%, -50%);background: #fff;box-sizing: border-box;max-height: 70%;overflow-x: hidden;overflow-y: auto;}
@@ -144,6 +156,7 @@ div.menu-collasped-active div#msadmin-leftmenu a.ms_mjtc-install-btn {visibility
 div.menu-collasped-active div#msadmin-leftmenu div#msadmin-logo a.ms-anchor, 
 div.menu-collasped-active div#msadmin-leftmenu img.ms_mjtc-arrow-img {display: inline-block;opacity: 1;}
 div.menu-collasped-active div#msadmin-leftmenu ul.msadmin-sidebar-menu li.treeview.active.menu-open ul.msadmin-sidebar-submenu {display: block !important;}
+div.menu-collasped-active div#msadmin-leftmenu ul.msadmin-sidebar-menu li.treeview.active ul.msadmin-sidebar-submenu {display: block !important;}
 div.menu-collasped-active div#msadmin-leftmenu li.disabled-menu span.ms_text {display: inline-block !important;}
 
 /* page top */
@@ -188,21 +201,39 @@ form.msadmin-form div.mjtc-form-wrapper {float: left;width: calc(100% / 2 - 20px
 form.msadmin-form div.mjtc-form-wrapper.mjtc-form-emailcc-wrapper {width: calc(100% / 3 - 20px);}
 form.msadmin-form div.mjtc-form-wrapper.fullwidth {width: calc(100% - 20px);margin: 0px 10px 20px;}
 form.msadmin-form div.mjtc-form-wrapper div.mjtc-form-title {float: left;width: 100%;margin-bottom: 12px;color: #4b4b4d;font-size: 16px;font-weight: 500;padding: 0 0px;}
+form.msadmin-form div.mjtc-form-wrapper span.mjtc-form-subtitle {color: #23282d;background: #d9f0fa;border: 1px solid #80c7e8;padding: 5px 7px;}
 form.msadmin-form div.mjtc-form-wrapper div.mjtc-form-value {float: left;width: 100%;margin-bottom: 10px;position: relative;}
+form.msadmin-form div.mjtc-form-wrapper div.mjtc-form-value .mjtc-form-prioritycolor-wrp {float: left;width: 50px;height: 55px;margin-right: 4px;}
+form.msadmin-form div.mjtc-form-wrapper div.mjtc-form-value .mjtc-form-statuscolor-wrp {float: left;width: 50px;height: 55px;margin-right: 4px;}
+form.msadmin-form div.mjtc-form-wrapper div.mjtc-form-value .mjtc-form-statusbgcolor-wrp {float: left;width: 50px;height: 55px;margin-right: 4px;}
+form.msadmin-form div.mjtc-form-wrapper div.mjtc-form-description {float: left;width: 100%;padding: 5px 5px 0;color: #6c757d;font-size: 15px;}
+form.msadmin-form div.mjtc-form-wrapper .mjtc-visible-conditions-addbtn-wrp .mjtc-form-visible-addmore{cursor: pointer;float: left;border: unset;font-size: 15px !important;padding: 2px 13px 2px 10px;margin-left: 5px;height: 45px;display: flex;align-items: center;background-color: #000;color: #fff;font-weight: bold;}
+form.msadmin-form div.mjtc-form-wrapper .mjtc-visible-conditions-addbtn-wrp .mjtc-form-visible-addmore:hover{background-color: #1572e8;}
+form.msadmin-form div.mjtc-form-wrapper .mjtc-visible-conditions-body-value .mjtc-visible-conditions-delbtn{cursor: pointer;float: left;background-color: #f0f0f3;border: 1px solid #e0e1e1;height: 55px;display: flex;align-items: center;padding: 0 8px;margin:0 5px;}
+form.msadmin-form div.mjtc-visible-conditions-addbtn-wrp .mjtc-form-visible-addmore{cursor: pointer;float: left;border: unset;font-size: 15px !important;padding: 2px 13px 2px 10px;margin-left: 5px;min-height: 45px;display: flex;align-items: center;background-color: #1572e8;color: #fff;font-weight: bold;}
+form.msadmin-form div.mjtc-visible-conditions-addbtn-wrp .mjtc-form-visible-addmore:hover{background-color: #000;}
+form.msadmin-form.has-validation-callback .mjtc-visible-conditions-addbtn-wrp{float:left;width: 100%;margin: 0 0 10px 5px;}
 form.msadmin-form div.mjtc-form-wrapper div.mjtc-form-value.mjtc-form-premade-wrp {border: 1px solid #e0e1e0;padding: 10px;max-height: 163px;overflow-x: hidden;overflow-y: scroll;}
 form.msadmin-form div.mjtc-form-wrapper a.mjtc-form-link {float: right;color: #2a1abf;text-decoration: none;}
 form.msadmin-form div.mjtc-form-wrapper div.mjtc-form-value .form-error {display: inline-block;position: absolute;font-size: 11px;color: red;color: red;bottom: -22px;right: 0;}
 form.msadmin-form div.mjtc-form-wrapper .mjtc-form-desc {float: left;width: 100%;color: #606062;}
+form.msadmin-form div.mjtc-form-wrapper .mjtc-form-desc.mjtc-form-status-desc {min-height: 19px;}
 form.msadmin-form div.mjtc-form-wrapper .mjtc-form-diabled-field {float: left;width: 100%;height: 55px;padding: 10px;margin: 0;box-shadow: unset;color: #6c757d;background: #f0f0f3;border: 1px solid #e0e1e0;border-radius: 0;font-size: 15px;}
 form.msadmin-form div.mjtc-form-wrapper .mjtc-form-input-field {float: left;width: 100%;height: 55px;padding: 10px;margin: 0;box-shadow: unset;color: #6c757d;background: #f0f0f3;border: 1px solid #e0e1e0;border-radius: 0;font-size: 15px;}
 form.msadmin-form div.mjtc-form-wrapper .mjtc-form-input-field.mjtc-form-multi-select-field {max-width: 100%;}
 form.msadmin-form div.mjtc-form-wrapper .mjtc-form-input-field.loading {background-image: url("../images/spinning-wheel.gif");background-size: 25px 25px;background-position:right center;background-repeat: no-repeat;}
+form.msadmin-form div.mjtc-form-wrapper .mjtc-form-input-field.mjtc-form-statuscolor-field {width: calc(100% - 55px);}
+form.msadmin-form div.mjtc-form-wrapper .mjtc-form-input-field.mjtc-form-prioritycolor-field {width: calc(100% - 55px);}
+form.msadmin-form div.mjtc-form-wrapper .mjtc-form-statuscolor-wrp {float: left;width: 50px;height: 55px;margin-right: 4px;border: 1px solid #e0e1e0;}
+form.msadmin-form div.mjtc-form-wrapper .mjtc-form-statusbgcolor-wrp {float: left;width: 50px;height: 55px;margin-right: 4px;border: 1px solid #e0e1e0;}
 form.msadmin-form div.mjtc-form-wrapper div.mjtc-form-value  span.ms_product_found{background-image: url("../images/good.png");background-size: 25px 25px;background-position:right center;background-repeat: no-repeat;width:30px;height:30px;top:10px;right:10px;position:absolute;}
 form.msadmin-form div.mjtc-form-wrapper div.mjtc-form-value  span.ms_product_not_found{background-image: url("../images/close.png");background-size: 25px 25px;background-position:right center;background-repeat: no-repeat;width:30px;height:30px;top:10px;right:10px;position:absolute;}
 form.msadmin-form div.mjtc-form-wrapper.mjtc-form-visible-wrapper {float: left;width: calc(100% - 20px);padding: 18px 13px 20px;border: 2px solid #d0e5f9;background-color: #f2f9ff;border-radius: 7px;}
 form.msadmin-form div.mjtc-form-wrapper.mjtc-form-visible-wrapper .mjtc-form-title{font-weight: 400;font-size: 16px;margin: 0 5px 15px;}
-form.msadmin-form div.mjtc-form-wrapper.mjtc-form-visible-wrapper .mjtc-form-select-field{width: calc(100% / 3 - 10px);margin:0 5px 5px;}
+form.msadmin-form .mjtc-form-visible-subheading {float: left;width: calc(100% - 20px);padding: 0px 13px 20px;text-align: center;color: #000;font-size: 20px;font-weight: 500;}
+form.msadmin-form div.mjtc-form-wrapper.mjtc-form-visible-wrapper .mjtc-form-select-field{width: calc(100% / 3 - 28px);margin:0 5px 5px;}
 form.msadmin-form div.mjtc-form-wrapper.mjtc-form-visible-wrapper .mjtc-form-desc{margin:0 5px;}
+form.msadmin-form div.mjtc-form-wrapper.mjtc-form-visible-wrapper .mjtc-form-input-field,
 form.msadmin-form div.mjtc-form-wrapper.mjtc-form-visible-wrapper #visibleValue div{width: calc(100% / 3 - 10px);margin: 0 5px 5px;float: left;padding: 10px;color: #6c757d;}
 form.msadmin-form .mjtc-form-smartreply-wrapper{border-top: 2px solid #e1e0e1;border-bottom: 2px solid #e1e0e1;float: left;width: 100%;padding-top: 25px;margin-bottom: 25px;}
 form.msadmin-form .mjtc-form-smartreply-wrapper img.ms-add-ticket-subject{position: absolute;top: 0;bottom: 0;right: 0;cursor: pointer;width: 25px; padding-top: 16px;margin-right: 16px;}
@@ -348,7 +379,6 @@ div#userpopup .userpopup-search div.popup-field-obj input {float: left;width: 10
 div#userpopup div.popup-act-btn-wrp {float: left;width: 100%;text-align: center;padding: 15px;}
 div#userpopup div.popup-act-btn-wrp .popup-act-btn {display: inline-block;padding: 10px 35px;border-radius: unset;height: auto;line-height: auto;font-size: 14px;border: 1px solid #2a1abf;color: #fff;background-color: #2a1abf;}
 div#userpopup #userpopup-records-wrp {float: left;width: 100%;}
-div#userpopup #userpopup-records-wrp #userpopup-records {}
 div#userpopup #userpopup-records-wrp #userpopup-records .userpopup-records-desc {text-align: center;padding: 50px 15px;color: #23282d;}
 #majesticsupportform #userpopup {float: left;height: 45px;line-height: initial;border-radius: unset;box-shadow: unset;margin: 3px 3px;padding: 15px 10px;text-decoration: underline;color: #23282d;}
 #majesticsupportform #userpopup:hover {color: #23282d;text-decoration: none;}
@@ -413,6 +443,7 @@ table#majestic-support-table tr .left {text-align: left;}
 table#majestic-support-table tr span.mjtc-support-admin-prirrity-color {display: inline-block;padding: 7px 12px;}
 div.msadmin-help-msg {float: left;width: 100%;padding: 20px 15px;}
 table#majestic-support-table.mjtc-admin-report-tickets tr td a {display: inline-block;color: #23282d;width: auto !important;}
+div#mjtc-field-ordering-notice {width: calc(100% - 40px);display: inline-block;padding: 8px 10px;float: left;border: 1px solid #ddd;background: #FFF;color: #333333;margin: 10px 20px 5px;box-shadow: 0 0 3px 1px rgba(0,0,0,0.2)}
 
 /* error message */
 .mjtc-support-error-message-wrapper {float: left;width: 100%;padding: 40px;text-align: center;background: #fff;border: 1px solid #e0e1e0;}
@@ -517,6 +548,7 @@ table#majestic-support-table.mjtc-admin-report-tickets tr td a {display: inline-
 .mjtc-support-configuration-row .mjtc-support-configuration-value select {width: 100%;height: 45px;padding: 10px;box-shadow: unset;color: #6c757d;background: #fff;border: 1px solid #e0e1e0;background-image: url('../images/selecticon.png');background-repeat: no-repeat;background-position: calc(100% - 15px);-webkit-appearance: none;-moz-appearance: none;appearance: none;background-size: 16px;}
 .mjtc-support-configuration-row .mjtc-support-configuration-value .form-error {display: inline-block;width: 100%;padding: 5px 5px 0;color: red;font-size: 11px;}
 .mjtc-support-configuration-row .mjtc-support-configuration-description {float: left;width: 100%;padding: 10px 5px 5px;;color: #606062;}
+.mjtc-support-configuration-row .mjtc-support-configuration-description input[name=del_logo_for_desktop_notfication]{width: 17px !important;height: 17px !important;}
 .mjtc-support-configuration-row .mjtc-support-configuration-sml-txt {display: inline-block;width: 100%;padding-bottom: 5px;color: #606062;}
 .mjtc-admin-ticketviaemail-wrapper-checksetting {float: left;width: calc(100% - 20px);margin: 0 10px 25px;}
 .mjtc-admin-ticketviaemail-wrapper-checksetting #mjtc-admin-ticketviaemail {float: left;border: 1px solid #e0e1e0;padding: 8px 15px 8px 40px;background: #2a1abf;color: #ffffff;font-weight: bold;border-radius: 4px;text-decoration: none;position: relative;}
@@ -707,6 +739,7 @@ div.mjtc-sprt-det-hdg a.mjtc-sprt-det-hdg-btn {float: right;color: #0073aa;}
 .mjtc-sprt-det-info-data .mjtc-sprt-det-info-val {float: left;color: #6a6a70;}
 .mjtc-sprt-det-copy-id {display: inline-block;color: #0073aa;margin-left: 3px;cursor: pointer;}
 .mjtc-sprt-det-tkt-prty-txt {float: left;width: 100%;text-align: center;padding: 15px;color: #fff;margin-bottom: 10px;font-size: 18px;}
+.mjtc-sprt-det-tkt-prty-error-txt {float: left;color: #7e797a;font-size: 15px;line-height: initial;}
 .mjtc-sprt-det-tkt-asgn-cnt div.mjtc-sprt-det-hdg .mjtc-sprt-det-hdg-txt {color: #7e797a;font-size: 15px;}
 .mjtc-sprt-det-tkt-asgn-cnt div.mjtc-sprt-det-user {padding: 10px 0;}
 .mjtc-sprt-det-trsfer-dep {float: left;width: 100%;border-top: 1px solid #e0e1e0;padding: 15px 0 7px;}
@@ -934,14 +967,14 @@ div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data .mjtc-
 div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data .mjtc-support-title {display: inline-block;margin-right: 5px;color: #23282d;}
 div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data .mjtc-support-value {display: inline-block;color: #606262;text-transform: capitalize;}
 div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data .mjtc-support-merge-ticket-title {display: inline-block;width: 95%;height: 17px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size: 15px;font-weight: 500;text-decoration: underline;text-transform: capitalize;color: #2a1abf;}
-div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.my-ticket-priority-div {width: calc(20% - 100px);float: left;}
+div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-ticket-priority {width: calc(20% - 100px);float: left;}
 div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data1 {margin: 15px 0px;width: 30%;}
 div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data1 .mjtc-row {float: left;width: 100%;padding-bottom: 8px;}
 div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data1 .mjtc-row .mjtc-col-md-6 {display: inline-block;margin-right: 5px;}
 div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data1 .mjtc-row .mjtc-col-md-6:first-child {color: #23282d;}
 div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data1 .mjtc-row .mjtc-col-md-6:last-child {color: #6c757d;}
 div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data1 .mjtc-support-wrapper-textcolor {display: inline-block;padding: 7px 12px;color: #fff;min-width: 70px;text-align: center;}
-div.ms-merge-popup-wrapper div.mjtc-support-wrapper .my-ticket-priority-div .mjtc-support-wrapper-textcolor {display: inline-block;padding: 6px 15px;text-transform: uppercase;font-weight: bold;margin-top: 40px;margin-left: 5px;color: #fff;}
+div.ms-merge-popup-wrapper div.mjtc-support-wrapper .mjtc-ticket-priority .mjtc-support-wrapper-textcolor {display: inline-block;padding: 6px 15px;text-transform: uppercase;font-weight: bold;margin-top: 40px;margin-left: 5px;color: #fff;}
 div.ms-merge-popup-wrapper .mjtc-supports-list-wrp {float: left;width: 100%;border-top: 2px solid #d4d4d5;padding-top: 10px;background-color: #f0f0f0;border-bottom: 1px solid #2a1abf;padding-bottom: 25px;}
 div.ms-merge-popup-wrapper form {display: inline-block;width: 100%;padding: 0 15px;}
 div.ms-merge-popup-wrapper form .mjtc-form-wrapper {display: inline-block;width: 100%;padding: 5px 10px;}
@@ -981,6 +1014,107 @@ div.ms-merge-popup-wrapper .mjtc-form-button-wrapper input.button.mjtc-merge-can
 .popup-field-from .mjtc-submit-container input#save:hover {background: #fff;color: #2a1abf;}
 .popup-field-from .mjtc-submit-container a#user-field-anchor {display: inline-block;padding: 15px;cursor: pointer;text-align: center;border-radius: 0;height: auto;min-width: 120px;line-height: initial;box-shadow: unset;border: 1px solid;}
 
+/* ticket detail AI Powered Reply */ 
+.mjtc-support-container {background-color: #ffffff;padding: 24px;border-radius: 12px;box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);width: 100%;max-width: 100%;border: 1px solid #e2e8f0;margin-top: 20px;margin-bottom: 20px;display: none;}
+/* Headings */
+.mjtc-support-heading {font-size: 24px;font-weight: 700;color: #1a202c;margin-bottom: 24px;text-align: center;}
+/* Section containers (e.g., Current Ticket, Matching Tickets, Replies) */
+.mjtc-support-section {padding: 16px;border-radius: 8px;/*margin-bottom: 24px;*/border: 1px solid;}
+.mjtc-support-current-ticket-section {background-color: #eff6ff;border-color: #bfdbfe;}
+.mjtc-support-current-ticket-title {display: none;}
+.mjtc-support-current-ticket-id {display: none;}
+.mjtc-support-current-ticket-description {font-size: 14px;color: #1d4ed8;}
+.mjtc-support-post-reply-section .mjtc-support-section-heading {font-size: 20px;font-weight: 600;color: #4a5568;margin-bottom: 16px;}
+.mjtc-support-textarea {width: 100%;padding: 16px;border: 1px solid #cbd5e1;border-radius: 8px;resize: vertical;min-height: 150px;transition: border-color 0.2s ease, box-shadow 0.2s ease;}
+.mjtc-support-textarea:focus {outline: none;border-color: #3b82f6;box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);}
+.mjtc-support-button-group {display: flex;flex-direction: column;gap: 12px;margin-top: 16px;}
+@media (min-width: 640px) {.mjtc-support-button-group {flex-direction: row;gap: 16px;margin-top: 0;}}
+.mjtc-support-button {display: block;margin-bottom: 25px;padding: 12px 24px;border-radius: 8px;font-weight: 500;transition: background-color 0.2s ease, box-shadow 0.2s ease;box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);color: #ffffff;border: none;cursor: pointer;}
+.mjtc-support-post-reply-button {background-color: #2563eb;}
+.mjtc-support-post-reply-button:hover {background-color: #1d4ed8;}
+.mjtc-support-ai-reply-button {background-color: #16a34a;}
+.mjtc-support-ai-reply-button:hover {background-color: #15803d;}
+.mjtc-support-matching-tickets-section {background-color: #f5f3ff;border-color: #ddd6fe;}
+.mjtc-support-selected-tickets-header {display: flex;align-items: center;justify-content: space-between;margin-bottom: 10px;flex-wrap: wrap;gap: 10px;}
+.mjtc-support-matching-tickets-section .mjtc-support-section-heading {color: #6d28d9;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 60%;}
+.mjtc-support-list {list-style: none;padding: 8px;margin: 0 -8px;display: flex;flex-direction: column;gap: 12px;max-height: 500px;overflow-y: auto;}
+.mjtc-support-list::-webkit-scrollbar {width: 8px;}
+.mjtc-support-list::-webkit-scrollbar-track {background: #f1f1f1;border-radius: 10px;}
+.mjtc-support-list::-webkit-scrollbar-thumb {background: #cbd5e1;border-radius: 10px;}
+.mjtc-support-list::-webkit-scrollbar-thumb:hover {background: #94a3b8;}
+.mjtc-support-list-item {background-color: #ffffff;padding: 16px;border-radius: 8px;box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);border: 1px solid #e2e8f0;cursor: pointer;transition: background-color 0.15s ease-in-out;}
+.mjtc-support-list-item:hover {background-color: #f9fafb;}
+.mjtc-support-list-item p {margin: 0;}
+.mjtc-support-list-item .mjtc-support-title {font-weight: 500;color: #1a202c;margin-top: 4px;margin-bottom: 4px;}
+.mjtc-support-list-item .mjtc-support-id {font-size: 14px;color: #64748b;display: -webkit-box;-webkit-line-clamp: 5;-webkit-box-orient: vertical;overflow: hidden;}
+.mjtc-support-selected-replies-section {background-color: #ecfdf5;border-color: #a7f3d0;}
+.mjtc-support-selected-replies-header {display: flex;align-items: center;justify-content: space-between;margin-bottom: 16px;}
+.mjtc-support-selected-replies-header .mjtc-support-section-heading {font-size: 20px;font-weight: 600;color: #047857;margin-bottom: 0;margin-top: 0;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 60%;margin-top: 10px;line-height: initial;}
+.mjtc-support-close-button {/*background-color: #1E40AF;*/background-color: #16A34A;color: #FFFFFF;padding: 8px 16px;border-radius: 8px;font-weight: 500;transition: background-color 0.2s ease;cursor: pointer;border: none;}
+.mjtc-support-close-button:hover {background-color: #2b2b2b;}
+#mjtc-support-close-tickets-btn {background-color: #6d28d9;}
+#mjtc-support-close-tickets-btn:hover {background-color: #2b2b2b;}
+.mjtc-support-replies-content {display: flex;flex-direction: column;gap: 24px;max-height: 500px;overflow-y: auto;padding: 8px;margin: 0 -8px;}
+/* Custom scrollbar for reply content */
+.mjtc-support-replies-content::-webkit-scrollbar {width: 8px;}
+.mjtc-support-replies-content::-webkit-scrollbar-track {background: #f1f1f1;border-radius: 10px;}
+.mjtc-support-replies-content::-webkit-scrollbar-thumb {background: #cbd5e1;border-radius: 10px;}
+.mjtc-support-replies-content::-webkit-scrollbar-thumb:hover {background: #94a3b8;}
+.mjtc-support-reply-item {background-color: #ffffff;padding: 20px;border-radius: 8px;box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);border: 1px solid #a7f3d0;}
+.mjtc-support-reply-header {display: flex;justify-content: space-between;align-items: center;margin-bottom: 12px;}
+.mjtc-support-reply-header .mjtc-support-reply-id {font-weight: 600;color: #059669;}
+.mjtc-support-reply-header .mjtc-support-reply-timestamp {font-size: 14px;color: #64748b;}
+.mjtc-support-reply-text {color: #374151;line-height: 1.625;font-size: 14px;display: -webkit-box;-webkit-line-clamp: 10;-webkit-box-orient: vertical;overflow: hidden;}
+.mjtc-support-reply-actions {display: flex;gap: 8px;margin-top: 10px; /* Space between text and action buttons */justify-content: flex-end; /* Align buttons to the right */}
+.mjtc-support-reply-action-btn {background-color: #4CAF50; /* Green */color: white;padding: 8px 12px;border: none;border-radius: 5px;cursor: pointer;font-size: 14px;transition: background-color 0.2s ease;}
+.mjtc-support-reply-action-btn.copy-btn {background-color: #ff9800;color: #FFF; /* Orange */}
+.mjtc-support-reply-action-btn.copy-btn:hover {background-color: #2b2b2b;}
+.mjtc-support-reply-action-btn.append-btn {background-color: #1578e8;}
+.mjtc-support-reply-action-btn.append-btn:hover {background-color: #2b2b2b;}
+/* Dropdown style */
+.mjtc-support-filter-group {display: flex;align-items: center;gap: 10px;margin-left: auto;margin-right: 5px;margin-bottom: 0px;}
+.mjtc-support-filter-label {font-weight: 500;color: #4a5568;}
+.mjtc-support-filter-select {padding: 8px 12px;border: 1px solid #cbd5e1;border-radius: 8px;background-color: white;cursor: pointer;font-size: 14px;color: #1a202c;appearance: none; /* Remove default dropdown arrow */-webkit-appearance: none;-moz-appearance: none;background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748b%22%20d%3D%22M287%2C118.8L146.2%2C259.6L5.4%2C118.8z%22%2F%3E%3C%2Fsvg%3E'); /* Custom arrow */background-repeat: no-repeat;background-position: right 10px center;background-size: 12px;transition: border-color 0.2s ease, box-shadow 0.2s ease;}
+.mjtc-support-filter-select:focus {outline: none;border-color: #3b82f6;box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);}    
+/* Modal styles */
+.mjtc-support-modal {position: fixed;inset: 0;background-color: rgba(0, 0, 0, 0.5);display: flex;align-items: center;justify-content: center;z-index: 50;}
+.mjtc-support-modal-content {background-color: #ffffff;padding: 24px;border-radius: 12px;box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);max-width: 384px;width: 100%;text-align: center;border: 1px solid #d1d5db;}
+.mjtc-support-modal-message {font-size: 18px;font-weight: 500;color: #1a202c;margin-bottom: 16px;}
+.mjtc-support-modal-close-button {background-color: #2563eb;color: #ffffff;padding: 8px 20px;border-radius: 8px;font-weight: 500;transition: background-color 0.2s ease, box-shadow 0.2s ease;cursor: pointer;border: none;}
+.mjtc-support-modal-close-button:hover {background-color: #1d4ed8;}
+/* Utility for hiding elements */
+.mjtc-support-hidden {display: none;}
+/* --- Marked as AI-Powered Reply Feature --- */
+div.mjtc-support-ai-reply-status-wrapper {float: left;width: 100%;padding: 20px 0px;box-sizing: border-box;}
+.mjtc-sprt-det-tkt-prty div.mjtc-support-ai-reply-status-wrapper {border-top: 1px solid #ebecec;}
+div.mjtc-support-ai-reply-status-wrapper label {display: inline-block;margin-bottom: 10px;font-weight: 600;color: #444;font-size: 15px;}
+div.mjtc-support-segmented-control {display: flex;border: 1px solid #c3c4c7;border-radius: 6px;overflow: hidden;width: fit-content;max-width: 100%;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);flex-wrap: wrap;}
+button.mjtc-support-segmented-control-option {flex: 1;padding: 10px 18px;border: none;background-color: #f6f7f7;color: #40464d;cursor: pointer;font-size: 14px;font-weight: 500;transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;outline: none;text-align: center;white-space: nowrap;}
+button.mjtc-support-segmented-control-option:not(:last-child) {border-right: 1px solid #c3c4c7;}
+button.mjtc-support-segmented-control-option:hover {background-color: #e0e0e0;}
+button.mjtc-support-segmented-control-option.active {box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);font-weight: 700;}
+button.mjtc-support-segmented-control-option.mjtc-support-default.active {background-color: #808080;color: #ffffff;}
+button.mjtc-support-segmented-control-option.mjtc-support-enable.active {background-color: #28a745;color: #ffffff;}
+button.mjtc-support-segmented-control-option.mjtc-support-disable.active {background-color: #dc3545;color: #ffffff;}
+button.mjtc-support-segmented-control-option:focus {box-shadow: 0 0 0 2px #2196f3;}
+.mjtc-support-ai-powered-reply-wrapper {display: flex;align-items: center;background-color: #f8f8f8;border: 1px solid #e0e0e0;padding: 7px 7px;border-left: 5px solid #4CAF50; /* Green line on the left */justify-content: space-between;flex-wrap: wrap;gap: 15px;}
+.mjtc-support-ai-powered-reply-icon {flex-shrink: 0;}
+.mjtc-support-ai-powered-reply-icon img {width: 80px; /* Adjust as needed */height: auto;display: block;}
+.mjtc-support-ai-powered-reply-content {flex-grow: 1;}
+.mjtc-support-ai-powered-reply-title {font-weight: bold;color: #333;margin-bottom: 10px;font-size: 20px;}
+.mjtc-support-ai-powered-reply-text {color: #666;font-size: 14px;line-height: 1.4;}
+.mjtc-support-ai-powered-reply-action {flex-shrink: 0;margin-right: 15px;}
+.mjtc-support-ai-powered-reply-button {display: inline-block;background-color: #28a745; /* Green background */color: #fff;padding: 13px 20px;text-decoration: none;border-radius: 6px;font-size: 14px;white-space: nowrap;font-weight: 600;}
+.mjtc-support-ai-powered-reply-button:hover {background-color: #2b2b2b;color: #FFFFFF;}
+.mjtc-support-ai-powered-reply-button:focus {color: #FFFFFF;}
+.mjtc-support-info-icon-wrapper {position: relative;display: inline-block;cursor: help;padding: 0 5px;}
+.mjtc-support-info-icon {font-size: 18px;color: #6c757d;transition: color 0.2s ease;}
+.mjtc-support-info-icon-wrapper.tooltip-active .mjtc-support-info-icon::after, .mjtc-support-info-icon-wrapper.tooltip-active .mjtc-support-info-icon::before {opacity: 1;visibility: visible;}
+.mjtc-support-info-icon {font-size: 18px;color: #6c757d;transition: color 0.2s ease;}
+.mjtc-support-info-icon::after, .mjtc-support-info-icon::before, .status-segment::after, .status-segment::before {box-sizing: border-box;content: attr(data-tooltip);position: absolute;top: calc(100% + 20px);left: 50%;transform: translateX(-50%);background-color: #343a40;color: #fff;padding: 12px 18px;border-radius: 10px;font-size: 13.5px;line-height: 1.5;white-space: normal;width: 200px;text-align: center;opacity: 0;visibility: hidden;transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;z-index: 1000;box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);}
+.mjtc-support-info-icon::before, .status-segment::before {content: '';top: calc(100% + 13px);left: 50%;transform: translateX(-50%) rotate(45deg);width: 14px;height: 35px;background-color: #343a40;z-index: 1000;}
+.mjtc-support-info-icon img {width: 20px;}
+
 /* ticket detail woocommerce */
 .mjtc-sprt-wc-order-box {float: left;width: 100%;}
 .mjtc-sprt-wc-order-box .mjtc-sprt-wc-order-item {float: left;width: 100%;padding-bottom: 10px;}
@@ -1013,7 +1147,7 @@ div#mjtc_ddl span#mjtc_combo {display: inline-block;}
 div#mjtc_ddl span#mjtc_combo #translations {display: inline-block;height: 45px;padding: 10px;margin: 0;box-shadow: unset;color: #6c757d;background: #f8fafc;border: 1px solid #e0e1e0;background-image: url('../images/selecticon.png');background-repeat: no-repeat;background-position: calc(100% - 15px);-webkit-appearance: none;-moz-appearance: none;appearance: none;background-size: 16px;}
 div#mjtc_ddl span.button{display: inline-block;color: #fff; padding: 3px 12px; background: #2a1abf; border:1px solid #2a1abf; cursor: pointer;height: 45px;line-height: 35px;}
 div#mjtc_ddl span.button img{margin-right: 10px;line-height: initial;}
-div#mjtc_ddl.jshd_translation_btn{display: inline-block;width: 100%;margin-top: 12px;padding-left: 27%;}
+div#mjtc_ddl.ms_translation_btn{display: inline-block;width: 100%;margin-top: 12px;padding-left: 27%;}
 div#mjtc-emessage-wrapper{display:none; margin-top: 15px; float: left; width: 100%; background: #FEF9F6; border:1px solid #e0e1e0; padding: 15px; text-align: center;}
 div#mjtc-emessage-wrapper div{display: inline-block; font-size: 15px; color: #8B0E0E;}
 div#mjtc-emessage-wrapper img{width: 22px; height: auto; margin-right: 10px;}
@@ -1024,7 +1158,7 @@ div#mjtc-emessage-wrapper_ok{display:none; margin-top: 15px; float: left; width:
 div#mjtc-emessage-wrapper_ok div{display: inline-block; font-size: 15px; color: #00A859;}
 div#mjtc-emessage-wrapper_ok img{width: 22px; height: auto; margin-right: 10px;}
 div#black_wrapper_translation{ display: none; position: fixed;width:100%;height: 100%;top:0px;left:0px; background: rgba(0,0,0,0.6);  z-index:9998;}
-div#mstran_loading{ display: none; z-index:9999; position: fixed; top: 40%; left: calc(50% - 64px);}
+div#mstran_loading, div#mjtc_ai_reply_loading{ display: none; z-index:9999; position: fixed; top: 40%; left: calc(50% - 64px);}
 div#mjtc-lang-toserver{display: inline-block; float: left; width: 100%;padding: 25px 20px;}
 div#mjtc-lang-toserver div.col:first-child{float: left;width: 65%;}
 div#mjtc-lang-toserver div.col:last-child{float: left;padding-left: 10px;width: 35%;}
@@ -1104,6 +1238,7 @@ div.mjtc-email-menu span.mjtc-email-menu-link:hover a,
 div.mjtc-email-menu span.mjtc-email-menu-link.selected a {color: #fff;background: #2a1abf;}
 div.mjtc-email-menu span.mjtc-email-menu-link a {display:block;padding:15px;color:#fff;border-bottom: 1px solid #e0e1e0;text-decoration: none;}
 div.mjtc-email-body {float: left;width:70%;padding:2.5%;background: #fff;}
+div.mjtc-email-body.mjtc-custom-email-body {padding-top: 0;}
 div.mjtc-email-body div.mjtc-form-wrapper {float: left;width: 100%;}
 div.mjtc-email-body div.mjtc-form-wrapper div.a-mjtc-form-title {float: left;width: 100%;margin-bottom: 7px;color: #23282d;}
 div.mjtc-email-body div.mjtc-form-wrapper div.a-mjtc-form-field {float: left;width: 100%;margin-bottom: 15px;}
@@ -1113,6 +1248,46 @@ div.mjtc-email-body div.mjtc-email-parameters div.mjtc-email-parameter-heading {
 div.mjtc-email-body div.mjtc-email-parameters span.mjtc-email-paramater {float: left;width: 100%;padding: 10px;color: #6c757d;}
 div.mjtc-email-body div.mjtc-form-button {margin-top: 15px;}
 div.mjtc-email-msg span{color: red;}
+/* custom template */
+.mjtc-support-email-templates-wrapper {float: left;width: 70%;padding: 2.5%;padding-bottom: 0;background-color: #FFF;}
+.mjtc-support-email-templates-wrapper form {width: 100%;display: flex;flex-wrap: wrap; gap: 15px;align-items: center;padding: 17px;border: 1px solid #e9e2e2;border-radius: 8px;background-color: #f5f5f5;}
+.mjtc-support-email-templates-wrapper form .mjtc-help-block{display: none;}
+.mjtc-support-default-template-section,
+.mjtc-support-form-specific-templates-section {background-color: #fff;border-radius: 8px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);padding: 25px;margin-bottom: 25px;border: 1px solid #ebecec;}
+.mjtc-support-default-template-title,
+.mjtc-support-form-specific-templates-title,
+.mjtc-support-existing-custom-templates-title {font-size: 18px;font-weight: 600;margin-bottom: 10px;color: #1f2937;}
+.mjtc-support-default-template-section {border: 1px solid #cce5ff;background-color: #e7f3ff;}
+.mjtc-support-default-template-description,
+.mjtc-support-form-specific-templates-description {font-size: 14px;color: #555;margin-bottom: 15px;line-height: 1.5;}
+.mjtc-support-email-templates-wrapper .mjtc-support-form-specific-templates-description {margin-bottom: 25px;}
+.mjtc-support-existing-custom-templates {margin-top: 10px;}
+.mjtc-support-button {display: inline-block;padding: 10px 20px;border-radius: 5px;margin-bottom: 0;text-decoration: none;font-weight: 500;cursor: pointer;transition: background-color 0.3s ease;text-align: center;}
+.mjtc-support-view-edit-default {background-color: #007bff;color: #fff;border: 1px solid #007bff;}
+.mjtc-support-view-edit-default:hover {background-color: #0056b3;border-color: #0056b3;color: #fff;}
+.mjtc-support-form-selection-wrapper {display: flex;flex-wrap: wrap;align-items: center;gap: 15px;margin-bottom: 30px;}
+.mjtc-support-select-form-label {font-size: 14px;color: #333;font-weight: 500;}
+select.mjtc-support-select-form {border: 1px solid #e9e2e2;border-radius: 5px;font-size: 14px;min-width: 200px;flex-grow: 1;max-width: 100%;height: 41px;box-sizing: border-box;}
+.mjtc-support-create-edit-template {background-color: #28a745;color: #fff;border: 1px solid #28a745;white-space: nowrap;}
+.mjtc-support-create-edit-template:hover {background-color: #218838;border-color: #218838;color: #FFF;}
+.mjtc-support-custom-templates-table {width: 100%;border-collapse: collapse;margin-top: 15px;border: 1px solid #e9e2e2;}
+.mjtc-support-custom-templates-table th,
+.mjtc-support-custom-templates-table td {padding: 12px 15px;border-bottom: 1px solid #eee;text-align: left;font-size: 14px;}
+.mjtc-support-custom-templates-table th {background-color: #f3f4f6;font-weight: 600;color: #666;}
+.mjtc-support-custom-templates-table tbody tr:last-child td {border-bottom: none;}
+.mjtc-support-action-link {color: #007bff;text-decoration: none;margin: 0 5px;}
+.mjtc-support-action-link:hover {text-decoration: underline;}
+.mjtc-support-action-link.mjtc-support-delete {color: #dc3545;}
+.mjtc-support-action-link.mjtc-support-delete:hover {text-decoration: underline;}
+.mjtc-support-action-separator {color: #ccc;}
+div.mjtc-support-card-wrapper {background-color: #fff;border-radius: 8px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);padding: 25px;margin-bottom: 25px;border: 1px solid #ebecec;width: 100%;box-sizing: border-box;display: flex;flex-wrap: wrap;}
+div.mjtc-support-card-item {display: flex;align-items: center;padding: 8px 0;width: 100%;}
+div.mjtc-support-card-item:not(:last-child) {margin-bottom: 5px;}
+div.mjtc-support-card-icon {margin-right: 12px;color: #888;font-size: 20px;}
+div.mjtc-support-card-content {display: flex;font-size: 15px;line-height: 1.4;}
+div.mjtc-support-card-label {color: #555;margin-right: 5px;}
+div.mjtc-support-card-value {color: #333;font-weight: normal;}
+div.mjtc-support-card-value.mjtc-support-card-value-bold {font-weight: bold;}
 
 /* customer satisfaction report */
 div.ms-statifacetion-report-wrapper{display: inline-block;width: 100%;}
@@ -1234,7 +1409,6 @@ div#msadmin-data-wrp div.mjtc_effect_preview.mjtc_effect_preview-overall-wrapper
 div.mjtc_effect_preview span.mjtc_effect_preview_heading{display: block;font-size:16px;font-weight: bold;padding:10px;}
 div.mjtc-sugestion-alert-wrp{display:flex;align-items: baseline;margin:30px auto 0 auto;padding: 15px;max-width:520px;background: #feffdb;font-size: 14px;}
 form div.color_submit_button{display: none;}
-
 /* Themes My ticket session css */
 div.msadmin-wrapper-main-overall-wrapper-for-all .mjtc_effect_preview div.mjtc-support-wrapper div.mjtc-support-pic {border-radius: 0;}
 div.msadmin-wrapper-main-overall-wrapper-for-all .mjtc-support-form-wrp .form-overall-wrapper{width: 100%;}
@@ -1262,13 +1436,12 @@ div.msadmin-wrapper-main-overall-wrapper-for-all .div.mjtc-support-wrapper div.m
 div.msadmin-wrapper-main-overall-wrapper-for-all .buttons-color-status-wrapper{width: 100%; display: flex; text-align: center;justify-content: center; margin: auto;}
 div.msadmin-wrapper-main-overall-wrapper-for-all .replid-ticket-overall-wrapper .buttons-color-status-wrapper .mjtc-support-status{margin-right: -7px}
 div.msadmin-wrapper-main-overall-wrapper-for-all div.mjtc-support-wrapper .mjtc-support-wrapper-edit div.mjtc-support-data1{margin: 0px 0px;min-width: 22%;text-align:center;}
-div.msadmin-wrapper-main-overall-wrapper-for-all .mjtc-support-cont-main-wrapper{display: flex;justify-content: center;position: relative;z-index: 998;}
+div.msadmin-wrapper-main-overall-wrapper-for-all .mjtc-support-cont-main-wrapper{display: flex;justify-content: center;position: relative;z-index: 9999;}
 div.msadmin-wrapper-main-overall-wrapper-for-all .mjtc-transparent-header {position: absolute;left: 0;right: 0;margin-left: auto;margin-right: auto;width: 100%;z-index: 997;background: rgba(0,0,0,0.2);}
 div.msadmin-wrapper-main-overall-wrapper-for-all div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-status{top: 30px;border-radius: 0;}
 div.msadmin-wrapper-main-overall-wrapper-for-all span.mjtc-support-wrapper-textcolor{top: 30px;}
 div.msadmin-wrapper-main-overall-wrapper-for-all .mjtc-support-breadcrumps{margin-top: 30px;}
 div.msadmin-wrapper-main-overall-wrapper-for-all .mjtc-support-button-header{margin: 0;}
-
 /* add on list */
 div.msadmin-add-on-page-wrapper {padding-right: 0 !important;}
 div.msadmin-add-on-page-wrp {float: left;width: 100%;background: #fff;}
@@ -1394,6 +1567,8 @@ div.msadmin-add-on-page-wrp div.add-on-page-cnt div.add-on-list div.add-on-item.
 div.msadmin-add-on-page-wrp div.add-on-page-cnt div.add-on-list div.add-on-item.desk-notif .add-on-price {color: #eb1d24;}
 div.msadmin-add-on-page-wrp div.add-on-page-cnt div.add-on-list div.add-on-item.desk-notif a.add-on-btn {background: #eb1d24;}
 div.msadmin-add-on-page-wrp div.add-on-page-cnt div.add-on-list div.add-on-item.desk-notif a.add-on-btn:hover {border-color: #eb1d24;color: #eb1d24 !important;background: #fff;}
+div.msadmin-add-on-page-wrp div.add-on-page-cnt div.add-on-list div.add-on-item.aipoweredreply a.add-on-btn {background: #4ead96;}
+div.msadmin-add-on-page-wrp div.add-on-page-cnt div.add-on-list div.add-on-item.aipoweredreply a.add-on-btn:hover {border-color: #4ead96;color: #4ead96 !important;background: #fff;}
 div.msadmin-add-on-page-wrp div.add-on-page-cnt div.add-on-list div.add-on-item.agent .add-on-price {color: #3b4c56;}
 div.msadmin-add-on-page-wrp div.add-on-page-cnt div.add-on-list div.add-on-item.agent a.add-on-btn {background: #3b4c56;}
 div.msadmin-add-on-page-wrp div.add-on-page-cnt div.add-on-list div.add-on-item.agent a.add-on-btn:hover {border-color: #3b4c56;color: #3b4c56 !important;background: #fff;}
@@ -1886,6 +2061,71 @@ a.button.button-primary.majesticsupport-review-box-btn {font-size: 14px;backgrou
 .majesticsupport-thanks-box-popup .mjtc-support-review-thanks-msg .thanks-msg-title {float: left;width: 100%;padding: 30px 0 10px;font-weight: 500;font-size: 45px;color: #373435;text-transform: capitalize;}
 .majesticsupport-thanks-box-popup .mjtc-support-review-thanks-msg .thanks-msg-desc {float: left;width: 100%;font-size: 16px;color: #373435;padding: 25px 0;}
 .majesticsupport-thanks-box-popup .mjtc-support-review-thanks-msg .thanks-msg-footer {float: left;width: 100%;font-size:16px;color: #373435;text-decoration: underline;}
+/* update key */
+div#msadmin-data-wrp .msadmin-update-key-form{display: flex;width: 100%;padding:20px;background-color: #ffff;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp{display: flex;width: 100%;flex-direction: column;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-section{display: flex;align-items: center;justify-content: center;background-color:#f2f6ff;border: 1px solid #cececf;padding: 20px;flex-direction: column;margin-bottom: 30px;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-title{font-size: 30px;line-height: 40px;text-align: center;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-section input{width: 80%;text-align: center;height: 45px;border-radius: unset;margin-bottom: 20px;font-size: 17px;border:1px solid #e0e2e7;color: #000;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-slctall-addonswrp{display: flex;align-items: center;gap: 20px;margin-bottom: 20px;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-slctall-addonswrp .msadmin-update-key-slctall-addon-title{display: flex;align-items: center;font-size: 22px;font-weight: bold;line-height: 35px;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-slctall-addonswrp .msadmin-update-key-slctall-addon-checkbox-wrp{display: flex;align-items: flex-start;font-size: 14px;line-height: 24px;gap: 10px;margin-left: auto;padding: 10px;border: 1px solid #d4d4d4;background-color: #fafafa;min-width: fit-content;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-checkbox{width: 20px;height: 20px;border-radius: unset;border: 1px solid #d4d4d4;margin:3px 0 0 0;min-width: 20px;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-checkbox::before{margin: -1px -2px;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-all-addons-wrp{display: flex;align-items: flex-start;flex-wrap: wrap;width: 100%;gap: 10px;padding-bottom: 30px;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-all-addons-wrp .msadmin-update-key-single-addon{width: calc(100% / 4 - 7.5px);display: flex;align-items: flex-start;gap: 20px;border: 1px solid #d4d4d4;padding:13px 10px;font-size: 14px;line-height: 24px;background-color: #fafafa;min-width: 280px;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-all-addons-wrp .msadmin-update-key-single-addon.msadmin-update-key-single-addon-red{border: 1px solid #ec4f4f;color: #ec4f4f;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-infomsgwrp{display: flex;align-items:center;gap: 15px;border: 1px solid #286fc8;padding:5px 10px;font-size: 14px;margin-bottom: 30px;background-color: #f5faff;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-infomsgwrp img{width: 30px;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-errormsgwrp{border: 1px solid #ec4f4f;background-color: #f2e8e8;color: #ec4f4f;display: flex;align-items:center;gap: 15px;padding:15px 12px;font-size: 16px;font-weight: 600;margin-bottom: 30px;line-height: 25px;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-custom-errormsgwrp .error{margin: 0px 0px 30px;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-custom-errormsgwrp .updated{margin: 0px 0px 30px;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-updtebtn-wrp{display: flex;align-items: center;justify-content: center;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-updtebtn-wrp .msadmin-update-key-updtebtn{display: flex;align-items: center;cursor: pointer; justify-content: center;text-align: center;width: 100%;padding: 17px 30px;background: #373435;border: 1px solid #eee;color: #fff;font-size: 16px;font-weight: bold;margin-bottom: 60px;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-updtebtn-wrp .msadmin-update-key-updtebtn:hover{border-color: #373435;color: #373435;background-color: #fff;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-checkbox:focus{box-shadow: unset;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-checkbox:checked{border-color: #0073aa;box-shadow: 0 0 0 1px #0073aa;}
+div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-no-addon-msg{float: left;width: 100%;text-align: center;margin: 65px 0 50px;font-size: 20px;font-weight: 600;color: #848d96}
+/* import data */
+.ms-plugins-imprt-datasec{display: flex;flex-wrap: wrap; align-content: center;justify-content: space-between;padding:25px;border: 1px solid #e0e1e0;margin-bottom: 20px;gap: 20px;}
+.ms-plugins-imprt-datasec .ms-plugins-imprt-data-plgnnme{font-size: 20px;line-height: 30px; font-weight: bold;display: flex;align-items: center;}
+.ms-plugins-imprt-datasec .ms-plugins-imprt-databtn{padding:12px 10px;min-width: 120px; background-color: #000;color: white;text-decoration: unset;font-size: 15px;line-height: 22px; display:flex;align-items: flex-start;justify-content: center;gap: 7px;}
+.ms-plugins-imprt-datasec .ms-plugins-imprt-databtn:hover{background-color: #1572e8;}
+.ms-plugins-imprt-datasec.ms-plugin-notinstalled{background-color: #fdf2f3;border-color: #f8979b;}
+.ms-plugins-imprt-datasec.ms-plugin-notinstalled .ms-plugins-imprt-databtn{background-color: #fff;border: 1px solid #f8979b; color: #3c434a;}
+.ms-plugins-imprt-datasec.ms-plugin-notinstalled .ms-plugins-imprt-databtn .ms-plugins-imprterror-image{width: 20px;height: auto;}
+/* single plugin import data */
+.ms-singleplugin-imprt-data-sec{display: flex;flex-wrap: wrap; align-content: center;justify-content: space-between;padding:25px;border: 1px solid #e0e1e0;margin-bottom: 20px;}
+.ms-singleplugin-imprt-data-sec .ms-singleplugin-imprt-datatitle{display: flex;width: 100%;font-size: 24px;font-weight: bold;line-height: 35px;border-bottom: 1px solid;padding-bottom: 10px;margin-bottom: 5px;}
+.ms-singleplugin-imprt-data-sec .ms-singleplugin-imprt-datadisc{font-size: 15px;line-height: 22px; padding:20px;border-bottom:1px solid #e0e1e0;width:calc(100% - 20px);margin: 0 10px;color: #808181;}
+.ms-singleplugin-imprt-data-sec .ms-singleplugin-imprt-datadisc.ms-singleplugin-imprt-data-addonnot-instllwrp{display: flex;align-items: center;justify-content: space-between;flex-wrap: wrap;background-color:#fdf2f3;gap: 20px;}
+.ms-singleplugin-imprt-data-sec .ms-singleplugin-imprt-datadisc.ms-singleplugin-imprt-data-addonnot-instllwrp .ms-singleplugin-imprt-data-addonnot-instll{display: flex;align-items: flex-start;font-size: 13px;color: #3c434a;line-height: 21px;gap: 5px;}
+.ms-singleplugin-imprt-data-sec .ms-singleplugin-imprt-datadisc.ms-singleplugin-imprt-data-addonnot-instllwrp .ms-singleplugin-imprt-data-addonnot-instll .ms-plugins-imprterror-image{width: 20px;height: auto;}
+.ms-singleplugin-imprt-data-sec .ms-singleplugin-imprt-databtn-wrp{display: flex;justify-content: center;width: 100%;padding-top: 20px;}
+.ms-singleplugin-imprt-data-sec .ms-singleplugin-imprt-databtn-wrp .ms-singleplugin-imprt-databtn{padding: 15px;text-align: center;border-radius: 0;height: auto;font-size: 16px;line-height: 22px; min-width: 150px;text-decoration: unset;background: #209e24;border:1px solid #cccccc;color: #fff;}
+.ms-singleplugin-imprt-data-sec .ms-singleplugin-imprt-databtn-wrp .ms-singleplugin-imprt-databtn:hover{background: #fff;color: #209e24;}
+/* plugin imported data */
+.ms-singleplugin-imprted-data-sec{display: flex;flex-wrap: wrap; align-content: center;justify-content: space-between;padding:25px 25px 50px;border: 1px solid #e0e1e0;margin-bottom: 20px;}
+.ms-singleplugin-imprted-data-sec .ms-singleplugin-imprted-datatitle{display: flex;width: 100%;font-size: 24px;font-weight: bold;line-height: 35px;border-bottom: 1px solid;padding-bottom: 10px;margin-bottom: 5px;}
+.ms-singleplugin-imprted-data-sec .ms-singleplugin-imprted-datadisc{font-size: 15px;padding:20px;border-bottom:1px solid #e0e1e0;width:calc(100% - 20px);margin: 0 10px;color: #808181;}
+.ms-singleplugin-imprted-data-sec .ms-singleplugin-imprted-datadisc.ms-singleplugin-imprted-data-addonnot-instllwrp{display: flex;align-items: center;justify-content: space-between;flex-wrap: wrap;gap: 20px;}
+.ms-singleplugin-imprted-data-sec .ms-singleplugin-imprted-datadisc.ms-singleplugin-imprted-data-addonnot-instllwrp .ms-singleplugin-imprted-data-addonnot-instll{display: flex;align-items: flex-start;font-size: 13px;color: #3c434a;}
+.ms-singleplugin-imprted-data-sec .ms-singleplugin-imprted-datadisc.ms-singleplugin-imprted-data-addonnot-instllwrp .ms-singleplugin-imprted-data-addonnot-instll .ms-plugins-imprtederror-image{width: 20px;height: auto;margin-right: 5px;}
+.ms-singleplugin-imprted-data-sec .ms-singleplugin-imprted-databtn-wrp{display: flex;justify-content: center;width: 100%;padding-top: 20px;}
+.ms-singleplugin-imprted-data-sec .ms-singleplugin-imprted-databtn-wrp .ms-singleplugin-imprted-databtn{padding: 15px;text-align: center;border-radius: 0;height: auto;font-size: 16px;min-width: 150px;text-decoration: unset;background: #209e24;border:1px solid #cccccc;color: #fff;}
+.ms-singleplugin-imprted-data-sec .ms-singleplugin-imprted-databtn-wrp .ms-singleplugin-imprted-databtn:hover{background: #fff;color: #209e24;}
+.ms-import-data-result-import-table {width: 100%;border-collapse: collapse;margin-top: 20px;font-size: 16px;}
+.ms-import-data-result-import-table th, .ms-import-data-result-import-table td {padding:20px;border: 1px solid #ffe5e5;text-align: start;}
+.ms-import-data-result-import-table td {padding: 20px;border: 1px solid #ffe5e5;text-align:start;color: #808181;}
+.ms-import-data-result-import-table th {background-color: #222;color: white;}
+.ms-import-data-result-import-table td.ms-import-data-result-similar {background-color: #fff4ec;color: #994c00;text-align: center;}
+.ms-import-data-result-import-table td.ms-import-data-result-failed {background-color: #ffe5e5;color: #a94442;text-align: center;}
+.ms-import-data-result-import-table td.ms-import-data-result-success {background-color: #e6fff0;color: #2b6d4c;text-align: center;}
+.ms-import-data-addon-message{padding: 5px 10px;border: 1px solid #ddd;background: #FFF4EC;margin: 5px 0;display: inline-block;font-size: 15px;line-height: 20px;border: 1px solid #DDD;}
+/* import data */
+/* import message */
+div.ms-import-data-addon-messagewrp{display: flex;align-items: center;justify-content: flex-start;width: 100%;}
+div.ms-import-data-addon-messagewrp .ms-import-data-addon-message{padding: 5px 10px;background: #FFF4EC;margin: 5px 0;display: inline-block;font-size: 15px;line-height: 20px;border: 1px solid #DDD;}
 @media (min-width:1750px) and (max-width:1880px){.majesticsupport-review-box-popup-content {width: 52%;}}
 @media (min-width:1650px) and (max-width:1749px){.majesticsupport-review-box-popup-content {width: 55%;}}
 @media (min-width:1500px) and (max-width:1649px){.majesticsupport-review-box-popup-content {width: 60%;}}
@@ -1957,6 +2197,10 @@ div#msadmin-data-wrp .msupportadmin-help-top .msupportadmin-help-top-right {widt
 	div.mjtc-cp-baner div.mjtc-cp-baner-cnt{width: calc(100% - 130px);}
 	.mjtc-cp-baner-cnt .mjtc-cp-baner-img2{display: none;}
 	div.mjtc-cp-baner .mjtc-cp-baner-inner-wrp{height: auto !important;}
+}
+@media (max-width: 1680px){
+	/* key update */
+	div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-all-addons-wrp .msadmin-update-key-single-addon{width: calc(100% / 3 - 6.7px);flex: 1 1 auto;}
 }
 @media (max-width:1280px){
 	div.mjtc-cp-baner .mjtc-cp-baner-inner-wrp{height: auto;}
@@ -2155,8 +2399,8 @@ div#msadmin-data-wrp .msupportadmin-help-top .msupportadmin-help-top-right {widt
 	div.ms-merge-popup-wrapper form .mjtc-form-wrapper .mjtc-merge-form-btn-wrp{width: 50%;}
 	div.ms-merge-popup-wrapper form .mjtc-form-wrapper .mjtc-merge-form-btn-wrp .mjtc-merge-btn .mjtc-merge-button{margin: 0 5px 0 1px;padding: 7px 0;}
 	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-pic{width: calc(30% - 1px);}
-	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.my-ticket-priority-div{width: 70%;margin-left: 30%;}
-	div.ms-merge-popup-wrapper div.mjtc-support-wrapper .my-ticket-priority-div .mjtc-support-wrapper-textcolor {margin: 5px 0 10px;}
+	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-ticket-priority{width: 70%;margin-left: 30%;}
+	div.ms-merge-popup-wrapper div.mjtc-support-wrapper .mjtc-ticket-priority .mjtc-support-wrapper-textcolor {margin: 5px 0 10px;}
 	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data{width: 70%;}
 	.mjtc-row{margin: 0;}
 	div.mjtc-support-wrapper div.mjtc-support-toparea div.mjtc-support-data1.mjtc-support-data1-merge-ticket-overall-wrapper{width:70%;padding:0 5px 20px 4px;float: right;}
@@ -2270,7 +2514,19 @@ div.ms-statifacetion-report-wrapper div.ms-satisfaction-report-bottom div.indi-s
 #majestic-support-table tr {display: block;padding: 15px;}
 #majestic-support-table tbody tr td {display: block;width: 100%;text-align: left;padding: 6px 5px;border: none;}
 #majestic-support-table tbody tr td::before {content: attr(data-th) ":";font-weight: bold;color: #23282d;display: inline-block;margin-right: 20px;width: auto;border: none;}
-	
+
+/*import data tables */
+#ms-import-data-result-table .w60 {width: auto;}
+#ms-import-data-result-table .w70 {width: auto;}
+#ms-import-data-result-table {border-spacing: 0 6px;}
+#ms-import-data-result-table thead tr {display: none;}
+#ms-import-data-result-table tr {display: block;border: 1px solid #dedede;margin-bottom: 30px;}
+#ms-import-data-result-table tbody tr td:first-child{background-color: #000;color: #fff;}
+#ms-import-data-result-table tbody tr td {display: flex;gap: 10px; width: 100%;text-align: start;border: none;}
+#ms-import-data-result-table tbody tr td::before {content: attr(data-th) ":";font-weight: bold;color: #23282d;display: inline-block;width: auto;border: none;}
+#ms-import-data-result-table tbody tr td:first-child::before {color: #fff;}
+#ms-import-data-result-table.mjtc-support-custom-templates-table tr{margin-bottom: 0;border: unset;}	
+
 /* feedbacks */
 .ms-feedback-det-wrp div.mjtc-support-wrapper div.mjtc-support-toparea div.mjtc-support-data div.mjtc-support-left div.mjtc-support-data-row div.mjtc-support-data-row-rec {width: 100%;margin: 0 0 10px;}
 
@@ -2344,6 +2600,21 @@ div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msuppo
 		.mjtc-conditions-main-wrapper .mjtc-conditions-body .mjtc-conditions-body-row-wrapper .mjtc-conditions-body-row{min-height:0;padding: 0 !important;border: none;}
 		.mjtc-conditions-main-wrapper{border: none;}
 		div.ms-addon-installer-wrapper div.ms-addon-installer-right-section-wrap div.ms-addon-installer-right-addon-wrapper div.ms-addon-installer-right-addon-section{padding:0px 0 15px 15px;}
+	/* addon status */
+	div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp{align-items: flex-start;}
+	/* email template */
+	.mjtc-support-default-template-section,
+    .mjtc-support-form-specific-templates-section {padding: 20px;}
+    .mjtc-support-default-template-title,
+    .mjtc-support-form-specific-templates-title,
+    .mjtc-support-existing-custom-templates-title {font-size: 16px;}
+	.mjtc-support-email-templates-wrapper{width: 100%;margin-top: 50px;}
+    .mjtc-support-button {width:fit-content;}
+    .mjtc-support-form-selection-wrapper {flex-direction: column;align-items: stretch;}
+    .mjtc-support-select-form {width: 100%;}
+    .mjtc-support-custom-templates-table th,
+    .mjtc-support-custom-templates-table td {padding: 10px;font-size: 13px;}
+	.mjtc-support-default-template-section, .mjtc-support-form-specific-templates-section{margin-bottom: 10px;}
 		}
 @media (max-width: 650px){
 	/* addon installer */
@@ -2384,7 +2655,8 @@ div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msuppo
 	.majesticsupport-thanks-box-popup .thanks-msg-title {padding-top: 5px;font-size: 30px;}
 
 	/*visible*/
-	form.msadmin-form div.mjtc-form-wrapper.mjtc-form-visible-wrapper .mjtc-form-select-field{width: calc(100% - 10px);margin: 0 5px 15px;}
+	form.msadmin-form div.mjtc-form-wrapper.mjtc-form-visible-wrapper .mjtc-form-input-field{width: calc(100% - 10px);margin: 0 5px 15px;}
+	form.msadmin-form div.mjtc-form-wrapper.mjtc-form-visible-wrapper .mjtc-form-select-field{width: calc(100% - 28px);margin: 0 5px 15px;}
 	form.msadmin-form div.mjtc-form-wrapper.mjtc-form-visible-wrapper{width: calc(100% - 0px)}
 
 	/* configuration */
@@ -2552,8 +2824,8 @@ div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msuppo
 	div.ms-merge-popup-wrapper form .mjtc-form-wrapper .mjtc-merge-form-btn-wrp .mjtc-merge-btn .mjtc-merge-button{margin: 0 5px 0 1px;padding: 7px 0;}
 	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-pic{width:100%;}
 	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-pic img {margin: auto;}
-	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.my-ticket-priority-div{width: 100%;text-align: center;margin: 0;}
-	div.ms-merge-popup-wrapper div.mjtc-support-wrapper .my-ticket-priority-div .mjtc-support-wrapper-textcolor{margin: 10px 0;}
+	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-ticket-priority{width: 100%;text-align: center;margin: 0;}
+	div.ms-merge-popup-wrapper div.mjtc-support-wrapper .mjtc-ticket-priority .mjtc-support-wrapper-textcolor{margin: 10px 0;}
 	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data{width:100%;text-align: center;}
 	div.mjtc-support-wrapper div.mjtc-support-toparea div.mjtc-support-data1.mjtc-support-data1-merge-ticket-overall-wrapper{width: 100%;}
 	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data1 .mjtc-row{display: flex;justify-content: center;}
@@ -2578,6 +2850,13 @@ div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msuppo
 	.mjtc-conditions-main-wrapper .mjtc-conditions-body .mjtc-conditions-body-row-wrapper .mjtc-conditions-body-row{min-height:0;padding: 0 !important;border: none;}
 	.mjtc-conditions-main-wrapper .mjtc-conditions-body .mjtc-conditions-addbtn-wrp{margin:20px 0px 20px 0px;}
 	.mjtc-conditions-main-wrapper{border: none;}
+	/* update key */
+	div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-slctall-addonswrp{flex-wrap: wrap;}
+	div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-slctall-addonswrp .msadmin-update-key-slctall-addon-checkbox-wrp{margin-left: unset;}
+	div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-section input{width: 95%;}
+	/* AI Powered Response */
+	.mjtc-support-ai-powered-reply-wrapper {justify-content: center !important;}
+	.mjtc-support-ai-powered-reply-content {text-align: center;}
 }
 @media (max-width: 480px){
 	/* ticket details */
@@ -2662,8 +2941,8 @@ div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msuppo
 	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data1 .mjtc-support-wrapper-textcolor{margin-top: -5px;}
 	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data1{margin: 0 0 10px 0;}
 	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-support-data{margin: 10px 0 0 0;}
-	.my-ticket-priority-div{margin: 0;}
-	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.my-ticket-priority-div{margin: 0;}
+	.mjtc-ticket-priority{margin: 0;}
+	div.ms-merge-popup-wrapper div.mjtc-support-wrapper div.mjtc-ticket-priority{margin: 0;}
 	div.mjtc-support-wrapper div.mjtc-support-toparea div.mjtc-support-data{padding:5px 5px 0 5px;}
 	div.mjtc-support-wrapper div.mjtc-support-toparea{line-height: 24px;}
 	/* ticket-status-buttons */
@@ -2742,7 +3021,10 @@ div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msuppo
 	div#msadmin-wrapper div.mjtc-other-products-wrp div.mjtc-other-products-detail div.mjtc-other-products-image div.mjtc-other-products-bottom div.mjtc-product-title{width: 100%;padding: 0px;text-align: center;padding-top: 10px;}
 	div#msadmin-wrapper div.mjtc-other-products-wrp div.mjtc-other-products-detail div.mjtc-other-products-image div.mjtc-other-products-bottom div.mjtc-product-bottom-btn{width: 100%;margin-top: 10px;padding-left: 68px;}
 	div#msadmin-wrapper div.mjtc-other-products-wrp div.mjtc-other-products-detail div.mjtc-other-products-image{padding-right: 0px;}
-
+	/* autoupdte */
+	div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp{flex-wrap: wrap;justify-content: center;text-align: center;padding: 20px 10px;}
+	div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp .msadmin-autoupdte-addons-cardwrp-rightwrp{justify-content: center;text-align: center;}
+	div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp .msadmin-autoupdte-addons-card-btn{margin-right: 0;}
 	/*agent auto assign*/
 	.mjtc-conditions-main-wrapper .mjtc-conditions-body .mjtc-conditions-body-row-wrapper .mjtc-conditions-body-row {width: calc(100% / 1);}
 	.mjtc-conditions-main-wrapper .mjtc-conditions-head .mjtc-conditions-head-items {float: left;width: calc(100% / 1);border-bottom: 1px solid #fff;}
@@ -2769,6 +3051,26 @@ div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msuppo
 		
 	/* Ticket Detail */
 	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-detail {min-width: 250px;}
+	/* update key */
+	div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-section input{width: 100%;}
+	div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-section{padding: 10px;}
+
+	/* AI Powered Reply	*/
+	.mjtc-support-matching-tickets-section .mjtc-support-section-heading {max-width: 100%;}
+	.mjtc-support-filter-group {margin-left: 0;}
+	/* email template */
+	.mjtc-support-email-templates-wrapper {padding: 2.5%;}
+    .mjtc-support-default-template-section,
+    .mjtc-support-form-specific-templates-section {padding: 15px;}
+    .mjtc-support-default-template-description,
+    .mjtc-support-form-specific-templates-description {font-size: 13px;}
+    .mjtc-support-custom-templates-table th,
+    .mjtc-support-custom-templates-table td {padding: 8px;font-size: 12px;display: block;width: 100%;box-sizing: border-box;}
+    .mjtc-support-custom-templates-table thead {display: none;}
+    .mjtc-support-custom-templates-table td:before {content: attr(data-label);font-weight: bold;display: inline-block;width: 100px;}
+    .mjtc-support-custom-templates-table tbody tr {margin-bottom: 10px;display: block;border: 1px solid #eee;border-radius: 5px;padding: 10px;}
+    .mjtc-support-action-link {margin: 0 3px;}
+	#ms-import-data-result-table tbody tr td{flex-wrap: wrap;}
 }
 
 @media only screen and (max-width: 1280px){

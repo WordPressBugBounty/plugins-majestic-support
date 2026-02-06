@@ -12,7 +12,7 @@ class MJTC_configurationController {
     function handleRequest() {
         $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'configurations');
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
-        if (self::canaddfile()) {
+        if (self::canaddfile($layout)) {
             switch ($layout) {
                 case 'admin_configurations':
                     $msconfigid = MJTC_request::MJTC_getVar('msconfigid');
@@ -37,15 +37,19 @@ class MJTC_configurationController {
         }
     }
 
-    function canaddfile() {
+    function canaddfile($layout) {
         $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
         if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
-            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
+            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
-            elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
+            } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
                 return false;
-            else
+            } else {
+                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($layout, 'admin_') === 0){
+                    return false;
+                }
                 return true;
+            }
         }
     }
 
@@ -57,16 +61,31 @@ class MJTC_configurationController {
         if (!current_user_can('manage_options')) { //only admin can change it.
             return false;
         }
-        $data = MJTC_request::get('post');
-        MJTC_includer::MJTC_getModel('configuration')->storeConfiguration($data);
+        $MJTC_data = MJTC_request::get('post');
+        MJTC_includer::MJTC_getModel('configuration')->storeConfiguration($MJTC_data);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_configuration&msconfigid=general");
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_configuration&msconfigid=general");
         }
-        if(isset($data['call_from']) && $data['call_from'] == 'notification' && is_admin()){
-            $url = admin_url("admin.php?page=majesticsupport_web-notification-setting");    
+        if(isset($MJTC_data['call_from']) && $MJTC_data['call_from'] == 'notification' && is_admin()){
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_web-notification-setting");    
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
+    }
+
+    // function to handle auto update configuration
+    function saveautoupdateconfiguration() {
+        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $nonce, 'mjtc_configuration_nonce') ) {
+             die( 'Security check Failed' );
+        }
+        if (!current_user_can('manage_options')) { //only admin can change it.
+            return false;
+        }
+        $result = MJTC_includer::MJTC_getModel('configuration')->storeAutoUpdateConfig();
+        $MJTC_url = esc_url_raw(admin_url("admin.php?page=majesticsupport_premiumplugin&mjslay=addonstatus"));
+        wp_safe_redirect($MJTC_url);
+        die();
     }
 
 }

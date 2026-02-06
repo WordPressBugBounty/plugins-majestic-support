@@ -25,7 +25,7 @@ if (majesticsupport::$_config['offline'] == 2) {
 
         </div>
 <?php
- echo wp_kses(MJTC_formfield::MJTC_hidden('ticketrandomid', $token), MJTC_ALLOWED_TAGS);
+echo wp_kses(MJTC_formfield::MJTC_hidden('ticketrandomid', $token), MJTC_ALLOWED_TAGS);
 } else { // System is offline
     MJTC_layout::MJTC_getSystemOffline();
 }

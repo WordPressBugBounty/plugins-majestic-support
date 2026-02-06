@@ -3,15 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
 
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 $majesticsupport_css = '';
 
@@ -39,6 +39,8 @@ $majesticsupport_css .= '
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp input#ms-dateend{background-image: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/calender.png);background-repeat: no-repeat;background-position: 96% 13px;padding: 10px;line-height: initial;height: 50px;background-size: 20px;}
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-departmentid{width: 100%;border-radius: unset;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / 4% no-repeat;padding: 10px;line-height: initial;height: 50px;}
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-priorityid{width: 100%;border-radius: unset;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / 4% no-repeat ;padding: 10px;line-height: initial;height: 50px;}
+	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-productid{width: 100%;border-radius: unset;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / 4% no-repeat ;padding: 10px;line-height: initial;height: 50px;}
+	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-status{width: 100%;border-radius: unset;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / 4% no-repeat ;padding: 10px;line-height: initial;height: 50px;}
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#staffid{width: 100%;border-radius: unset;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / 4% no-repeat ;padding: 10px;line-height: initial;height: 50px;}
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-status{width: 100%;border-radius: unset;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / 4% no-repeat ;padding: 10px;line-height: initial;height: 50px;}
 	div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-wrapper div.mjtc-filter-form-fields-wrp input{width:100%;border-radius: unset;padding: 10px;line-height: initial;height: 50px;}
@@ -78,7 +80,7 @@ $majesticsupport_css .= '
 	div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-status img.ticketstatusimage.two{left:-80px;}
 	div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-closedby-wrp{position: relative;font-size: 14px;}
 	div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-closedby{display: inline-block;color: #463e8f;text-transform: capitalize;border: 1px solid #817cb3;padding: 0 8px;cursor:pointer;margin-left: 5px;}
-	div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-closed-date{color: #3f3f41;border: 1px solid #e6e5e5;padding: 0 8px;position: absolute;background-image: linear-gradient(to top, #d3d3d2, #f6f6f6);top: 30px;display:none;min-width: 170px;z-index:1;}
+	div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-closed-date{color: #3f3f41;border: 1px solid #e6e5e5;padding: 0 8px;position: absolute;background-image: linear-gradient(to top, #d3d3d2, #f6f6f6);top: 30px;display:none;min-width: 170px;z-index:999;}
 	div.mjtc-support-wrapper div.mjtc-support-data .mjtc-support-title-anchor {text-transform: capitalize;display: inline-block;width: 65%;height: 35px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;padding-top: 7px;font-weight:600;text-decoration:underline;}
 	div.mjtc-support-wrapper div.mjtc-support-data1{margin:0px 0px;padding: 17px 15px 17px 15px;width: 25%;}
 	
@@ -121,9 +123,9 @@ $majesticsupport_css .= '
 $majesticsupport_css .= '
 
 /* My Tickets */
-	div.mjtc-support-top-cirlce-count-wrp {border:1px solid'.$color5.';}
+	div.mjtc-support-top-cirlce-count-wrp {border:1px solid'.$MJTC_color5.';}
 	/* Top Circle Count Box*/
-		div.mjtc-myticket-link a.mjtc-myticket-link{border:1px solid'.$color5.';}
+		div.mjtc-myticket-link a.mjtc-myticket-link{border:1px solid'.$MJTC_color5.';}
 		div.mjtc-myticket-link a.mjtc-myticket-link:hover{background: rgba(227, 231, 234, 0.7);}
 		.mjtc-support-answer{background-color:#2168A2;}
 		.mjtc-support-close{background-color:#3D355A;}
@@ -161,54 +163,57 @@ $majesticsupport_css .= '
 
 	/* Top Circle Count Box*/
 	/* Search Ticket Form*/
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-wrapper div.mjtc-filter-value select{background-color:'.$color7.';border: 1px solid '.$color5.';}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-wrapper div.mjtc-filter-value textarea{background-color:'.$color7.';border: 1px solid '.$color5.';}
-		div.mjtc-support-search-wrp{border:1px solid'.$color5.';}
-		div.mjtc-support-search-wrp div.mjtc-support-search-heading{background-color:#e7ecf2;border-bottom:1px solid'.$color5.'; color:'.$color4.'}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-wrapper {background-color:'.$color3.';}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-wrapper div.mjtc-filter-form-fields-wrp input.mjtc-support-input-field{border:1px solid '.$color5.';color: '.$color4.';}
-		div.mjtc-filter-wrapper-toggle-ticketid input.mjtc-support-input-field{background-color:'.$color3.';border:1px solid'.$color5.';}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp input.mjtc-support-input-field{background-color:#fff;border:1px solid '.$color5.';color: '.$color4.';}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp input.inputbox{background-color:'.$color7.';border:1px solid'.$color5.';}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-departmentid{background-color:#fff;border:1px solid'.$color5.';color: '.$color4.';}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-priorityid{background-color:#fff;border:1px solid'.$color5.';color: '.$color4.';}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#staffid{background-color:#fff;border:1px solid'.$color5.';color: '.$color4.';}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-status{background-color:#fff;border:1px solid'.$color5.';color: '.$color4.';}
-		div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-wrapper div.mjtc-filter-value input.mjtc-support-input-field{background-color:'.$color3.';border:1px solid'.$color5.';}
-		div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-wrapper div.mjtc-filter-value select#ms-departmentid{background-color:'.$color3.';border:1px solid'.$color5.';}
-		div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-wrapper div.mjtc-filter-value select#ms-priorityid{background-color:'.$color3.';border:1px solid'.$color5.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-wrapper div.mjtc-filter-value select{background-color:'.$MJTC_color7.';border: 1px solid '.$MJTC_color5.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-wrapper div.mjtc-filter-value textarea{background-color:'.$MJTC_color7.';border: 1px solid '.$MJTC_color5.';}
+		div.mjtc-support-search-wrp{border:1px solid'.$MJTC_color5.';}
+		div.mjtc-support-search-wrp div.mjtc-support-search-heading{background-color:#e7ecf2;border-bottom:1px solid'.$MJTC_color5.'; color:'.$MJTC_color4.'}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-wrapper {background-color:'.$MJTC_color3.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-wrapper div.mjtc-filter-form-fields-wrp input.mjtc-support-input-field{border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+		div.mjtc-filter-wrapper-toggle-ticketid input.mjtc-support-input-field{background-color:'.$MJTC_color3.';border:1px solid'.$MJTC_color5.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp input.mjtc-support-input-field{background-color:#fff;border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp input.inputbox{background-color:'.$MJTC_color7.';border:1px solid'.$MJTC_color5.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-departmentid{background-color:#fff;border:1px solid'.$MJTC_color5.';color: '.$MJTC_color4.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-priorityid{background-color:#fff;border:1px solid'.$MJTC_color5.';color: '.$MJTC_color4.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-productid{background-color:#fff;border:1px solid'.$MJTC_color5.';color: '.$MJTC_color4.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-status{background-color:#fff;border:1px solid'.$MJTC_color5.';color: '.$MJTC_color4.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#staffid{background-color:#fff;border:1px solid'.$MJTC_color5.';color: '.$MJTC_color4.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-field-wrp select#ms-status{background-color:#fff;border:1px solid'.$MJTC_color5.';color: '.$MJTC_color4.';}
+		div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-wrapper div.mjtc-filter-value input.mjtc-support-input-field{background-color:'.$MJTC_color3.';border:1px solid'.$MJTC_color5.';}
+		div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-wrapper div.mjtc-filter-value select#ms-departmentid{background-color:'.$MJTC_color3.';border:1px solid'.$MJTC_color5.';}
+		div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-wrapper div.mjtc-filter-value select#ms-priorityid{background-color:'.$MJTC_color3.';border:1px solid'.$MJTC_color5.';}
+		div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-wrapper div.mjtc-filter-value select#ms-productid{background-color:'.$MJTC_color3.';border:1px solid'.$MJTC_color5.';}
 		div#mjtc-filter-wrapper-toggle-plus{background-color:#474749;}
 		div#mjtc-filter-wrapper-toggle-minus{background-color:#474749;}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp .mjtc-search-filter-btn {border: 1px solid '.$color5.';color: '.$color4.';background: #fff;}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp .mjtc-search-filter-btn:hover {border-color: '.$color1.';}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp input.mjtc-support-search-btn{background-color:'.$color1.';color:'.$color7.';border: 1px solid '.$color5.';}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp input.mjtc-support-search-btn:hover{border-color: '.$color2.';}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp input.mjtc-support-reset-btn{background-color:'.$color2.';color:'.$color7.';border: 1px solid '.$color5.';}
-		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp input.mjtc-support-reset-btn:hover{border-color: '.$color1.';}
-		span.mjtc-support-wrapper-textcolor{color: '.$color7.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp .mjtc-search-filter-btn {border: 1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';background: #fff;}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp .mjtc-search-filter-btn:hover {border-color: '.$MJTC_color1.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp input.mjtc-support-search-btn{background-color:'.$MJTC_color1.';color:'.$MJTC_color7.';border: 1px solid '.$MJTC_color5.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp input.mjtc-support-search-btn:hover{border-color: '.$MJTC_color2.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp input.mjtc-support-reset-btn{background-color:'.$MJTC_color2.';color:'.$MJTC_color7.';border: 1px solid '.$MJTC_color5.';}
+		div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp input.mjtc-support-reset-btn:hover{border-color: '.$MJTC_color1.';}
+		span.mjtc-support-wrapper-textcolor{color: '.$MJTC_color7.';}
 	/* Search Ticket Form*/
 	/* My Tickets $ Staff My Tickets*/
-		div.mjtc-support-wrapper{border:1px solid'.$color5.';box-shadow: 0 8px 6px -6px #dedddd;}
+		div.mjtc-support-wrapper{border:1px solid'.$MJTC_color5.';box-shadow: 0 8px 6px -6px #dedddd;}
 		div.mjtc-support-wrapper:hover div.mjtc-support-pic{}
 		div.mjtc-support-wrapper:hover div.mjtc-support-data1{}
-		div.mjtc-support-wrapper:hover div.mjtc-support-bottom-line{background:'.$color2.';}
+		div.mjtc-support-wrapper:hover div.mjtc-support-bottom-line{background:'.$MJTC_color2.';}
 		div.mjtc-support-wrapper div.mjtc-support-pic{}
-		div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-status{background-color:#FFFFFF;border: 1px solid '.$color5.';}
+		div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-status{background-color:#FFFFFF;border: 1px solid '.$MJTC_color5.';}
 		div.mjtc-support-wrapper div.mjtc-support-data1{}
-		div.mjtc-support-wrapper div.mjtc-support-data1 div.mjtc-support-data-row .mjtc-support-data-tit {color: '.$color2.';}
-		div.mjtc-support-wrapper div.mjtc-support-data1 div.mjtc-support-data-row .mjtc-support-data-val {color: '.$color4.';}
-		div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-title{color: '.$color2.';}
-		a.mjtc-support-title-anchor:hover{color:'.$color2.' !important;}
-		div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-value{color:'.$color4.';}
-		div.mjtc-support-wrapper div.mjtc-support-data .mjtc-support-title-anchor {color:'.$color1.';}
-		div.mjtc-support-wrapper div.mjtc-support-data .name span.mjtc-support-value {color:'.$color4.';}
-		div.mjtc-support-wrapper div.mjtc-support-bottom-line{background:'.$color2.';}
-		div.mjtc-support-assigned-tome{border:1px solid'.$color5.';background-color:#fff;color: '.$color4.';}
-		div.mjtc-support-sorting {background:'.$color2.';color: '.$color7.';}
-		div.mjtc-support-sorting span.mjtc-support-sorting-link a{background:#373435;color: '.$color7.';color:#fff;}
+		div.mjtc-support-wrapper div.mjtc-support-data1 div.mjtc-support-data-row .mjtc-support-data-tit {color: '.$MJTC_color2.';}
+		div.mjtc-support-wrapper div.mjtc-support-data1 div.mjtc-support-data-row .mjtc-support-data-val {color: '.$MJTC_color4.';}
+		div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-title{color: '.$MJTC_color2.';}
+		a.mjtc-support-title-anchor:hover{color:'.$MJTC_color2.' !important;}
+		div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-value{color:'.$MJTC_color4.';}
+		div.mjtc-support-wrapper div.mjtc-support-data .mjtc-support-title-anchor {color:'.$MJTC_color1.';}
+		div.mjtc-support-wrapper div.mjtc-support-data .name span.mjtc-support-value {color:'.$MJTC_color4.';}
+		div.mjtc-support-wrapper div.mjtc-support-bottom-line{background:'.$MJTC_color2.';}
+		div.mjtc-support-assigned-tome{border:1px solid'.$MJTC_color5.';background-color:#fff;color: '.$MJTC_color4.';}
+		div.mjtc-support-sorting {background:'.$MJTC_color2.';color: '.$MJTC_color7.';}
+		div.mjtc-support-sorting span.mjtc-support-sorting-link a{background:#373435;color: '.$MJTC_color7.';color:#fff;}
 		div.mjtc-support-sorting span.mjtc-support-sorting-link a.selected,
-		div.mjtc-support-sorting span.mjtc-support-sorting-link a:hover{background:'.$color2.';}
-		div.mjtc-support-sorting-right div.mjtc-support-sort select.mjtc-support-sorting-select {background: #fff;color: '.$color2.';border: 1px solid '.$color5.';}
+		div.mjtc-support-sorting span.mjtc-support-sorting-link a:hover{background:'.$MJTC_color2.';}
+		div.mjtc-support-sorting-right div.mjtc-support-sort select.mjtc-support-sorting-select {background: #fff;color: '.$MJTC_color2.';border: 1px solid '.$MJTC_color5.';}
 		div.mjtc-support-sorting-right div.mjtc-support-sort a.mjtc-admin-sort-btn {background: #fff;}
 	/* My Tickets $ Staff My Tickets*/
 /* My Tickets */';

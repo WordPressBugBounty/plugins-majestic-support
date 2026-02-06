@@ -1,10 +1,10 @@
 <?php
 if (!defined('ABSPATH')) die('Restricted Access');
-$yesno = array(
+$MJTC_yesno = array(
     (object) array('id' => '1', 'text' => esc_html(__('Yes', 'majestic-support'))),
     (object) array('id' => '2', 'text' => esc_html(__('No', 'majestic-support')))
     );
-$ticketidsequence = array(
+$MJTC_ticketidsequence = array(
     (object) array('id' => '1', 'text' => esc_html(__('Random', 'majestic-support'))),
     (object) array('id' => '2', 'text' => esc_html(__('Sequential', 'majestic-support')))
     );
@@ -89,7 +89,7 @@ $tran_opt = MJTC_includer::MJTC_getModel('majesticsupport')->getInstalledTransla
                                     <?php echo esc_html(__('Visitor can create ticket','majestic-support')); ?><?php echo esc_html(__(':', 'majestic-support'));?>
                                 </div>
                                 <div class="field">
-                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('visitor_can_create_ticket', $yesno , isset(majesticsupport::$_data[0]['visitor_can_create_ticket']) ? majesticsupport::$_data[0]['visitor_can_create_ticket'] : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'inputbox ms-postsetting mjtc-select ms-postsetting ')), MJTC_ALLOWED_TAGS);?>
+                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('visitor_can_create_ticket', $MJTC_yesno , isset(majesticsupport::$_data[0]['visitor_can_create_ticket']) ? majesticsupport::$_data[0]['visitor_can_create_ticket'] : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'inputbox ms-postsetting mjtc-select ms-postsetting ')), MJTC_ALLOWED_TAGS);?>
                                 </div>
                                 <div class="desc">
                                     <?php echo esc_html(__("Enable/Disable Open Ticket",'majestic-support')); ?>
@@ -100,7 +100,7 @@ $tran_opt = MJTC_includer::MJTC_getModel('majesticsupport')->getInstalledTransla
                                     <?php echo esc_html(__('Ticket ID sequence','majestic-support')); ?>:
                                 </div>
                                 <div class="field">
-                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('ticketid_sequence', $ticketidsequence , isset(majesticsupport::$_data[0]['ticketid_sequence']) ? majesticsupport::$_data[0]['ticketid_sequence'] : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'inputbox ms-postsetting mjtc-select ms-postsetting ')), MJTC_ALLOWED_TAGS);?>
+                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('ticketid_sequence', $MJTC_ticketidsequence , isset(majesticsupport::$_data[0]['ticketid_sequence']) ? majesticsupport::$_data[0]['ticketid_sequence'] : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'inputbox ms-postsetting mjtc-select ms-postsetting ')), MJTC_ALLOWED_TAGS);?>
                                 </div>
                                 <div class="desc">
                                     <?php echo esc_html(__("Set ticket id sequential or random",'majestic-support')); ?>&nbsp;
@@ -144,7 +144,7 @@ $tran_opt = MJTC_includer::MJTC_getModel('majesticsupport')->getInstalledTransla
                                     <?php echo esc_html(__('Show Captcha to visitor on ticket form','majestic-support')); ?>:
                                 </div>
                                 <div class="field">
-                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('show_captcha_on_visitor_from_ticket', $yesno , isset(majesticsupport::$_data[0]['show_captcha_on_visitor_from_ticket']) ? majesticsupport::$_data[0]['show_captcha_on_visitor_from_ticket'] : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'inputbox ms-postsetting mjtc-select ms-postsetting ')), MJTC_ALLOWED_TAGS);?>
+                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('show_captcha_on_visitor_from_ticket', $MJTC_yesno , isset(majesticsupport::$_data[0]['show_captcha_on_visitor_from_ticket']) ? majesticsupport::$_data[0]['show_captcha_on_visitor_from_ticket'] : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'inputbox ms-postsetting mjtc-select ms-postsetting ')), MJTC_ALLOWED_TAGS);?>
                                 </div>
                                 <div class="desc">
                                     <?php echo esc_html(__("Enable/Disable Captcha on Ticket Form",'majestic-support')); ?>
@@ -166,7 +166,7 @@ $tran_opt = MJTC_includer::MJTC_getModel('majesticsupport')->getInstalledTransla
                                     <?php echo esc_html(__('Own captcha subtraction answer positive','majestic-support')); ?><?php echo esc_html(__(' :', 'majestic-support'));?>
                                 </div>
                                 <div class="field">
-                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('owncaptcha_subtractionans', $yesno , isset(majesticsupport::$_data[0]['owncaptcha_subtractionans']) ? majesticsupport::$_data[0]['owncaptcha_subtractionans'] : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'inputbox ms-postsetting mjtc-select ms-postsetting ')), MJTC_ALLOWED_TAGS);?>
+                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('owncaptcha_subtractionans', $MJTC_yesno , isset(majesticsupport::$_data[0]['owncaptcha_subtractionans']) ? majesticsupport::$_data[0]['owncaptcha_subtractionans'] : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'inputbox ms-postsetting mjtc-select ms-postsetting ')), MJTC_ALLOWED_TAGS);?>
                                 </div>
                                 <div class="desc">
                                    <?php echo esc_html(__("Enable/Disable Own Captcha subtraction",'majestic-support')); ?>
@@ -177,7 +177,7 @@ $tran_opt = MJTC_includer::MJTC_getModel('majesticsupport')->getInstalledTransla
                                     <?php echo esc_html(__('Enable Print Ticket','majestic-support')); ?>:
                                 </div>
                                 <div class="field">
-                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('print_ticket_user', $yesno , isset(majesticsupport::$_data[0]['print_ticket_user']) ? majesticsupport::$_data[0]['print_ticket_user'] : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'inputbox ms-postsetting mjtc-select ms-postsetting ')), MJTC_ALLOWED_TAGS);?>
+                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('print_ticket_user', $MJTC_yesno , isset(majesticsupport::$_data[0]['print_ticket_user']) ? majesticsupport::$_data[0]['print_ticket_user'] : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'inputbox ms-postsetting mjtc-select ms-postsetting ')), MJTC_ALLOWED_TAGS);?>
                                 </div>
                                 <div class="desc">
                                    <?php echo esc_html(__("Enable/Disable Print Ticket",'majestic-support')); ?>

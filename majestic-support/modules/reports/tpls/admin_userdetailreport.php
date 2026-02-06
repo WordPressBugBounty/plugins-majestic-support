@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$MJTC_protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 wp_enqueue_script('jquery-ui-datepicker');
 wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
 wp_enqueue_style('majesticsupport-status-graph', MJTC_PLUGIN_URL . 'includes/css/status_graph.css');
@@ -124,13 +124,13 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 						<div class="mjtc-admin-staff-boxes">
 							<?php
 								$open_percentage = 0;
-								$close_percentage = 0;
+								$MJTC_close_percentage = 0;
 								$overdue_percentage = 0;
 								$answered_percentage = 0;
 								$pending_percentage = 0;
 								if(isset($agent) && isset($agent->allticket) && $agent->allticket != 0){
 								    $open_percentage = round(($agent->openticket / $agent->allticket) * 100);
-								    $close_percentage = round(($agent->closeticket / $agent->allticket) * 100);
+								    $MJTC_close_percentage = round(($agent->closeticket / $agent->allticket) * 100);
 								    $overdue_percentage = round(($agent->overdueticket / $agent->allticket) * 100);
 								    $answered_percentage = round(($agent->answeredticket / $agent->allticket) * 100);
 								    $pending_percentage = round(($agent->pendingticket / $agent->allticket) * 100);
@@ -160,8 +160,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 							            </div>
 							            <div class="mjtc-support-link-text mjtc-support-green">
 							                <?php
-							                    $data = esc_html(__('New', 'majestic-support')).' ( '.esc_html($agent->openticket).' )';
-							                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+							                    $MJTC_data = esc_html(__('New', 'majestic-support')).' ( '.esc_html($agent->openticket).' )';
+							                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 							                ?>
 							            </div>
 							        </a>
@@ -186,8 +186,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 							            </div>
 							            <div class="mjtc-support-link-text mjtc-support-brown">
 							                <?php
-							                    $data = esc_html(__('Answered', 'majestic-support')).' ( '. esc_html($agent->answeredticket).' )';
-							                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+							                    $MJTC_data = esc_html(__('Answered', 'majestic-support')).' ( '. esc_html($agent->answeredticket).' )';
+							                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 							                ?>
 							            </div>
 							        </a>
@@ -212,8 +212,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 				                        </div>
 				                        <div class="mjtc-support-link-text mjtc-support-yellow">
 				                            <?php
-				                                $data = esc_html(__('Pending', 'majestic-support')).' ( '. esc_html($agent->pendingticket).' )';
-				                                echo wp_kses($data, MJTC_ALLOWED_TAGS);
+				                                $MJTC_data = esc_html(__('Pending', 'majestic-support')).' ( '. esc_html($agent->pendingticket).' )';
+				                                echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 				                            ?>
 				                        </div>
 				                    </a>
@@ -239,8 +239,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 								            </div>
 								            <div class="mjtc-support-link-text mjtc-support-orange">
 								                <?php
-								                    $data = esc_html(__('Overdue', 'majestic-support')).' ( '. esc_html($agent->overdueticket).' )';
-								                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+								                    $MJTC_data = esc_html(__('Overdue', 'majestic-support')).' ( '. esc_html($agent->overdueticket).' )';
+								                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 								                ?>
 								            </div>
 								        </a>
@@ -248,8 +248,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 								<?php } ?>
 							    <div class="mjtc-support-link">
 							        <a class="mjtc-support-link mjtc-support-red" href="#" data-tab-number="5" title="<?php echo esc_attr(__('Close Ticket','majestic-support')); ?>">
-							            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($close_percentage); ?>" >
-							                <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($close_percentage); ?>">
+							            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($MJTC_close_percentage); ?>" >
+							                <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($MJTC_close_percentage); ?>">
 							                    <div class="circle">
 							                        <div class="mask full">
 							                             <div class="fill mjtc-support-close"></div>
@@ -266,8 +266,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 							            </div>
 							            <div class="mjtc-support-link-text mjtc-support-red">
 							                <?php
-							                    $data = esc_html(__('Closed', 'majestic-support')).' ( '. esc_html($agent->closeticket).' )';
-							                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+							                    $MJTC_data = esc_html(__('Closed', 'majestic-support')).' ( '. esc_html($agent->closeticket).' )';
+							                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 							                ?>
 							            </div>
 							        </a>
@@ -295,51 +295,51 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 							<?php } ?>
 						</tr>
 						<?php
-						foreach(majesticsupport::$_data['user_tickets'] AS $ticket){
+						foreach(majesticsupport::$_data['user_tickets'] AS $MJTC_ticket){
 							if(in_array('timetracking', majesticsupport::$_active_addons)){
-								$hours = floor($ticket->time / 3600);
-					            $mins = floor($ticket->time / 60);
+								$hours = floor($MJTC_ticket->time / 3600);
+					            $mins = floor($MJTC_ticket->time / 60);
 					            $mins = floor($mins % 60);
-					            $secs = floor($ticket->time % 60);
+					            $secs = floor($MJTC_ticket->time % 60);
 					            $avgtime = sprintf('%02d:%02d:%02d', $hours, $mins, $secs);
 				            }
 							if(in_array('feedback', majesticsupport::$_active_addons)){
-					            $rating_color = 0;
-					            if($ticket->rating > 4){
-					            	$rating_color = '#ea1d22';
-					            }elseif($ticket->rating > 3){
-					            	$rating_color = '#f58634';
-					            }elseif($ticket->rating > 2){
-					            	$rating_color = '#a8518a';
-					            }elseif($ticket->rating > 1){
-					            	$rating_color = '#0098da';
-					            }elseif($ticket->rating > 0){
-					            	$rating_color = '#069a2e';
+					            $MJTC_rating_color = 0;
+					            if($MJTC_ticket->rating > 4){
+					            	$MJTC_rating_color = '#ea1d22';
+					            }elseif($MJTC_ticket->rating > 3){
+					            	$MJTC_rating_color = '#f58634';
+					            }elseif($MJTC_ticket->rating > 2){
+					            	$MJTC_rating_color = '#a8518a';
+					            }elseif($MJTC_ticket->rating > 1){
+					            	$MJTC_rating_color = '#0098da';
+					            }elseif($MJTC_ticket->rating > 0){
+					            	$MJTC_rating_color = '#069a2e';
 					            }
 				            }
 							?>
 							<tr>
 								<td class="left">
-									<a target="_blank" href="<?php echo esc_url(admin_url('admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid='.esc_attr($ticket->id))); ?>" title="<?php echo esc_attr(__('Ticket','majestic-support')); ?>">
+									<a target="_blank" href="<?php echo esc_url(admin_url('admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid='.esc_attr($MJTC_ticket->id))); ?>" title="<?php echo esc_attr(__('Ticket','majestic-support')); ?>">
 										<div class="mjtc-admin-staff-wrapper mjtc-rep-tkt-list">
 											<div class="mjtc-admin-staff-cnt">
 												<div class="mjtc-report-staff-image">
-										            <?php echo wp_kses(ms_get_avatar($ticket->uid), MJTC_ALLOWED_TAGS); ?>
+										            <?php echo wp_kses(ms_get_avatar($MJTC_ticket->uid), MJTC_ALLOWED_TAGS); ?>
 												</div>
 												<div class="mjtc-report-staff-cnt">
 													<div class="mjtc-report-staff-info mjtc-report-staff-name">
 														<?php
-															echo esc_html($ticket->name);
+															echo esc_html($MJTC_ticket->name);
 														?>
 													</div>
 													<div class="mjtc-report-staff-info mjtc-report-staff-post">
 														<?php
-															echo esc_html($ticket->subject);
+															echo esc_html($MJTC_ticket->subject);
 														?>
 													</div>
 													<div class="mjtc-report-staff-info mjtc-report-staff-email">
 														<?php
-															echo esc_html($ticket->email);
+															echo esc_html($MJTC_ticket->email);
 														?>
 													</div>
 												</div>
@@ -349,45 +349,56 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 								</td>
 								<td >
 									<?php
-							            // 0 -> New Ticket
-							            // 1 -> Waiting admin/staff reply
-							            // 2 -> in progress
-							            // 3 -> waiting for customer reply
-							            // 4 -> close ticket
-										switch($ticket->status){
+							            // 1 -> New Ticket
+							            // 2 -> Waiting admin/staff reply
+							            // 3 -> in progress
+							            // 4 -> waiting for customer reply
+							            // 5 -> close ticket
+										/*switch($MJTC_ticket->status){
 											case 0:
-												$status = '<font color="#159667">'.esc_html(__('New','majestic-support')).'</font>';
-												if($ticket->isoverdue == 1)
-													$status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
+												$status = '<font color="#159667">'. esc_html(__('New','majestic-support')).'</font>';
+												if($MJTC_ticket->isoverdue == 1)
+													$status = '<font color="#B82B2B">'. esc_html(__('Overdue','majestic-support')).'</font>';
 											break;
 											case 1:
-												$status = '<font color="#f39f10">'.esc_html(__('Pending','majestic-support')).'</font>';
-												if($ticket->isoverdue == 1)
-													$status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
+												$status = '<font color="#f39f10">'. esc_html(__('Pending','majestic-support')).'</font>';
+												if($MJTC_ticket->isoverdue == 1)
+													$status = '<font color="#B82B2B">'. esc_html(__('Overdue','majestic-support')).'</font>';
 											break;
 											case 2:
-												$status = '<font color="#f39f10">'.esc_html(__('In Progress','majestic-support')).'</font>';
-												if($ticket->isoverdue == 1)
-													$status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
+												$status = '<font color="#f39f10">'. esc_html(__('In Progress','majestic-support')).'</font>';
+												if($MJTC_ticket->isoverdue == 1)
+													$status = '<font color="#B82B2B">'. esc_html(__('Overdue','majestic-support')).'</font>';
 											break;
 											case 3:
-												$status = '<font color="#2168A2">'.esc_html(__('Answered','majestic-support')).'</font>';
-												if($ticket->isoverdue == 1)
-													$status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
+												$status = '<font color="#2168A2">'. esc_html(__('Answered','majestic-support')).'</font>';
+												if($MJTC_ticket->isoverdue == 1)
+													$status = '<font color="#B82B2B">'. esc_html(__('Overdue','majestic-support')).'</font>';
 											break;
 											case 4:
-												$status = '<font color="#3D355A">'.esc_html(__('Closed','majestic-support')).'</font>';
+												$status = '<font color="#3D355A">'. esc_html(__('Closed','majestic-support')).'</font>';
 											break;
-										}
-										echo wp_kses($status, MJTC_ALLOWED_TAGS);
+										}*/
+										if (!in_array($MJTC_ticket->status, [5, 6]) && $MJTC_ticket->isoverdue == 1) {
+											$status = __('Overdue','majestic-support');
+							                $MJTC_color = '#FFFFFF';
+							                $MJTC_bgcolor = '#DB624C';
+						                } else {
+						                	$status = $MJTC_ticket->statustitle;
+							                $MJTC_color = $MJTC_ticket->statuscolour;
+							                $MJTC_bgcolor = $MJTC_ticket->statusbgcolour;
+						                }
 									?>
+									<span class="priority" style="background:<?php echo esc_attr($MJTC_bgcolor); ?>;color:<?php echo esc_attr($MJTC_color); ?>">
+										<?php echo esc_html($status); ?>
+									</span>
 								</td>
-								<td><span class="priority" style="background:<?php echo esc_attr($ticket->prioritycolour); ?>;"><?php echo esc_html(majesticsupport::MJTC_getVarValue($ticket->priority)); ?></span></td>
-								<td ><?php echo esc_html(date_i18n(majesticsupport::$_config['date_format'],MJTC_majesticsupportphplib::MJTC_strtotime($ticket->created))); ?></td>
+								<td><span class="priority" style="background:<?php echo esc_attr($MJTC_ticket->prioritycolour); ?>;"><?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_ticket->priority)); ?></span></td>
+								<td ><?php echo esc_html(date_i18n(majesticsupport::$_config['date_format'],MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_ticket->created))); ?></td>
 								<?php if(in_array('feedback', majesticsupport::$_active_addons)){ ?>
 									<td >
-										<?php if($ticket->rating > 0){ ?>
-											<span style="color:<?php echo esc_attr($rating_color); ?>;font-weight:bold;font-size:16px;" > <?php echo esc_html($ticket->rating);?></span>
+										<?php if($MJTC_ticket->rating > 0){ ?>
+											<span style="color:<?php echo esc_attr($MJTC_rating_color); ?>;font-weight:bold;font-size:16px;" > <?php echo esc_html($MJTC_ticket->rating);?></span>
 											<?php echo wp_kses(esc_html(__('Out of','majestic-support')).'<span style="font-weight:bold;font-size:15px;" >&nbsp;5</span>', MJTC_ALLOWED_TAGS);
 										}else{
 											echo esc_html('NA');
@@ -403,8 +414,8 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 					</table>
 					<?php
 				    if (majesticsupport::$_data[1]) {
-				        $data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
-				        echo wp_kses($data, MJTC_ALLOWED_TAGS);
+				        $MJTC_data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
+				        echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 				    }
 				} else {
 					MJTC_layout::MJTC_getNoRecordFound();

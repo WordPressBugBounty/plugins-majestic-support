@@ -1,6 +1,6 @@
 <?php
 if (!defined('ABSPATH')) die('Restricted Access');
-$ticketidsequence = array(
+$MJTC_ticketidsequence = array(
     (object) array('id' => '0', 'text' => esc_html(__('Random', 'majestic-support'))),
     (object) array('id' => '1', 'text' => esc_html(__('Sequential', 'majestic-support')))
     );

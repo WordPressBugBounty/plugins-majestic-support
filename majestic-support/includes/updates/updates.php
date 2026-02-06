@@ -34,7 +34,7 @@ class MJTC_updates {
                         while (feof($file) === false) {
                             $query[] = fgets($file);
                             if (MJTC_majesticsupportphplib::MJTC_preg_match('~' . preg_quote($delimiter, '~') . '\s*$~iS', end($query)) === 1) {
-                                $query = trim(implode('', $query));
+                                $query = MJTC_majesticsupportphplib::MJTC_trim(implode('', $query));
                                 if($query != ''){
                                     $query = MJTC_majesticsupportphplib::MJTC_str_replace("#__", majesticsupport::$_db->prefix, $query);
                                 }

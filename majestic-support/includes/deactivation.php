@@ -6,6 +6,7 @@ if (!defined('ABSPATH'))
 class MJTC_deactivation {
 
     static function MJTC_deactivate() {
+        wp_clear_scheduled_hook('mjtc_process_transation_key_status');
         wp_clear_scheduled_hook('majesticsupport_updateticketstatus');
         wp_clear_scheduled_hook('majesticsupport_ticketviaemail');
         $timestamp = wp_next_scheduled( 'ms_delete_expire_session_data' );
@@ -29,6 +30,8 @@ class MJTC_deactivation {
            $wpdb->prefix."mjtc_support_email",
            $wpdb->prefix."mjtc_support_emailtemplates",
            $wpdb->prefix."mjtc_support_priorities",
+           $wpdb->prefix."mjtc_support_statuses",
+           $wpdb->prefix."mjtc_support_products",
            $wpdb->prefix."mjtc_support_replies",
            $wpdb->prefix."mjtc_support_system_errors",
            $wpdb->prefix."mjtc_support_tickets",
@@ -36,6 +39,7 @@ class MJTC_deactivation {
            $wpdb->prefix."mjtc_support_users",
            $wpdb->prefix."mjtc_support_multiform",
            $wpdb->prefix."mjtc_support_slug",
+           $wpdb->prefix."mjtc_support_mjtcsessiondata",
            $wpdb->prefix."mjtc_support_smartreplies",
         );
         return $tables;

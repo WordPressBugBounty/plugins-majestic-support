@@ -5,7 +5,7 @@ if (!defined('ABSPATH'))
 
 class MJTC_uploads {
 
-    private $ticketid;
+    private $MJTC_ticketid;
     private $articleid;
     private $downloadid;
     private $categoryid;
@@ -15,8 +15,8 @@ class MJTC_uploads {
     function MJTC_upload_dir( $dir ) {
         $form_request = MJTC_request::MJTC_getVar('form_request');
         if($form_request == 'majesticsupport' OR $this->uploadfor == 'agent'){
-            $datadirectory = majesticsupport::$_config['data_directory'];
-            $path = $datadirectory . '/attachmentdata';
+            $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
+            $path = $MJTC_datadirectory . '/attachmentdata';
 
             $foldername = '';
 
@@ -30,9 +30,9 @@ class MJTC_uploads {
             }elseif($this->uploadfor == 'download'){
                 $path = $path . '/downloads/download_'.$this->downloadid;
             }elseif($this->uploadfor == 'category'){
-                $path = $datadirectory . '/knowledgebasedata/categories/category_'.$this->categoryid;
+                $path = $MJTC_datadirectory . '/knowledgebasedata/categories/category_'.$this->categoryid;
             }elseif($this->uploadfor == 'agent'){
-                $path = $datadirectory . '/staffdata/staff_'.$this->staffid;
+                $path = $MJTC_datadirectory . '/staffdata/staff_'.$this->staffid;
             }
 
             $userpath = $path . '/' . $foldername;
@@ -43,8 +43,8 @@ class MJTC_uploads {
             ) + $dir;
             return $array;
         }elseif($this->uploadfor == 'notificationlogo'){
-            $datadirectory = majesticsupport::$_config['data_directory'];
-            $path = $datadirectory;
+            $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
+            $path = $MJTC_datadirectory;
             return $path;
 
         }else{
@@ -52,13 +52,13 @@ class MJTC_uploads {
         }
     }
 
-    function MJTC_storeTicketAttachment($data, $caller){
-        $ticketid = $data['ticketid'];
+    function MJTC_storeTicketAttachment($MJTC_data, $caller){
+        $MJTC_ticketid = $MJTC_data['ticketid'];
         $filesize = majesticsupport::$_config['file_maximum_size'];
         if (!function_exists('wp_handle_upload')) {
             do_action('majesticsupport_load_wp_file');
         }
-        $this->ticketid = $ticketid;
+        $this->ticketid = $MJTC_ticketid;
         $this->uploadfor = 'ticket';
         // Register our path override.
         add_filter( 'upload_dir', array($this,'MJTC_upload_dir'));
@@ -73,21 +73,21 @@ class MJTC_uploads {
             return;
         }
 
-        foreach ($files['name'] as $key => $value) {
-            if ($files['name'][$key]) {
+        foreach ($files['name'] as $MJTC_key => $MJTC_value) {
+            if ($files['name'][$MJTC_key]) {
                 $file = array(
-                        'name'     => $files['name'][$key],
-                        'type'     => $files['type'][$key],
-                        'tmp_name' => $files['tmp_name'][$key],
-                        'error'    => $files['error'][$key],
-                        'size'     => $files['size'][$key]
+                        'name'     => $files['name'][$MJTC_key],
+                        'type'     => $files['type'][$MJTC_key],
+                        'tmp_name' => $files['tmp_name'][$MJTC_key],
+                        'error'    => $files['error'][$MJTC_key],
+                        'size'     => $files['size'][$MJTC_key]
                         );
                 $MJTC_uploadfilesize = $file['size'] / 1024; //kb
                 if($MJTC_uploadfilesize > $filesize){
                     MJTC_message::MJTC_setMessage(esc_html(__('Error file size too large', 'majestic-support')), 'error');
                     return;
                 }
-                $filetyperesult = wp_check_filetype(sanitize_file_name($_FILES['filename']['name'][$key]));
+                $filetyperesult = wp_check_filetype(sanitize_file_name($_FILES['filename']['name'][$MJTC_key]));
                 if(!empty($filetyperesult['ext']) && !empty($filetyperesult['type'])){
                     $document_file_types = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('file_extension');
                     if(MJTC_majesticsupportphplib::MJTC_stristr($document_file_types, $filetyperesult['ext'])){
@@ -95,10 +95,10 @@ class MJTC_uploads {
                         $result = wp_handle_upload($file, array('test_form' => false));
                         if ( $result && ! isset( $result['error'] ) ) {
                             // Get the folder where the file was uploaded
-                            $file_directory = dirname($result['file']);
+                            $file_directory = MJTC_majesticsupportphplib::MJTC_dirname($result['file']);
                             $filename = MJTC_majesticsupportphplib::MJTC_basename( $result['file'] );
-                            $replyattachmentid = isset($data['replyattachmentid']) ? $data['replyattachmentid'] : '';
-                            $result = $caller->MJTC_storeTicketAttachment($ticketid, $replyattachmentid, $MJTC_uploadfilesize, $filename);
+                            $replyattachmentid = isset($MJTC_data['replyattachmentid']) ? $MJTC_data['replyattachmentid'] : '';
+                            $result = $caller->MJTC_storeTicketAttachment($MJTC_ticketid, $replyattachmentid, $MJTC_uploadfilesize, $filename);
                         } else {
                             /**
                              * Error generated by _wp_handle_upload()
@@ -119,14 +119,14 @@ class MJTC_uploads {
         return;
     }
 
-    function MJTC_storeTicketViaEmailAttachment($idsarray,$key,$value){
-        $ticketid = $idsarray[0];
-        if(!is_numeric($ticketid))
+    function MJTC_storeTicketViaEmailAttachment($idsarray,$MJTC_key,$MJTC_value){
+        $MJTC_ticketid = $idsarray[0];
+        if(!is_numeric($MJTC_ticketid))
             return;
-        $datadirectory = majesticsupport::$_config['data_directory'];
+        $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
         $maindir = wp_upload_dir();
         $path = $maindir['basedir'];
-        $path = $path .'/'.$datadirectory;
+        $path = $path .'/'.$MJTC_datadirectory;
         if (!file_exists($path)) { // create user directory
             MJTC_includer::MJTC_getModel('majesticsupport')->makeDir($path);
         }
@@ -146,12 +146,12 @@ class MJTC_uploads {
             MJTC_includer::MJTC_getModel('majesticsupport')->makeDir($path);
         }
 
-        file_put_contents($path . '/' . $key, $value); // save the file
+        file_put_contents($path . '/' . $MJTC_key, $MJTC_value); // save the file
         return true;
     }
 
-    function MJTC_storeArticleAttachment($data, $caller){
-        $id = $data['id'];
+    function MJTC_storeArticleAttachment($MJTC_data, $caller){
+        $id = $MJTC_data['id'];
         $filesize = majesticsupport::$_config['file_maximum_size'];
         if (!function_exists('wp_handle_upload')) {
             do_action('majesticsupport_load_wp_file');
@@ -170,14 +170,14 @@ class MJTC_uploads {
             return;
         }
 
-        foreach ($files['name'] as $key => $value) {
-            if ($files['name'][$key]) {
+        foreach ($files['name'] as $MJTC_key => $MJTC_value) {
+            if ($files['name'][$MJTC_key]) {
                 $file = array(
-                        'name'     => $files['name'][$key],
-                        'type'     => $files['type'][$key],
-                        'tmp_name' => $files['tmp_name'][$key],
-                        'error'    => $files['error'][$key],
-                        'size'     => $files['size'][$key]
+                        'name'     => $files['name'][$MJTC_key],
+                        'type'     => $files['type'][$MJTC_key],
+                        'tmp_name' => $files['tmp_name'][$MJTC_key],
+                        'error'    => $files['error'][$MJTC_key],
+                        'size'     => $files['size'][$MJTC_key]
                         );
                 $MJTC_uploadfilesize = $file['size'] / 1024; //kb
                 if($MJTC_uploadfilesize > $filesize){
@@ -185,7 +185,7 @@ class MJTC_uploads {
                     return;
                 }
 
-                $filetyperesult = wp_check_filetype(sanitize_file_name($_FILES['filename']['name'][$key]));
+                $filetyperesult = wp_check_filetype(sanitize_file_name($_FILES['filename']['name'][$MJTC_key]));
                 if(!empty($filetyperesult['ext']) && !empty($filetyperesult['type'])){
                     $document_file_types = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('file_extension');
                     if(MJTC_majesticsupportphplib::MJTC_stristr($document_file_types, $filetyperesult['ext'])){
@@ -193,7 +193,7 @@ class MJTC_uploads {
                         $result = wp_handle_upload($file, array('test_form' => false));
                         if ( $result && ! isset( $result['error'] ) ) {
                             // Get the folder where the file was uploaded
-                            $file_directory = dirname($result['file']);
+                            $file_directory = MJTC_majesticsupportphplib::MJTC_dirname($result['file']);
                             $filename = MJTC_majesticsupportphplib::MJTC_basename( $result['file'] );
                             $result = $caller->storeArticleAttachmet($id , $MJTC_uploadfilesize, $filename);
                         } else {
@@ -216,8 +216,8 @@ class MJTC_uploads {
         return;
     }
 
-    function MJTC_storeDownloadAttachment($data, $caller){
-        $id = $data['id'];
+    function MJTC_storeDownloadAttachment($MJTC_data, $caller){
+        $id = $MJTC_data['id'];
         $filesize = majesticsupport::$_config['file_maximum_size'];
         if (!function_exists('wp_handle_upload')) {
             do_action('majesticsupport_load_wp_file');
@@ -236,28 +236,28 @@ class MJTC_uploads {
             return;
         }
 
-        foreach ($files['name'] as $key => $value) {
-            if ($files['name'][$key]) {
+        foreach ($files['name'] as $MJTC_key => $MJTC_value) {
+            if ($files['name'][$MJTC_key]) {
                 $file = array(
-                        'name'     => $files['name'][$key],
-                        'type'     => $files['type'][$key],
-                        'tmp_name' => $files['tmp_name'][$key],
-                        'error'    => $files['error'][$key],
-                        'size'     => $files['size'][$key]
+                        'name'     => $files['name'][$MJTC_key],
+                        'type'     => $files['type'][$MJTC_key],
+                        'tmp_name' => $files['tmp_name'][$MJTC_key],
+                        'error'    => $files['error'][$MJTC_key],
+                        'size'     => $files['size'][$MJTC_key]
                         );
                 $MJTC_uploadfilesize = $file['size'] / 1024; //kb
                 if($MJTC_uploadfilesize > $filesize){
                     MJTC_message::MJTC_setMessage(esc_html(__('Error file size too large', 'majestic-support')), 'error');
                     return;
                 }
-                $filetyperesult = wp_check_filetype(sanitize_file_name($_FILES['filename']['name'][$key]));
+                $filetyperesult = wp_check_filetype(sanitize_file_name($_FILES['filename']['name'][$MJTC_key]));
                 if(!empty($filetyperesult['ext']) && !empty($filetyperesult['type'])){
                     $document_file_types = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('file_extension');
                     if(MJTC_majesticsupportphplib::MJTC_stristr($document_file_types, $filetyperesult['ext'])){
                         $result = wp_handle_upload($file, array('test_form' => false));
                         if ( $result && ! isset( $result['error'] ) ) {
                             // Get the folder where the file was uploaded
-                            $file_directory = dirname($result['file']);
+                            $file_directory = MJTC_majesticsupportphplib::MJTC_dirname($result['file']);
                             $filename = MJTC_majesticsupportphplib::MJTC_basename( $result['file'] );
                             $result = $caller->MJTC_storeDownloadAttachment($id , $MJTC_uploadfilesize, $filename);
                         } else {
@@ -368,7 +368,7 @@ class MJTC_uploads {
                 $result = wp_handle_upload($file, array('test_form' => false));
                 if ( $result && ! isset( $result['error'] ) ) {
                     // Get the folder where the file was uploaded
-                    $file_directory = dirname($result['file']);
+                    $file_directory = MJTC_majesticsupportphplib::MJTC_dirname($result['file']);
                     $filename = MJTC_majesticsupportphplib::MJTC_basename( $result['file'] );
                     $result = $caller->storeStaffLogo($id , $filename);
                     // generate index file
@@ -429,7 +429,7 @@ class MJTC_uploads {
                 }else{
                     $filename = MJTC_majesticsupportphplib::MJTC_basename( $result['file'] );
                     // Get the folder where the file was uploaded
-                    $file_directory = dirname($result['file']);
+                    $file_directory = MJTC_majesticsupportphplib::MJTC_dirname($result['file']);
                     // generate index file
                     MJTC_includer::MJTC_getModel('majesticsupport')->generateIndexFile($file_directory);
                 }
@@ -487,7 +487,7 @@ class MJTC_uploads {
 					$filename = MJTC_majesticsupportphplib::MJTC_basename( $result['file'] );
 					$filesize = $file['size'];
                     // Get the folder where the file was uploaded
-                    $file_directory = dirname($result['file']);
+                    $file_directory = MJTC_majesticsupportphplib::MJTC_dirname($result['file']);
                     // generate index file
                     MJTC_includer::MJTC_getModel('majesticsupport')->generateIndexFile($file_directory);
 				}

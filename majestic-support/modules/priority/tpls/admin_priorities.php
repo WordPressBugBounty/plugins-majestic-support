@@ -18,10 +18,7 @@ $majesticsupport_js ="
 
 ";
 wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
-?>  
-<?php
 wp_enqueue_script('jquery-ui-sortable');
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
 MJTC_message::MJTC_getMessage(); ?>
 <div id="msadmin-wrapper">
@@ -47,8 +44,8 @@ MJTC_message::MJTC_getMessage(); ?>
                             <th class="left"><?php echo esc_html(__('Title', 'majestic-support')); ?></th>
                             <?php if(in_array('overdue', majesticsupport::$_active_addons)){ ?>
                                 <th>
-                                    <?php echo esc_html(__('Date Interval', 'majestic-support')); ?>&nbsp;<?php $data = '('.esc_html(__('Days', 'majestic-support')).'/'.esc_html(__('Hours', 'majestic-support')).')'; 
-                                        echo wp_kses($data, MJTC_ALLOWED_TAGS);
+                                    <?php echo esc_html(__('Date Interval', 'majestic-support')); ?>&nbsp;<?php $MJTC_data = '('.esc_html(__('Days', 'majestic-support')).'/'.esc_html(__('Hours', 'majestic-support')).')'; 
+                                        echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
                                     ?>
                                 </th>
                                 <th><?php echo esc_html(__('Ticket Overdue', 'majestic-support')); ?></th>
@@ -62,14 +59,14 @@ MJTC_message::MJTC_getMessage(); ?>
                         <tbody>
 
                         <?php
-                        $number = 0;
-                        $count = COUNT(majesticsupport::$_data[0]) - 1; //For zero base indexing
-                        $pagenum = MJTC_request::MJTC_getVar('pagenum', 'get', 1);
-                        $islastordershow = MJTC_pagination::MJTC_isLastOrdering(majesticsupport::$_data['total'], $pagenum);
+                        $MJTC_number = 0;
+                        $MJTC_count = COUNT(majesticsupport::$_data[0]) - 1; //For zero base indexing
+                        $MJTC_pagenum = MJTC_request::MJTC_getVar('pagenum', 'get', 1);
+                        $MJTC_islastordershow = MJTC_pagination::MJTC_isLastOrdering(majesticsupport::$_data['total'], $MJTC_pagenum);
                         foreach (majesticsupport::$_data[0] AS $priority) {
                             $isdefault = ($priority->isdefault == 1) ? 'good.png' : 'close.png';
                             $ispublic = ($priority->ispublic == 1) ? 'good.png' : 'close.png';
-                            $ticketoverduetype = ($priority->overduetypeid == 1) ? 'Days' : 'Hours';
+                            $MJTC_ticketoverduetype = ($priority->overduetypeid == 1) ? 'Days' : 'Hours';
                             ?>
 
                             <tr id="id_<?php echo esc_attr($priority->id); ?>">
@@ -92,7 +89,7 @@ MJTC_message::MJTC_getMessage(); ?>
                                     <td><span class="majestic-support-table-responsive-heading"><?php
                                         echo esc_html(__('Ticket Overdue', 'majestic-support'));
                                         echo esc_html(" : ");
-                                        ?></span><?php echo esc_html(majesticsupport::MJTC_getVarValue($ticketoverduetype)); ?></td>
+                                        ?></span><?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_ticketoverduetype)); ?></td>
                                 <?php } ?>
                                 <td><span class="majestic-support-table-responsive-heading"><?php
                                         echo esc_html(__('Public', 'majestic-support'));
@@ -102,10 +99,10 @@ MJTC_message::MJTC_getMessage(); ?>
                                     echo esc_html(__('Default', 'majestic-support'));
                                     echo esc_html(" : ");
                                     ?></span>
-                                    <?php $url = '?page=majesticsupport_priority&task=makedefault&action=mstask&priorityid='.esc_attr($priority->id);
-                                    if($pagenum > 1){
-                                        $url .= '&pagenum=' . $pagenum;
-                                    }?><a title="<?php echo esc_attr(__('Default','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($url, 'make-default-'.$priority->id)); ?>" ><img alt="<?php echo esc_html(__('Default','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/<?php echo esc_attr($isdefault); ?>" /></a></td>
+                                    <?php $MJTC_url = '?page=majesticsupport_priority&task=makedefault&action=mstask&priorityid='.esc_attr($priority->id);
+                                    if($MJTC_pagenum > 1){
+                                        $MJTC_url .= '&pagenum=' . $MJTC_pagenum;
+                                    }?><a title="<?php echo esc_attr(__('Default','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'make-default-'.$priority->id)); ?>" ><img alt="<?php echo esc_html(__('Default','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/<?php echo esc_attr($isdefault); ?>" /></a></td>
                                 <td><span class="majestic-support-table-responsive-heading"><?php
                             echo esc_html(__('Color', 'majestic-support'));
                             echo esc_html(" : ");
@@ -116,7 +113,7 @@ MJTC_message::MJTC_getMessage(); ?>
                                 </td>
                             </tr>
                         <?php
-                        $number++;
+                        $MJTC_number++;
                     }
                     ?>
                     </tbody>
@@ -131,8 +128,8 @@ MJTC_message::MJTC_getMessage(); ?>
                    </form>
                 <?php
                 if (majesticsupport::$_data[1]) {
-                    $data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
-                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+                    $MJTC_data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
+                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
                 }
             } else {
                 MJTC_layout::MJTC_getNoRecordFound();

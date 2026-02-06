@@ -3,8 +3,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 $allPlugins = get_plugins(); // associative array of all installed plugins
 
 $addon_array = array();
-foreach ($allPlugins as $key => $value) {
-    $addon_index = MJTC_majesticsupportphplib::MJTC_explode('/', $key);
+foreach ($allPlugins as $MJTC_key => $MJTC_value) {
+    $addon_index = MJTC_majesticsupportphplib::MJTC_explode('/', $MJTC_key);
     $addon_array[] = $addon_index[0];
 }
 ?>
@@ -47,21 +47,21 @@ foreach ($allPlugins as $key => $value) {
                                                     <?php
                                                     if(!empty($result['data'])){
                                                         $addon_availble_count = 0;
-                                                        foreach ($result['data'] as $key => $value) {
-                                                            if(!in_array($key, $addon_array)){
+                                                        foreach ($result['data'] as $MJTC_key => $MJTC_value) {
+                                                            if(!in_array($MJTC_key, $addon_array)){
                                                                 $addon_availble_count++;
-                                                                $addon_slug_array = MJTC_majesticsupportphplib::MJTC_explode('-', $key);
+                                                                $addon_slug_array = MJTC_majesticsupportphplib::MJTC_explode('-', $MJTC_key);
                                                                 $addon_image_name = $addon_slug_array[count($addon_slug_array) - 1];
-                                                                $addon_slug = MJTC_majesticsupportphplib::MJTC_str_replace('-', '', $key);
+                                                                $addon_slug = MJTC_majesticsupportphplib::MJTC_str_replace('-', '', $MJTC_key);
 
                                                                 $addon_img_path = '';
                                                                 $addon_img_path = MJTC_PLUGIN_URL.'includes/images/addon-images/addons/';
-                                                                if($value['status'] == 1){ ?>
+                                                                if($MJTC_value['status'] == 1){ ?>
                                                                     <div class="ms-addon-installer-right-addon-single" >
-                                                                        <img class="ms-addon-installer-right-addon-image" data-addon-name="<?php echo esc_attr($key); ?>" src="<?php echo esc_url($addon_img_path.$addon_image_name.'.png');?>" />
+                                                                        <img class="ms-addon-installer-right-addon-image" data-addon-name="<?php echo esc_attr($MJTC_key); ?>" src="<?php echo esc_url($addon_img_path.$addon_image_name.'.png');?>" />
                                                                         <div class="ms-addon-installer-right-addon-name">
-                                                                        <input type="checkbox" class="ms-addon-installer-right-addon-single-checkbox" id="addon-<?php echo esc_attr($key); ?>" name="<?php echo esc_attr($key); ?>" value="1">
-                                                                            <?php echo esc_html($value['title']);?>
+                                                                        <input type="checkbox" class="ms-addon-installer-right-addon-single-checkbox" id="addon-<?php echo esc_attr($MJTC_key); ?>" name="<?php echo esc_attr($MJTC_key); ?>" value="1">
+                                                                            <?php echo esc_html($MJTC_value['title']);?>
                                                                         </div>
                                                                     </div>
                                                                     <?php
@@ -75,18 +75,18 @@ foreach ($allPlugins as $key => $value) {
                                                         $error_message = esc_html(__('You are not allowed to install any add on','majestic-support')).'.';
                                                     }
                                                     if($error_message != ''){
-                                                        $url = admin_url("admin.php?page=majesticsupport_premiumplugin&mjslay=step1");
+                                                        $MJTC_url = admin_url("admin.php?page=majesticsupport_premiumplugin&mjslay=step1");
 
-                                                        $data = '<div class="ms-addon-go-back-messsage-wrap">';
-                                                        $data .= '<h1>';
-                                                        $data .= wp_kses_post($error_message);
-                                                        $data .= '</h1>';
+                                                        $MJTC_data = '<div class="ms-addon-go-back-messsage-wrap">';
+                                                        $MJTC_data .= '<h1>';
+                                                        $MJTC_data .= wp_kses_post($error_message);
+                                                        $MJTC_data .= '</h1>';
 
-                                                        $data .= '<a class="ms-addon-go-back-link" href="'.esc_url($url).'">';
-                                                        $data .= esc_html(__('Back','majestic-support'));
-                                                        $data .= '</a>';
-                                                        $data .= '</div>';
-                                                        echo wp_kses($data, MJTC_ALLOWED_TAGS);
+                                                        $MJTC_data .= '<a class="ms-addon-go-back-link" href="'.esc_url($MJTC_url).'">';
+                                                        $MJTC_data .= esc_html(__('Back','majestic-support'));
+                                                        $MJTC_data .= '</a>';
+                                                        $MJTC_data .= '</div>';
+                                                        echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
                                                     }
                                                      ?>
                                                       <div class="ms-addon-installer-right-addon-section-select_all_div">
@@ -105,7 +105,7 @@ foreach ($allPlugins as $key => $value) {
                                             }
                                         }else{
                                             $error_message = esc_html(__('Something went wrong','majestic-support')).'!';
-                                            $url = admin_url("admin.php?page=majesticsupport_premiumplugin&mjslay=step1"); ?>
+                                            $MJTC_url = admin_url("admin.php?page=majesticsupport_premiumplugin&mjslay=step1"); ?>
                                             <div class="ms-addon-installer-wrapper" >
                                                 <div class="ms-addon-installer-right-section-wrap ms-addon-installer-right-section-wrap_something_wrong">
                                                     <img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/addon-images/main-logo.png" />
@@ -115,7 +115,7 @@ foreach ($allPlugins as $key => $value) {
                                                     <div class="ms-addon-installer-right-key-section" >
                                                         <div class="ms-addon-installer-right-key-field" >
                                                             <div class="ms-addon-installer-right-key-button2 ms-addon-go-back-messsage-wrap" >
-                                                                <a class="ms-addon-go-back-link" href="<?php echo esc_url($url); ?>" >
+                                                                <a class="ms-addon-go-back-link" href="<?php echo esc_url($MJTC_url); ?>" >
                                                                     <?php echo esc_html(__('Back','majestic-support')); ?>
                                                                 </a>
                                                             </div>

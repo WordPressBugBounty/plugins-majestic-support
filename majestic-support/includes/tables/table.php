@@ -15,34 +15,37 @@ class MJTC_table {
         $this->primarykey = $pk;
     }
 
-    public function bind($data) {
-        if ((!is_array($data)) || (empty($data)))
+    public function bind($MJTC_data) {
+        if ((!is_array($MJTC_data)) || (empty($MJTC_data)))
             return false;
-        if (isset($data['id']) && !empty($data['id'])) { // Edit case
+        if (isset($MJTC_data['id']) && !empty($MJTC_data['id'])) { // Edit case
             $this->isnew = false;
         } else { // New case
             $this->isnew = true;
         }
-        $result = $this->setColumns($data);
+        $result = $this->setColumns($MJTC_data);
         return $result;
     }
 
-    protected function setColumns($data) {
+    protected function setColumns($MJTC_data) {
         if ($this->isnew == true) { // new record insert
             $array = get_object_vars($this);
+            if(isset($array['id'])){
+                unset($array['id']);
+            }
             unset($array['isnew']);
             unset($array['primarykey']);
             unset($array['tablename']);
             unset($array['columns']);
             foreach ($array AS $k => $v) {
-                if (isset($data[$k])) {
-                    $this->$k = $data[$k];
+                if (isset($MJTC_data[$k])) {
+                    $this->$k = $MJTC_data[$k];
                 }
                 $this->columns[$k] = $this->$k;
             }
         } else { // update record
-            if (isset($data[$this->primarykey])) {
-                foreach ($data AS $k => $v) {
+            if (isset($MJTC_data[$this->primarykey])) {
+                foreach ($MJTC_data AS $k => $v) {
                     if (isset($this->$k)) {
                         $this->$k = $v;
                         $this->columns[$k] = $v;
@@ -75,8 +78,8 @@ class MJTC_table {
         return true;
     }
 
-    function update($data) {
-        $result = $this->bind($data);
+    function update($MJTC_data) {
+        $result = $this->bind($MJTC_data);
         if ($result == false) {
             return false;
         }

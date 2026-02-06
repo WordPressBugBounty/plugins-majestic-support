@@ -11,6 +11,7 @@ class MJTC_activation {
         MJTC_activation::MJTC_runSQL();
 	    MJTC_activation::MJTC_checkUpdates();
         MJTC_activation::MJTC_addCapabilites();
+        MJTC_includer::MJTC_getModel('majesticsupport')->addMissingUsers(0);
     }
 
     static private function MJTC_addCapabilites() {
@@ -23,6 +24,8 @@ class MJTC_activation {
 			$role2 = get_role( 'contributor' );
 			$role2->add_cap( 'ms_support_ticket_tickets' );
 		}
+        $capabilities = array("ms_support_ticket_tickets"=>true, "read"=> true);
+        add_role("mjtc_support_ticket_admin_agent", "Majestic Support agent (admin)",$capabilities);
     }
 
     static private function MJTC_checkUpdates() {
@@ -196,8 +199,8 @@ class MJTC_activation {
                     ('tplink_faqs_user', '0', 'tplink', 'faq'),
                     ('show_breadcrumbs', '1', 'default', NULL),
                     ('productcode', 'mjsupport', 'default', NULL),
-                    ('versioncode', '1.1.1', 'default', NULL),
-                    ('productversion', '111', 'default', NULL),
+                    ('versioncode', '1.1.2', 'default', NULL),
+                    ('productversion', '112', 'default', NULL),
                     ('producttype', 'free', 'default', NULL),
                     ('tve_enabled', '2', 'default', NULL),
                     ('tve_mailreadtype', '3', 'default', NULL),
@@ -212,6 +215,7 @@ class MJTC_activation {
                     ('tve_hostportnumber', '', 'ticketviaemail', NULL),
                     ('ck', 'abc29ff5d6ec8d9e108ea1a4515e26a3', 'default', NULL),
                     ('login_redirect', '2', 'default', NULL),
+                    ('show_avatar', '2', 'default', NULL),
                     ('count_on_myticket', '1', 'default', NULL),
                     ('system_slug', 'majesticsupport', 'default', NULL),
                     ('default_pageid', '".$pageid."', 'default', NULL),
@@ -246,6 +250,7 @@ class MJTC_activation {
                     ('show_read_receipt_to_admin_on_reply', '1', 'ticket', NULL),
                     ('maximum_record_for_smart_reply', '1', 'ticket', NULL),
                     ('show_email_on_ticket_reply', '1', 'ticket', NULL),
+                    ('ticket_replies_ordering', 'ASC', 'ticket', NULL),
                     ('show_ticket_delete_button', '1', 'ticket', NULL),
                     ('visitor_message', 'Thank you for contacting us. A support ticket request has been submitted, and a representative will be contacting you shortly.\r\nSupport Team', 'default', NULL),
                     ('ticket_reply_closed_ticket_user', '1', 'default', NULL),
@@ -262,10 +267,6 @@ class MJTC_activation {
                     ('tplink_openticket_user', '1', 'tplink', NULL),
                     ('tplink_openticket_staff', '1', 'tplink', 'agent'),
                     ('cplink_latesttickets_staff', '2', 'cplink', 'agent'),
-                    ('cplink_latestdownloads_staff', '1', 'cplink', 'download'),
-                    ('cplink_latestannouncements_staff', '1', 'cplink', 'announcement'),
-                    ('cplink_latestkb_staff', '1', 'cplink', 'knowledgebase'),
-                    ('cplink_latestfaqs_staff', '1', 'cplink', 'faq'),
                     ('cplink_latesttickets_user', '1', 'cplink', NULL),
                     ('cplink_totalcount_staff', '2', 'cplink', 'agent'),
                     ('cplink_totalcount_user', '1', 'cplink', NULL),
@@ -312,7 +313,8 @@ class MJTC_activation {
                     ('show_assignto_on_admin_tickets', '1', 'ticket', 'agent'),
                     ('show_assignto_on_agent_tickets', '1', 'ticket', 'agent'),
                     ('show_assignto_on_user_tickets', '1', 'ticket', 'agent'),
-                    ('cplink_export_ticket_staff', '1', 'cplink', 'export');";
+                    ('cplink_export_ticket_staff', '1', 'cplink', 'export'),
+                    ('mjtc_addons_auto_update', '1', 'default', NULL);";
             majesticsupport::$_db->query($query);
 
             $query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_departments` (
@@ -382,6 +384,7 @@ class MJTC_activation {
                                 `body` text,
                                 `created` datetime DEFAULT NULL,
                                 `status` tinyint(1) DEFAULT NULL,
+                                `multiformid` tinyint(4) DEFAULT NULL,
                                 PRIMARY KEY (`id`)
                                 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26;";
             majesticsupport::$_db->query($query);
@@ -431,6 +434,35 @@ class MJTC_activation {
             majesticsupport::$_db->query($query);
             $query = "INSERT INTO `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` (`id`, `priority`, `prioritycolour`, `priorityurgency`, `ispublic`, `overdueinterval`, `overduetypeid`, `ordering`, `isdefault`, `status`) VALUES (1, 'Low', '#049fc1', 0, 1, 3, '1', 1, 1, 0),(2, 'High', '#bd6403', 0, 1, 1, '1', 3, 0, 1),(3, 'Normal', '#188f28', 0, 1, 2, '1', 2, 0, 1),(4, 'Urgent', '#c90000', 0, 1, 1, '1', 4, 0, 0);";
             majesticsupport::$_db->query($query);
+
+            $query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` (
+                `id` int(11) NOT NULL AUTO_INCREMENT,
+                `status` varchar(60) DEFAULT NULL,
+                `statuscolour` varchar(7) DEFAULT NULL,
+                `statusbgcolour` varchar(7) DEFAULT NULL,
+                `sys` int(1) DEFAULT NULL,
+                `ordering` int(11) NOT NULL,
+                PRIMARY KEY (`id`)
+                ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7;";
+            majesticsupport::$_db->query($query);
+            
+            $query = "INSERT INTO `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` (`id`, `status`, `statuscolour`, `statusbgcolour`, `sys`, `ordering`)
+                VALUES (1, 'New', '#FFFFFF', '#5bb12f', 1, 1),
+                    (2, 'Waiting Reply', '#FFFFFF', '#28abe3', 1, 2),
+                    (3, 'In Progress', '#FFFFFF', '#69d2e7', 1, 3),
+                    (4, 'Replied', '#FFFFFF', '#186e83', 1, 4),
+                    (5, 'Closed', '#FFFFFF', '#ed1c24', 1, 5),
+                    (6, 'Close due to merge', '#FFFFFF', '#ed1c24', 1, 6);";
+            majesticsupport::$_db->query($query);
+
+            $query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_products` (
+                `id` int(11) NOT NULL AUTO_INCREMENT,
+                `product` varchar(60) DEFAULT NULL,
+                `status` tinyint(1) DEFAULT NULL,
+                `ordering` int(11) NOT NULL,
+                PRIMARY KEY (`id`)
+                ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;";
+            majesticsupport::$_db->query($query);
             $query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_replies` (
                                 `id` int(11) NOT NULL AUTO_INCREMENT,
                                 `uid` int(11) NOT NULL,
@@ -445,8 +477,10 @@ class MJTC_activation {
                                 `mergemessage` TINYINT(1) NOT NULL DEFAULT '0',
                                 `viewed_by` int(11) DEFAULT NULL,
                                 `viewed_on` datetime DEFAULT NULL,
-                                PRIMARY KEY (`id`)
-                                ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;";
+                                `aireplymode` tinyint(4) DEFAULT 0,
+                                PRIMARY KEY (`id`),
+                                FULLTEXT KEY `message` (`message`)
+                                ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;";
             majesticsupport::$_db->query($query);
             $query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_system_errors` (
                                 `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -472,7 +506,7 @@ class MJTC_activation {
                                 `uid` int(11) DEFAULT NULL,
                                 `ticketid` varchar(35) DEFAULT NULL,
                                 `internalid` varchar(35) DEFAULT NULL,
-								`token` VARCHAR(1000) DEFAULT NULL,
+                                `token` varchar(1000) DEFAULT NULL,
                                 `departmentid` int(11) DEFAULT NULL,
                                 `priorityid` int(11) DEFAULT NULL,
                                 `staffid` int(11) DEFAULT NULL,
@@ -518,8 +552,12 @@ class MJTC_activation {
                                 `envatodata` text NULL,
                                 `paidsupportitemid` bigint(20) NULL,
                                 `customticketno` INT NOT NULL DEFAULT '1',
-                                PRIMARY KEY (`id`)
-                                ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;";
+                                `productid` INT NULL,
+                                `aireplymode` tinyint(4) DEFAULT 0,
+                                PRIMARY KEY (`id`),
+                                FULLTEXT KEY `subject` (`subject`),
+                                FULLTEXT KEY `message` (`message`)
+                            ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;";
             majesticsupport::$_db->query($query);
             $query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` (
                         `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -527,6 +565,8 @@ class MJTC_activation {
                         `fieldtitle` varchar(50) DEFAULT NULL,
                         `ordering` int(11) DEFAULT NULL,
                         `section` varchar(20) DEFAULT NULL,
+                        `placeholder` varchar(255) DEFAULT NULL,
+                        `description` varchar(255) DEFAULT NULL,
                         `fieldfor` tinyint(2) DEFAULT NULL,
                         `published` tinyint(1) DEFAULT NULL,
                         `sys` tinyint(1) NOT NULL,
@@ -543,17 +583,47 @@ class MJTC_activation {
                         `showonlisting` tinyint(4) DEFAULT NULL,
                         `cannotshowonlisting` tinyint(4) DEFAULT NULL,
                         `search_user` tinyint(4) DEFAULT NULL,
+                        `search_admin` tinyint(4) DEFAULT NULL,
                         `cannotsearch` tinyint(4) DEFAULT NULL,
                         `isvisitorpublished` tinyint(4) DEFAULT NULL,
 						`multiformid` INT DEFAULT 1,
                         `userfieldparams` longtext,
                         `visibleparams` longtext,
+                        `readonly` tinyint(4) DEFAULT 0,
+                        `adminonly` tinyint(1) DEFAULT 0,
+                        `defaultvalue` varchar(255) DEFAULT NULL,
                         PRIMARY KEY (`id`),KEY `fieldordering_filedfor` (`fieldfor`))
                         ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14;";
             majesticsupport::$_db->query($query);
-            $query = "INSERT INTO `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` (`id`, `field`, `fieldtitle`, `ordering`, `section`, `fieldfor`, `published`, `sys`, `cannotunpublish`, `required`,`cannotsearch`,`cannotshowonlisting`,`isvisitorpublished`) VALUES (1, 'email', 'Email Address', 2, '10', 1, 1, 0, 0, 1, 1, 1, 1),  (15, 'users', 'Users', 1, '10', 1, 1, 0, 0, 0, 1, 1, 1),  (2, 'fullname', 'Full Name', 3, '10', 1, 1, 0, 0, 1, 1, 1, 1),  (3, 'phone', 'Phone', 4, '10', 1, 1, 0, 0, 0, 1, 1, 1),  (4, 'department', 'Department', 5, '10', 1, 1, 0, 0, 0, 1, 1, 1),  (5, 'helptopic', 'Help Topic', 6, '10', 1, 1, 0, 0, 0, 1, 1, 1),  (6, 'priority', 'Priority', 7, '10', 1, 1, 0, 0, 1, 1, 1, 1),  (7, 'subject', 'Subject', 8, '10', 1, 1, 0, 1, 1, 1, 1, 1),  (8, 'premade', 'Premade Response', 9, '10', 1, 1, 0, 0, 0, 1, 1, 1),  (9, 'issuesummary', 'Issue Summary', 10, '10', 1, 1, 0, 0, 1, 1, 1, 1),  (10, 'attachments', 'Attachments', 11, '10', 1, 1, 0, 0, 0, 1, 1, 1),  (11, 'internalnotetitle', 'Internal Note Title', 12, '10', 1, 1, 0, 0, 0, 1, 1, 1),  (12, 'assignto', 'Assign To', 13, '10', 1, 1, 0, 0, 0, 1, 1, 1),  (13, 'duedate', 'Due Date', 14, '10', 1, 1, 0, 0, 0, 1, 1, 1),  (14, 'status', 'Status', 15, '10', 1, 1, 0, 0, 0, 1, 1, 1),  (16, 'rating', 'Rating', 1, '10', 2, 1, 0, 0, 0, 0, 0, 1),  (17, 'remarks', 'Remarks', 2, '10', 2, 1, 0, 0, 0, 0, 0, 1)
-			, (18, 'wcorderid', 'Order ID', 16, '10', 1, 1, 0, 0, 0, 0, 0, 1), (19, 'wcproductid', 'Product', 17, '10', 1, 1, 0, 0, 0, 1, 0, 1), (20, 'eddorderid', 'EDD Order ID', 18, '10', 1, 1, 0, 0, 0, 0, 0, 1), (21, 'eddproductid', 'Product', 19, '10', 1, 1, 0, 0, 0, 0, 0, 1), (22, 'eddlicensekey', 'License Key', 20, '10', 1, 1, 0, 0, 0, 1, 0, 1), (23, 'envatopurchasecode', 'Envato Purchase Code', 18, '10', 1, 1, 0, 0, 0, 1, 1, 1)
-			;";
+            $query = "INSERT INTO `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` (`id`, `field`, `fieldtitle`, `ordering`, `section`, `placeholder`, `description`, `fieldfor`, `published`, `sys`, `cannotunpublish`, `required`,`cannotsearch`,`showonlisting`,`cannotshowonlisting`,`search_user`,`search_admin`,`isvisitorpublished`,`userfieldparams`) VALUES
+            (1, 'email', 'Email Address', 2, '10', NULL, NULL, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, NULL),  
+            (15, 'users', 'Users', 1, '10', NULL, NULL, 1, 1, 0, 0, 0, 1, NULL, 1, 0, 0, 1, NULL),  
+            (2, 'fullname', 'Full Name', 3, '10', NULL, NULL, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, NULL),  
+            (3, 'phone', 'Phone', 4, '10', NULL, NULL, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, NULL),  
+            (4, 'department', 'Department', 5, '10', NULL, NULL, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, NULL),  
+            (5, 'helptopic', 'Help Topic', 6, '10', NULL, NULL, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, NULL),  
+            (6, 'priority', 'Priority', 7, '10', NULL, NULL, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, NULL),  
+            (7, 'subject', 'Subject', 8, '10', NULL, NULL, 1, 1, 0, 1, 1, 0, NULL, 1, 1, 1, 1, NULL),  
+            (8, 'premade', 'Premade Response', 9, '10', NULL, NULL, 1, 1, 0, 0, 0, 1, NULL, 1, 0, 0, 1, NULL),  
+            (9, 'issuesummary', 'Issue Summary', 10, '10', NULL, NULL, 1, 1, 0, 0, 1, 1, NULL, 1, 0, 0, 1, NULL),  
+            (10, 'attachments', 'Attachments', 11, '10', NULL, NULL, 1, 1, 0, 0, 0, 1, NULL, 1, 0, 0, 1, NULL),  
+            (11, 'internalnotetitle', 'Internal Note Title', 12, '10', NULL, NULL, 1, 1, 0, 0, 0, 1, NULL, 1, 0, 0, 1, NULL),  
+            (12, 'assignto', 'Assign To', 13, '10', NULL, NULL, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, NULL),  
+            (13, 'duedate', 'Due Date', 14, '10', NULL, NULL, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, NULL),  
+            (14, 'status', 'Status', 15, '10', NULL, NULL, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, NULL),  
+            (16, 'rating', 'Rating', 1, '10', NULL, NULL, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, NULL),  
+            (17, 'remarks', 'Remarks', 2, '10', NULL, NULL, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, NULL), 
+            (18, 'wcorderid', 'WC Order ID', 16, '10', NULL, NULL, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, NULL), 
+            (19, 'wcproductid', 'WC Product', 17, '10', NULL, NULL, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, NULL), 
+            (20, 'eddorderid', 'EDD Order ID', 18, '10', NULL, NULL, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, NULL), 
+            (21, 'eddproductid', 'EDD Product', 19, '10', NULL, NULL, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, NULL), 
+            (22, 'eddlicensekey', 'License Key', 20, '10', NULL, NULL, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, NULL), 
+            (23, 'envatopurchasecode', 'Envato Purchase Code', 18, '10', NULL, NULL, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, NULL),
+            (24, 'product', 'Product', 4, '10', NULL, NULL, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
+            (25, 'termsandconditions1', 'terms and conditions 1', 25, '10', NULL, NULL, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, '{\"termsandconditions_text\":\"I agree to the terms and conditions.\",\"termsandconditions_linktype\":\"3\"}'),
+            (26, 'termsandconditions2', 'terms and conditions 2', 26, '10', NULL, NULL, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, '{\"termsandconditions_text\":\"I understand my personal info may be stored.\",\"termsandconditions_linktype\":\"3\"}'),
+            (27, 'termsandconditions3', 'terms and conditions 3', 27, '10', NULL, NULL, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, '{\"termsandconditions_text\":\"I acknowledge response times may vary.\",\"termsandconditions_linktype\":\"3\"}');";
+
             majesticsupport::$_db->query($query);
             $query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_erasedatarequests` (
                       `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,

@@ -48,8 +48,8 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                 </table>
                 <?php
                 if (majesticsupport::$_data[1]) {
-                    $data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
-                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+                    $MJTC_data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
+                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
                 }
             } else {
                 MJTC_layout::MJTC_getNoRecordFound();

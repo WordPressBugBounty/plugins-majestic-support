@@ -22,7 +22,7 @@ class MJTC_emailModel {
       id required when recever emailaddress is stored in record
      */
 
-    function sendMail($mailfor, $action, $id = null, $tablename = null) {
+    function sendMail($mailfor, $action, $id = null, $MJTC_tablename = null) {
         if (!is_numeric($mailfor))
             return false;
         if (!is_numeric($action))
@@ -31,23 +31,26 @@ class MJTC_emailModel {
             if (!is_numeric($id))
                 return false;
         $pageid = majesticsupport::getPageid();
+		$adminEmailid = majesticsupport::$_config['default_admin_email'];
+		$adminEmail = $this->getEmailById($adminEmailid);
+		
         switch ($mailfor) {
             case 1: // Mail For Tickets
                 switch ($action) {
                     case 1: // New Ticket Created
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        if (isset($ticketRecord->name) && isset($ticketRecord->subject) && isset($ticketRecord->ticketid) && isset($ticketRecord->email)) {
-                        $Username = $ticketRecord->name;
-                        $Subject = $ticketRecord->subject;
-                        $TrackingId = $ticketRecord->ticketid;
-                        $Email = $ticketRecord->email;
-                        $DepName = $ticketRecord->departmentname;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        if (isset($MJTC_ticketRecord->name) && isset($MJTC_ticketRecord->subject) && isset($MJTC_ticketRecord->ticketid) && isset($MJTC_ticketRecord->email)) {
+                        $Username = $MJTC_ticketRecord->name;
+                        $Subject = $MJTC_ticketRecord->subject;
+                        $TrackingId = $MJTC_ticketRecord->ticketid;
+                        $Email = $MJTC_ticketRecord->email;
+                        $DepName = $MJTC_ticketRecord->departmentname;
                         if(in_array('helptopic', majesticsupport::$_active_addons)){
-                            $HelptopicName = $ticketRecord->topic;
+                            $HelptopicName = $MJTC_ticketRecord->topic;
                         }else{
                             $HelptopicName = '';
                         }
-                        $Message = $ticketRecord->message;
+                        $Message = $MJTC_ticketRecord->message;
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{USERNAME}' => $Username,
@@ -56,23 +59,23 @@ class MJTC_emailModel {
                             '{HELP_TOPIC}' => $HelptopicName,
                             '{EMAIL}' => $Email,
                             '{MESSAGE}' => $Message,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
 
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -87,9 +90,9 @@ class MJTC_emailModel {
                         if(majesticsupport::$_config['new_ticket_mail_to_admin'] == 1) {
                             $adminEmailid = majesticsupport::$_config['default_admin_email'];
                             $adminEmail = $this->getEmailById($adminEmailid);
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','ticket-new-admin' , $adminEmail ,'');
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','ticket-new-admin' , $adminEmail ,'', $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $this->getTemplateForEmail('ticket-new-admin');
+                                $template = $this->getTemplateForEmail('ticket-new-admin', $MJTC_ticketRecord->multiformid);
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -112,9 +115,9 @@ class MJTC_emailModel {
                         if($dept_result){
                             if(isset($dept_result->sendmail) && $dept_result->sendmail == 1){
                                 $deptemail = $dept_result->emailaddress;
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','ticket-new-admin' , $deptemail ,'');
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','ticket-new-admin' , $deptemail ,'', $MJTC_ticketRecord->multiformid);
                                 if($template == '' && empty($template)){
-                                    $template = $this->getTemplateForEmail('ticket-new-admin');
+                                    $template = $this->getTemplateForEmail('ticket-new-admin', $MJTC_ticketRecord->multiformid);
                                 }
 
                                 $msgSubject = $template->subject;
@@ -131,9 +134,9 @@ class MJTC_emailModel {
                             }
                         }
                         // New ticket mail to User
-                        $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','ticket-new' , $ticketRecord->email , $ticketRecord->uid);
+                        $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','ticket-new' , $MJTC_ticketRecord->email , $MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                         if($template == '' && empty($template)){
-                            $template = $this->getTemplateForEmail('ticket-new');
+                            $template = $this->getTemplateForEmail('ticket-new', $MJTC_ticketRecord->multiformid);
                         }
                         //Parsing template
                         $msgSubject = $template->subject;
@@ -160,19 +163,19 @@ class MJTC_emailModel {
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['new_ticket_mail_to_staff_members'] == 1) {
                             // Get All Staff member of the department of Current Ticket
                             if ( in_array('agentautoassign',majesticsupport::$_active_addons) && isset(majesticsupport::$_config['department_email_on_ticket_create']) && majesticsupport::$_config['department_email_on_ticket_create'] == 2) {
-                                $agentmembers = MJTC_includer::MJTC_getModel('agentautoassign')->getAllStaffMemberByDepId($ticketRecord->departmentid);
+                                $agentmembers = MJTC_includer::MJTC_getModel('agentautoassign')->getAllStaffMemberByDepId($MJTC_ticketRecord->departmentid);
                             }
                             else{
-                                $agentmembers = MJTC_includer::MJTC_getModel('agent')->getAllStaffMemberByDepId($ticketRecord->departmentid);
+                                $agentmembers = MJTC_includer::MJTC_getModel('agent')->getAllStaffMemberByDepId($MJTC_ticketRecord->departmentid);
                             }
                             if(is_array($agentmembers) && !empty($agentmembers)){
                                 foreach ($agentmembers AS $agent) {
                                     if($agent->canemail == 1){
                                         $staffuid = $agent->staffuid;
                                         if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('New Ticket Notification', $staffuid) == 1) {
-                                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','ticket-staff' , $agent->email , $staffuid);
+                                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','ticket-staff' , $agent->email , $staffuid, $MJTC_ticketRecord->multiformid);
                                             if($template == '' && empty($template)){
-                                                $template = $this->getTemplateForEmail('ticket-staff');
+                                                $template = $this->getTemplateForEmail('ticket-staff', $MJTC_ticketRecord->multiformid);
                                             }
 
                                             $msgSubject = $template->subject;
@@ -194,19 +197,19 @@ class MJTC_emailModel {
                         }
                         break;
                     case 2: // Close Ticket
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $Username = $ticketRecord->name;
-                        $Subject = $ticketRecord->subject;
-                        $TrackingId = $ticketRecord->ticketid;
-                        $Email = $ticketRecord->email;
-                        $DepName = $ticketRecord->departmentname;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $Username = $MJTC_ticketRecord->name;
+                        $Subject = $MJTC_ticketRecord->subject;
+                        $TrackingId = $MJTC_ticketRecord->ticketid;
+                        $Email = $MJTC_ticketRecord->email;
+                        $DepName = $MJTC_ticketRecord->departmentname;
                         if(in_array('helptopic', majesticsupport::$_active_addons)){
-                            $HelptopicName = $ticketRecord->topic;
+                            $HelptopicName = $MJTC_ticketRecord->topic;
                         }else{
                             $HelptopicName = '';
                         }
-                        $Message = $ticketRecord->message;
-                        $ticketHistory = $this->getTicketReplyHistory($id);
+                        $Message = $MJTC_ticketRecord->message;
+                        $MJTC_ticketHistory = $this->getTicketReplyHistory($id);
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{USERNAME}' => $Username,
@@ -215,24 +218,24 @@ class MJTC_emailModel {
                             '{HELP_TOPIC}' => $HelptopicName,
                             '{EMAIL}' => $Email,
                             '{MESSAGE}' => $Message,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{TICKET_HISTORY}' => $ticketHistory,
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
+                            '{TICKET_HISTORY}' => $MJTC_ticketHistory,
                             '{CURRENT_YEAR}' => gmdate('Y')
 
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -242,15 +245,15 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('close-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('close-tk', $MJTC_ticketRecord->multiformid);
                         // Close ticket mail to admin
                         if (majesticsupport::$_config['ticket_close_admin'] == 1) {
                             $adminEmailid = majesticsupport::$_config['default_admin_email'];
                             $adminEmail = $this->getEmailById($adminEmailid);
 
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','close-tk' , $adminEmail ,'');
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','close-tk' , $adminEmail ,'', $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
 
                             $link = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($id));
@@ -265,12 +268,12 @@ class MJTC_emailModel {
                         }
                         // Close ticket mail to staff member
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['ticket_close_staff'] == 1) {
-                            $agentEmail = $this->getStaffEmailAddressByStaffId($ticketRecord->staffid);
-                            $staffuid = $this->getStaffUidByStaffId($ticketRecord->staffid);
+                            $agentEmail = $this->getStaffEmailAddressByStaffId($MJTC_ticketRecord->staffid);
+                            $staffuid = $this->getStaffUidByStaffId($MJTC_ticketRecord->staffid);
                             if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','close-tk' , $agentEmail ,$staffuid);
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','close-tk' , $agentEmail ,$staffuid, $MJTC_ticketRecord->multiformid);
                                 if($template == '' && empty($template)){
-                                    $template = $defaulttemplate;
+                                    $template = $MJTC_defaulttemplate;
                                 }
 
                                 $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id,'mspageid'=>majesticsupport::getPageid())));
@@ -294,14 +297,14 @@ class MJTC_emailModel {
                             $encoder = new MJTC_encoder();
                             $encryptedtext = $encoder->MJTC_encrypt($token);
                             if(in_array('feedback', majesticsupport::$_active_addons)){
-                                $flink = "<a href=" . esc_url(majesticsupport::makeUrl(array('mjsmod'=>'feedback', 'task'=>'showfeedbackform','action'=>'mstask','token'=>$encryptedtext,'mspageid'=>majesticsupport::getPageid()))) . ">".esc_html(__('Click here to give us feedback','majestic-support'))." </a>";
+                                $flink = "<a href=" . esc_url(majesticsupport::makeUrl(array('mjsmod'=>'feedback', 'task'=>'showfeedbackform','action'=>'mstask','token'=>$encryptedtext,'mspageid'=>majesticsupport::getPageid()))) . ">". esc_html(__('Click here to give us feedback','majestic-support'))." </a>";
                             }else{
                                 $flink = " ";
                             }
 
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','close-tk' , $Email ,$ticketRecord->uid);
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','close-tk' , $Email ,$MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
 
                             $matcharray['{TICKETURL}'] = $link;
@@ -327,7 +330,7 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName(null);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('delete-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('delete-tk');
                         // Delete ticket mail to admin
                         if (majesticsupport::$_config['ticket_delete_admin'] == 1) {
                             $adminEmailid = majesticsupport::$_config['default_admin_email'];
@@ -336,7 +339,7 @@ class MJTC_emailModel {
 
                             $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','delete-tk' , $adminEmail ,'');
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -355,7 +358,7 @@ class MJTC_emailModel {
                                 if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
                                     $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','delete-tk' , $agentEmail ,$staffuid);
                                     if($template == '' && empty($template)){
-                                        $template = $defaulttemplate;
+                                        $template = $MJTC_defaulttemplate;
                                     }
                                     $msgSubject = $template->subject;
                                     $msgBody = $template->body;
@@ -370,7 +373,7 @@ class MJTC_emailModel {
                         if (majesticsupport::$_config['ticket_delete_user'] == 1) {
                             $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','delete-tk' , $Email , '');
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $matcharray['{EMAIL}'] = $Email;
                             $msgSubject = $template->subject;
@@ -382,19 +385,19 @@ class MJTC_emailModel {
                         }
                         break;
                     case 4: // Reply Ticket (Admin/Staff Member)
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $Username = $ticketRecord->name;
-                        $Subject = $ticketRecord->subject;
-                        $TrackingId = $ticketRecord->ticketid;
-                        $DepName = $ticketRecord->departmentname;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $Username = $MJTC_ticketRecord->name;
+                        $Subject = $MJTC_ticketRecord->subject;
+                        $TrackingId = $MJTC_ticketRecord->ticketid;
+                        $DepName = $MJTC_ticketRecord->departmentname;
                         if(in_array('helptopic', majesticsupport::$_active_addons)){
-                            $HelptopicName = $ticketRecord->topic;
+                            $HelptopicName = $MJTC_ticketRecord->topic;
                         }else{
                             $HelptopicName = '';
                         }
-                        $Email = $ticketRecord->email;
+                        $Email = $MJTC_ticketRecord->email;
                         $Message = $this->getLatestReplyByTicketId($id);
-                        $ticketHistory = $this->getTicketReplyHistory($id);
+                        $MJTC_ticketHistory = $this->getTicketReplyHistory($id);
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{USERNAME}' => $Username,
@@ -403,23 +406,23 @@ class MJTC_emailModel {
                             '{HELP_TOPIC}' => $HelptopicName,
                             '{EMAIL}' => $Email,
                             '{MESSAGE}' => $Message,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{TICKET_HISTORY}' => $ticketHistory,
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
+                            '{TICKET_HISTORY}' => $MJTC_ticketHistory,
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -429,17 +432,17 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('reply-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('reply-tk');
                         // Reply ticket mail to admin
                         if (majesticsupport::$_config['ticket_response_to_staff_admin'] == 1) {
                             $adminEmailid = majesticsupport::$_config['default_admin_email'];
                             $adminEmail = $this->getEmailById($adminEmailid);
-                            $link = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . $id);
+                            $link = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($id));
                             $matcharray['{TICKETURL}'] = $link;
 
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reply-tk' , $adminEmail , '');
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reply-tk' , $adminEmail , '', $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
 
                             $msgSubject = $template->subject;
@@ -452,13 +455,13 @@ class MJTC_emailModel {
                         }
                         // Reply ticket mail to staff
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['ticket_response_to_staff_staff'] == 1) {
-                            $agentEmail = $this->getStaffEmailAddressByStaffId($ticketRecord->staffid);
+                            $agentEmail = $this->getStaffEmailAddressByStaffId($MJTC_ticketRecord->staffid);
                             $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id,'mspageid'=>majesticsupport::getPageid())));
-                            $staffuid = $this->getStaffUidByStaffId($ticketRecord->staffid);
+                            $staffuid = $this->getStaffUidByStaffId($MJTC_ticketRecord->staffid);
                             if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reply-tk' , $agentEmail , $staffuid);
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reply-tk' , $agentEmail , $staffuid, $MJTC_ticketRecord->multiformid);
                                 if($template == '' && empty($template)){
-                                    $template = $defaulttemplate;
+                                    $template = $MJTC_defaulttemplate;
                                 }
 
                                 $matcharray['{TICKETURL}'] = $link;
@@ -484,9 +487,9 @@ class MJTC_emailModel {
                             $encryptedtext = $encoder->MJTC_encrypt($token);
                             // end token encryotion
                             $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'task'=>'showticketstatus','action'=>'mstask','token'=>$encryptedtext,'mspageid'=>majesticsupport::getPageid())));
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reply-tk' , $Email , $ticketRecord->uid);
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reply-tk' , $Email , $MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $matcharray['{TICKETURL}'] = $link;
                             $msgSubject = $template->subject;
@@ -499,19 +502,19 @@ class MJTC_emailModel {
                         }
                         break;
                     case 5: // Reply Ticket (Ticket Member)
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $Username = $ticketRecord->name;
-                        $Subject = $ticketRecord->subject;
-                        $TrackingId = $ticketRecord->ticketid;
-                        $DepName = $ticketRecord->departmentname;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $Username = $MJTC_ticketRecord->name;
+                        $Subject = $MJTC_ticketRecord->subject;
+                        $TrackingId = $MJTC_ticketRecord->ticketid;
+                        $DepName = $MJTC_ticketRecord->departmentname;
                         if(in_array('helptopic', majesticsupport::$_active_addons)){
-                            $HelptopicName = $ticketRecord->topic;
+                            $HelptopicName = $MJTC_ticketRecord->topic;
                         }else{
                             $HelptopicName = '';
                         }
-                        $Email = $ticketRecord->email;
+                        $Email = $MJTC_ticketRecord->email;
                         $Message = $this->getLatestReplyByTicketId($id);
-                        $ticketHistory = $this->getTicketReplyHistory($id);
+                        $MJTC_ticketHistory = $this->getTicketReplyHistory($id);
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{USERNAME}' => $Username,
@@ -520,23 +523,23 @@ class MJTC_emailModel {
                             '{HELP_TOPIC}' => $HelptopicName,
                             '{EMAIL}' => $Email,
                             '{MESSAGE}' => $Message,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{TICKET_HISTORY}' => $ticketHistory,
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
+                            '{TICKET_HISTORY}' => $MJTC_ticketHistory,
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -546,7 +549,7 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('reply-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('reply-tk');
                         // New ticket mail to admin
                         if (majesticsupport::$_config['ticket_reply_ticket_user_admin'] == 1) {
                             $adminEmailid = majesticsupport::$_config['default_admin_email'];
@@ -554,9 +557,9 @@ class MJTC_emailModel {
                             $link = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($id));
                             $matcharray['{TICKETURL}'] = $link;
 
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reply-tk' ,$adminEmail ,'');
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reply-tk' ,$adminEmail ,'', $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -568,14 +571,14 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to staff
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['ticket_reply_ticket_user_staff'] == 1) {
-                            $agentEmail = $this->getStaffEmailAddressByStaffId($ticketRecord->staffid);
+                            $agentEmail = $this->getStaffEmailAddressByStaffId($MJTC_ticketRecord->staffid);
                             $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id,'mspageid'=>majesticsupport::getPageid())));
                             $matcharray['{TICKETURL}'] = $link;
-                            $staffuid = $this->getStaffUidByStaffId($ticketRecord->staffid);
+                            $staffuid = $this->getStaffUidByStaffId($MJTC_ticketRecord->staffid);
                             if (isset($staffuid) && MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reply-tk' ,$adminEmail ,$staffuid);
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reply-tk' ,$adminEmail ,$staffuid, $MJTC_ticketRecord->multiformid);
                                 if($template == '' && empty($template)){
-                                    $template = $defaulttemplate;
+                                    $template = $MJTC_defaulttemplate;
                                 }
 
                                 $msgSubject = $template->subject;
@@ -600,9 +603,9 @@ class MJTC_emailModel {
                             // end token encryotion
                             $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket' ,'task'=>'showticketstatus','action'=>'mstask','token'=>$encryptedtext,'mspageid'=>majesticsupport::getPageid())));
                             $matcharray['{TICKETURL}'] = $link;
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reply-tk' ,$Email ,$ticketRecord->uid);
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reply-tk' ,$Email ,$MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
 
                             $msgSubject = $template->subject;
@@ -615,18 +618,18 @@ class MJTC_emailModel {
                         }
                         break;
                     case 6: // Lock Ticket
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $Username = $ticketRecord->name;
-                        $Subject = $ticketRecord->subject;
-                        $TrackingId = $ticketRecord->ticketid;
-                        $DepName = $ticketRecord->departmentname;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $Username = $MJTC_ticketRecord->name;
+                        $Subject = $MJTC_ticketRecord->subject;
+                        $TrackingId = $MJTC_ticketRecord->ticketid;
+                        $DepName = $MJTC_ticketRecord->departmentname;
                         if(in_array('helptopic', majesticsupport::$_active_addons)){
-                            $HelptopicName = $ticketRecord->topic;
+                            $HelptopicName = $MJTC_ticketRecord->topic;
                         }else{
                             $HelptopicName = '';
                         }
-                        $Email = $ticketRecord->email;
-                        $ticketHistory = $this->getTicketReplyHistory($id);
+                        $Email = $MJTC_ticketRecord->email;
+                        $MJTC_ticketHistory = $this->getTicketReplyHistory($id);
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{USERNAME}' => $Username,
@@ -634,23 +637,23 @@ class MJTC_emailModel {
                             '{TRACKINGID}' => $TrackingId,
                             '{HELP_TOPIC}' => $HelptopicName,
                             '{EMAIL}' => $Email,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{TICKET_HISTORY}' => $ticketHistory,
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
+                            '{TICKET_HISTORY}' => $MJTC_ticketHistory,
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -660,16 +663,16 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('lock-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('lock-tk', $MJTC_ticketRecord->multiformid);
                         // New ticket mail to admin
                         if (majesticsupport::$_config['ticket_lock_admin'] == 1) {
                             $adminEmailid = majesticsupport::$_config['default_admin_email'];
                             $adminEmail = $this->getEmailById($adminEmailid);
                             $link = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($id));
                             $matcharray['{TICKETURL}'] = $link;
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','lock-tk' ,$adminEmail ,'');
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','lock-tk' ,$adminEmail ,'', $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -681,15 +684,15 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to staff
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['ticket_lock_staff'] == 1) {
-                            $agentEmail = $this->getStaffEmailAddressByStaffId($ticketRecord->staffid);
+                            $agentEmail = $this->getStaffEmailAddressByStaffId($MJTC_ticketRecord->staffid);
                             $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id,'mspageid'=>majesticsupport::getPageid())));
 
                             $matcharray['{TICKETURL}'] = $link;
-                            $staffuid = $this->getStaffUidByStaffId($ticketRecord->staffid);
+                            $staffuid = $this->getStaffUidByStaffId($MJTC_ticketRecord->staffid);
                             if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','lock-tk' ,$agentEmail ,$staffuid);
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','lock-tk' ,$agentEmail ,$staffuid, $MJTC_ticketRecord->multiformid);
                                 if($template == '' && empty($template)){
-                                    $template = $defaulttemplate;
+                                    $template = $MJTC_defaulttemplate;
                                 }
                                 $msgSubject = $template->subject;
                                 $msgBody = $template->body;
@@ -705,9 +708,9 @@ class MJTC_emailModel {
                             $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id,'mspageid'=>majesticsupport::getPageid())));
 
                             $matcharray['{TICKETURL}'] = $link;
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','lock-tk' ,$Email ,$ticketRecord->uid);
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','lock-tk' ,$Email ,$MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -718,18 +721,18 @@ class MJTC_emailModel {
                         }
                         break;
                     case 7: // Unlock Ticket
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $Username = $ticketRecord->name;
-                        $Subject = $ticketRecord->subject;
-                        $TrackingId = $ticketRecord->ticketid;
-                        $DepName = $ticketRecord->departmentname;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $Username = $MJTC_ticketRecord->name;
+                        $Subject = $MJTC_ticketRecord->subject;
+                        $TrackingId = $MJTC_ticketRecord->ticketid;
+                        $DepName = $MJTC_ticketRecord->departmentname;
                         if(in_array('helptopic', majesticsupport::$_active_addons)){
-                            $HelptopicName = $ticketRecord->topic;
+                            $HelptopicName = $MJTC_ticketRecord->topic;
                         }else{
                             $HelptopicName = '';
                         }
-                        $Email = $ticketRecord->email;
-                        $ticketHistory = $this->getTicketReplyHistory($id);
+                        $Email = $MJTC_ticketRecord->email;
+                        $MJTC_ticketHistory = $this->getTicketReplyHistory($id);
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{USERNAME}' => $Username,
@@ -737,23 +740,23 @@ class MJTC_emailModel {
                             '{TRACKINGID}' => $TrackingId,
                             '{HELP_TOPIC}' => $HelptopicName,
                             '{EMAIL}' => $Email,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{TICKET_HISTORY}' => $ticketHistory,
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
+                            '{TICKET_HISTORY}' => $MJTC_ticketHistory,
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -763,7 +766,7 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('unlock-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('unlock-tk', $MJTC_ticketRecord->multiformid);
                         // New ticket mail to admin
                         if (majesticsupport::$_config['ticket_unlock_admin'] == 1) {
                             $adminEmailid = majesticsupport::$_config['default_admin_email'];
@@ -771,9 +774,9 @@ class MJTC_emailModel {
                             $link = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($id));
 
                             $matcharray['{TICKETURL}'] = $link;
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unlock-tk' ,$adminEmail ,'');
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unlock-tk' ,$adminEmail ,'', $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                            $template = $defaulttemplate;
+                            $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -785,15 +788,15 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to staff
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['ticket_unlock_staff'] == 1) {
-                            $agentEmail = $this->getStaffEmailAddressByStaffId($ticketRecord->staffid);
+                            $agentEmail = $this->getStaffEmailAddressByStaffId($MJTC_ticketRecord->staffid);
                             $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id,'mspageid'=>majesticsupport::getPageid())));
 
                             $matcharray['{TICKETURL}'] = $link;
-                            $staffuid = $this->getStaffUidByStaffId($ticketRecord->staffid);
+                            $staffuid = $this->getStaffUidByStaffId($MJTC_ticketRecord->staffid);
                             if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unlock-tk' ,$agentEmail ,$staffuid);
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unlock-tk' ,$agentEmail ,$staffuid, $MJTC_ticketRecord->multiformid);
                                 if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                                 }
                                 $msgSubject = $template->subject;
                                 $msgBody = $template->body;
@@ -809,9 +812,9 @@ class MJTC_emailModel {
                             $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id,'mspageid'=>majesticsupport::getPageid())));
 
                             $matcharray['{TICKETURL}'] = $link;
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unlock-tk' ,$Email ,$ticketRecord->uid);
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unlock-tk' ,$Email ,$MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -823,39 +826,39 @@ class MJTC_emailModel {
                         }
                         break;
                     case 8: // Markoverdue Ticket
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $TrackingId = $ticketRecord->ticketid;
-                        $DepName = $ticketRecord->departmentname;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $TrackingId = $MJTC_ticketRecord->ticketid;
+                        $DepName = $MJTC_ticketRecord->departmentname;
                         if(in_array('helptopic', majesticsupport::$_active_addons)){
-                            $HelptopicName = $ticketRecord->topic;
+                            $HelptopicName = $MJTC_ticketRecord->topic;
                         }else{
                             $HelptopicName = '';
                         }
-                        $Email = $ticketRecord->email;
-                        $Subject = $ticketRecord->subject;
-                        $ticketHistory = $this->getTicketReplyHistory($id);
+                        $Email = $MJTC_ticketRecord->email;
+                        $Subject = $MJTC_ticketRecord->subject;
+                        $MJTC_ticketHistory = $this->getTicketReplyHistory($id);
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{TRACKINGID}' => $TrackingId,
                             '{HELP_TOPIC}' => $HelptopicName,
                             '{SUBJECT}' => $Subject,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{TICKET_HISTORY}' => $ticketHistory,
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
+                            '{TICKET_HISTORY}' => $MJTC_ticketHistory,
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -865,7 +868,7 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('moverdue-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('moverdue-tk', $MJTC_ticketRecord->multiformid);
                         // New ticket mail to admin
                         if (majesticsupport::$_config['ticket_mark_overdue_admin'] == 1) {
                             $adminEmailid = majesticsupport::$_config['default_admin_email'];
@@ -874,9 +877,9 @@ class MJTC_emailModel {
                             $link = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($id));
 
                             $matcharray['{TICKETURL}'] = $link;
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','moverdue-tk' ,$adminEmail ,'');
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','moverdue-tk' ,$adminEmail ,'', $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -887,16 +890,16 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to staff
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['ticket_mark_overdue_staff'] == 1) {
-                            $agentEmail = $this->getStaffEmailAddressByStaffId($ticketRecord->staffid);
+                            $agentEmail = $this->getStaffEmailAddressByStaffId($MJTC_ticketRecord->staffid);
                             $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id,'mspageid'=>majesticsupport::getPageid())));
 
                             $matcharray['{TICKETURL}'] = $link;
-                            $staffuid = $this->getStaffUidByStaffId($ticketRecord->staffid);
+                            $staffuid = $this->getStaffUidByStaffId($MJTC_ticketRecord->staffid);
                             if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','moverdue-tk' ,$adminEmail ,$staffuid);
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','moverdue-tk' ,$adminEmail ,$staffuid, $MJTC_ticketRecord->multiformid);
                                 $matcharray['{EMAIL}'] = $agentEmail;
                                 if($template == '' && empty($template)){
-                                    $template = $defaulttemplate;
+                                    $template = $MJTC_defaulttemplate;
                                 }
                                 $msgSubject = $template->subject;
                                 $msgBody = $template->body;
@@ -906,13 +909,13 @@ class MJTC_emailModel {
                                 $this->sendEmail($agentEmail, $msgSubject, $msgBody, $senderEmail, $senderName, $attachments, $action, 'moverdue-tk-staff');
                             }
                             // Get All Staff member of the department of Current Ticket
-                            $agentmembers = MJTC_includer::MJTC_getModel('agent')->getAllStaffMemberByDepId($ticketRecord->departmentid);
+                            $agentmembers = MJTC_includer::MJTC_getModel('agent')->getAllStaffMemberByDepId($MJTC_ticketRecord->departmentid);
                             if(is_array($agentmembers) && !empty($agentmembers)){
                                 foreach ($agentmembers AS $agent) {
                                     if($agent->canemail == 1){
-                                        $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','moverdue-tk' ,$agent->email ,$agent->staffuid);
+                                        $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','moverdue-tk' ,$agent->email ,$agent->staffuid, $MJTC_ticketRecord->multiformid);
                                         if($template == '' && empty($template)){
-                                            $template = $defaulttemplate;
+                                            $template = $MJTC_defaulttemplate;
                                         }
                                         $matcharray['{EMAIL}'] = $agent->email;
                                         $msgSubject = $template->subject;
@@ -925,17 +928,17 @@ class MJTC_emailModel {
                                 }
                             }
                             // send email to staff memebers with all ticket permissions
-                            if( !is_numeric($ticketRecord->staffid) && !is_numeric($ticketRecord->departmentid)){
+                            if( !is_numeric($MJTC_ticketRecord->staffid) && !is_numeric($MJTC_ticketRecord->departmentid)){
                                 if( in_array('agent',majesticsupport::$_active_addons)){
                                     $agentmembers = MJTC_includer::MJTC_getModel('agent')->getAllStaffMemberByAllTicketPermission();
                                     if(is_array($agentmembers) && !empty($agentmembers)){
                                         foreach ($agentmembers AS $agent) {
                                             if($agent->canemail == 1){
                                                 if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $agent->uid) == 1) {
-                                                    $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','moverdue-tk' ,$agent->email,$agent->uid);
+                                                    $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','moverdue-tk' ,$agent->email,$agent->uid, $MJTC_ticketRecord->multiformid);
                                                     $matcharray['{EMAIL}'] = $agent->email;
                                                     if($template == '' && empty($template)){
-                                                        $template = $defaulttemplate;
+                                                        $template = $MJTC_defaulttemplate;
                                                     }
                                                     $msgSubject = $template->subject;
                                                     $msgBody = $template->body;
@@ -955,9 +958,9 @@ class MJTC_emailModel {
                         if (majesticsupport::$_config['ticket_mark_overdue_user'] == 1) {
                             $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id,'mspageid'=>majesticsupport::getPageid())));
                             $matcharray['{TICKETURL}'] = $link;
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','moverdue-tk' ,$Email ,$ticketRecord->uid);
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','moverdue-tk' ,$Email ,$MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $matcharray['{EMAIL}'] = $Email;
                             $msgSubject = $template->subject;
@@ -969,39 +972,39 @@ class MJTC_emailModel {
                         }
                         break;
                     case 9: // Mark in progress Ticket
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $TrackingId = $ticketRecord->ticketid;
-                        $DepName = $ticketRecord->departmentname;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $TrackingId = $MJTC_ticketRecord->ticketid;
+                        $DepName = $MJTC_ticketRecord->departmentname;
                         if(in_array('helptopic', majesticsupport::$_active_addons)){
-                            $HelptopicName = $ticketRecord->topic;
+                            $HelptopicName = $MJTC_ticketRecord->topic;
                         }else{
                             $HelptopicName = '';
                         }
-                        $Email = $ticketRecord->email;
-                        $Subject = $ticketRecord->subject;
-                        $ticketHistory = $this->getTicketReplyHistory($id);
+                        $Email = $MJTC_ticketRecord->email;
+                        $Subject = $MJTC_ticketRecord->subject;
+                        $MJTC_ticketHistory = $this->getTicketReplyHistory($id);
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{TRACKINGID}' => $TrackingId,
                             '{HELP_TOPIC}' => $HelptopicName,
                             '{SUBJECT}' => $Subject,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{TICKET_HISTORY}' => $ticketHistory,
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
+                            '{TICKET_HISTORY}' => $MJTC_ticketHistory,
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -1011,7 +1014,7 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('minprogress-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('minprogress-tk', $MJTC_ticketRecord->multiformid);
                         // New ticket mail to admin
                         if (majesticsupport::$_config['ticket_mark_progress_admin'] == 1) {
                             $adminEmailid = majesticsupport::$_config['default_admin_email'];
@@ -1021,9 +1024,9 @@ class MJTC_emailModel {
 
                             $matcharray['{TICKETURL}'] = $link;
 
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','minprogress-tk' ,$adminEmail ,'');
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','minprogress-tk' ,$adminEmail ,'', $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -1034,17 +1037,17 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to staff
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['ticket_mark_progress_staff'] == 1) {
-                            $agentEmail = $this->getStaffEmailAddressByStaffId($ticketRecord->staffid);
+                            $agentEmail = $this->getStaffEmailAddressByStaffId($MJTC_ticketRecord->staffid);
                             $matcharray['{EMAIL}'] = $agentEmail;
                             $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id,'mspageid'=>majesticsupport::getPageid())));
 
                             $matcharray['{TICKETURL}'] = $link;
-                            $staffuid = $this->getStaffUidByStaffId($ticketRecord->staffid);
+                            $staffuid = $this->getStaffUidByStaffId($MJTC_ticketRecord->staffid);
                             if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
                                 $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','minprogress-tk'
-                                 ,$agentEmail ,$staffuid);
+                                 ,$agentEmail ,$staffuid, $MJTC_ticketRecord->multiformid);
                                 if($template == '' && empty($template)){
-                                    $template = $defaulttemplate;
+                                    $template = $MJTC_defaulttemplate;
                                 }
                                 $msgSubject = $template->subject;
                                 $msgBody = $template->body;
@@ -1059,9 +1062,9 @@ class MJTC_emailModel {
                             $link = esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id,'mspageid'=>majesticsupport::getPageid())));
 
                             $matcharray['{TICKETURL}'] = $link;
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','minprogress-tk' ,$Email ,$ticketRecord->uid);
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','minprogress-tk' ,$Email ,$MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $matcharray['{EMAIL}'] = $Email;
                             $msgSubject = $template->subject;
@@ -1073,38 +1076,38 @@ class MJTC_emailModel {
                         }
                         break;
                     case 10: // Ban email and close Ticket
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $TrackingId = $ticketRecord->ticketid;
-                        $DepName = $ticketRecord->departmentname;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $TrackingId = $MJTC_ticketRecord->ticketid;
+                        $DepName = $MJTC_ticketRecord->departmentname;
                         if(in_array('helptopic', majesticsupport::$_active_addons)){
-                            $HelptopicName = $ticketRecord->topic;
+                            $HelptopicName = $MJTC_ticketRecord->topic;
                         }else{
                             $HelptopicName = '';
                         }
-                        $Email = $ticketRecord->email;
-                        $Subject = $ticketRecord->subject;
+                        $Email = $MJTC_ticketRecord->email;
+                        $Subject = $MJTC_ticketRecord->subject;
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{EMAIL_ADDRESS}' => $Email,
                             '{SUBJECT}' => $Subject,
                             '{HELP_TOPIC}' => $HelptopicName,
                             '{TRACKINGID}' => $TrackingId,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -1114,15 +1117,15 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('banemailcloseticket-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('banemailcloseticket-tk', $MJTC_ticketRecord->multiformid);
 
                         // New ticket mail to admin
                         if (majesticsupport::$_config['ticker_ban_eamil_and_close_ticktet_admin'] == 1) {
                             $adminEmailid = majesticsupport::$_config['default_admin_email'];
                             $adminEmail = $this->getEmailById($adminEmailid);
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','banemailcloseticket-tk' ,$adminEmail ,'');
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','banemailcloseticket-tk' ,$adminEmail ,'', $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -1133,12 +1136,12 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to staff
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['ticker_ban_eamil_and_close_ticktet_staff'] == 1) {
-                            $agentEmail = $this->getStaffEmailAddressByStaffId($ticketRecord->staffid);
-                            $staffuid = $this->getStaffUidByStaffId($ticketRecord->staffid);
+                            $agentEmail = $this->getStaffEmailAddressByStaffId($MJTC_ticketRecord->staffid);
+                            $staffuid = $this->getStaffUidByStaffId($MJTC_ticketRecord->staffid);
                             if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','banemailcloseticket-tk' ,$adminEmail ,$staffuid);
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','banemailcloseticket-tk' ,$adminEmail ,$staffuid, $MJTC_ticketRecord->multiformid);
                                 if($template == '' && empty($template)){
-                                    $template = $defaulttemplate;
+                                    $template = $MJTC_defaulttemplate;
                                 }
                                 $msgSubject = $template->subject;
                                 $msgBody = $template->body;
@@ -1151,9 +1154,9 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to User
                         if (majesticsupport::$_config['ticker_ban_eamil_and_close_ticktet_user'] == 1) {
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','banemailcloseticket-tk' ,$Email ,$ticketRecord->uid);
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','banemailcloseticket-tk' ,$Email ,$MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -1164,40 +1167,40 @@ class MJTC_emailModel {
                         }
                         break;
                     case 11: // Priority change ticket
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $TrackingId = $ticketRecord->ticketid;
-                        $Subject = $ticketRecord->subject;
-                        $DepName = $ticketRecord->departmentname;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $TrackingId = $MJTC_ticketRecord->ticketid;
+                        $Subject = $MJTC_ticketRecord->subject;
+                        $DepName = $MJTC_ticketRecord->departmentname;
                         if(in_array('helptopic', majesticsupport::$_active_addons)){
-                            $HelptopicName = $ticketRecord->topic;
+                            $HelptopicName = $MJTC_ticketRecord->topic;
                         }else{
                             $HelptopicName = '';
                         }
-                        $Email = $ticketRecord->email;
-                        $Priority = MJTC_includer::MJTC_getModel('priority')->getPriorityById($ticketRecord->priorityid);
-                        $ticketHistory = $this->getTicketReplyHistory($id);
+                        $Email = $MJTC_ticketRecord->email;
+                        $Priority = MJTC_includer::MJTC_getModel('priority')->getPriorityById($MJTC_ticketRecord->priorityid);
+                        $MJTC_ticketHistory = $this->getTicketReplyHistory($id);
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{PRIORITY_TITLE}' => majesticsupport::MJTC_getVarValue($Priority),
                             '{SUBJECT}' => $Subject,
                             '{HELP_TOPIC}' => $HelptopicName,
                             '{TRACKINGID}' => $TrackingId,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{TICKET_HISTORY}' => $ticketHistory,
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{TICKET_HISTORY}' => $MJTC_ticketHistory,
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -1207,7 +1210,7 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('prtrans-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('prtrans-tk', $MJTC_ticketRecord->multiformid);
 
                         // New ticket mail to admin
                         if (majesticsupport::$_config['ticket_priority_admin'] == 1) {
@@ -1218,7 +1221,7 @@ class MJTC_emailModel {
                             $matcharray['{EMAIL}'] = $adminEmail;
                             $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','prtrans-tk' ,$adminEmail ,'');
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -1233,13 +1236,13 @@ class MJTC_emailModel {
                         $matcharray['{TICKETURL}'] = $link;
                         // New ticket mail to staff
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['ticket_priority_staff'] == 1) {
-                            $agentEmail = $this->getStaffEmailAddressByStaffId($ticketRecord->staffid);
-                            $staffuid = $this->getStaffUidByStaffId($ticketRecord->staffid);
+                            $agentEmail = $this->getStaffEmailAddressByStaffId($MJTC_ticketRecord->staffid);
+                            $staffuid = $this->getStaffUidByStaffId($MJTC_ticketRecord->staffid);
                             $matcharray['{EMAIL}'] = $agentEmail;
                             if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','prtrans-tk' ,$agentEmail ,$staffuid);
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','prtrans-tk' ,$agentEmail ,$staffuid, $MJTC_ticketRecord->multiformid);
                                 if($template == '' && empty($template)){
-                                    $template = $defaulttemplate;
+                                    $template = $MJTC_defaulttemplate;
                                 }
                                 $msgSubject = $template->subject;
                                 $msgBody = $template->body;
@@ -1252,9 +1255,9 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to User
                         if (majesticsupport::$_config['ticket_priority_user'] == 1) {
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','prtrans-tk' ,$Email ,$ticketRecord->uid);
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','prtrans-tk' ,$Email ,$MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $matcharray['{EMAIL}'] = $Email;
                             $msgSubject = $template->subject;
@@ -1266,38 +1269,38 @@ class MJTC_emailModel {
                         }
                         break;
                     case 12: // DEPARTMENT TRANSFER
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $TrackingId = $ticketRecord->ticketid;
-                        $Subject = $ticketRecord->subject;
-                        $DepName = $ticketRecord->departmentname;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $TrackingId = $MJTC_ticketRecord->ticketid;
+                        $Subject = $MJTC_ticketRecord->subject;
+                        $DepName = $MJTC_ticketRecord->departmentname;
                         if(in_array('helptopic', majesticsupport::$_active_addons)){
-                            $HelptopicName = $ticketRecord->topic;
+                            $HelptopicName = $MJTC_ticketRecord->topic;
                         }else{
                             $HelptopicName = '';
                         }
-                        $Email = $ticketRecord->email;
-                        $Department = MJTC_includer::MJTC_getModel('department')->getDepartmentById($ticketRecord->departmentid);
+                        $Email = $MJTC_ticketRecord->email;
+                        $Department = MJTC_includer::MJTC_getModel('department')->getDepartmentById($MJTC_ticketRecord->departmentid);
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{SUBJECT}' => $Subject,
                             '{HELP_TOPIC}' => $HelptopicName,
                             '{TRACKINGID}' => $TrackingId,
-                            '{DEPARTMENT_TITLE}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
+                            '{DEPARTMENT_TITLE}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -1307,16 +1310,16 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('deptrans-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('deptrans-tk', $MJTC_ticketRecord->multiformid);
                         // New ticket mail to admin
                         if (majesticsupport::$_config['ticket_department_transfer_admin'] == 1) {
                             $adminEmailid = majesticsupport::$_config['default_admin_email'];
                             $adminEmail = $this->getEmailById($adminEmailid);
                             $matcharray['{EMAIL}'] = $adminEmail;
 
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','deptrans-tk' ,$adminEmail ,'');
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','deptrans-tk' ,$adminEmail ,'', $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -1327,13 +1330,13 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to staff
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['ticket_department_transfer_staff'] == 1) {
-                            $agentEmail = $this->getStaffEmailAddressByStaffId($ticketRecord->staffid);
-                            $staffuid = $this->getStaffUidByStaffId($ticketRecord->staffid);
+                            $agentEmail = $this->getStaffEmailAddressByStaffId($MJTC_ticketRecord->staffid);
+                            $staffuid = $this->getStaffUidByStaffId($MJTC_ticketRecord->staffid);
                             $matcharray['{EMAIL}'] = $agentEmail;
                             if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','deptrans-tk' ,$agentEmail ,$staffuid);
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','deptrans-tk' ,$agentEmail ,$staffuid, $MJTC_ticketRecord->multiformid);
                                 if($template == '' && empty($template)){
-                                    $template = $defaulttemplate;
+                                    $template = $MJTC_defaulttemplate;
                                 }
                                 $msgSubject = $template->subject;
                                 $msgBody = $template->body;
@@ -1344,15 +1347,15 @@ class MJTC_emailModel {
                             }
                             // send email to all staff memebers of current ticket department
                             // Get All Staff member of the department of Current Ticket
-                            $agentmembers = MJTC_includer::MJTC_getModel('agent')->getAllStaffMemberByDepId($ticketRecord->departmentid);
+                            $agentmembers = MJTC_includer::MJTC_getModel('agent')->getAllStaffMemberByDepId($MJTC_ticketRecord->departmentid);
                             if(is_array($agentmembers) && !empty($agentmembers)){
                                 foreach ($agentmembers AS $agent) {
                                     if($agent->canemail == 1){
                                         if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $agent->staffuid) == 1) {
-                                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','deptrans-tk' ,$agent->email ,$agent->staffuid);
+                                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','deptrans-tk' ,$agent->email ,$agent->staffuid, $MJTC_ticketRecord->multiformid);
                                             $matcharray['{EMAIL}'] = $agent->email;
                                             if($template == '' && empty($template)){
-                                                $template = $defaulttemplate;
+                                                $template = $MJTC_defaulttemplate;
                                             }
                                             $msgSubject = $template->subject;
                                             $msgBody = $template->body;
@@ -1367,17 +1370,17 @@ class MJTC_emailModel {
                                 }
                             }
                             // send email to staff memebers with all ticket permissions
-                            if( !is_numeric($ticketRecord->staffid) && !is_numeric($ticketRecord->departmentid)){
+                            if( !is_numeric($MJTC_ticketRecord->staffid) && !is_numeric($MJTC_ticketRecord->departmentid)){
                                 if( in_array('agent',majesticsupport::$_active_addons) ){
                                     $agentmembers = MJTC_includer::MJTC_getModel('agent')->getAllStaffMemberByAllTicketPermission();
                                     if(is_array($agentmembers) && !empty($agentmembers)){
                                         foreach ($agentmembers AS $agent) {
                                             if($agent->canemail == 1){
                                                 if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $agent->uid) == 1) {
-                                                    $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','deptrans-tk' ,$agent->email ,$agent->uid);
+                                                    $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','deptrans-tk' ,$agent->email ,$agent->uid, $MJTC_ticketRecord->multiformid);
                                                     $matcharray['{EMAIL}'] = $agent->email;
                                                     if($template == '' && empty($template)){
-                                                        $template = $defaulttemplate;
+                                                        $template = $MJTC_defaulttemplate;
                                                     }
                                                     $msgSubject = $template->subject;
                                                     $msgBody = $template->body;
@@ -1396,9 +1399,9 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to User
                         if (majesticsupport::$_config['ticket_department_transfer_user'] == 1) {
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','deptrans-tk' ,$Email,$ticketRecord->uid);
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','deptrans-tk' ,$Email,$MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $matcharray['{EMAIL}'] = $Email;
                             $msgSubject = $template->subject;
@@ -1413,41 +1416,41 @@ class MJTC_emailModel {
                         if(! in_array('agent',majesticsupport::$_active_addons) ){
                             return;
                         }
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $TrackingId = $ticketRecord->ticketid;
-                        $DepName = $ticketRecord->departmentname;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $TrackingId = $MJTC_ticketRecord->ticketid;
+                        $DepName = $MJTC_ticketRecord->departmentname;
                         if(in_array('helptopic', majesticsupport::$_active_addons)){
-                            $HelptopicName = $ticketRecord->topic;
+                            $HelptopicName = $MJTC_ticketRecord->topic;
                         }else{
                             $HelptopicName = '';
                         }
-                        $Email = $ticketRecord->email;
-                        $Subject = $ticketRecord->subject;
-                        $Staff = MJTC_includer::MJTC_getModel('agent')->getMyName($ticketRecord->staffid);
-                        $ticketHistory = $this->getTicketReplyHistory($id);
+                        $Email = $MJTC_ticketRecord->email;
+                        $Subject = $MJTC_ticketRecord->subject;
+                        $Staff = MJTC_includer::MJTC_getModel('agent')->getMyName($MJTC_ticketRecord->staffid);
+                        $MJTC_ticketHistory = $this->getTicketReplyHistory($id);
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{AGENT_NAME}' => $Staff,
                             '{SUBJECT}' => $Subject,
                             '{HELP_TOPIC}' => $HelptopicName,
                             '{TRACKINGID}' => $TrackingId,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{TICKET_HISTORY}' => $ticketHistory,
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
+                            '{TICKET_HISTORY}' => $MJTC_ticketHistory,
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -1457,18 +1460,18 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('reassign-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('reassign-tk', $MJTC_ticketRecord->multiformid);
                         // New ticket mail to admin
-                        $link = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . $id);
+                        $link = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($id));
                         $matcharray['{TICKETURL}'] = $link;
                         if (majesticsupport::$_config['ticket_reassign_admin'] == 1) {
                             $adminEmailid = majesticsupport::$_config['default_admin_email'];
                             $adminEmail = $this->getEmailById($adminEmailid);
                             $matcharray['{EMAIL}'] = $adminEmail;
 
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reassign-tk' ,$adminEmail ,'');
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reassign-tk' ,$adminEmail ,'', $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -1485,23 +1488,23 @@ class MJTC_emailModel {
                             '{SUBJECT}' => $Subject,
                             '{HELP_TOPIC}' => $HelptopicName,
                             '{TRACKINGID}' => $TrackingId,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
-                            '{TICKET_HISTORY}' => $ticketHistory,
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
+                            '{TICKET_HISTORY}' => $MJTC_ticketHistory,
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -1512,13 +1515,13 @@ class MJTC_emailModel {
                         $matcharray['{TICKETURL}'] = $link;
                         // New ticket mail to staff
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['ticket_reassign_staff'] == 1) {
-                            $agentEmail = $this->getStaffEmailAddressByStaffId($ticketRecord->staffid);
+                            $agentEmail = $this->getStaffEmailAddressByStaffId($MJTC_ticketRecord->staffid);
                             $matcharray['{EMAIL}'] = $agentEmail;
-                            $staffuid = $this->getStaffUidByStaffId($ticketRecord->staffid);
+                            $staffuid = $this->getStaffUidByStaffId($MJTC_ticketRecord->staffid);
                             if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reassign-tk' ,$adminEmail ,$staffuid);
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reassign-tk' ,$adminEmail ,$staffuid, $MJTC_ticketRecord->multiformid);
                                 if($template == '' && empty($template)){
-                                    $template = $defaulttemplate;
+                                    $template = $MJTC_defaulttemplate;
                                 }
 
                                 $msgSubject = $template->subject;
@@ -1531,9 +1534,9 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to User
                         if (majesticsupport::$_config['ticket_reassign_user'] == 1) {
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reassign-tk' ,$Email ,$ticketRecord->uid);
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','reassign-tk' ,$Email ,$MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $matcharray['{EMAIL}'] = $Email;
                             $msgSubject = $template->subject;
@@ -1545,28 +1548,28 @@ class MJTC_emailModel {
                         }
                         break;
                     case 14: // Reply to closed ticket for Email Piping
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $Subject = $ticketRecord->subject;
-                        $Email = $ticketRecord->email;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $Subject = $MJTC_ticketRecord->subject;
+                        $Email = $MJTC_ticketRecord->email;
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{SUBJECT}' => $Subject,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -1576,12 +1579,12 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('mail-rpy-closed');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('mail-rpy-closed', $MJTC_ticketRecord->multiformid);
                         // New ticket mail to User
                         if (majesticsupport::$_config['ticket_reply_closed_ticket_user'] == 1) {
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','mail-rpy-closed' ,$Email ,$ticketRecord->uid);
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','mail-rpy-closed' ,$Email ,$MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgBody = $template->body;
                             $attachments = '';
@@ -1593,12 +1596,12 @@ class MJTC_emailModel {
                         if(!in_array('feedback', majesticsupport::$_active_addons)){
                             break;
                         }
-                        $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $Subject = $ticketRecord->subject;
-                        $Email = $ticketRecord->email;
-                        $TrackingId = $ticketRecord->ticketid;
-                        $close_date = date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($ticketRecord->closed));
-                        $username = $ticketRecord->name;
+                        $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $Subject = $MJTC_ticketRecord->subject;
+                        $Email = $MJTC_ticketRecord->email;
+                        $TrackingId = $MJTC_ticketRecord->ticketid;
+                        $close_date = date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_ticketRecord->closed));
+                        $username = $MJTC_ticketRecord->name;
                         $tokenarray['emailaddress']=$Email;
                         $tokenarray['trackingid']=$TrackingId;
                         $tokenarray['sitelink']=MJTC_includer::MJTC_getModel('majesticsupport')->getEncriptedSiteLink();
@@ -1617,22 +1620,22 @@ class MJTC_emailModel {
                             '{CLOSE_DATE}' => $close_date,
                             '{LINK}' => $link,
                             '{/LINK}' => $linkclosing,
-                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($ticketRecord->departmentname),
-                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($ticketRecord->priority),
+                            '{DEPARTMENT}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->departmentname),
+                            '{PRIORITY}' => majesticsupport::MJTC_getVarValue($MJTC_ticketRecord->priority),
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         // code for handling custom fields start
                         $fvalue = '';
-                        if(!empty($ticketRecord->params)){
-                            $data = json_decode($ticketRecord->params,true);
+                        if(!empty($MJTC_ticketRecord->params)){
+                            $MJTC_data = json_decode($MJTC_ticketRecord->params,true);
                         }
                         $fields = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1);
-                        if( isset($data) && is_array($data)){
+                        if( isset($MJTC_data) && is_array($MJTC_data)){
                             foreach ($fields as $field) {
                                 if($field->userfieldtype != 'file'){
                                     $fvalue = '';
-                                    if(array_key_exists($field->field, $data)){
-                                        $fvalue = $data[$field->field];
+                                    if(array_key_exists($field->field, $MJTC_data)){
+                                        $fvalue = $MJTC_data[$field->field];
                                     }
                                     $matcharray['{'.esc_attr($field->field).'}'] = $fvalue;// match array new index for custom field
                                 }
@@ -1642,12 +1645,12 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('mail-feedback');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('mail-feedback', $MJTC_ticketRecord->multiformid);
                         // New ticket mail to User
                         if (majesticsupport::$_config['ticket_feedback_user'] == 1) {
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','mail-feedback' ,$Email ,$ticketRecord->uid);
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','mail-feedback' ,$Email ,$MJTC_ticketRecord->uid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -1661,8 +1664,8 @@ class MJTC_emailModel {
             case 2: // Ban Email
                 switch ($action) {
                     case 1: // Ban Email
-                        if ($tablename != null)
-                            $banemailRecord = $this->getRecordByTablenameAndId($tablename, $id);
+                        if ($MJTC_tablename != null)
+                            $banemailRecord = $this->getRecordByTablenameAndId($MJTC_tablename, $id);
                         else
                             $banemailRecord = $this->getRecordByTablenameAndId('mjtc_support_email_banlist', $id);
                         $Email = $banemailRecord->email;
@@ -1674,7 +1677,7 @@ class MJTC_emailModel {
                         $object = $this->getDefaultSenderEmailAndName();
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('banemail-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('banemail-tk', $MJTC_ticketRecord->multiformid);
 
                         // New ticket mail to admin
                         if (majesticsupport::$_config['ticket_ban_email_admin'] == 1) {
@@ -1683,7 +1686,7 @@ class MJTC_emailModel {
                             $matcharray['{EMAIL}'] = $adminEmail;
                             $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','banemail-tk' ,$adminEmail ,'');
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -1695,18 +1698,19 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to staff
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['ticket_ban_email_staff'] == 1) {
-                            if ($tablename != null){
+                            if ($MJTC_tablename != null){
                                 $agentEmail = $this->getStaffEmailAddressByStaffId($banemailRecord->staffid);
                                 $staffuid = $this->getStaffUidByStaffId($banemailRecord->staffid);
                             }else{
                                 $agentEmail = $this->getStaffEmailAddressByStaffId($banemailRecord->submitter);
                                 $staffuid = $this->getStaffUidByStaffId($banemailRecord->submitter);
                             }
+
                             if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
                                 $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','banemail-tk' ,$agentEmail ,$staffuid);
                                 $matcharray['{EMAIL}'] = $agentEmail;
                                 if($template == '' && empty($template)){
-                                    $template = $defaulttemplate;
+                                    $template = $MJTC_defaulttemplate;
                                 }
                                 $msgSubject = $template->subject;
                                 $msgBody = $template->body;
@@ -1721,7 +1725,7 @@ class MJTC_emailModel {
                         if (majesticsupport::$_config['ticket_ban_email_user'] == 1) {
                             $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','banemail-tk' ,$Email ,'');
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $matcharray['{EMAIL}'] = $Email;
                             $msgSubject = $template->subject;
@@ -1734,11 +1738,11 @@ class MJTC_emailModel {
                         }
                         break;
                     case 2: // Unban Email
-                        if ($tablename != null)
-                            $ticketRecord = $this->getRecordByTablenameAndId($tablename, $id);
+                        if ($MJTC_tablename != null)
+                            $MJTC_ticketRecord = $this->getRecordByTablenameAndId($MJTC_tablename, $id);
                         else
-                            $ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
-                        $Email = $ticketRecord->email;
+                            $MJTC_ticketRecord = $this->getRecordByTablenameAndId('mjtc_support_tickets', $id);
+                        $Email = $MJTC_ticketRecord->email;
                         $matcharray = array(
                             '{SITETITLE}' => majesticsupport::$_config['title'],
                             '{EMAIL_ADDRESS}' => $Email,
@@ -1747,16 +1751,16 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName($id);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('unbanemail-tk');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('unbanemail-tk');
 
                         // New ticket mail to admin
                         if (majesticsupport::$_config['unban_email_admin'] == 1) {
                             $adminEmailid = majesticsupport::$_config['default_admin_email'];
                             $adminEmail = $this->getEmailById($adminEmailid);
                             $matcharray['{EMAIL}'] = $adminEmail;
-                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unbanemail-tk' ,$adminEmail ,'');
+                            $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unbanemail-tk' ,$adminEmail ,'', $MJTC_ticketRecord->multiformid);
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $msgSubject = $template->subject;
                             $msgBody = $template->body;
@@ -1767,17 +1771,17 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to staff
                         if ( in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_config['unban_email_staff'] == 1) {
-                            if ($tablename != null){
-                                $agentEmail = $this->getStaffEmailAddressByStaffId($ticketRecord->staffid);
-                                $staffuid = $this->getStaffUidByStaffId($ticketRecord->staffid);
+                            if ($MJTC_tablename != null){
+                                $agentEmail = $this->getStaffEmailAddressByStaffId($MJTC_ticketRecord->staffid);
+                                $staffuid = $this->getStaffUidByStaffId($MJTC_ticketRecord->staffid);
                             }else{
-                                $agentEmail = $this->getStaffEmailAddressByStaffId($ticketRecord->submitter);
-                                $staffuid = $this->getStaffUidByStaffId($ticketRecord->submitter);
+                                $agentEmail = $this->getStaffEmailAddressByStaffId($MJTC_ticketRecord->submitter);
+                                $staffuid = $this->getStaffUidByStaffId($MJTC_ticketRecord->submitter);
                             }
                             if (MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForAgent('Mail To Agent', $staffuid) == 1) {
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unbanemail-tk' ,$agentEmail ,$staffuid);
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unbanemail-tk' ,$agentEmail ,$staffuid, $MJTC_ticketRecord->multiformid);
                                 if($template == '' && empty($template)){
-                                    $template = $defaulttemplate;
+                                    $template = $MJTC_defaulttemplate;
                                 }
                                 $matcharray['{EMAIL}'] = $agentEmail;
                                 $msgSubject = $template->subject;
@@ -1790,14 +1794,14 @@ class MJTC_emailModel {
                         }
                         // New ticket mail to User
                         if (majesticsupport::$_config['unban_email_user'] == 1) {
-                            if ($tablename != null){
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unbanemail-tk' , $Email, '');
+                            if ($MJTC_tablename != null){
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unbanemail-tk' , $Email, '', $MJTC_ticketRecord->multiformid);
                             }else{
-                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unbanemail-tk' ,$ticketRecord->email , $ticketRecord->uid);
+                                $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','unbanemail-tk' ,$MJTC_ticketRecord->email , $MJTC_ticketRecord->uid, $MJTC_ticketRecord->multiformid);
                             }
 
                             if($template == '' && empty($template)){
-                                $template = $defaulttemplate;
+                                $template = $MJTC_defaulttemplate;
                             }
                             $matcharray['{EMAIL}'] = $Email;
                             $msgSubject = $template->subject;
@@ -1827,10 +1831,10 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName(null);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('mail-new');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('mail-new');
                         $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','mail-new' ,'' ,$mailRecord->staffuid);
                         if($template == '' && empty($template)){
-                            $template = $defaulttemplate;
+                            $template = $MJTC_defaulttemplate;
                         }
                         $msgSubject = $template->subject;
                         $msgBody = $template->body;
@@ -1853,10 +1857,10 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName(null);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('mail-rpy');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('mail-rpy');
                         $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','mail-rpy' ,'' ,$mailRecord->staffuid);
                         if($template == '' && empty($template)){
-                            $template = $defaulttemplate;
+                            $template = $MJTC_defaulttemplate;
                         }
                         $msgSubject = $template->subject;
                         $msgBody = $template->body;
@@ -1881,10 +1885,10 @@ class MJTC_emailModel {
                         $object = $this->getSenderEmailAndName(null);
                         $senderEmail = $object->email;
                         $senderName = $object->name;
-                        $defaulttemplate = $this->getTemplateForEmail('delete-user-data');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('delete-user-data');
                         $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','delete-user-data' ,majesticsupport::$_data['mail_data']['email'] , '');
                         if($template == '' && empty($template)){
-                            $template = $defaulttemplate;
+                            $template = $MJTC_defaulttemplate;
                         }
 
                         $msgSubject = $template->subject;
@@ -1910,13 +1914,13 @@ class MJTC_emailModel {
                             '{CURRENT_YEAR}' => gmdate('Y')
                         );
                         
-                        $defaulttemplate = $this->getTemplateForEmail('staff-new');
+                        $MJTC_defaulttemplate = $this->getTemplateForEmail('staff-new');
 
                         $adminEmailid = majesticsupport::$_config['default_admin_email'];
                         $adminEmail = $this->getEmailById($adminEmailid);
                         $template = apply_filters( 'ms_get_email_template_by_user_defined_language','','staff-new' , $adminEmail , '');
                         if($template == '' && empty($template)){
-                            $template = $defaulttemplate;
+                            $template = $MJTC_defaulttemplate;
                         }
                         $msgSubject = $template->subject;
                         $msgBody = $template->body;
@@ -1963,7 +1967,7 @@ class MJTC_emailModel {
             return false;
         $query = "SELECT staff.email
                     FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff
-                    WHERE staff.id = ".esc_sql($id);
+                    WHERE staff.id = " . esc_sql($id);
         $emailaddress = majesticsupport::$_db->get_var($query);
         return $emailaddress;
     }
@@ -1973,7 +1977,7 @@ class MJTC_emailModel {
             return false;
         $query = "SELECT staff.uid
                     FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff
-                    WHERE staff.id = ".esc_sql($id);
+                    WHERE staff.id = " . esc_sql($id);
         $emailaddress = majesticsupport::$_db->get_var($query);
         return $emailaddress;
     }
@@ -2013,26 +2017,26 @@ class MJTC_emailModel {
         fclose($myfile);
     }
 
-    function sendEmail($recevierEmail, $subject, $body, $senderEmail, $senderName, $attachments, $action, $actionfor='') {
+    function sendEmail($recevierEmail, $MJTC_subject, $body, $senderEmail, $senderName, $attachments, $action, $actionfor='') {
         if( (is_array($recevierEmail) && empty($recevierEmail)) || (!is_array($recevierEmail) && MJTC_majesticsupportphplib::MJTC_trim($recevierEmail) == '') ){ // avoid the case of trying to send email to empty email.
             return;
         }
 
         $enablesmtp = $this->checkSMTPEnableOrDisable($senderEmail);
         if ($enablesmtp) {
-            $this->sendSMTPmail($recevierEmail, $subject, $body, $senderEmail, $senderName, $attachments, $action, $actionfor);
+            $this->sendSMTPmail($recevierEmail, $MJTC_subject, $body, $senderEmail, $senderName, $attachments, $action, $actionfor);
         }else{
-            $this->sendEmailDefault($recevierEmail, $subject, $body, $senderEmail, $senderName, $attachments, $action, $actionfor);
+            $this->sendEmailDefault($recevierEmail, $MJTC_subject, $body, $senderEmail, $senderName, $attachments, $action, $actionfor);
         }
 
     }
 
-    private function sendEmailDefault($recevierEmail, $subject, $body, $senderEmail, $senderName, $attachments, $action, $actionfor) {
+    private function sendEmailDefault($recevierEmail, $MJTC_subject, $body, $senderEmail, $senderName, $attachments, $action, $actionfor) {
 	$senderName = majesticsupport::$_config['title']; // site name
         /*
           $attachments = array( WP_CONTENT_DIR . '/uploads/file_to_attach.zip' );
-          $headers = 'From: My Name <myname@example.com>' . "\r\n";
-          wp_mail('test@example.org', 'subject', 'message', $headers, $attachments );
+          $MJTC_headers = 'From: My Name <myname@example.com>' . "\r\n";
+          wp_mail('test@example.org', 'subject', 'message', $MJTC_headers, $attachments );
 
           $action
           For which action of $mailfor you want to send the mail
@@ -2044,30 +2048,30 @@ class MJTC_emailModel {
          */
         switch ($action) {
             case 1:
-                do_action('ms-beforeemailticketcreate', $recevierEmail, $subject, $body, $senderEmail);
+                do_action('ms-beforeemailticketcreate', $recevierEmail, $MJTC_subject, $body, $senderEmail);
                 break;
             case 2:
-                do_action('ms-beforeemailticketreply', $recevierEmail, $subject, $body, $senderEmail);
+                do_action('ms-beforeemailticketreply', $recevierEmail, $MJTC_subject, $body, $senderEmail);
                 break;
             case 3:
-                do_action('ms-beforeemailticketclose', $recevierEmail, $subject, $body, $senderEmail);
+                do_action('ms-beforeemailticketclose', $recevierEmail, $MJTC_subject, $body, $senderEmail);
                 break;
             case 4:
-                do_action('ms-beforeemailticketdelete', $recevierEmail, $subject, $body, $senderEmail);
+                do_action('ms-beforeemailticketdelete', $recevierEmail, $MJTC_subject, $body, $senderEmail);
                 break;
         }
         if (!$senderName)
             $senderName = majesticsupport::$_config['title'];
-        $headers[] = 'From: ' . $senderName . ' <' . $senderEmail . '>' . "\r\n";
-        $headers = apply_filters('ms_emailcc_send_email_to_cc' , $headers , $actionfor); // eg $actionfor = ticket-new
+        $MJTC_headers[] = 'From: ' . $senderName . ' <' . $senderEmail . '>' . "\r\n";
+        $MJTC_headers = apply_filters('ms_emailcc_send_email_to_cc' , $MJTC_headers , $actionfor); // eg $actionfor = ticket-new
         add_filter('wp_mail_content_type', array($this,'ms_set_html_content_type'));
 		if($recevierEmail){
-			if(!wp_mail($recevierEmail, $subject, $body, $headers, $attachments)){
+			if(!wp_mail($recevierEmail, $MJTC_subject, $body, $MJTC_headers, $attachments)){
 				if($GLOBALS['phpmailer']->ErrorInfo)
 					MJTC_includer::MJTC_getModel('systemerror')->addSystemError($GLOBALS['phpmailer']->ErrorInfo);
 			}
 		}else{
-			MJTC_includer::MJTC_getModel('systemerror')->addSystemError("No recipient email for ".$subject);
+			MJTC_includer::MJTC_getModel('systemerror')->addSystemError("No recipient email for ".$MJTC_subject);
 		}
     }
 
@@ -2075,8 +2079,8 @@ class MJTC_emailModel {
         return 'text/html';
     }
 
-    private function sendSMTPmail($recevierEmail, $subject, $body, $senderEmail, $senderName, $attachments, $action, $actionfor){
-        do_action('ms_aadon_send_smtp_mail',$recevierEmail, $subject, $body, $senderEmail, $senderName, $attachments, $action, $actionfor);
+    private function sendSMTPmail($recevierEmail, $MJTC_subject, $body, $senderEmail, $senderName, $attachments, $action, $actionfor){
+        do_action('ms_aadon_send_smtp_mail',$recevierEmail, $MJTC_subject, $body, $senderEmail, $senderName, $attachments, $action, $actionfor);
     }
 
     private function getSenderEmailAndName($id) {
@@ -2109,23 +2113,44 @@ class MJTC_emailModel {
         return $email;
     }
 
-    private function getTemplateForEmail($templatefor) {
-        $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = '" . esc_sql($templatefor) . "'";
-        $template = majesticsupport::$_db->get_row($query);
+    private function getTemplateForEmail($templatefor, $multiformid = '') {
+        $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` 
+                  WHERE templatefor = '" . esc_sql($templatefor) . "'";
+
+        // If multiformid is provided
+        if (!empty($multiformid)) {
+            $query .= " AND multiformid = " . esc_sql($multiformid);
+            $template = majesticsupport::$_db->get_row($query);
+
+            // If no form-specific template is found, fallback to default
+            if (empty($template)) {
+                $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` 
+                          WHERE templatefor = '" . esc_sql($templatefor) . "'
+                          AND (multiformid IS NULL OR multiformid = '')";
+                $template = majesticsupport::$_db->get_row($query);
+            }
+        } else {
+            // No multiformid passed — get default template
+            $query .= " AND (multiformid IS NULL OR multiformid = '')";
+            $template = majesticsupport::$_db->get_row($query);
+        }
+
+        // Handle DB error
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
+
         return $template;
     }
 
-    private function getRecordByTablenameAndId($tablename, $id) {
+    private function getRecordByTablenameAndId($MJTC_tablename, $id) {
         if (!is_numeric($id))
             return false;
-        switch($tablename){
+        switch($MJTC_tablename){
             case 'mjtc_support_tickets':
                 do_action('get_mail_table_record_query');// to prepare any addon based query
                 $query = "SELECT ticket.*,department.departmentname,priority.priority ".majesticsupport::$_addon_query['select']
-                    . " FROM `" . majesticsupport::$_db->prefix . $tablename . "` AS ticket "
+                    . " FROM `" . majesticsupport::$_db->prefix . $MJTC_tablename . "` AS ticket "
                     . " LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON department.id = ticket.departmentid "
                     . majesticsupport::$_addon_query['join']
                     . " LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON priority.id = ticket.priorityid "
@@ -2133,7 +2158,7 @@ class MJTC_emailModel {
                 do_action('reset_ms_aadon_query');
             break;
             default:
-                $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . $tablename . "` WHERE id = " . esc_sql($id);
+                $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . $MJTC_tablename . "` WHERE id = " . esc_sql($id);
             break;
         }
         $record = majesticsupport::$_db->get_row($query);
@@ -2199,29 +2224,32 @@ class MJTC_emailModel {
         return;
     }
 
-    function storeEmail($data) {
-        if(!$data['id'])
-        if($this->checkAlreadyExist($data['email'])){
+    function storeEmail($MJTC_data) {
+        if (!current_user_can('manage_options')) { //only admin can change it.
+            return false;
+        }
+        if(!$MJTC_data['id'])
+        if($this->checkAlreadyExist($MJTC_data['email'])){
             MJTC_message::MJTC_setMessage(esc_html(__('Email Already Exist', 'majestic-support')), 'error');
             return;
         }
-        if ($data['id'])
-            $data['updated'] = date_i18n('Y-m-d H:i:s');
+        if ($MJTC_data['id'])
+            $MJTC_data['updated'] = date_i18n('Y-m-d H:i:s');
         else{
-            $data['updated'] = date_i18n('Y-m-d H:i:s');
-            $data['created'] = date_i18n('Y-m-d H:i:s');
+            $MJTC_data['updated'] = date_i18n('Y-m-d H:i:s');
+            $MJTC_data['created'] = date_i18n('Y-m-d H:i:s');
         }
-        if(isset($data['password']) && $data['password'] != ''){
-            $data['password'] = MJTC_majesticsupportphplib::MJTC_safe_encoding($data['password']);
+        if(isset($MJTC_data['password']) && $MJTC_data['password'] != ''){
+            $MJTC_data['password'] = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_data['password']);
         }
 
-        $data = majesticsupport::MJTC_sanitizeData($data);// MJTC_sanitizeData() function uses wordpress santize functions
+        $MJTC_data = majesticsupport::MJTC_sanitizeData($MJTC_data); // MJTC_sanitizeData() function uses wordpress santize functions
 
         $row = MJTC_includer::MJTC_getTable('email');
 
-        $data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($data);// remove slashes with quotes.
+        $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);// remove slashes with quotes.
         $error = 0;
-        if (!$row->bind($data)) {
+        if (!$row->bind($MJTC_data)) {
             $error = 1;
         }
         if (!$row->store()) {
@@ -2258,7 +2286,7 @@ class MJTC_emailModel {
                 MJTC_message::MJTC_setMessage(esc_html(__('The email has not been deleted', 'majestic-support')), 'error');
             }
         } else {
-            MJTC_message::MJTC_setMessage(esc_html(__('Email','majestic-support')).' '.esc_html(__('in use cannot deleted', 'majestic-support')), 'error');
+            MJTC_message::MJTC_setMessage(esc_html(__('Email','majestic-support')).' '. esc_html(__('in use cannot deleted', 'majestic-support')), 'error');
         }
         return;
     }
@@ -2400,18 +2428,18 @@ class MJTC_emailModel {
                     JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS tickets ON  replies.ticketid = tickets.id
                     WHERE tickets.id = " . esc_sql($id) . " ORDER By replies.id DESC";
             $replies = majesticsupport::$_db->get_results($query);
-            foreach ($replies as $key => $reply) {
-                if ($key == 0) {
+            foreach ($replies as $MJTC_key => $reply) {
+                if ($MJTC_key == 0) {
                     $html .= '<div style="float:left;width:100%;padding:15px 0;border-bottom:1px solid #e0e1e0;margin-bottom:20px;">
-                                <div style="font-weight:bold;font-size:18px;margin-bottom:5px;color:#4b4b4d;">'.esc_html(__('Ticket History','majestic-support')).'</div>';
+                                <div style="font-weight:bold;font-size:18px;margin-bottom:5px;color:#4b4b4d;">'. esc_html(__('Ticket History','majestic-support')).'</div>';
                 }
                 $html .= '<div style="float:left;width:100%;padding:10px 15px;border:1px solid #e0e1e0;background:#f8fafc;box-sizing:border-box;margin:10px 0;">
                             <div style="float:left;width:100%;margin:10px 0;">
-                                <span style="float:left;width:auto;display:inline-block;color:#4b4b4d;font-size:14px;font-weight: 600;">'.esc_html(__('Reply By','majestic-support')).':&nbsp;</span>
+                                <span style="float:left;width:auto;display:inline-block;color:#4b4b4d;font-size:14px;font-weight: 600;">'. esc_html(__('Reply By','majestic-support')).':&nbsp;</span>
                                 <span style="float:left;width:auto;display:inline-block;color:#727376;">'.esc_html($reply->name).'</span>
                             </div>
                             <div style="float:left;width:100%;margin:10px 0 0;">
-                                <span style="float:left;width:auto;display:inline-block;color:#4b4b4d;font-size:14px;font-weight: 600;">'.esc_html(__('Date','majestic-support')).':&nbsp;</span>
+                                <span style="float:left;width:auto;display:inline-block;color:#4b4b4d;font-size:14px;font-weight: 600;">'. esc_html(__('Date','majestic-support')).':&nbsp;</span>
                                 <span style="float:left;width:auto;display:inline-block;color:#727376;">'.esc_html($reply->created).'</span>
                             </div>
                             <div style="float:left;width:100%;">

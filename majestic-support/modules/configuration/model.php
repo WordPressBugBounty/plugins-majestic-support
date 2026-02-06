@@ -8,12 +8,12 @@ class MJTC_configurationModel {
     function getConfigurations() {
         $query = "SELECT configname,configvalue,addon
                     FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` ";//WHERE configfor != 'ticketviaemail'";
-        $data = majesticsupport::$_db->get_results($query);
+        $MJTC_data = majesticsupport::$_db->get_results($query);
 
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
-        foreach ($data AS $config) {
+        foreach ($MJTC_data AS $config) {
             if($config->addon == '' ||  in_array($config->addon, majesticsupport::$_active_addons)){
                 majesticsupport::$_data[0][$config->configname] = $config->configvalue;
             }
@@ -28,16 +28,16 @@ class MJTC_configurationModel {
 
     function getConfigurationByFor($for) {
 		if($for == 'ticketviaemail'){
-			$query = "SELECT COUNT(configname) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = '".$for."'";
-			$count = majesticsupport::$_db->get_var($query);
-			if($count < 5){
+			$query = "SELECT COUNT(configname) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = '".esc_sql($for)."'";
+			$MJTC_count = majesticsupport::$_db->get_var($query);
+			if($MJTC_count < 5){
 				$query = "SELECT configname,configvalue
 							FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` ";
-				$data = majesticsupport::$_db->get_results($query);
+				$MJTC_data = majesticsupport::$_db->get_results($query);
 				if (majesticsupport::$_db->last_error != null) {
 					MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
 				}
-				foreach ($data AS $config) {
+				foreach ($MJTC_data AS $config) {
 					majesticsupport::$_data[0][$config->configname] = $config->configvalue;
 				}
 				if(in_array('banemail', majesticsupport::$_active_addons)){
@@ -47,12 +47,12 @@ class MJTC_configurationModel {
 			}
 		}
         $query = "SELECT configname,configvalue
-					FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = '".$for."'";
-        $data = majesticsupport::$_db->get_results($query);
+					FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = '".esc_sql($for)."'";
+        $MJTC_data = majesticsupport::$_db->get_results($query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
-        foreach ($data AS $config) {
+        foreach ($MJTC_data AS $config) {
             majesticsupport::$_data[0][$config->configname] = $config->configvalue;
         }
         if(in_array('banemail', majesticsupport::$_active_addons)){
@@ -63,16 +63,16 @@ class MJTC_configurationModel {
     function getCountByConfigFor($for) {
         if (( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff())) {
             $query = "SELECT COUNT(configvalue)
-                    FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = '".$for. "' AND configname LIKE '%staff' AND configvalue = 1 " ;
+                    FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = '".esc_sql($for). "' AND configname LIKE '%staff' AND configvalue = 1 " ;
         }else{
             $query = "SELECT COUNT(configvalue)
-                    FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = '".$for. "' AND configname LIKE '%user' AND configvalue = 1 " ;
+                    FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = '".esc_sql($for) . "' AND configname LIKE '%user' AND configvalue = 1 " ;
         }
-        $data = majesticsupport::$_db->get_var($query);
+        $MJTC_data = majesticsupport::$_db->get_var($query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
-        return $data;
+        return $MJTC_data;
     }
 
     function storeDesktopNotificationLogo($filename) {
@@ -80,11 +80,11 @@ class MJTC_configurationModel {
     }
 
     function deleteDesktopNotificationsLogo() {
-        $datadirectory = majesticsupport::$_config['data_directory'];
+        $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
 
         $maindir = wp_upload_dir();
         $path = $maindir['basedir'];
-        $path = $path .'/'.$datadirectory;
+        $path = $path .'/'.$MJTC_datadirectory;
 
         $file_name = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('logo_for_desktop_notfication_url');
 
@@ -98,7 +98,7 @@ class MJTC_configurationModel {
     }
 
 
-    function storeConfiguration($data) {
+    function storeConfiguration($MJTC_data) {
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
         if (! wp_verify_nonce( $nonce, 'save-configuration') ) {
             die( 'Security check Failed' );
@@ -108,76 +108,75 @@ class MJTC_configurationModel {
         }
         $notsave = false;
         $updateColors = false;
-        foreach ($data AS $key => $value) {
+        foreach ($MJTC_data AS $MJTC_key => $MJTC_value) {
             $query = true;
 
-            if ($key == 'offline_message') {
-                $offline_message = $value;
+            if ($MJTC_key == 'offline_message') {
+                $offline_message = $MJTC_value;
                 if(!empty($offline_message)){
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['offline_message']);
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($value);
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($value);// remove slashes with quotes.
+                    $MJTC_value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['offline_message']);
+                    $MJTC_value = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($MJTC_value);
+                    $MJTC_value = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_value);// remove slashes with quotes.
                 }
             }
 
-            if ($key == 'visitor_message') {
-                $visitor_message = $value;
+            if ($MJTC_key == 'visitor_message') {
+                $visitor_message = $MJTC_value;
                 if(!empty($visitor_message)){
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['visitor_message']);
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($value);
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($value);// remove slashes with quotes.
+                    $MJTC_value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['visitor_message']);
+                    $MJTC_value = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($MJTC_value);
+                    $MJTC_value = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_value);// remove slashes with quotes.
                 }
             }
 
-            if ($key == 'new_ticket_message') {
-                $new_ticket_message = $value;
+            if ($MJTC_key == 'new_ticket_message') {
+                $new_ticket_message = $MJTC_value;
                 if(!empty($new_ticket_message)){
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['new_ticket_message']);
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($value);
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($value);// remove slashes with quotes.
+                    $MJTC_value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['new_ticket_message']);
+                    $MJTC_value = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($MJTC_value);
+                    $MJTC_value = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_value);// remove slashes with quotes.
                 }
             }
 
-            if ($key == 'feedback_thanks_message') {
-                $feedback_thanks_message = $value;
+            if ($MJTC_key == 'feedback_thanks_message') {
+                $feedback_thanks_message = $MJTC_value;
                 if(!empty($feedback_thanks_message)){
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['feedback_thanks_message']);
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($value);
-                    $value = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($value);// remove slashes with quotes.
+                    $MJTC_value = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['feedback_thanks_message']);
+                    $MJTC_value = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($MJTC_value);
+                    $MJTC_value = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_value);// remove slashes with quotes.
                 }
             }
-
-            if ($key == 'screentag_position') {
-                if ($value != majesticsupport::$_config['screentag_position']) {
+            if ($MJTC_key == 'screentag_position') {
+                if ($MJTC_value != majesticsupport::$_config['screentag_position']) {
                     $updateColors = true;
                 }
             }
 
-            if ($key == 'pagination_default_page_size') {
-                if ($value < 3) {
+            if ($MJTC_key == 'pagination_default_page_size') {
+                if ($MJTC_value < 3) {
                     MJTC_message::MJTC_setMessage(esc_html(__('Pagination default page size not saved', 'majestic-support')), 'error');
                     continue;
                 }
             }
 
-            if($key == 'del_logo_for_desktop_notfication' && $value == 1){
+            if($MJTC_key == 'del_logo_for_desktop_notfication' && $MJTC_value == 1){
                 $this->deleteDesktopNotificationsLogo();
-                $key = 'logo_for_desktop_notfication_url';
-                $value = '';
+                $MJTC_key = 'logo_for_desktop_notfication_url';
+                $MJTC_value = '';
             }
 
 
-            if ($key == 'data_directory') {
-                $data_directory = $value;
-                if(empty($data_directory)){
+            if ($MJTC_key == 'data_directory') {
+                $MJTC_data_directory = $MJTC_value;
+                if(empty($MJTC_data_directory)){
                     MJTC_message::MJTC_setMessage(esc_html(__('Data directory cannot empty.', 'majestic-support')), 'error');
                     continue;
                 }
-                if(MJTC_majesticsupportphplib::MJTC_strpos($data_directory, '/') !== false){
+                if(MJTC_majesticsupportphplib::MJTC_strpos($MJTC_data_directory, '/') !== false){
                     MJTC_message::MJTC_setMessage(esc_html(__('Data directory is not proper.', 'majestic-support')), 'error');
                     continue;
                 }
-                $path = MJTC_PLUGIN_PATH.'/'.$data_directory;
+                $path = MJTC_PLUGIN_PATH.'/'.$MJTC_data_directory;
                 if ( ! file_exists($path)) {
                    mkdir($path, 0755);
                 }
@@ -186,22 +185,22 @@ class MJTC_configurationModel {
                     continue;
                 }
             }
-            if ($key == 'system_slug') {
-                if(empty($value)){
+            if ($MJTC_key == 'system_slug') {
+                if(empty($MJTC_value)){
                     MJTC_message::MJTC_setMessage(esc_html(__('System slug not be empty.', 'majestic-support')), 'error');
                     continue;
                 }
-                if($value != ''){
-                    $value = MJTC_majesticsupportphplib::MJTC_str_replace(' ', '-', $value);
+                if($MJTC_value != ''){
+                    $MJTC_value = MJTC_majesticsupportphplib::MJTC_str_replace(' ', '-', $MJTC_value);
                 }
-                $query = 'SELECT COUNT(ID) FROM `'.majesticsupport::$_db->prefix.'posts` WHERE post_name = "'.esc_sql($value).'"';
-                $countslug = majesticsupport::$_db->get_var($query);
-                if($countslug >= 1){
+                $query = 'SELECT COUNT(ID) FROM `'.majesticsupport::$_db->prefix.'posts` WHERE post_name = "'.esc_sql($MJTC_value).'"';
+                $MJTC_countslug = majesticsupport::$_db->get_var($query);
+                if($MJTC_countslug >= 1){
                     MJTC_message::MJTC_setMessage(esc_html(__('System slug is conflicted with post or page slug.', 'majestic-support')), 'error');
                     continue;
                 }
             }
-            majesticsupport::$_db->update(majesticsupport::$_db->prefix . 'mjtc_support_config', array('configvalue' => $value), array('configname' => $key));
+            majesticsupport::$_db->update(majesticsupport::$_db->prefix . 'mjtc_support_config', array('configvalue' => $MJTC_value), array('configname' => $MJTC_key));
             if (majesticsupport::$_db->last_error != null) {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
                 $notsave = true;
@@ -232,9 +231,9 @@ class MJTC_configurationModel {
         }
         $maindir = wp_upload_dir();
         $basedir = $maindir['basedir'];
-        $datadirectory = majesticsupport::$_config['data_directory'];
+        $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
         
-        $path = $basedir . '/' . $datadirectory;
+        $path = $basedir . '/' . $MJTC_datadirectory;
         if (!file_exists($path)) { // create user directory
             MJTC_includer::MJTC_getModel('majesticsupport')->makeDir($path);
         }
@@ -246,8 +245,7 @@ class MJTC_configurationModel {
         
         if ($_FILES['support_custom_img']['size'] > 0) {
             $file_name = MJTC_majesticsupportphplib::MJTC_str_replace(' ', '_', sanitize_file_name($_FILES['support_custom_img']['name']));
-            $file_tmp = majesticsupport::MJTC_sanitizeData($_FILES['support_custom_img']['tmp_name']); // actual location
-            // MJTC_sanitizeData() function uses wordpress santize functions
+            $file_tmp = majesticsupport::MJTC_sanitizeData($_FILES['support_custom_img']['tmp_name']); // actual location // MJTC_sanitizeData() function uses wordpress santize functions
 
             $userpath = $path;
             $isupload = true;
@@ -276,8 +274,8 @@ class MJTC_configurationModel {
 
     function majesticsupport_upload_custom_logo( $dir ) {
         if($this->uploadfor == 'supportcustomlogo'){
-            $datadirectory = majesticsupport::$_config['data_directory'];
-            $path = $datadirectory . '/supportImg';
+            $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
+            $path = $MJTC_datadirectory . '/supportImg';
             $array = array(
                 'path'   => $dir['basedir'] . '/' . $path,
                 'url'    => $dir['baseurl'] . '/' . $path,
@@ -291,9 +289,9 @@ class MJTC_configurationModel {
 
     function setSupportCustomImage($filename, $userpath){
         $query = "SELECT configvalue FROM `".majesticsupport::$_db->prefix."mjtc_support_config` WHERE configname = 'support_custom_img'";
-        $key = majesticsupport::$_db->get_var($query);
-        if ($key) {
-            $unlinkPath = $userpath.'/'.$key;
+        $MJTC_key = majesticsupport::$_db->get_var($query);
+        if ($MJTC_key) {
+            $unlinkPath = $userpath.'/'.$MJTC_key;
             if (is_file($unlinkPath)) {
                 wp_delete_file($unlinkPath);
             }
@@ -310,23 +308,25 @@ class MJTC_configurationModel {
 
         $maindir = wp_upload_dir();
         $basedir = trailingslashit($maindir['basedir']);
-        $datadirectory = isset(majesticsupport::$_config['data_directory']) ? sanitize_text_field(majesticsupport::$_config['data_directory']) : '';
-        $path = $basedir . trailingslashit($datadirectory) . 'supportImg/';
+        $MJTC_datadirectory = isset(majesticsupport::$_config['data_directory']) ? sanitize_text_field(majesticsupport::$_config['data_directory']) : '';
+        $path = $basedir . trailingslashit($MJTC_datadirectory) . 'supportImg/';
 
         $query = "SELECT configvalue FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configname = 'support_custom_img'";
-        $key = majesticsupport::$_db->get_var($query);
-        if ($key) {
-            $key = sanitize_file_name($key); // Sanitize filename
-            $unlinkPath = realpath($path . $key); // Get absolute path
+        $MJTC_key = majesticsupport::$_db->get_var($query);
+
+        if ($MJTC_key) {
+            $MJTC_key = sanitize_file_name($MJTC_key); // Sanitize filename
+            $unlinkPath = realpath($path . $MJTC_key); // Get absolute path
 
             // Ensure the file is within the allowed directory
-            if ($unlinkPath && strpos($unlinkPath, realpath($path)) === 0 && is_file($unlinkPath)) {
+            if ($unlinkPath && MJTC_majesticsupportphplib::MJTC_strpos($unlinkPath, realpath($path)) === 0 && is_file($unlinkPath)) {
                 wp_delete_file($unlinkPath);
             }
         }
 
         // Update database to remove reference
         majesticsupport::$_db->update(majesticsupport::$_db->prefix . 'mjtc_support_config', array('configvalue' => 0), array('configname' => 'support_custom_img'));
+
         return 'success';
     }
 
@@ -357,16 +357,16 @@ class MJTC_configurationModel {
 
     function getCheckCronKey() {
         $query = "SELECT configvalue FROM `".majesticsupport::$_db->prefix."mjtc_support_config` WHERE configname = 'ck'";
-        $key = majesticsupport::$_db->get_var($query);
-        if ($key && $key != '')
+        $MJTC_key = majesticsupport::$_db->get_var($query);
+        if ($MJTC_key && $MJTC_key != '')
             return true;
         else
             return false;
     }
 
     function genearateCronKey() {
-        $key = MJTC_majesticsupportphplib::MJTC_md5(gmdate('Y-m-d'));
-        $query = "UPDATE `".majesticsupport::$_db->prefix."mjtc_support_config` SET configvalue = '".esc_sql($key)."' WHERE configname = 'ck'" ;
+        $MJTC_key = MJTC_majesticsupportphplib::MJTC_md5(gmdate('Y-m-d'));
+        $query = "UPDATE `".majesticsupport::$_db->prefix."mjtc_support_config` SET configvalue = '".esc_sql($MJTC_key)."' WHERE configname = 'ck'" ;
         majesticsupport::$_db->query($query);
         return true;
     }
@@ -374,8 +374,8 @@ class MJTC_configurationModel {
     function getCronKey($passkey) {
         if ($passkey == MJTC_majesticsupportphplib::MJTC_md5(gmdate('Y-m-d'))) {
             $query = "SELECT configvalue FROM `".majesticsupport::$_db->prefix."mjtc_support_config` WHERE configname = 'ck'";
-            $key = majesticsupport::$_db->get_var($query);
-            return $key;
+            $MJTC_key = majesticsupport::$_db->get_var($query);
+            return $MJTC_key;
         }
         else
             return false;
@@ -419,11 +419,38 @@ class MJTC_configurationModel {
         $result = majesticsupport::$_db->get_var($query);
         return $result;
     }
+
     function getCountConfig() {
         $query = "SELECT COUNT(*)
                   FROM `".majesticsupport::$_db->prefix."mjtc_support_config`";
         $result = majesticsupport::$_db->get_var($query);
         return $result;
+    }
+
+    function storeAutoUpdateConfig() {
+
+        if (!current_user_can('manage_options')) { //only admin can change it.
+            return false;
+        }
+        $configvalue = MJTC_request::MJTC_getVar('mjtc_addons_auto_update','','');
+
+        if (!is_numeric($configvalue)) { //can only have numric value
+            return false;
+        }
+
+        $error = false;
+        $query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_config` SET `configvalue` = ".esc_sql($configvalue)." WHERE `configname`= 'mjtc_addons_auto_update'";
+        if (false === majesticsupport::$_db->query($query)) {
+            $error = true;
+        }
+
+        if ($error) {
+            MJTC_message::MJTC_setMessage(esc_html(__('Something went wrong!', 'majestic-support')), 'error');
+            return WPJOBPORTAL_SAVE_ERROR;
+        } else {
+            MJTC_message::MJTC_setMessage(esc_html(__('The setting has been stored.', 'majestic-support')), 'updated');
+        }
+        return;
     }
 }
 

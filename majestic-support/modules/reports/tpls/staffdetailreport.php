@@ -9,8 +9,7 @@ if (majesticsupport::$_config['offline'] == 2) {
             if ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
                 if (majesticsupport::$_data['staff_enabled']) { ?>
     <!-- admin -->
-    <?php
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+<?php
 wp_enqueue_script('jquery-ui-datepicker');
 wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
 $mjtc_scriptdateformat = MJTC_includer::MJTC_getModel('majesticsupport')->MJTC_getDateFormat();
@@ -20,7 +19,7 @@ wp_enqueue_script( 'majesticsupport-google-charts-handle' );
     $majesticsupport_js ="
         jQuery(document).ready(function($) {
             $('.custom_date').datepicker({
-                dateFormat: '". esc_html($mjtc_scriptdateformat)."'
+                dateFormat: '". esc_html($mjtc_scriptdateformat) ."'
             });
         });
         google.load('visualization', '1', {
@@ -92,22 +91,22 @@ wp_enqueue_script( 'majesticsupport-google-charts-handle' );
                 $enddate = date_i18n('Y-m-d', MJTC_majesticsupportphplib::MJTC_strtotime("now -1 month"));
                 $date_start = !empty(majesticsupport::$_data['filter']['ms-date-start']) ? majesticsupport::$_data['filter']['ms-date-start'] : $curdate;
                 $date_end = !empty(majesticsupport::$_data['filter']['ms-date-end']) ? majesticsupport::$_data['filter']['ms-date-end'] : $enddate; ?>
-                            <?php echo wp_kses("<input type='hidden' name='ms-id' value='" . esc_attr(majesticsupport::$_data['staff_report']->id) . "'/>", MJTC_ALLOWED_TAGS); ?>
-                            <div class="mjtc-support-fields-wrp">
-                                <div class="mjtc-support-form-field">
-                                    <?php echo wp_kses(MJTC_formfield::MJTC_text('ms-date-start', date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($date_start)), array('class' => 'custom_date mjtc-support-field-input','placeholder' => esc_html(__('Start Date','majestic-support')))), MJTC_ALLOWED_TAGS); ?>
-                                </div>
-                                <div class="mjtc-support-form-field">
-                                    <?php echo wp_kses(MJTC_formfield::MJTC_text('ms-date-end', date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($date_end)), array('class' => 'custom_date mjtc-support-field-input','placeholder' => esc_html(__('End Date','majestic-support')))), MJTC_ALLOWED_TAGS); ?>
-                                </div>
-                            </div>
-                            <div class="mjtc-support-search-form-btn-wrp">
-                                <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('ms-go', esc_html(__('Search', 'majestic-support')), array('class' => 'mjtc-search-button', 'onclick' => 'return addSpaces();')), MJTC_ALLOWED_TAGS); ?>
-                                <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('ms-reset', esc_html(__('Reset', 'majestic-support')), array('class' => 'mjtc-reset-button', 'onclick' => 'return resetFrom();')), MJTC_ALLOWED_TAGS); ?>
+                <?php echo wp_kses("<input type='hidden' name='ms-id' value='" . esc_attr(majesticsupport::$_data['staff_report']->id) . "'/>", MJTC_ALLOWED_TAGS); ?>
+                <div class="mjtc-support-fields-wrp">
+                    <div class="mjtc-support-form-field">
+                        <?php echo wp_kses(MJTC_formfield::MJTC_text('ms-date-start', date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($date_start)), array('class' => 'custom_date mjtc-support-field-input','placeholder' => esc_html(__('Start Date','majestic-support')))), MJTC_ALLOWED_TAGS); ?>
+                    </div>
+                    <div class="mjtc-support-form-field">
+                        <?php echo wp_kses(MJTC_formfield::MJTC_text('ms-date-end', date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($date_end)), array('class' => 'custom_date mjtc-support-field-input','placeholder' => esc_html(__('End Date','majestic-support')))), MJTC_ALLOWED_TAGS); ?>
+                    </div>
+                </div>
+                <div class="mjtc-support-search-form-btn-wrp">
+                    <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('ms-go', esc_html(__('Search', 'majestic-support')), array('class' => 'mjtc-search-button', 'onclick' => 'return addSpaces();')), MJTC_ALLOWED_TAGS); ?>
+                    <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('ms-reset', esc_html(__('Reset', 'majestic-support')), array('class' => 'mjtc-reset-button', 'onclick' => 'return resetFrom();')), MJTC_ALLOWED_TAGS); ?>
 
-                            </div>
-                            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('MS_form_search', 'MS_SEARCH'), MJTC_ALLOWED_TAGS); ?>
-                            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('mspageid', get_the_ID()), MJTC_ALLOWED_TAGS); ?>
+                    </div>
+                    <?php echo wp_kses(MJTC_formfield::MJTC_hidden('MS_form_search', 'MS_SEARCH'), MJTC_ALLOWED_TAGS); ?>
+                         <?php echo wp_kses(MJTC_formfield::MJTC_hidden('mspageid', get_the_ID()), MJTC_ALLOWED_TAGS); ?>
                             <?php echo wp_kses(MJTC_formfield::MJTC_hidden('mjtcslay', 'staffdetailreport'), MJTC_ALLOWED_TAGS); ?>
                         </form>
                     </div>
@@ -213,43 +212,43 @@ wp_enqueue_script( 'majesticsupport-google-charts-handle' );
                             </div>
                             <div class="mjtc-support-table-body">
                                 <?php
-                                foreach(majesticsupport::$_data['staff_tickets'] AS $ticket){ ?>
+                                foreach(majesticsupport::$_data['staff_tickets'] AS $MJTC_ticket){ ?>
                                 <div class="mjtc-support-data-row">
                                     <div class="mjtc-support-table-body-col mjtc-col-md-4 mjtc-col-xs-4">
                                         <span
                                             class="mjtc-support-display-block"><?php echo esc_html(__('Subject','majestic-support')); ?>:</span>
                                         <span class="mjtc-support-title"><a class="mjtc-support-title-anchor"
                                                 target="_blank"
-                                                href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'ticketdetail','majesticsupportid'=>$ticket->id))); ?>"><?php echo esc_html(majesticsupport::MJTC_getVarValue($ticket->subject)); ?></a></span>
+                                                href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'ticketdetail','majesticsupportid'=>$MJTC_ticket->id))); ?>"><?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_ticket->subject)); ?></a></span>
                                     </div>
                                     <div class="mjtc-support-table-body-col mjtc-col-md-3 mjtc-col-xs-3">
                                         <span
                                             class="mjtc-support-display-block"><?php echo esc_html(__('Status','majestic-support')); ?>:</span>
                                         <?php
-                                            // 0 -> New Ticket
-                                            // 1 -> Waiting admin/staff reply
-                                            // 2 -> in progress
-                                            // 3 -> waiting for customer reply
-                                            // 4 -> close ticket
-                                            switch($ticket->status){
+                                            // 1 -> New Ticket
+                                            // 2 -> Waiting admin/staff reply
+                                            // 3 -> in progress
+                                            // 4 -> waiting for customer reply
+                                            // 5 -> close ticket
+                                            /*switch($MJTC_ticket->status){
                                                 case 0:
                                                     $status = '<font color="#159667">'.esc_html(__('New','majestic-support')).'</font>';
-                                                    if($ticket->isoverdue == 1)
+                                                    if($MJTC_ticket->isoverdue == 1)
                                                         $status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
                                                 break;
                                                 case 1:
                                                     $status = '<font color="#f39f10">'.esc_html(__('Pending','majestic-support')).'</font>';
-                                                    if($ticket->isoverdue == 1)
+                                                    if($MJTC_ticket->isoverdue == 1)
                                                         $status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
                                                 break;
                                                 case 2:
                                                     $status = '<font color="#f39f10">'.esc_html(__('In Progress','majestic-support')).'</font>';
-                                                    if($ticket->isoverdue == 1)
+                                                    if($MJTC_ticket->isoverdue == 1)
                                                         $status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
                                                 break;
                                                 case 3:
                                                     $status = '<font color="#2168A2">'.esc_html(__('Answered','majestic-support')).'</font>';
-                                                    if($ticket->isoverdue == 1)
+                                                    if($MJTC_ticket->isoverdue == 1)
                                                         $status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
                                                 break;
                                                 case 4:
@@ -258,20 +257,31 @@ wp_enqueue_script( 'majesticsupport-google-charts-handle' );
                                                 case 5:
                                                     $status = '<font color="#3D355A">'.esc_html(__('Merged','majestic-support')).'</font>';
                                                 break;
-                                            }
-                                            echo wp_kses($status, MJTC_ALLOWED_TAGS);
+                                            }*/
+if (!in_array($MJTC_ticket->status, [5, 6]) && $MJTC_ticket->isoverdue == 1) {
+                                            $status = __('Overdue','majestic-support');
+                                            $MJTC_color = '#FFFFFF';
+                                            $MJTC_bgcolor = '#DB624C';
+                                        } else {
+                                            $status = $MJTC_ticket->statustitle;
+                                            $MJTC_color = $MJTC_ticket->statuscolour;
+                                            $MJTC_bgcolor = $MJTC_ticket->statusbgcolour;
+                                        }
                                         ?>
+                                    <span class="mjtc-ticket-priority" style="background:<?php echo esc_attr($MJTC_bgcolor); ?>;color:<?php echo esc_attr($MJTC_color); ?>">
+                                        <?php echo esc_html($status); ?>
+                                    </span>
                                     </div>
                                     <div class="mjtc-support-table-body-col mjtc-col-md-3 mjtc-col-xs-3">
                                         <span
                                             class="mjtc-support-display-block"><?php echo esc_html(__('Priority','majestic-support')); ?>:</span>
                                         <span class="mjtc-support-priority"
-                                            style="background-color:<?php echo esc_attr($ticket->prioritycolour); ?>;"><?php echo esc_html(majesticsupport::MJTC_getVarValue($ticket->priority)); ?></span>
+                                            style="background-color:<?php echo esc_attr($MJTC_ticket->prioritycolour); ?>;"><?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_ticket->priority)); ?></span>
                                     </div>
                                     <div class="mjtc-support-table-body-col mjtc-col-md-2 mjtc-col-xs-2">
                                         <span
                                             class="mjtc-support-display-block"><?php echo esc_html(__('Created','majestic-support')); ?>:</span>
-                                        <?php echo esc_html(date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($ticket->created))); ?>
+                                        <?php echo esc_html(date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_ticket->created))); ?>
                                     </div>
                                 </div>
                                 <?php } ?>
@@ -281,10 +291,10 @@ wp_enqueue_script( 'majesticsupport-google-charts-handle' );
                 </div>
                 <?php
                 if (majesticsupport::$_data[1]) {
-                    $data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
-                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+                    $MJTC_data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
+                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
                 }
-            }  else {
+            } else {
                 MJTC_layout::MJTC_getNoRecordFound();
             }?>
             <!-- END admin -->
@@ -296,9 +306,9 @@ wp_enqueue_script( 'majesticsupport-google-charts-handle' );
                 MJTC_layout::MJTC_getNotStaffMember();
             }
         } else {
-            $redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'reports','mjslay'=>'staffreports'));
-            $redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($redirect_url);
-            MJTC_layout::MJTC_getUserGuest($redirect_url);
+            $MJTC_redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'reports','mjslay'=>'staffreports'));
+            $MJTC_redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_redirect_url);
+            MJTC_layout::MJTC_getUserGuest($MJTC_redirect_url);
         }
     } else { // User permission not granted
         MJTC_layout::MJTC_getPermissionNotGranted();

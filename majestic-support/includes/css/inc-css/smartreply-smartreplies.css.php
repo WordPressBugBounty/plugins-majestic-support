@@ -3,15 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
 
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 
 $majesticsupport_css = '';
@@ -51,15 +51,15 @@ $majesticsupport_css .= '
 /*Code For Colors*/
 $majesticsupport_css .= '
 /* Add Form */
-	div.mjtc-support-top-search-wrp{border:1px solid '.$color5.';}
-	div.mjtc-support-fields-wrp div.mjtc-support-form-field input.mjtc-support-field-input{background-color:#fff;border:1px solid '.$color5.';color:'.$color4.';}
-	div.mjtc-support-search-fields-wrp {background: '.$color3.';}
-	select.mjtc-support-select-field{background-color:'.$color3.' !important;border:1px solid '.$color5.';}
-	select#departmentid{background-color:'.$color3.';border:1px solid '.$color5.';}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button{background: '.$color1.' !important;color:'.$color7.' !important;border:1px solid '.$color5.';}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button:hover{border-color:'.$color2.';}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button{background: '.$color2.';color:'.$color7.';border:1px solid '.$color5.';}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button:hover{border-color:'.$color1.';}
+	div.mjtc-support-top-search-wrp{border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-fields-wrp div.mjtc-support-form-field input.mjtc-support-field-input{background-color:#fff;border:1px solid '.$MJTC_color5.';color:'.$MJTC_color4.';}
+	div.mjtc-support-search-fields-wrp {background: '.$MJTC_color3.';}
+	select.mjtc-support-select-field{background-color:'.$MJTC_color3.' !important;border:1px solid '.$MJTC_color5.';}
+	select#departmentid{background-color:'.$MJTC_color3.';border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button{background: '.$MJTC_color1.' !important;color:'.$MJTC_color7.' !important;border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button:hover{border-color:'.$MJTC_color2.';}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button{background: '.$MJTC_color2.';color:'.$MJTC_color7.';border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button:hover{border-color:'.$MJTC_color1.';}
 
 /* Add Form */
 

@@ -27,9 +27,9 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
         <?php MJTC_includer::MJTC_getModel('majesticsupport')->getPageTitle('addsmartreply'); ?>
         <div id="msadmin-data-wrp">
             <?php
-            $nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
+            $MJTC_nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
             ?>
-            <form class="msadmin-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("?page=majesticsupport_smartreply&task=savesmartreply"),"save-smart-reply-".$nonce_id)); ?>">
+            <form class="msadmin-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("?page=majesticsupport_smartreply&task=savesmartreply"),"save-smart-reply-".$MJTC_nonce_id)); ?>">
                 <div class="mjtc-form-wrapper">
                     <div class="mjtc-form-title"><?php echo esc_html(__('Title', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
                     <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_text('title', isset(majesticsupport::$_data[0]->title) ? majesticsupport::$_data[0]->title : '', array('maxlength' => '255', 'class' => 'inputbox mjtc-form-input-field', 'data-validation' => 'required')), MJTC_ALLOWED_TAGS) ?></div>
@@ -44,14 +44,14 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                     </div>
                     <?php
                     if (isset(majesticsupport::$_data[0]->ticketsubjects)) {
-                        foreach (majesticsupport::$_data[0]->ticketsubjects as $key => $message) {
-                            $count =  $key+1;
-                            $divid = "divedit_".$count;
+                        foreach (majesticsupport::$_data[0]->ticketsubjects as $MJTC_key => $message) {
+                            $MJTC_count =  $MJTC_key+1;
+                            $MJTC_divid = "divedit_".$MJTC_count;
                             ?>
-                            <div id="<?php echo esc_attr($divid) ?>" class="mjtc-form-wrapper fullwidth">
+                            <div id="<?php echo esc_attr($MJTC_divid) ?>" class="mjtc-form-wrapper fullwidth">
                             <div class="mjtc-form-value del-btn-wrp">
                                 <?php echo wp_kses(MJTC_formfield::MJTC_text('ticketsubjects[]', isset($message) ? majesticsupport::MJTC_getVarValue($message) : '', array('class' => 'inputbox one mjtc-form-input-field usr-input1', 'data-validation' => 'required', 'placeholder' => 'Ticket Subject Here')),MJTC_ALLOWED_TAGS); ?>
-                                <button type="button" onClick="deleteMsg(<?php echo esc_js($divid) ?>)" class="del-btn">
+                                <button type="button" onClick="deleteMsg(<?php echo esc_js($MJTC_divid) ?>)" class="del-btn">
                                     <img src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/smart-reply/delete.png" alt="<?php echo esc_html(__('delete','majestic-support')); ?>">
                                 </button>
                             </div>

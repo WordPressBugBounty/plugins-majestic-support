@@ -3,15 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
 
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 $majesticsupport_css = '';
 
 /*Code for Css*/
@@ -44,16 +44,16 @@ $majesticsupport_css .= '
 /*Code For Colors*/
 $majesticsupport_css .= '
 	div.mjtc-support-top-search-wrp{}
-	div.mjtc-support-search-heading-wrp{color: '.$color2.';}
-	div.mjtc-support-knowledgebase-details{color: '.$color4.';}
-	div.mjtc-support-categories-heading-wrp{background-color:'.$color3.';border:1px solid  '.$color5.';color:'.$color2.';}
-	div.mjtc-support-downloads-wrp div.mjtc-support-downloads-heading-wrp{background-color:'.$color2.';border:1px solid  '.$color5.';color: '.$color7.';}
-	div.mjtc-support-downloads-content div.mjtc-support-download-box{background-color: #fff;border:1px solid  '.$color5.';}
-	div.mjtc-support-downloads-content div.mjtc-support-download-box div.mjtc-support-download-left a.mjtc-support-download-title span.mjtc-support-download-name {color: '.$color4.';}
-	div.mjtc-support-downloads-content div.mjtc-support-download-box div.mjtc-support-download-left a.mjtc-support-download-title span.mjtc-support-download-name:hover {color: '.$color2.';}
-	div.mjtc-support-download-btn button.mjtc-support-download-btn-style{background-color: '.$color2.';}
-	div.mjtc-support-download-btn a.mjtc-support-download-btn-style{color: '.$color1.'; background-color: '.$color7.';border:1px solid  '.$color1.';}
-	div.mjtc-support-download-btn a.mjtc-support-download-btn-style:hover{color: '.$color2.';border-color:'.$color2.';}
+	div.mjtc-support-search-heading-wrp{color: '.$MJTC_color2.';}
+	div.mjtc-support-knowledgebase-details{color: '.$MJTC_color4.';}
+	div.mjtc-support-categories-heading-wrp{background-color:'.$MJTC_color3.';border:1px solid  '.$MJTC_color5.';color:'.$MJTC_color2.';}
+	div.mjtc-support-downloads-wrp div.mjtc-support-downloads-heading-wrp{background-color:'.$MJTC_color2.';border:1px solid  '.$MJTC_color5.';color: '.$MJTC_color7.';}
+	div.mjtc-support-downloads-content div.mjtc-support-download-box{background-color: #fff;border:1px solid  '.$MJTC_color5.';}
+	div.mjtc-support-downloads-content div.mjtc-support-download-box div.mjtc-support-download-left a.mjtc-support-download-title span.mjtc-support-download-name {color: '.$MJTC_color4.';}
+	div.mjtc-support-downloads-content div.mjtc-support-download-box div.mjtc-support-download-left a.mjtc-support-download-title span.mjtc-support-download-name:hover {color: '.$MJTC_color2.';}
+	div.mjtc-support-download-btn button.mjtc-support-download-btn-style{background-color: '.$MJTC_color2.';}
+	div.mjtc-support-download-btn a.mjtc-support-download-btn-style{color: '.$MJTC_color1.'; background-color: '.$MJTC_color7.';border:1px solid  '.$MJTC_color1.';}
+	div.mjtc-support-download-btn a.mjtc-support-download-btn-style:hover{color: '.$MJTC_color2.';border-color:'.$MJTC_color2.';}
 
 
 

@@ -3,6 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 wp_enqueue_script('iris');
 ?>
 <?php
+wp_enqueue_script('iris');
 $majesticsupport_js ="
 jQuery(document).ready(function () {
         jQuery('select#overduetypeid').change(function(){
@@ -24,10 +25,7 @@ jQuery(document).ready(function () {
 
 ";
 wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
-?>  
-
-<?php
-    $dayshours = array(
+$dayshours = array(
     (object) array('id' => '1', 'text' => esc_html(__('Days', 'majestic-support'))),
     (object) array('id' => '2', 'text' => esc_html(__('Hours', 'majestic-support')))
     );
@@ -39,25 +37,31 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
     <div id="msadmin-data">
         <?php MJTC_includer::MJTC_getModel('majesticsupport')->getPageTitle('addpriority'); ?>
         <div id="msadmin-data-wrp">
-            <?php
-            $nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
-            ?>
-            <form class="msadmin-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("?page=majesticsupport_priority&task=savepriority"),"save-priority-".$nonce_id)); ?>">
+            <?php $MJTC_nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : ''; ?>
+            <form class="msadmin-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("?page=majesticsupport_priority&task=savepriority"),"save-priority-".$MJTC_nonce_id)); ?>">
                 <div class="mjtc-form-wrapper">
                     <div class="mjtc-form-title"><?php echo esc_html(__('Priority', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
                     <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_text('priority', isset(majesticsupport::$_data[0]->priority) ? majesticsupport::$_data[0]->priority : '', array('class' => 'inputbox mjtc-form-input-field', 'data-validation' => 'required')), MJTC_ALLOWED_TAGS) ?></div>
                 </div>
                 <div class="mjtc-form-wrapper">
                     <div class="mjtc-form-title"><?php echo esc_html(__('Color', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
-                    <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_text('prioritycolor', isset(majesticsupport::$_data[0]->prioritycolour) ? majesticsupport::$_data[0]->prioritycolour : '', array('class' => 'inputbox mjtc-form-input-field', 'data-validation' => 'required', 'autocomplete' => 'off')), MJTC_ALLOWED_TAGS); ?></div>
+                    <div class="mjtc-form-value">
+                        <?php
+                        $style = '';
+                        if (!empty(majesticsupport::$_data[0]->prioritycolour)) {
+                            $style = "background:".majesticsupport::$_data[0]->prioritycolour;
+                        } ?>
+                        <span style="<?php echo esc_attr($style); ?>" class="mjtc-form-prioritycolor-wrp"></span>
+                        <?php echo wp_kses(MJTC_formfield::MJTC_text('prioritycolor', isset(majesticsupport::$_data[0]->prioritycolour) ? majesticsupport::$_data[0]->prioritycolour : '', array('class' => 'inputbox mjtc-form-input-field mjtc-form-prioritycolor-field', 'data-validation' => 'required', 'autocomplete' => 'off')), MJTC_ALLOWED_TAGS); ?>
+                    </div>
                 </div>
                 <?php if(in_array('overdue', majesticsupport::$_active_addons)){ ?>
                     <div class="mjtc-form-wrapper">
-                        <div class="mjtc-form-title"><?php echo esc_html(__('Ticket Overdue Interval Type', 'majestic-support')) ?></div>
+                        <div class="mjtc-form-title"><?php echo esc_html(__('Ticket Overdue Interval Type', 'majestic-support')); ?></div>
                         <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('overduetypeid', $dayshours , (isset(majesticsupport::$_data[0]->overduetypeid) ? majesticsupport::$_data[0]->overduetypeid : '' ), '',array('class' => 'inputbox mjtc-form-select-field')), MJTC_ALLOWED_TAGS)?></div>
                     </div>
                     <div class="mjtc-form-wrapper">
-                        <div class="mjtc-form-title"><?php echo esc_html(__('Ticket Overdue', 'majestic-support')) ?>&nbsp;<span style="color: red;" >*</span></div>
+                        <div class="mjtc-form-title"><?php echo esc_html(__('Ticket Overdue', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
                         <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_text('overdueinterval', isset(majesticsupport::$_data[0]->overdueinterval) ? majesticsupport::$_data[0]->overdueinterval : '', array('class' => 'inputbox mjtc-form-input-field', 'data-validation' => 'required')), MJTC_ALLOWED_TAGS) ?><span class="ticket_overdue_type_text" ><?php echo isset(majesticsupport::$_data[0]->overduetypeid) ? esc_html(majesticsupport::$_data[0]->overduetypeid) : '' ?></span></div>
                     </div>
                 <?php } ?>
@@ -96,7 +100,10 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                         jQuery(colpkr).fadeOut(500);
                         return false;
                     },
-                    onChange: function (hsb, hex, rgb) {
+                    change: function (c_event, ui) {
+                        hex = ui.color.toString();
+                        jQuery('.mjtc-form-prioritycolor-wrp').css( 'background', hex);
+                        jQuery('.mjtc-form-prioritycolor-wrp').css( 'border', '1px solid #ebecec');
                         jQuery('input#prioritycolor').css('backgroundColor', '#' + hex).val('#' + hex);
                     }
                 });
@@ -111,9 +118,8 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                     return false;
                 });
             });
-
         ";
         wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
-        ?>  
+        ?>
     </div>
 </div>

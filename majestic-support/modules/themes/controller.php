@@ -10,12 +10,14 @@ class MJTC_themesController {
     }
 
     function handleRequest() {
-		$layout = MJTC_request::MJTC_getLayout('mjslay', null, 'themes');
+        $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'themes');
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
-        if (self::canaddfile()) {
+        if (self::canaddfile($layout)) {
             switch ($layout) {
                 case 'admin_themes':
-                    MJTC_includer::MJTC_getModel('themes')->getCurrentTheme();
+                    if (current_user_can('manage_options')) {    
+                        MJTC_includer::MJTC_getModel('themes')->getCurrentTheme();
+                    }
                     break;
                 default:
                     exit;
@@ -24,7 +26,7 @@ class MJTC_themesController {
             $module = MJTC_request::MJTC_getVar($module, null, 'themes');
             $module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $module);
 
-            if(strstr($layout, 'admin_')){
+            if(MJTC_majesticsupportphplib::MJTC_strstr($layout, 'admin_')){
                 if (!current_user_can('manage_options')) {
                     return false;
                 }
@@ -34,15 +36,19 @@ class MJTC_themesController {
         }
     }
 
-    function canaddfile() {
+    function canaddfile($layout) {
         $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
         if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
-            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
+            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
-            elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
+            } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
                 return false;
-            else
+            } else {
+                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($layout, 'admin_') === 0){
+                    return false;
+                }
                 return true;
+            }
         }
     }
     static function savetheme() {
@@ -53,14 +59,14 @@ class MJTC_themesController {
         if (! wp_verify_nonce( $nonce, 'save-theme') ) {
             die( 'Security check Failed' );
         }
-        $data = MJTC_request::get('post');
-        MJTC_includer::MJTC_getModel('themes')->storeTheme($data);
-        $url = admin_url("admin.php?page=majesticsupport_themes&mjslay=themes");
-        wp_redirect($url);
+        $MJTC_data = MJTC_request::get('post');
+        MJTC_includer::MJTC_getModel('themes')->storeTheme($MJTC_data);
+        $MJTC_url = admin_url("admin.php?page=majesticsupport_themes&mjslay=themes");
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
 }
 
-$controlpanelController = new MJTC_themesController();
+$MJTC_controlpanelController = new MJTC_themesController();
 ?>

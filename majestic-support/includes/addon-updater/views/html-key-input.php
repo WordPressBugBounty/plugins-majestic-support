@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			<?php $wpnonce = wp_create_nonce("update-plugins"); ?>
 			<input type="hidden" name="_wpnonce" value="<?php echo esc_attr( $wpnonce ); ?>" />
 			<div>
-				<span class="description"><?php esc_html(__( 'Please select )','majestic-support')).wp_kses(MJTC_majesticsupportphplib::MJTC_strtoupper( MJTC_majesticsupportphplib::MJTC_substr( $updateaddon_slug, 0, 2 ) ), MJTC_ALLOWED_TAGS).wp_kses(MJTC_majesticsupportphplib::MJTC_substr(  MJTC_majesticsupportphplib::MJTC_ucwords($updateaddon_slug), 2 ), MJTC_ALLOWED_TAGS).esc_html(__('</b> and Enter your license key and hit to authenticate. A valid key is required for updates.' )); ?> <?php printf( 'Lost your key? <a href="%s">Retrieve it here</a>.', esc_url( 'https://majesticsupport.com/' ) ); ?></span>
+				<span class="description"><?php esc_html(__( 'Please select )','majestic-support')).wp_kses(MJTC_majesticsupportphplib::MJTC_strtoupper( MJTC_majesticsupportphplib::MJTC_substr( $updateaddon_slug, 0, 2 ) ), MJTC_ALLOWED_TAGS).wp_kses(MJTC_majesticsupportphplib::MJTC_substr(  MJTC_majesticsupportphplib::MJTC_ucwords($updateaddon_slug), 2 ), MJTC_ALLOWED_TAGS).esc_html(__('</b> and Enter your license key and hit to authenticate. A valid key is required for updates.','majestic-support' )); ?> <?php printf( 'Lost your key? <a href="%s">Retrieve it here</a>.', esc_url( 'https://majesticsupport.com/' ) ); ?></span>
 			</div>
 		</div>
 	</td>

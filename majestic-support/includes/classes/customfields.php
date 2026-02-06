@@ -8,25 +8,38 @@ class MJTC_customfields {
         if($field->isuserfield != 1){
             return false;
         }
-        if($field->userfieldtype == 'admin_only' && !is_admin()){
+        // Handle adminonly case
+        // Visible only on admin and agent form
+        if( in_array('agent',majesticsupport::$_active_addons) ){
+            $agent = MJTC_includer::MJTC_getModel('agent')->isUserStaff();
+        }else{
+            $agent = false;
+        }
+        if(!empty($field->adminonly) && !is_admin() && !$agent){
+            return false;
+        }
+        // show termsandconditions only on user form
+        if($field->userfieldtype == 'termsandconditions' && (is_admin() || $agent)){
             return false;
         }
         $cssclass = "";
         $visibleclass = "";
-        if (isset($field->visibleparams) && $field->visibleparams != ''){
+        if (!empty($field->visibleparams) && $field->visibleparams != '[]'){
             $visibleclass = "visible";
         }
         $html = '';
-        $div1 =  ($field->size == 100) ? ' mjtc-support-from-field-wrp-full-width mjtc-support-from-field-wrp '.esc_attr($visibleclass) : 'mjtc-support-from-field-wrp '.esc_attr($visibleclass);
+        $div1 =  ($field->size == 100 || $field->userfieldtype == 'termsandconditions') ? ' mjtc-support-from-field-wrp-full-width mjtc-support-from-field-wrp '.esc_attr($visibleclass) : 'mjtc-support-from-field-wrp '.esc_attr($visibleclass);
         $div2 = 'mjtc-support-from-field-title';
         $div3 = 'mjtc-support-from-field';
+        $div4 = 'mjtc-support-from-field-description';
 
 
         if(is_admin()){
             $div1 = ($field->size == 100) ? 'mjtc-form-wrapper mjtc-form-custm-flds-wrp fullwidth '.esc_attr($visibleclass) : 'mjtc-form-wrapper mjtc-form-custm-flds-wrp '.esc_attr($visibleclass);
             $div2 = 'mjtc-form-title';
             $div3 = 'mjtc-form-value';
-       }
+            $div4 = 'mjtc-form-description';
+        }
 
 
         $required = $field->required;
@@ -40,49 +53,82 @@ class MJTC_customfields {
             }
         }
 
-        $html = '<div class="' . esc_attr($div1) .  '">
-               <div class="' . esc_attr($div2) . '">';
-        if ($required == 1 && $visibleclass != 'visible') {
-            $html .= esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)) . '<span style="color: red;" >*</span>';
-                $cssclass = "required";
-        }else {
-            $html .= esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle));
-                $cssclass = "";
+        $html = '<div class="' . esc_attr($div1) .  '">';
+        // hide title in case of termsandconditions
+        if($field->userfieldtype != 'termsandconditions'){
+            $html .= '<div class="' . esc_attr($div2) . '">';
+            if ($required == 1 && $visibleclass != 'visible' && !empty($field->fieldtitle)) {
+                $html .= esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)) . '<span style="color: red;" >*</span>';
+                    $cssclass = "required";
+            }else {
+                $html .= esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle));
+                    $cssclass = "";
+            }
+            $html .= ' </div>';
         }
-        $html .= ' </div><div class="' . esc_attr($div3) . '">';
-        $readonly = "";
+        $html .= ' <div class="' . esc_attr($div3) . '">';
+        $readonlyclass = $field->readonly ? " mjtc-form-ticket-readonly " : "";
         $maxlength = $field->maxlength ? "$field->maxlength" : "";
         $fvalue = "";
-        $value = "";
+        $MJTC_value = "";
         $userdataid = "";
         $specialClass="";
         if (isset(majesticsupport::$_data[0]->id)) {
             $userfielddataarray = json_decode(majesticsupport::$_data[0]->params);
             $uffield = $field->field;
             if (isset($userfielddataarray->$uffield) && !empty($userfielddataarray->$uffield)) {
-                $value = $userfielddataarray->$uffield;
+                $MJTC_value = $userfielddataarray->$uffield;
                 $specialClass='specialClass';
             } else {
-                $value = '';
+                $MJTC_value = '';
+            }
+        } else {
+            if (!empty(majesticsupport::$_data[0]->params)) {
+                $userfielddataarray = json_decode(majesticsupport::$_data[0]->params);
+            }
+            $MJTC_value = $field->defaultvalue;
+        }
+        // Handle visible field case
+        $msVisibleFunction = '';
+        // For default function (default value setting)
+        $MJTC_defaultFunc = '';
+        if ($field->visible_field != null) {
+            $visibleparams = MJTC_includer::MJTC_getModel('fieldordering')->MJTC_getDataForVisibleField($field->visible_field);
+            if (!empty($visibleparams)) {
+                $wpnonce = wp_create_nonce("is-field-required-".$field->visible_field);
+                $jsObject = wp_json_encode($visibleparams);
+                $msVisibleFunction = " MJTC_getDataForVisibleField(\"".esc_js($wpnonce)."\", this.value, \"" . esc_js($field->visible_field) . "\", " . $jsObject.");";
+                if (!empty($MJTC_value) && !isset(majesticsupport::$_data[0]->id)) {
+                    $MJTC_defaultFunc = " MJTC_getDataForVisibleField(\"".$wpnonce."\", '".esc_js($MJTC_value)."', \"" . esc_js($field->visible_field) . "\", " . $jsObject.");";
+                    // Attach default function on document ready
+                    $majesticsupport_js = "
+                        jQuery(document).ready(function(){
+                            ".$MJTC_defaultFunc."
+                        });
+                    ";
+                    wp_add_inline_script('majestic-support-cmain-js', $majesticsupport_js);
+                }
             }
         }
-
         switch ($field->userfieldtype) {
             case 'text':
-            case 'admin_only':
-                $html .= wp_kses(MJTC_formfield::MJTC_text($field->field, $value, array('class' => 'inputbox mjtc-form-input-field mjtc-support-form-field-input one '.esc_attr($specialClass), 'data-validation' => $cssclass, 'maxlength' => $maxlength, $readonly)), MJTC_ALLOWED_TAGS);
+                $html .= wp_kses(MJTC_formfield::MJTC_text($field->field, $MJTC_value, array('class' => 'inputbox mjtc-form-input-field mjtc-support-form-field-input one '.esc_attr($specialClass), 'data-validation' => $cssclass, 'onchange' => $msVisibleFunction, 'maxlength' => $maxlength, 'placeholder'=> majesticsupport::MJTC_getVarValue($field->placeholder)) + ($field->readonly ? ['readonly' => 'readonly'] : [])), MJTC_ALLOWED_TAGS);
                 break;
             case 'email':
-                $html .= wp_kses(MJTC_formfield::MJTC_email($field->field, $value, array('class' => 'inputbox mjtc-form-input-field mjtc-support-form-field-input one '. esc_attr($specialClass), 'data-validation' => $cssclass, 'maxlength' => $maxlength, $readonly)), MJTC_ALLOWED_TAGS);
+                $html .= wp_kses(MJTC_formfield::MJTC_email($field->field, $MJTC_value, array('class' => 'inputbox mjtc-form-input-field mjtc-support-form-field-input one '. esc_attr($specialClass), 'data-validation' => $cssclass, 'onchange' => $msVisibleFunction, 'maxlength' => $maxlength, 'placeholder'=> majesticsupport::MJTC_getVarValue($field->placeholder)) + ($field->readonly ? ['readonly' => 'readonly'] : [])), MJTC_ALLOWED_TAGS);
                 break;
             case 'date':
-                if(MJTC_majesticsupportphplib::MJTC_strpos($value , '1970') !== false){
-                    $value = "";
+                if(MJTC_majesticsupportphplib::MJTC_strpos($MJTC_value , '1970') !== false){
+                    $MJTC_value = "";
                 }
-                $html .= wp_kses(MJTC_formfield::MJTC_text($field->field, $value, array('class' => 'custom_date mjtc-form-date-field  mjtc-support-input-field  one '. esc_attr($specialClass), 'data-validation' => $cssclass)), MJTC_ALLOWED_TAGS);
+                $calendarClass = '';
+                if (empty($field->readonly)) {
+                    $calendarClass = ' custom_date ';
+                }
+                $html .= wp_kses(MJTC_formfield::MJTC_text($field->field, $MJTC_value, array('class' => esc_attr($calendarClass).'mjtc-form-date-field  mjtc-support-input-field  one '. esc_attr($specialClass), 'data-validation' => $cssclass, 'onchange' => $msVisibleFunction, 'placeholder'=> majesticsupport::MJTC_getVarValue($field->placeholder)) + ($field->readonly ? ['readonly' => 'readonly'] : [])), MJTC_ALLOWED_TAGS);
                 break;
             case 'textarea':
-                $html .= wp_kses(MJTC_formfield::MJTC_textarea($field->field, $value, array('class' => 'inputbox mjtc-form-textarea-field mjtc-support-custom-textarea one '.esc_attr($specialClass), 'data-validation' => $cssclass, 'rows' => $field->rows, 'cols' => $field->cols, $readonly)), MJTC_ALLOWED_TAGS);
+                $html .= wp_kses(MJTC_formfield::MJTC_textarea($field->field, $MJTC_value, array('class' => 'inputbox mjtc-form-textarea-field mjtc-support-custom-textarea one '.esc_attr($specialClass), 'data-validation' => $cssclass, 'rows' => $field->rows, 'cols' => $field->cols, 'placeholder'=> majesticsupport::MJTC_getVarValue($field->placeholder)) + ($field->readonly ? ['readonly' => 'readonly'] : [])), MJTC_ALLOWED_TAGS);
                 break;
             case 'checkbox':
                 if (!empty($field->userfieldparams)) {
@@ -90,30 +136,34 @@ class MJTC_customfields {
                     $obj_option = json_decode($field->userfieldparams);
                     $total_options= count($obj_option);
                     if($total_options % 2 == 0) {
-                        $field_width = 'style = " width:calc(100% / 2 - 4px); margin:2px;"';
+                        $field_width = 'style = " width:calc(100% / 2 - 4px); margin:2px 2px;"';
                     } else {
-                        $field_width = 'style = " width:calc(100% / 3 - 4px); margin:2px;"';
+                        $field_width = 'style = " width:calc(100% / 3 - 4px); margin:2px 2px;"';
                     }
                     $i = 0;
-                    $valuearray = array();
-                    if ($value != '') {
-                        $valuearray = MJTC_majesticsupportphplib::MJTC_explode(', ',$value);
+                    $MJTC_valuearray = array();
+                    if ($MJTC_value != '') {
+                        $MJTC_valuearray = MJTC_majesticsupportphplib::MJTC_explode(', ',$MJTC_value);
                     }
                     foreach ($obj_option AS $option) {
                         $check = '';
                         $option = html_entity_decode($option);
-                        if(in_array($option, $valuearray)){
+                        if(in_array($option, $MJTC_valuearray)){
                             $check = 'checked';
                         }
+                        $readonly = '';
+                        if($field->readonly){
+                            $readonly = 'readonly';
+                        }
                         $html .= '<div class="ms-formfield-radio-button-wrap mjtc-support-custom-radio-box" '. $field_width .'>';
-                        $html .= '<input type="checkbox" ' . esc_attr($check) . ' class="radiobutton mjtc-support-append-radio-btn '.esc_attr($specialClass).'" value="' . esc_attr($option) . '" id="' . esc_attr($field->field) . '_' . esc_attr($i) . '" name="' . esc_attr($field->field) . '[]">';
+                        $html .= '<input type="checkbox" ' . esc_attr($readonly) . ' ' . esc_attr($check) . ' class="radiobutton mjtc-support-append-radio-btn '.esc_attr($specialClass).esc_attr($readonlyclass).'" value="' . esc_attr($option) . '" id="' . esc_attr($field->field) . '_' . esc_attr($i) . '" name="' . esc_attr($field->field) . '[]" onclick = "'.esc_js($msVisibleFunction).'">';
                         $html .= '<label for="' . esc_attr($field->field) . '_' . esc_attr($i) . '" id="foruf_checkbox1">' . esc_html($option) . '</label>';
                         $html .= '</div>';
                         $i++;
                     }
                 } else {
                     $comboOptions = array('1' => majesticsupport::MJTC_getVarValue($field->fieldtitle));
-                    $html .= wp_kses(MJTC_formfield::MJTC_checkbox($field->field, $comboOptions, $value, array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS);
+                    $html .= wp_kses(MJTC_formfield::MJTC_checkbox($field->field, $comboOptions, $MJTC_value, array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS);
                 }
                 break;
             case 'radio':
@@ -122,28 +172,41 @@ class MJTC_customfields {
                     $obj_option = json_decode($field->userfieldparams);
                     $total_options= count($obj_option);
                     if($total_options % 2 == 0) {
-                        $field_width = 'style = " width:calc(100% / 2 - 4px); margin:2px;"';
+                        $field_width = 'style = " width:calc(100% / 2 - 4px); margin:2px 2px;"';
                     } else {
-                        $field_width = 'style = " width:calc(100% / 3 - 4px); margin:2px;"';
+                        $field_width = 'style = " width:calc(100% / 3 - 4px); margin:2px 2px;"';
                     }
                     $i = 0;
                     $msFunction = '';
                     if ($field->depandant_field != null) {
                         $wpnonce = wp_create_nonce("data-for-depandant-field-".$field->depandant_field);
-                        $msFunction = "MJTC_getDataForDepandantField('".esc_attr($wpnonce)."','" . esc_attr($field->field) . "','" . esc_attr($field->depandant_field) . "',2);";
+                        $msFunction = "MJTC_getDataForDepandantField(\"".$wpnonce."\",\"" . $field->field . "\",\"" . $field->depandant_field . "\",2);";
+                        if (!isset(majesticsupport::$_data[0]->id) && !empty($field->defaultvalue)) {
+                            $majesticsupport_js = "
+                                jQuery(document).ready(function(){
+                                    ".$msFunction."
+                                });
+                            ";
+                            wp_add_inline_script('majestic-support-cmain-js', $majesticsupport_js);
+                        }
                     }
-                    $valuearray = array();
-                    if ($value != '') {
-                        $valuearray = MJTC_majesticsupportphplib::MJTC_explode(', ',$value);
+                    $msFunction .= $msVisibleFunction;
+                    $MJTC_valuearray = array();
+                    if ($MJTC_value != '') {
+                        $MJTC_valuearray = MJTC_majesticsupportphplib::MJTC_explode(', ',$MJTC_value);
                     }
                     foreach ($obj_option AS $option) {
                         $check = '';
                         $option = html_entity_decode($option);
-                        if(in_array($option, $valuearray)){
+                        if(in_array($option, $MJTC_valuearray)){
                             $check = 'checked';
                         }
+                        $readonly = '';
+                        if($field->readonly){
+                            $readonly = 'tabindex=-1';
+                        }
                         $html .= '<div class="ms-formfield-radio-button-wrap mjtc-support-radio-box" '. $field_width .'>';
-                            $html .= '<input type="radio" ' . esc_attr($check) . ' class="radiobutton mjtc-support-radio-btn '.esc_attr($cssclass).' '.esc_attr($specialClass).'" value="' . esc_attr($option) . '" id="' . esc_attr($field->field) . '_' . esc_attr($i) . '" name="' . esc_attr($field->field) . '" data-validation ="'.esc_attr($cssclass).'" onclick = "'.esc_js($msFunction).'"> ';
+                            $html .= '<input type="radio" ' . esc_attr($check) . ' ' . esc_attr($readonly) . ' class="radiobutton mjtc-support-radio-btn '.esc_attr($cssclass).' '.esc_attr($specialClass).esc_attr($readonlyclass).'" value="' . esc_attr($option) . '" id="' . esc_attr($field->field) . '_' . esc_attr($i) . '" name="' . esc_attr($field->field) . '" data-validation ="'.esc_attr($cssclass).'" onclick = "'.esc_js($msFunction).'"> ';
                             $html .= '<label for="' . esc_attr($field->field) . '_' . esc_attr($i) . '" id="foruf_checkbox1">' . esc_html($option) . '</label>';
                         $html .= '</div>';
                         $i++;
@@ -163,24 +226,23 @@ class MJTC_customfields {
                 $msFunction = '';
                 if ($field->depandant_field != null) {
                     $wpnonce = wp_create_nonce("data-for-depandant-field-".$field->depandant_field);
-                    $msFunction = "MJTC_getDataForDepandantField('". esc_js($wpnonce) ."','" . esc_js($field->field) . "','" . esc_js($field->depandant_field) . "',1);";
-                }
-                //code for handling visible field
-                $msVisibleFunction = '';
-                if ($field->visible_field != null) {
-                    $visibleparams = MJTC_includer::MJTC_getModel('fieldordering')->MJTC_getDataForVisibleField($field->visible_field);
-                    foreach ($visibleparams as $visibleparam) {
-                        $wpnonce = wp_create_nonce("is-field-required-".$visibleparam->visibleParentField);
-                        $msVisibleFunction .= " MJTC_getDataForVisibleField('". esc_js($wpnonce) ."', this.value, '" . esc_js($visibleparam->visibleParent) . "','" . esc_js($visibleparam->visibleParentField) . "','". esc_js($visibleparam->visibleValue) ."','". esc_js($visibleparam->visibleCondition) ."');";
+                    $msFunction = "MJTC_getDataForDepandantField(\"".$wpnonce."\",\"" . $field->field . "\",\"" . $field->depandant_field . "\",1);";
+                    if (!isset(majesticsupport::$_data[0]->id) && !empty($field->defaultvalue)) {
+                        $majesticsupport_js = "
+                            jQuery(document).ready(function(){
+                                ".$msFunction."
+                            });
+                        ";
+                        wp_add_inline_script('majestic-support-cmain-js', $majesticsupport_js);
                     }
-                    $msFunction.=$msVisibleFunction;
                 }
+                $msFunction .= $msVisibleFunction;
                 //end
-                $html .= wp_kses(MJTC_formfield::MJTC_select($field->field, $comboOptions, $value, esc_html(__('Select', 'majestic-support')) . ' ' . esc_attr(majesticsupport::MJTC_getVarValue($field->fieldtitle)) , array('data-validation' => $cssclass, 'onchange' => $msFunction, 'class' => 'inputbox mjtc-form-select-field mjtc-support-custom-select one '.esc_attr($specialClass))), MJTC_ALLOWED_TAGS);
+                $html .= wp_kses(MJTC_formfield::MJTC_select($field->field, $comboOptions, $MJTC_value, esc_html(__('Select', 'majestic-support')) . ' ' . esc_attr(majesticsupport::MJTC_getVarValue($field->fieldtitle)) , array('data-validation' => $cssclass, 'onchange' => $msFunction, 'class' => 'inputbox mjtc-form-select-field mjtc-support-custom-select one '.esc_attr($specialClass).esc_attr($readonlyclass)) + ($field->readonly ? ['tabindex' => '-1'] : [])), MJTC_ALLOWED_TAGS);
                 break;
             case 'depandant_field':
                 $comboOptions = array();
-                if ($value != null) {
+                if ($MJTC_value != null) {
                     if (!empty($field->userfieldparams)) {
                         $obj_option = $this->MJTC_getDataForDepandantFieldByParentField($field->field, $userfielddataarray);
                         foreach ($obj_option as $opt) {
@@ -193,10 +255,19 @@ class MJTC_customfields {
                 $msFunction = '';
                 if ($field->depandant_field != null) {
                     $wpnonce = wp_create_nonce("data-for-depandant-field-".$field->depandant_field);
-                    $msFunction = "MJTC_getDataForDepandantField('". esc_js($wpnonce) ."','" . esc_js($field->field) . "','" . esc_js($field->depandant_field) . "');";
+                    $msFunction = "MJTC_getDataForDepandantField(\"".$wpnonce."\",\"" . $field->field . "\",\"" . $field->depandant_field . "\");";
+                    if (!isset(majesticsupport::$_data[0]->id) && !empty($field->defaultvalue)) {
+                        $majesticsupport_js = "
+                            jQuery(document).ready(function(){
+                                ".$msFunction."
+                            });
+                        ";
+                        wp_add_inline_script('majestic-support-cmain-js', $majesticsupport_js);
+                    }
                 }
+                $msFunction .= $msVisibleFunction;
                 //end
-                $html .= wp_kses(MJTC_formfield::MJTC_select($field->field, $comboOptions, $value, esc_html(__('Select', 'majestic-support')) . ' ' . esc_attr(majesticsupport::MJTC_getVarValue($field->fieldtitle)) , array('data-validation' => $cssclass, 'onchange' => $msFunction, 'class' => 'inputbox mjtc-form-select-field mjtc-support-custom-select one '. esc_attr($specialClass))), MJTC_ALLOWED_TAGS);
+                $html .= wp_kses(MJTC_formfield::MJTC_select($field->field, $comboOptions, $MJTC_value, esc_html(__('Select', 'majestic-support')) . ' ' . esc_attr(majesticsupport::MJTC_getVarValue($field->fieldtitle)) , array('data-validation' => $cssclass, 'onchange' => $msFunction, 'class' => 'inputbox mjtc-form-select-field mjtc-support-custom-select one '. esc_attr($specialClass). esc_attr($readonlyclass)) + ($field->readonly ? ['tabindex' => '-1'] : [])), MJTC_ALLOWED_TAGS);
                 break;
             case 'multiple':
                 $comboOptions = array();
@@ -209,65 +280,75 @@ class MJTC_customfields {
                 }
                 $array = $field->field;
                 $array .= '[]';
-                $valuearray = array();
-                if ($value != '') {
-                    $valuearray = MJTC_majesticsupportphplib::MJTC_explode(', ', $value);
+                $MJTC_valuearray = array();
+                if ($MJTC_value != '') {
+                    $MJTC_valuearray = MJTC_majesticsupportphplib::MJTC_explode(', ', $MJTC_value);
                 }
-                $html .= wp_kses(MJTC_formfield::MJTC_select($array, $comboOptions, $valuearray, esc_html(__('Select', 'majestic-support')) . ' ' . esc_attr(majesticsupport::MJTC_getVarValue($field->fieldtitle)) , array('data-validation' => $cssclass, 'multiple' => 'multiple', 'class' => 'inputbox mjtc-form-input-field mjtc-form-multi-select-field one '. esc_attr($specialClass))), MJTC_ALLOWED_TAGS);
+                $html .= wp_kses(MJTC_formfield::MJTC_select($array, $comboOptions, $MJTC_valuearray, esc_html(__('Select', 'majestic-support')) . ' ' . esc_attr(majesticsupport::MJTC_getVarValue($field->fieldtitle)) , array('data-validation' => $cssclass, 'onchange' => $msVisibleFunction, 'multiple' => 'multiple', 'class' => 'inputbox mjtc-form-input-field mjtc-form-multi-select-field one '. esc_attr($specialClass).$readonlyclass) + ($field->readonly ? ['tabindex' => '-1'] : [])), MJTC_ALLOWED_TAGS);
                 break;
             case 'file':
                 $html .= '<span class="mjtc-attachment-file-box">';
                     $html .= '<input type="file" name="'.esc_attr($field->field).'" id="'.esc_attr($field->field).'"/>';
                 $html .= '</span>';
-                if($value != null){
+                if($MJTC_value != null){
                     $html .= wp_kses(MJTC_formfield::MJTC_hidden($field->field.'_1', 0), MJTC_ALLOWED_TAGS);
-                    $html .= wp_kses(MJTC_formfield::MJTC_hidden($field->field.'_2',$value), MJTC_ALLOWED_TAGS);
+                    $html .= wp_kses(MJTC_formfield::MJTC_hidden($field->field.'_2',$MJTC_value), MJTC_ALLOWED_TAGS);
                     $msFunction = "MJTC_deleteCutomUploadedFile('". esc_js($field->field) ."_1')";
-                    $html .='<span class='.esc_attr($field->field).'_1>'. esc_html($value) .'( ';
+                    $html .='<span class='.esc_attr($field->field).'_1>'. esc_html($MJTC_value) .'( ';
                     $html .= "<a href='#' onClick=\"MJTC_deleteCutomUploadedFile('".esc_js($field->field)."_1')\"  class=".esc_attr($specialClass)." >". esc_html(__('Delete', 'majestic-support'))."</a>";
                     $html .= ' )</span>';
                 }
                 break;
-                case 'termsandconditions':
-                    if (isset(majesticsupport::$_data[0]->id)) {
-                        break;
-                    }
-                    if (!empty($field->userfieldparams)) {
-                        $obj_option = json_decode($field->userfieldparams,true);
-
-                        $url = $obj_option['termsandconditions_link'];
-                        if( isset($obj_option['termsandconditions_linktype']) && $obj_option['termsandconditions_linktype'] == 2){
-                             $url  = get_permalink($obj_option['termsandconditions_page']);
-                        }
-
-                        $link_start = '<a href="' . esc_url($url) . '" class="termsandconditions_link_anchor" target="_blank" >';
-                        $link_end = '</a>';
-
-                        if(MJTC_majesticsupportphplib::MJTC_strstr($obj_option['termsandconditions_text'], '[link]') && MJTC_majesticsupportphplib::MJTC_strstr($obj_option['termsandconditions_text'], '[/link]')){
-                            $label_string = MJTC_majesticsupportphplib::MJTC_str_replace('[link]', $link_start, $obj_option['termsandconditions_text']);
-                            $label_string = MJTC_majesticsupportphplib::MJTC_str_replace('[/link]', $link_end, $label_string);
-                        }else{
-                            $label_string = $obj_option['termsandconditions_text'].'&nbsp;'.wp_kses($link_start, MJTC_ALLOWED_TAGS).esc_html($field->fieldtitle).wp_kses($link_end, MJTC_ALLOWED_TAGS);
-                        }
-                        $c_field_required = '';
-                        if($field->required == 1){
-                            $c_field_required = 'required';
-                        }
-                        // ticket terms and conditonions are required.
-                        if($field->fieldfor == 1){
-                            if (!isset($field->visibleparams)) {
-                                $c_field_required = 'required';
-                            }
-                        }
-
-                        $html .= '<div class="mjtc-support-custom-terms-and-condition-box ms-formfield-radio-button-wrap">';
-                        $html .= '<input type="checkbox" class="radiobutton mjtc-support-append-radio-btn '.esc_attr($specialClass).'" value="1" id="' . esc_attr($field->field) . '" name="' . esc_attr($field->field) . '" data-validation="'.esc_attr($c_field_required).'">';
-                        $html .= '<label for="' . esc_attr($field->field) . '" id="foruf_checkbox1">' . wp_kses($label_string, MJTC_ALLOWED_TAGS) . '</label>';
-                        $html .= '</div>';
-                    }
+            case 'termsandconditions':
+                if (isset(majesticsupport::$_data[0]->id)) {
                     break;
+                }
+                if (!empty($field->userfieldparams)) {
+                    $obj_option = json_decode($field->userfieldparams,true);
+
+                    $MJTC_url = '#';
+                    if( isset($obj_option['termsandconditions_linktype']) && $obj_option['termsandconditions_linktype'] == 1){
+                        $MJTC_url = $obj_option['termsandconditions_link'];
+                    }if( isset($obj_option['termsandconditions_linktype']) && $obj_option['termsandconditions_linktype'] == 2){
+                        $MJTC_url  = get_permalink($obj_option['termsandconditions_page']);
+                    }
+
+                    $link_start = '<a href="' . esc_url($MJTC_url) . '" class="termsandconditions_link_anchor" target="_blank" >';
+                    $link_end = '</a>';
+
+                    if(MJTC_majesticsupportphplib::MJTC_strstr($obj_option['termsandconditions_text'], '[link]') && MJTC_majesticsupportphplib::MJTC_strstr($obj_option['termsandconditions_text'], '[/link]')){
+                        $label_string = MJTC_majesticsupportphplib::MJTC_str_replace('[link]', $link_start, $obj_option['termsandconditions_text']);
+                        $label_string = MJTC_majesticsupportphplib::MJTC_str_replace('[/link]', $link_end, $label_string);
+                    }elseif($obj_option['termsandconditions_linktype'] == 3){
+                        $label_string = $obj_option['termsandconditions_text'];
+                    }else{
+                        $label_string = wp_kses($link_start, MJTC_ALLOWED_TAGS).$obj_option['termsandconditions_text'].wp_kses($link_end, MJTC_ALLOWED_TAGS);
+                    }
+                    $c_field_required = '';
+                    if($field->required == 1){
+                        $c_field_required = 'required';
+                    }
+                    // ticket terms and conditonions are required.
+                    if($field->fieldfor == 1){
+                        if (empty(trim($field->visibleparams))) {
+                            $c_field_required = 'required';
+                        } else {
+                            $c_field_required = '';
+                        }
+                    }
+
+                    $html .= '<div class="mjtc-support-custom-terms-and-condition-box ms-formfield-radio-button-wrap">';
+                    $html .= '<input type="checkbox" class="radiobutton mjtc-support-append-radio-btn '.esc_attr($specialClass).'" value="1" id="' . esc_attr($field->field) . '" name="' . esc_attr($field->field) . '" data-validation="'.esc_attr($c_field_required).'">';
+                    $html .= '<label for="' . esc_attr($field->field) . '" id="foruf_checkbox1">' . wp_kses($label_string, MJTC_ALLOWED_TAGS) . '</label>';
+                    $html .= '</div>';
+                }
+                break;
         }
-        $html .= '</div></div>';
+        $html .= '</div>';
+        if(!empty($field->description)) {
+            $html .= '<div class="' . esc_attr($div4) . '">'. esc_html(majesticsupport::MJTC_getVarValue($field->description)) .'</div>';
+        }
+        $html .= '</div>';
         echo wp_kses($html, MJTC_ALLOWED_TAGS);
 
     }
@@ -287,10 +368,10 @@ class MJTC_customfields {
         if($isadmin == 1){
             $html = ''; // only field send
         }
-        $readonly = ''; 
-        $maxlength = '';
+        $readonly = ''; //$field->readonly ? "'readonly => 'readonly'" : "";
+        $maxlength = ''; //$field->maxlength ? "'maxlength' => '".esc_html($field->maxlength) : "";
         $fvalue = "";
-        $value = null;
+        $MJTC_value = null;
         $userdataid = "";
         $userfielddataarray = array();
         if (isset(majesticsupport::$_data['filter']['params'])) {
@@ -299,25 +380,24 @@ class MJTC_customfields {
             //had to user || oprator bcz of radio buttons
 
             if (isset($userfielddataarray[$uffield]) || !empty($userfielddataarray[$uffield])) {
-                $value = $userfielddataarray[$uffield];
+                $MJTC_value = $userfielddataarray[$uffield];
             } else {
-                $value = '';
+                $MJTC_value = '';
             }
         }
         switch ($field->userfieldtype) {
             case 'text':
             case 'email':
-            case 'admin_only':
-                $html .= wp_kses(MJTC_formfield::MJTC_text($field->field, $value, array('class' => 'inputbox mjtc-form-input-field one', 'data-validation' => $cssclass,'placeholder' => majesticsupport::MJTC_getVarValue($field->fieldtitle) , $maxlength, $readonly)), MJTC_ALLOWED_TAGS);
+                $html .= wp_kses(MJTC_formfield::MJTC_text($field->field, $MJTC_value, array('class' => 'inputbox mjtc-form-input-field one', 'data-validation' => $cssclass,'placeholder' => majesticsupport::MJTC_getVarValue($field->fieldtitle) , $maxlength, $readonly)), MJTC_ALLOWED_TAGS);
                 break;
             case 'date':
-                $html .= wp_kses(MJTC_formfield::MJTC_text($field->field, $value, array('class' => 'custom_date mjtc-form-date-field one mjtc-form-input-field', 'data-validation' => $cssclass,'placeholder' => majesticsupport::MJTC_getVarValue($field->fieldtitle))), MJTC_ALLOWED_TAGS);
+                $html .= wp_kses(MJTC_formfield::MJTC_text($field->field, $MJTC_value, array('class' => 'custom_date mjtc-form-date-field one mjtc-form-input-field', 'data-validation' => $cssclass,'placeholder' => majesticsupport::MJTC_getVarValue($field->fieldtitle))), MJTC_ALLOWED_TAGS);
                 break;
             case 'editor':
-                $html .= wp_kses_post(wp_editor(isset($value) ? $value : '', $field->field, array('media_buttons' => false, 'data-validation' => $cssclass)));
+                $html .= wp_kses_post(wp_editor(isset($MJTC_value) ? $MJTC_value : '', $field->field, array('media_buttons' => false, 'data-validation' => $cssclass)));
                 break;
             case 'textarea':
-                $html .= wp_kses(MJTC_formfield::MJTC_textarea($field->field, $value, array('class' => 'inputbox mjtc-form-input-field one', 'data-validation' => $cssclass, 'rows' => $field->rows, 'cols' => $field->cols, $readonly)), MJTC_ALLOWED_TAGS);
+                $html .= wp_kses(MJTC_formfield::MJTC_textarea($field->field, $MJTC_value, array('class' => 'inputbox mjtc-form-input-field one', 'data-validation' => $cssclass, 'rows' => $field->rows, 'cols' => $field->cols, $readonly)), MJTC_ALLOWED_TAGS);
                 break;
             case 'checkbox':
                 if (!empty($field->userfieldparams)) {
@@ -334,12 +414,12 @@ class MJTC_customfields {
                         $field_width = '';
                     }
                     $i = 0;
-                    if(empty($value))
-                        $value = array();
+                    if(empty($MJTC_value))
+                        $MJTC_value = array();
                     $html .= '<div class="mjtc-form-cust-rad-fld-wrp mjtc-form-cust-ckb-fld-wrp">';
                     foreach ($obj_option AS $option) {
                         $option = html_entity_decode($option);
-                        if( in_array($option, $value)){
+                        if( in_array($option, $MJTC_value)){
                             $check = 'checked="true"';
                         }else{
                             $check = '';
@@ -353,7 +433,7 @@ class MJTC_customfields {
                     $html .= '</div>';
                 } else {
                     $comboOptions = array('1' => majesticsupport::MJTC_getVarValue($field->fieldtitle) );
-                    $html .= wp_kses(MJTC_formfield::MJTC_checkbox($field->field, $comboOptions, $value, array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS);
+                    $html .= wp_kses(MJTC_formfield::MJTC_checkbox($field->field, $comboOptions, $MJTC_value, array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS);
                 }
                 break;
             case 'radio':
@@ -372,7 +452,7 @@ class MJTC_customfields {
                         $msFunction = "MJTC_getDataForDepandantField('". esc_js($wpnonce) ."','" . esc_js($field->field) . "','" . esc_js($field->depandant_field) . "',2);";
                     }
                     $html .= '<div class="mjtc-form-cust-rad-fld-wrp">';
-                    $html .= wp_kses(MJTC_formfield::MJTC_radiobutton($field->field, $comboOptions, $value, array('data-validation' => $cssclass, "autocomplete" => "off", 'onclick' => $msFunction)), MJTC_ALLOWED_TAGS);
+                    $html .= wp_kses(MJTC_formfield::MJTC_radiobutton($field->field, $comboOptions, $MJTC_value, array('data-validation' => $cssclass, "autocomplete" => "off", 'onclick' => $msFunction)), MJTC_ALLOWED_TAGS);
                     $html .= '</div>';
                 }else{
                     $comboOptions = array();
@@ -380,9 +460,9 @@ class MJTC_customfields {
                         $obj_option = json_decode($field->userfieldparams);
                         $total_options= count($obj_option);
                         if($total_options % 2 == 0) {
-                            $field_width = 'style = " width:calc(100% / 2 - 4px); margin:2px;"';
+                            $field_width = 'style = " width:calc(100% / 2 - 4px); margin:2px 2px;"';
                         } else {
-                            $field_width = 'style = " width:calc(100% / 3 - 4px); margin:2px;"';
+                            $field_width = 'style = " width:calc(100% / 3 - 4px); margin:2px 2px;"';
                         }
                         $i = 0;
                         $msFunction = '';
@@ -390,19 +470,19 @@ class MJTC_customfields {
                             $wpnonce = wp_create_nonce("data-for-depandant-field-".$field->depandant_field);
                             $msFunction = "MJTC_getDataForDepandantField('". esc_js($wpnonce) ."','" . esc_js($field->field) . "','" . esc_js($field->depandant_field) . "',2);";
                         }
-                        $valuearray = array();
-                        if ($value != '') {
-                            $valuearray = MJTC_majesticsupportphplib::MJTC_explode(', ',$value);
+                        $MJTC_valuearray = array();
+                        if ($MJTC_value != '') {
+                            $MJTC_valuearray = MJTC_majesticsupportphplib::MJTC_explode(', ',$MJTC_value);
                         }
                         $html .= '<div class="mjtc-form-cust-rad-fld-wrp">';
                         foreach ($obj_option AS $option) {
                             $check = '';
                             $option = html_entity_decode($option);
-                            if(in_array($option, $valuearray)){
+                            if(in_array($option, $MJTC_valuearray)){
                                 $check = 'checked';
                             }
                             $html .= '<div class="mjtc-support-radio-box" '. $field_width .'>';
-                                $html .= '<input type="radio" ' . esc_attr($check) . ' class="radiobutton mjtc-support-radio-btn '.esc_attr($cssclass).'" value="' . esc_attr($option) . '" id="' . esc_attr($field->field) . '_' . esc_attr($i) . '" name="' . esc_attr($field->field) . '" data-validation ="'.esc_attr($cssclass).'" onclick = "'.esc_js($msFunction).'"> ';
+                                $html .= '<input type="radio" ' . esc_attr($check) . ' class="radiobutton mjtc-support-radio-btn '.esc_attr($cssclass).'" value="' . esc_attr($option) . '" id="' . esc_attr($field->field) . '_' . esc_attr($i) . '" name="' . esc_attr($field->field) . '" data-validation ="'.esc_attr($cssclass).'" onclick = "'.$msFunction.'"> ';
                                 $html .= '<label for="' . esc_attr($field->field) . '_' . esc_attr($i) . '" id="foruf_checkbox1">' . esc_html($option) . '</label>';
                             $html .= '</div>';
                             $i++;
@@ -425,10 +505,10 @@ class MJTC_customfields {
                 $msFunction = '';
                 if ($field->depandant_field != null) {
                     $wpnonce = wp_create_nonce("data-for-depandant-field-".$field->depandant_field);
-                    $msFunction = "MJTC_getDataForDepandantField('". esc_js($wpnonce) ."','" . esc_js($field->field) . "','" . esc_js($field->depandant_field) . "',1);";
+                    $msFunction = "MJTC_getDataForDepandantField('".$wpnonce."','" . $field->field . "','" . $field->depandant_field . "',1);";
                 }
                 //end
-                $html .= wp_kses(MJTC_formfield::MJTC_select($field->field, $comboOptions, $value, esc_html(__('Select', 'majestic-support')) . ' ' . esc_attr(majesticsupport::MJTC_getVarValue($field->fieldtitle)) , array('data-validation' => $cssclass, 'onchange' => $msFunction, 'class' => 'inputbox mjtc-form-select-field one')), MJTC_ALLOWED_TAGS);
+                $html .= wp_kses(MJTC_formfield::MJTC_select($field->field, $comboOptions, $MJTC_value, esc_html(__('Select', 'majestic-support')) . ' ' . esc_attr(majesticsupport::MJTC_getVarValue($field->fieldtitle)) , array('data-validation' => $cssclass, 'onchange' => $msFunction, 'class' => 'inputbox mjtc-form-select-field one')), MJTC_ALLOWED_TAGS);
                 break;
             case 'depandant_field':
                 $comboOptions = array();
@@ -445,10 +525,10 @@ class MJTC_customfields {
                 $msFunction = '';
                 if ($field->depandant_field != null) {
                     $wpnonce = wp_create_nonce("data-for-depandant-field-".$field->depandant_field);
-                    $msFunction = "MJTC_getDataForDepandantField('". esc_js($wpnonce) ."','" . esc_js($field->field) . "','" . esc_js($field->depandant_field) . "');";
+                    $msFunction = "MJTC_getDataForDepandantField('". $wpnonce."','" . $field->field . "','" . $field->depandant_field . "');";
                 }
                 //end
-                $html .= wp_kses(MJTC_formfield::MJTC_select($field->field, $comboOptions, $value, esc_html(__('Select', 'majestic-support')) . ' ' . esc_attr(majesticsupport::MJTC_getVarValue($field->fieldtitle)) , array('data-validation' => $cssclass, 'onchange' => $msFunction, 'class' => 'inputbox mjtc-form-select-field one')), MJTC_ALLOWED_TAGS);
+                $html .= wp_kses(MJTC_formfield::MJTC_select($field->field, $comboOptions, $MJTC_value, esc_html(__('Select', 'majestic-support')) . ' ' . esc_attr(majesticsupport::MJTC_getVarValue($field->fieldtitle)) , array('data-validation' => $cssclass, 'onchange' => $msFunction, 'class' => 'inputbox mjtc-form-select-field one')), MJTC_ALLOWED_TAGS);
                 break;
             case 'multiple':
                 $comboOptions = array();
@@ -461,7 +541,7 @@ class MJTC_customfields {
                 }
                 $array = $field->field;
                 $array .= '[]';
-                $html .= wp_kses(MJTC_formfield::MJTC_select($array, $comboOptions, $value, esc_html(__('Select', 'majestic-support')) . ' ' . esc_attr(majesticsupport::MJTC_getVarValue($field->fieldtitle)) , array('data-validation' => $cssclass, 'multiple' => 'multiple','class' => 'inputbox mjtc-form-multi-select-field')), MJTC_ALLOWED_TAGS);
+                $html .= wp_kses(MJTC_formfield::MJTC_select($array, $comboOptions, $MJTC_value, esc_html(__('Select', 'majestic-support')) . ' ' . esc_attr(majesticsupport::MJTC_getVarValue($field->fieldtitle)) , array('data-validation' => $cssclass, 'multiple' => 'multiple','class' => 'inputbox mjtc-form-multi-select-field')), MJTC_ALLOWED_TAGS);
                 break;
         }
         if($isadmin == 1){
@@ -478,10 +558,10 @@ class MJTC_customfields {
         $fvalue = '';
 
         if(!empty($params)){
-            $data = json_decode($params,true);
-            if(is_array($data) && $data != ''){
-                if(array_key_exists($field->field, $data)){
-                    $fvalue = $data[$field->field];
+            $MJTC_data = json_decode($params,true);
+            if(is_array($MJTC_data) && $MJTC_data != ''){
+                if(array_key_exists($field->field, $MJTC_data)){
+                    $fvalue = $MJTC_data[$field->field];
                     $fvalue = MJTC_majesticsupportphplib::MJTC_htmlspecialchars($fvalue);
                 }
             }
@@ -529,11 +609,11 @@ class MJTC_customfields {
             $inquery = ' AND showonlisting = 1 ';
         }
         if (!is_admin()) {
-            $inquery .= ' AND userfieldtype != "admin_only" ';
+            $inquery .= ' AND adminonly != 1 ';
         }
         $query = "SELECT field,fieldtitle,isuserfield,userfieldtype,userfieldparams,multiformid  FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE isuserfield = 1 AND " . $published . " AND fieldfor =" . esc_sql($fieldfor) . $inquery. " AND multiformid =" . esc_sql($multiformid). " ORDER BY ordering";
-        $data = majesticsupport::$_db->get_results($query);
-        return $data;
+        $MJTC_data = majesticsupport::$_db->get_results($query);
+        return $MJTC_data;
     }
 
     function userFieldsForSearch($fieldfor) {
@@ -546,43 +626,49 @@ class MJTC_customfields {
             $inquery = ' published = 1 AND search_user =1';
         }
         if(!is_admin()){
-            $inquery .= " AND userfieldtype != 'admin_only'";
-        }
-        if(!in_array('multiform', majesticsupport::$_active_addons)) {
-            $multiformid = MJTC_includer::MJTC_getModel('ticket')->getDefaultMultiFormId();
-            $inquery .= " AND multiformid = ".esc_sql($multiformid);
+            $inquery .= " AND adminonly != 1";
         }
 
         $query = "SELECT `rows`,`cols`,required,field,fieldtitle,isuserfield,userfieldtype,userfieldparams,depandant_field  FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE isuserfield = 1 AND " . $inquery . " AND fieldfor =" . esc_sql($fieldfor) ." ORDER BY ordering ";
-        $data = majesticsupport::$_db->get_results($query);
-        return $data;
+        $MJTC_data = majesticsupport::$_db->get_results($query);
+        return $MJTC_data;
     }
 
-    function MJTC_getDataForDepandantFieldByParentField($fieldfor, $data) {
+    function adminFieldsForSearch($fieldfor) {
+        if(!is_numeric($fieldfor)){
+            return false;
+        }
+
+        $query = "SELECT `rows`,`cols`,required,field,fieldtitle,isuserfield,userfieldtype,userfieldparams,depandant_field  FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE isuserfield = 1 AND published = 1 AND search_admin =1 AND fieldfor =" . esc_sql($fieldfor) ." ORDER BY ordering ";
+        $MJTC_data = majesticsupport::$_db->get_results($query);
+        return $MJTC_data;
+    }
+
+    function MJTC_getDataForDepandantFieldByParentField($fieldfor, $MJTC_data) {
         if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()) {
             $published = ' isvisitorpublished = 1 ';
         } else {
             $published = ' published = 1 ';
         }
-        $value = '';
+        $MJTC_value = '';
         $returnarray = array();
         $query = "SELECT field from " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE isuserfield = 1 AND " . $published . " AND depandant_field ='" . esc_sql($fieldfor) . "'";
         $field = majesticsupport::$_db->get_var($query);
-        if ($data != null) {
-            foreach ($data as $key => $val) {
-                $key = html_entity_decode($key);
-                if ($key == $field) {
-                    $value = $val;
+        if ($MJTC_data != null) {
+            foreach ($MJTC_data as $MJTC_key => $MJTC_val) {
+                $MJTC_key = html_entity_decode($MJTC_key);
+                if ($MJTC_key == $field) {
+                    $MJTC_value = $MJTC_val;
                 }
             }
         }
         $query = "SELECT userfieldparams from " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE isuserfield = 1 AND " . $published . " AND field ='" . esc_sql($fieldfor) . "'";
         $field = majesticsupport::$_db->get_var($query);
         $fieldarray = json_decode($field);
-        foreach ($fieldarray as $key => $val) {
-            $key = html_entity_decode($key);
-            if ($value == $key)
-                $returnarray = $val;
+        foreach ($fieldarray as $MJTC_key => $MJTC_val) {
+            $MJTC_key = html_entity_decode($MJTC_key);
+            if ($MJTC_value == $MJTC_key)
+                $returnarray = $MJTC_val;
         }
         return $returnarray;
     }

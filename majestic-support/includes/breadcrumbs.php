@@ -255,7 +255,7 @@ class MJTC_breadcrumbs {
         }
 
         if (isset($array)) {
-            $count = count($array);
+            $MJTC_count = count($array);
             $i = 0;
             $html = '<div class="mjtc-support-breadcrumb-wrp">
                     <ul class="breadcrumb mjtc-support-breadcrumb">';
@@ -264,11 +264,11 @@ class MJTC_breadcrumbs {
                                 $html .= '
                                 <li>
                                     <a href="' . esc_url($obj['link']) . '">
-                                        <img class="homeicon" alt="home icon" src="' . esc_url(MJTC_PLUGIN_URL) . 'includes/images/homeicon-white.png"/>
+                                        <img class="homeicon" alt="'.esc_attr(__('home icon', 'majestic-support')).'" src="' . esc_url(MJTC_PLUGIN_URL) . 'includes/images/homeicon-white.png"/>
                                     </a>
                                 </li>';
                             } else {
-                                if ($i == ($count - 1)) {
+                                if ($i == ($MJTC_count - 1)) {
                                     $html .= '
                                     <li>
                                         <a href="">

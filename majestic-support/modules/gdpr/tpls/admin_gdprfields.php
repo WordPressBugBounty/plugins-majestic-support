@@ -22,20 +22,20 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                     </tr>
                     <?php
                     foreach (majesticsupport::$_data[0] AS $field) {
-                        $termsandconditions_text = '';
-                        $termsandconditions_linktype = '';
-                        $termsandconditions_link = '';
-                        $termsandconditions_page = '';
+                        $MJTC_termsandconditions_text = '';
+                        $MJTC_termsandconditions_linktype = '';
+                        $MJTC_termsandconditions_link = '';
+                        $MJTC_termsandconditions_page = '';
                         if(isset($field->userfieldparams) && $field->userfieldparams != '' ){
-                            $userfieldparams = json_decode($field->userfieldparams,true);
-                            $termsandconditions_text = isset($userfieldparams['termsandconditions_text']) ? $userfieldparams['termsandconditions_text'] :'' ;
-                            $termsandconditions_linktype = isset($userfieldparams['termsandconditions_linktype']) ? $userfieldparams['termsandconditions_linktype'] :'' ;
-                            $termsandconditions_link = isset($userfieldparams['termsandconditions_link']) ? $userfieldparams['termsandconditions_link'] :'' ;
-                            $termsandconditions_page = isset($userfieldparams['termsandconditions_page']) ? $userfieldparams['termsandconditions_page'] :'' ;
-                            if($termsandconditions_linktype == 2){
-                                $page_title_link = get_the_title($termsandconditions_page);
+                            $MJTC_userfieldparams = json_decode($field->userfieldparams,true);
+                            $MJTC_termsandconditions_text = isset($MJTC_userfieldparams['termsandconditions_text']) ? $MJTC_userfieldparams['termsandconditions_text'] :'' ;
+                            $MJTC_termsandconditions_linktype = isset($MJTC_userfieldparams['termsandconditions_linktype']) ? $MJTC_userfieldparams['termsandconditions_linktype'] :'' ;
+                            $MJTC_termsandconditions_link = isset($MJTC_userfieldparams['termsandconditions_link']) ? $MJTC_userfieldparams['termsandconditions_link'] :'' ;
+                            $MJTC_termsandconditions_page = isset($MJTC_userfieldparams['termsandconditions_page']) ? $MJTC_userfieldparams['termsandconditions_page'] :'' ;
+                            if($MJTC_termsandconditions_linktype == 2){
+                                $MJTC_page_title_link = get_the_title($MJTC_termsandconditions_page);
                             }else{
-                                $page_title_link = $termsandconditions_link;
+                                $MJTC_page_title_link = $MJTC_termsandconditions_link;
                             }
                         }?>
                         <tr class="mjtc-filter-form-data">
@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                                 <span class="majestic-support-table-responsive-heading">
                                     <?php echo esc_html(__('Field Text', 'majestic-support'));echo esc_html(" : "); ?>
                                 </span>
-                                <?php echo esc_html($termsandconditions_text); ?>
+                                <?php echo esc_html($MJTC_termsandconditions_text); ?>
                             </td>
                             <td>
                                 <span class="majestic-support-table-responsive-heading">
@@ -73,17 +73,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                                 <span class="majestic-support-table-responsive-heading">
                                     <?php echo esc_html(__('Link Type', 'majestic-support')); echo esc_html(" : "); ?>
                                 </span>
-                                <?php if($termsandconditions_linktype == 2){
+                                <?php if($MJTC_termsandconditions_linktype == 2){
                                     echo esc_html(__('Wordpress Page','majestic-support'));
-                                }else if($termsandconditions_linktype == 1){
+                                }else if($MJTC_termsandconditions_linktype == 1){
                                     echo esc_html(__('Direct URL','majestic-support'));
+                                }else{
+                                    echo esc_html(__('None','majestic-support'));
                                 } ?>
                             </td>
                             <td>
                                 <span class="majestic-support-table-responsive-heading">
                                     <?php echo esc_html(__('Page Title or URL', 'majestic-support')); echo esc_html(" : "); ?>
                                 </span>
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($page_title_link)); ?>
+                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_page_title_link)); ?>
                             </td>
                             <td>
                                 <a title="<?php echo esc_attr(__('Edit','majestic-support')); ?>" class="action-btn" href="?page=majesticsupport_gdpr&mjslay=addgdprfield&majesticsupportid=<?php echo esc_attr($field->id); ?>"><img alt="<?php echo esc_attr(__('Edit','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/edit.png" /></a>&nbsp;&nbsp;

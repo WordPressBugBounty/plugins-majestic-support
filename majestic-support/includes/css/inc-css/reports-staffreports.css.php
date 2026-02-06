@@ -3,15 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
 
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 $majesticsupport_css = '';
 
@@ -45,7 +45,7 @@ $majesticsupport_css .= '
 	div.mjtc-admin-report-box-wrapper div.mjtc-admin-box div.mjtc-admin-box-image img{max-width: 100%;max-height: 100%;}
 	div.mjtc-admin-report-box-wrapper div.mjtc-admin-box div.mjtc-admin-box-content{padding:5px;}
 	div.mjtc-admin-report-box-wrapper div.mjtc-admin-box div.mjtc-admin-box-content div.mjtc-admin-box-content-number{text-align: right;font-size:24px;font-weight: bold;}
-	div.mjtc-admin-report-box-wrapper div.mjtc-admin-box div.mjtc-admin-box-content div.mjtc-admin-box-content-label{text-align: right;font-size:14px;padding:0px;margin-top:5px;color:'.$color4.';white-space: nowrap;overflow: hidden;text-overflow:ellipsis;}
+	div.mjtc-admin-report-box-wrapper div.mjtc-admin-box div.mjtc-admin-box-content div.mjtc-admin-box-content-label{text-align: right;font-size:14px;padding:0px;margin-top:5px;color:'.$MJTC_color4.';white-space: nowrap;overflow: hidden;text-overflow:ellipsis;}
 	div.mjtc-admin-report-box-wrapper div.mjtc-admin-box.box1 {border: 1px solid #159667;}
 	div.mjtc-admin-report-box-wrapper div.mjtc-admin-box.box1 div.mjtc-admin-box-content div.mjtc-admin-box-content-number{color:#159667;}
 	div.mjtc-admin-report-box-wrapper div.mjtc-admin-box.box2 {border: 1px solid #2168A2;}
@@ -82,13 +82,13 @@ $majesticsupport_css .= '
 	div.mjtc-admin-staff-wrapper div.mjtc-festaffreport-data {float: left;width: 60%;}
 	
 
-	div.mjtc-admin-staff-wrapper div.mjtc-report-staff-name{display: block;padding:3px 0px 0;font-weight: bold;color:'.$color1.';margin-bottom:5px;}
+	div.mjtc-admin-staff-wrapper div.mjtc-report-staff-name{display: block;padding:3px 0px 0;font-weight: bold;color:'.$MJTC_color1.';margin-bottom:5px;}
 	div.mjtc-admin-staff-wrapper div.mjtc-departmentname{font-weight: bold;font-size: 18px;color:#666666; margin: 15px 0px;}
-	div.mjtc-admin-staff-wrapper div.mjtc-report-staff-username{display: block;padding:3px 0px;font-size: 14px;color: '.$color4.';}
-	div.mjtc-admin-staff-wrapper div.mjtc-report-staff-email{display: block;padding:3px 0px;font-size: 14px;color:'.$color4.';}
-	div.mjtc-admin-staff-wrapper div.mjtc-admin-report-box{background:#fff;border:1px solid '.$color5.';margin-left:8px;padding:0px;padding-top:10px;}
-	div.mjtc-admin-staff-wrapper div.mjtc-admin-report-box span.mjtc-report-box-number{color:'.$color2.';display: block;font-size:22px;font-weight: bold;text-align: center;margin:5px 0px 10px 0px;}
-	div.mjtc-admin-staff-wrapper div.mjtc-admin-report-box span.mjtc-report-box-title{color:'.$color4.';display: block;font-size:12px;text-align: center;padding:5px 4px 10px 4px;white-space: nowrap;text-overflow:ellipsis;overflow: hidden;}
+	div.mjtc-admin-staff-wrapper div.mjtc-report-staff-username{display: block;padding:3px 0px;font-size: 14px;color: '.$MJTC_color4.';}
+	div.mjtc-admin-staff-wrapper div.mjtc-report-staff-email{display: block;padding:3px 0px;font-size: 14px;color:'.$MJTC_color4.';}
+	div.mjtc-admin-staff-wrapper div.mjtc-admin-report-box{background:#fff;border:1px solid '.$MJTC_color5.';margin-left:8px;padding:0px;padding-top:10px;}
+	div.mjtc-admin-staff-wrapper div.mjtc-admin-report-box span.mjtc-report-box-number{color:'.$MJTC_color2.';display: block;font-size:22px;font-weight: bold;text-align: center;margin:5px 0px 10px 0px;}
+	div.mjtc-admin-staff-wrapper div.mjtc-admin-report-box span.mjtc-report-box-title{color:'.$MJTC_color4.';display: block;font-size:12px;text-align: center;padding:5px 4px 10px 4px;white-space: nowrap;text-overflow:ellipsis;overflow: hidden;}
 	div.mjtc-admin-staff-wrapper div.mjtc-admin-report-box.box1{margin-left:10.4%;}
 	div.mjtc-admin-staff-wrapper div.mjtc-admin-report-box.box1 div.mjtc-report-box-color{height:5px;background:#159667;}
 	div.mjtc-admin-staff-wrapper div.mjtc-admin-report-box.box2 div.mjtc-report-box-color{height:5px;background:#2168A2;}
@@ -130,18 +130,18 @@ $majesticsupport_css .= '
 ';
 /*Code For Colors*/
 $majesticsupport_css .= '
-	div.mjtc-support-top-search-wrp{border:1px solid '.$color5.';}
-	div.mjtc-support-search-fields-wrp {background: '.$color3.';}
-	div.mjtc-support-search-heading-wrp{background-color:'.$color4.';color:'.$color7.';}
-	div.mjtc-support-search-heading-wrp div.mjtc-support-heading-right a.mjtc-support-add-download-btn{background:'.$color2.';color:'.$color7.';}
-	div.mjtc-support-search-heading-wrp div.mjtc-support-heading-right a.mjtc-support-add-download-btn:hover{background:rgba(125, 135, 141, 0.4);color:'.$color7.';}
-	div.mjtc-support-fields-wrp div.mjtc-support-form-field input.mjtc-support-field-input{background-color:#fff;border:1px solid '.$color5.';color: '.$color4.';}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button{background: '.$color1.' !important;color: '.$color7.' !important;border: 1px solid '.$color5.';width:calc(100% / 2 - 5px);margin-right:10px;}
-	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button:hover {border-color:  '.$color2.';}
-div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button{background: '.$color2.';color: '.$color7.';border: 1px solid '.$color5.';width:calc(100% / 2 - 5px)}
-div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button:hover {border-color:  '.$color1.';}
-div#records div.ms_userpages a.ms_userlink:last-child{background-color:'.$color2.';color:'.$color7.';}
-	div#records div.ms_userpages a.ms_userlink:last-child:hover{background-color:'.$color1.';color:'.$color7.';}
+	div.mjtc-support-top-search-wrp{border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-search-fields-wrp {background: '.$MJTC_color3.';}
+	div.mjtc-support-search-heading-wrp{background-color:'.$MJTC_color4.';color:'.$MJTC_color7.';}
+	div.mjtc-support-search-heading-wrp div.mjtc-support-heading-right a.mjtc-support-add-download-btn{background:'.$MJTC_color2.';color:'.$MJTC_color7.';}
+	div.mjtc-support-search-heading-wrp div.mjtc-support-heading-right a.mjtc-support-add-download-btn:hover{background:rgba(125, 135, 141, 0.4);color:'.$MJTC_color7.';}
+	div.mjtc-support-fields-wrp div.mjtc-support-form-field input.mjtc-support-field-input{background-color:#fff;border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button{background: '.$MJTC_color1.' !important;color: '.$MJTC_color7.' !important;border: 1px solid '.$MJTC_color5.';width:calc(100% / 2 - 5px);margin-right:10px;}
+	div.mjtc-support-search-form-btn-wrp input.mjtc-search-button:hover {border-color:  '.$MJTC_color2.';}
+div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button{background: '.$MJTC_color2.';color: '.$MJTC_color7.';border: 1px solid '.$MJTC_color5.';width:calc(100% / 2 - 5px)}
+div.mjtc-support-search-form-btn-wrp input.mjtc-reset-button:hover {border-color:  '.$MJTC_color1.';}
+div#records div.ms_userpages a.ms_userlink:last-child{background-color:'.$MJTC_color2.';color:'.$MJTC_color7.';}
+	div#records div.ms_userpages a.ms_userlink:last-child:hover{background-color:'.$MJTC_color1.';color:'.$MJTC_color7.';}
 
 ';
 

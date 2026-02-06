@@ -51,8 +51,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                         </div>
                     </div>
                     <div class="mjtc-support-form-btn-wrp">
-                        <input class="tk_dft_btn mjtc-support-save-button" type="submit" name="submit_app"
-                            value="<?php echo esc_html(__('Check Status', 'majestic-support')); ?>" />
+                          <input class="tk_dft_btn mjtc-support-save-button" type="submit" name="submit_app" value="<?php echo esc_html(__('Check Status', 'majestic-support')); ?>" />
                     </div>
                     <?php echo wp_kses(MJTC_formfield::MJTC_hidden('form_request', 'majesticsupport'), MJTC_ALLOWED_TAGS); ?>
                     <?php echo wp_kses(MJTC_formfield::MJTC_hidden('checkstatus', 1), MJTC_ALLOWED_TAGS); ?>
@@ -61,9 +60,9 @@ if (majesticsupport::$_config['offline'] == 2) {
             </div>
             <?php
     }else {// User is guest
-        $redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'ticketstatus'));
-        $redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($redirect_url);
-        MJTC_layout::MJTC_getUserGuest($redirect_url);
+        $MJTC_redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'ticketstatus'));
+        $MJTC_redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_redirect_url);
+        MJTC_layout::MJTC_getUserGuest($MJTC_redirect_url);
     }
 } else { // System is offline
     MJTC_layout::MJTC_getSystemOffline();

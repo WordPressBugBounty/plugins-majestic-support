@@ -9,7 +9,7 @@ if (in_array('agent', majesticsupport::$_active_addons)) {
     $isUserStaff = MJTC_includer::MJTC_getModel('agent')->isUserStaff();
 }
 $div = '';
-$headertitle = '';
+$MJTC_headertitle = '';
 $editid = MJTC_request::MJTC_getVar('majesticsupportid');
 $isnew = ($editid == null) ? true : false;
 $array[] = array('link' => majesticsupport::makeUrl(array('mjsmod' => 'majesticsupport', 'mjslay' => 'controlpanel')), 'text' => esc_html(__('Control Panel', 'majestic-support')));
@@ -164,8 +164,7 @@ echo wp_kses($div, MJTC_ALLOWED_TAGS);
 <div id="mstran_loading">
     <img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/spinning-wheel.gif" />
 </div>
-<?php } ?>
-<?php
+<?php }
 $majesticsupport_js ="
     jQuery(document).ready(function ($) {
 
@@ -175,7 +174,7 @@ $majesticsupport_js ="
             jQuery('div#multiformpopupblack').show();
             var ajaxurl = '". esc_url(admin_url('admin-ajax.php'))."';
             jsShowLoading();
-            jQuery.post(ajaxurl, {action: 'mjsupport_ajax',mjsmod: 'multiform', task: 'getmultiformlistajax', url: url, '_wpnonce':'". esc_attr(wp_create_nonce("get-multi-form-list-ajax"))."'}, function(data) {
+            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'multiform', task: 'getmultiformlistajax', url: url, '_wpnonce':'". esc_attr(wp_create_nonce("get-multi-form-list-ajax"))."'}, function(data) {
                 if (data) {
                     jsHideLoading();
                     jQuery('div#records').html('');
@@ -222,4 +221,4 @@ $majesticsupport_js ="
 
 ";
 wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
-?>  
+?>

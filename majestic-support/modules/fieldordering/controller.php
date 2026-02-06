@@ -12,7 +12,7 @@ class MJTC_fieldorderingController {
     function handleRequest() {
         $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'fieldordering');
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
-        if (self::canaddfile()) {
+        if (self::canaddfile($layout)) {
             switch ($layout) {
                 case 'admin_fieldordering':
                     $fieldfor = MJTC_request::MJTC_getVar('fieldfor',null,1);
@@ -56,24 +56,28 @@ class MJTC_fieldorderingController {
         }
     }
 
-    function canaddfile() {
+    function canaddfile($layout) {
         $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
         if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
-            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
+            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
-            elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
+            } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
                 return false;
-            else
+            } else {
+                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($layout, 'admin_') === 0){
+                    return false;
+                }
                 return true;
+            }
         }
     }
 
     static function changeorder() {
+        $id = MJTC_request::MJTC_getVar('fieldorderingid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'change-order') ) {
+        if (! wp_verify_nonce( $nonce, 'change-order-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $id = MJTC_request::MJTC_getVar('fieldorderingid');
         $fieldfor = MJTC_request::MJTC_getVar('fieldfor');
         if($fieldfor == ''){
             $fieldfor = majesticsupport::$_data['fieldfor'];
@@ -81,8 +85,8 @@ class MJTC_fieldorderingController {
         $formid = MJTC_request::MJTC_getVar('formid');
         $action = MJTC_request::MJTC_getVar('order');
         MJTC_includer::MJTC_getModel('fieldordering')->changeOrder($id, $action);
-        $url = admin_url("admin.php?page=majesticsupport_fieldordering&mjslay=fieldordering&fieldfor=".esc_attr($fieldfor)."&formid=".esc_attr($formid));
-        wp_redirect($url);
+        $MJTC_url = admin_url("admin.php?page=majesticsupport_fieldordering&mjslay=fieldordering&fieldfor=".esc_attr($fieldfor)."&formid=".esc_attr($formid));
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -99,8 +103,8 @@ class MJTC_fieldorderingController {
         $formid = MJTC_request::MJTC_getVar('formid');
         $status = MJTC_request::MJTC_getVar('status');
         MJTC_includer::MJTC_getModel('fieldordering')->changePublishStatus($id, $status);
-        $url = admin_url("admin.php?page=majesticsupport_fieldordering&mjslay=fieldordering&fieldfor=".esc_attr($fieldfor)."&formid=".esc_attr($formid));
-        wp_redirect($url);
+        $MJTC_url = admin_url("admin.php?page=majesticsupport_fieldordering&mjslay=fieldordering&fieldfor=".esc_attr($fieldfor)."&formid=".esc_attr($formid));
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -117,8 +121,8 @@ class MJTC_fieldorderingController {
         $formid = MJTC_request::MJTC_getVar('formid');
         $status = MJTC_request::MJTC_getVar('status');
         MJTC_includer::MJTC_getModel('fieldordering')->changeVisitorPublishStatus($id, $status);
-        $url = admin_url("admin.php?page=majesticsupport_fieldordering&mjslay=fieldordering&fieldfor=".esc_attr($fieldfor)."&formid=".esc_attr($formid));
-        wp_redirect($url);
+        $MJTC_url = admin_url("admin.php?page=majesticsupport_fieldordering&mjslay=fieldordering&fieldfor=".esc_attr($fieldfor)."&formid=".esc_attr($formid));
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -135,31 +139,58 @@ class MJTC_fieldorderingController {
         $formid = MJTC_request::MJTC_getVar('formid');
         $status = MJTC_request::MJTC_getVar('status');
         MJTC_includer::MJTC_getModel('fieldordering')->changeRequiredStatus($id, $status);
-        $url = admin_url("admin.php?page=majesticsupport_fieldordering&mjslay=fieldordering&fieldfor=".esc_attr($fieldfor)."&formid=".esc_attr($formid));
-        wp_redirect($url);
+        $MJTC_url = admin_url("admin.php?page=majesticsupport_fieldordering&mjslay=fieldordering&fieldfor=".esc_attr($fieldfor)."&formid=".esc_attr($formid));
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
     static function saveuserfeild() {
+        // Validate ID: Ensure it's a numeric value to prevent injection
         $id = MJTC_request::MJTC_getVar('id');
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-userfeild-'.$id) ) {
-            die( 'Security check Failed' );
+        if (!empty($id) && (!is_numeric($id) || intval($id) < 0)) {
+            return false;
         }
-        $data = MJTC_request::get('post');
 
+        // Validate Nonce
+        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (!wp_verify_nonce($nonce, 'save-userfeild-' . $id)) {
+            die('Security check Failed');
+        }
+        if (!current_user_can('manage_options')) { //only admin can change it.
+            return false;
+        }
+
+        // Retrieve and Sanitize Input Data
+        $MJTC_data = MJTC_request::get('post');
+        if (!is_array($MJTC_data)) {
+            return false; // Ensure data is an array
+        }
+        array_walk_recursive($MJTC_data, function (&$item) {
+            $item = sanitize_text_field($item);
+        });
+
+        // Validate fieldfor parameter
         $fieldfor = MJTC_request::MJTC_getVar('fieldfor');
-        if($fieldfor == ''){
+        if (empty($fieldfor)) {
             $fieldfor = majesticsupport::$_data['fieldfor'];
         }
+        $fieldfor = sanitize_text_field($fieldfor); // Prevent malicious input
+
+        // Validate formid parameter
         $formid = MJTC_request::MJTC_getVar('formid');
-        MJTC_includer::MJTC_getModel('fieldordering')->storeUserField($data);
+        $formid = sanitize_text_field($formid);
+
+        // Store the sanitized user field using prepared statements
+        MJTC_includer::MJTC_getModel('fieldordering')->storeUserField($MJTC_data);
+
+        // Redirect securely
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_fieldordering&fieldfor=".esc_attr($fieldfor)."&formid=".esc_attr($formid));
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_fieldordering&fieldfor=" . urlencode($fieldfor) . "&formid=" . urlencode($formid));
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'fieldordering', 'mjslay'=>'userfeilds'));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod' => 'fieldordering', 'mjslay' => 'userfeilds'));
         }
-        wp_redirect($url);
+
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -169,19 +200,22 @@ class MJTC_fieldorderingController {
         if (! wp_verify_nonce( $nonce, 'save-feild-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $data = MJTC_request::get('post');
+        if (!current_user_can('manage_options')) { //only admin can change it.
+            return false;
+        }
+        $MJTC_data = MJTC_request::get('post');
         $fieldfor = MJTC_request::MJTC_getVar('fieldfor');
         if($fieldfor == ''){
             $fieldfor = majesticsupport::$_data['fieldfor'];
         }
         $formid = MJTC_request::MJTC_getVar('formid');
-        MJTC_includer::MJTC_getModel('fieldordering')->updateField($data);
+        MJTC_includer::MJTC_getModel('fieldordering')->updateField($MJTC_data);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_fieldordering&fieldfor=".esc_attr($fieldfor)."&formid=".esc_attr($formid));
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_fieldordering&fieldfor=".esc_attr($fieldfor)."&formid=".esc_attr($formid));
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'fieldordering', 'mjslay'=>'userfeilds'));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'fieldordering', 'mjslay'=>'userfeilds'));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -198,15 +232,15 @@ class MJTC_fieldorderingController {
         $formid = MJTC_request::MJTC_getVar('formid');
         MJTC_includer::MJTC_getModel('fieldordering')->deleteUserField($id);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_fieldordering&fieldfor=".esc_attr($fieldfor)."&formid=".esc_attr($formid));
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_fieldordering&fieldfor=".esc_attr($fieldfor)."&formid=".esc_attr($formid));
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'fieldordering', 'mjslay'=>'userfeilds'));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'fieldordering', 'mjslay'=>'userfeilds'));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
 }
 
-$fieldorderingController = new MJTC_fieldorderingController();
+$MJTC_fieldorderingController = new MJTC_fieldorderingController();
 ?>

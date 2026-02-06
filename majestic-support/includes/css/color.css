@@ -133,7 +133,7 @@
     /* ticket status */
     div.mjtc-support-checkstatus-wrp p.mjtc-support-tkentckt-centrmainwrp::after{background:#291abc; }
     div.mjtc-support-checkstatus-wrp p.mjtc-support-tkentckt-centrmainwrp span.mjtc-support-tkentckt-centrwrp{color:#2b2b2b;}
-    div.ms-visitor-token-message p.ms-visitor-token-message-token-number a{background:#291abc;color:#fff;}
+    div.ms-visitor-token-message p.ms-visitor-token-message-token-number a{background:#291abc;color:#ffffff;}
 
     /* Social Login */
     .mjtc-support-sociallogin .mjtc-support-sociallogin-heading {color: #636363;}

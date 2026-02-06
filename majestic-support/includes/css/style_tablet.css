@@ -119,6 +119,7 @@ div#multiformpopup {width: 80%;}
 	div#userpopup {width: 90%;}
 	div#popupforagenttransfer {width: 90%;}
 	div#popupfordepartmenttransfer {width: 90%;}
+	div#userpopupforchangestatus {width: 90%;}
 	div#popupforinternalnote {width: 93%;}
 	div.mjtc-support-append-signature-wrp div.mjtc-support-signature-radio-box{width: calc(100% / 2 - 10px);margin-bottom: 10px;}
 	div#userpopupforchangepriority{width: 90%;}
@@ -158,8 +159,8 @@ div#multiformpopup {width: 80%;}
     div.mjtc-view-tickets{width: calc(100% - 30px) !important;}
     div.ms-merge-popup-wrapper {width: 90%;}
     .mjtc-col-xs-12.mjtc-col-md-12.mjtc-support-toparea{display: inline-block;}
-    .my-ticket-priority-div {width: 80%;float: left;margin: 0 0 0 22%;}
-    .my-ticket-priority-div span.mjtc-support-wrapper-textcolor{margin: 0 0 10px;right: auto;}
+    .mjtc-ticket-priority {width: 80%;float: left;margin: 0 0 0 22%;}
+    .mjtc-ticket-priority span.mjtc-support-wrapper-textcolor{margin: 0 0 10px;right: auto;}
     div.mjtc-support-wrapper div.mjtc-support-data1 {width: 80%;float: left;margin: 0 0 0 20%;}
 
 

@@ -28,8 +28,8 @@ if (!defined('ABSPATH'))
 		$mod = "majesticsupportpages";
 		$layoutName = $mod . uniqid();
     	$instance['mspageid'] = majesticsupport::getPageid();
-		$data = '['.wp_kses($instance['majesticsupportpages'], MJTC_ALLOWED_TAGS).']';
-		echo wp_kses($data, MJTC_ALLOWED_TAGS);
+		$MJTC_data = '['.wp_kses($instance['majesticsupportpages'], MJTC_ALLOWED_TAGS).']';
+		echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
 
 		echo wp_kses($after_widget, MJTC_ALLOWED_TAGS);
 	}

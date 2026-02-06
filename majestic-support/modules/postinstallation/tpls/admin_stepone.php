@@ -1,6 +1,6 @@
 <?php
 if (!defined('ABSPATH')) die('Restricted Access');
-$yesno = array(
+$MJTC_yesno = array(
     (object) array('id' => '1', 'text' => esc_html(__('Yes', 'majestic-support'))),
     (object) array('id' => '2', 'text' => esc_html(__('No', 'majestic-support')))
     );
@@ -166,7 +166,7 @@ $tran_opt = MJTC_includer::MJTC_getModel('majesticsupport')->getInstalledTransla
                                     <?php echo esc_html(__('Show count on my tickets','majestic-support'));?>:
                                 </div>
                                 <div class="field">
-                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('count_on_myticket', $yesno , isset(majesticsupport::$_data[0]['count_on_myticket']) ? majesticsupport::$_data[0]['count_on_myticket'] : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'inputbox ms-postsetting mjtc-select ms-postsetting ')), MJTC_ALLOWED_TAGS);?>
+                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('count_on_myticket', $MJTC_yesno , isset(majesticsupport::$_data[0]['count_on_myticket']) ? majesticsupport::$_data[0]['count_on_myticket'] : '', esc_html(__('Select Type', 'majestic-support')) , array('class' => 'inputbox ms-postsetting mjtc-select ms-postsetting ')), MJTC_ALLOWED_TAGS);?>
                                 </div>
                             </div>
                             <div class="pic-button-part">

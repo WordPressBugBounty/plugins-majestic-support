@@ -11,12 +11,16 @@ class MJTC_ticketController {
 
     function handleRequest() {
         if (is_admin()) {
-            $defaultlayout = "tickets";
+            $MJTC_defaultlayout = "tickets";
         } else
-            $defaultlayout = "myticket";
-        $layout = MJTC_request::MJTC_getLayout('mjslay', null, $defaultlayout);
+            $MJTC_defaultlayout = "myticket";
+        $layout = MJTC_request::MJTC_getLayout('mjslay', null, $MJTC_defaultlayout);
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
-        if (self::canaddfile()) {
+        // remove this in the version 1.1.3
+        include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
+        MJTC_updates::MJTC_checkUpdates('112');
+        // remove this in the version 1.1.3
+        if (self::canaddfile($layout)) {
             switch ($layout) {
                 case 'admin_tickets':
                     $list = MJTC_request::MJTC_getVar('list');
@@ -111,15 +115,19 @@ class MJTC_ticketController {
         }
     }
 
-    function canaddfile() {
+    function canaddfile($layout) {
         $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
         if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
-            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport')
+            if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
-            elseif (isset($_GET['action']) && $_GET['action'] == 'mstask')
+            } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
                 return false;
-            else
+            } else {
+                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($layout, 'admin_') === 0){
+                    return false;
+                }
                 return true;
+            }
         }
     }
 
@@ -132,11 +140,11 @@ class MJTC_ticketController {
         $internalid = MJTC_request::MJTC_getVar('internalid');
         MJTC_includer::MJTC_getModel('ticket')->closeTicket($id, $internalid);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=tickets");
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=tickets");
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail','majesticsupportid'=>$id));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -144,11 +152,11 @@ class MJTC_ticketController {
         $id = MJTC_request::MJTC_getVar('ticketid');
         MJTC_includer::MJTC_getModel('ticket')->lockTicket($id);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($id));
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($id));
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$id));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$id));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -156,11 +164,11 @@ class MJTC_ticketController {
         $id = MJTC_request::MJTC_getVar('ticketid');
         MJTC_includer::MJTC_getModel('ticket')->unLockTicket($id);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($id));
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($id));
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$id));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$id));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -170,85 +178,103 @@ class MJTC_ticketController {
         if (! wp_verify_nonce( $nonce, 'save-ticket-'.$id) ) {
             die( 'Security check Failed' );
         }
-        $data = MJTC_request::get('post');
-        $result = MJTC_includer::MJTC_getModel('ticket')->storeTickets($data);
+        $MJTC_data = MJTC_request::get('post');
+        $result = MJTC_includer::MJTC_getModel('ticket')->storeTickets($MJTC_data);
         if (is_admin()) {
             if($result == false){
-                $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=addticket");
+                $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=addticket");
 				if(in_array('multiform', majesticsupport::$_active_addons)){
-					$formid = $data['multiformid'];
-					$url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=addticket&formid=".esc_attr($formid));
+					$formid = $MJTC_data['multiformid'];
+					$MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=addticket&formid=".esc_attr($formid));
 				}	
             }else{
-                $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=tickets");
+                $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=tickets");
             }
         } else {
             if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid() == 0) { // visitor
                 if ($result == false) { // error on captcha or ticket validation
-                    $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'addticket'));
+                    $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'addticket'));
 					if(in_array('multiform', majesticsupport::$_active_addons)){
-						$formid = $data['multiformid'];
-						$url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'addticket', 'formid'=> $formid));
+						$formid = $MJTC_data['multiformid'];
+						$MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'addticket', 'formid'=> $formid));
 					}	
                 } else { // all things perfect
-                    $ticketid = $result;
-                    $token = MJTC_includer::MJTC_getModel('ticket')->getTicketToken($ticketid);
-                    $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'visitormessagepage', 'majesticsupportid'=>$token));
+                    if(in_array('actions',majesticsupport::$_active_addons)){
+                        $MJTC_ticketid = $result;
+                        $token = MJTC_includer::MJTC_getModel('ticket')->getTicketToken($MJTC_ticketid);
+                        $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'visitormessagepage', 'majesticsupportid'=>$token));
+                    }else{
+                        $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport', 'mjslay'=>'controlpanel'));
+                    }
                 }
             } else {
                 if ($result == false) { // error on captcha or ticket validation
                     $addticket = ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) ? 'staffaddticket' : 'addticket';
                     $module1 = ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) ? 'agent' : 'ticket';
-                    $url = majesticsupport::makeUrl(array('mjsmod'=>$module1, 'mjslay'=>$addticket));
+                    $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>$module1, 'mjslay'=>$addticket));
 					if(in_array('multiform', majesticsupport::$_active_addons)){
-						$formid = $data['multiformid'];
-						$url = majesticsupport::makeUrl(array('mjsmod'=>$module1, 'mjslay'=>$addticket, 'formid'=> $formid));
+						$formid = $MJTC_data['multiformid'];
+						$MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>$module1, 'mjslay'=>$addticket, 'formid'=> $formid));
 					}	
                 } else {
                     $myticket = ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) ? 'staffmyticket' : 'myticket';
                     $module1 = ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) ? 'agent' : 'ticket';
-                    $url = majesticsupport::makeUrl(array('mjsmod'=>$module1, 'mjslay'=>$myticket));
+                    $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>$module1, 'mjslay'=>$myticket));
                 }
             }
         }
         if($result == false){
-            MJTC_formfield::MJTC_setFormData($data);
+            MJTC_formfield::MJTC_setFormData($MJTC_data);
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
+        exit;
+    }
+
+    static function changestatus() {
+        $MJTC_data = MJTC_request::get('post');
+        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $nonce, 'change-status-'.$MJTC_data['ticketid']) ) {
+            die( 'Security check Failed' );
+        }
+        MJTC_includer::MJTC_getModel('ticket')->tickChangeStatus($MJTC_data);
+        if (is_admin()) {
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']));
+        } else {
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$MJTC_data['ticketid']));
+        }
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
     static function transferdepartment() {
-        $ticketid = MJTC_request::MJTC_getVar('ticketid');
+        $MJTC_data = MJTC_request::get('post');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'transfer-department-'.$ticketid) ) {
+        if (! wp_verify_nonce( $nonce, 'transfer-department-'.$MJTC_data['ticketid']) ) {
             die( 'Security check Failed' );
         }
-        $data = MJTC_request::get('post');
-        MJTC_includer::MJTC_getModel('ticket')->tickDepartmentTransfer($data);
+        MJTC_includer::MJTC_getModel('ticket')->tickDepartmentTransfer($MJTC_data);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']));
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']));
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$data['ticketid']));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$MJTC_data['ticketid']));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
     static function assigntickettostaff() {
-        $ticketid = MJTC_request::MJTC_getVar('ticketid');
+        $MJTC_data = MJTC_request::get('post');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'assign-ticket-to-staff-'.$ticketid) ) {
+        if (! wp_verify_nonce( $nonce, 'assign-ticket-to-staff-'.$MJTC_data['ticketid']) ) {
             die( 'Security check Failed' );
         }
-        $data = MJTC_request::get('post');
-        MJTC_includer::MJTC_getModel('ticket')->assignTicketToStaff($data);
+        MJTC_includer::MJTC_getModel('ticket')->assignTicketToStaff($MJTC_data);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']));
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']));
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$data['ticketid']));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$MJTC_data['ticketid']));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -261,15 +287,15 @@ class MJTC_ticketController {
         }
         MJTC_includer::MJTC_getModel('ticket')->removeTicket($id, $internalid);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=tickets");
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=tickets");
         } elseif ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'agent', 'mjslay'=>'staffmyticket'));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'agent', 'mjslay'=>'staffmyticket'));
         } elseif (MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid() == 0) { // visitor
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$id));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$id));
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'myticket'));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'myticket'));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -297,12 +323,12 @@ class MJTC_ticketController {
 
         // Redirect securely
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=tickets");
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=tickets");
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod' => 'ticket', 'mjslay' => 'myticket'));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod' => 'ticket', 'mjslay' => 'myticket'));
         }
         
-        wp_safe_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -311,109 +337,108 @@ class MJTC_ticketController {
         $priorityid = MJTC_request::MJTC_getVar('priority');
         MJTC_includer::MJTC_getModel('ticket')->changeTicketPriority($id, $priorityid);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($id));
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($id));
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$id));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$id));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
     static function reopenticket() { // for user
-        $ticketid = MJTC_request::MJTC_getVar('ticketid');
+        $MJTC_ticketid = MJTC_request::MJTC_getVar('ticketid');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'reopen-ticket-'.$ticketid) ) {
+        if (! wp_verify_nonce( $nonce, 'reopen-ticket-'.$MJTC_ticketid) ) {
             die( 'Security check Failed' );
         }
         $internalid = MJTC_request::MJTC_getVar('internalid');
-        $data['ticketid'] = $ticketid;
-        $data['internalid'] = $internalid;
-        MJTC_includer::MJTC_getModel('ticket')->reopenTicket($data);
-        $url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']);
+        $MJTC_data['ticketid'] = $MJTC_ticketid;
+        $MJTC_data['internalid'] = $internalid;
+        MJTC_includer::MJTC_getModel('ticket')->reopenTicket($MJTC_data);
+        $MJTC_url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']);
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_ticket" . esc_attr($url));
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket" . esc_attr($MJTC_url));
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$data['ticketid']));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$MJTC_data['ticketid']));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
     static function actionticket() {
-        $ticketid = MJTC_request::MJTC_getVar('ticketid');
+        $MJTC_data = MJTC_request::get('post');
         $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'action-ticket-'.$ticketid) ) {
+        if (! wp_verify_nonce( $nonce, 'action-ticket-'.$MJTC_data['ticketid']) ) {
             die( 'Security check Failed' );
         }
-        $data = MJTC_request::get('post');
         /* to handle actions */
-        switch ($data['actionid']) {
+        switch ($MJTC_data['actionid']) {
             case 1: /* Change Priority Ticket */
-                MJTC_includer::MJTC_getModel('ticket')->changeTicketPriority($data['ticketid'], $data['priority']);
-                $url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']);
+                MJTC_includer::MJTC_getModel('ticket')->changeTicketPriority($MJTC_data['ticketid'], $MJTC_data['priority']);
+                $MJTC_url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']);
                 break;
             case 2: /* close ticket */
-                MJTC_includer::MJTC_getModel('ticket')->closeTicket($data['ticketid']);
-                $url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']);
+                MJTC_includer::MJTC_getModel('ticket')->closeTicket($MJTC_data['ticketid']);
+                $MJTC_url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']);
                 break;
             case 3: /* Reopen Ticket */
-                MJTC_includer::MJTC_getModel('ticket')->reopenTicket($data);
-                $url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']);
+                MJTC_includer::MJTC_getModel('ticket')->reopenTicket($MJTC_data);
+                $MJTC_url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']);
                 break;
             case 4: /* Lock Ticket */
                 if(in_array('actions', majesticsupport::$_active_addons)){
-                    MJTC_includer::MJTC_getModel('actions')->lockTicket($data['ticketid']);
-                    $url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']);
+                    MJTC_includer::MJTC_getModel('actions')->lockTicket($MJTC_data['ticketid']);
+                    $MJTC_url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']);
                 }
                 break;
             case 5: /* Unlock ticket */
                 if(in_array('actions', majesticsupport::$_active_addons)){
-                    MJTC_includer::MJTC_getModel('actions')->unLockTicket($data['ticketid']);
-                    $url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']);
+                    MJTC_includer::MJTC_getModel('actions')->unLockTicket($MJTC_data['ticketid']);
+                    $MJTC_url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']);
                 }
                 break;
             case 6: /* Banned Email */
                 if(in_array('banemail', majesticsupport::$_active_addons)){
-                    MJTC_includer::MJTC_getModel('ticket')->banEmail($data);
-                    $url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']);
+                    MJTC_includer::MJTC_getModel('ticket')->banEmail($MJTC_data);
+                    $MJTC_url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']);
                 }
                 break;
             case 7: /* Unban Email */
                 if(in_array('banemail', majesticsupport::$_active_addons)){
-                    MJTC_includer::MJTC_getModel('ticket')->unbanEmail($data);
-                    $url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']);
+                    MJTC_includer::MJTC_getModel('ticket')->unbanEmail($MJTC_data);
+                    $MJTC_url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']);
                 }
                 break;
             case 8: /* Mark over due */
                 if(in_array('overdue', majesticsupport::$_active_addons)){
-                    MJTC_includer::MJTC_getModel('overdue')->markOverDueTicket($data);
-                    $url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']);
+                    MJTC_includer::MJTC_getModel('overdue')->markOverDueTicket($MJTC_data);
+                    $MJTC_url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']);
                 }
                 break;
             case 9: /* In Progress */
                 if(in_array('actions', majesticsupport::$_active_addons)){
-                    MJTC_includer::MJTC_getModel('ticket')->markTicketInProgress($data);
-                    $url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']);
+                    MJTC_includer::MJTC_getModel('ticket')->markTicketInProgress($MJTC_data);
+                    $MJTC_url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']);
                 }
                 break;
             case 10: /* ban Email & close ticket */
-                MJTC_includer::MJTC_getModel('ticket')->banEmailAndCloseTicket($data);
-                $url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']);
+                MJTC_includer::MJTC_getModel('ticket')->banEmailAndCloseTicket($MJTC_data);
+                $MJTC_url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']);
                 break;
             case 11: /* unMark over due */
                 if(in_array('overdue', majesticsupport::$_active_addons)){
-                    MJTC_includer::MJTC_getModel('overdue')->unMarkOverDueTicket($data);;
-                    $url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($data['ticketid']);
+                    MJTC_includer::MJTC_getModel('overdue')->unMarkOverDueTicket($MJTC_data);;
+                    $MJTC_url = "&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_data['ticketid']);
                 }
                 break;
         }
 
         if (is_admin()) {
-            $url = admin_url("admin.php?page=majesticsupport_ticket" . $url);
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket" . $MJTC_url);
         } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$data['ticketid']));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$MJTC_data['ticketid']));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -422,38 +447,49 @@ class MJTC_ticketController {
         if ($token == null) { // in case it come from ticket status form
             $nonce = MJTC_request::MJTC_getVar('_wpnonce');
             if (! wp_verify_nonce( $nonce, 'show-ticket-status') ) {
-                die( 'Security check Failed' );
+                //die( 'Security check Failed' );
             }
             $emailaddress = MJTC_request::MJTC_getVar('email');
             $trackingid = MJTC_request::MJTC_getVar('ticketid');
-            $tickettoken = MJTC_request::MJTC_getVar('tickettoken');
+            $MJTC_tickettoken = MJTC_request::MJTC_getVar('tickettoken');
             if(!empty($emailaddress) AND !empty($trackingid)){
                 $token = MJTC_includer::MJTC_getModel('ticket')->getTokenByEmailAndTrackingId($emailaddress, $trackingid);
-            }else if(!empty($tickettoken)){
-                $token = $tickettoken;
+            }else if(!empty($MJTC_tickettoken)){
+                $token = $MJTC_tickettoken;
             }
-
-        }
-        if($token){
-            include_once MJTC_PLUGIN_PATH . 'includes/encoder.php';
-            $encoder = new MJTC_encoder();
-            $token = $encoder->MJTC_encrypt(wp_json_encode(array('token' => $token, 'sitelink' => get_option('ms_encripted_site_link'))));
+            if($token){
+                include_once MJTC_PLUGIN_PATH . 'includes/encoder.php';
+                $encoder = new MJTC_encoder();
+                $token = $encoder->MJTC_encrypt(wp_json_encode(array('token' => $token, 'sitelink' => get_option('ms_encripted_site_link'))));
+                MJTC_majesticsupportphplib::MJTC_setcookie('majestic-support-token-tkstatus',$token ,0, COOKIEPATH);
+                if ( SITECOOKIEPATH != COOKIEPATH ){
+                    MJTC_majesticsupportphplib::MJTC_setcookie('majestic-support-token-tkstatus',$token ,0, SITECOOKIEPATH);
+                }
+                $MJTC_ticketid = MJTC_includer::MJTC_getModel('ticket')->getTicketidForVisitorUsingToken($token);
+                if ($MJTC_ticketid) {
+                    $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$MJTC_ticketid));
+                } else {
+                    $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketstatus'));
+                    MJTC_message::MJTC_setMessage(esc_html(__('Record not found', 'majestic-support')), 'error');
+                }
+            } else {
+                $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketstatus'));
+                MJTC_message::MJTC_setMessage(esc_html(__('Record not found', 'majestic-support')), 'error');
+            }
+        } else {
             MJTC_majesticsupportphplib::MJTC_setcookie('majestic-support-token-tkstatus',$token ,0, COOKIEPATH);
             if ( SITECOOKIEPATH != COOKIEPATH ){
                 MJTC_majesticsupportphplib::MJTC_setcookie('majestic-support-token-tkstatus',$token ,0, SITECOOKIEPATH);
             }
-            $ticketid = MJTC_includer::MJTC_getModel('ticket')->getTicketidForVisitor($token);
-            if ($ticketid) {
-                $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$ticketid));
+            $MJTC_ticketid = MJTC_includer::MJTC_getModel('ticket')->getTicketidForVisitor($token);
+            if ($MJTC_ticketid) {
+                $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', 'majesticsupportid'=>$MJTC_ticketid));
             } else {
-                $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketstatus'));
+                $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketstatus'));
                 MJTC_message::MJTC_setMessage(esc_html(__('Record not found', 'majestic-support')), 'error');
             }
-        } else {
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketstatus'));
-            MJTC_message::MJTC_setMessage(esc_html(__('Record not found', 'majestic-support')), 'error');
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 
@@ -461,12 +497,12 @@ class MJTC_ticketController {
         $id = MJTC_request::MJTC_getVar('id');
         MJTC_includer::MJTC_getModel('attachment')->getAllDownloads();
         if (is_admin()) {
-          $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail");
-          } else {
-          $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'ticketdetail','majesticsupportid'=>'$id','mspageid'=>majesticsupport::getPageid()));
-          }
-          wp_redirect($url);
-          exit;
+            $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail");
+        } else {
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'ticketdetail','majesticsupportid'=>'$id','mspageid'=>majesticsupport::getPageid()));
+        }
+        wp_safe_redirect($MJTC_url);
+        exit;
     }
     static function downloadallforreply() {
         $downloadid = MJTC_request::MJTC_getVar('downloadid');
@@ -476,11 +512,11 @@ class MJTC_ticketController {
         }
         MJTC_includer::MJTC_getModel('attachment')->getAllReplyDownloads();
         if (is_admin()) {
-          $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail");
+          $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail");
           } else {
-          $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'ticketdetail','majesticsupportid'=>'$id','mspageid'=>majesticsupport::getPageid()));
+          $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'ticketdetail','majesticsupportid'=>'$id','mspageid'=>majesticsupport::getPageid()));
           }
-          wp_redirect($url);
+          wp_safe_redirect($MJTC_url);
           exit;
     }
 
@@ -502,16 +538,16 @@ class MJTC_ticketController {
         if (! wp_verify_nonce( $nonce, 'merge-ticket') ) {
             die( 'Security check Failed' );
         }
-        $data = MJTC_request::get('post');
-        MJTC_includer::MJTC_getModel('mergeticket')->storeMergeTicket($data);
+        $MJTC_data = MJTC_request::get('post');
+        MJTC_includer::MJTC_getModel('mergeticket')->storeMergeTicket($MJTC_data);
         if(is_admin()){
-             $url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" .esc_attr($data['secondaryticket']));
+             $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" .esc_attr($MJTC_data['secondaryticket']));
         }else if( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()){
-            $url = majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'ticketdetail','majesticsupportid'=>$data['secondaryticket']));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'ticketdetail','majesticsupportid'=>$MJTC_data['secondaryticket']));
         }
-        wp_redirect($url);
+        wp_safe_redirect($MJTC_url);
         exit;
     }
 }
-$ticketController = new MJTC_ticketController();
+$MJTC_ticketController = new MJTC_ticketController();
 ?>

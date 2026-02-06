@@ -52,9 +52,9 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                             <div class="mjtc-support-cont-wrapper mjtc-support-cont-wrapper-color">
                                 <div class="mjtc-support-add-form-wrapper">
                                     <?php
-                                        $nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
+                                        $MJTC_nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
                                     ?>
-                                    <form class="mjtc-support-form" method="post" action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'task'=>'savesmartreply')),"save-smart-reply-".$nonce_id)); ?>">
+                                    <form class="mjtc-support-form" method="post" action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'task'=>'savesmartreply')),"save-smart-reply-".$MJTC_nonce_id)); ?>">
                                         <div class="mjtc-support-from-field-wrp">
                                             <div class="mjtc-support-from-field-title">
                                                 <?php echo esc_html(__('Title', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span>
@@ -77,14 +77,14 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                                             </div>
                                             <?php
                                             if (isset(majesticsupport::$_data[0]->ticketsubjects)) {
-                                                foreach (majesticsupport::$_data[0]->ticketsubjects as $key => $message) {
-                                                    $count =  $key+1;
-                                                    $divid = "divedit_".$count;
+                                                foreach (majesticsupport::$_data[0]->ticketsubjects as $MJTC_key => $message) {
+                                                    $MJTC_count =  $MJTC_key+1;
+                                                    $MJTC_divid = "divedit_".$MJTC_count;
                                                     ?>
-                                                    <div id="<?php echo esc_attr($divid) ?>" class="mjtc-support-from-field-wrp fullwidth">
+                                                    <div id="<?php echo esc_attr($MJTC_divid) ?>" class="mjtc-support-from-field-wrp fullwidth">
                                                         <div class="mjtc-support-from-field del-btn-wrp">
                                                             <?php echo wp_kses(MJTC_formfield::MJTC_text('ticketsubjects[]', isset($message) ? majesticsupport::MJTC_getVarValue($message) : '', array('class' => 'inputbox one mjtc-support-form-field-input usr-input1', 'data-validation' => 'required', 'placeholder' => 'Ticket Subject Here')),MJTC_ALLOWED_TAGS); ?>
-                                                            <button type="button" onClick="deleteMsg(<?php echo esc_js($divid) ?>)" class="del-btn">
+                                                            <button type="button" onClick="deleteMsg(<?php echo esc_js($MJTC_divid) ?>)" class="del-btn">
                                                                 <img src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/smart-reply/delete.png" alt="<?php echo esc_html(__('delete','majestic-support')); ?>">
                                                             </button>
                                                         </div>
@@ -121,9 +121,9 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                     MJTC_layout::MJTC_getNotStaffMember();
                 }
             } else {// User is guest
-                $redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'mjslay'=>'addsmartreply'));
-                $redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($redirect_url);
-                MJTC_layout::MJTC_getUserGuest($redirect_url);
+                $MJTC_redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'mjslay'=>'addsmartreply'));
+                $MJTC_redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_redirect_url);
+                MJTC_layout::MJTC_getUserGuest($MJTC_redirect_url);
             }
         } else { // User permission not granted
             MJTC_layout::MJTC_getPermissionNotGranted();

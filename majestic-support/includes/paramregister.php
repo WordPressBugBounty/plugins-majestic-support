@@ -4,16 +4,16 @@ if (!defined('ABSPATH'))
 
 function MJTC_generate_rewrite_rules(&$rules, $rule){
     $_new_rules = array();
-    foreach($rules AS $key => $value){
-        if(MJTC_majesticsupportphplib::MJTC_strstr($key, $rule)){
-            $newkey = MJTC_majesticsupportphplib::MJTC_substr($key,0,MJTC_majesticsupportphplib::MJTC_strlen($key) - 3);
-            $matcharray = MJTC_majesticsupportphplib::MJTC_explode('$matches', $value);
-            $countmatch = COUNT($matcharray);
+    foreach($rules AS $MJTC_key => $MJTC_value){
+        if(MJTC_majesticsupportphplib::MJTC_strstr($MJTC_key, $rule)){
+            $newkey = MJTC_majesticsupportphplib::MJTC_substr($MJTC_key,0,MJTC_majesticsupportphplib::MJTC_strlen($MJTC_key) - 3);
+            $matcharray = MJTC_majesticsupportphplib::MJTC_explode('$matches', $MJTC_value);
+            $MJTC_countmatch = COUNT($matcharray);
             //on all pages
             $_key = $newkey.'/(';
             $_key .= MJTC_includer::MJTC_getModel('slug')->getSlugString();
             $_key .= ')(/[^/]*)?(/[^/]*)?(/[^/]*)?/?$';
-			$newvalue = $value . '&mslayout=$matches['.$countmatch.']&majesticsupport1=$matches['.($countmatch + 1).']&majesticsupport2=$matches['.($countmatch + 2).']&majesticsupport3=$matches['.($countmatch + 3).']';
+			$newvalue = $MJTC_value . '&mslayout=$matches['.$MJTC_countmatch.']&majesticsupport1=$matches['.($MJTC_countmatch + 1).']&majesticsupport2=$matches['.($MJTC_countmatch + 2).']&majesticsupport3=$matches['.($MJTC_countmatch + 3).']';
             $_new_rules[$_key] = $newvalue;
         }
     }
@@ -46,8 +46,8 @@ function MJTC_rewrite_rules( $wp_rewrite ) {
       if($pageid == 0 || $pageid == ''){
           $pageid = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('default_pageid');
       }
-      $key = MJTC_includer::MJTC_getModel('slug')->getSlugString(1);
-      $rules['('.$key.')(/[^/]*)?(/[^/]*)?(/[^/]*)?/?$'] = 'index.php?page_id='.$pageid.'&mslayout=$matches[1]&majesticsupport1=$matches[2]&majesticsupport2=$matches[3]&majesticsupport3=$matches[4]';
+      $MJTC_key = MJTC_includer::MJTC_getModel('slug')->getSlugString(1);
+      $rules['('.$MJTC_key.')(/[^/]*)?(/[^/]*)?(/[^/]*)?/?$'] = 'index.php?page_id='.$pageid.'&mslayout=$matches[1]&majesticsupport1=$matches[2]&majesticsupport2=$matches[3]&majesticsupport3=$matches[4]';
       $wp_rewrite->rules = $rules + $wp_rewrite->rules;
       return $wp_rewrite->rules;
 }
@@ -520,22 +520,22 @@ function MJTC_parse_request($q) {
 }
 add_action('parse_request', 'MJTC_parse_request');
 
-function MJTC_redirect_canonical($redirect_url, $requested_url) {
+function MJTC_redirect_canonical($MJTC_redirect_url, $MJTC_requested_url) {
     global $wp_rewrite;
     if(is_home() || is_front_page()){
         $array = MJTC_includer::MJTC_getModel('slug')->getRedirectCanonicalArray();
         $ret = false;
         foreach($array AS $layout){
-            if(MJTC_majesticsupportphplib::MJTC_strstr($requested_url, $layout)){
+            if(MJTC_majesticsupportphplib::MJTC_strstr($MJTC_requested_url, $layout)){
                 $ret = true;
                 break;
             }
         }
         if($ret == true){
-            return $requested_url;
+            return $MJTC_requested_url;
         }
     }
-      return $redirect_url;
+      return $MJTC_redirect_url;
 }
 add_filter('redirect_canonical', 'MJTC_redirect_canonical', 11, 2);
 

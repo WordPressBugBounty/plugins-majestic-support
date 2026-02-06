@@ -8,7 +8,7 @@ class MJTC_wphdsession {
     public $sessionid;
     public $sessionexpire;
     private $sessiondata;
-    private $datafor;
+    private $MJTC_datafor;
     private $nextsessionexpire;
 
     function __construct( ) {
@@ -58,8 +58,8 @@ class MJTC_wphdsession {
 
     private function MJTC_set_user_cookies(){
         MJTC_majesticsupportphplib::MJTC_setcookie( '_wpms_session_', $this->sessionid . '/' . $this->sessionexpire . '/' . $this->nextsessionexpire , $this->sessionexpire, COOKIEPATH, COOKIE_DOMAIN);
-        $count = get_option( '_wpms_session_', 0 );
-        update_option( '_wpms_session_', ++$count);
+        $MJTC_count = get_option( '_wpms_session_', 0 );
+        update_option( '_wpms_session_', ++$MJTC_count);
     }
 
     public function MJTC_custom_session_handling(){

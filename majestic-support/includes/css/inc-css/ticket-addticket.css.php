@@ -2,15 +2,15 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 $majesticsupport_css = '';
 
@@ -28,6 +28,9 @@ $majesticsupport_css .= '
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.mjtc-support-form-field-select{float: left;width: 100%;border-radius: 0px;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / 4% no-repeat #eee;}
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.inputbox{float: left;width: 100%;border-radius: 0px;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / 4% no-repeat #fff;}
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.inputbox.mjtc-form-multi-select-field{background: #fff;}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp.mjtc-support-from-field-wrp-full-width.mjtc-support-system-terms-and-condition-box{padding: 10px;width: 100%;line-height: initial;height: 50px;border-radius: 0;}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp.mjtc-support-from-field-wrp-full-width.mjtc-support-system-terms-and-condition-box input {margin: 0 5px 0 0 !important;}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field-description{float: left;margin-top: 10px;width: 100%;display: inline-block;}
 	div.mjtc-support-form-btn-wrp{float: left;width:calc(100% - 20px);margin: 0px 10px;text-align: center;padding: 25px 0px 10px 0px;}
 	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button{padding: 20px 10px;margin-right: 10px;min-width: 120px;border-radius: 0px;line-height: initial;}
 	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button{display: inline-block; padding: 20px 10px;min-width: 120px;border-radius: 0px;line-height: initial;text-decoration: none;}
@@ -60,26 +63,27 @@ $majesticsupport_css .= '
 /*Code For Colors*/
 $majesticsupport_css .= '
 
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field input.mjtc-support-form-field-input{border:1px solid '.$color5.';color: '.$color4.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.mjtc-support-form-field-select{border:1px solid '.$color5.';color: '.$color2.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.inputbox{border:1px solid '.$color5.';color: '.$color4.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field-title {color: '.$color2.';}
-	select.mjtc-support-select-field{border:1px solid '.$color5.';color: '.$color2.';background-color: #fff !important;}
-	div.mjtc-support-reply-attachments div.mjtc-attachment-field-title{color:'.$color2.';}
-	span.tk_attachments_configform{color:'.$color4.';}
-	div.mjtc-support-form-btn-wrp{border-top:2px solid '.$color2.';}
-	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button{background-color:'.$color1.' !important;color:'.$color7.' !important;border: 1px solid '.$color5.';}
-	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button:hover{border-color: '.$color2.';}
-	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button{background-color:'.$color2.';color:'.$color7.';border: 1px solid '.$color5.';}
-	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button:hover{border-color: '.$color1.';}
-	a.mjtc-support-delete-attachment{background-color:#ed3237;color:'.$color7.';}
-	div.mjtc-support-radio-btn-wrp{background-color:'.$color3.';border:1px solid '.$color5.';}
-	span.tk_attachments_addform{background-color:'.$color1.';color:'.$color7.';border: 1px solid '.$color1.';}
-	span.tk_attachments_addform:hover{border-color: '.$color2.';}
-	span.mjtc-support-apend-radio-btn{border:1px solid '.$color5.';background-color: '.$color3.';}
-	div.tk_attachment_value_wrapperform{border: 1px solid '.$color5.';}
-	span.tk_attachment_value_text{border: 1px solid '.$color5.';background-color:'.$color7.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select{border: 1px solid '.$color5.';color: '.$color4.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field input.mjtc-support-form-field-input{border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.mjtc-support-form-field-select{border:1px solid '.$MJTC_color5.';color: '.$MJTC_color2.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.inputbox{border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field-title {color: '.$MJTC_color2.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp.mjtc-support-from-field-wrp-full-width.mjtc-support-system-terms-and-condition-box{color: '.$MJTC_color2.';border:1px solid '.$MJTC_color5.';}
+	select.mjtc-support-select-field{border:1px solid '.$MJTC_color5.';color: '.$MJTC_color2.';background-color: #fff !important;}
+	div.mjtc-support-reply-attachments div.mjtc-attachment-field-title{color:'.$MJTC_color2.';}
+	span.tk_attachments_configform{color:'.$MJTC_color4.';}
+	div.mjtc-support-form-btn-wrp{border-top:2px solid '.$MJTC_color2.';}
+	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button{background-color:'.$MJTC_color1.' !important;color:'.$MJTC_color7.' !important;border: 1px solid '.$MJTC_color5.';}
+	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button:hover{border-color: '.$MJTC_color2.';}
+	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button{background-color:'.$MJTC_color2.';color:'.$MJTC_color7.';border: 1px solid '.$MJTC_color5.';}
+	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button:hover{border-color: '.$MJTC_color1.';}
+	a.mjtc-support-delete-attachment{background-color:#ed3237;color:'.$MJTC_color7.';}
+	div.mjtc-support-radio-btn-wrp{background-color:'.$MJTC_color3.';border:1px solid '.$MJTC_color5.';}
+	span.tk_attachments_addform{background-color:'.$MJTC_color1.';color:'.$MJTC_color7.';border: 1px solid '.$MJTC_color1.';}
+	span.tk_attachments_addform:hover{border-color: '.$MJTC_color2.';}
+	span.mjtc-support-apend-radio-btn{border:1px solid '.$MJTC_color5.';background-color: '.$MJTC_color3.';}
+	div.tk_attachment_value_wrapperform{border: 1px solid '.$MJTC_color5.';}
+	span.tk_attachment_value_text{border: 1px solid '.$MJTC_color5.';background-color:'.$MJTC_color7.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select{border: 1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
 	span.MJTC_help-block{color:red !important;}
 ';
 

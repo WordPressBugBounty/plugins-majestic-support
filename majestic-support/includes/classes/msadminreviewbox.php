@@ -42,7 +42,7 @@ class MJTC_reviewbox {
                             <?php echo esc_html(__("We'd love to hear from you. It'll only take 2 minutes of your time, and will really help us spread the word",'majestic-support')); ?>
                         </div>
                         <div class="mjtc-support-review-row">
-                            <a data-mode="love" class="majesticsupport-premio-review-box-hide-btn review-love" href="https://wordpress.org/support/plugin/majestic-support/reviews/?filter=5" target="_blank">
+                            <a data-mode="love" class="majesticsupport-premio-review-box-hide-btn review-love" href="https://wordpress.org/support/plugin/majestic-support/reviews/" target="_blank">
                                 <img alt="<?php echo esc_attr(__('love','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/review/love.png">
                                 <?php echo esc_html(__("I'd love to help :)",'majestic-support')); ?>
                             </a>

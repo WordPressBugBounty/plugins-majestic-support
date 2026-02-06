@@ -85,21 +85,24 @@ class MJTC_priorityModel {
         return;
     }
 
-    function storePriority($data) {
-        if (!$this->validatePriority($data['priority'], $data['id'])) {
+    function storePriority($MJTC_data) {
+        if (!$this->validatePriority($MJTC_data['priority'], $MJTC_data['id'])) {
             MJTC_message::MJTC_setMessage(esc_html(__('Priority Title Already Exist', 'majestic-support')), 'error');
             return;
         }
-        $data = majesticsupport::MJTC_sanitizeData($data);// MJTC_sanitizeData() function uses wordpress santize functions
-        $data['prioritycolour'] = $data['prioritycolor'];
+        if (!current_user_can('manage_options')) { //only admin can change it.
+            return false;
+        }
+        $MJTC_data = majesticsupport::MJTC_sanitizeData($MJTC_data); // MJTC_sanitizeData() function uses wordpress santize functions
+        $MJTC_data['prioritycolour'] = $MJTC_data['prioritycolor'];
 
-        if (!$data['id']) { //new
-            $data['ordering'] = $this->getNextOrdering();
+        if (!$MJTC_data['id']) { //new
+            $MJTC_data['ordering'] = $this->getNextOrdering();
         }
         $row = MJTC_includer::MJTC_getTable('priorities');
-        $data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($data);// remove slashes with quotes.
+        $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);// remove slashes with quotes.
         $error = 0;
-        if (!$row->bind($data)) {
+        if (!$row->bind($MJTC_data)) {
             $error = 1;
         }
         if (!$row->store()) {
@@ -108,7 +111,7 @@ class MJTC_priorityModel {
 
         if ($error == 0) {
             $id = $row->id;
-            if ($data['isdefault'] == 1) {
+            if ($MJTC_data['isdefault'] == 1) {
                 $this->setDefaultPriority($id);
             }
             MJTC_message::MJTC_setMessage(esc_html(__('Priority has been stored', 'majestic-support')), 'updated');
@@ -173,7 +176,7 @@ class MJTC_priorityModel {
                 MJTC_message::MJTC_setMessage(esc_html(__('Priority has not been deleted', 'majestic-support')), 'error');
             }
         } elseif ($canremove == 2)
-            MJTC_message::MJTC_setMessage(esc_html(__('Priority','majestic-support')).' '.esc_html(__('in use cannot deleted', 'majestic-support')), 'error');
+            MJTC_message::MJTC_setMessage(esc_html(__('Priority','majestic-support')).' '. esc_html(__('in use cannot deleted', 'majestic-support')), 'error');
         elseif ($canremove == 3)
             MJTC_message::MJTC_setMessage(esc_html(__('Default priority cannot delete', 'majestic-support')), 'error');
 
@@ -218,10 +221,10 @@ class MJTC_priorityModel {
 
         $row = MJTC_includer::MJTC_getTable('priorities');
         if ($row->update(array('id' => $id, 'ordering' => $result->ordering)) && $row->update(array('id' => $result->id, 'ordering' => $result->ordering2))) {
-            MJTC_message::MJTC_setMessage(esc_html(__('Priority','majestic-support')).' '.esc_html(__('ordering has been changed', 'majestic-support')), 'updated');
+            MJTC_message::MJTC_setMessage(esc_html(__('Priority','majestic-support')).' '. esc_html(__('ordering has been changed', 'majestic-support')), 'updated');
         } else {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
-            MJTC_message::MJTC_setMessage(esc_html(__('Priority','majestic-support')).' '.esc_html(__('ordering has not changed', 'majestic-support')), 'error');
+            MJTC_message::MJTC_setMessage(esc_html(__('Priority','majestic-support')).' '. esc_html(__('ordering has not changed', 'majestic-support')), 'error');
         }
         return;
     }

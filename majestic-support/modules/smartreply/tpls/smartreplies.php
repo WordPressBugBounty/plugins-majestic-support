@@ -76,17 +76,17 @@ if (majesticsupport::$_config['offline'] == 2) {
                                                 </div>
                                                 <div class="ms-smart-reply-listing-body">
                                                     <?php 
-                                                    $ticketsubject = preg_replace("/\\\\'/", "'", $smartreply->ticketsubjects);
+                                                    $MJTC_ticketsubject = MJTC_majesticsupportphplib::MJTC_preg_replace("/\\\\'/", "'", $smartreply->ticketsubjects);
 
-                                                    $ticketsubjects = json_decode($ticketsubject);
-                                                    foreach ($ticketsubjects as $ticketsubject) { ?>
+                                                    $MJTC_ticketsubjects = json_decode($MJTC_ticketsubject);
+                                                    foreach ($MJTC_ticketsubjects as $MJTC_ticketsubject) { ?>
                                                         <div class="ms-smart-reply-listing-ticket-subject">
-                                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($ticketsubject)); ?>
+                                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_ticketsubject)); ?>
                                                         </div>
                                                     <?php } ?>
                                                     <div class="ms-smart-reply-listing-ticket-reply">
                                                         <img alt="<?php echo esc_html(__('Edit','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/smart-reply/text.png" />
-                                                        <span><?php echo esc_html(esc_html(majesticsupport::MJTC_getVarValue(MJTC_majesticsupportphplib::MJTC_strip_tags($smartreply->reply)))); ?></span>
+                                                        <span><?php echo esc_html(majesticsupport::MJTC_getVarValue(MJTC_majesticsupportphplib::MJTC_strip_tags($smartreply->reply))); ?></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -97,8 +97,8 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 </div>
                                 <?php
                                 if (majesticsupport::$_data[1]) {
-                                    $data = '<div class="tablenav"><div class="tablenav-pages" >' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
-                                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+                                    $MJTC_data = '<div class="tablenav"><div class="tablenav-pages" >' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
+                                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
                                 }
                             } else { // Record Not FOund
                                 MJTC_layout::MJTC_getNoRecordFound();
@@ -110,9 +110,9 @@ if (majesticsupport::$_config['offline'] == 2) {
             MJTC_layout::MJTC_getNotStaffMember();
         }
     } else {// User is guest
-        $redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'role','mjslay'=>'roles'));
-        $redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($redirect_url);
-        MJTC_layout::MJTC_getUserGuest($redirect_url);
+        $MJTC_redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'role','mjslay'=>'roles'));
+        $MJTC_redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_redirect_url);
+        MJTC_layout::MJTC_getUserGuest($MJTC_redirect_url);
     }
     } else { // User permission not granted
         MJTC_layout::MJTC_getPermissionNotGranted();

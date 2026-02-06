@@ -191,6 +191,9 @@ div.mjtc-support-sorting span.mjtc-support-sorting-link {float: right;}
 div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-status {right: auto !important;left: 2%;}
 .msadmin-form .mjtc-form-wrapper #helptopic select {background-position: 10px !important;}
 .input-field-wrapper {float: right;margin-right: 0;margin-left: 10px;}
+form.msadmin-form div.mjtc-form-wrapper .mjtc-visible-conditions-addbtn-wrp .mjtc-form-visible-addmore{float: right;margin-right: 0;}
+form.msadmin-form div.mjtc-visible-conditions-addbtn-wrp .mjtc-form-visible-addmore{float: right;margin-left: 0;margin-right: 5px;}
+form.msadmin-form.has-validation-callback .mjtc-visible-conditions-addbtn-wrp{margin-right: 5px;margin-left: 0;float: right;}
 /* install Addones */
 .ms-addon-installer-right-addon-section-select_all_div{text-align: right;}
 .ms-addon-installer-right-addon-section-select_all_div label{margin-left:0;margin-right: 1rem;}
@@ -301,6 +304,8 @@ div.msadmin-add-on-page-wrp div.add-on-page-cnt div.add-on-msg a.add-on-msg-btn 
 div.msadmin-add-on-page-wrp div.add-on-page-cnt div.add-on-list div.add-on-item {float: right;}
 div.msadmin-add-on-page-wrp div.add-on-page-cnt div.add-on-bundle-pack-list div.add-on-bundle-pack-item {float: right;}
 div.msadmin-add-on-page-wrp div.add-on-page-cnt div.add-on-bundle-pack-list div.add-on-bundle-pack-item div.add-on-bundle-pack-price span {margin-left: unset;margin-right: 3px;}
+/* update key */
+div.msadmin-addons-list-data .msadmin-autoupdte-addons-cardwrp .msadmin-autoupdte-addons-card-btn{margin-right: 0;margin-left: 10px;}
 
 /* feedbacks */
 .mjtc-support-feedback-image {float: left;}
@@ -417,6 +422,19 @@ div#ms-main-wrapper div.post-installtion-content div.pic-config div.desc {margin
 div#ms-main-wrapper div.post-installtion-content div.pic-config div.field select.ms-postsetting {background-position: calc(100% - 95%);}
 div#ms-main-wrapper div.post-installtion-content div.pic-button-part a.back img {transform: scalex(-1)}
 div#ms-main-wrapper div.post-installtion-content div.pic-button-part a.next-step img {transform: scalex(-1)}
+/* update key */
+div#jsstadmin-data-wrp .jsstadmin-update-key-form .jsstadmin-update-key-wrp .jsstadmin-update-key-slctall-addonswrp .jsstadmin-update-key-slctall-addon-checkbox-wrp{margin-left: 0;margin-right: auto;}
+/* AI reply*/
+.mjtc-support-ai-powered-reply-wrapper{border: 1px solid #e0e0e0;border-right: 5px solid #4CAF50}
+.mjtc-support-filter-group {margin-left: 5px;margin-right: auto;}
+.mjtc-support-list {text-align: right;}
+.mjtc-support-filter-select {background-position: left 10px center;}
+.mjtc-support-ai-powered-reply-content {text-align: right;}
+/* email template multifoam */
+.mjtc-support-email-templates-wrapper{float: right;}
+div.mjtc-support-card-label{margin-right: 0;margin-left: 5px;}
+.mjtc-support-custom-templates-table th, .mjtc-support-custom-templates-table td{text-align: right;}
+div.mjtc-support-card-icon{margin-right: 0;margin-left: 12px;}
 
 @media (max-width:1280px) {
     .mjtc-support-stats .mjtc-support-stats-link {width: calc(100% / 2 - 5px);margin: 0 0 10px 0px;}
@@ -532,6 +550,8 @@ div#ms-main-wrapper div.post-installtion-content div.pic-button-part a.next-step
     div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msupportadmin-help-btm-cnt {margin: 0 0 10px 0 !important; }
     div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msupportadmin-help-btm-cnt a img {margin-left: unset !important;}
     div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msupportadmin-help-btm-cnt a .msupportadmin-help-btm-cnt-title {text-align: center;}
+    /* update key */
+    div#msadmin-data-wrp .msadmin-update-key-form .msadmin-update-key-wrp .msadmin-update-key-slctall-addonswrp .msadmin-update-key-slctall-addon-checkbox-wrp{margin-right: 0;}
 
 }
 @media (max-width:480px) {
@@ -551,6 +571,8 @@ div#ms-main-wrapper div.post-installtion-content div.pic-button-part a.next-step
     /* help page */
     div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msupportadmin-help-btm-cnt {margin: 0 0 10px 0 !important; }
     div#msadmin-data-wrp .msupportadmin-help-btm .msupportadmin-help-btm-wrp .msupportadmin-help-btm-cnt a img {margin-left: unset !important;}
+    /* addon status */
+    div.jsstadmin-addons-list-data .jsstadmin-autoupdte-addons-cardwrp .jsstadmin-autoupdte-addons-card-btn{margin-left: 0;}
 }   
 /*.....float right.....*/
 div.mjtc-cp-cnt-sec div.mjtc-cp-cnt-left .mjtc-support-count,

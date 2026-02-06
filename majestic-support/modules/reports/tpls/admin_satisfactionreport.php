@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 						<?php echo esc_html(__('Based on','majestic-support')).'&nbsp;'. esc_html(majesticsupport::$_data[0]['result'][6]).'&nbsp;'. esc_html(__('Feedbacks','majestic-support'));?>
 					</span>
 					<div class="top-text" >
-						<?php echo esc_html(__('Customer Satisfaction','majestic-support'))?>
+						<?php echo esc_html(__('Customer Satisfaction','majestic-support')); ?>
 					</div>
 				</div>
 
@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 								echo esc_html(__('NA','majestic-support'));
 							}
 							?></div>
-						<div class="stats-text" > <?php echo esc_html(__('Excellent','majestic-support'))?> </div>
+						<div class="stats-text" > <?php echo esc_html(__('Excellent','majestic-support')); ?> </div>
 					</div>
 					<div class="indi-stats second" >
 						<img alt="<?php echo esc_html(__('Happy','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/happy.png" />
@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 								echo esc_html(__('NA','majestic-support'));
 							}
 							?></div>
-						<div class="stats-text" > <?php echo esc_html(__('Happy','majestic-support'))?> </div>
+						<div class="stats-text" > <?php echo esc_html(__('Happy','majestic-support')); ?> </div>
 					</div>
 					<div class="indi-stats third" >
 						<img alt="<?php echo esc_html(__('Normal','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/normal.png" />
@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 								echo esc_html(__('NA','majestic-support'));
 							}
 							?></div>
-						<div class="stats-text" > <?php echo esc_html(__('Normal','majestic-support'))?> </div>
+						<div class="stats-text" > <?php echo esc_html(__('Normal','majestic-support')); ?> </div>
 					</div>
 					<div class="indi-stats fourth" >
 						<img alt="<?php echo esc_html(__('bad','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/bad.png" />
@@ -95,7 +95,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 								echo esc_html(__('NA','majestic-support'));
 							}
 							?></div>
-						<div class="stats-text" > <?php echo esc_html(__('Sad','majestic-support'))?> </div>
+						<div class="stats-text" > <?php echo esc_html(__('Sad','majestic-support')); ?> </div>
 					</div>
 					<div class="indi-stats fifth" >
 						<img alt="<?php echo esc_html(__('Angry','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/angery.png" />
@@ -106,7 +106,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 								echo esc_html(__('NA','majestic-support'));
 							}
 							?></div>
-						<div class="stats-text" > <?php echo esc_html(__('Angry','majestic-support'))?> </div>
+						<div class="stats-text" > <?php echo esc_html(__('Angry','majestic-support')); ?> </div>
 					</div>
 				</div>
 			</div>

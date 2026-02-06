@@ -8,39 +8,39 @@ include_once MJTC_PLUGIN_PATH . 'includes/css/style.php';
 MJTC_message::MJTC_getMessage();
 ?>
 <style type="text/css">
-    <?php $color1 = majesticsupport::$_data[0]['color1'];
-    $color2 = majesticsupport::$_data[0]['color2'];
-    $color3 = majesticsupport::$_data[0]['color3'];
-    $color4 = majesticsupport::$_data[0]['color4'];
-    $color5 = majesticsupport::$_data[0]['color5'];
-    $color6 = majesticsupport::$_data[0]['color6'];
-    $color7 = majesticsupport::$_data[0]['color7'];
+    <?php $MJTC_color1 = majesticsupport::$_data[0]['color1'];
+    $MJTC_color2 = majesticsupport::$_data[0]['color2'];
+    $MJTC_color3 = majesticsupport::$_data[0]['color3'];
+    $MJTC_color4 = majesticsupport::$_data[0]['color4'];
+    $MJTC_color5 = majesticsupport::$_data[0]['color5'];
+    $MJTC_color6 = majesticsupport::$_data[0]['color6'];
+    $MJTC_color7 = majesticsupport::$_data[0]['color7'];
 
     if (file_exists(MJTC_PLUGIN_PATH . 'includes/css/inc-css/ticket-myticket.css.php')) {
         require_once(MJTC_PLUGIN_PATH . 'includes/css/inc-css/ticket-myticket.css.php');
     }
 
     echo '
-    div.mjtc-support-wrapper {border: 1px solid'.esc_attr($color5).';box-shadow: 0 8px 6px -6px #dedddd;}
-    div.mjtc-support-wrapper:hover {border: 1px solid'.esc_attr($color2).';}
-    div.mjtc-support-wrapper:hover div.mjtc-support-pic {border-right: 1px solid'.esc_attr($color2).';}
-    div.mjtc-support-wrapper:hover div.mjtc-support-data1 {border-left: 0px solid'.esc_attr($color2).';}
-    div.mjtc-support-wrapper:hover div.mjtc-support-bottom-line {background'.esc_attr($color2).';}
-    div.mjtc-support-wrapper div.mjtc-support-pic {border-right: 1px solid'.esc_attr($color5).';}
+    div.mjtc-support-wrapper {border: 1px solid'.esc_attr($MJTC_color5).';box-shadow: 0 8px 6px -6px #dedddd;}
+    div.mjtc-support-wrapper:hover {border: 1px solid'.esc_attr($MJTC_color2).';}
+    div.mjtc-support-wrapper:hover div.mjtc-support-pic {border-right: 1px solid'.esc_attr($MJTC_color2).';}
+    div.mjtc-support-wrapper:hover div.mjtc-support-data1 {border-left: 0px solid'.esc_attr($MJTC_color2).';}
+    div.mjtc-support-wrapper:hover div.mjtc-support-bottom-line {background'.esc_attr($MJTC_color2).';}
+    div.mjtc-support-wrapper div.mjtc-support-pic {border-right: 1px solid'.esc_attr($MJTC_color5).';}
     div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-status {color: #FFFFFF;}
-    div.mjtc-support-wrapper div.mjtc-support-data1 {border-left: 0px solid'.esc_attr($color5).';}
-    div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-title {color: '.esc_attr($color4).';}
-    div.msadmin-wrapper-main-overall-wrapper-for-all .mjtc-filter-button-wrp .mjtc-support-reset-btn {background: '.esc_attr($color2).';}
-    div.msadmin-wrapper-main-overall-wrapper-for-all .mjtc-filter-button-wrp .mjtc-support-reset-btn:hover {background: '.esc_attr($color7).'; color: '.esc_attr($color2).'; border-color: '.esc_attr($color2).';}
-    div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp input.mjtc-support-search-btn:hover {background: '.esc_attr($color7).'; color: '.esc_attr($color1).'; border-color: '.esc_attr($color1).' !important;}
-    a.mjtc-support-title-anchor:hover {color: '.esc_attr($color2).' !important;}
-    div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-value {color: '.esc_attr($color4).';}
-    div.mjtc-support-wrapper div.mjtc-support-bottom-line {background'.esc_attr($color2).';}
-    div.mjtc-support-assigned-tome {border: 1px solid'.esc_attr($color5).'; background-color: '.esc_attr($color3).';}
-    div.mjtc-support-sorting span.mjtc-support-sorting-link a {background: #373435;color: '.esc_attr($color7).';color: #fff;}
+    div.mjtc-support-wrapper div.mjtc-support-data1 {border-left: 0px solid'.esc_attr($MJTC_color5).';}
+    div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-title {color: '.esc_attr($MJTC_color4).';}
+    div.msadmin-wrapper-main-overall-wrapper-for-all .mjtc-filter-button-wrp .mjtc-support-reset-btn {background: '.esc_attr($MJTC_color2).';}
+    div.msadmin-wrapper-main-overall-wrapper-for-all .mjtc-filter-button-wrp .mjtc-support-reset-btn:hover {background: '.esc_attr($MJTC_color7).'; color: '.esc_attr($MJTC_color2).'; border-color: '.esc_attr($MJTC_color2).';}
+    div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.mjtc-filter-button-wrp input.mjtc-support-search-btn:hover {background: '.esc_attr($MJTC_color7).'; color: '.esc_attr($MJTC_color1).'; border-color: '.esc_attr($MJTC_color1).' !important;}
+    a.mjtc-support-title-anchor:hover {color: '.esc_attr($MJTC_color2).' !important;}
+    div.mjtc-support-wrapper div.mjtc-support-data span.mjtc-support-value {color: '.esc_attr($MJTC_color4).';}
+    div.mjtc-support-wrapper div.mjtc-support-bottom-line {background'.esc_attr($MJTC_color2).';}
+    div.mjtc-support-assigned-tome {border: 1px solid'.esc_attr($MJTC_color5).'; background-color: '.esc_attr($MJTC_color3).';}
+    div.mjtc-support-sorting span.mjtc-support-sorting-link a {background: #373435;color: '.esc_attr($MJTC_color7).';color: #fff;}
     div.mjtc-support-sorting span.mjtc-support-sorting-link a.selected,
-    div.mjtc-support-sorting span.mjtc-support-sorting-link a:hover {background: '.esc_attr($color2).';}
-    div#ms-header div#ms-header a {color: '.esc_attr($color7).';}';
+    div.mjtc-support-sorting span.mjtc-support-sorting-link a:hover {background: '.esc_attr($MJTC_color2).';}
+    div#ms-header div#ms-header a {color: '.esc_attr($MJTC_color7).';}';
     ?>
     div.mjtc-support-sorting {float: left;width: 100%;}
     /* My Tickets $ Staff My Tickets*/
@@ -345,7 +345,7 @@ MJTC_message::MJTC_getMessage();
                                                                     <input type="text" name="ms-ticketsearchkeys"
                                                                         id="ms-ticketsearchkeys" value=""
                                                                         class="mjtc-support-input-field"
-                                                                        placeholder="<?php echo esc_html(__('Ticket ID', 'majestic-support')) . ' ' . esc_html(__('Or', 'majestic-support')) . ' ' . esc_html(__('Email Address', 'mamajestic-support')) . ' ' . esc_html(__('Or', 'majestic-support')) . ' ' . esc_html(__('Subject', 'mamajestic-support'))?>">
+                                                                        placeholder="<?php echo esc_html(__('Ticket ID', 'majestic-support')) . ' ' . esc_html(__('Or', 'majestic-support')) . ' ' . esc_html(__('Email Address', 'majestic-support')) . ' ' . esc_html(__('Or', 'majestic-support')) . ' ' . esc_html(__('Subject', 'majestic-support'))?>">
                                                                 </div>
                                                                 <div class="buttons-overall-wrapper">
                                                                     <div class="mjtc-filter-button-wrp">
@@ -840,7 +840,7 @@ MJTC_message::MJTC_getMessage();
                             <div class="color 6" style="background:#E7E7E7;"></div>
                             <div class="color 7" style="background:#FFFFFF;"></div>
                             <span class="theme_name">
-                                <?php echo esc_html(__('Red','majestic-support'));?>
+                                <?php echo esc_html(__('Red', 'majestic-support'));?>
                             </span>
                             <img class="preview"
                                 src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/themes/preview2.png" />

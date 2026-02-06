@@ -83,14 +83,14 @@ div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div.
 div.mjtc-support-search-wrp div.mjtc-support-form-wrp form.mjtc-filter-form div#mjtc-filter-wrapper-toggle-area div.mjtc-filter-field-wrp{width: calc(100% / 1);padding: 5px;}
 div.mjtc-support-sorting span.mjtc-support-sorting-link{padding-right: 0px;padding-left: 0px;width: calc(100% / 2);display: inline-block;float: left;}
 .mjtc-col-xs-12.mjtc-col-md-12.mjtc-support-toparea {display: inline-block;}
-.mjtc-support-merge-ticket-wrapper .my-ticket-priority-div {float: left;width: 100%;margin: 0 0 10px;text-align: center;}
-.mjtc-support-merge-ticket-wrapper .my-ticket-priority-div .mjtc-col-md-6.mjtc-col-xs-12 {width: 100%;}
+.mjtc-support-merge-ticket-wrapper .mjtc-ticket-priority {float: left;width: 100%;margin: 0 0 10px;text-align: center;}
+.mjtc-support-merge-ticket-wrapper .mjtc-ticket-priority .mjtc-col-md-6.mjtc-col-xs-12 {width: 100%;}
 span.mjtc-support-wrapper-textcolor {position: unset;margin: 15px 7px 0 7px;}
-.mjtc-merge-ticket-overlay .my-ticket-priority-div {float: left;width: 100%;margin: 0 0 10px;text-align: center;}
-.mjtc-merge-ticket-overlay .my-ticket-priority-div .mjtc-col-md-6.mjtc-col-xs-12 {width: 100%;}
+.mjtc-merge-ticket-overlay .mjtc-ticket-priority {float: left;width: 100%;margin: 0 0 10px;text-align: center;}
+.mjtc-merge-ticket-overlay .mjtc-ticket-priority .mjtc-col-md-6.mjtc-col-xs-12 {width: 100%;}
 
-.my-ticket-priority-div{float: left;width: 100%;margin: 0 0 10px;text-align: center;}
-.my-ticket-priority-div .mjtc-col-md-6.mjtc-col-xs-12 {width: 100%;}
+.mjtc-ticket-priority{float: left;width: 100%;margin: 0 0 10px;text-align: center;}
+.mjtc-ticket-priority .mjtc-col-md-6.mjtc-col-xs-12 {width: 100%;}
 span.mjtc-support-wrapper-textcolor {position: unset;margin: 15px 7px 0 7px;}
 div.mjtc-support-wrapper div.mjtc-support-data1 {width: 100%;padding: 0 20px 30px 20px;text-align: center;border-top: none !important;}
 div.mjtc-support-wrapper div.mjtc-support-data1 div.mjtc-row {display: flex;justify-content: center;}
@@ -124,6 +124,9 @@ div.ms-visitor-token-message p.ms-visitor-token-message-token-number a{margin-bo
 
 /* Ticket Detail*/
 	div.mjtc-support-detail-wrapper{padding: 5px 0px;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-wrp {margin: 14px 0 0;width: 100%;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-btn {float: left;}
+	.mjtc-support-thread .mjtc-support-thread-cnt .mjtc-support-thread-data .mjtc-support-thread-read-status-detail {left: 0;min-width: 100%}
 	div.mjtc-support-detail-box div.mjtc-support-detail-left{width: 100%;padding: 10px;text-align: center;}
 	div.mjtc-support-detail-box div.mjtc-support-detail-right{width: 100%;}
 	div.mjtc-support-detail-box div.mjtc-support-detail-right div.mjtc-support-rows-wrp{padding: 20px;text-align: center;min-height: auto !important;}
@@ -152,6 +155,7 @@ div.ms-visitor-token-message p.ms-visitor-token-message-token-number a{margin-bo
 	div#popupforinternalnote {width: 90%;}
 	div#popupforagenttransfer {width: 90%;}
 	div#popupfordepartmenttransfer {width: 90%;}
+	div#userpopupforchangestatus {width: 90%;}
 	div.ms-popup-wrapper {width: 90%;}
 	.mjtc_supportattachment {width: 100%;}
 	.mjtc-support-thread .mjtc-support-thread-cnt-btm .mjtc-support-thread-date {width: 100%;}

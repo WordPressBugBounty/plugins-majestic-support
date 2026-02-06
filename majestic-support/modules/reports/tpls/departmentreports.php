@@ -71,13 +71,13 @@ if (majesticsupport::$_config['offline'] == 2) {
                     <div class="mjtc-support-downloads-heading-wrp">
                         <?php echo esc_html(__('Ticket Status By Departments', 'majestic-support')) ?>
                     </div>
-                    <?php foreach(majesticsupport::$_data['departments_report'] AS $department){ ?>
+                    <?php foreach(majesticsupport::$_data['departments_report'] AS $MJTC_department){ ?>
                     <div class="mjtc-admin-staff-wrapper mjtc-departmentlist">
                         <div class="mjtc-col-md-4 nopadding mjtc-festaffreport-img">
                             <div class="mjtc-col-md-12 msposition-reletive">
                                 <div class="departmentname">
                                     <?php
-                                        echo esc_html(majesticsupport::MJTC_getVarValue($department->departmentname));
+                                        echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_department->departmentname));
                                     ?>
                                 </div>
                             </div>
@@ -85,20 +85,20 @@ if (majesticsupport::$_config['offline'] == 2) {
                         <div class="mjtc-col-md-8 nopadding mjtc-festaffreport-data">
                             <div class="mjtc-col-md-2 mjtc-col-md-offset-1 mjtc-admin-report-box box1">
                                 <span
-                                    class="mjtc-report-box-number"><?php echo esc_html($department->openticket); ?></span>
+                                    class="mjtc-report-box-number"><?php echo esc_html($MJTC_department->openticket); ?></span>
                                 <span class="mjtc-report-box-title"><?php echo esc_html(__('New','majestic-support')); ?></span>
                                 <div class="mjtc-report-box-color"></div>
                             </div>
                             <div class="mjtc-col-md-2 mjtc-admin-report-box box2">
                                 <span
-                                    class="mjtc-report-box-number"><?php echo esc_html($department->answeredticket); ?></span>
+                                    class="mjtc-report-box-number"><?php echo esc_html($MJTC_department->answeredticket); ?></span>
                                 <span
                                     class="mjtc-report-box-title"><?php echo esc_html(__('Answered','majestic-support')); ?></span>
                                 <div class="mjtc-report-box-color"></div>
                             </div>
                             <div class="mjtc-col-md-2 mjtc-admin-report-box box3">
                                 <span
-                                    class="mjtc-report-box-number"><?php echo esc_html($department->pendingticket); ?></span>
+                                    class="mjtc-report-box-number"><?php echo esc_html($MJTC_department->pendingticket); ?></span>
                                 <span
                                     class="mjtc-report-box-title"><?php echo esc_html(__('Pending','majestic-support')); ?></span>
                                 <div class="mjtc-report-box-color"></div>
@@ -106,7 +106,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                             <?php if(in_array('overdue', majesticsupport::$_active_addons)){ ?>
                                 <div class="mjtc-col-md-2 mjtc-admin-report-box box4">
                                     <span class="mjtc-report-box-number">
-                                        <?php echo esc_html($department->overdueticket); ?>
+                                        <?php echo esc_html($MJTC_department->overdueticket); ?>
                                     </span>
                                     <span class="mjtc-report-box-title">
                                         <?php echo esc_html(__('Overdue','majestic-support')); ?>
@@ -116,7 +116,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                             <?php } ?>
                             <div class="mjtc-col-md-2 mjtc-admin-report-box box5">
                                 <span
-                                    class="mjtc-report-box-number"><?php echo esc_html($department->closeticket); ?></span>
+                                    class="mjtc-report-box-number"><?php echo esc_html($MJTC_department->closeticket); ?></span>
                                 <span
                                     class="mjtc-report-box-title"><?php echo esc_html(__('Closed','majestic-support')); ?></span>
                                 <div class="mjtc-report-box-color"></div>
@@ -128,8 +128,8 @@ if (majesticsupport::$_config['offline'] == 2) {
                 </div>
                 <?php
                 if (majesticsupport::$_data[1]) {
-                    $data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
-                    echo wp_kses($data, MJTC_ALLOWED_TAGS);
+                    $MJTC_data = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
+                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
                 }?>
 
             </div>
@@ -145,9 +145,9 @@ if (majesticsupport::$_config['offline'] == 2) {
                 MJTC_layout::MJTC_getNotStaffMember();
             }
         } else {
-            $redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'reports','mjslay'=>'departmentreports'));
-            $redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($redirect_url);
-            MJTC_layout::MJTC_getUserGuest($redirect_url);
+            $MJTC_redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'reports','mjslay'=>'departmentreports'));
+            $MJTC_redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_redirect_url);
+            MJTC_layout::MJTC_getUserGuest($MJTC_redirect_url);
         }
     } else { // User permission not granted
     MJTC_layout::MJTC_getPermissionNotGranted();

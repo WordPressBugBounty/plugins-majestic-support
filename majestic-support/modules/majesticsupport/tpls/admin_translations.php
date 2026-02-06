@@ -22,12 +22,12 @@
             </div>
 
             <div id="mjtc-language-wrapper">
-                <div class="mstopheading"><?php echo esc_html(__('Get')).' Majestic Support '.esc_html(__('Translations')); ?></div>
-                <div id="gettranslation" class="gettranslation"><img alt="<?php echo esc_html(__('Download')); ?>" style="width:18px; height:auto;" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/download-icon.png" /><?php echo esc_html(__('Get')).' '.esc_html(__('Translations')); ?></div>
+                <div class="mstopheading"><?php echo esc_html(__('Get','majestic-support')).' Majestic Support '.esc_html(__('Translations','majestic-support')); ?></div>
+                <div id="gettranslation" class="gettranslation"><img alt="<?php echo esc_html(__('Download','majestic-support')); ?>" style="width:18px; height:auto;" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/download-icon.png" /><?php echo esc_html(__('Get','majestic-support')).' '.esc_html(__('Translations','majestic-support')); ?></div>
                 <div id="mjtc_ddl">
-                    <span class="title"><?php echo esc_html(__('Select')).' '.esc_html(__('Translation')); ?>:</span>
+                    <span class="title"><?php echo esc_html(__('Select','majestic-support')).' '.esc_html(__('Translation','majestic-support')); ?>:</span>
                     <span class="combo" id="mjtc_combo"></span>
-                    <span class="button" id="jsdownloadbutton"><img alt="<?php echo esc_html(__('Download')); ?>" style="width:14px; height:auto;" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/download-icon.png" /><?php echo esc_html(__('Download')); ?></span>
+                    <span class="button" id="jsdownloadbutton"><img alt="<?php echo esc_html(__('Download','majestic-support')); ?>" style="width:14px; height:auto;" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/download-icon.png" /><?php echo esc_html(__('Download','majestic-support')); ?></span>
                     <div id="mscodeinputbox" class="mjtc-some-disc"></div>
                     <div class="mjtc-some-disc"><img alt="<?php echo esc_html(__('info','majestic-support')); ?>" style="width:18px; height:auto;" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/info-icon.png" /><?php echo esc_html(__('When WordPress language change to fr, Majestic Support language will auto change to fr','majestic-support')); ?></div>
                 </div>

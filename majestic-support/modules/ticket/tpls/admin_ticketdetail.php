@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+
 MJTC_message::MJTC_getMessage();
 wp_enqueue_script('majesticsupport-file_validate.js', MJTC_PLUGIN_URL . 'includes/js/file_validate.js');
 wp_enqueue_script('jquery-ui-tabs');
@@ -8,8 +8,13 @@ wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/cs
 wp_enqueue_script('majesticsupport-timer.js', MJTC_PLUGIN_URL . 'includes/js/timer.jquery.js');
 wp_enqueue_style('majesticsupport-venobox-css', MJTC_PLUGIN_URL . 'includes/css/venobox.css');
 wp_enqueue_script('majesticsupport-venoboxjs',MJTC_PLUGIN_URL.'includes/js/venobox.js');
-?>
-<?php
+if (in_array('aipoweredreply', majesticsupport::$_active_addons)){
+    $mjsmod = 'aipoweredreply';
+    $jstreplymod = 'aipoweredreply';
+} else {
+    $mjsmod = 'ticket';
+    $jstreplymod = 'reply';
+}
 $majesticsupport_js ="
     var timer_flag = 0;
     var seconds = 0;
@@ -17,14 +22,14 @@ $majesticsupport_js ="
         var content = tinymce.get(id).getContent({format: 'text'});
         if (jQuery.trim(content) == '')
         {
-            alert('".esc_html(__('Some values are not acceptable please retry', 'majestic-support'))."');
+            alert('". esc_html(__('Some values are not acceptable please retry', 'majestic-support')) ."');
             return false;
         }
         return true;
     }
 
     function getpremade(val) {
-        jQuery.post(ajaxurl, {action: 'mjsupport_ajax', val: val, mjsmod: 'cannedresponses', task: 'getpremadeajax', '_wpnonce':'". esc_attr(wp_create_nonce("get-premade-ajax"))."'}, function (data) {
+        jQuery.post(ajaxurl, {action: 'mjsupport_ajax', val: val, mjsmod: 'cannedresponses', task: 'getpremadeajax', '_wpnonce':'". esc_attr(wp_create_nonce("get-premade-ajax")) ."'}, function (data) {
             if (data) {
                 var append = jQuery('input#append_premade1:checked').length;
                 if (append == 1) {
@@ -50,7 +55,8 @@ $majesticsupport_js ="
             }
         });
     }
-
+    // Temporary storage for the current ticket's replies for filtering
+    let currentTicketAllReplies = [];
     function checkSmartReply(ticketSubject) {
         jQuery.post(ajaxurl, {action: 'mjsupport_ajax', ticketSubject: ticketSubject, mjsmod: 'smartreply', task: 'checkSmartReply', '_wpnonce':'". esc_attr(wp_create_nonce("check-smart-reply"))."'}, function (data) {
             if(data) {
@@ -110,19 +116,19 @@ $majesticsupport_js ="
             var parentElement = jQuery(this).closest('.mjtc-form-field');
             jQuery(parentElement).addClass('mjtc-form-field-selected');
             var current_files = jQuery('div.mjtc-form-field-selected').find('.tk_attachment_value_text').length;
-            var total_allow =". majesticsupport::$_config['no_of_attachement'].";
+            var total_allow =". esc_attr(majesticsupport::$_config['no_of_attachement']) .";
             var append_text = '<span class=\"tk_attachment_value_text\"><input name=\"filename[]\" type=\"file\" onchange=\"MJTC_uploadfile(this,\"". esc_js(majesticsupport::$_config['file_maximum_size'])."\",\"". esc_js(majesticsupport::$_config['file_extension'])."\");\" size=\"20\" maxlenght=\"30\"  /><span  class=\"tk_attachment_remove\"></span></span>';
             if (current_files < total_allow) {
                 jQuery('.tk_attachment_value_wrapperform.' + att_flag).append(append_text);
             } else if ((current_files === total_allow) || (current_files > total_allow)) {
-                alert('". esc_html(__('File upload limit exceeds', 'majestic-support'))."');
+                alert('". esc_html(__('File upload limit exceeds', 'majestic-support')) ."');
                 obj.hide();
             }
         });
         jQuery(document).delegate('.tk_attachment_remove', 'click', function (e) {
             jQuery(this).parent().remove();
             var current_files = jQuery('input[type=\"file\"]').length;
-            var total_allow =". majesticsupport::$_config['no_of_attachement'].";
+            var total_allow =". esc_attr(majesticsupport::$_config['no_of_attachement']) .";
             if (current_files < total_allow) {
                 jQuery('#tk_attachment_add').show();
             }
@@ -151,16 +157,23 @@ $majesticsupport_js ="
             });
 
         });
+        jQuery('a#chng-status').click(function (e) {
+            e.preventDefault();
+            jQuery('div#changestatus-popup').slideDown('slow');
+            jQuery('div#userpopupblack').show();
+        });
         jQuery('a#chng-prority').click(function (e) {
             e.preventDefault();
             jQuery('div#changepriority-popup').slideDown('slow');
             jQuery('div#userpopupblack').show();
         });
         jQuery('.userpopup-close, div#userpopupblack').click(function (e) {
+            jQuery('div#changestatus-popup').slideUp('slow', function () {
+                jQuery('div#userpopupblack').hide();
+            });
             jQuery('div#changepriority-popup').slideUp('slow', function () {
                 jQuery('div#userpopupblack').hide();
             });
-
         });
         jQuery('a#chng-dept').click(function (e) {
             e.preventDefault();
@@ -199,22 +212,22 @@ $majesticsupport_js ="
         });
         ";
         //print code
-        
-        if(isset(majesticsupport::$_data[0])){ 
+        if(isset(majesticsupport::$_data[0])){
             $majesticsupport_js .="
             jQuery('a#print-link').click(function (e) {
                 e.preventDefault();
-                var href = '". majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'printticket','majesticsupportid'=>majesticsupport::$_data[0]->id,'mspageid'=>majesticsupport::getPageid()))."';
+                var href = '". majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'printticket','majesticsupportid'=>majesticsupport::$_data[0]->id,'mspageid'=>majesticsupport::getPageid())) ."';
                 print = window.open(href, 'print_win', 'width=1024, height=800, scrollbars=yes');
             }); ";
         }
         $majesticsupport_js .="
         jQuery(document).delegate('#ticketpopupsearch','submit', function (e) {
             var ticketid = jQuery('#ticketidformerge').val();
+            var nonce = jQuery('#nonce').val();
             e.preventDefault();
             var name = jQuery('input#name').val();
             var email = jQuery('input#email').val();
-            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'mergeticket', task: 'getTicketsForMerging', name: name, email: email,ticketid:ticketid, '_wpnonce':'". esc_attr(wp_create_nonce("get-tickets-for-merging"))."'}, function (data) {
+            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'mergeticket', task: 'getTicketsForMerging', name: name, email: email,ticketid:ticketid, '_wpnonce': nonce}, function (data) {
                 data=jQuery.parseJSON(data);
                if(data !== 'undefined' && data !== '') {
                     jQuery('div#popup-record-data').html('');
@@ -237,7 +250,7 @@ $majesticsupport_js ="
         //non premium support function
         jQuery('#nonpreminumsupport').change(function(){
             if(jQuery(this).is(':checked')){
-                if(1 || confirm(\"". esc_html(__('Are you sure to mark this ticket non-premium?','majestic-support'))."\")){
+                if(1 || confirm(\"". esc_html(__('Are you sure to mark this ticket non-premium?','majestic-support')) ."\")){
                     markUnmarkTicketNonPremium(1);
                 }else{
                     jQuery(this).removeAttr('checked');
@@ -251,18 +264,447 @@ $majesticsupport_js ="
             var ticketid = jQuery('#ticketid').val();
             var paidsupportitemid = jQuery('#paidsupportitemid').val();
             if(paidsupportitemid > 0){
-                jQuery.post(ajaxurl, {action: 'mjsupport_ajax',mjsmod: 'paidsupport', task: 'linkTicketPaidSupportAjax', ticketid: ticketid, paidsupportitemid:paidsupportitemid, '_wpnonce':'". esc_attr(wp_create_nonce("link-ticket-paidsupport-ajax"))."'}, function (data) {
+                jQuery.post(ajaxurl, {action: 'mjsupport_ajax',mjsmod: 'paidsupport', task: 'linkTicketPaidSupportAjax', ticketid: ticketid, paidsupportitemid:paidsupportitemid, '_wpnonce':'". esc_attr(wp_create_nonce("link-ticket-paidsupport-ajax")) ."'}, function (data) {
                     window.location.reload();
+                });
+            }
+        });";
+    wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
+
+    // AI-Powered Reply
+    $majesticsupport_js ='
+        // Get DOM elements with IDs using jQuery selectors
+        const replyTextarea = jQuery("#mjtc-support-reply-textarea");
+        const matchingTicketsSection = jQuery("#mjtc-support-matching-tickets-section");
+        const matchingTicketsList = jQuery("#mjtc-support-matching-tickets-list");
+        const selectedTicketRepliesSection = jQuery("#mjtc-support-selected-ticket-replies-section");
+        const selectedTicketRepliesContent = jQuery("#mjtc-support-selected-ticket-replies-content");
+        const messageModal = jQuery("#mjtc-support-message-modal");
+
+        jQuery(".mjtc-support-info-icon-wrapper").hover(
+            function(e){
+                jQuery(this).addClass("tooltip-active");
+            },
+            function(e){
+                jQuery(this).removeClass("tooltip-active");
+            }
+        );
+        
+        // Function to show custom modal
+        function showModal(message) {
+            jQuery("#mjtc-support-modal-message").text(message);
+            messageModal.removeClass("mjtc-support-hidden");
+        }
+
+        // Function to hide custom modal
+        jQuery("#mjtc-support-modal-close-btn").on("click", function(e) {
+            e.preventDefault();
+            messageModal.addClass("mjtc-support-hidden");
+            jsReplyHideLoading();
+        });
+
+        // Function to copy text to clipboard (works in iframes)
+        function copyToClipboard(text) {
+            const tempTextArea = document.createElement("textarea");
+            tempTextArea.value = text;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            try {
+                const successful = document.execCommand("copy");
+                console.log(successful);
+                if(successful) {
+                    showModal("'.__("Copied to clipboard!", "majestic-support").'");    
+                } else {
+                    showModal("'.__("Failed to copy!", "majestic-support").'");
+                }
+            } catch (err) {
+                showModal("'.__("Failed to copy to clipboard. Please copy manually.", "majestic-support").'");
+            }
+            document.body.removeChild(tempTextArea);
+        }
+
+        // Function to append text to reply area
+        function appendToReplyArea(textToAppend) {
+
+            if(jQuery("#wp-mjsupport_message-wrap").hasClass("html-active")){
+                let currentContent = jQuery("#mjsupport_message").val();
+                let newContent = currentContent + "\n" + textToAppend; // Append with a newline
+                jQuery("#mjsupport_message").val(content);
+            }else{
+                let currentContent = tinyMCE.get("mjsupport_message").getContent();
+                let newContent = currentContent + "\n" + textToAppend; // Append with a newline
+                tinyMCE.get("mjsupport_message").execCommand("mceSetContent", true, newContent);
+            }
+            showModal("'.__("Reply content appended!", "majestic-support").'");
+        }
+
+        // Function to filter and display replies based on dropdown selection
+        function displayFilteredReplies(ticket, filterType) {
+            console.log(ticket);
+            console.log(filterType);
+
+            let filteredReplies = [];
+            if (filterType === "marked") {
+                filteredReplies = currentTicketAllReplies.filter(reply => reply.isMarked);
+            } else { // "all"
+                filteredReplies = currentTicketAllReplies;
+            }
+            displayTicketReplies(ticket, filteredReplies);
+        }
+
+        // Event listener for Replies Filter dropdown
+        jQuery("#mjtc-support-replies-filter").on("change", function() {
+            const selectedFilter = jQuery(this).val();
+            const activeTicketItem = matchingTicketsList.find(".mjtc-support-list-item.active");
+            
+            if (!activeTicketItem.length) {
+                showModal("'.__("No ticket selected!", "majestic-support").'");
+                return;
+            }
+            
+            const ticketId = activeTicketItem.data("ticket-id");
+            const type = activeTicketItem.data("type");
+            const ticketTitle = activeTicketItem.find(".mjtc-support-title").text();
+            
+            // Show loading message
+            jsReplyShowLoading();
+            
+            // Fetch replies based on filter and ticket ID
+            console.log(selectedFilter);
+            jQuery.post(ajaxurl, {
+                action: "mjsupport_ajax",
+                mjsmod: "'.$jstreplymod.'",
+                task: "getFilteredReplies",
+                ticket_id: ticketId,
+                filter: selectedFilter,
+                "_wpnonce": "'. esc_attr(wp_create_nonce("get-filtered-replies")).'"
+            }, function(data) {
+                jsReplyHideLoading();
+                
+                if (data.success) {
+                    const ticket = {
+                        id: ticketId,
+                        text: ticketTitle
+                    };
+                    displayTicketReplies(type, ticket, data.data.replies);
+                } else {
+                    showModal(data.message || "'.__("Error fetching replies.", "majestic-support").'");
+                }
+            }).fail(function() {
+                jsReplyHideLoading();
+                showModal("'.__("Failed to fetch replies. Please try again.", "majestic-support").'");
+            });
+        });
+
+        // Modify the ticket click handler to set active state and store ticket ID
+        matchingTicketsList.on("click", ".mjtc-support-list-item", function() {
+            // Remove active class from all items
+            matchingTicketsList.find(".mjtc-support-list-item").removeClass("active");
+            
+            // Add active class to clicked item
+            const listItem = jQuery(this);
+            listItem.addClass("active");
+            
+            // const ticketId1 = activeTicketItem.data("ticket-id");
+            const ticketId = listItem.data("ticket-id");
+            const type = listItem.data("type");
+            const id = listItem.data("id");
+            const ticketTitle = listItem.find(".mjtc-support-title").text();
+            
+            // Show loading message
+            jsReplyShowLoading();
+            
+            // Reset filter to "all" when selecting a new ticket
+            jQuery("#mjtc-support-replies-filter").val("all");
+            
+            if(type == "smart_reply") {
+                // Fetch all replies initially
+                jQuery.post(ajaxurl, {
+                    action: "mjsupport_ajax",
+                    mjsmod: "smartreply",
+                    task: "getSmartReplyResponse",
+                    reply_id: ticketId,
+                    filter: "all",
+                    "_wpnonce": "'. esc_attr(wp_create_nonce("get-smart-reply")).'"
+                }, function(data) {
+                    jsReplyHideLoading();
+                    
+                    if (data.success) {
+                        const ticket = {
+                            id: ticketId,
+                            text: ticketTitle
+                        };
+                        displayTicketReplies(type, ticket, data.data.replies);
+                    } else {
+                        showModal(data.message || "'.__("Error fetching replies.", "majestic-support").'");
+                    }
+                }).fail(function() {
+                    jsReplyHideLoading();
+                    showModal("'.__("Failed to fetch replies. Please try again.", "majestic-support").'");
+                });
+            } else if (type == "ticket") {
+                // Fetch all replies initially
+                jQuery.post(ajaxurl, {
+                    action: "mjsupport_ajax",
+                    mjsmod: "'.$jstreplymod.'",
+                    task: "getFilteredReplies",
+                    ticket_id: ticketId,
+                    filter: "all",
+                    "_wpnonce": "'. esc_attr(wp_create_nonce("get-filtered-replies")).'"
+                }, function(data) {
+                    jsReplyHideLoading();
+                    
+                    if (data.success) {
+                        const ticket = {
+                            id: ticketId,
+                            text: ticketTitle
+                        };
+                        displayTicketReplies(type, ticket, data.data.replies);
+                    } else {
+                        showModal(data.message || "'.__("Error fetching replies.", "majestic-support").'");
+                    }
+                }).fail(function() {
+                    jsReplyHideLoading();
+                    showModal("'.__("Failed to fetch replies. Please try again.", "majestic-support").'");
                 });
             }
         });
 
-    });
+        jQuery(".mjtc-support-segmented-control-option").on("click", function(e) {
+            var actionType = jQuery(this).data("type");
+            var selectedValue = jQuery(this).data("value"); // Get the "data-value" attribute (default, enable, disable).
+            var selectedId = jQuery(this).data("id");
+            
+            // Remove the "active" class from all segmented control options.
+            // jQuery("#mjtc-support-ai-reply-status-control").find(".mjtc-support-segmented-control-option").removeClass("active");
+            jQuery(this).closest("#mjtc-support-ai-reply-status-control")
+           .find(".mjtc-support-segmented-control-option")
+           .removeClass("active");
 
+            // Add the "active" class to the currently clicked option.
+            jQuery(this).addClass("active");
+
+            // Update the value of the hidden input field.
+            jQuery("#mjtc-support-ai-reply-status-hidden").val(selectedValue);
+
+            // Perform the AJAX request using jQuery.ajax().
+            jQuery.post(ajaxurl, {action: "mjsupport_ajax", mjsmod: "reply", task: "markedAsAiPoweredReply", status:selectedValue, id: selectedId, type: actionType, "_wpnonce":"'.esc_attr(wp_create_nonce("ai-powered-reply")).'"}, function (data) {
+                if (data) {
+                    jQuery(".majesticsupport-review-box-popup").remove();
+                    jQuery(".majesticsupport-premio-review-box").remove();
+                }
+            });
+        });
+
+        // Event listener for AI-Powered Reply button
+        jQuery("#mjtc-support-ai-reply-btn").on("click", function (e) {
+            e.preventDefault();
+            // Show loading message
+            jsReplyShowLoading();
+
+            const currentTitle = jQuery(".mjtc-support-current-ticket-title").text();
+            const currentTicketId = jQuery(".mjtc-support-current-ticket-id").text();
+            const tickets = fetchTicketsFromPHP(currentTicketId, currentTitle, "all");
+        });
+
+        // Event listener for Replies Filter dropdown
+        jQuery("#mjtc-support-tickets-filter").on("change", function(e) {
+            e.preventDefault();
+            const selectedFilter = jQuery(this).val();
+            const currentTitle = jQuery(".mjtc-support-current-ticket-title").text();
+            const currentTicketId = jQuery(".mjtc-support-current-ticket-id").text();
+
+            const tickets = fetchTicketsFromPHP(currentTicketId, currentTitle, selectedFilter); 
+        });
+
+        function fetchTicketsFromPHP(ticketId, ticketSubject, selectedFilter) {
+            jQuery.post(ajaxurl, {action: "mjsupport_ajax", ticketSubject: ticketSubject, ticketId: ticketId, filter: selectedFilter, mjsmod: "'.$mjsmod.'", task: "checkAIReplyTicketsBySubject", "_wpnonce":"'. esc_attr(wp_create_nonce("check-smart-reply")).'"}, function (data) {
+                if(data) {
+                    displayMatchingTickets(data);
+                } else {
+                    showModal(`'.__('Error fetching matching tickets:', 'majestic-support').'`);
+                    return [];
+                    jQuery(".smartReplyTickets").hide();
+                }
+            });
+        }
+
+        // Function to display matching tickets
+        function displayMatchingTickets(matchingTickets) {
+            // Parse if it is a string
+            if (typeof matchingTickets === "string") {
+                try {
+                    matchingTickets = JSON.parse(matchingTickets);
+                } catch (e) {
+                    console.error("Failed to parse matchingTickets:", e);
+                    matchingTickets = [];
+                }
+            }
+            
+            matchingTicketsList.empty(); // Clear previous list
+            selectedTicketRepliesSection.addClass("mjtc-support-hidden"); // Hide replies section if open
+            jQuery("#mjtc-support-replies-filter").val("all"); // Reset filter when showing new tickets
+
+            jQuery(".mjtc-support-container").show();
+
+            if (matchingTickets.length === 0) {
+                matchingTicketsList.html(`<p class="mjtc-support-id">'.__("No matching tickets found.", "majestic-support").'</p>`);
+                matchingTicketsSection.removeClass("mjtc-support-hidden");
+                jsReplyHideLoading();
+                matchingTicketsSection.removeClass("mjtc-support-hidden");
+                return;
+            }
+
+            $.each(matchingTickets, (index, ticket) => {
+
+                // Choose ID label dynamically
+                let idLabel = "";
+                let idValue = "";
+
+                if (ticket.type === "smart_reply") {
+                    idLabel = "'.__("Smart Reply ID:", "majestic-support").'";
+                    idValue = ticket.id;
+                } else {
+                    idLabel = "'.__("Ticket ID:", "majestic-support").'";
+                    idValue = ticket.ticketid;
+                }
+
+                const listItem = $("<li></li>")
+                    .addClass("mjtc-support-list-item")
+                    .data("ticket-id", ticket.id) // Store ticket ID in data attribute
+                    .data("type", ticket.type) // Store type in data attribute
+                    .html(`
+                        <p class="mjtc-support-id">${idLabel} ${idValue}</p>
+                        <p class="mjtc-support-title">${ticket.text}</p>
+                        <p class="mjtc-support-id">${ticket.message}</p>
+                    `);
+
+                matchingTicketsList.append(listItem);
+            });
+            jsReplyHideLoading();
+            matchingTicketsSection.removeClass("mjtc-support-hidden");
+        }
+
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+        }
+
+        // Function to display replies of a selected ticket
+        function displayTicketReplies(type, ticket, replies) {
+            // Initialize replies as empty array if undefined
+            if (typeof replies === "undefined") {
+                replies = [];
+            }
+            // Determine label + name value based on type
+            let labelText, nameValue;
+            
+            // Parse if it is a string
+            if (typeof replies === "string") {
+                try {
+                    replies = JSON.parse(replies);
+                    // Ensure it is always an array after parsing
+                    if (!Array.isArray(replies)) {
+                        replies = [];
+                    }
+                } catch (e) {
+                    console.error("Failed to parse replies:", e);
+                    replies = [];
+                }
+            }
+            
+            // Additional type checking
+            if (!Array.isArray(replies)) {
+                console.error("Replies is not an array:", replies);
+                replies = [];
+            }
+
+            if (type === "ticket") {
+                jQuery("#mjtc-support-selected-ticket-replies-title").text(`'.__("Replies for:", "majestic-support").' ${ticket.text}`);
+            } else {
+                jQuery("#mjtc-support-selected-ticket-replies-title").text(`'.__("Smart Reply for:", "majestic-support").' ${ticket.text}`);
+            }
+            selectedTicketRepliesContent.empty(); // Clear previous replies
+
+            // Now safe to check length
+            if (replies.length === 0) {
+                selectedTicketRepliesContent.html(`<p class="mjtc-support-id">'.__("No replies found for this ticket.", "majestic-support").'</p>`);
+            } else {
+                $.each(replies, (index, reply) => {
+                    if (type === "ticket") {
+                        labelText = "'.__("Reply By:", "majestic-support").'";
+                        nameValue = reply?.name || "'.__("Unknown", "majestic-support").'";
+                    } else {
+                        labelText = "'.__("Used By:", "majestic-support").'";
+                        nameValue = reply?.usedby || "'.__("Unknown", "majestic-support").'";
+                    }
+                    // Add null checks for reply properties
+                    const replyId = reply?.id || __("N/A", "majestic-support");
+                    const replyText = reply?.text || "'.__("No content", "majestic-support").'"; 
+                    const replyTimestamp = reply?.timestamp ? new Date(reply.timestamp).toLocaleString() : "'.__("No date", "majestic-support").'";
+
+                    const replyDiv = $("<div></div>")
+                        .addClass("mjtc-support-reply-item")
+                        .html(`
+                            <div class="mjtc-support-reply-header">
+                                <span class="mjtc-support-reply-id">${labelText} ${escapeHtml(nameValue)}</span>
+                                <span class="mjtc-support-reply-timestamp">${replyTimestamp}</span>
+                            </div>
+                            <div class="mjtc-support-reply-text">
+                                ${(replyText)}
+                            </div>
+                            <div class="mjtc-support-reply-actions">
+                                <button class="mjtc-support-reply-action-btn copy-btn" data-reply-content="${escapeHtml(replyText)}">'.__('Copy', 'majestic-support').'</button>
+                                <button class="mjtc-support-reply-action-btn append-btn" data-reply-content="${escapeHtml(replyText)}">'.__('Append', 'majestic-support').'</button>
+                            </div>
+                        `);
+                    selectedTicketRepliesContent.append(replyDiv);
+                });
+
+                // Attach event listeners
+                selectedTicketRepliesContent.find(".copy-btn").on("click", function(e) {
+                    e.preventDefault();
+                    copyToClipboard($(this).data("reply-content"));
+                });
+                
+                selectedTicketRepliesContent.find(".append-btn").on("click", function(e) {
+                    e.preventDefault();
+                    appendToReplyArea($(this).data("reply-content"));
+                });
+            }
+
+            matchingTicketsSection.addClass("mjtc-support-hidden");
+            selectedTicketRepliesSection.removeClass("mjtc-support-hidden");
+        }
+
+        // Event listener for Close Replies button
+        jQuery("#mjtc-support-close-replies-btn").on("click", function(e) {
+            e.preventDefault();
+            selectedTicketRepliesSection.addClass("mjtc-support-hidden");
+            matchingTicketsSection.removeClass("mjtc-support-hidden"); // Show matching tickets again
+        });
+
+        // Event listener for Close Tickets button
+        jQuery("#mjtc-support-close-tickets-btn").on("click", function(e) {
+            e.preventDefault();
+            matchingTicketsList.empty(); // Clear previous list
+            jQuery("#mjtc-support-tickets-filter").val("all"); // Reset filter when showing new tickets
+            selectedTicketRepliesSection.addClass("mjtc-support-hidden"); // Hide replies section if open
+            jQuery("#mjtc-support-replies-filter").val("all"); // Reset filter when showing new tickets
+            jQuery(".mjtc-support-container").hide();
+            matchingTicketsSection.addClass("mjtc-support-hidden");
+        });
+    });';
+    wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
+
+    $majesticsupport_js ="
     function markUnmarkTicketNonPremium(mark){
         var ticketid = jQuery('#ticketid').val();
         var paidsupportitemid = jQuery('#paidsupportitemid').val();
-        jQuery.post(ajaxurl, {action: 'mjsupport_ajax',mjsmod: 'paidsupport', task: 'markUnmarkTicketNonPremiumAjax', status: mark, ticketid: ticketid, paidsupportitemid:paidsupportitemid, '_wpnonce':'". esc_attr(wp_create_nonce("mark-unmark-ticket-nonpremium-ajax"))."'}, function (data) {
+        jQuery.post(ajaxurl, {action: 'mjsupport_ajax',mjsmod: 'paidsupport', task: 'markUnmarkTicketNonPremiumAjax', status: mark, ticketid: ticketid, paidsupportitemid:paidsupportitemid, '_wpnonce':'". esc_attr(wp_create_nonce("mark-unmark-ticket-nonpremium-ajax")) ."'}, function (data) {
             window.location.reload();
         });
     }
@@ -278,7 +720,7 @@ $majesticsupport_js ="
         jQuery('input#actionid').val(action);
         jQuery('form#adminTicketform').submit();
     }
-    function getmergeticketid(mergeticketid, mergewithticketid){
+    function getmergeticketid(mergeticketid, mergewithticketid, mergeNonce){
         if(mergewithticketid == 0){
             mergewithticketid =  jQuery('#mergeticketid').val();
         }else{
@@ -289,11 +731,11 @@ $majesticsupport_js ="
             return false;
         }
         jQuery('#mergeticketselection').hide();
-        getTicketdataForMerging(mergeticketid,mergewithticketid);
+        getTicketdataForMerging(mergeticketid,mergewithticketid, mergeNonce);
     }
 
-    function getTicketdataForMerging(mergeticketid,mergewithticketid){
-        jQuery.post(ajaxurl, {action: 'mjsupport_ajax',mjsmod: 'mergeticket', task: 'getLatestReplyForMerging', mergeid:mergeticketid,mergewith:mergewithticketid,isadmin:1, '_wpnonce':'". esc_attr(wp_create_nonce("get-latest-reply-for-merging"))."'}, function (data) {
+    function getTicketdataForMerging(mergeticketid,mergewithticketid, mergeNonce){
+        jQuery.post(ajaxurl, {action: 'mjsupport_ajax',mjsmod: 'mergeticket', task: 'getLatestReplyForMerging', mergeid:mergeticketid,mergewith:mergewithticketid,isadmin:1, '_wpnonce': mergeNonce}, function (data) {
             if(data){
                 data=jQuery.parseJSON(data);
                 jQuery('div#popup-record-data').html('');
@@ -309,25 +751,26 @@ $majesticsupport_js ="
             }, 700);
 
         jQuery('div.ms-popup-wrapper').slideUp('slow');
+        jQuery('div#userpopupforchangestatus').slideUp('slow');
         jQuery('div#userpopupforchangepriority').slideUp('slow');
         jQuery('div#userpopup').slideUp('slow');
 
 
     }
-    function updateticketlist(pagenum,ticketid){
-        jQuery.post(ajaxurl, {action: 'mjsupport_ajax',mjsmod: 'mergeticket', task: 'getTicketsForMerging', ticketid:ticketid,ticketlimit:pagenum, '_wpnonce':'". esc_attr(wp_create_nonce("get-tickets-for-merging"))."'}, function (data) {
-        if(data){
-            console.log(data);
-            data=jQuery.parseJSON(data);
+    function updateticketlist(pagenum,ticketid,nonce){
+        jQuery.post(ajaxurl, {action: 'mjsupport_ajax',mjsmod: 'mergeticket', task: 'getTicketsForMerging', ticketid:ticketid,ticketlimit:pagenum, '_wpnonce': nonce}, function (data) {
+            if(data){
+                console.log(data);
+                data=jQuery.parseJSON(data);
                 jQuery('div#popup-record-data').html('');
                 jQuery('div#popup-record-data').html(MJTC_msDecodeHTML(data['data']));
             }
         });
     }
 
-    function showPopupAndFillValues(id,pfor) {
+    function showPopupAndFillValues(id,pfor,nonce) {
         if(pfor == 1){
-            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', val: id, mjsmod: 'reply', task: 'getReplyDataByID', '_wpnonce':'". esc_attr(wp_create_nonce("get-reply-data-by-id"))."'}, function (data) {
+            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', val: id, mjsmod: 'reply', task: 'getReplyDataByID', '_wpnonce': nonce}, function (data) {
                 if (data) {
                     d = jQuery.parseJSON(data);
                     tinyMCE.get('mjsupport_replytext').execCommand('mceSetContent', false, d.message);
@@ -342,7 +785,7 @@ $majesticsupport_js ="
                 }
             });
         }else if(pfor == 2){
-            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', val: id, mjsmod: 'timetracking', task: 'getTimeByReplyID', '_wpnonce':'". esc_attr(wp_create_nonce("get-time-by-reply-id"))."'}, function (data) {
+            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', val: id, mjsmod: 'timetracking', task: 'getTimeByReplyID', '_wpnonce': nonce}, function (data) {
                 if (data) {
                     d = jQuery.parseJSON(data);
                     jQuery('div.ms-merge-popup-wrapper div.userpopup-heading').html(\"". esc_html(__("Edit Time",'majestic-support'))."\");
@@ -365,7 +808,7 @@ $majesticsupport_js ="
                 }
             });
         }else if(pfor == 3){
-            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', val: id, mjsmod: 'note', task: 'getTimeByNoteID', '_wpnonce':'". esc_attr(wp_create_nonce("get-time-by-note-id"))."'}, function (data) {
+            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', val: id, mjsmod: 'note', task: 'getTimeByNoteID', '_wpnonce': nonce}, function (data) {
                 if (data) {
                     d = jQuery.parseJSON(data);
                     jQuery('div.ms-merge-popup-wrapper div.userpopup-heading').html(\"". esc_html(__("Edit Time",'majestic-support'))."\");
@@ -388,7 +831,7 @@ $majesticsupport_js ="
                 }
             });
         }else if(pfor == 4){
-            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', ticketid: id, mjsmod: 'mergeticket', task: 'getTicketsForMerging', '_wpnonce':'". esc_attr(wp_create_nonce("get-tickets-for-merging"))."'}, function (data) {
+            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', ticketid: id, mjsmod: 'mergeticket', task: 'getTicketsForMerging', '_wpnonce': nonce}, function (data) {
                 if (data) {
                     data=jQuery.parseJSON(data);
                     jQuery('div.ms-merge-popup-wrapper div.userpopup-heading').html(\"". esc_html(__("Merge Ticket",'majestic-support'))."\");
@@ -546,11 +989,11 @@ $majesticsupport_js ="
         });
     }
 
-    function resetMergeFrom() {
+    function resetMergeFrom(nonce) {
         var ticketid = jQuery('#ticketidformerge').val();
         var name = '';
         var email = '';
-        jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'mergeticket', task: 'getTicketsForMerging', name: name, email: email,ticketid:ticketid, '_wpnonce':'". esc_attr(wp_create_nonce("get-tickets-for-merging"))."'}, function (data) {
+        jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'mergeticket', task: 'getTicketsForMerging', name: name, email: email,ticketid:ticketid, '_wpnonce': nonce}, function (data) {
             data=jQuery.parseJSON(data);
            if(data !== 'undefined' && data !== '') {
                 jQuery('div#popup-record-data').html('');
@@ -582,11 +1025,16 @@ $majesticsupport_js ="
 
 ";
 wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
-$yesno = array(
+$MJTC_yesno = array(
     (object) array('id' => '1', 'text' => esc_html(__('Yes', 'majestic-support'))),
     (object) array('id' => '0', 'text' => esc_html(__('No', 'majestic-support')))
 );
 ?>
+<div id="black_wrapper_ai_reply" style="display:none;"></div>
+<!-- add loading multiform -->
+<div id="mjtc_ai_reply_loading">
+    <img alt="<?php echo esc_html(__('spinning wheel','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/spinning-wheel.gif" />
+</div>
 <span style="display:none" id="filesize"><?php echo esc_html(__('Error file size too large', 'majestic-support')); ?></span>
 <span style="display:none" id="fileext"><?php echo esc_html(__('The uploaded file extension not valid', 'majestic-support')); ?></span>
 <div class="ms-popup-background" style="display:none" ></div>
@@ -594,7 +1042,7 @@ $yesno = array(
 <div id="userpopup" class="ms-popup-wrapper ms-merge-popup-wrapper" style="display:none" >
     <div class="userpopup-top" >
         <div class="userpopup-heading" >
-            <?php echo esc_html(__('Edit Reply','majestic-support'))?>
+            <?php echo esc_html(__('Edit Reply','majestic-support')); ?>
         </div>
         <img alt="<?php echo esc_html(__('Close','majestic-support')); ?>" class="close-history userpopup-close" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/close-icon-white.png" />
     </div>
@@ -623,10 +1071,8 @@ $yesno = array(
             </div>
         </div>
     </div>
-    <?php
-        $nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
-    ?>
-    <form id="ms-reply-form" style="display:none" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_reply&task=saveeditedreply&action=mstask"),"save-edited-reply-".$nonce_id)); ?>" >
+    <?php $MJTC_nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : ''; ?>
+    <form id="ms-reply-form" style="display:none" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_reply&task=saveeditedreply&action=mstask"),"save-edited-reply-".$MJTC_nonce_id)); ?>" >
         <div class="mjtc-form-wrapper-popup">
             <div class="mjtc-form-title-popup"><?php echo esc_html(__('Reply', 'majestic-support')); ?></div>
             <div class="mjtc-form-field-popup"><?php wp_editor('', 'mjsupport_replytext', array('media_buttons' => false,'editor_height' => 200, 'textarea_rows' => 20,)); ?></div>
@@ -659,7 +1105,7 @@ $yesno = array(
             </div>
             <div class="mjtc-form-wrapper-popup system-time-div" style="display:none;" >
                 <div class="mjtc-form-title-popup"><?php echo esc_html(__('Resolve conflict', 'majestic-support')); ?></div>
-                <div class="mjtc-form-field-popup"><?php echo wp_kses(MJTC_formfield::MJTC_select('time-confilct-combo', $yesno, ''), MJTC_ALLOWED_TAGS); ?></div>
+                <div class="mjtc-form-field-popup"><?php echo wp_kses(MJTC_formfield::MJTC_select('time-confilct-combo', $MJTC_yesno, ''), MJTC_ALLOWED_TAGS); ?></div>
             </div>
             <div class="mjtc-col-md-12 mjtc-form-button-wrapper">
                 <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('ok', esc_html(__('Save', 'majestic-support')), array('class' => 'button')), MJTC_ALLOWED_TAGS); ?>
@@ -685,7 +1131,7 @@ $yesno = array(
             </div>
             <div class="mjtc-form-wrapper-popup system-time-div" style="display:none;" >
                 <div class="mjtc-form-title-popup"><?php echo esc_html(__('Resolve conflict', 'majestic-support')); ?></div>
-                <div class="mjtc-form-field-popup"><?php echo wp_kses(MJTC_formfield::MJTC_select('time-confilct-combo', $yesno, ''), MJTC_ALLOWED_TAGS); ?></div>
+                <div class="mjtc-form-field-popup"><?php echo wp_kses(MJTC_formfield::MJTC_select('time-confilct-combo', $MJTC_yesno, ''), MJTC_ALLOWED_TAGS); ?></div>
             </div>
             <div class="mjtc-col-md-12 mjtc-form-button-wrapper">
                 <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('ok', esc_html(__('Save', 'majestic-support')), array('class' => 'button')), MJTC_ALLOWED_TAGS); ?>
@@ -712,25 +1158,6 @@ $yesno = array(
         <div id="msadmin-data-wrp" class="p0 bg-n bs-n b0">
             <?php
             if (!empty(majesticsupport::$_data[0])) {
-                if (majesticsupport::$_data[0]->lock == 1) {
-                    $style = "darkred;";
-                    $status = esc_html(__('Lock', 'majestic-support'));
-                } elseif (majesticsupport::$_data[0]->status == 0) {
-                    $style = "#159667;";
-                    $status = esc_html(__('New', 'majestic-support'));
-                } elseif (majesticsupport::$_data[0]->status == 1) {
-                    $style = "#D78D39;";
-                    $status = esc_html(__('Waiting Reply', 'majestic-support'));
-                } elseif (majesticsupport::$_data[0]->status == 2) {
-                    $style = "#EDA900;";
-                    $status = esc_html(__('In Progress', 'majestic-support'));
-                } elseif (majesticsupport::$_data[0]->status == 3) {
-                    $style = "#2168A2;";
-                    $status = esc_html(__('Replied', 'majestic-support'));
-                } elseif (majesticsupport::$_data[0]->status == 4 OR majesticsupport::$_data[0]->status == 5) {
-                    $style = "#3D355A;";
-                    $status = esc_html(__('Closed', 'majestic-support'));
-                }
                 $cur_uid = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
                 ?>
 
@@ -742,7 +1169,8 @@ $yesno = array(
                         jQuery(document).on('submit','#mjtc-support-usercredentails-form',function(e){
                             e.preventDefault(); // avoid to execute the actual submit of the form.
                             var fdata = jQuery(this).serialize(); // serializes the form's elements.
-                            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'privatecredentials', task: 'storePrivateCredentials',formdata_string:fdata, '_wpnonce':'". esc_attr(wp_create_nonce("store-private-credentials"))."'}, function (data) {
+                            var nonce = jQuery('#nonce').val();
+                            jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'privatecredentials', task: 'storePrivateCredentials',formdata_string:fdata, '_wpnonce': nonce}, function (data) {
                                 if(data){ // ajax executed
                                     var return_data = jQuery.parseJSON(data);
                                     if(return_data.status == 1){
@@ -763,8 +1191,8 @@ $yesno = array(
                         });
                     });
 
-                    function addEditCredentail(ticketid, internalid, uid, cred_id = 0, cred_data = ''){
-                        jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'privatecredentials', task: 'getFormForPrivteCredentials', ticketid: ticketid, internalid: internalid, cred_id: cred_id, cred_data: cred_data, uid: uid, '_wpnonce':'". esc_attr(wp_create_nonce("get-form-for-privte-credentials"))."'}, function (data) {
+                    function addEditCredentail(nonce, ticketid, internalid, uid, cred_id = 0, cred_data = ''){
+                        jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'privatecredentials', task: 'getFormForPrivteCredentials', ticketid: ticketid, internalid: internalid, cred_id: cred_id, cred_data: cred_data, uid: uid, '_wpnonce': nonce}, function (data) {
                             if(data){ // ajax executed
                                 var return_data = jQuery.parseJSON(data);
                                 jQuery('.mjtc-support-usercredentails-wrp').hide();
@@ -777,8 +1205,8 @@ $yesno = array(
                         });
                     }
 
-                    function getCredentails(ticketid){
-                        jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'privatecredentials', task: 'getPrivateCredentials',ticketid:ticketid, '_wpnonce':'". esc_attr(wp_create_nonce("get-private-credentials"))."'}, function (data) {
+                    function getCredentails(ticketid, nonce){
+                        jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'privatecredentials', task: 'getPrivateCredentials',ticketid:ticketid, '_wpnonce': nonce}, function (data) {
                             if(data){ // ajax executed
                                 var return_data = jQuery.parseJSON(data);
                                 if(return_data.status == 1){
@@ -796,8 +1224,8 @@ $yesno = array(
                         return false;
                     }
 
-                    function removeCredentail(cred_id,internalid){
-                        jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'privatecredentials', task: 'removePrivateCredential',cred_id:cred_id,internalid:internalid, '_wpnonce':'". esc_attr(wp_create_nonce("remove-private-credential"))."'}, function (data) {
+                    function removeCredentail(cred_id,internalid, nonce){
+                        jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'privatecredentials', task: 'removePrivateCredential',cred_id:cred_id,internalid:internalid, '_wpnonce': nonce}, function (data) {
                             if(data){ // ajax executed
                                 if(cred_id != 0){
                                     jQuery('#mjtc-support-usercredentails-single-id-'+cred_id).remove();
@@ -807,10 +1235,9 @@ $yesno = array(
                         return false;
                     }
 
-                    function closeCredentailsForm(ticketid){
-                        getCredentails(ticketid);
+                    function closeCredentailsForm(ticketid, nonce){
+                        getCredentails(ticketid, nonce);
                     }
-
                 ";
                 wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                 ?>
@@ -824,9 +1251,10 @@ $yesno = array(
                     <div class="mjtc-support-usercredentails-wrp" style="display: none;">
                         <div class="mjtc-support-usercredentails-credentails-wrp">
                         </div>
-                        <?php if(majesticsupport::$_data[0]->status != 4 && majesticsupport::$_data[0]->status != 5){ ?>
+                        <?php if(majesticsupport::$_data[0]->status != 5 && majesticsupport::$_data[0]->status != 6){ ?>
                             <div class="mjtc-support-usercredentail-data-add-new-button-wrap" >
-                                <button type="button" class="mjtc-support-usercredentail-data-add-new-button" onclick="addEditCredentail(<?php echo esc_js(majesticsupport::$_data[0]->id);?>,'<?php echo esc_js(majesticsupport::$_data[0]->internalid);?>',<?php echo esc_js(MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid());?>);" >
+                                <?php $nonce = wp_create_nonce('get-form-for-privte-credentials-'.majesticsupport::$_data[0]->id); ?>
+                                <button type="button" class="mjtc-support-usercredentail-data-add-new-button" onclick="addEditCredentail('<?php echo esc_js($nonce);?>', <?php echo esc_js(majesticsupport::$_data[0]->id);?>,'<?php echo esc_js(majesticsupport::$_data[0]->internalid);?>',<?php echo esc_js(MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid());?>);" >
                                     <?php echo esc_html(__("Add New Credential",'majestic-support')); ?>
                                 </button>
                             </div>
@@ -847,7 +1275,7 @@ $yesno = array(
                         <div id="userpopup-records">
                             <div class="userpopup-search-history">
                                 <?php // data[5] holds the tickect history
-                                    $field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitleByFieldfor(1);
+                                    $field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitleByFieldfor(1, majesticsupport::$_data[0]->multiformid);
                                 if ((!empty(majesticsupport::$_data[5]))) {
                                     ?>
                                     <?php foreach (majesticsupport::$_data[5] AS $history) { ?>
@@ -897,7 +1325,7 @@ $yesno = array(
                                                     $mins = floor(majesticsupport::$_data['time_taken'] / 60);
                                                     $mins = floor($mins % 60);
                                                     $secs = floor(majesticsupport::$_data['time_taken'] % 60);
-                                                    echo esc_html(esc_html(__('Time Taken','majestic-support')).':&nbsp;'.sprintf('%02d:%02d:%02d', $hours, $mins, $secs));
+                                                    echo esc_html(__('Time Taken','majestic-support')) . ': ' . esc_html( sprintf('%02d:%02d:%02d', $hours, $mins, $secs));
                                                 ?>
                                             </div>
                                         </div>
@@ -940,42 +1368,33 @@ $yesno = array(
                                     <div class="mjtc-form-value"><?php wp_editor('', 'internalnote', array('media_buttons' => false)); ?></div>
                                 </div>
                                 <div class="mjtc-form-wrapper">
-                                    <div class="mjtc-form-title">
-                                        <?php
-                                        $tktdata = esc_html(__('Ticket Status', 'majestic-support'));
-                                        echo wp_kses($tktdata, MJTC_ALLOWED_TAGS);
-                                         ?>
-                                    </div>
+                                    <div class="mjtc-form-title"><?php echo esc_html(__('Ticket', 'majestic-support')); echo ' '; echo esc_html(__('Status', 'majestic-support')); ?></div>
                                     <div class="mjtc-form-value">
                                         <div class="ms-formfield-radio-button-wrap">
                                             <?php echo wp_kses(MJTC_formfield::MJTC_checkbox('closeonreply', array('1' => esc_html(__('Close on reply', 'majestic-support'))), '', array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS); ?>
                                         </div>
                                     </div>
                                 </div>
-                                <?php
-                                if(isset($field_array['attachments'])){ ?>
-                                    <div class="mjtc-form-wrapper">
-                                        <div class="mjtc-form-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['attachments'])); ?></div>
-                                        <div class="mjtc-form-value">
-                                            <div class="tk_attachment_value_wrapperform">
-                                                <span class="tk_attachment_value_text">
-                                                    <input type="file" class="inputbox" name="note_attachment" onchange="MJTC_uploadfile(this, '<?php echo esc_js(majesticsupport::$_config['file_maximum_size']); ?>', '<?php echo esc_js(majesticsupport::$_config['file_extension']); ?>');" size="20" maxlenght='30'/>
-                                                    <span class='tk_attachment_remove'></span>
-                                                </span>
-                                            </div>
-                                            <span class="tk_attachments_configform">
-                                                <small>
+                                <div class="mjtc-form-wrapper">
+                                   <div class="mjtc-form-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['attachments'])); ?></div>
+                                    <div class="mjtc-form-value">
+                                        <div class="tk_attachment_value_wrapperform">
+                                            <span class="tk_attachment_value_text">
+                                                <input type="file" class="inputbox" name="note_attachment" onchange="MJTC_uploadfile(this, '<?php echo esc_js(majesticsupport::$_config['file_maximum_size']); ?>', '<?php echo esc_js(majesticsupport::$_config['file_extension']); ?>');" size="20" maxlenght='30'/>
+                                                <span class='tk_attachment_remove'></span>
+                                            </span>
+                                        </div>
+                                        <span class="tk_attachments_configform">
+                                            <small>
                                                     <?php
                                                     $tktdata =  esc_html(__('Maximum File Size','majestic-support')).' (' . esc_html(majesticsupport::$_config['file_maximum_size']).'KB)<br>'.esc_html(__('File Extension Type','majestic-support')).' (' . esc_html(majesticsupport::$_config['file_extension']) . ')';
                                                     echo wp_kses($tktdata, MJTC_ALLOWED_TAGS);
                                                      ?>
                                                     
                                                 </small>
-                                            </span>
-                                        </div>
+                                        </span>
                                     </div>
-                                    <?php
-                                }?>
+                                </div>
                                 <div class="mjtc-form-button">
                                     <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('postinternalnote', esc_html(__('Post Internal Note','majestic-support')), array('class' => 'button mjtc-admin-pop-btn-block', 'onclick' => "return checktinymcebyid('internalnote');")), MJTC_ALLOWED_TAGS); ?>
                                 </div>
@@ -987,13 +1406,41 @@ $yesno = array(
                         </div>
                     <?php } ?>
                 </div>
+                <!-- change status popup -->
+                <div id="changestatus-popup" class="ms-popup-wrapper" style="display: none;">
+                    <div class="userpopup-top">
+                        <div class="userpopup-heading">
+                            <!-- Display heading based on field order  -->
+                            <?php echo esc_html(__('Change Status','majestic-support')); ?>
+                        </div>
+                        <img alt="<?php echo esc_html(__('Close','majestic-support')); ?>" class="userpopup-close" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/close-icon-white.png" />
+                    </div>
+                    <div class="mjtc-admin-popup-cnt">
+                        <form class="mjtc-det-tkt-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_ticket&task=changestatus"),"change-status-".majesticsupport::$_data[0]->id)); ?>">
+                            <div class="mjtc-form-wrapper">
+                                <div class="mjtc-form-title">
+                                    <?php echo esc_html(__('Select Status','majestic-support')); ?>
+                                </div>
+                                <div class="mjtc-form-value">
+                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('status', MJTC_includer::MJTC_getModel('status')->getStatusForCombobox(), majesticsupport::$_data[0]->status, '', array('class' => 'inputbox mjtc-admin-popup-select-field')), MJTC_ALLOWED_TAGS); ?>
+                                </div>
+                            </div>
+                            <div class="mjtc-form-button">
+                                <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('changestatus', esc_html(__('Change Status','majestic-support')), array('class' => 'button mjtc-admin-pop-btn-block')), MJTC_ALLOWED_TAGS); ?>
+                            </div>
+                            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('ticketid', majesticsupport::$_data[0]->id), MJTC_ALLOWED_TAGS); ?>
+                            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('uid', MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid()), MJTC_ALLOWED_TAGS); ?>
+                            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('action', 'ticket_changestatus'), MJTC_ALLOWED_TAGS); ?>
+                            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('form_request', 'majesticsupport'), MJTC_ALLOWED_TAGS); ?>
+                        </form>
+                    </div>
+                </div>
                 <!-- change priority popup -->
-                <?php
-                if(isset($field_array['priority'])){ ?>
                 <div id="changepriority-popup" class="ms-popup-wrapper" style="display: none;">
                     <div class="userpopup-top">
                         <div class="userpopup-heading">
-                            <?php echo esc_html(__('Change','majestic-support'))." ".esc_html(majesticsupport::MJTC_getVarValue($field_array['priority'])); ?>
+                            <!-- Display heading based on field order  -->
+                            <?php echo esc_html(__('Change','majestic-support')) ." ".esc_html(majesticsupport::MJTC_getVarValue($field_array['priority'])); ?>
                         </div>
                         <img alt="<?php echo esc_html(__('Close','majestic-support')); ?>" class="userpopup-close" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/close-icon-white.png" />
                     </div>
@@ -1004,24 +1451,21 @@ $yesno = array(
                                     <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['priority'])); ?>
                                 </div>
                                 <div class="mjtc-form-value">
-                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('prioritytemp', MJTC_includer::MJTC_getModel('priority')->getPriorityForCombobox(), majesticsupport::$_data[0]->priorityid, esc_html(__('Change', 'majestic-support'))." ".esc_html(majesticsupport::MJTC_getVarValue($field_array['priority'])), array('class' => 'inputbox mjtc-admin-popup-select-field')), MJTC_ALLOWED_TAGS); ?>
+                                    <?php echo wp_kses(MJTC_formfield::MJTC_select('prioritytemp', MJTC_includer::MJTC_getModel('priority')->getPriorityForCombobox(), majesticsupport::$_data[0]->priorityid, esc_html(__('Change', 'majestic-support')) ." ".esc_html(majesticsupport::MJTC_getVarValue($field_array['priority'])), array('class' => 'inputbox mjtc-admin-popup-select-field')), MJTC_ALLOWED_TAGS); ?>
                                 </div>
                             </div>
                             <div class="mjtc-form-button">
-                                <?php echo wp_kses(MJTC_formfield::MJTC_button('changepriority', esc_html(__('Change', 'majestic-support'))." ".esc_html(majesticsupport::MJTC_getVarValue($field_array['priority'])), array('class' => 'button mjtc-admin-pop-btn-block changeprioritybutton', 'onclick' => 'actionticket(1);')), MJTC_ALLOWED_TAGS); ?>
+                                <?php echo wp_kses(MJTC_formfield::MJTC_button('changepriority', esc_html(__('Change', 'majestic-support')) ." ".esc_html(majesticsupport::MJTC_getVarValue($field_array['priority'])), array('class' => 'button mjtc-admin-pop-btn-block changeprioritybutton', 'onclick' => 'actionticket(1);')), MJTC_ALLOWED_TAGS); ?>
                             </div>
                         </form>
                     </div>
                 </div>
-                    <?php
-                }
-                if(isset($field_array['department'])){ ?>
                 <!-- change department popup -->
                 <div id="changedept-popup" class="ms-popup-wrapper" style="display: none;">
                     <?php if ( in_array('actions',majesticsupport::$_active_addons)) { ?>
                         <div class="userpopup-top">
                             <div class="userpopup-heading">
-                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['department']))." ".esc_html(__('Transfer','majestic-support')); ?>
+                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])) ." ".esc_html(__('Transfer','majestic-support')); ?>
                             </div>
                             <img alt="<?php echo esc_html(__('Close','majestic-support')); ?>" class="userpopup-close" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/close-icon-white.png" />
                         </div>
@@ -1030,12 +1474,12 @@ $yesno = array(
                                 <div class="mjtc-form-wrapper">
                                     <div class="mjtc-form-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])); ?></div>
                                     <div class="mjtc-form-value">
-                                        <?php echo wp_kses(MJTC_formfield::MJTC_select('departmentid', MJTC_includer::MJTC_getModel('department')->getDepartmentForCombobox(), majesticsupport::$_data[0]->departmentid, esc_html(__('Select', 'majestic-support'))." ".esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])), array('class' => 'inputbox mjtc-admin-popup-select-field')), MJTC_ALLOWED_TAGS); ?>
+                                        <?php echo wp_kses(MJTC_formfield::MJTC_select('departmentid', MJTC_includer::MJTC_getModel('department')->getDepartmentForCombobox(), majesticsupport::$_data[0]->departmentid, esc_html(__('Select', 'majestic-support')) ." ".esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])), array('class' => 'inputbox mjtc-admin-popup-select-field')), MJTC_ALLOWED_TAGS); ?>
                                     </div>
                                 </div>
                                 <?php if(in_array('note', majesticsupport::$_active_addons)){ ?>
                                     <div class="mjtc-form-wrapper">
-                                        <div class="mjtc-form-title"><label id="responcemsg" for="responce"><?php echo esc_html(__('Reason For', 'majestic-support'))." ".esc_html(majesticsupport::MJTC_getVarValue($field_array['department']))." ".esc_html(__('Transfer', 'majestic-support')); ?></label></div>
+                                        <div class="mjtc-form-title"><label id="responcemsg" for="responce"><?php echo esc_html(__('Reason For', 'majestic-support')) ." ".esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])) ." ".esc_html(__('Transfer', 'majestic-support')); ?></label></div>
                                         <div class="mjtc-form-value"><?php wp_editor('', 'departmenttranfernote', array('media_buttons' => false)); ?></div>
                                     </div>
                                 <?php } ?>
@@ -1050,8 +1494,6 @@ $yesno = array(
                         </form>
                     <?php } ?>
                 </div>
-                    <?php
-                } ?>
                 <!-- assign to staff popup -->
                 <div id="assignstaff-popup" class="ms-popup-wrapper" style="display: none;">
                     <?php if ( in_array('agent',majesticsupport::$_active_addons)) { ?>
@@ -1096,37 +1538,25 @@ $yesno = array(
                                     <?php echo wp_kses_post(ms_get_avatar(majesticsupport::$_data[0]->uid)); ?>
                                 </div>
                                 <div class="mjtc-sprt-det-user-cnt">
-                                    <?php
-                                    if(isset($field_array['fullname'])){ ?>
-                                        <div class="mjtc-sprt-det-user-data name"><?php echo esc_html(majesticsupport::$_data[0]->name); ?></div>
-                                        <?php
-                                    }
-                                    if(isset($field_array['email'])){ ?>
-                                        <div class="mjtc-sprt-det-user-data email"><?php echo esc_html(majesticsupport::$_data[0]->email); ?></div>
-                                        <?php
-                                    }
-                                    if(isset($field_array['phone'])){ ?>
-                                        <div class="mjtc-sprt-det-user-data number"><?php echo esc_html(majesticsupport::$_data[0]->phone); ?></div>
-                                        <?php
-                                    } ?>
+                                    <div class="mjtc-sprt-det-user-data name"><?php echo esc_html(majesticsupport::$_data[0]->name); ?></div>
+                                    <div class="mjtc-sprt-det-user-data email"><?php echo esc_html(majesticsupport::$_data[0]->email); ?></div>
+                                    <div class="mjtc-sprt-det-user-data number"><?php echo esc_html(majesticsupport::$_data[0]->phone); ?></div>
                                 </div>
                             </div>
                             <?php if(isset(majesticsupport::$_data['nticket'])){ ?>
                             <div class="mjtc-sprt-det-other-tkt">
                                 <a href="<?php echo esc_url(admin_url('admin.php?page=majesticsupport_ticket&mjslay=tickets&uid='.esc_attr(majesticsupport::$_data[0]->uid))); ?>" class="mjtc-sprt-det-other-tkt-btn">
-                                    <?php echo esc_html(__('View all','majestic-support')).' '.esc_html(majesticsupport::$_data['nticket']).' '.esc_html(__('tickets by','majestic-support')).' '.esc_html(majesticsupport::$_data[0]->name); ?>
+                                    <?php echo esc_html(__('View all','majestic-support')).' '.esc_html(majesticsupport::$_data['nticket']).' '. esc_html(__('tickets by','majestic-support')).' '.esc_html(majesticsupport::$_data[0]->name); ?>
                                 </a>
                                 <a href="<?php echo esc_url(admin_url('admin.php?page=majesticsupport_ticket&mjslay=tickets&uid='.esc_attr(majesticsupport::$_data[0]->uid))); ?>" class="mjtc-sprt-det-other-tkt-img">
                                     <img alt="<?php echo esc_html(__('Edit Ticket','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/new-window.png" />
                                 </a>
                             </div>
-                            <?php } 
-                            if(isset($field_array['issuesummary'])){?>
-                                <div class="mjtc-sprt-det-tkt-msg">
-                                    <?php echo wp_kses_post(majesticsupport::$_data[0]->message); ?>
-                                </div>
+                            <?php } ?>
+                            <div class="mjtc-sprt-det-tkt-msg">
+                                <?php echo wp_kses_post(majesticsupport::$_data[0]->message); ?>
+                            </div>
                             <?php
-                            }
                             $formid = majesticsupport::$_data[0]->multiformid;
                             majesticsupport::$_data['custom']['ticketid'] = majesticsupport::$_data[0]->id;
                             $customfields = MJTC_includer::MJTC_getObjectClass('customfields')->MJTC_userFieldsData(1, null, $formid);
@@ -1165,8 +1595,8 @@ $yesno = array(
                                 <?php } ?>
                                 <form method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_ticket&task=actionticket"),"action-ticket-".majesticsupport::$_data[0]->id)); ?>" id="adminTicketform" enctype="multipart/form-data">
                                     <?php
-                                        if (majesticsupport::$_data[0]->status != 5) { // merged closed ticket can not be reopend.
-                                            if (majesticsupport::$_data[0]->status != 4) {
+                                        if (majesticsupport::$_data[0]->status != 6) { // merged closed ticket can not be reopend.
+                                            if (majesticsupport::$_data[0]->status != 5) {
                                                 if (in_array('ticketclosereason',majesticsupport::$_active_addons)) {
                                                     $js = 'showTicketCloseReasons('.majesticsupport::$_data[0]->id.')';
                                                 } else {
@@ -1174,33 +1604,35 @@ $yesno = array(
                                                 }
                                             ?>
                                             <a title="<?php echo esc_attr(__('Close Ticket','majestic-support')); ?>" class="mjtc-sprt-det-actn-btn" href="#" onclick="<?php echo esc_js($js);?>">
-                                                <img alt="<?php echo esc_html(__('Close Ticket','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/close.png" />
-                                                <span><?php echo esc_html(__('Close Ticket','majestic-support')); ?></span>
-                                            </a>
-                                        <?php } else { ?>
-                                            <a title="<?php echo esc_attr(__('Reopen Ticket','majestic-support')); ?>" class="mjtc-sprt-det-actn-btn" href="#" onclick="actionticket(3);">
-                                                <img alt="<?php echo esc_html(__('Reopen Ticket','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/reopen.png" />
-                                                <span><?php echo esc_html(__('Reopen Ticket','majestic-support')); ?></span>
-                                            </a>
-                                        <?php }
-                                    }
+                                                    <img alt="<?php echo esc_html(__('Close Ticket','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/close.png" />
+                                                    <span><?php echo esc_html(__('Close Ticket','majestic-support')); ?></span>
+                                                </a>
+                                            <?php } else { ?>
+                                                <a title="<?php echo esc_attr(__('Reopen Ticket','majestic-support')); ?>" class="mjtc-sprt-det-actn-btn" href="#" onclick="actionticket(3);">
+                                                    <img alt="<?php echo esc_html(__('Reopen Ticket','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/reopen.png" />
+                                                    <span><?php echo esc_html(__('Reopen Ticket','majestic-support')); ?></span>
+                                                </a>
+                                            <?php }
+                                        }
                                         majesticsupport::$_data['custom']['ticketid'] = majesticsupport::$_data[0]->id;
                                     ?>
-                                    <?php if (  in_array('actions',majesticsupport::$_active_addons) && majesticsupport::$_data[0]->status != 4 && majesticsupport::$_data[0]->status != 5 ) { ?>
+                                    <?php if (  in_array('actions',majesticsupport::$_active_addons) && majesticsupport::$_data[0]->status != 5 && majesticsupport::$_data[0]->status != 6 ) { ?>
                                         <a title="<?php echo esc_attr(__('Print Ticket','majestic-support')); ?>" class="mjtc-sprt-det-actn-btn" href="#" id="print-link" data-ticketid="<?php echo esc_attr(majesticsupport::$_data[0]->id); ?>">
                                             <img alt="<?php echo esc_html(__('Print Ticket','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/print.png" />
                                             <span><?php echo esc_html(__('Print Ticket','majestic-support')); ?></span>
                                         </a>
                                     <?php } ?>
-                                    <?php if (  in_array('mergeticket',majesticsupport::$_active_addons) && majesticsupport::$_data[0]->status != 4 && majesticsupport::$_data[0]->status != 5 ) { ?>
-                                    <a title="<?php echo esc_attr(__('Merge Ticket','majestic-support')); ?>" class="mjtc-sprt-det-actn-btn" href="#" id="mergeticket" data-ticketid="<?php echo esc_attr(majesticsupport::$_data[0]->id); ?>" onclick="return showPopupAndFillValues(<?php echo esc_js(majesticsupport::$_data[0]->id) ?>,4)" >
-                                        <img alt="<?php echo esc_html(__('Merge Ticket','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/merge-ticket.png" />
-                                        <span><?php echo esc_html(__('Merge Ticket','majestic-support')); ?></span>
-                                    </a>
+                                    <?php if (  in_array('mergeticket',majesticsupport::$_active_addons) && majesticsupport::$_data[0]->status != 5 && majesticsupport::$_data[0]->status != 6 ) {
+                                        $nonce = wp_create_nonce("get-tickets-for-merging-".majesticsupport::$_data[0]->id) ?>
+                                        <a title="<?php echo esc_attr(__('Merge Ticket','majestic-support')); ?>" class="mjtc-sprt-det-actn-btn" href="#" id="mergeticket" data-ticketid="<?php echo esc_attr(majesticsupport::$_data[0]->id); ?>" onclick="return showPopupAndFillValues(<?php echo esc_js(majesticsupport::$_data[0]->id) ?>,4, '<?php echo esc_js($nonce);?>')" >
+                                            <img alt="<?php echo esc_html(__('Merge Ticket','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/merge-ticket.png" />
+                                            <span><?php echo esc_html(__('Merge Ticket','majestic-support')); ?></span>
+                                        </a>
                                     <?php } ?>
                                     <?php if (in_array('privatecredentials',majesticsupport::$_active_addons)) { ?>
-                                    <a title="<?php echo esc_attr(__('Private Credentials','majestic-support')); ?>" class="mjtc-sprt-det-actn-btn" href="javascript:return false;" id="privatecredentials" onclick="getCredentails(<?php echo esc_js(majesticsupport::$_data[0]->id); ?>)" >
-                                        <?php $query = "SELECT count(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_privatecredentials` WHERE status = 1 AND ticketid = ".majesticsupport::$_data[0]->id;
+                                        <?php $nonce = wp_create_nonce('get-private-credentials-'.majesticsupport::$_data[0]->id) ?>
+                                        <a title="<?php echo esc_attr(__('Private Credentials','majestic-support')); ?>" class="mjtc-sprt-det-actn-btn" href="javascript:return false;" id="privatecredentials" onclick="getCredentails(<?php echo esc_js(majesticsupport::$_data[0]->id); ?>, '<?php echo esc_js($nonce); ?>')" >
+                                        <?php $query = "SELECT count(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_privatecredentials` WHERE status = 1 AND ticketid = ".esc_sql(majesticsupport::$_data[0]->id);
                                         $cred_count = majesticsupport::$_db->get_var($query);
                                         if ($cred_count>0) {
                                             $img_name = 'private-credentials-exist.png';
@@ -1280,20 +1712,20 @@ $yesno = array(
                         </div>
                         <!-- Tickect internal Note Area -->
                         <?php
-                            $colored = "colored";
+                            $MJTC_colored = "colored";
                             if(in_array('note', majesticsupport::$_active_addons)){ ?>
                                 <div class="mjtc-sprt-det-title"><?php echo esc_html(__('Internal Note', 'majestic-support')); ?></div>
                                 <?php if (!empty(majesticsupport::$_data[6])) {
                                     foreach (majesticsupport::$_data[6] AS $note) {
                                         if ($cur_uid == isset($note->uid))
-                                            $colored = '';?>
+                                            $MJTC_colored = '';?>
                                         <div class="mjtc-support-thread">
                                             <div class="mjtc-support-thread-image">
-                                                <?php if (in_array('agent',majesticsupport::$_active_addons) && $note->staffphoto) { ?>
+                                                <?php /* if (in_array('agent',majesticsupport::$_active_addons) && $note->staffphoto) { ?>
                                                     <img alt="<?php echo esc_html(__('agent image','majestic-support')); ?>" src="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'agent','task'=>'getStaffPhoto','action'=>'mstask','majesticsupportid'=>$note->staff_id, 'mspageid'=>majesticsupport::getPageid()))); ?>">
-                                                <?php } else {
+                                                <?php } else { */
                                                     echo wp_kses(ms_get_avatar($note->userid), MJTC_ALLOWED_TAGS);
-                                                } ?>
+                                                // } ?>
                                             </div>
                                             <div class="mjtc-support-thread-cnt">
                                                 <div class="mjtc-support-thread-data">
@@ -1304,7 +1736,7 @@ $yesno = array(
                                                         }elseif(isset($note->display_name)){
                                                             echo esc_html($note->display_name);
                                                         }else{
-                                                            echo esc_html('--------');
+                                                            echo '--------';
                                                         }
                                                         ?>
                                                     </span>
@@ -1332,7 +1764,7 @@ $yesno = array(
                                                                 <span class="mjtc_supportattachment_fname">'
                                                                     . esc_html($note->filename) . '
                                                                 </span>
-                                                                <a title="'.esc_html(__('Download','majestic-support')).'" class="button" target="_blank" href="'.esc_url(admin_url('?page=majesticsupport_note&action=mstask&task=downloadbyid&id='.esc_attr($note->id))).'">'.esc_html(__('Download','majestic-support')).'</a>
+                                                                <a title="'. esc_html(__('Download','majestic-support')).'" class="button" target="_blank" href="'.esc_url(admin_url('?page=majesticsupport_note&action=mstask&task=downloadbyid&id='.esc_attr($note->id))).'">'. esc_html(__('Download','majestic-support')).'</a>
                                                             </div>', MJTC_ALLOWED_TAGS);
                                                     }
                                                 ?>
@@ -1346,12 +1778,13 @@ $yesno = array(
                                                                 $mins = floor($note->usertime / 60);
                                                                 $mins = floor($mins % 60);
                                                                 $secs = floor($note->usertime % 60);
-                                                                $time = esc_html(__('Time Taken','majestic-support')).':&nbsp;'.sprintf('%02d:%02d:%02d', $hours, $mins, $secs);
-                                                            ?>
-                                                            <a title="<?php echo esc_attr(__('Edit','majestic-support')); ?>" class="mjtc-support-thread-actn-btn ticket-edit-time-button" href="#" onclick="return showPopupAndFillValues(<?php echo esc_js($note->id);?>,3)" >
-                                                                <img alt="<?php echo esc_html(__('Edit','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/edit-reply.png" />
+                                                                $time = esc_html(__('Time Taken','majestic-support')).':&nbsp;'.sprintf('%02d:%02d:%02d', esc_html($hours), esc_html($mins), esc_html($secs));
+                                                                $nonce = wp_create_nonce("get-time-by-note-id-".$note->id); ?>
+                                                                <a title="<?php echo esc_attr(__('Edit','majestic-support')); ?>" class="mjtc-support-thread-actn-btn ticket-edit-time-button" href="#" onclick="return showPopupAndFillValues(<?php echo esc_js($note->id);?>,3, '<?php echo esc_js($nonce);?>')" >
+                                                                    <img alt="<?php echo esc_html(__('Edit','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/edit-reply.png" />
                                                             </a>
-                                                        <?php } ?>
+                                                            <?php
+                                                        } ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1369,11 +1802,11 @@ $yesno = array(
                         <div class="mjtc-sprt-det-title"><?php echo esc_html(__('Ticket Thread', 'majestic-support')); ?></div>
                         <div class="mjtc-support-thread">
                             <div class="mjtc-support-thread-image">
-                                <?php if ( in_array('agent',majesticsupport::$_active_addons) &&  majesticsupport::$_data[0]->staffphotophoto) { ?>
+                                <?php /* if ( in_array('agent',majesticsupport::$_active_addons) &&  majesticsupport::$_data[0]->staffphotophoto) { ?>
                                     <img alt="<?php echo esc_html(__('agent image','majestic-support')); ?>" src="<?php echo esc_url(admin_url('?page=majesticsupport_agent&action=mstask&task=getStaffPhoto&majesticsupportid='.esc_attr(majesticsupport::$_data[0]->staffphotoid ))); ?>">
-                                <?php } else {
+                                <?php } else { */
                                     echo wp_kses(ms_get_avatar(majesticsupport::$_data[0]->uid), MJTC_ALLOWED_TAGS);
-                                } ?>
+                                // } ?>
                             </div>
                             <div class="mjtc-support-thread-cnt">
                                 <div class="mjtc-support-thread-data">
@@ -1393,11 +1826,11 @@ $yesno = array(
                                 <?php
                                 if(isset($field_array['attachments'])){
                                     if (!empty(majesticsupport::$_data['ticket_attachment'])) {
-                                        $datadirectory = majesticsupport::$_config['data_directory'];
+                                        $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
                                         $maindir = wp_upload_dir();
                                         $path = $maindir['baseurl'];
 
-                                        $path = $path .'/' . $datadirectory;
+                                        $path = $path .'/' . $MJTC_datadirectory;
                                         $path = $path . '/attachmentdata';
                                         $path = $path . '/ticket/ticket_' . majesticsupport::$_data[0]->id . '/';
                                         foreach (majesticsupport::$_data['ticket_attachment'] AS $attachment) {
@@ -1407,7 +1840,7 @@ $yesno = array(
                                                 <span class="mjtc_supportattachment_fname">
                                                   ' . esc_html($attachment->filename) . '
                                                 </span>
-                                                <a title="'.esc_html(__('Download','majestic-support')).'" class="button" target="_blank" href="' . esc_url($path) . '">' . esc_html(__('Download', 'majestic-support')) . '</a>
+                                                <a title="'. esc_html(__('Download','majestic-support')).'" class="button" target="_blank" href="' . esc_url($path) . '">' . esc_html(__('Download', 'majestic-support')) . '</a>
                                             </div>', MJTC_ALLOWED_TAGS);
                                         }
                                     }
@@ -1422,19 +1855,19 @@ $yesno = array(
                         </div>
                         <!-- Tickect  Reply  Area -->
                         <?php
-                            $colored = "colored";
+                            $MJTC_colored = "colored";
                             if (!empty(majesticsupport::$_data[4]))
                                 foreach (majesticsupport::$_data[4] AS $reply) {
                                 if ($cur_uid == $reply->uid)
-                                    $colored = '';
+                                    $MJTC_colored = '';
                                 ?>
                                 <div class="mjtc-support-thread">
                                     <div class="mjtc-support-thread-image">
-                                        <?php if (in_array('agent',majesticsupport::$_active_addons) && $reply->staffphoto) { ?>
+                                        <?php /* if (in_array('agent',majesticsupport::$_active_addons) && $reply->staffphoto) { ?>
                                             <img alt="<?php echo esc_html(__('agent image','majestic-support')); ?>"  src="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'agent','task'=>'getStaffPhoto','action'=>'mstask','majesticsupportid'=>$reply->staffid,'mspageid'=>majesticsupport::getPageid()))); ?>">
-                                        <?php } else {
+                                        <?php } else { */
                                             echo wp_kses(ms_get_avatar($reply->uid), MJTC_ALLOWED_TAGS);
-                                        } ?>
+                                        // } ?>
                                     </div>
                                     <div class="mjtc-support-thread-cnt">
                                         <div class="mjtc-support-thread-data">
@@ -1474,31 +1907,23 @@ $yesno = array(
                                                     </span>
                                                 </span>
                                                 <?php 
-                                            }
-                                            ?>
+                                            } ?>
                                         </div>
                                         <div class="mjtc-support-thread-data">
                                             <span class="mjtc-support-via-email">
-                                                <?php
-                                                if($reply->ticketviaemail == 1){
-                                                    echo  esc_html(__('Created via Email', 'majestic-support'));
-                                                } else {
-                                                    echo '';
-                                                }
-                                                ?>
+                                                <?php echo ($reply->ticketviaemail == 1) ? esc_html(__('Created via Email', 'majestic-support')) : ''; ?>
                                             </span>
                                         </div>
                                         <div class="mjtc-support-thread-data note-msg">
                                             <?php echo wp_kses_post(html_entity_decode($reply->message)); ?>
                                         </div>
                                         <?php
-                                        if(isset($field_array['attachments'])){
                                             if (!empty($reply->attachments)) {
                                                 foreach ($reply->attachments AS $attachment) {
                                                     $imgpath = $attachment->filename;
-                                                    $data = wp_check_filetype($attachment->filename);
-                                                    $type = $data['type'];
-                                                    $count = 0;
+                                                    $MJTC_data = wp_check_filetype($attachment->filename);
+                                                    $type = $MJTC_data['type'];
+                                                    $MJTC_count = 0;
                                                     $path = esc_url(admin_url("?page=majesticsupport_ticket&action=mstask&task=downloadbyid&id=".esc_attr($attachment->id)));
                                                     $tktdata = '
                                                     <div class="mjtc_supportattachment">
@@ -1517,30 +1942,58 @@ $yesno = array(
                                                     echo wp_kses('</div>', MJTC_ALLOWED_TAGS);
                                                 }
                                             }
-                                        }
+                                        
                                         ?>
                                         <div class="mjtc-support-thread-cnt-btm">
+                                            <?php
+                                            if (in_array('aipoweredreply', majesticsupport::$_active_addons) && majesticsupport::$_data[0]->uid != $reply->uid && $reply->uid != 0) { ?>
+                                                <!-- This section contains the AI Reply Feature -->
+                                                <div class="mjtc-support-ai-reply-status-wrapper">
+                                                    <label for="mjtc-support-ai-reply-status-control">
+                                                        <?php echo esc_html__('AI-Powered Reply Mode', 'majestic-support').':'; ?>
+                                                    </label>
+                                                    <div class="mjtc-support-info-icon-wrapper">
+                                                        <span class="mjtc-support-info-icon" data-tooltip="<?php echo esc_html(__("Control how this individual reply influences the AI search and response generation process for future queries.",'majestic-support')); ?>">
+                                                            <img alt="<?php echo esc_html(__('Info','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/info-icon.png" />
+                                                        </span>
+                                                    </div>
+                                                    <div id="mjtc-support-ai-reply-status-control" class="mjtc-support-segmented-control">
+                                                        <button type="button" class="mjtc-support-segmented-control-option mjtc-support-default <?php echo ($reply->aireplymode == 0) ? 'active' : ''; ?>" data-value="0" data-type="reply" data-id="<?php echo esc_attr($reply->replyid);?>" title="<?php echo esc_attr(__("Default: reply included in all AI search queries.", "majestic-support")); ?>">
+                                                            <?php echo esc_html__('Default', 'majestic-support'); ?>
+                                                        </button>
+                                                        <button type="button" class="mjtc-support-segmented-control-option mjtc-support-enable <?php echo ($reply->aireplymode == 1) ? 'active' : ''; ?>" data-value="1" data-type="reply" data-id="<?php echo esc_attr($reply->replyid);?>" title="<?php echo esc_attr(__("Enable: reply used in AI queries only when the Enable Tickets filter is active.", "majestic-support")); ?>">
+                                                            <?php echo esc_html__('Enable', 'majestic-support'); ?>
+                                                        </button>
+                                                        <button type="button" class="mjtc-support-segmented-control-option mjtc-support-disable <?php echo ($reply->aireplymode == 2) ? 'active' : ''; ?>" data-value="2" data-type="reply" data-id="<?php echo esc_attr($reply->replyid);?>" title="<?php echo esc_attr(__("Disable: reply excluded from AI queries.", "majestic-support")); ?>">
+                                                            <?php echo esc_html__('Disable', 'majestic-support'); ?>
+                                                        </button>
+                                                    </div>
+                                                    <!-- Hidden input to hold the current selected value -->
+                                                    <input type="hidden" name="mjtc_support_ai_reply_status" id="mjtc-support-ai-reply-status-hidden" value="<?php echo esc_attr($reply->aireplymode);?>" />
+                                                </div>
+                                                <?php
+                                            } ?>
                                             <div class="mjtc-support-thread-date"><?php echo esc_html(date_i18n("l F d, Y, H:i:s", MJTC_majesticsupportphplib::MJTC_strtotime($reply->created))); ?></div>
                                             <div class="mjtc-support-thread-actions">
                                                <?php
                                                if(in_array('timetracking', majesticsupport::$_active_addons)){
-                                                   if($reply->time > 0 ){
-                                                       ?>
-                                                       <a title="<?php echo esc_attr(__('Edit Time','majestic-support')); ?>" class="mjtc-support-thread-actn-btn ticket-edit-time-button" href="#" onclick="return showPopupAndFillValues(<?php echo esc_js($reply->replyid);?>,2)" >
+                                                    if($reply->time > 0 ){
+                                                        $nonce = wp_create_nonce("get-time-by-reply-id-".$reply->replyid); ?>
+                                                        <a title="<?php echo esc_attr(__('Edit Time','majestic-support')); ?>" class="mjtc-support-thread-actn-btn ticket-edit-time-button" href="#" onclick="return showPopupAndFillValues(<?php echo esc_js($reply->replyid);?>,2, '<?php echo esc_js($nonce);?>')" >
                                                            <img alt="<?php echo esc_html(__('Edit Time','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/edit-reply.png" />
                                                            <span><?php echo esc_html(__('Edit Time','majestic-support')); ?></span>
-                                                       </a>
-                                                   <?php
-                                                   }
-                                               }
-                                               ?>
-                                               <?php
-                                                   if($reply->staffid != 0){ ?>
-                                                       <a ttile="<?php echo esc_html(__('Edit Reply','majestic-support')); ?>" class="mjtc-support-thread-actn-btn ticket-edit-reply-button" href="#" onclick="return showPopupAndFillValues(<?php echo esc_js($reply->replyid);?>,1)" >
-                                                           <img alt="<?php echo esc_html(__('Edit Reply','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/edit-reply.png" />
-                                                           <span><?php echo esc_html(__('Edit Reply','majestic-support')); ?></span>
-                                                       </a>
-                                               <?php } ?>
+                                                        </a>
+                                                    <?php
+                                                    }
+                                                }
+                                                if($reply->staffid != 0){
+                                                    $nonce = wp_create_nonce('get-reply-data-by-id-'.$reply->replyid); ?>
+                                                    <a ttile="<?php echo esc_html(__('Edit Reply','majestic-support')); ?>" class="mjtc-support-thread-actn-btn ticket-edit-reply-button" href="#" onclick="return showPopupAndFillValues(<?php echo esc_js($reply->replyid);?>,1, '<?php echo esc_js($nonce);?>')" >
+                                                       <img alt="<?php echo esc_html(__('Edit Reply','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/edit-reply.png" />
+                                                       <span><?php echo esc_html(__('Edit Reply','majestic-support')); ?></span>
+                                                    </a>
+                                                    <?php
+                                                } ?>
                                             </div>
                                         </div>
                                     </div>
@@ -1559,7 +2012,7 @@ $yesno = array(
                                                     $mins = floor(majesticsupport::$_data['time_taken'] / 60);
                                                     $mins = floor($mins % 60);
                                                     $secs = floor(majesticsupport::$_data['time_taken'] % 60);
-                                                    echo esc_html(esc_html(__('Time Taken','majestic-support')).':&nbsp;'.sprintf('%02d:%02d:%02d', $hours, $mins, $secs));
+                                                    echo esc_html(__('Time Taken','majestic-support')) . ': ' . esc_html(sprintf('%02d:%02d:%02d', $hours, $mins, $secs));
                                                 ?>
                                             </div>
                                         </div>
@@ -1593,40 +2046,89 @@ $yesno = array(
                                     </div>
                                 <?php } ?>
                                 <!-- Smart Reply Area -->
-                                <div id="smartreply" class="ms-ticket-detail-smartreply-wrp ms-ticket-detail-smartreply-wrp-ticket-admin-details add-margin">
-                                    <div class="ms-smartreply-img">
-                                        <img alt="<?php echo esc_html(__('smart-reply','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL);?>includes/images/smart-reply/icon.png"/>
-                                    </div>
-                                    <div class="ms-smartreply-text">
-                                        <div class="ms-smartreply-text-head">
-                                            <?php echo esc_html(__('Check Smart Reply', 'majestic-support')); ?>
+                                <div class="mjtc-form-wrapper">
+                                    <div class="mjtc-support-ai-powered-reply-wrapper">
+                                        <div class="mjtc-support-ai-powered-reply-icon">
+                                            <img alt="<?php echo esc_html(__('AI Icon','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/ai-icon.png" />
                                         </div>
-                                        <div class="ms-smartreply-text-description">
-                                            <?php echo esc_html(__('Search and get a saved smart reply on Majestic Support for a ticket.', 'majestic-support')); ?>
+                                        <div class="mjtc-support-ai-powered-reply-content">
+                                            <div class="mjtc-support-ai-powered-reply-title">
+                                                <?php echo esc_html__('AI-Powered Reply', 'majestic-support'); ?>
+                                            </div>
+                                            <div class="mjtc-support-ai-powered-reply-text">
+                                                <?php echo esc_html__('Get context-based suggestions to effortlessly create accurate and relevant responses.', 'majestic-support'); ?>
+                                            </div>
+                                        </div>
+                                        <div id="mjtc-support-ai-reply-btn" class="mjtc-support-ai-powered-reply-action">
+                                            <a href="#" class="mjtc-support-ai-powered-reply-button">
+                                                <?php echo esc_html__('Suggested Response', 'majestic-support'); ?>
+                                            </a>
                                         </div>
                                     </div>
-                                    <span class="ms-smartreply-btn-wrp" onclick="checkSmartReply('<?php echo esc_js(majesticsupport::$_data[0]->subject); ?>');">
-                                        <img alt="<?php echo esc_html(__('search','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL);?>includes/images/smart-reply/search.png" class="ms-smartreply-btn-img">
-                                        <span class="ms-smartreply-btn-text">
-                                            <?php echo esc_html(__('Check Smart Reply', 'majestic-support')); ?>
-                                        </span>
-                                    </span>
-                                </div>
-                                <div class="ms-ticket-detail-smartreply-footer-wrp">
-                                    <span class="ms-ticket-detail-smartreply-append-wrp smartReplyFound">
-                                        <?php echo wp_kses(MJTC_formfield::MJTC_checkbox('append_smartreply', array('1' => esc_html(__('Append', 'majestic-support'))), '', array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS); ?>
-                                    </span>
-                                    <span class="ms-ticket-detail-smartreply-add-wrp"></span>
-                                    <span class="ms-ticket-detail-smartreply-append-wrp smartReplyNotFound">
-                                        <?php echo wp_kses(MJTC_formfield::MJTC_checkbox('add_smartreply', array('1' => esc_html(__('Add this reply to smart reply?', 'majestic-support'))), '', array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS); ?>
-                                    </span>
+                                    <span class="mjtc-support-current-ticket-title"><?php echo esc_attr(majesticsupport::$_data[0]->subject) ?></span>
+                                    <span class="mjtc-support-current-ticket-id"><?php echo esc_attr(majesticsupport::$_data[0]->id) ?></span>
+                                    <div class="mjtc-support-container">
+                                        <!-- Matching Tickets Section -->
+                                        <div id="mjtc-support-matching-tickets-section" class="mjtc-support-section mjtc-support-matching-tickets-section mjtc-support-hidden">
+                                            <div class="mjtc-support-selected-tickets-header">
+                                                <h2 class="mjtc-support-section-heading"><?php echo esc_html__('Matching Results', 'majestic-support'); ?></h2>
+                                                <?php if(in_array('aipoweredreply', majesticsupport::$_active_addons)){ ?>
+                                                    <div class="mjtc-support-filter-group">
+                                                        <label for="mjtc-support-tickets-filter" class="mjtc-support-filter-label"><?php echo esc_html__('Filter', 'majestic-support').': '; ?></label>
+                                                        <select id="mjtc-support-tickets-filter" class="mjtc-support-filter-select">
+                                                            <option value="all"><?php echo esc_html__('All Tickets', 'majestic-support'); ?></option>
+                                                            <option value="marked"><?php echo esc_html__('Enable Tickets', 'majestic-support'); ?></option>
+                                                        </select>
+                                                    </div>
+                                                <?php } ?>
+                                                <button id="mjtc-support-close-tickets-btn" class="mjtc-support-close-button">
+                                                    <?php echo esc_html__('Close', 'majestic-support'); ?>
+                                                </button>
+                                            </div>
+                                            <ul id="mjtc-support-matching-tickets-list" class="mjtc-support-list">
+                                                <!-- Matching tickets will be dynamically inserted here -->
+                                            </ul>
+                                        </div>
+
+                                        <!-- Selected Ticket Replies Section -->
+                                        <div id="mjtc-support-selected-ticket-replies-section" class="mjtc-support-section mjtc-support-selected-replies-section mjtc-support-hidden">
+                                            <div class="mjtc-support-selected-replies-header">
+                                                <h2 class="mjtc-support-section-heading" id="mjtc-support-selected-ticket-replies-title"></h2>
+                                                <?php if(in_array('aipoweredreply', majesticsupport::$_active_addons)){ ?>
+                                                    <div class="mjtc-support-filter-group">
+                                                        <label for="mjtc-support-replies-filter" class="mjtc-support-filter-label"><?php echo esc_html__('Filter', 'majestic-support').': '; ?></label>
+                                                        <select id="mjtc-support-replies-filter" class="mjtc-support-filter-select">
+                                                            <option value="all"><?php echo esc_html__('All Replies', 'majestic-support'); ?></option>
+                                                            <option value="marked"><?php echo esc_html__('Enable Replies', 'majestic-support'); ?></option>
+                                                        </select>
+                                                    </div>
+                                                <?php } ?>
+                                                <button id="mjtc-support-close-replies-btn" class="mjtc-support-close-button">
+                                                    <?php echo esc_html__('Close', 'majestic-support'); ?>
+                                                </button>
+                                            </div>
+                                            <div id="mjtc-support-selected-ticket-replies-content" class="mjtc-support-replies-content reply-content">
+                                                <!-- Replies from selected ticket will be dynamically inserted here -->
+                                            </div>
+                                        </div>
+
+                                        <!-- Custom Modal for Messages -->
+                                        <div id="mjtc-support-message-modal" class="mjtc-support-modal mjtc-support-hidden">
+                                            <div class="mjtc-support-modal-content">
+                                                <p id="mjtc-support-modal-message" class="mjtc-support-modal-message"></p>
+                                                <button id="mjtc-support-modal-close-btn" class="mjtc-support-modal-close-button">
+                                                    <?php echo esc_html__('OK', 'majestic-support'); ?>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="mjtc-form-wrapper">
                                     <div class="mjtc-form-title"><label id="responcemsg" for="responce"><?php echo esc_html(__('Response', 'majestic-support')); ?><span style="color: red;" >*</span></label></div>
                                     <div class="mjtc-form-value"><?php wp_editor('', 'mjsupport_message', array('media_buttons' => false)); ?></div>
                                 </div>
                                 <?php
-                                if(in_array('cannedresponses', majesticsupport::$_active_addons) && isset($field_array['premade'])){
+                                if(in_array('cannedresponses', majesticsupport::$_active_addons)){
                                     $cannedresponses = MJTC_includer::MJTC_getModel('cannedresponses')->getPreMadeMessageForCombobox();
                                     ?>
                                     <div class="mjtc-form-wrapper mjtc-premade-response-wrapper">
@@ -1646,16 +2148,14 @@ $yesno = array(
                                             ?>
                                         </div>
                                     </div>
-                                <?php
-                                }
-                                if (isset($field_array['attachments'])) { ?>
-                                    <div class="mjtc-form-wrapper">
-                                        <div class="mjtc-form-title"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['attachments'])); ?></div>
-                                        <div class="mjtc-form-field">
-                                            <div class="tk_attachment_value_wrapperform tk_attachment_admin_reply_wrapper">
-                                                <span class="tk_attachment_value_text">
-                                                    <input type="file" class="inputbox" name="filename[]" onchange="MJTC_uploadfile(this, '<?php echo esc_js(majesticsupport::$_config['file_maximum_size']); ?>', '<?php echo esc_js(majesticsupport::$_config['file_extension']); ?>');" size="20" maxlenght='30'/>
-                                                    <span class='tk_attachment_remove'></span>
+                                <?php } ?>
+                                <div class="mjtc-form-wrapper">
+                                    <div class="mjtc-form-title"><?php echo esc_html(__('Attachments', 'majestic-support')); ?></div>
+                                    <div class="mjtc-form-field">
+                                        <div class="tk_attachment_value_wrapperform tk_attachment_admin_reply_wrapper">
+                                            <span class="tk_attachment_value_text">
+                                                <input type="file" class="inputbox" name="filename[]" onchange="MJTC_uploadfile(this, '<?php echo esc_js(majesticsupport::$_config['file_maximum_size']); ?>', '<?php echo esc_js(majesticsupport::$_config['file_extension']); ?>');" size="20" maxlenght='30'/>
+                                                <span class='tk_attachment_remove'></span>
                                                 </span>
                                             </div>
                                             <span class="tk_attachments_configform">
@@ -1669,24 +2169,22 @@ $yesno = array(
                                             <span id="tk_attachment_add" data-ident="tk_attachment_admin_reply_wrapper" class="tk_attachments_addform ms-button-bg-link"><?php echo esc_html(__('Add More Files','majestic-support')); ?></span>
                                         </div>
                                     </div>
-                                    <?php
-                                } ?>
                                 <div class="mjtc-form-wrapper">
                                     <div class="mjtc-form-title"><?php echo esc_html(__('Append Signature', 'majestic-support')); ?></div>
                                     <div class="mjtc-form-value">
                                         <div class="ms-formfield-radio-button-wrap">
                                             <?php 
-												$default_value = "";
+												$MJTC_default_value = "";
 												if (current_user_can('manage_options')) { // admin
 													if(get_user_meta(MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid(), 'ms_signature_auto_append', true)=='1' ){
-														$default_value = "1";
+														$MJTC_default_value = "1";
 													}
 												}
 
-											echo wp_kses(MJTC_formfield::MJTC_checkbox('ownsignature', array('1' => esc_html(__('Own Signature', 'majestic-support'))), $default_value, array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS); ?>
+											echo wp_kses(MJTC_formfield::MJTC_checkbox('ownsignature', array('1' => esc_html(__('Own Signature', 'majestic-support'))), $MJTC_default_value, array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS); ?>
                                         </div>
                                         <div class="ms-formfield-radio-button-wrap">
-                                            <?php echo wp_kses(MJTC_formfield::MJTC_checkbox('departmentsignature', array('1' => esc_html(__('Department Signature', 'majestic-support'))), '', array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS); ?>
+                                            <?php echo wp_kses(MJTC_formfield::MJTC_checkbox('departmentsignature', array('1' => esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])) ." ". esc_html(__('Signature', 'majestic-support'))), '', array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS); ?>
                                         </div>
                                         <div class="ms-formfield-radio-button-wrap">
                                             <?php echo wp_kses(MJTC_formfield::MJTC_checkbox('nonesignature', array('1' => esc_html(__('None', 'majestic-support'))), '', array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS); ?>
@@ -1702,7 +2200,7 @@ $yesno = array(
                                     ?>
                                 </div>
                                 <?php
-                                if ( in_array('agent',majesticsupport::$_active_addons) && isset($field_array['assignto']) ) {
+                                if ( in_array('agent',majesticsupport::$_active_addons) ) {
                                     $staffid = MJTC_includer::MJTC_getModel('agent')->getStaffId(MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid());
                                     if (majesticsupport::$_data[0]->staffid != $staffid && $staffid != '') {?>
                                     <div class="mjtc-form-wrapper">
@@ -1714,16 +2212,12 @@ $yesno = array(
                                     <?php }
                                 } ?>
                                 <div class="mjtc-form-wrapper">
-                                    <?php
-                                    if (isset($field_array['status'])) {?>
-                                        <div class="mjtc-form-title">
+                                    <div class="mjtc-form-title">
                                             <?php
                                             $tktdata = esc_html(__('Ticket', 'majestic-support')).' '.esc_html(majesticsupport::MJTC_getVarValue($field_array['status']));
                                             echo wp_kses($tktdata, MJTC_ALLOWED_TAGS);
                                             ?>
                                         </div>
-                                        <?php
-                                    } ?>
                                     <div class="ms-formfield-radio-button-wrap">
                                         <?php echo wp_kses(MJTC_formfield::MJTC_checkbox('closeonreply', array('1' => esc_html(__('Close on reply', 'majestic-support'))), '', array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS); ?>
                                     </div>
@@ -1747,38 +2241,21 @@ $yesno = array(
                         <!-- ticket detail info -->
                         <div class="mjtc-sprt-det-cnt mjtc-sprt-det-tkt-info">
                             <?php
-                                if (majesticsupport::$_data[0]->status == 0) {
-                                    $color = "#5bb12f;";
-                                    $ticketmessage = esc_html(__('Open', 'majestic-support'));
-                                } elseif (majesticsupport::$_data[0]->status == 1) {
-                                    $color = "#28abe3;";
-                                    $ticketmessage = esc_html(__('On Waiting', 'majestic-support'));
-                                } elseif (majesticsupport::$_data[0]->status == 2) {
-                                    $color = "#69d2e7;";
-                                    $ticketmessage = esc_html(__('In Progress', 'majestic-support'));
-                                } elseif (majesticsupport::$_data[0]->status == 3) {
-                                    $color = "#FFB613;";
-                                    $ticketmessage = esc_html(__('Replied', 'majestic-support'));
-                                } elseif (majesticsupport::$_data[0]->status == 4) {
-                                    $color = "#ed1c24;";
-                                    $ticketmessage = esc_html(__('Closed', 'majestic-support'));
-                                } elseif (majesticsupport::$_data[0]->status == 5) {
-                                    $color = "#dc2742;";
-                                    $ticketmessage = esc_html(__('Close and merge', 'majestic-support'));
-                                }
-                            ?>
-                            <div class="mjtc-sprt-det-status" style="background-color:<?php echo esc_attr($color);?>;">
+                            if (majesticsupport::$_data[0]->status == 5 || 
+                                majesticsupport::$_data[0]->status == 3 || 
+                                majesticsupport::$_data[0]->status == 6) {
+                                $stylecolor = majesticsupport::$_data[0]->statuscolour;
+                                $stylebgcolor = majesticsupport::$_data[0]->statusbgcolour;
+                                $MJTC_ticketmessage = esc_html(majesticsupport::$_data[0]->statustitle);
+                            } else {
+                                $MJTC_ticketmessage = esc_html(__('Open', 'majestic-support'));
+                                $stylecolor = '#FFFFFF';
+                                $stylebgcolor = '#5bb12f';
+                            } ?>
+                            <div class="mjtc-sprt-det-status" style="background-color:<?php echo esc_attr($stylebgcolor)?>;color:<?php echo esc_attr($stylecolor);?>;">
                                 <?php
                                     majesticsupport::$_data['custom']['ticketid'] = majesticsupport::$_data[0]->id;
-                                    if (majesticsupport::$_data[0]->status == 4)
-                                        $ticketmessage = esc_html(__('Closed', 'majestic-support'));
-                                    elseif (majesticsupport::$_data[0]->status == 2)
-                                        $ticketmessage = esc_html(__('In Progress', 'majestic-support'));
-                                    elseif (majesticsupport::$_data[0]->status == 5)
-                                        $ticketmessage = esc_html(__('Closed and merged', 'majestic-support'));
-                                    else
-                                    $ticketmessage = esc_html(__('Open', 'majestic-support'));
-                                    echo esc_html($ticketmessage);
+                                    echo esc_html($MJTC_ticketmessage);
                                 ?>
                             </div>
                             <?php
@@ -1812,7 +2289,7 @@ $yesno = array(
                                         <?php echo esc_html(__('Created', 'majestic-support')). ': '; ?>
                                     </span>
                                     <span class="mjtc-sprt-det-info-val" title="<?php echo esc_attr(date_i18n("d F, Y, H:i:s A", MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->created))); ?>">
-                                        <?php echo esc_html(human_time_diff(MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->created),MJTC_majesticsupportphplib::MJTC_strtotime(date_i18n("Y-m-d H:i:s"))).' '.esc_html(__('ago', 'majestic-support'))); ?>
+                                        <?php echo esc_html(human_time_diff(MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->created),MJTC_majesticsupportphplib::MJTC_strtotime(date_i18n("Y-m-d H:i:s")))).' '. esc_html(__('ago', 'majestic-support')); ?>
                                     </span>
                                 </div>
                                 <div class="mjtc-sprt-det-info-data">
@@ -1826,47 +2303,44 @@ $yesno = array(
                                         ?>
                                     </span>
                                 </div>
-                                <?php
-                                if (isset($field_array['duedate'])) { ?>
-                                    <div class="mjtc-sprt-det-info-data">
-                                        <span class="mjtc-sprt-det-info-tit">
-                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['duedate'])). ': ' ; ?>
-                                        </span>
-                                        <span class="mjtc-sprt-det-info-val">
-                                            <?php
-                                                if (empty(majesticsupport::$_data[0]->duedate) || majesticsupport::$_data[0]->duedate == '0000-00-00 00:00:00') echo esc_html(__('Not Given', 'majestic-support'));
-                                                else echo esc_html(date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime(majesticsupport::$_data[0]->duedate)));
-                                            ?>
-                                        </span>
-                                    </div>
-                                    <?php
-                                }
-                                if(in_array('helptopic', majesticsupport::$_active_addons) && isset($field_array['helptopic'])){ ?>
+                                <?php if(in_array('helptopic', majesticsupport::$_active_addons)){ ?>
                                     <div class="mjtc-sprt-det-info-data">
                                         <span class="mjtc-sprt-det-info-tit">
                                             <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['helptopic'])). ': '; ?>
                                         </span>
                                         <span class="mjtc-sprt-det-info-val">
-                                            <?php
-                                            if(majesticsupport::$_data[0]->helptopic != ''){
-                                                echo wp_kses_post(majesticsupport::$_data[0]->helptopic);
-                                            } ?>
+                                            <?php if(in_array('helptopic',majesticsupport::$_active_addons)){ ?>
+                                                <?php 
+                                                    if (!empty(majesticsupport::$_data[0]) && isset(majesticsupport::$_data[0]->helptopic)) {
+                                                        echo wp_kses_post(majesticsupport::$_data[0]->helptopic);
+                                                    }
+                                                ?>
+                                            <?php } ?>
                                         </span>
                                     </div>
                                     <?php
-                                }
-                                if (isset($field_array['department'])) { ?>
-                                    <div class="mjtc-sprt-det-info-data">
-                                        <span class="mjtc-sprt-det-info-tit">
-                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])). ': '; ?>
-                                        </span>
-                                        <span class="mjtc-sprt-det-info-val">
-                                            <?php echo esc_html(esc_html(majesticsupport::MJTC_getVarValue(majesticsupport::$_data[0]->departmentname))); ?>
-                                        </span>
-                                    </div>
-                                    <?php
-                                }
-                                if (majesticsupport::$_config['show_closedby_on_admin_tickets'] == 1 && majesticsupport::$_data[0]->status == 4) { ?>
+                                } ?>
+                                <div class="mjtc-sprt-det-info-data">
+                                    <span class="mjtc-sprt-det-info-tit">
+                                        <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['product'])). ': '; ?>
+                                    </span>
+                                    <span class="mjtc-sprt-det-info-val">
+                                        <?php 
+                                            if (!empty(majesticsupport::$_data[0]) && isset(majesticsupport::$_data[0]->producttitle)) {
+                                                echo wp_kses_post(majesticsupport::$_data[0]->producttitle);
+                                            }
+                                        ?>
+                                    </span>
+                                </div>
+                                <div class="mjtc-sprt-det-info-data">
+                                    <span class="mjtc-sprt-det-info-tit">
+                                        <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])). ': '; ?>
+                                    </span>
+                                    <span class="mjtc-sprt-det-info-val">
+                                        <?php echo esc_html(majesticsupport::MJTC_getVarValue(majesticsupport::$_data[0]->departmentname)); ?>
+                                    </span>
+                                </div>
+                                <?php if (majesticsupport::$_config['show_closedby_on_admin_tickets'] == 1 && majesticsupport::$_data[0]->status == 5) { ?>
                                     <div class="mjtc-sprt-det-info-data">
                                         <span class="mjtc-sprt-det-info-tit">
                                             <?php echo esc_html(__('Closed By', 'majestic-support')). ' : '; ?>
@@ -1893,35 +2367,85 @@ $yesno = array(
                                         <a href="javascript:void(0)" title="<?php echo esc_attr(__('Copy','majestic-support')); ?>" class="mjtc-sprt-det-copy-id" id="ticketidcopybtn" success="<?php echo esc_html(__('Copied','majestic-support')); ?>"><?php echo esc_html(__('Copy','majestic-support')); ?></a>
                                     </span>
                                 </div>
-                                <?php
-                                if (isset($field_array['status'])) { ?>
-                                    <div class="mjtc-sprt-det-info-data">
-                                        <span class="mjtc-sprt-det-info-tit">
-                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['status'])). ': '; ?>
-                                        </span>
-                                        <span class="mjtc-sprt-det-info-val">
-                                            <?php
-                                                $printstatus = 1;
-                                                if (majesticsupport::$_data[0]->lock == 1) {
-                                                    $tktdata = '<span>' . esc_html(__('Lock', 'majestic-support')) . '</span>';
+                                <div class="mjtc-sprt-det-info-data">
+                                    <span class="mjtc-sprt-det-info-tit">
+                                        <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['status'])). ': '; ?>
+                                    </span>
+                                    <span class="mjtc-sprt-det-info-val">
+                                        <?php
+                                            $printstatus = 1;
+                                            if (majesticsupport::$_data[0]->lock == 1) {
+                                                $tktdata = '<span>' . esc_html(__('Lock', 'majestic-support')) . '</span>';
                                                     echo wp_kses($tktdata, MJTC_ALLOWED_TAGS);
                                                     $printstatus = 0;
-                                                }
-                                                if (majesticsupport::$_data[0]->isoverdue == 1) {
-                                                    $tktdata = '<span>' . esc_html(__('Overdue', 'majestic-support')) . '</span>';
+                                            }
+                                            if (majesticsupport::$_data[0]->isoverdue == 1) {
+                                                $tktdata = '<span>' . esc_html(__('Overdue', 'majestic-support')) . '</span>';
                                                     echo wp_kses($tktdata, MJTC_ALLOWED_TAGS);
-                                                    $printstatus = 0;
-                                                }
-                                                if ($printstatus == 1) {
-                                                    echo wp_kses_post($ticketmessage);
-                                                }
-                                            ?>
-                                        </span>
-                                    </div>
-                                    <?php
-                                } ?>
+                                                $printstatus = 0;
+                                            }
+                                            if ($printstatus == 1) {
+                                                echo wp_kses_post($MJTC_ticketmessage);
+                                            }
+                                        ?>
+                                    </span>
+                                </div>
                             </div>
                         </div>
+                        <!-- ticket detail status -->
+                        <div class="mjtc-sprt-det-cnt mjtc-sprt-det-tkt-prty">
+                            <div class="mjtc-sprt-det-hdg">
+                                <div class="mjtc-sprt-det-hdg-txt">
+                                    <?php echo esc_html(__('Status','majestic-support')); ?>
+                                </div>
+                                <a title="<?php echo esc_html(__('Change','majestic-support')); ?>" href="#" class="mjtc-sprt-det-hdg-btn" id="chng-status">
+                                    <?php echo esc_html(__('Change','majestic-support')); ?>
+                                </a>
+                            </div>
+                            <?php
+                                if (!empty(majesticsupport::$_data[0]->status)) { ?>
+                                    <div class="mjtc-sprt-det-tkt-prty-txt" style="background : <?php echo esc_attr(majesticsupport::$_data[0]->statusbgcolour); ?>;color : <?php echo esc_attr(majesticsupport::$_data[0]->statuscolour); ?>;">
+                                        <?php
+                                        echo esc_html(majesticsupport::MJTC_getVarValue(majesticsupport::$_data[0]->statustitle)); ?>
+                                    </div>
+                                    <?php
+                                }
+                            ?>
+                        </div>
+                        <!-- ticket detail status -->
+                        <?php if(in_array('aipoweredreply', majesticsupport::$_active_addons)){ ?>
+                            <div class="mjtc-sprt-det-cnt mjtc-sprt-det-tkt-prty">
+                                <div class="mjtc-sprt-det-hdg">
+                                    <div class="mjtc-sprt-det-hdg-txt">
+                                        <label for="mjtc-support-ai-reply-status-control">
+                                            <?php echo esc_html__('AI-Powered Reply Mode', 'majestic-support'); ?>
+                                        </label>
+                                        <div class="mjtc-support-info-icon-wrapper">
+                                            <span class="mjtc-support-info-icon" data-tooltip="<?php echo esc_html(__("Control how this ticket and its replies influence AI search and response generation for future queries.",'majestic-support')); ?>">
+                                                <img alt="<?php echo esc_html(__('Info','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/info-icon.png" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- This section contains the AI Reply Feature -->
+                                <div class="mjtc-support-ai-reply-status-wrapper">
+                                    <div id="mjtc-support-ai-reply-status-control" class="mjtc-support-segmented-control">
+                                        <button type="button" class="mjtc-support-segmented-control-option mjtc-support-default <?php echo (majesticsupport::$_data[0]->aireplymode == 0) ? 'active' : ''; ?>" data-value="0" data-type="ticket" data-id="<?php echo esc_attr(majesticsupport::$_data[0]->id);?>" title="<?php echo esc_attr(__("Default: ticket and replies included in all AI queries.", "majestic-support")); ?>">
+                                            <?php echo esc_html__('Default', 'majestic-support'); ?>
+                                        </button>
+                                        <button data-type="ticket" type="button" class="mjtc-support-segmented-control-option mjtc-support-enable <?php echo (majesticsupport::$_data[0]->aireplymode == 1) ? 'active' : ''; ?>" data-value="1" data-type="ticket" data-id="<?php echo esc_attr(majesticsupport::$_data[0]->id);?>" title="<?php echo esc_attr(__("Enable: ticket and replies used only when the “Enable Tickets” filter is active.", "majestic-support")); ?>">
+                                            <?php echo esc_html__('Enable', 'majestic-support'); ?>
+                                        </button>
+                                        <button data-type="ticket" type="button" class="mjtc-support-segmented-control-option mjtc-support-disable <?php echo (majesticsupport::$_data[0]->aireplymode == 2) ? 'active' : ''; ?>" data-value="2" data-type="ticket" data-id="<?php echo esc_attr(majesticsupport::$_data[0]->id);?>" title="<?php echo esc_attr(__("Disable: ticket and replies excluded from AI queries.", "majestic-support")); ?>">
+                                            <?php echo esc_html__('Disable', 'majestic-support'); ?>
+                                        </button>
+                                    </div>
+                                    <!-- Hidden input to hold the current selected value -->
+                                    <input type="hidden" name="mjtc_support_ai_reply_status" id="mjtc-support-ai-reply-status-hidden" value="<?php echo esc_attr(majesticsupport::$_data[0]->aireplymode);?>" />
+                                </div>
+                            </div>
+                            <?php
+                        } ?>
                         <!-- ticket detail priority -->
                         <?php
                         if (isset($field_array['priority'])) { ?>
@@ -1931,23 +2455,34 @@ $yesno = array(
                                         <img title="<?php echo esc_attr(__('watch video','majestic-support')); ?>" alt="<?php echo esc_html(__('watch video','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL) . '/includes/images/watch-video-icon.png'; ?>" />
                                     </a>
                                     <div class="mjtc-sprt-det-hdg-txt">
-                                        <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['priority'])); ?>
+                                        <!-- Display heading based on field order  -->
+                                         <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['priority'])); ?>
                                     </div>
                                     <a title="<?php echo esc_attr(__('Change','majestic-support')); ?>" href="#" class="mjtc-sprt-det-hdg-btn" id="chng-prority">
                                         <?php echo esc_html(__('Change','majestic-support')); ?>
                                     </a>
                                 </div>
-                                <div class="mjtc-sprt-det-tkt-prty-txt" style="background:<?php echo esc_attr(majesticsupport::$_data[0]->prioritycolour); ?>;">
-                                    <?php echo esc_html(esc_html(majesticsupport::MJTC_getVarValue(majesticsupport::$_data[0]->priority))); ?>
-                                </div>
+                                <?php
+                                    if (!empty(majesticsupport::$_data[0]->priority)) { ?>
+                                        <div class="mjtc-sprt-det-tkt-prty-txt" style="background:<?php echo esc_attr(majesticsupport::$_data[0]->prioritycolour); ?>;">
+                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue(majesticsupport::$_data[0]->priority)); ?>
+                                        </div>
+                                        <?php
+                                    } else { ?>
+                                        <div class="mjtc-sprt-det-tkt-prty-error-txt">
+                                            <?php
+                                            echo esc_html(__('No','majestic-support'))." ".esc_html(majesticsupport::MJTC_getVarValue($field_array['priority']))." ".esc_html(__('set','majestic-support')); ?>
+                                        </div>
+                                        <?php
+                                    } ?>
                             </div>
                             <?php
                         } ?>
                         <!-- ticket detail assign to staff -->
                         <?php
                         $agentflag = in_array('agent', majesticsupport::$_active_addons);
-                        $departmentflag = (in_array('actions', majesticsupport::$_active_addons) && isset($field_array['department'])) ? true : false;
-                        if($agentflag || $departmentflag){
+                        $MJTC_departmentflag = (in_array('actions', majesticsupport::$_active_addons) && isset($field_array['department'])) ? true : false;
+                        if($agentflag || $MJTC_departmentflag){
                             ?>
                             <div class="mjtc-sprt-det-cnt mjtc-sprt-det-tkt-assign">
                                 <?php if($agentflag){ ?>
@@ -1990,13 +2525,14 @@ $yesno = array(
                                             </div>
                                         </div>
                                         <?php } ?>
-                                        <?php if($departmentflag){ ?>
+                                        <?php if($MJTC_departmentflag){ ?>
                                         <div class="mjtc-sprt-det-trsfer-dep">
                                             <a target="blank" href="#" class="mjtc-sprt-det-hdg-img mjtc-cp-video-department">
                                                 <img title="<?php echo esc_attr(__('watch video','majestic-support')); ?>" alt="<?php echo esc_html(__('watch video','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL) . '/includes/images/watch-video-icon.png'; ?>" />
                                             </a>
                                             <div class="mjtc-sprt-det-trsfer-dep-txt">
-                                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])); ?>: <?php echo esc_html(esc_html(majesticsupport::MJTC_getVarValue(majesticsupport::$_data[0]->departmentname))); ?>
+                                                <!-- Display heading based on field order  -->
+                                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])); ?>: <?php echo esc_html(majesticsupport::MJTC_getVarValue(majesticsupport::$_data[0]->departmentname)); ?>
                                             </div>
                                             <a title="<?php echo esc_attr(__('Change','majestic-support')); ?>" href="#" class="mjtc-sprt-det-hdg-btn" id="chng-dept">
                                                 <?php echo esc_html(__('Change','majestic-support')); ?>
@@ -2048,7 +2584,12 @@ $yesno = array(
                         <div class="mjtc-sprt-det-cnt mjtc-sprt-det-user-tkts" id="usr-tkt">
                             <div class="mjtc-sprt-det-hdg">
                                 <div class="mjtc-sprt-det-hdg-txt">
-                                    <?php echo esc_html(majesticsupport::$_data[0]->name).' '.esc_html(__('Tickets','majestic-support')); ?>
+                                    <?php
+                                    if(!empty($field_array['fullname'])) {
+                                        echo esc_html(majesticsupport::$_data[0]->name).' '. esc_html(__('Tickets','majestic-support'));
+                                    } else {
+                                        echo esc_html(__('Other Tickets','majestic-support'));
+                                    } ?>
                                 </div>
                             </div>
                             <div class="mjtc-sprt-det-usr-tkt-list">
@@ -2068,7 +2609,8 @@ $yesno = array(
                                                 <?php
                                                 if(isset($field_array['department'])){ ?>
                                                     <div class="mjtc-sprt-det-user-data">
-                                                        <span class="mjtc-sprt-det-user-tit"><?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])). ' : '; ?></span>
+                                                        <span class="mjtc-sprt-det-user-tit">
+                                                        <!-- Display heading based on field order  --><?php echo esc_html(majesticsupport::MJTC_getVarValue($field_array['department'])). ' : '; ?></span>
                                                         <span class="mjtc-sprt-det-user-val"><?php echo esc_html(majesticsupport::MJTC_getVarValue($usertickets->departmentname)); ?></span>
                                                     </div>
                                                     <?php
@@ -2081,15 +2623,14 @@ $yesno = array(
                                                     } ?>
                                                     <span class="mjtc-sprt-det-status">
                                                         <?php
-                                                            if ($usertickets->status == 4)
-                                                                $ticketmessage = esc_html(__('Closed', 'majestic-support'));
-                                                            elseif ($usertickets->status == 2)
-                                                                $ticketmessage = esc_html(__('In Progress', 'majestic-support'));
-                                                            elseif ($usertickets->status == 5)
-                                                                $ticketmessage = esc_html(__('Closed and merged', 'majestic-support'));
-                                                            else
-                                                            $ticketmessage = esc_html(__('Open', 'majestic-support'));
-                                                            echo esc_html($ticketmessage);
+                                                            if ($usertickets->status == 5 || 
+                                                                $usertickets->status == 3 || 
+                                                                $usertickets->status == 6) {
+                                                                $MJTC_ticketmessage = esc_html($usertickets->statustitle);
+                                                            } else {
+                                                                $MJTC_ticketmessage = esc_html(__('Open', 'majestic-support'));
+                                                            }
+                                                            echo esc_html($MJTC_ticketmessage);
                                                         ?>
                                                     </span>
                                                 </div>
@@ -2230,6 +2771,7 @@ $yesno = array(
                         ?>
                         <!-- ticket detail envato validation -->
                         <?php
+                        
                         if(in_array('envatovalidation', majesticsupport::$_active_addons) && !empty(majesticsupport::$_data[0]->envatodata)){
                             $envlicense = majesticsupport::$_data[0]->envatodata;
                             if(!empty($envlicense)){ ?>
@@ -2323,7 +2865,7 @@ $yesno = array(
                                                 <div class="mjtc-sprt-wc-order-item-title"><?php echo esc_html(__("Total Tickets",'majestic-support')); ?>:</div>
                                                 <div class="mjtc-sprt-wc-order-item-value">
                                                     <?php
-                                                    if($paidsupport['totalticket']==-1){
+                                                    if ($paidsupport['totalticket']==-1) {
                                                         echo esc_html(__("Unlimited",'majestic-support'));
                                                     } else {
                                                         echo esc_html($paidsupport['totalticket']);
@@ -2335,7 +2877,7 @@ $yesno = array(
                                                 <div class="mjtc-sprt-wc-order-item-title"><?php echo esc_html(__("Remaining Tickets",'majestic-support')); ?>:</div>
                                                 <div class="mjtc-sprt-wc-order-item-value">
                                                     <?php
-                                                    if($paidsupport['totalticket']==-1){
+                                                    if ($paidsupport['totalticket']==-1) {
                                                         echo esc_html(__("Unlimited",'majestic-support'));
                                                     } else {
                                                         echo esc_html($paidsupport['remainingticket']);
@@ -2360,7 +2902,7 @@ $yesno = array(
                                                 <div class="mjtc-sprt-wc-order-item-title"><?php echo esc_html(__("Support Expiry",'majestic-support')); ?>:</div>
                                                 <div class="mjtc-sprt-wc-order-item-value">
                                                     <?php
-                                                    if($paidsupport['expiry']){
+                                                    if ($paidsupport['expiry']) {
                                                         echo esc_html(date_i18n("F d, Y", MJTC_majesticsupportphplib::MJTC_strtotime($paidsupport['expiry'])));
                                                     } else {
                                                         echo esc_html(__("No expiration",'majestic-support'));
@@ -2394,7 +2936,7 @@ $yesno = array(
                                 foreach($paidsupportitems as $row){
                                     $paidsupportlist[] = (object) array(
                                         'id' => $row->itemid,
-                                        'text' => esc_html(__("Order",'majestic-support')).' #'.esc_html($row->orderid).', '.esc_html($row->itemname).', '.esc_html(__("Remaining",'majestic-support')).':'.esc_html($row->remaining).' '.esc_html(__("Out of",'majestic-support')).':'.esc_html($row->total),
+                                        'text' => esc_html(__("Order",'majestic-support')).' #'.esc_html($row->orderid).', '.esc_html($row->itemname).', '. esc_html(__("Remaining",'majestic-support')).':'.esc_html($row->remaining).' '. esc_html(__("Out of",'majestic-support')).':'.esc_html($row->total),
                                     );
                                 }
                                 ?>

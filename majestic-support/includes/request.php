@@ -8,7 +8,7 @@ class MJTC_request {
      * Check Request from both the Get and post method
      */
 
-    static function MJTC_getVar($variable_name, $method = null, $defaultvalue = null, $typecast = null) {
+    static function MJTC_getVar($variable_name, $method = null, $MJTC_defaultvalue = null, $typecast = null) {
         // nonce varification start
         // $nonce = majesticsupport::$_data['sanitized_args']['_wpnonce'];
         // if (! wp_verify_nonce( $nonce, 'VERIFY-MAJESTIC-SUPPORT-INTERNAL-NONCE') ) {
@@ -16,24 +16,24 @@ class MJTC_request {
         // }
         // nonce varification end
 
-        $value = null;
+        $MJTC_value = null;
         if ($method == null) {
             if (isset($_GET[$variable_name])) {
                 if(is_array($_GET[$variable_name])){
-                    $value = majesticsupport::MJTC_sanitizeData($_GET[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
+                    $MJTC_value = majesticsupport::MJTC_sanitizeData($_GET[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
                 }else{
-                    $value = majesticsupport::MJTC_sanitizeData($_GET[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
+                    $MJTC_value = majesticsupport::MJTC_sanitizeData($_GET[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
                 }
             } elseif (isset($_POST[$variable_name])) {
                 if(is_array($_POST[$variable_name])){
-                    $value = majesticsupport::MJTC_sanitizeData($_POST[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
+                    $MJTC_value = majesticsupport::MJTC_sanitizeData($_POST[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
                 }else{
-                    $value = majesticsupport::MJTC_sanitizeData($_POST[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
+                    $MJTC_value = majesticsupport::MJTC_sanitizeData($_POST[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
                 }
             } elseif (get_query_var($variable_name)) {
-                $value = get_query_var($variable_name);
+                $MJTC_value = get_query_var($variable_name);
             } elseif (isset(majesticsupport::$_data['sanitized_args'][$variable_name]) && majesticsupport::$_data['sanitized_args'][$variable_name] != '') {
-                $value = majesticsupport::$_data['sanitized_args'][$variable_name];
+                $MJTC_value = majesticsupport::$_data['sanitized_args'][$variable_name];
             }
         } else {
             $method = MJTC_majesticsupportphplib::MJTC_strtolower($method);
@@ -41,17 +41,17 @@ class MJTC_request {
                 case 'post':
                     if (isset($_POST[$variable_name]))
                         if (is_array($_POST[$variable_name])) {
-                            $value = majesticsupport::MJTC_sanitizeData($_POST[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
+                            $MJTC_value = majesticsupport::MJTC_sanitizeData($_POST[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
                         }else{
-                            $value = majesticsupport::MJTC_sanitizeData($_POST[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
+                            $MJTC_value = majesticsupport::MJTC_sanitizeData($_POST[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
                         }
                     break;
                 case 'get':
                     if (isset($_GET[$variable_name]))
                         if (is_array($_GET[$variable_name])) {
-                            $value = majesticsupport::MJTC_sanitizeData($_GET[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
+                            $MJTC_value = majesticsupport::MJTC_sanitizeData($_GET[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
                         }else{
-                            $value = majesticsupport::MJTC_sanitizeData($_GET[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
+                            $MJTC_value = majesticsupport::MJTC_sanitizeData($_GET[$variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
                         }
                     break;
             }
@@ -60,22 +60,22 @@ class MJTC_request {
             $typecast = MJTC_majesticsupportphplib::MJTC_strtolower($typecast);
             switch ($typecast) {
                 case "int":
-                    $value = (int) $value;
+                    $MJTC_value = (int) $MJTC_value;
                     break;
                 case "string":
-                    $value = (string) $value;
+                    $MJTC_value = (string) $MJTC_value;
                     break;
             }
         }
-        if ($value == null)
-            $value = $defaultvalue;
-        if(!is_array($value)){
-            if ($value != null){
-                $value = MJTC_majesticsupportphplib::MJTC_stripslashes($value);
+        if ($MJTC_value == null)
+            $MJTC_value = $MJTC_defaultvalue;
+        if(!is_array($MJTC_value)){
+            if ($MJTC_value != null){
+                $MJTC_value = MJTC_majesticsupportphplib::MJTC_stripslashes($MJTC_value);
             }
         }
         
-        return $value;
+        return $MJTC_value;
     }
 
     /*
@@ -101,9 +101,9 @@ class MJTC_request {
                     $array = majesticsupport::MJTC_sanitizeDatay($_GET);// MJTC_sanitizeData() function uses wordpress santize functions
                     break;
             }
-            foreach($array as $key=>$value){
-                if(is_string($value)){
-                    $array[$key] = MJTC_majesticsupportphplib::MJTC_stripslashes($value);
+            foreach($array as $MJTC_key=>$MJTC_value){
+                if(is_string($MJTC_value)){
+                    $array[$MJTC_key] = MJTC_majesticsupportphplib::MJTC_stripslashes($MJTC_value);
                 }
             }
         }
@@ -114,7 +114,7 @@ class MJTC_request {
      * Check Request from both the Get and post method
      */
 
-    static function MJTC_getLayout($layout, $method, $defaultvalue) {
+    static function MJTC_getLayout($layout, $method, $MJTC_defaultvalue) {
         // nonce varification start
         $nonce = majesticsupport::$_data['sanitized_args']['_wpnonce'];
         if (! wp_verify_nonce( $nonce, 'VERIFY-MAJESTIC-SUPPORT-INTERNAL-NONCE') ) {
@@ -144,7 +144,7 @@ class MJTC_request {
               $layoutname = majesticsupport::$_data['sanitized_args'][$layout];
         }
         if ($layoutname == null) {
-            $layoutname = $defaultvalue;
+            $layoutname = $MJTC_defaultvalue;
         }
         if (is_admin()) {
             $layoutname = 'admin_' . $layoutname;

@@ -77,20 +77,20 @@ if (majesticsupport::$_config['offline'] == 2) {
                         </div>
                         <div class="mjtc-support-table-body">
                             <?php
-                                            foreach (majesticsupport::$_data[0] AS $department) {
-                                                $type = ($department->ispublic == 1) ? esc_html(__('Public', 'majestic-support')) : esc_html(__('Private', 'majestic-support'));
-                                                $status = ($department->status == 1) ? 'good.png' : 'close.png'; ?>
+                                            foreach (majesticsupport::$_data[0] AS $MJTC_department) {
+                                                $type = ($MJTC_department->ispublic == 1) ? esc_html(__('Public', 'majestic-support')) : esc_html(__('Private', 'majestic-support'));
+                                                $status = ($MJTC_department->status == 1) ? 'good.png' : 'close.png'; ?>
                             <div class="mjtc-support-data-row">
                                 <div class="mjtc-support-table-body-col mjtc-col-md-4 mjtc-col-xs-4">
                                     <span
                                         class="mjtc-support-display-block"><?php echo esc_html(__('Department','majestic-support')); ?>:</span>
                                     <span class="mjtc-support-title"><a class="mjtc-support-title-anchor"
-                                            href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'department', 'mjslay'=>'adddepartment', 'majesticsupportid'=>$department->id))); ?>"><?php echo esc_html(majesticsupport::MJTC_getVarValue($department->departmentname)); ?></a></span>
+                                            href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'department', 'mjslay'=>'adddepartment', 'majesticsupportid'=>$MJTC_department->id))); ?>"><?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_department->departmentname)); ?></a></span>
                                 </div>
                                 <div class="mjtc-support-table-body-col mjtc-col-md-3 mjtc-col-xs-3">
                                     <span
                                         class="mjtc-support-display-block"><?php echo esc_html(__('Outgoing','majestic-support')); ?>:</span>
-                                    <?php echo esc_html($department->outgoingemail); ?>
+                                    <?php echo esc_html($MJTC_department->outgoingemail); ?>
                                 </div>
                                 <div class="mjtc-support-table-body-col mjtc-col-md-1 mjtc-col-xs-1">
                                     <span
@@ -101,15 +101,15 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 <div class="mjtc-support-table-body-col mjtc-col-md-2 mjtc-col-xs-2">
                                     <span
                                         class="mjtc-support-display-block"><?php echo esc_html(__('Created','majestic-support')); ?>:</span>
-                                    <?php echo esc_html(date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($department->created))); ?>
+                                    <?php echo esc_html(date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_department->created))); ?>
                                 </div>
                                 <div class="mjtc-support-table-body-col mjtc-col-md-2 mjtc-col-xs-2">
                                     <span
                                         class="mjtc-support-display-block"><?php echo esc_html(__('Action','majestic-support')); ?>:</span>
                                     <a title="<?php echo esc_attr(__('Edit', 'majestic-support')); ?>"  class="mjtc-support-table-action-btn"
-                                        href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'department', 'mjslay'=>'adddepartment', 'majesticsupportid'=>$department->id))); ?>"><img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/downloadicon/edit.png" /></a>&nbsp;&nbsp;
+                                        href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'department', 'mjslay'=>'adddepartment', 'majesticsupportid'=>$MJTC_department->id))); ?>"><img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/downloadicon/edit.png" /></a>&nbsp;&nbsp;
                                     <a title="<?php echo esc_attr(__('Delete', 'majestic-support')); ?>"  class="mjtc-support-table-action-btn"
-                                        onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'department', 'task'=>'deletedepartment', 'action'=>'mstask', 'departmentid'=>$department->id, 'mspageid'=>get_the_ID())),'delete-department-'.$department->id)); ?>"><img
+                                        onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'department', 'task'=>'deletedepartment', 'action'=>'mstask', 'departmentid'=>$MJTC_department->id, 'mspageid'=>get_the_ID())),'delete-department-'.$MJTC_department->id)); ?>"><img
                                             alt="<?php echo esc_html(__('image', 'majestic-support')); ?>"
                                             src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/downloadicon/delete.png" /></a>
                                 </div>
@@ -120,8 +120,8 @@ if (majesticsupport::$_config['offline'] == 2) {
                 </div>
                 <?php
                         if (majesticsupport::$_data[1]) {
-                            $deptData = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
-                            echo wp_kses($deptData, MJTC_ALLOWED_TAGS);
+                            $MJTC_deptData = '<div class="tablenav"><div class="tablenav-pages">' . wp_kses_post(majesticsupport::$_data[1]) . '</div></div>';
+                            echo wp_kses($MJTC_deptData, MJTC_ALLOWED_TAGS);
                         }?>
             </div>
             <?php
@@ -135,9 +135,9 @@ if (majesticsupport::$_config['offline'] == 2) {
                 MJTC_layout::MJTC_getNotStaffMember();
             }
         } else {
-            $redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'department', 'mjslay'=>'departments'));
-            $redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($redirect_url);
-            MJTC_layout::MJTC_getUserGuest($redirect_url);
+            $MJTC_redirect_url = majesticsupport::makeUrl(array('mjsmod'=>'department', 'mjslay'=>'departments'));
+            $MJTC_redirect_url = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_redirect_url);
+            MJTC_layout::MJTC_getUserGuest($MJTC_redirect_url);
         }
     } else { // User permission not granted
         MJTC_layout::MJTC_getPermissionNotGranted();

@@ -3,15 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // if header is calling later
 MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
 
-$color1 = majesticsupport::$_colors['color1'];
-$color2 = majesticsupport::$_colors['color2'];
-$color3 = majesticsupport::$_colors['color3'];
-$color4 = majesticsupport::$_colors['color4'];
-$color5 = majesticsupport::$_colors['color5'];
-$color6 = majesticsupport::$_colors['color6'];
-$color7 = majesticsupport::$_colors['color7'];
-$color8 = majesticsupport::$_colors['color8'];
-$color9 = majesticsupport::$_colors['color9'];
+$MJTC_color1 = majesticsupport::$_colors['color1'];
+$MJTC_color2 = majesticsupport::$_colors['color2'];
+$MJTC_color3 = majesticsupport::$_colors['color3'];
+$MJTC_color4 = majesticsupport::$_colors['color4'];
+$MJTC_color5 = majesticsupport::$_colors['color5'];
+$MJTC_color6 = majesticsupport::$_colors['color6'];
+$MJTC_color7 = majesticsupport::$_colors['color7'];
+$MJTC_color8 = majesticsupport::$_colors['color8'];
+$MJTC_color9 = majesticsupport::$_colors['color9'];
 
 
 $majesticsupport_css = '';
@@ -26,6 +26,7 @@ $majesticsupport_css .= '
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field-title{float: left;width: 100%;margin-bottom: 5px;text-transform: capitalize;}
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field{float: left;width: 100%;position: relative;}
 	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field input.mjtc-support-form-field-input{float: left;width: 100%;border-radius: 0px;padding: 10px;line-height: initial;height: 50px;}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field-description {float: left;width: 100%;margin-top: 10px;display:inine-block;}
 
 	select.mjtc-support-select-field{float: left;width: 100%;border-radius: 0px;background: url('.esc_url(MJTC_PLUGIN_URL).'includes/images/selecticon.png) 96% / auto no-repeat !important; }
 	div.mjtc-support-custom-radio-box {width: 20%;}
@@ -146,55 +147,55 @@ $majesticsupport_css .= '
 /*Code For Colors*/
 $majesticsupport_css .= '
 /* Add Form */
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field-title {color: '.$color2.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field input.mjtc-support-form-field-input{background-color:#fff;border:1px solid '.$color5.';color: '.$color4.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select#categoryid{background-color:'.$color3.';border:1px solid '.$color5.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.mjtc-support-select-field{background-color:#fff !important;border:1px solid '.$color5.';color: '.$color4.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.mjtc-support-form-field-select{background-color:'.$color3.' !important;border:1px solid '.$color5.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select#status{background-color:'.$color3.' !important;border:1px solid '.$color5.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select#parentid{background-color:'.$color3.' !important;border:1px solid '.$color5.';}
-	span.mjtc-support-sub-fields{background-color:'.$color3.' !important;border:1px solid '.$color5.';}
-	.mjtc-userpopup-link{color:'.$color2.';}
-	div#records div.ms_userpages a.ms_userlink:last-child{background-color:'.$color2.';color:'.$color7.';}
-	div#records div.ms_userpages a.ms_userlink:last-child:hover{background-color:'.$color1.';color:'.$color7.';}
-	div.mjtc-support-form-btn-wrp{border-top:2px solid '.$color2.';}
-	div.mjtc-support-reply-attachments div.mjtc-attachment-field-title{border:'.$color2.';}
-	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button{background-color:'.$color1.' !important;color:'.$color7.' !important;border: 1px solid '.$color5.';}
-	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button:hover{border-color: '.$color2.';}
-	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select {border: 1px solid '.$color5.';color: '.$color4.';background: '.$color7.';}
-	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button{background: '.$color2.';color:'.$color7.';border: 1px solid '.$color5.';}
-	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button:hover{border-color:'.$color1.';}
-	a.mjtc-support-delete-attachment{background-color:#ed3237;color:'.$color7.';}
-	div.mjtc-support-radio-btn-wrp{background-color:'.$color3.';border:1px solid '.$color5.';}
-	span.tk_attachments_addform{background-color:'.$color1.';color:'.$color7.';border: 1px solid '.$color5.';}
-	span.tk_attachments_addform:hover{border-color: '.$color2.';}
-	span.mjtc-support-apend-radio-btn{border:1px solid #6899d6;background-color: #fff;color: '.$color7.';}
-	div.tk_attachment_value_wrapperform{border: 1px solid '.$color5.';background: #fff;}
-	span.tk_attachment_value_text{border: 1px solid '.$color5.';background-color:'.$color7.';}
-	div.mjtc-support-assigned-tome{border:1px solid '.$color5.';background: #fff;}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field-title {color: '.$MJTC_color2.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field input.mjtc-support-form-field-input{background-color:#fff;border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select#categoryid{background-color:'.$MJTC_color3.';border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.mjtc-support-select-field{background-color:#fff !important;border:1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select.mjtc-support-form-field-select{background-color:'.$MJTC_color3.' !important;border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select#status{background-color:'.$MJTC_color3.' !important;border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select#parentid{background-color:'.$MJTC_color3.' !important;border:1px solid '.$MJTC_color5.';}
+	span.mjtc-support-sub-fields{background-color:'.$MJTC_color3.' !important;border:1px solid '.$MJTC_color5.';}
+	.mjtc-userpopup-link{color:'.$MJTC_color2.';}
+	div#records div.ms_userpages a.ms_userlink:last-child{background-color:'.$MJTC_color2.';color:'.$MJTC_color7.';}
+	div#records div.ms_userpages a.ms_userlink:last-child:hover{background-color:'.$MJTC_color1.';color:'.$MJTC_color7.';}
+	div.mjtc-support-form-btn-wrp{border-top:2px solid '.$MJTC_color2.';}
+	div.mjtc-support-reply-attachments div.mjtc-attachment-field-title{border:'.$MJTC_color2.';}
+	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button{background-color:'.$MJTC_color1.' !important;color:'.$MJTC_color7.' !important;border: 1px solid '.$MJTC_color5.';}
+	div.mjtc-support-form-btn-wrp input.mjtc-support-save-button:hover{border-color: '.$MJTC_color2.';}
+	div.mjtc-support-add-form-wrapper div.mjtc-support-from-field-wrp div.mjtc-support-from-field select {border: 1px solid '.$MJTC_color5.';color: '.$MJTC_color4.';background: '.$MJTC_color7.';}
+	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button{background: '.$MJTC_color2.';color:'.$MJTC_color7.';border: 1px solid '.$MJTC_color5.';}
+	div.mjtc-support-form-btn-wrp a.mjtc-support-cancel-button:hover{border-color:'.$MJTC_color1.';}
+	a.mjtc-support-delete-attachment{background-color:#ed3237;color:'.$MJTC_color7.';}
+	div.mjtc-support-radio-btn-wrp{background-color:'.$MJTC_color3.';border:1px solid '.$MJTC_color5.';}
+	span.tk_attachments_addform{background-color:'.$MJTC_color1.';color:'.$MJTC_color7.';border: 1px solid '.$MJTC_color5.';}
+	span.tk_attachments_addform:hover{border-color: '.$MJTC_color2.';}
+	span.mjtc-support-apend-radio-btn{border:1px solid #6899d6;background-color: #fff;color: '.$MJTC_color7.';}
+	div.tk_attachment_value_wrapperform{border: 1px solid '.$MJTC_color5.';background: #fff;}
+	span.tk_attachment_value_text{border: 1px solid '.$MJTC_color5.';background-color:'.$MJTC_color7.';}
+	div.mjtc-support-assigned-tome{border:1px solid '.$MJTC_color5.';background: #fff;}
 	span.MJTC_help-block{color:red;}
-	span.tk_attachments_configform {color: '.$color4.';}
-	div#userpopup{background: '.$color7.';}
-	div.ms-popup-header{background: '.$color1.';color:'.$color7.';}
-	div.ms-popup-wrapper{background-color:'.$color7.';}
-	div.mjtc-support-search-top div.mjtc-support-search-left div.mjtc-support-search-fields-wrp input.mjtc-support-search-input-fields{border:1px solid '.$color5.';background-color:#fff;color:'.$color4.';}
-	div.mjtc-support-search-top div.mjtc-support-search-right div.mjtc-support-search-btn-wrp input.mjtc-support-search-btn{background: '.$color1.';color:'.$color7.';border:1px solid '.$color5.';}
-	div.mjtc-support-search-top div.mjtc-support-search-right div.mjtc-support-search-btn-wrp input.mjtc-support-search-btn:hover{border-color:'.$color2.';}
-	div.mjtc-support-search-top div.mjtc-support-search-right div.mjtc-support-search-btn-wrp input.mjtc-support-reset-btn{background: '.$color2.';color:'.$color7.';border:1px solid '.$color5.';}
-	div.mjtc-support-search-top div.mjtc-support-search-right div.mjtc-support-search-btn-wrp input.mjtc-support-reset-btn:hover{border-color:'.$color1.';}
+	span.tk_attachments_configform {color: '.$MJTC_color4.';}
+	div#userpopup{background: '.$MJTC_color7.';}
+	div.ms-popup-header{background: '.$MJTC_color1.';color:'.$MJTC_color7.';}
+	div.ms-popup-wrapper{background-color:'.$MJTC_color7.';}
+	div.mjtc-support-search-top div.mjtc-support-search-left div.mjtc-support-search-fields-wrp input.mjtc-support-search-input-fields{border:1px solid '.$MJTC_color5.';background-color:#fff;color:'.$MJTC_color4.';}
+	div.mjtc-support-search-top div.mjtc-support-search-right div.mjtc-support-search-btn-wrp input.mjtc-support-search-btn{background: '.$MJTC_color1.';color:'.$MJTC_color7.';border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-search-top div.mjtc-support-search-right div.mjtc-support-search-btn-wrp input.mjtc-support-search-btn:hover{border-color:'.$MJTC_color2.';}
+	div.mjtc-support-search-top div.mjtc-support-search-right div.mjtc-support-search-btn-wrp input.mjtc-support-reset-btn{background: '.$MJTC_color2.';color:'.$MJTC_color7.';border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-search-top div.mjtc-support-search-right div.mjtc-support-search-btn-wrp input.mjtc-support-reset-btn:hover{border-color:'.$MJTC_color1.';}
 
-	div.mjtc-support-table-header{background-color:'.$color2.';color:'.$color7.'; border:1px solid '.$color5.';}
-	div.mjtc-support-table-header div.mjtc-support-table-header-col{color: '.$color7.';}
+	div.mjtc-support-table-header{background-color:'.$MJTC_color2.';color:'.$MJTC_color7.'; border:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-table-header div.mjtc-support-table-header-col{color: '.$MJTC_color7.';}
 	div.mjtc-support-table-header div.mjtc-support-table-header-col:last-child{}
-	div.mjtc-support-table-body div.mjtc-support-data-row{border: 0;border-bottom:1px solid '.$color5.';}
+	div.mjtc-support-table-body div.mjtc-support-data-row{border: 0;border-bottom:1px solid '.$MJTC_color5.';}
 	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col{}
 	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col:last-child{}
-	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col a.mjtc-userpopup-link {color:'.$color1.';}
-	th.mjtc-support-table-th{border-right:1px solid '.$color5.';}
-	tbody.mjtc-support-table-tbody{border:1px solid '.$color5.';}
-	td.mjtc-support-table-td{border-right:1px solid '.$color5.';}
-	div.mjtc-support-select-user-btn a#userpopup{background-color:'.$color1.';color:'.$color7.';border: 1px solid '.$color5.';}
-	div.mjtc-support-select-user-btn a#userpopup:hover{border-color: '.$color1.';}
+	div.mjtc-support-table-body div.mjtc-support-data-row div.mjtc-support-table-body-col a.mjtc-userpopup-link {color:'.$MJTC_color1.';}
+	th.mjtc-support-table-th{border-right:1px solid '.$MJTC_color5.';}
+	tbody.mjtc-support-table-tbody{border:1px solid '.$MJTC_color5.';}
+	td.mjtc-support-table-td{border-right:1px solid '.$MJTC_color5.';}
+	div.mjtc-support-select-user-btn a#userpopup{background-color:'.$MJTC_color1.';color:'.$MJTC_color7.';border: 1px solid '.$MJTC_color5.';}
+	div.mjtc-support-select-user-btn a#userpopup:hover{border-color: '.$MJTC_color1.';}
 	span#premade select#premadeid {background-color: #fff !important;}
 
 
