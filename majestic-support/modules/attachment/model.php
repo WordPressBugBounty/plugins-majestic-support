@@ -176,35 +176,55 @@ class MJTC_attachmentModel {
     function getDownloadAttachmentByName($file_name,$id){
         if(empty($file_name)) return false;
         if(!is_numeric($id)) return false;
-        $filename = MJTC_majesticsupportphplib::MJTC_str_replace(' ', '_',$file_name);
-        $filename = MJTC_majesticsupportphplib::MJTC_clean_file_path($filename);
-        $query = "SELECT attachmentdir FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE id = ".esc_sql($id);
-        $foldername = majesticsupport::$_db->get_var($query);
+        $download = false;
+        if(!MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()){
+            if(current_user_can('manage_options') || current_user_can('ms_support_ticket_tickets') ){
+                $download = true;
+            }else{
+                if( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()){
+                    $download = true;
+                }else{
+                    if(MJTC_includer::MJTC_getModel('ticket')->validateTicketDetailForUser($id)){
+                        $download = true;
+                    }
+                }
+            }
+        }else{ // user is visitor
+            $download = MJTC_includer::MJTC_getModel('ticket')->validateTicketDetailForVisitor($id);
+        }
+        if($download == true){
+            $filename = MJTC_majesticsupportphplib::MJTC_str_replace(' ', '_',$file_name);
+            $filename = MJTC_majesticsupportphplib::MJTC_clean_file_path($filename);
+            $query = "SELECT attachmentdir FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE id = ".esc_sql($id);
+            $foldername = majesticsupport::$_db->get_var($query);
 
-        $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-        $maindir = wp_upload_dir();
-        $path = $maindir['basedir'];
-        $path = $path .'/'.$MJTC_datadirectory;
+            $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
+            $maindir = wp_upload_dir();
+            $path = $maindir['basedir'];
+            $path = $path .'/'.$MJTC_datadirectory;
 
-        $path = $path . '/attachmentdata';
-        $path = $path . '/ticket/' . $foldername;
-        $file = $path . '/'.$filename;
-        // remove this code after version "1.0.7"
-        MJTC_includer::MJTC_getModel('majesticsupport')->generateIndexFile($path);
-        // remove above code after version "1.0.7"
+            $path = $path . '/attachmentdata';
+            $path = $path . '/ticket/' . $foldername;
+            $file = $path . '/'.$filename;
+            // remove this code after version "1.0.7"
+            MJTC_includer::MJTC_getModel('majesticsupport')->generateIndexFile($path);
+            // remove above code after version "1.0.7"
 
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename=' . MJTC_majesticsupportphplib::MJTC_basename($file));
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($file));
-        flush();
-        readfile($file);
-        exit();
-        exit;
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename=' . MJTC_majesticsupportphplib::MJTC_basename($file));
+            header('Content-Transfer-Encoding: binary');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($file));
+            flush();
+            readfile($file);
+            exit();
+        }else{
+            include( get_query_template( '404' ) );
+            exit;
+        }
 
     }
 

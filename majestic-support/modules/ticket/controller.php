@@ -18,7 +18,7 @@ class MJTC_ticketController {
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
         // remove this in the version 1.1.3
         include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-        MJTC_updates::MJTC_checkUpdates('112');
+        MJTC_updates::MJTC_checkUpdates('113');
         // remove this in the version 1.1.3
         if (self::canaddfile($layout)) {
             switch ($layout) {

@@ -3,14 +3,14 @@
 /**
  * @package Majestic Support
  * @author Majestic Support
- * @version 1.1.2
+ * @version 1.1.3
  */
 /*
   Plugin Name: Majestic Support - The Leading-Edge Help Desk & Customer Support Plugin
   Plugin URI: https://www.majesticsupport.com
   Description: Majestic Support is a trusted open source ticket system. Majestic Support is a simple, easy to use, web-based customer support system. User can create ticket from front-end. Majestic Support comes packed with lot features than most of the expensive(and complex) support ticket system on market. Majestic Support provide you best industry Majestic Support system.
   Author: Majestic Support
-  Version: 1.1.2
+  Version: 1.1.3
   License: GPLv3
   Text Domain: majestic-support
   
@@ -66,7 +66,7 @@ class majesticsupport {
         self::$_data = array();
         self::$_search = array();
         self::$_captcha = array();
-        self::$_currentversion = '112';
+        self::$_currentversion = '113';
         self::$_addon_query = array('select'=>'','join'=>'','where'=>'');
         self::$_mjtcsession = MJTC_includer::MJTC_getObjectClass('wphdsession');
         global $wpdb;
@@ -1413,7 +1413,7 @@ function majesticsupport_upgrade_completed( $upgrader_object, $options ) {
                 // restore colors data end
                 update_option('ms_currentversion', majesticsupport::$_currentversion);
                 include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-                MJTC_updates::MJTC_checkUpdates('112');
+                MJTC_updates::MJTC_checkUpdates('113');
                 MJTC_includer::MJTC_getModel('majesticsupport')->updateColorFile();
                 MJTC_includer::MJTC_getModel('majesticsupport')->mjtc_check_license_status();
                 MJTC_includer::MJTC_getModel('majesticsupport')->MSAddonsAutoUpdate();
