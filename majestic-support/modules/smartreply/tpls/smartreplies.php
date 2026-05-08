@@ -21,16 +21,16 @@ if (majesticsupport::$_config['offline'] == 2) {
                 <?php MJTC_message::MJTC_getMessage(); ?>
                 <?php include_once(MJTC_PLUGIN_PATH . 'includes/header.php'); ?>
                 <div class="mjtc-support-top-sec-header">
-                    <img class="mjtc-transparent-header-img1" alt="<?php echo esc_html(__('image', 'majestic-support')); ?>"
+                    <img class="mjtc-transparent-header-img1" alt="<?php echo esc_attr(__('Image', 'majestic-support')); ?>"
                         src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/tp-image.png" />
                     <div class="mjtc-support-top-sec-left-header">
                         <div class="mjtc-support-main-heading">
                             <?php echo esc_html(__("Smart Replies",'majestic-support')); ?>
                         </div>
-                        <?php MJTC_includer::MJTC_getModel('majesticsupport')->getPageBreadcrumps('smartreplies'); ?>
+                        <div class="mjtc-support-sub-heading"><?php echo esc_html(__("Define and manage predefined responses used for quick and consistent ticket replies.",'majestic-support')); ?></div>
                     </div>
                     <div class="mjtc-support-top-sec-right-header">
-                        <a <?php echo esc_attr($id); ?> href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'mjslay'=>'addsmartreply'))); ?>"
+                        <a <?php echo esc_attr($MJTC_id); ?> href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'mjslay'=>'addsmartreply'))); ?>"
                             class="mjtc-support-button-header"><?php echo esc_html(__("Add Smart Reply",'majestic-support')); ?>
                         </a>
                     </div>
@@ -61,22 +61,26 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 <div class="mjtc-support-download-content-wrp">
                                     <div class="mjtc-support-table-wrp">
                                         <?php
-                                        foreach (majesticsupport::$_data[0] AS $smartreply) { ?>
+                                        foreach (majesticsupport::$_data[0] AS $MJTC_smartreply) { ?>
                                             <div class="ms-smart-reply-listing-wrp">
                                                 <div class="ms-smart-reply-listing-head">
                                                     <div class="ms-smart-reply-listing-head-left">
-                                                        <a title="<?php echo esc_attr(__('Title','majestic-support')); ?>" href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'mjslay'=>'addsmartreply', 'majesticsupportid'=>$smartreply->id))); ?>">
-                                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($smartreply->title)); ?>
+                                                        <a title="<?php echo esc_attr(__('Title','majestic-support')); ?>" href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'mjslay'=>'addsmartreply', 'majesticsupportid'=>$MJTC_smartreply->id))); ?>">
+                                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_smartreply->title)); ?>
                                                         </a>
                                                     </div>
                                                     <div class="ms-smart-reply-listing-head-right">
-                                                        <a title="<?php echo esc_attr(__('Edit','majestic-support')); ?>" class="action-btn" href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'mjslay'=>'addsmartreply', 'majesticsupportid'=>$smartreply->id))); ?>"><img alt="<?php echo esc_html(__('Edit','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/edit.png" /></a>&nbsp;&nbsp;
-                                                        <a title="<?php echo esc_attr(__('Delete','majestic-support')); ?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'task'=>'deletesmartreply', 'action'=>'mstask', 'smartreplyid'=>$smartreply->id, 'mspageid'=>get_the_ID())),'delete-smartreply-'.$smartreply->id)); ?>"><img alt="<?php echo esc_html(__('Delete','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/delete.png" /></a>
+                                                        <a title="<?php echo esc_attr(__('Edit','majestic-support')); ?>" class="mjtc-support-table-action-btn" href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'mjslay'=>'addsmartreply', 'majesticsupportid'=>$MJTC_smartreply->id))); ?>">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                                                        </a>
+                                                        <a title="<?php echo esc_attr(__('Delete','majestic-support')); ?>" class="mjtc-support-table-action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'smartreply', 'task'=>'deletesmartreply', 'action'=>'mstask', 'smartreplyid'=>$MJTC_smartreply->id, 'mspageid'=>get_the_ID())),'delete-smartreply-'.$MJTC_smartreply->id)); ?>">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+                                                        </a>
                                                     </div>
                                                 </div>
                                                 <div class="ms-smart-reply-listing-body">
                                                     <?php 
-                                                    $MJTC_ticketsubject = MJTC_majesticsupportphplib::MJTC_preg_replace("/\\\\'/", "'", $smartreply->ticketsubjects);
+                                                    $MJTC_ticketsubject = MJTC_majesticsupportphplib::MJTC_preg_replace("/\\\\'/", "'", $MJTC_smartreply->ticketsubjects);
 
                                                     $MJTC_ticketsubjects = json_decode($MJTC_ticketsubject);
                                                     foreach ($MJTC_ticketsubjects as $MJTC_ticketsubject) { ?>
@@ -85,8 +89,8 @@ if (majesticsupport::$_config['offline'] == 2) {
                                                         </div>
                                                     <?php } ?>
                                                     <div class="ms-smart-reply-listing-ticket-reply">
-                                                        <img alt="<?php echo esc_html(__('Edit','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/smart-reply/text.png" />
-                                                        <span><?php echo esc_html(majesticsupport::MJTC_getVarValue(MJTC_majesticsupportphplib::MJTC_strip_tags($smartreply->reply))); ?></span>
+                                                        <svg class="ms-reply-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"></path></svg>
+                                                        <span><?php echo esc_html(majesticsupport::MJTC_getVarValue(MJTC_majesticsupportphplib::MJTC_strip_tags($MJTC_smartreply->reply))); ?></span>
                                                     </div>
                                                 </div>
                                             </div>

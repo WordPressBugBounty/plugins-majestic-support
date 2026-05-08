@@ -8,310 +8,310 @@ class MJTC_majesticsupportphplib {
     function __construct() {
     }
 
-    static function MJTC_str_replace($search,$replace,$content){
-        if($content == ''){
-            return $content;
+    static function MJTC_str_replace($MJTC_search,$MJTC_replace,$MJTC_content){
+        if($MJTC_content == ''){
+            return $MJTC_content;
         }
-        if($replace === null){
-            return $content;
+        if($MJTC_replace === null){
+            return $MJTC_content;
         }
 
-        $content = str_replace($search, $replace, $content);
-        return $content;
+        $MJTC_content = str_replace($MJTC_search, $MJTC_replace, $MJTC_content);
+        return $MJTC_content;
     }
 
-    static function MJTC_safe_encoding($string){
-        if($string == ''){
-            return $string;
+    static function MJTC_safe_encoding($MJTC_string){
+        if($MJTC_string == ''){
+            return $MJTC_string;
         }
-        $string = base64_encode($string);
-        //return mb_convert_encoding($string, 'UTF-8', mb_detect_encoding($string));
-        return $string;
+        $MJTC_string = base64_encode($MJTC_string);
+        //return mb_convert_encoding($MJTC_string, 'UTF-8', mb_detect_encoding($MJTC_string));
+        return $MJTC_string;
     }
 
-    static function MJTC_safe_decoding($string){
-        if($string == ''){
-            return $string;
+    static function MJTC_safe_decoding($MJTC_string){
+        if($MJTC_string == ''){
+            return $MJTC_string;
         }
-        $string = base64_decode($string);
-        return $string;
+        $MJTC_string = base64_decode($MJTC_string);
+        return $MJTC_string;
     }
 
 
-    public static function MJTC_strstr($haystack, $needle) {
-        if($haystack == '' || $needle == ''){
+    public static function MJTC_strstr($MJTC_haystack, $MJTC_needle) {
+        if($MJTC_haystack == '' || $MJTC_needle == ''){
             return false;
         }
-        return strstr($haystack, $needle);
+        return strstr($MJTC_haystack, $MJTC_needle);
     }
 
-    public static function MJTC_explode($separator, $haystack) {
-        if($separator == ''){
+    public static function MJTC_explode($MJTC_separator, $MJTC_haystack) {
+        if($MJTC_separator == ''){
             return array();
         }
-        if($haystack == ''){
+        if($MJTC_haystack == ''){
             return array();
         }
-        return explode($separator, $haystack);
+        return explode($MJTC_separator, $MJTC_haystack);
     }
     
-    public static function MJTC_strip_tags($string, $allowable_tags = NULL) {
-      if (!is_null($string)) {
-        return strip_tags($string, $allowable_tags);
+    public static function MJTC_strip_tags($MJTC_string, $MJTC_allowable_tags = NULL) {
+      if (!is_null($MJTC_string)) {
+        return strip_tags($MJTC_string, $MJTC_allowable_tags);
       }
-      return $string;
+      return $MJTC_string;
     }
 
 
-    public static function MJTC_htmlentities($string) {
-        if($string == ''){
+    public static function MJTC_htmlentities($MJTC_string) {
+        if($MJTC_string == ''){
             return '';
         }
-        return htmlentities($string);
+        return htmlentities($MJTC_string);
     }
 
-    public static function MJTC_strtoupper($string) {
-        if($string == ''){
+    public static function MJTC_strtoupper($MJTC_string) {
+        if($MJTC_string == ''){
             return '';
         }
-        return strtoupper($string);
+        return strtoupper($MJTC_string);
     }
 
-    public static function MJTC_basename($string,$suffix = '') {
-        $basename = '';
-        if($string !== ''){
-           $basename = basename($string,$suffix);
+    public static function MJTC_basename($MJTC_string,$MJTC_suffix = '') {
+        $MJTC_basename = '';
+        if($MJTC_string !== ''){
+           $MJTC_basename = basename($MJTC_string,$MJTC_suffix);
         }
-        return $basename;
+        return $MJTC_basename;
     }
 
-    public static function MJTC_dirname($string,$lvls = 1) {
-        $dirname = '';
-        if($string !== ''){
-           $dirname = dirname($string,$lvls);
+    public static function MJTC_dirname($MJTC_string,$MJTC_lvls = 1) {
+        $MJTC_dirname = '';
+        if($MJTC_string !== ''){
+           $MJTC_dirname = dirname($MJTC_string,$MJTC_lvls);
         }
-        return $dirname;
+        return $MJTC_dirname;
     }
 
 
-    public static function MJTC_substr($str, $start, $length = null) {
-        $output = null;
-        if ($str !== null) {
-            if ($length !== null) {
-                $output = substr($str, $start, $length);
+    public static function MJTC_substr($MJTC_str, $MJTC_start, $MJTC_length = null) {
+        $MJTC_output = null;
+        if ($MJTC_str !== null) {
+            if ($MJTC_length !== null) {
+                $MJTC_output = substr($MJTC_str, $MJTC_start, $MJTC_length);
             } else {
-                $output = substr($str, $start);
+                $MJTC_output = substr($MJTC_str, $MJTC_start);
             }
         }
-        return $output;
+        return $MJTC_output;
     }
 
 
-    public static function MJTC_ucwords($str, $delimiters = "") {
-        $output = null;
-        if ($str !== null) {
-            $output = ucwords($str, $delimiters);
+    public static function MJTC_ucwords($MJTC_str, $MJTC_delimiters = "") {
+        $MJTC_output = null;
+        if ($MJTC_str !== null) {
+            $MJTC_output = ucwords($MJTC_str, $MJTC_delimiters);
         }
-        return $output;
+        return $MJTC_output;
     }
 
     // The use of function str_rot13() is forbidden
 
-    public static function MJTC_preg_replace($pattern, $replacement, $MJTC_subject, $limit = -1, &$MJTC_count = null){
-        $output = null;
-        if ($pattern !== null && $replacement !== null && $MJTC_subject !== null) {
-            $output = preg_replace($pattern, $replacement, $MJTC_subject, $limit, $MJTC_count);
+    public static function MJTC_preg_replace($MJTC_pattern, $MJTC_replacement, $MJTC_subject, $MJTC_limit = -1, &$MJTC_count = null){
+        $MJTC_output = null;
+        if ($MJTC_pattern !== null && $MJTC_replacement !== null && $MJTC_subject !== null) {
+            $MJTC_output = preg_replace($MJTC_pattern, $MJTC_replacement, $MJTC_subject, $MJTC_limit, $MJTC_count);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_strlen($str){
-        $output = null;
-        if ($str !== null) {
-            $output = strlen($str);
+    public static function MJTC_strlen($MJTC_str){
+        $MJTC_output = null;
+        if ($MJTC_str !== null) {
+            $MJTC_output = strlen($MJTC_str);
         }
-        return $output;
+        return $MJTC_output;
     }
 
 
-    public static function MJTC_md5($str, $raw_output = false){
-        $output = null;
-        if ($str !== null) {
-            $output = md5($str, $raw_output);
+    public static function MJTC_md5($MJTC_str, $MJTC_raw_output = false){
+        $MJTC_output = null;
+        if ($MJTC_str !== null) {
+            $MJTC_output = md5($MJTC_str, $MJTC_raw_output);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_preg_match($pattern, $MJTC_subject, &$matches = null, $flags = 0, $offset = 0){
-        $output = null;
-        if ($pattern !== null && $MJTC_subject !== null) {
-            $output = preg_match($pattern, $MJTC_subject, $matches, $flags, $offset);
+    public static function MJTC_preg_match($MJTC_pattern, $MJTC_subject, &$matches = null, $MJTC_flags = 0, $MJTC_offset = 0){
+        $MJTC_output = null;
+        if ($MJTC_pattern !== null && $MJTC_subject !== null) {
+            $MJTC_output = preg_match($MJTC_pattern, $MJTC_subject, $matches, $MJTC_flags, $MJTC_offset);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_strtolower($str){
-        $output = null;
-        if ($str !== null) {
-            $output = strtolower($str);
+    public static function MJTC_strtolower($MJTC_str){
+        $MJTC_output = null;
+        if ($MJTC_str !== null) {
+            $MJTC_output = strtolower($MJTC_str);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_strpos($haystack, $needle, $offset = 0){
-        $output = null;
-        if ($haystack !== null && $needle !== null) {
-            $output = strpos($haystack, $needle, $offset);
+    public static function MJTC_strpos($MJTC_haystack, $MJTC_needle, $MJTC_offset = 0){
+        $MJTC_output = null;
+        if ($MJTC_haystack !== null && $MJTC_needle !== null) {
+            $MJTC_output = strpos($MJTC_haystack, $MJTC_needle, $MJTC_offset);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_str_repeat($input, $multiplier){
-        $output = null;
-        if ($input !== null && $multiplier !== null) {
-            $output = str_repeat($input, $multiplier);
+    public static function MJTC_str_repeat($MJTC_input, $multiplier){
+        $MJTC_output = null;
+        if ($MJTC_input !== null && $multiplier !== null) {
+            $MJTC_output = str_repeat($MJTC_input, $multiplier);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_stripslashes($str){
-        $output = null;
-        if ($str !== null) {
-            $output = stripslashes($str);
+    public static function MJTC_stripslashes($MJTC_str){
+        $MJTC_output = null;
+        if ($MJTC_str !== null) {
+            $MJTC_output = stripslashes($MJTC_str);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_htmlspecialchars($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding = 'UTF-8', $double_encode = true){
-        $output = null;
-        if ($string !== null) {
-            $output = htmlspecialchars($string, $flags, $encoding, $double_encode);
+    public static function MJTC_htmlspecialchars($MJTC_string, $MJTC_flags = ENT_COMPAT | ENT_HTML401, $MJTC_encoding = 'UTF-8', $MJTC_double_encode = true){
+        $MJTC_output = null;
+        if ($MJTC_string !== null) {
+            $MJTC_output = htmlspecialchars($MJTC_string, $MJTC_flags, $MJTC_encoding, $MJTC_double_encode);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_setcookie($name, $MJTC_value = "", $expires = 0, $path = "", $domain = "", $secure = false, $httponly = false){
-        $output = null;
-        if ($name != null && $domain !== null) {
+    public static function MJTC_setcookie($MJTC_name, $MJTC_value = "", $MJTC_expires = 0, $MJTC_path = "", $MJTC_domain = "", $MJTC_secure = false, $MJTC_httponly = false){
+        $MJTC_output = null;
+        if ($MJTC_name != null && $MJTC_domain !== null) {
             if (!headers_sent()) {
-          	    $output = setcookie($name, $MJTC_value, $expires, $path, $domain, $secure, $httponly);
+          	    $MJTC_output = setcookie($MJTC_name, $MJTC_value, $MJTC_expires, $MJTC_path, $MJTC_domain, $MJTC_secure, $MJTC_httponly);
             }
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_urlencode($str){
-        $output = null;
-        if ($str !== null) {
-            $output = urlencode($str);
+    public static function MJTC_urlencode($MJTC_str){
+        $MJTC_output = null;
+        if ($MJTC_str !== null) {
+            $MJTC_output = urlencode($MJTC_str);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_crypt($str, $salt = null)
+    public static function MJTC_crypt($MJTC_str, $MJTC_salt = null)
     {
-        $output = null;
-        if ($str !== null) {
-            if ($salt !== null) {
-                $output = crypt($str, $salt);
+        $MJTC_output = null;
+        if ($MJTC_str !== null) {
+            if ($MJTC_salt !== null) {
+                $MJTC_output = crypt($MJTC_str, $MJTC_salt);
             } else {
-                $output = crypt($str);
+                $MJTC_output = crypt($MJTC_str);
             }
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_urldecode($str)
+    public static function MJTC_urldecode($MJTC_str)
     {
-        $output = null;
-        if ($str !== null) {
-            $output = urldecode($str);
+        $MJTC_output = null;
+        if ($MJTC_str !== null) {
+            $MJTC_output = urldecode($MJTC_str);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_trim($str, $charlist = ""){
-        $output = null;
-        if ($str !== null) {
-            $output = trim($str, $charlist);
+    public static function MJTC_trim($MJTC_str, $MJTC_charlist = ""){
+        $MJTC_output = null;
+        if ($MJTC_str !== null) {
+            $MJTC_output = trim($MJTC_str, $MJTC_charlist);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_rtrim($str, $chars = null){
-        $output = null;
-        if ($str !== null) {
-            if ($chars !== null) {
-                $output = rtrim($str, $chars);
+    public static function MJTC_rtrim($MJTC_str, $MJTC_chars = null){
+        $MJTC_output = null;
+        if ($MJTC_str !== null) {
+            if ($MJTC_chars !== null) {
+                $MJTC_output = rtrim($MJTC_str, $MJTC_chars);
             } else {
-                $output = rtrim($str);
+                $MJTC_output = rtrim($MJTC_str);
             }
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_addslashes($str){
-        $output = null;
-        if ($str !== null) {
-            $output = addslashes($str);
+    public static function MJTC_addslashes($MJTC_str){
+        $MJTC_output = null;
+        if ($MJTC_str !== null) {
+            $MJTC_output = addslashes($MJTC_str);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_stristr($haystack, $needle, $before_needle = false)
+    public static function MJTC_stristr($MJTC_haystack, $MJTC_needle, $MJTC_before_needle = false)
     {
-        $output = null;
-        if ($haystack !== null && $needle !== null) {
-            $output = stristr($haystack, $needle, $before_needle);
+        $MJTC_output = null;
+        if ($MJTC_haystack !== null && $MJTC_needle !== null) {
+            $MJTC_output = stristr($MJTC_haystack, $MJTC_needle, $MJTC_before_needle);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_ucfirst($str){
-        $output = null;
-        if ($str !== null) {
-            $output = ucfirst($str);
+    public static function MJTC_ucfirst($MJTC_str){
+        $MJTC_output = null;
+        if ($MJTC_str !== null) {
+            $MJTC_output = ucfirst($MJTC_str);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_parse_str($str, &$output){
-        if ($str !== null) {
-            parse_str($str, $output);
+    public static function MJTC_parse_str($MJTC_str, &$MJTC_output){
+        if ($MJTC_str !== null) {
+            parse_str($MJTC_str, $MJTC_output);
         }
     }
 
 
-    public static function MJTC_preg_split($pattern, $MJTC_subject, $limit = -1, $flags = 0){
-        $output = null;
-        if ($pattern !== null && $MJTC_subject !== null) {
-            $output = preg_split($pattern, $MJTC_subject, $limit, $flags);
+    public static function MJTC_preg_split($MJTC_pattern, $MJTC_subject, $MJTC_limit = -1, $MJTC_flags = 0){
+        $MJTC_output = null;
+        if ($MJTC_pattern !== null && $MJTC_subject !== null) {
+            $MJTC_output = preg_split($MJTC_pattern, $MJTC_subject, $MJTC_limit, $MJTC_flags);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_number_format($num,$decimals = 0,$decimal_separator = ".",$thousands_separator = ","){
-        $output = null;
-        if ($num !== null) {
-            $output = number_format($num,$decimals,$decimal_separator,$thousands_separator);
+    public static function MJTC_number_format($MJTC_num,$MJTC_decimals = 0,$MJTC_decimal_separator = ".",$thousands_separator = ","){
+        $MJTC_output = null;
+        if ($MJTC_num !== null) {
+            $MJTC_output = number_format($MJTC_num,$MJTC_decimals,$MJTC_decimal_separator,$thousands_separator);
         }
-        return $output;
+        return $MJTC_output;
     }
 
-    public static function MJTC_strtotime($datetime, $baseTimestamp = null){
-        $output = null;
-        if ($datetime !== null) {
-            $output = strtotime($datetime, $baseTimestamp);
+    public static function MJTC_strtotime($MJTC_datetime, $MJTC_baseTimestamp = null){
+        $MJTC_output = null;
+        if ($MJTC_datetime !== null) {
+            $MJTC_output = strtotime($MJTC_datetime, $MJTC_baseTimestamp);
         }
-        return $output;
+        return $MJTC_output;
     }
     
-    public static function MJTC_clean_file_path($path){ // this function to remove relative path componenets from module and file name
-        if($path != ''){
-            $path = str_replace('./','',$path);
-            $path = str_replace('..','',$path);
+    public static function MJTC_clean_file_path($MJTC_path){ // this function to remove relative path componenets from module and file name
+        if($MJTC_path != ''){
+            $MJTC_path = str_replace('./','',$MJTC_path);
+            $MJTC_path = str_replace('..','',$MJTC_path);
         }
-        return $path;
+        return $MJTC_path;
     }
 
 

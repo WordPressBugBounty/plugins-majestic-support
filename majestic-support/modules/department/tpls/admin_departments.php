@@ -28,7 +28,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
 <?php
 wp_enqueue_script('jquery-ui-sortable');
 $MJTC_protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
+wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css', array(), '1.0.0');
 MJTC_message::MJTC_getMessage(); ?>
 <div id="msadmin-wrapper">
     <div id="msadmin-leftmenu">
@@ -48,13 +48,13 @@ MJTC_message::MJTC_getMessage(); ?>
                 <form class="msadmin-form" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_majesticsupport&task=saveordering"),"save-ordering")); ?>">
                     <table id="majestic-support-table">
                         <tr class="majestic-support-table-heading">
-                            <th><?php echo esc_html(__('Ordering', 'majestic-support')); ?></th>
-                            <th class="left"><?php echo esc_html(__('Department Name', 'majestic-support')); ?></th>
-                            <th class="left"><?php echo esc_html(__('Outgoing Email', 'majestic-support')); ?></th>
-                            <th><?php echo esc_html(__('Default', 'majestic-support')); ?></th>
-                            <th><?php echo esc_html(__('Status', 'majestic-support')); ?></th>
-                            <th><?php echo esc_html(__('Created', 'majestic-support')); ?></th>
-                            <th><?php echo esc_html(__('Action', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-ordering"><?php echo esc_html(__('Ordering', 'majestic-support')); ?></th>
+                            <th class="left majestic-support-table-title"><?php echo esc_html(__('Department Name', 'majestic-support')); ?></th>
+                            <th class="left majestic-support-table-requestemail"><?php echo esc_html(__('Outgoing Email', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-status"><?php echo esc_html(__('Default', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-status"><?php echo esc_html(__('Status', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-created-date"><?php echo esc_html(__('Created', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-actions"><?php echo esc_html(__('Action', 'majestic-support')); ?></th>
                         </tr>
                         <?php
                         $MJTC_number = 0;
@@ -63,40 +63,51 @@ MJTC_message::MJTC_getMessage(); ?>
                         $MJTC_islastordershow = MJTC_pagination::MJTC_isLastOrdering(majesticsupport::$_data['total'], $MJTC_pagenum);
                         foreach (majesticsupport::$_data[0] AS $MJTC_department) {
                             if ($MJTC_department->isdefault == 1) {
-                                $MJTC_default = 'good.png';
+                                $MJTC_default = __('Yes', 'majestic-support');
+                                $MJTC_defaultclass = 'majestic-support-yes';
                             } elseif ($MJTC_department->isdefault == 2) {
-                                $MJTC_default = 'double_tick.png';
+                                $MJTC_default = __('Yes with auto assign', 'majestic-support');
+                                $MJTC_defaultclass = 'majestic-support-yes';
                             } else {
-                                $MJTC_default = 'close.png';
+                                $MJTC_default = __('No', 'majestic-support');
+                                $MJTC_defaultclass = 'majestic-support-no';
                             }
-                            $status = ($MJTC_department->status == 1) ? 'good.png' : 'close.png';
+                            $MJTC_status = ($MJTC_department->status == 1) ? __('Active', 'majestic-support') : __('Disabled', 'majestic-support');
+                            $MJTC_class = ($MJTC_department->status == 1)  ? 'majestic-support-active' : 'majestic-support-disabled';
                             ?>
                             <tr id="id_<?php echo esc_attr($MJTC_department->id); ?>" style="width: 100%;" >
-                                <td class="mjtc-textaligncenter ms-order-grab-column">
+                                <td class="mjtc-textaligncenter ms-order-grab-column majestic-support-table-ordering">
                                     <span class="majestic-support-table-responsive-heading">
                                         <?php echo esc_html(__('Ordering', 'majestic-support')); echo esc_html(" : "); ?>
                                     </span>
-                                    <img alt="<?php echo esc_html(__('grab','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/list-full.png'?>"/>
+                                    <div class="ms-grab-handle" title="Drag to reorder">
+                                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg>
+                                    </div>
                                 </td>
-                                <td class="left ms-left-row"><span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Department', 'majestic-support'));
+                                <td class="left ms-left-row majestic-support-table-title"><span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Department', 'majestic-support'));
                         echo esc_html(" : "); ?></span><a title="<?php echo esc_attr(__('Department','majestic-support')); ?>" href="?page=majesticsupport_department&mjslay=adddepartment&majesticsupportid=<?php echo esc_attr($MJTC_department->id); ?>"><?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_department->departmentname)); ?></a></td>
-                                <td class="left"><span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Outgoing Email', 'majestic-support'));
+                                <td class="left majestic-support-table-requestemail"><span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Outgoing Email', 'majestic-support'));
                         echo esc_html(" : "); ?></span><?php echo esc_html($MJTC_department->outgoingemail); ?></td>
-                                <td><span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Status', 'majestic-support'));
+                                <td class="majestic-support-table-status <?php echo esc_attr($MJTC_defaultclass); ?>"><span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Status', 'majestic-support'));
                                 echo esc_html(" : "); ?></span>
                                 <?php if($MJTC_department->isdefault == 2){ ?>
-                                    <a title="<?php echo esc_attr(__('Default','majestic-support')); ?>"> <img alt="<?php echo esc_html(__('Default','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL) .'includes/images/' . esc_attr($MJTC_default); ?>"/> </a>
+                                    <a title="<?php echo esc_attr(__('Default','majestic-support')); ?>"> <span class="majestic-support-table-status-dot"></span><?php echo esc_html($MJTC_default); ?></a>
                                 <?php }else{ ?>
-                                    <a title="<?php echo esc_attr(__('Default','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_department&task=changedefault&action=mstask&departmentid='. esc_attr($MJTC_department->id) .'&default='. esc_attr($MJTC_department->isdefault), 'change-default-'.esc_attr($MJTC_department->id)));?>"> <img alt="<?php echo esc_html(__('Default','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL  .'includes/images/' . esc_attr($MJTC_default)); ?>"/> </a>
+                                    <a title="<?php echo esc_attr(__('Default','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_department&task=changedefault&action=mstask&departmentid='. esc_attr($MJTC_department->id) .'&default='. esc_attr($MJTC_department->isdefault), 'change-default-'.esc_attr($MJTC_department->id)));?>"> <span class="majestic-support-table-status-dot"></span><?php echo esc_html($MJTC_default); ?></a>
                                 <?php } ?>
                                 </td>
-                                <td><span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Status', 'majestic-support'));
-                                echo esc_html(" : "); ?></span><a title="<?php echo esc_attr(__('Status','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_department&task=changestatus&action=mstask&departmentid='.esc_attr($MJTC_department->id),'change-status-'.esc_attr($MJTC_department->id)));?>"> <img alt="<?php echo esc_html(__('Status','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL . 'includes/images/' . esc_attr($status)); ?>"/> </a></td>
-                                <td><span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Created', 'majestic-support'));
+                                <td class="majestic-support-table-status <?php echo esc_attr($MJTC_class); ?>"><span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Status', 'majestic-support'));
+                                echo esc_html(" : "); ?></span><a title="<?php echo esc_attr(__('Status','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_department&task=changestatus&action=mstask&departmentid='.esc_attr($MJTC_department->id),'change-status-'.esc_attr($MJTC_department->id)));?>"> <span class="majestic-support-table-status-dot"></span><?php echo esc_html($MJTC_status); ?> </a></td>
+                                <td class="majestic-support-table-created-date"><span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Created', 'majestic-support'));
                         echo esc_html(" : "); ?></span><?php echo esc_html(date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_department->created))); ?></td>
-                                <td>
-                                    <a title="<?php echo esc_attr(__('Edit','majestic-support')); ?>" class="action-btn" href="?page=majesticsupport_department&mjslay=adddepartment&majesticsupportid=<?php echo esc_attr($MJTC_department->id); ?>"><img alt="<?php echo esc_html(__('Edit','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/edit.png" /></a>&nbsp;&nbsp;
-                                    <a title="<?php echo esc_attr(__('Delete','majestic-support')); ?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_department&task=deletedepartment&action=mstask&departmentid='.esc_attr($MJTC_department->id),'delete-department-'.esc_attr($MJTC_department->id)));?>"><img alt="<?php echo esc_html(__('Delete','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/delete.png" /></a></td>
+                                <td class="majestic-support-table-actions">
+                                    <a title="<?php echo esc_attr(__('Edit','majestic-support')); ?>" class="action-btn majestic-support-table-edit-action" href="?page=majesticsupport_department&mjslay=adddepartment&majesticsupportid=<?php echo esc_attr($MJTC_department->id); ?>">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
+                                    </a>
+                                    <a title="<?php echo esc_attr(__('Delete','majestic-support')); ?>" class="action-btn majestic-support-table-delete-action" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_department&task=deletedepartment&action=mstask&departmentid='.esc_attr($MJTC_department->id),'delete-department-'.esc_attr($MJTC_department->id)));?>">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path></svg>
+                                    </a>
+                                </td>
                             </tr>
                         <?php
                         $MJTC_number++;

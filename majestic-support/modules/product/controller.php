@@ -10,36 +10,36 @@ class MJTC_productController {
     }
 
     function handleRequest() {
-        $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'products');
+        $MJTC_layout = MJTC_request::MJTC_getLayout('mjslay', null, 'products');
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
-        if (self::canaddfile($layout)) {
-            switch ($layout) {
+        if (self::canaddfile($MJTC_layout)) {
+            switch ($MJTC_layout) {
                 case 'admin_products':
                     MJTC_includer::MJTC_getModel('product')->getProducts();
                     break;
                 case 'admin_addproduct':
-                    $id = MJTC_request::MJTC_getVar('majesticsupportid', 'get');
-                    MJTC_includer::MJTC_getModel('product')->getProductForForm($id);
+                    $MJTC_id = MJTC_request::MJTC_getVar('majesticsupportid', 'get');
+                    MJTC_includer::MJTC_getModel('product')->getProductForForm($MJTC_id);
                     break;
                 default:
                     exit;
             }
-            $module = (is_admin()) ? 'page' : 'mjsmod';
-            $module = MJTC_request::MJTC_getVar($module, null, 'product');
-            $module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $module);
-            MJTC_includer::MJTC_include_file($layout, $module);
+            $MJTC_module = (is_admin()) ? 'page' : 'mjsmod';
+            $MJTC_module = MJTC_request::MJTC_getVar($MJTC_module, null, 'product');
+            $MJTC_module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $MJTC_module);
+            MJTC_includer::MJTC_include_file($MJTC_layout, $MJTC_module);
         }
     }
 
-    function canaddfile($layout) {
-        $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
-        if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
+    function canaddfile($MJTC_layout) {
+        $MJTC_nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
+        if ( wp_verify_nonce( $MJTC_nonce_value, 'MJTC_nonce') ) {
             if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
             } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
                 return false;
             } else {
-                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($layout, 'admin_') === 0){
+                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($MJTC_layout, 'admin_') === 0){
                     return false;
                 }
                 return true;
@@ -48,9 +48,9 @@ class MJTC_productController {
     }
 
     static function saveproduct() {
-        $id = MJTC_request::MJTC_getVar('id');
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-product-'.$id) ) {
+        $MJTC_id = MJTC_request::MJTC_getVar('id');
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'save-product-'.$MJTC_id) ) {
             die( 'Security check Failed' );
         }
         if (!current_user_can('manage_options')) { //only admin can change it.
@@ -68,12 +68,12 @@ class MJTC_productController {
     }
 
     static function deleteproduct() {
-        $id = MJTC_request::MJTC_getVar('productid');
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'delete-product-'.$id) ) {
+        $MJTC_id = MJTC_request::MJTC_getVar('productid');
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'delete-product-'.$MJTC_id) ) {
             die( 'Security check Failed' );
         }
-        MJTC_includer::MJTC_getModel('product')->removeProduct($id);
+        MJTC_includer::MJTC_getModel('product')->removeProduct($MJTC_id);
         if (is_admin()) {
             $MJTC_url = admin_url("admin.php?page=majesticsupport_product&mjslay=products");
         } else {
@@ -84,12 +84,12 @@ class MJTC_productController {
     }
 
     static function changestatus() {
-        $id = MJTC_request::MJTC_getVar('productid');
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'change-status-'.$id) ) {
+        $MJTC_id = MJTC_request::MJTC_getVar('productid');
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'change-status-'.$MJTC_id) ) {
             die( 'Security check Failed' );
         }
-        MJTC_includer::MJTC_getModel('product')->changeStatus($id);
+        MJTC_includer::MJTC_getModel('product')->changeStatus($MJTC_id);
         $MJTC_url = admin_url("admin.php?page=majesticsupport_product&mjslay=products");
         $MJTC_pagenum = MJTC_request::MJTC_getVar('pagenum');
         if ($MJTC_pagenum)
@@ -99,12 +99,12 @@ class MJTC_productController {
     }
 
     static function ordering() {
-        $id = MJTC_request::MJTC_getVar('productid');
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'ordering-'.$id) ) {
+        $MJTC_id = MJTC_request::MJTC_getVar('productid');
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'ordering-'.$MJTC_id) ) {
             die( 'Security check Failed' );
         }
-        MJTC_includer::MJTC_getModel('product')->setOrdering($id);
+        MJTC_includer::MJTC_getModel('product')->setOrdering($MJTC_id);
         $MJTC_pagenum = MJTC_request::MJTC_getVar('pagenum');
         $MJTC_url = "admin.php?page=majesticsupport_product&mjslay=products";
         if ($MJTC_pagenum)
@@ -115,5 +115,5 @@ class MJTC_productController {
 
 }
 
-$productController = new MJTC_productController();
+$MJTC_productController = new MJTC_productController();
 ?>

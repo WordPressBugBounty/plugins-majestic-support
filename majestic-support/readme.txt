@@ -5,7 +5,7 @@ Donate link: https://majesticsupport.com
 Tags:  customer support, helpdesk, support desk, support plugin, ticket system
 Requires at least: 5.5
 Tested up to: 6.9
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -219,7 +219,7 @@ In addition to providing a thorough overview of your support tickets, the plugin
 
 * [Desktop Notification](https://majesticsupport.com/product/desktop-notifications/) - The desktop notifications add-on will always keep you informed of the status of your support activities. You receive immediate notification each time something occurs on your support.
 
-* [Mail Chimp](https://majesticsupport.com/product/mailchimp-integration/) - Enable simple and quick customer sign-ups to your MailChimp newsletter lists using Majestic Support to increase your subscriptions.
+* [Mailchimp](https://majesticsupport.com/product/mailchimp-integration/) - Enable simple and quick customer sign-ups to your MailChimp newsletter lists using Majestic Support to increase your subscriptions.
 
 * [Internal Mail](https://majesticsupport.com/product/internal-mail/) - Internal e-mail is used to send and receive emails within a support ticket from one agent to another. Internal e-mail lets you send and receive emails to one another by installing this add-on.
 
@@ -250,6 +250,10 @@ If you activate certain features in this plugin, the user's personal data, inclu
 * google fcm ([Google](https://policies.google.com/?hl=en))
 
 == Changelog ==
+= 1.1.4 =
+* Redesigned plugin interface with a modern, cleaner, and more user-friendly experience.
+* Security update.
+
 = 1.1.3 =
 * Security update.
 

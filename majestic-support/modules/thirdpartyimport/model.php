@@ -7,38 +7,38 @@ class MJTC_thirdpartyimportModel {
 
     // supportcandy import data
 
-    private $support_candy_users_array = array();
+    private $MJTC_support_candy_users_array = array();
     
-    private $support_candy_ticket_custom_fields = array();
-    private $sc_ticket_custom_fields = array();
-    private $as_ticket_custom_fields = array();
-    private $fc_ticket_cf = array();
+    private $MJTC_support_candy_ticket_custom_fields = array();
+    private $MJTC_sc_ticket_custom_fields = array();
+    private $MJTC_as_ticket_custom_fields = array();
+    private $MJTC_fc_ticket_cf = array();
 
 
-    private $support_candy_user_ids = array();
-    private $support_candy_agent_ids = array();
-    private $support_candy_department_ids = array();
-    private $support_candy_agent_role_ids = array();
-    private $support_candy_ticket_ids = array();
-    private $support_candy_status_ids = array();
-    private $support_candy_priority_ids = array();
-    private $support_candy_premade_ids = array();
+    private $MJTC_support_candy_user_ids = array();
+    private $MJTC_support_candy_agent_ids = array();
+    private $MJTC_support_candy_department_ids = array();
+    private $MJTC_support_candy_agent_role_ids = array();
+    private $MJTC_support_candy_ticket_ids = array();
+    private $MJTC_support_candy_status_ids = array();
+    private $MJTC_support_candy_priority_ids = array();
+    private $MJTC_support_candy_premade_ids = array();
 
 
-    private $awesome_support_user_ids = array();
-    private $awesome_support_agent_ids = array();
-    private $awesome_support_department_ids = array();
-    private $awesome_support_ticket_ids = array();
-    private $awesome_support_status_ids = array();
-    private $awesome_support_priority_ids = array();
-    private $awesome_support_premade_ids = array();
+    private $MJTC_awesome_support_user_ids = array();
+    private $MJTC_awesome_support_agent_ids = array();
+    private $MJTC_awesome_support_department_ids = array();
+    private $MJTC_awesome_support_ticket_ids = array();
+    private $MJTC_awesome_support_status_ids = array();
+    private $MJTC_awesome_support_priority_ids = array();
+    private $MJTC_awesome_support_premade_ids = array();
 
 
-    private $fluent_support_user_ids = array();
-    private $fluent_support_agent_ids = array();
-    private $fluent_support_ticket_ids = array();
-    private $fluent_support_priority_ids = array();
-    private $fluent_support_premade_ids = array();
+    private $MJTC_fluent_support_user_ids = array();
+    private $MJTC_fluent_support_agent_ids = array();
+    private $MJTC_fluent_support_ticket_ids = array();
+    private $MJTC_fluent_support_priority_ids = array();
+    private $MJTC_fluent_support_premade_ids = array();
 
 
 
@@ -48,9 +48,9 @@ class MJTC_thirdpartyimportModel {
 
 
     // values for counts
-    private $support_candy_import_count = [];
-    private $awesome_support_import_count = [];
-    private $fluent_support_import_count = [];
+    private $MJTC_support_candy_import_count = [];
+    private $MJTC_awesome_support_import_count = [];
+    private $MJTC_fluent_support_import_count = [];
 
     function __construct() {
         $this->_params_flag = 0;
@@ -210,22 +210,22 @@ class MJTC_thirdpartyimportModel {
         // Prepare filesystem and create necessary directories
         require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
         require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
-        $filesystem = new WP_Filesystem_Direct(true);
-        $upload_dir = wp_upload_dir();
-        $upload_path = $upload_dir['basedir'];
+        $MJTC_filesystem = new WP_Filesystem_Direct(true);
+        $MJTC_upload_dir = wp_upload_dir();
+        $MJTC_upload_path = $MJTC_upload_dir['basedir'];
         $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-        $path = $upload_path . "/" . $MJTC_datadirectory;
+        $MJTC_path = $MJTC_upload_path . "/" . $MJTC_datadirectory;
 
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
-        $path .= '/attachmentdata';
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        $MJTC_path .= '/attachmentdata';
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
-        $path .= '/ticket';
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        $MJTC_path .= '/ticket';
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
 
         // Optional: Import theme (disabled by default)
@@ -266,123 +266,123 @@ class MJTC_thirdpartyimportModel {
     }
 
     private function importSupportCandyTheme() {
-        $supportcandy_settings = get_option( 'wpsc-ap-general' );
-        $helpdesk_settings = get_option('mjtc_set_theme_colors');
-        $MJTC_data = json_decode($helpdesk_settings, true);
-        $MJTC_data['color1'] = $supportcandy_settings['primary-color'];
-        $MJTC_data['color4'] = $supportcandy_settings['main-text-color'];
+        $MJTC_supportcandy_settings = get_option( 'wpsc-ap-general' );
+        $MJTC_helpdesk_settings = get_option('mjtc_set_theme_colors');
+        $MJTC_data = json_decode($MJTC_helpdesk_settings, true);
+        $MJTC_data['color1'] = $MJTC_supportcandy_settings['primary-color'];
+        $MJTC_data['color4'] = $MJTC_supportcandy_settings['main-text-color'];
         // store help desk settings
         $MJTC_data = majesticsupport::MJTC_sanitizeData($MJTC_data);
         update_option('mjtc_set_theme_colors', wp_json_encode($MJTC_data));
     }
 
-    private function getSupportCandyTickets($sc_ticket_custom_fields) {
+    private function getSupportCandyTickets($MJTC_sc_ticket_custom_fields) {
         // Check if tickets already processed for import
-        $imported_tickets = array();
-        $imported_tickets_json = get_option('mjtc_support_ticket_support_candy_data_tickets');
-        if (!empty($imported_tickets_json)) {
-            $imported_tickets = json_decode($imported_tickets_json, true);
+        $MJTC_imported_tickets = array();
+        $MJTC_imported_tickets_json = get_option('mjtc_support_ticket_support_candy_data_tickets');
+        if (!empty($MJTC_imported_tickets_json)) {
+            $MJTC_imported_tickets = json_decode($MJTC_imported_tickets_json, true);
         }
 
-        $query = "SELECT tickets.*, replies.body AS reply_message, replies.type, replies.id AS replyid
+        $MJTC_query = "SELECT tickets.*, replies.body AS reply_message, replies.type, replies.id AS replyid
                   FROM `" . majesticsupport::$_db->prefix . "psmsc_tickets` AS tickets
                   JOIN `" . majesticsupport::$_db->prefix . "psmsc_threads` AS replies ON replies.ticket = tickets.id 
                   WHERE replies.type = 'report' AND tickets.is_active != 0
                   ORDER BY tickets.id ASC";
         
-        $MJTC_tickets = majesticsupport::$_db->get_results($query);
+        $MJTC_tickets = majesticsupport::$_db->get_results($MJTC_query);
 
-        $general_options = get_option("wpsc-gs-general");
-        $after_customer_reply = $general_options['ticket-status-after-customer-reply'];
-        $after_agent_reply = $general_options['ticket-status-after-agent-reply'];
-        $close_ticket_status = $general_options['close-ticket-status'];
+        $MJTC_general_options = get_option("wpsc-gs-general");
+        $MJTC_after_customer_reply = $MJTC_general_options['ticket-status-after-customer-reply'];
+        $MJTC_after_agent_reply = $MJTC_general_options['ticket-status-after-agent-reply'];
+        $MJTC_close_ticket_status = $MJTC_general_options['close-ticket-status'];
 
         foreach ($MJTC_tickets as $MJTC_ticket) {
             // Skip if ticket already imported
-            if (!empty($imported_tickets) && in_array($MJTC_ticket->id, $imported_tickets)) {
+            if (!empty($MJTC_imported_tickets) && in_array($MJTC_ticket->id, $MJTC_imported_tickets)) {
                 $this->support_candy_import_count['ticket']['skipped'] += 1;
                 continue;
             }
 
-            $attachmentdir = MJTC_includer::MJTC_getModel('ticket')->getRandomFolderName();
+            $MJTC_attachmentdir = MJTC_includer::MJTC_getModel('ticket')->getRandomFolderName();
             // Map custom fields
-            $params = array();
-            $eddorderid = '';
-            $eddproductid = '';
-            $wcproductid = '';
-            $wcorderid = '';
-            foreach ($sc_ticket_custom_fields as $sc_ticket_custom_field) {
-                $field_name = $sc_ticket_custom_field["name"];
-                $vardata = "";
+            $MJTC_params = array();
+            $MJTC_eddorderid = '';
+            $MJTC_eddproductid = '';
+            $MJTC_wcproductid = '';
+            $MJTC_wcorderid = '';
+            foreach ($MJTC_sc_ticket_custom_fields as $MJTC_sc_ticket_custom_field) {
+                $MJTC_field_name = $MJTC_sc_ticket_custom_field["name"];
+                $MJTC_vardata = "";
 
-                if ($MJTC_ticket->$field_name) {
-                    if ($sc_ticket_custom_field["type"] == "cf_edd_order") {
-                        $vardata = '';
-                        $eddorderid = $MJTC_ticket->$field_name;
-                    } elseif ($sc_ticket_custom_field["type"] == "cf_edd_product") {
-                        $vardata = '';
-                        $eddproductid = $MJTC_ticket->$field_name;
-                    } elseif ($sc_ticket_custom_field["type"] == "cf_woo_order") {
-                        $vardata = '';
-                        $wcorderid = $MJTC_ticket->$field_name;
-                    } elseif ($sc_ticket_custom_field["type"] == "cf_woo_product") {
-                        $vardata = '';
-                        $wcproductid = $MJTC_ticket->$field_name;
-                    } elseif ($sc_ticket_custom_field["type"] == "date") {
-                        $vardata = gmdate("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_ticket->$field_name));
-                    } elseif ($sc_ticket_custom_field["type"] == "file") {
-                        $vardata = $MJTC_ticket->$field_name;
-                        $vardata = $this->getSupportCandyCustomFieldAttachments($MJTC_ticket->id, $vardata, $attachmentdir);
-                    } elseif (in_array(strtolower($sc_ticket_custom_field["type"]), ['multiple', 'checkbox', 'combo', 'radio'])) {
-                        $field_ids = explode('|', $MJTC_ticket->$field_name);
+                if ($MJTC_ticket->$MJTC_field_name) {
+                    if ($MJTC_sc_ticket_custom_field["type"] == "cf_edd_order") {
+                        $MJTC_vardata = '';
+                        $MJTC_eddorderid = $MJTC_ticket->$MJTC_field_name;
+                    } elseif ($MJTC_sc_ticket_custom_field["type"] == "cf_edd_product") {
+                        $MJTC_vardata = '';
+                        $MJTC_eddproductid = $MJTC_ticket->$MJTC_field_name;
+                    } elseif ($MJTC_sc_ticket_custom_field["type"] == "cf_woo_order") {
+                        $MJTC_vardata = '';
+                        $MJTC_wcorderid = $MJTC_ticket->$MJTC_field_name;
+                    } elseif ($MJTC_sc_ticket_custom_field["type"] == "cf_woo_product") {
+                        $MJTC_vardata = '';
+                        $MJTC_wcproductid = $MJTC_ticket->$MJTC_field_name;
+                    } elseif ($MJTC_sc_ticket_custom_field["type"] == "date") {
+                        $MJTC_vardata = gmdate("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_ticket->$MJTC_field_name));
+                    } elseif ($MJTC_sc_ticket_custom_field["type"] == "file") {
+                        $MJTC_vardata = $MJTC_ticket->$MJTC_field_name;
+                        $MJTC_vardata = $this->getSupportCandyCustomFieldAttachments($MJTC_ticket->id, $MJTC_vardata, $MJTC_attachmentdir);
+                    } elseif (in_array(strtolower($MJTC_sc_ticket_custom_field["type"]), ['multiple', 'checkbox', 'combo', 'radio'])) {
+                        $MJTC_field_ids = explode('|', $MJTC_ticket->$MJTC_field_name);
 
                         // Sanitize and cast to integers
-                        $field_ids = array_map('intval', array_filter($field_ids));
+                        $MJTC_field_ids = array_map('intval', array_filter($MJTC_field_ids));
 
                         // Check if we have valid IDs
-                        if (!empty($field_ids)) {
-                            $placeholders = implode(',', $field_ids);
-                            $query = "SELECT name FROM `" . majesticsupport::$_db->prefix . "psmsc_options` WHERE id IN ($placeholders)";
-                            $names = majesticsupport::$_db->get_col($query);
+                        if (!empty($MJTC_field_ids)) {
+                            $MJTC_placeholders = implode(',', $MJTC_field_ids);
+                            $MJTC_query = "SELECT name FROM `" . majesticsupport::$_db->prefix . "psmsc_options` WHERE id IN ($MJTC_placeholders)";
+                            $MJTC_names = majesticsupport::$_db->get_col($MJTC_query);
 
                             // Combine names into comma-separated string
-                            $vardata = !empty($names) ? implode(', ', $names) : '';
+                            $MJTC_vardata = !empty($MJTC_names) ? implode(', ', $MJTC_names) : '';
                         } else {
-                            $vardata = '';
+                            $MJTC_vardata = '';
                         }
                     } else {
-                        $vardata = $MJTC_ticket->$field_name;
+                        $MJTC_vardata = $MJTC_ticket->$MJTC_field_name;
                     }
 
-                    if ($vardata != '') {
-                        if (is_array($vardata)) {
-                            $vardata = implode(', ', array_filter($vardata));
+                    if ($MJTC_vardata != '') {
+                        if (is_array($MJTC_vardata)) {
+                            $MJTC_vardata = implode(', ', array_filter($MJTC_vardata));
                         }
-                        $params[$sc_ticket_custom_field["ms_filedorderingfield"]] = MJTC_majesticsupportphplib::MJTC_htmlentities($vardata);
+                        $MJTC_params[$MJTC_sc_ticket_custom_field["ms_filedorderingfield"]] = MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_vardata);
                     }
                 }
             }
-            $MJTC_ticketparams = html_entity_decode(wp_json_encode($params, JSON_UNESCAPED_UNICODE));
+            $MJTC_ticketparams = html_entity_decode(wp_json_encode($MJTC_params, JSON_UNESCAPED_UNICODE));
 
             // Get linked data
-            $userinfo = $this->getSupportCandyTicketCustomerInfo($MJTC_ticket->customer);
-            $agentid = $this->getTicketAgentIdBySupportCandy($MJTC_ticket->assigned_agent);
+            $MJTC_userinfo = $this->getSupportCandyTicketCustomerInfo($MJTC_ticket->customer);
+            $MJTC_agentid = $this->getTicketAgentIdBySupportCandy($MJTC_ticket->assigned_agent);
             $MJTC_departmentid = $this->getTicketDepartmentIdBySupportCandy($MJTC_ticket->category);
-            $priorityid = $this->getTicketPriorityIdBySupportCandy($MJTC_ticket->priority);
+            $MJTC_priorityid = $this->getTicketPriorityIdBySupportCandy($MJTC_ticket->priority);
 
-            $idresult = MJTC_includer::MJTC_getModel('ticket')->getRandomTicketId();
-            $MJTC_ticketid = $idresult['ticketid'];
-            $customticketno = $idresult['customticketno'];
+            $MJTC_idresult = MJTC_includer::MJTC_getModel('ticket')->getRandomTicketId();
+            $MJTC_ticketid = $MJTC_idresult['ticketid'];
+            $MJTC_customticketno = $MJTC_idresult['customticketno'];
 
             // Determine ticket status
             $MJTC_ticket_status = 1;
             if ($MJTC_ticket->status == 1) $MJTC_ticket_status = 1;
-            elseif ($MJTC_ticket->status == $after_customer_reply) $MJTC_ticket_status = 2;
-            elseif ($MJTC_ticket->status == $after_agent_reply) $MJTC_ticket_status = 4;
-            elseif ($MJTC_ticket->status == $close_ticket_status) $MJTC_ticket_status = 5;
+            elseif ($MJTC_ticket->status == $MJTC_after_customer_reply) $MJTC_ticket_status = 2;
+            elseif ($MJTC_ticket->status == $MJTC_after_agent_reply) $MJTC_ticket_status = 4;
+            elseif ($MJTC_ticket->status == $MJTC_close_ticket_status) $MJTC_ticket_status = 5;
             else $MJTC_ticket_status = $this->getTicketStatusIdBySupportCandy($MJTC_ticket->status);
 
-            $isanswered = ($MJTC_ticket_status == 4) ? 1 : 0;
+            $MJTC_isanswered = ($MJTC_ticket_status == 4) ? 1 : 0;
 
             $MJTC_ticket_closed = "0000-00-00 00:00:00";
             if (!empty($MJTC_ticket->date_closed) && $MJTC_ticket->date_closed != '0000-00-00 00:00:00') {
@@ -396,15 +396,15 @@ class MJTC_thirdpartyimportModel {
             // 4 -> waiting for customer reply
             // 5 -> close ticket
 
-            $newTicketData = [
+            $MJTC_newTicketData = [
                 'id' => "",
-                'uid' => $userinfo["ms_uid"],
+                'uid' => $MJTC_userinfo["ms_uid"],
                 'ticketid' => $MJTC_ticketid,
                 'departmentid' => $MJTC_departmentid,
-                'priorityid' => $priorityid,
-                'staffid' => $agentid,
-                'email' => $userinfo["customer_email"],
-                'name' => $userinfo["customer_name"],
+                'priorityid' => $MJTC_priorityid,
+                'staffid' => $MJTC_agentid,
+                'email' => $MJTC_userinfo["customer_email"],
+                'name' => $MJTC_userinfo["customer_name"],
                 'subject' => $MJTC_ticket->subject,
                 'message' => $MJTC_ticket->reply_message,
                 'helptopicid' => 0,
@@ -413,7 +413,7 @@ class MJTC_thirdpartyimportModel {
                 'phoneext' => "",
                 'status' => $MJTC_ticket_status,
                 'isoverdue' => "0",
-                'isanswered' => $isanswered,
+                'isanswered' => $MJTC_isanswered,
                 'duedate' => "0000-00-00 00:00:00",
                 'reopened' => "0000-00-00 00:00:00",
                 'closed' => $MJTC_ticket_closed,
@@ -424,7 +424,7 @@ class MJTC_thirdpartyimportModel {
                 'lock' => "0",
                 'ticketviaemail' => "0",
                 'ticketviaemail_id' => "0",
-                'attachmentdir' => $attachmentdir,
+                'attachmentdir' => $MJTC_attachmentdir,
                 'feedbackemail' => "0",
                 'mergestatus' => "0",
                 'mergewith' => "0",
@@ -435,41 +435,41 @@ class MJTC_thirdpartyimportModel {
                 'params' => $MJTC_ticketparams,
                 'hash' => "",
                 'notificationid' => "0",
-                'wcorderid' => $wcorderid,
+                'wcorderid' => $MJTC_wcorderid,
                 'wcitemid' => "0",
-                'wcproductid' => $wcproductid,
-                'eddorderid' => $eddorderid,
-                'eddproductid' => $eddproductid,
+                'wcproductid' => $MJTC_wcproductid,
+                'eddorderid' => $MJTC_eddorderid,
+                'eddproductid' => $MJTC_eddproductid,
                 'eddlicensekey' => "",
                 'envatodata' => "",
                 'paidsupportitemid' => "0",
-                'customticketno' => $customticketno
+                'customticketno' => $MJTC_customticketno
             ];
 
-            $row = MJTC_includer::MJTC_getTable('tickets');
-            $error = 0;
-            if (!$row->bind($newTicketData)) $error = 1;
-            if (!$row->store()) $error = 1;
+            $MJTC_row = MJTC_includer::MJTC_getTable('tickets');
+            $MJTC_error = 0;
+            if (!$MJTC_row->bind($MJTC_newTicketData)) $MJTC_error = 1;
+            if (!$MJTC_row->store()) $MJTC_error = 1;
 
-            if ($error == 1) {
+            if ($MJTC_error == 1) {
                 $this->support_candy_import_count['ticket']['failed'] += 1;
             } else {
                 $this->support_candy_ticket_ids[] = $MJTC_ticket->id;
                 $this->support_candy_import_count['ticket']['imported'] += 1;
 
-                $ms_ticketid = $row->id;
-                $hash = MJTC_includer::MJTC_getModel('ticket')->generateHash($ms_ticketid);
-                $query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='" . esc_sql($hash) . "' WHERE id=" . esc_sql($ms_ticketid);
-                majesticsupport::$_db->query($query);
+                $ms_ticketid = $MJTC_row->id;
+                $MJTC_hash = MJTC_includer::MJTC_getModel('ticket')->generateHash($ms_ticketid);
+                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='" . esc_sql($MJTC_hash) . "' WHERE id=" . esc_sql($ms_ticketid);
+                majesticsupport::$_db->query($MJTC_query);
 
                 if(in_array('note', majesticsupport::$_active_addons)){
-                    $this->getSupportCandyTicketNotes($ms_ticketid, $MJTC_ticket->id, $attachmentdir);
+                    $this->getSupportCandyTicketNotes($ms_ticketid, $MJTC_ticket->id, $MJTC_attachmentdir);
                 }
-                $this->getSupportCandyTicketReplies($ms_ticketid, $MJTC_ticket->id, $attachmentdir);
-                $this->getSupportCandyTicketAttachments($ms_ticketid, "", $MJTC_ticket->replyid, $attachmentdir);
+                $this->getSupportCandyTicketReplies($ms_ticketid, $MJTC_ticket->id, $MJTC_attachmentdir);
+                $this->getSupportCandyTicketAttachments($ms_ticketid, "", $MJTC_ticket->replyid, $MJTC_attachmentdir);
 
                 if (!empty($MJTC_ticket->pc_data) && in_array('privatecredentials', majesticsupport::$_active_addons)) {
-                    $this->getSupportCandyTicketPrivateCredentials($ms_ticketid, $userinfo["ms_uid"], $MJTC_ticket->pc_data);
+                    $this->getSupportCandyTicketPrivateCredentials($ms_ticketid, $MJTC_userinfo["ms_uid"], $MJTC_ticket->pc_data);
                 }
 
                 if (in_array('tickethistory', majesticsupport::$_active_addons)) {
@@ -487,64 +487,64 @@ class MJTC_thirdpartyimportModel {
         }
     }
 
-    private function getSupportCandyTicketNotes($ms_ticket_id, $sc_ticket_id, $attachmentdir){
-        $query = "
+    private function getSupportCandyTicketNotes($ms_ticket_id, $MJTC_sc_ticket_id, $MJTC_attachmentdir){
+        $MJTC_query = "
             SELECT thread.*
                 FROM `" . majesticsupport::$_db->prefix . "psmsc_threads` AS thread
-                WHERE thread.ticket = " . (int)$sc_ticket_id . "
+                WHERE thread.ticket = " . (int)$MJTC_sc_ticket_id . "
                 AND thread.type = 'note'
                 ORDER BY thread.id ASC";
                     
-        $threads = majesticsupport::$_db->get_results($query);
+        $threads = majesticsupport::$_db->get_results($MJTC_query);
         foreach($threads AS $thread){
-            $query = "
+            $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_users` WHERE wpuid = ".$thread->customer;
-            $agentid = $ms_user_id = majesticsupport::$_db->get_var($query);
-            $filename = $this->getSupportCandyNoteAttachments($sc_ticket_id, $thread->attachments, $attachmentdir);
+            $MJTC_agentid = $ms_user_id = majesticsupport::$_db->get_var($MJTC_query);
+            $MJTC_filename = $this->getSupportCandyNoteAttachments($MJTC_sc_ticket_id, $thread->attachments, $MJTC_attachmentdir);
 
-            $replyData = [
+            $MJTC_replyData = [
                 "id" => "",
                 "ticketid" => $ms_ticket_id,
-                "staffid" => $agentid,
+                "staffid" => $MJTC_agentid,
                 "title" => MJTC_majesticsupportphplib::MJTC_strip_tags($thread->body),
                 "note" => $thread->body,
                 "status" => "1",
                 "created" => $thread->date_created,
-                "filename" => $filename,
+                "filename" => $MJTC_filename,
                 "filesize" => 5334
             ];
-            $row = MJTC_includer::MJTC_getTable('note');
-            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($replyData);// remove slashes with quotes.
-            $error = 0;
-            if (!$row->bind($MJTC_data)) {
-                $error = 1;
+            $MJTC_row = MJTC_includer::MJTC_getTable('note');
+            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_replyData);// remove slashes with quotes.
+            $MJTC_error = 0;
+            if (!$MJTC_row->bind($MJTC_data)) {
+                $MJTC_error = 1;
             }
-            if (!$row->store()) {
-                $error = 1;
+            if (!$MJTC_row->store()) {
+                $MJTC_error = 1;
             }
-            $ms_ticket_note_id = $row->id;
+            $ms_ticket_note_id = $MJTC_row->id;
         }
     }
 
-    private function getSupportCandyTicketReplies($ms_ticket_id, $sc_ticket_id, $attachmentdir){
-        $query = "SELECT thread.*
+    private function getSupportCandyTicketReplies($ms_ticket_id, $MJTC_sc_ticket_id, $MJTC_attachmentdir){
+        $MJTC_query = "SELECT thread.*
                     FROM `" . majesticsupport::$_db->prefix . "psmsc_threads` AS thread
-                    WHERE thread.ticket = " . (int)$sc_ticket_id . "
+                    WHERE thread.ticket = " . (int)$MJTC_sc_ticket_id . "
                     AND thread.type = 'reply'
                     ORDER BY thread.id ASC";
                     
-        $threads = majesticsupport::$_db->get_results($query);
+        $threads = majesticsupport::$_db->get_results($MJTC_query);
 
         if (empty($threads)) return;
 
         foreach ($threads as $thread) {
-            $userinfo = $this->getSupportCandyTicketCustomerInfo($thread->customer);
+            $MJTC_userinfo = $this->getSupportCandyTicketCustomerInfo($thread->customer);
 
-            $replyData = [
+            $MJTC_replyData = [
                 "id" => "",
-                "uid" => isset($userinfo["ms_uid"]) ? $userinfo["ms_uid"] : 0,
+                "uid" => isset($MJTC_userinfo["ms_uid"]) ? $MJTC_userinfo["ms_uid"] : 0,
                 "ticketid" => $ms_ticket_id,
-                "name" => isset($userinfo["customer_name"]) ? $userinfo["customer_name"] : __('Guest', 'majestic-support'),
+                "name" => isset($MJTC_userinfo["customer_name"]) ? $MJTC_userinfo["customer_name"] : __('Guest', 'majestic-support'),
                 "message" => $thread->body,
                 "staffid" => "",
                 "rating" => "",
@@ -555,216 +555,216 @@ class MJTC_thirdpartyimportModel {
                 "viewed_on" => $thread->seen
             ];
 
-            $row = MJTC_includer::MJTC_getTable('replies');
-            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($replyData);
+            $MJTC_row = MJTC_includer::MJTC_getTable('replies');
+            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_replyData);
 
-            $error = 0;
-            if (!$row->bind($MJTC_data)) {
-                $error = 1;
+            $MJTC_error = 0;
+            if (!$MJTC_row->bind($MJTC_data)) {
+                $MJTC_error = 1;
             }
-            if (!$row->store()) {
-                $error = 1;
+            if (!$MJTC_row->store()) {
+                $MJTC_error = 1;
             }
 
-            $ms_ticket_reply_id = $row->id;
+            $ms_ticket_reply_id = $MJTC_row->id;
 
             if (!empty($ms_ticket_reply_id)) {
-                $this->getSupportCandyTicketAttachments($ms_ticket_id, $ms_ticket_reply_id, $thread->id, $attachmentdir);
+                $this->getSupportCandyTicketAttachments($ms_ticket_id, $ms_ticket_reply_id, $thread->id, $MJTC_attachmentdir);
             }
         }
     }
 
-    private function getSupportCandyNoteAttachments($MJTC_ticket_id, $attachments, $attachmentdir){
+    private function getSupportCandyNoteAttachments($MJTC_ticket_id, $MJTC_attachments, $MJTC_attachmentdir){
         // Split by pipe
-        $parts = explode('|', $attachments);
+        $MJTC_parts = explode('|', $MJTC_attachments);
 
         // Get the first numeric value
-        $attachment_id = isset($parts[0]) ? intval($parts[0]) : null;
+        $MJTC_attachment_id = isset($MJTC_parts[0]) ? intval($MJTC_parts[0]) : null;
 
-        if (empty($attachment_id)) return;
+        if (empty($MJTC_attachment_id)) return;
 
-        $query = "
+        $MJTC_query = "
         SELECT attachment.*
             FROM `" . majesticsupport::$_db->prefix . "psmsc_attachments` AS attachment
-            WHERE attachment.id = " . (int)$attachment_id;
+            WHERE attachment.id = " . (int)$MJTC_attachment_id;
                     
-        $attachment = majesticsupport::$_db->get_row($query);
+        $MJTC_attachment = majesticsupport::$_db->get_row($MJTC_query);
 
-        if (empty($attachment)) return;
+        if (empty($MJTC_attachment)) return;
 
         require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
         require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
 
-        $filesystem = new WP_Filesystem_Direct(true);
-        $upload_dir = wp_upload_dir();
-        $upload_path = $upload_dir['basedir'];
+        $MJTC_filesystem = new WP_Filesystem_Direct(true);
+        $MJTC_upload_dir = wp_upload_dir();
+        $MJTC_upload_path = $MJTC_upload_dir['basedir'];
         $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-        $path = trailingslashit($upload_path) . $MJTC_datadirectory . "/attachmentdata/ticket/" . sanitize_file_name($attachmentdir);
+        $MJTC_path = trailingslashit($MJTC_upload_path) . $MJTC_datadirectory . "/attachmentdata/ticket/" . sanitize_file_name($MJTC_attachmentdir);
 
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
-        $safe_filename = sanitize_file_name($attachment->name);
-        $source = $upload_path . $attachment->file_path;
-        $destination = $path . "/" . $safe_filename;
+        $MJTC_safe_filename = sanitize_file_name($MJTC_attachment->name);
+        $MJTC_source = $MJTC_upload_path . $MJTC_attachment->file_path;
+        $MJTC_destination = $MJTC_path . "/" . $MJTC_safe_filename;
 
-        if (!file_exists($source)) {
-            error_log("Attachment source file does not exist: " . $source);
+        if (!file_exists($MJTC_source)) {
+            die( 'Attachment source file does not exist: ' . esc_html( $MJTC_source ) );
             return '';
         }
 
-        $result = $filesystem->copy($source, $destination, true);
-        if (!$result) {
-            error_log("Failed to copy attachment from $source to $destination");
+        $MJTC_result = $MJTC_filesystem->copy($MJTC_source, $MJTC_destination, true);
+        if (!$MJTC_result) {
+            die( 'Failed to copy attachment from ' . esc_html( $MJTC_source ) . ' to ' . esc_html( $MJTC_destination ) );
             return '';
         }
-        return $attachment->name;
+        return $MJTC_attachment->name;
         
     }
 
-    private function getSupportCandyCustomFieldAttachments($MJTC_ticket_id, $field_id, $attachmentdir){
-        $query = "SELECT attachment.*
+    private function getSupportCandyCustomFieldAttachments($MJTC_ticket_id, $MJTC_field_id, $MJTC_attachmentdir){
+        $MJTC_query = "SELECT attachment.*
                     FROM `" . majesticsupport::$_db->prefix . "psmsc_attachments` AS attachment
-                    WHERE attachment.id = " . (int)$field_id;
+                    WHERE attachment.id = " . (int)$MJTC_field_id;
                     
-        $attachment = majesticsupport::$_db->get_row($query);
+        $MJTC_attachment = majesticsupport::$_db->get_row($MJTC_query);
 
-        if (empty($attachment)) return;
+        if (empty($MJTC_attachment)) return;
 
         require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
         require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
 
-        $filesystem = new WP_Filesystem_Direct(true);
-        $upload_dir = wp_upload_dir();
-        $upload_path = $upload_dir['basedir'];
+        $MJTC_filesystem = new WP_Filesystem_Direct(true);
+        $MJTC_upload_dir = wp_upload_dir();
+        $MJTC_upload_path = $MJTC_upload_dir['basedir'];
         $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-        $path = trailingslashit($upload_path) . $MJTC_datadirectory . "/attachmentdata/ticket/" . sanitize_file_name($attachmentdir);
+        $MJTC_path = trailingslashit($MJTC_upload_path) . $MJTC_datadirectory . "/attachmentdata/ticket/" . sanitize_file_name($MJTC_attachmentdir);
 
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
-        $safe_filename = sanitize_file_name($attachment->name);
-        $source = $upload_path . $attachment->file_path;
-        $destination = $path . "/" . $safe_filename;
+        $MJTC_safe_filename = sanitize_file_name($MJTC_attachment->name);
+        $MJTC_source = $MJTC_upload_path . $MJTC_attachment->file_path;
+        $MJTC_destination = $MJTC_path . "/" . $MJTC_safe_filename;
 
-        if (!file_exists($source)) {
-            error_log("Attachment source file does not exist: " . $source);
+        if (!file_exists($MJTC_source)) {
+            die( 'Attachment source file does not exist: ' . esc_html( $MJTC_source ) );
             return '';
         }
 
-        $result = $filesystem->copy($source, $destination, true);
-        if (!$result) {
-            error_log("Failed to copy attachment from $source to $destination");
+        $MJTC_result = $MJTC_filesystem->copy($MJTC_source, $MJTC_destination, true);
+        if (!$MJTC_result) {
+            die( 'Failed to copy attachment from ' . esc_html( $MJTC_source ) . ' to ' . esc_html( $MJTC_destination ) );
             return '';
         }
-        return $attachment->name;
+        return $MJTC_attachment->name;
         
     }
 
-    private function getSupportCandyTicketAttachments($ms_ticket_id, $ms_ticket_reply_id, $sc_ticket_reply_id, $attachmentdir){
-        $query = "SELECT attachment.*
+    private function getSupportCandyTicketAttachments($ms_ticket_id, $ms_ticket_reply_id, $MJTC_sc_ticket_reply_id, $MJTC_attachmentdir){
+        $MJTC_query = "SELECT attachment.*
                     FROM `" . majesticsupport::$_db->prefix . "psmsc_attachments` AS attachment
-                    WHERE attachment.source_id = " . (int)$sc_ticket_reply_id . "
+                    WHERE attachment.source_id = " . (int)$MJTC_sc_ticket_reply_id . "
                     ORDER BY attachment.id ASC";
                     
-        $attachments = majesticsupport::$_db->get_results($query);
+        $MJTC_attachments = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($attachments)) return;
+        if (empty($MJTC_attachments)) return;
 
         require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
         require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
 
-        $filesystem = new WP_Filesystem_Direct(true);
-        $upload_dir = wp_upload_dir();
-        $upload_path = $upload_dir['basedir'];
+        $MJTC_filesystem = new WP_Filesystem_Direct(true);
+        $MJTC_upload_dir = wp_upload_dir();
+        $MJTC_upload_path = $MJTC_upload_dir['basedir'];
         $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-        $path = trailingslashit($upload_path) . $MJTC_datadirectory . "/attachmentdata/ticket/" . sanitize_file_name($attachmentdir);
+        $MJTC_path = trailingslashit($MJTC_upload_path) . $MJTC_datadirectory . "/attachmentdata/ticket/" . sanitize_file_name($MJTC_attachmentdir);
 
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
 
-        foreach ($attachments as $attachment) {
-            $safe_filename = sanitize_file_name($attachment->name);
-            $source = $upload_path . $attachment->file_path;
-            $destination = $path . "/" . $safe_filename;
+        foreach ($MJTC_attachments as $MJTC_attachment) {
+            $MJTC_safe_filename = sanitize_file_name($MJTC_attachment->name);
+            $MJTC_source = $MJTC_upload_path . $MJTC_attachment->file_path;
+            $MJTC_destination = $MJTC_path . "/" . $MJTC_safe_filename;
 
-            $attachmentData = [
+            $MJTC_attachmentData = [
                 "id" => "",
                 "ticketid" => $ms_ticket_id,
                 "replyattachmentid" => $ms_ticket_reply_id,
-                "filesize" => "", // Optionally: filesize($source)
-                "filename" => $safe_filename,
+                "filesize" => "", // Optionally: filesize($MJTC_source)
+                "filename" => $MJTC_safe_filename,
                 "filekey" => "",
                 "deleted" => "",
                 "status" => "1",
-                "created" => $attachment->date_created
+                "created" => $MJTC_attachment->date_created
             ];
 
-            $row = MJTC_includer::MJTC_getTable('attachments');
-            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($attachmentData);
+            $MJTC_row = MJTC_includer::MJTC_getTable('attachments');
+            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_attachmentData);
 
-            $error = 0;
-            if (!$row->bind($MJTC_data)) {
-                $error = 1;
+            $MJTC_error = 0;
+            if (!$MJTC_row->bind($MJTC_data)) {
+                $MJTC_error = 1;
             }
-            if (!$row->store()) {
-                $error = 1;
+            if (!$MJTC_row->store()) {
+                $MJTC_error = 1;
             }
 
-            if (!file_exists($source)) {
-                error_log("Attachment source file does not exist: " . $source);
+            if (!file_exists($MJTC_source)) {
+                die( 'Attachment source file does not exist: ' . esc_html( $MJTC_source ) );
                 continue;
             }
 
-            $result = $filesystem->copy($source, $destination, true);
-            if (!$result) {
-                error_log("Failed to copy attachment from $source to $destination");
+            $MJTC_result = $MJTC_filesystem->copy($MJTC_source, $MJTC_destination, true);
+            if (!$MJTC_result) {
+                die( 'Failed to copy attachment from ' . esc_html( $MJTC_source ) . ' to ' . esc_html( $MJTC_destination ) );
             }
         }
     }
 
-    private function getSupportCandyTicketPrivateCredentials($ms_ticket_id, $ms_ticket_uid, $pc_data) {
-        $decoded_data = json_decode($pc_data, true);
+    private function getSupportCandyTicketPrivateCredentials($ms_ticket_id, $ms_ticket_uid, $MJTC_pc_data) {
+        $MJTC_decoded_data = json_decode($MJTC_pc_data, true);
 
-        if (empty($decoded_data) || !isset($decoded_data['data'], $decoded_data['secure_key'], $decoded_data['secure_iv'])) {
+        if (empty($MJTC_decoded_data) || !isset($MJTC_decoded_data['data'], $MJTC_decoded_data['secure_key'], $MJTC_decoded_data['secure_iv'])) {
             return; // Invalid or incomplete data
         }
 
-        $privateCredentials = $decoded_data['data'];
-        $secure_key = base64_decode($decoded_data['secure_key']);
-        $secure_iv = base64_decode($decoded_data['secure_iv']);
-        $cipher = 'AES-128-CBC';
+        $MJTC_privateCredentials = $MJTC_decoded_data['data'];
+        $MJTC_secure_key = base64_decode($MJTC_decoded_data['secure_key']);
+        $MJTC_secure_iv = base64_decode($MJTC_decoded_data['secure_iv']);
+        $MJTC_cipher = 'AES-128-CBC';
 
-        foreach ($privateCredentials as $privateCredential) {
-            if (empty($privateCredential['data']) || !is_array($privateCredential['data'])) {
+        foreach ($MJTC_privateCredentials as $MJTC_privateCredential) {
+            if (empty($MJTC_privateCredential['data']) || !is_array($MJTC_privateCredential['data'])) {
                 continue;
             }
 
-            $pc_data_info = '';
+            $MJTC_pc_data_info = '';
 
-            foreach ($privateCredential['data'] as $entry) {
-                if (!isset($entry['label'], $entry['value'])) continue;
+            foreach ($MJTC_privateCredential['data'] as $MJTC_entry) {
+                if (!isset($MJTC_entry['label'], $MJTC_entry['value'])) continue;
 
-                $decrypted_value = openssl_decrypt(
-                    base64_decode($entry['value']),
-                    $cipher,
-                    $secure_key,
+                $MJTC_decrypted_value = openssl_decrypt(
+                    base64_decode($MJTC_entry['value']),
+                    $MJTC_cipher,
+                    $MJTC_secure_key,
                     0,
-                    $secure_iv
+                    $MJTC_secure_iv
                 );
 
-                $label = sanitize_text_field($entry['label']);
-                $MJTC_value = sanitize_text_field($decrypted_value);
+                $MJTC_label = sanitize_text_field($MJTC_entry['label']);
+                $MJTC_value = sanitize_text_field($MJTC_decrypted_value);
 
-                $pc_data_info .= "$label : $MJTC_value , ";
+                $MJTC_pc_data_info .= "$MJTC_label : $MJTC_value , ";
             }
 
-            $pc_array = [
-                'credentialtype' => sanitize_text_field($privateCredential['title']),
+            $MJTC_pc_array = [
+                'credentialtype' => sanitize_text_field($MJTC_privateCredential['title']),
                 'username'       => '',
                 'password'       => '',
-                'info'           => MJTC_majesticsupportphplib::MJTC_rtrim($pc_data_info, ' , ')
+                'info'           => MJTC_majesticsupportphplib::MJTC_rtrim($MJTC_pc_data_info, ' , ')
             ];
 
             $MJTC_data = [
@@ -776,31 +776,31 @@ class MJTC_thirdpartyimportModel {
             ];
 
             // Clean and encode credential info
-            $encoded = wp_json_encode(array_filter($pc_array));
-            $safe_encoded = MJTC_majesticsupportphplib::MJTC_safe_encoding($encoded);
-            $MJTC_data['data'] = MJTC_includer::MJTC_getObjectClass('privatecredentials')->encrypt($safe_encoded);
+            $MJTC_encoded = wp_json_encode(array_filter($MJTC_pc_array));
+            $MJTC_safe_encoded = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_encoded);
+            $MJTC_data['data'] = MJTC_includer::MJTC_getObjectClass('privatecredentials')->encrypt($MJTC_safe_encoded);
 
             // Insert record
             if ($MJTC_data['ticketid'] > 0 && $MJTC_data['uid'] > 0) {
-                $row = MJTC_includer::MJTC_getTable('privatecredentials');
-                if ($row->bind($MJTC_data)) {
-                    $row->store(); // Failure silently ignored here; consider logging
+                $MJTC_row = MJTC_includer::MJTC_getTable('privatecredentials');
+                if ($MJTC_row->bind($MJTC_data)) {
+                    $MJTC_row->store(); // Failure silently ignored here; consider logging
                 }
             }
         }
     }
 
-    private function getSupportCandyTicketActivityLog($ms_ticket_id, $sc_ticket_id) {
-        $sc_ticket_id = intval($sc_ticket_id);
+    private function getSupportCandyTicketActivityLog($ms_ticket_id, $MJTC_sc_ticket_id) {
+        $MJTC_sc_ticket_id = intval($MJTC_sc_ticket_id);
         $ms_ticket_id = intval($ms_ticket_id);
 
-        if ($sc_ticket_id <= 0 || $ms_ticket_id <= 0) return;
+        if ($MJTC_sc_ticket_id <= 0 || $ms_ticket_id <= 0) return;
 
-        $query = "
+        $MJTC_query = "
             SELECT * FROM `" . majesticsupport::$_db->prefix . "psmsc_threads`
-            WHERE (type = 'log' OR type = 'reply' OR type = 'note') AND ticket = ".$sc_ticket_id." ORDER BY date_created DESC ";
+            WHERE (type = 'log' OR type = 'reply' OR type = 'note') AND ticket = ".$MJTC_sc_ticket_id." ORDER BY date_created DESC ";
 
-        $threads = majesticsupport::$_db->get_results($query);
+        $threads = majesticsupport::$_db->get_results($MJTC_query);
 
         if (empty($threads)) return;
 
@@ -808,37 +808,37 @@ class MJTC_thirdpartyimportModel {
             $MJTC_ticketid = $ms_ticket_id;
 
             // Get user information
-            $userinfo = $this->getSupportCandyTicketCustomerInfo($thread->customer);
-            $currentUserName = !empty($userinfo['customer_name']) 
-                ? esc_html($userinfo['customer_name']) 
+            $MJTC_userinfo = $this->getSupportCandyTicketCustomerInfo($thread->customer);
+            $MJTC_currentUserName = !empty($MJTC_userinfo['customer_name']) 
+                ? esc_html($MJTC_userinfo['customer_name']) 
                 : esc_html(__('Guest', 'majestic-support'));
 
-            $messagetype = __('Successfully', 'majestic-support');
-            $eventtype = '';
-            $message = '';
+            $MJTC_messagetype = __('Successfully', 'majestic-support');
+            $MJTC_eventtype = '';
+            $MJTC_message = '';
 
             if ($thread->type === 'log') {
-                $body = json_decode($thread->body);
-                if (!empty($body) && isset($body->slug)) {
-                    switch ($body->slug) {
+                $MJTC_body = json_decode($thread->body);
+                if (!empty($MJTC_body) && isset($MJTC_body->slug)) {
+                    switch ($MJTC_body->slug) {
                         case 'assigned_agent':
-                            $eventtype = __('Assign ticket to agent', 'majestic-support');
-                            $message = __('Ticket is assigned to agent by', 'majestic-support') . " ( $currentUserName )";
+                            $MJTC_eventtype = __('Assign Ticket To Agent', 'majestic-support');
+                            $MJTC_message = __('Ticket is assigned to agent by', 'majestic-support') . " ( $MJTC_currentUserName )";
                             break;
                         case 'status':
                             if ($thread->customer == 0) {
                                 continue 2;
                             }
-                            $eventtype = __('Ticket status change', 'majestic-support');
-                            $message = __('The status is changed by', 'majestic-support') . " ( $currentUserName )";
+                            $MJTC_eventtype = __('Ticket status change', 'majestic-support');
+                            $MJTC_message = __('The status is changed by', 'majestic-support') . " ( $MJTC_currentUserName )";
                             break;
                         case 'priority':
-                            $eventtype = __('Change Priority', 'majestic-support');
-                            $message = __('Ticket priority is changed by', 'majestic-support') . " ( $currentUserName )";
+                            $MJTC_eventtype = __('Change Priority', 'majestic-support');
+                            $MJTC_message = __('Ticket Priority Is Changed By', 'majestic-support') . " ( $MJTC_currentUserName )";
                             break;
                         case 'category':
-                            $eventtype = __('Ticket department transfer', 'majestic-support');
-                            $message = __('The department is transferred by', 'majestic-support') . " ( $currentUserName )";
+                            $MJTC_eventtype = __('Ticket department transfer', 'majestic-support');
+                            $MJTC_message = __('The department is transferred by', 'majestic-support') . " ( $MJTC_currentUserName )";
                             break;
                         case 'subject':
                         case 'customer':
@@ -847,88 +847,88 @@ class MJTC_thirdpartyimportModel {
                     }
                 }
             } elseif ($thread->type === 'reply') {
-                $eventtype = __('REPLIED_TICKET', 'majestic-support');
-                $message = __('Ticket is replied by', 'majestic-support') . " ( $currentUserName )";
+                $MJTC_eventtype = __('REPLIED_TICKET', 'majestic-support');
+                $MJTC_message = __('Ticket is replied by', 'majestic-support') . " ( $MJTC_currentUserName )";
             } elseif ($thread->type === 'note') {
-                $eventtype = __('Post Internal Note', 'majestic-support');
-                $message = __('The internal note is posted by', 'majestic-support') . " ( $currentUserName )";
+                $MJTC_eventtype = __('Post Internal Note', 'majestic-support');
+                $MJTC_message = __('The internal note is posted by', 'majestic-support') . " ( $MJTC_currentUserName )";
             }
 
-            if (!empty($eventtype) && !empty($message)) {
+            if (!empty($MJTC_eventtype) && !empty($MJTC_message)) {
                 MJTC_includer::MJTC_getModel('tickethistory')->addActivityLog(
-                    $MJTC_ticketid, 1, esc_html($eventtype), esc_html($message), esc_html($messagetype)
+                    $MJTC_ticketid, 1, esc_html($MJTC_eventtype), esc_html($MJTC_message), esc_html($MJTC_messagetype)
                 );
             }
         }
     }
 
-    private function getSupportCandyTicketStaffTime($ms_ticket_id, $sc_ticket_id) {
-        $sc_ticket_id = intval($sc_ticket_id);
+    private function getSupportCandyTicketStaffTime($ms_ticket_id, $MJTC_sc_ticket_id) {
+        $MJTC_sc_ticket_id = intval($MJTC_sc_ticket_id);
         $ms_ticket_id = intval($ms_ticket_id);
-        if ($sc_ticket_id <= 0 || $ms_ticket_id <= 0) return;
+        if ($MJTC_sc_ticket_id <= 0 || $ms_ticket_id <= 0) return;
 
         // Get all timer logs for the given SupportCandy ticket
-        $query = "
+        $MJTC_query = "
             SELECT * FROM `" . majesticsupport::$_db->prefix . "psmsc_timer_logs`
-            WHERE ticket = ".$sc_ticket_id;
-        $timers = majesticsupport::$_db->get_results($query);
+            WHERE ticket = ".$MJTC_sc_ticket_id;
+        $MJTC_timers = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($timers)) return;
+        if (empty($MJTC_timers)) return;
 
-        foreach ($timers as $timer) {
+        foreach ($MJTC_timers as $MJTC_timer) {
             // Get HelpDesk staff ID from SupportCandy agent ID
-            $staffid = $this->getMSAgentIdByScAgentId($timer->log_by);
-            if (empty($staffid)) continue;
+            $MJTC_staffid = $this->getMSAgentIdByScAgentId($MJTC_timer->log_by);
+            if (empty($MJTC_staffid)) continue;
 
-            $created = $timer->date_started;
+            $MJTC_created = $MJTC_timer->date_started;
 
             // Handle and validate interval string
             try {
-                $interval = new DateInterval($timer->time_spent);
-            } catch (Exception $e) {
+                $MJTC_interval = new DateInterval($MJTC_timer->time_spent);
+            } catch (Exception $MJTC_e) {
                 continue; // skip invalid time format
             }
 
-            $timer_seconds = ($interval->d * 86400) + ($interval->h * 3600) + ($interval->i * 60) + $interval->s;
-            if ($timer_seconds <= 0) continue;
+            $MJTC_timer_seconds = ($MJTC_interval->d * 86400) + ($MJTC_interval->h * 3600) + ($MJTC_interval->i * 60) + $MJTC_interval->s;
+            if ($MJTC_timer_seconds <= 0) continue;
 
             // Conflict detection
-            $created_dt = new DateTime($created);
-            $now = new DateTime();
-            $interval_to_now = $created_dt->diff($now);
-            $systemtime = ($interval_to_now->days * 86400) + ($interval_to_now->h * 3600) + ($interval_to_now->i * 60) + $interval_to_now->s;
+            $MJTC_created_dt = new DateTime($MJTC_created);
+            $MJTC_now = new DateTime();
+            $MJTC_interval_to_now = $MJTC_created_dt->diff($MJTC_now);
+            $MJTC_systemtime = ($MJTC_interval_to_now->days * 86400) + ($MJTC_interval_to_now->h * 3600) + ($MJTC_interval_to_now->i * 60) + $MJTC_interval_to_now->s;
 
-            $conflict = ($timer_seconds > $systemtime) ? 1 : 0;
+            $MJTC_conflict = ($MJTC_timer_seconds > $MJTC_systemtime) ? 1 : 0;
 
             // Prepare data
             $MJTC_data = [
-                'staffid' => $staffid,
+                'staffid' => $MJTC_staffid,
                 'ticketid' => $ms_ticket_id,
                 'referencefor' => 1,
                 'referenceid' => 0,
-                'usertime' => $timer_seconds,
-                'systemtime' => $systemtime,
-                'conflict' => $conflict,
-                'description' => $timer->description,
-                'timer_edit_desc' => $timer->description,
+                'usertime' => $MJTC_timer_seconds,
+                'systemtime' => $MJTC_systemtime,
+                'conflict' => $MJTC_conflict,
+                'description' => $MJTC_timer->description,
+                'timer_edit_desc' => $MJTC_timer->description,
                 'status' => 1,
-                'created' => $created
+                'created' => $MJTC_created
             ];
 
-            $row = MJTC_includer::MJTC_getTable('timetracking');
+            $MJTC_row = MJTC_includer::MJTC_getTable('timetracking');
             $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
 
-            if (!$row->bind($MJTC_data) || !$row->store()) {
+            if (!$MJTC_row->bind($MJTC_data) || !$MJTC_row->store()) {
                 // optionally log or count the failure
                 continue;
             }
         }
     }
 
-    private function getSupportCandyTicketCustomerInfo($customerId) {
+    private function getSupportCandyTicketCustomerInfo($MJTC_customerId) {
         // Sanitize and validate customer ID
-        $customerId = intval($customerId);
-        if ($customerId <= 0) {
+        $MJTC_customerId = intval($MJTC_customerId);
+        if ($MJTC_customerId <= 0) {
             return [
                 "ms_uid" => "",
                 "customer_name" => "",
@@ -937,16 +937,16 @@ class MJTC_thirdpartyimportModel {
         }
 
         // Prepare secure query
-        $query = "
+        $MJTC_query = "
             SELECT customer.name, customer.email, user.id AS ms_uid
             FROM `" . majesticsupport::$_db->prefix . "psmsc_customers` AS customer
             INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user
                 ON user.wpuid = customer.user
-            WHERE customer.id = " . esc_sql($customerId) . "
+            WHERE customer.id = " . esc_sql($MJTC_customerId) . "
             LIMIT 1
         ";
 
-        $MJTC_data = majesticsupport::$_db->get_row($query);
+        $MJTC_data = majesticsupport::$_db->get_row($MJTC_query);
 
         return [
             "ms_uid"       => $MJTC_data->ms_uid ?? "",
@@ -955,126 +955,126 @@ class MJTC_thirdpartyimportModel {
         ];
     }
 
-    private function getMSAgentIdByScAgentId($sc_agent_id) {
+    private function getMSAgentIdByScAgentId($MJTC_sc_agent_id) {
         // Sanitize and validate input
-        $sc_agent_id = intval($sc_agent_id);
-        if ($sc_agent_id <= 0) return null;
+        $MJTC_sc_agent_id = intval($MJTC_sc_agent_id);
+        if ($MJTC_sc_agent_id <= 0) return null;
 
         // Secure SQL query using prepare()
-        $query = "
+        $MJTC_query = "
             SELECT agent.*
             FROM `" . majesticsupport::$_db->prefix . "psmsc_agents` AS sc_agent
             INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user
                 ON user.wpuid = sc_agent.user
             INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS agent
                 ON agent.uid = user.id
-            WHERE sc_agent.id = " . esc_sql($sc_agent_id) . "
+            WHERE sc_agent.id = " . esc_sql($MJTC_sc_agent_id) . "
             LIMIT 1
         ";
 
-        $ms_agent = majesticsupport::$_db->get_row($query);
+        $ms_agent = majesticsupport::$_db->get_row($MJTC_query);
 
         return $ms_agent ?: null;
     }
 
-    private function getTicketAgentIdBySupportCandy($customerId) {
+    private function getTicketAgentIdBySupportCandy($MJTC_customerId) {
         // Validate customer ID
-        $customerId = intval($customerId);
-        if ($customerId <= 0) {
+        $MJTC_customerId = intval($MJTC_customerId);
+        if ($MJTC_customerId <= 0) {
             return null;
         }
 
         // Get mapped user info
-        $ms_user = $this->getSupportCandyTicketCustomerInfo($customerId);
+        $ms_user = $this->getSupportCandyTicketCustomerInfo($MJTC_customerId);
         if (empty($ms_user['ms_uid'])) {
             return null;
         }
 
-        $uid = intval($ms_user['ms_uid']);
+        $MJTC_uid = intval($ms_user['ms_uid']);
 
         // Securely query agent by UID
-        $query = "
-            SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` WHERE uid = ".$uid;
-            $ms_agent_id = majesticsupport::$_db->get_var($query);
+        $MJTC_query = "
+            SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` WHERE uid = ".$MJTC_uid;
+            $ms_agent_id = majesticsupport::$_db->get_var($MJTC_query);
 
         return $ms_agent_id ? (int)$ms_agent_id : null;
     }
     
-    private function getTicketDepartmentIdBySupportCandy($categoryId) {
+    private function getTicketDepartmentIdBySupportCandy($MJTC_categoryId) {
         // Validate and sanitize category ID
-        $categoryId = intval($categoryId);
-        if ($categoryId <= 0) return null;
+        $MJTC_categoryId = intval($MJTC_categoryId);
+        if ($MJTC_categoryId <= 0) return null;
 
         // Get department (category) name from old table
-        $query = "
-            SELECT name FROM `" . majesticsupport::$_db->prefix . "psmsc_categories` WHERE id = ".$categoryId;
-        $category_name = majesticsupport::$_db->get_var($query);
+        $MJTC_query = "
+            SELECT name FROM `" . majesticsupport::$_db->prefix . "psmsc_categories` WHERE id = ".$MJTC_categoryId;
+        $MJTC_category_name = majesticsupport::$_db->get_var($MJTC_query);
 
-        if (empty($category_name)) return null;
+        if (empty($MJTC_category_name)) return null;
 
         // Match department by name (case-insensitive)
-        $query = "
-            SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` WHERE LOWER(departmentname) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($category_name)))."'";
-        $ms_department_id = majesticsupport::$_db->get_var($query);
+        $MJTC_query = "
+            SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` WHERE LOWER(departmentname) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_category_name)))."'";
+        $ms_department_id = majesticsupport::$_db->get_var($MJTC_query);
 
         return $ms_department_id ? (int)$ms_department_id : null;
     }
 
-    private function getTicketStatusIdBySupportCandy($statusId) {
+    private function getTicketStatusIdBySupportCandy($MJTC_statusId) {
         // Sanitize and validate input
-        $statusId = intval($statusId);
-        if ($statusId <= 0) return null;
+        $MJTC_statusId = intval($MJTC_statusId);
+        if ($MJTC_statusId <= 0) return null;
 
         // Get status name from source table
-        $query = "
-            SELECT name FROM `" . majesticsupport::$_db->prefix . "psmsc_statuses` WHERE id = ".$statusId;
-        $status_name = majesticsupport::$_db->get_var($query);
+        $MJTC_query = "
+            SELECT name FROM `" . majesticsupport::$_db->prefix . "psmsc_statuses` WHERE id = ".$MJTC_statusId;
+        $MJTC_status_name = majesticsupport::$_db->get_var($MJTC_query);
 
-        if (empty($status_name)) return null;
+        if (empty($MJTC_status_name)) return null;
 
         // Find matching status in destination table
-        $query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` WHERE LOWER(status) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($status_name)))."'";
-        $ms_status_id = majesticsupport::$_db->get_var($query);
+        $MJTC_query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` WHERE LOWER(status) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_status_name)))."'";
+        $ms_status_id = majesticsupport::$_db->get_var($MJTC_query);
 
         return $ms_status_id ? (int)$ms_status_id : null;
     }
 
-    private function getTicketPriorityIdBySupportCandy($priorityId) {
+    private function getTicketPriorityIdBySupportCandy($MJTC_priorityId) {
         // Sanitize and validate input
-        $priorityId = intval($priorityId);
-        if ($priorityId <= 0) return null;
+        $MJTC_priorityId = intval($MJTC_priorityId);
+        if ($MJTC_priorityId <= 0) return null;
 
         // Fetch priority from source table
-        $query = "
+        $MJTC_query = "
             SELECT name
             FROM `" . majesticsupport::$_db->prefix . "psmsc_priorities` 
-            WHERE id = ".$priorityId;
-        $priority_name = majesticsupport::$_db->get_var($query);
+            WHERE id = ".$MJTC_priorityId;
+        $MJTC_priority_name = majesticsupport::$_db->get_var($MJTC_query);
 
-        if (empty($priority_name)) return null;
+        if (empty($MJTC_priority_name)) return null;
 
         // Find corresponding priority in destination table
-        $query = "
+        $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` 
-                WHERE LOWER(priority) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($priority_name)))."'";
-            $ms_priority_id = majesticsupport::$_db->get_var($query);
+                WHERE LOWER(priority) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_priority_name)))."'";
+            $ms_priority_id = majesticsupport::$_db->get_var($MJTC_query);
 
         return $ms_priority_id ? (int)$ms_priority_id : null;
     }
 
-    private function getAgentRoleIdBySupportCandy($roleId) {
+    private function getAgentRoleIdBySupportCandy($MJTC_roleId) {
         // Get stored agent roles
-        $roles = get_option('wpsc-agent-roles', array());
+        $MJTC_roles = get_option('wpsc-agent-roles', array());
 
         // Get role label for the given role ID
-        $role_label = isset($roles[$roleId]['label']) ? MJTC_majesticsupportphplib::MJTC_trim($roles[$roleId]['label']) : '';
+        $MJTC_role_label = isset($MJTC_roles[$MJTC_roleId]['label']) ? MJTC_majesticsupportphplib::MJTC_trim($MJTC_roles[$MJTC_roleId]['label']) : '';
 
-        if (!empty($role_label)) {
+        if (!empty($MJTC_role_label)) {
             // Prepare and execute safe SQL query
-            $query = "SELECT id
+            $MJTC_query = "SELECT id
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_roles` 
-                WHERE LOWER(name) = '" . MJTC_majesticsupportphplib::MJTC_strtolower(esc_sql($role_label)) . "'";
-            $ms_roleid = majesticsupport::$_db->get_var($query);
+                WHERE LOWER(name) = '" . MJTC_majesticsupportphplib::MJTC_strtolower(esc_sql($MJTC_role_label)) . "'";
+            $ms_roleid = majesticsupport::$_db->get_var($MJTC_query);
 
             return $ms_roleid ? (int)$ms_roleid : null;
         }
@@ -1084,49 +1084,49 @@ class MJTC_thirdpartyimportModel {
 
     private function importSupportCandyUsers() {
         // check if user already processed for import
-        $imported_users = array();
-        $imported_users_json = get_option('mjtc_support_ticket_support_candy_data_users');
-        if(!empty($imported_users_json)){
-            $imported_users = json_decode($imported_users_json,true);
+        $MJTC_imported_users = array();
+        $MJTC_imported_users_json = get_option('mjtc_support_ticket_support_candy_data_users');
+        if(!empty($MJTC_imported_users_json)){
+            $MJTC_imported_users = json_decode($MJTC_imported_users_json,true);
         }
 
         // Fetch all customers
-        $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "psmsc_customers`";
-        $customers = majesticsupport::$_db->get_results($query);
+        $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "psmsc_customers`";
+        $MJTC_customers = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($customers)) return;
+        if (empty($MJTC_customers)) return;
 
-        foreach ($customers as $customer) {
-            $customer_id = intval($customer->id);
-            $wpuid       = intval($customer->user);
-            $name        = sanitize_text_field($customer->name ?? '');
-            $email       = sanitize_email($customer->email ?? '');
+        foreach ($MJTC_customers as $MJTC_customer) {
+            $MJTC_customer_id = intval($MJTC_customer->id);
+            $MJTC_wpuid       = intval($MJTC_customer->user);
+            $MJTC_name        = sanitize_text_field($MJTC_customer->name ?? '');
+            $MJTC_email       = sanitize_email($MJTC_customer->email ?? '');
 
             // Skip if already imported
-            if (in_array($customer_id, $imported_users, true)) {
+            if (in_array($MJTC_customer_id, $MJTC_imported_users, true)) {
                 $this->support_candy_import_count['user']['skipped']++;
                 continue;
             }
 
             // Check if user already exists
-            $user_query = "SELECT user.*
+            $MJTC_user_query = "SELECT user.*
                        FROM `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user
-                       WHERE user.wpuid = ".$wpuid;
-            $existing_user = majesticsupport::$_db->get_row($user_query);
+                       WHERE user.wpuid = ".$MJTC_wpuid;
+            $MJTC_existing_user = majesticsupport::$_db->get_row($MJTC_user_query);
 
-            if ($existing_user) {
+            if ($MJTC_existing_user) {
                 $this->support_candy_import_count['user']['skipped']++;
                 continue;
             }
 
             // Prepare data for new user
-            $row = MJTC_includer::MJTC_getTable('users');
+            $MJTC_row = MJTC_includer::MJTC_getTable('users');
             $MJTC_data = [
                 'id'            => '',
-                'wpuid'         => $wpuid,
-                'name'          => $name,
-                'display_name'  => $name,
-                'user_email'    => $email,
+                'wpuid'         => $MJTC_wpuid,
+                'name'          => $MJTC_name,
+                'display_name'  => $MJTC_name,
+                'user_email'    => $MJTC_email,
                 'status'        => 1,
                 'issocial'      => 0,
                 'socialid'      => null,
@@ -1134,33 +1134,33 @@ class MJTC_thirdpartyimportModel {
             ];
 
             // Attempt to save the new user
-            $row->bind($MJTC_data);
-            if (!$row->store()) {
+            $MJTC_row->bind($MJTC_data);
+            if (!$MJTC_row->store()) {
                 $this->support_candy_import_count['user']['failed']++;
                 continue;
             }
 
             // Store successful import info
-            $this->support_candy_users_array[$customer_id] = $row->id;
-            $this->support_candy_user_ids[] = $customer_id;
+            $this->support_candy_users_array[$MJTC_customer_id] = $MJTC_row->id;
+            $this->support_candy_user_ids[] = $MJTC_customer_id;
             $this->support_candy_import_count['user']['imported']++;
         }
 
         // Save list of imported user IDs
         if (!empty($this->support_candy_user_ids)) {
-            update_option('mjtc_support_ticket_support_candy_data_users', wp_json_encode(array_unique(array_merge($imported_users, $this->support_candy_user_ids))));
+            update_option('mjtc_support_ticket_support_candy_data_users', wp_json_encode(array_unique(array_merge($MJTC_imported_users, $this->support_candy_user_ids))));
         }
     }
 
     private function importSupportCandyTicketFields() {
         // Get all ticket-related custom fields
-        $query = "
+        $MJTC_query = "
             SELECT * FROM `" . majesticsupport::$_db->prefix . "psmsc_custom_fields`
             WHERE slug LIKE 'cust_%' AND type LIKE 'cf_%'
             AND field = 'ticket';";
-        $custom_fields = majesticsupport::$_db->get_results($query);
+        $MJTC_custom_fields = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (!$custom_fields) return;
+        if (!$MJTC_custom_fields) return;
 
         // Get visibility settings
         $MJTC_ticket_field_options = get_option("wpsc-tff");
@@ -1168,37 +1168,37 @@ class MJTC_thirdpartyimportModel {
         $this->sc_ticket_custom_fields = [];
         $this->sc_ticket_custom_fields_custom = [];
 
-        foreach ($custom_fields as $custom_field) {
-            $slug = esc_sql($custom_field->slug);
+        foreach ($MJTC_custom_fields as $MJTC_custom_field) {
+            $MJTC_slug = esc_sql($MJTC_custom_field->slug);
 
             // Map field types
-            switch ($custom_field->type) {
+            switch ($MJTC_custom_field->type) {
                 case "cf_textfield":
                 case "cf_number":
                 case "cf_url":
                 case "cf_time":
-                    $fieldtype = "text"; break;
+                    $MJTC_fieldtype = "text"; break;
                 case "cf_multi_select":
-                    $fieldtype = "multiple"; break;
+                    $MJTC_fieldtype = "multiple"; break;
                 case "cf_single_select":
-                    $fieldtype = "combo"; break;
+                    $MJTC_fieldtype = "combo"; break;
                 case "cf_radio_button":
-                    $fieldtype = "radio"; break;
+                    $MJTC_fieldtype = "radio"; break;
                 case "cf_checkbox":
-                    $fieldtype = "checkbox"; break;
+                    $MJTC_fieldtype = "checkbox"; break;
                 case "cf_textarea":
-                    $fieldtype = "textarea"; break;
+                    $MJTC_fieldtype = "textarea"; break;
                 case "cf_date":
                 case "cf_datetime":
-                    $fieldtype = "date"; break;
+                    $MJTC_fieldtype = "date"; break;
                 case "cf_email":
-                    $fieldtype = "email"; break;
+                    $MJTC_fieldtype = "email"; break;
                 case "cf_file_attachment_multiple":
                 case "cf_file_attachment_single":
-                    $fieldtype = "file"; break;
+                    $MJTC_fieldtype = "file"; break;
                 case "cf_edd_order":
                     $this->sc_ticket_custom_fields[] = [
-                        "name" => $slug,
+                        "name" => $MJTC_slug,
                         "type" => 'cf_edd_order',
                         "ms_filedorderingid" => '',
                         "ms_filedorderingfield" => '',
@@ -1207,7 +1207,7 @@ class MJTC_thirdpartyimportModel {
                     continue 2; break;
                 case "cf_edd_product":
                     $this->sc_ticket_custom_fields[] = [
-                        "name" => $slug,
+                        "name" => $MJTC_slug,
                         "type" => 'cf_edd_product',
                         "ms_filedorderingid" => '',
                         "ms_filedorderingfield" => '',
@@ -1216,7 +1216,7 @@ class MJTC_thirdpartyimportModel {
                     continue 2; break;
                 case "cf_woo_order":
                     $this->sc_ticket_custom_fields[] = [
-                        "name" => $slug,
+                        "name" => $MJTC_slug,
                         "type" => 'cf_woo_order',
                         "ms_filedorderingid" => '',
                         "ms_filedorderingfield" => '',
@@ -1225,7 +1225,7 @@ class MJTC_thirdpartyimportModel {
                     continue 2; break;
                 case "cf_woo_product":
                     $this->sc_ticket_custom_fields[] = [
-                        "name" => $slug,
+                        "name" => $MJTC_slug,
                         "type" => 'cf_woo_product',
                         "ms_filedorderingid" => '',
                         "ms_filedorderingfield" => '',
@@ -1233,48 +1233,48 @@ class MJTC_thirdpartyimportModel {
                     $this->support_candy_import_count['field']['skipped'] += 1;
                     continue 2; break;
                 default:
-                    $fieldtype = "text"; break;
+                    $MJTC_fieldtype = "text"; break;
             }
 
-            $query = "SELECT id,field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE isuserfield = 1 AND LOWER(fieldtitle) ='".esc_sql(MJTC_majesticsupportphplib::MJTC_strtolower($custom_field->name))."' AND userfieldtype ='".esc_sql($fieldtype)."' AND fieldfor = 1";
-            $field_record = majesticsupport::$_db->get_row($query);
+            $MJTC_query = "SELECT id,field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE isuserfield = 1 AND LOWER(fieldtitle) ='".esc_sql(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_custom_field->name))."' AND userfieldtype ='".esc_sql($MJTC_fieldtype)."' AND fieldfor = 1";
+            $MJTC_field_record = majesticsupport::$_db->get_row($MJTC_query);
 
-            if(!empty($field_record)){ // this will make sure
+            if(!empty($MJTC_field_record)){ // this will make sure
                 $this->support_candy_import_count['field']['skipped'] += 1;
                 continue;
             }
             // Load options for select-type fields
-            $option_values = [];
+            $MJTC_option_values = [];
 
             $table = majesticsupport::$_db->prefix . "psmsc_tickets";
-            $column = $custom_field->slug;
+            $MJTC_column = $MJTC_custom_field->slug;
 
             // Get all columns from the table only once
-            static $existing_columns = null;
+            static $MJTC_existing_columns = null;
 
-            if ($existing_columns === null) {
-                $existing_columns = majesticsupport::$_db->get_col("SHOW COLUMNS FROM `$table`");
+            if ($MJTC_existing_columns === null) {
+                $MJTC_existing_columns = majesticsupport::$_db->get_col("SHOW COLUMNS FROM `$table`");
             }
 
             // Check if the column exists
-            if (in_array($column, $existing_columns)) {
-                $query = "SELECT `" . $column . "` FROM `" . $table . "`";
-                $field = majesticsupport::$_db->get_row($query);
+            if (in_array($MJTC_column, $MJTC_existing_columns)) {
+                $MJTC_query = "SELECT `" . $MJTC_column . "` FROM `" . $table . "`";
+                $MJTC_field = majesticsupport::$_db->get_row($MJTC_query);
             } else {
-                $field = null; // Column doesn't exist
+                $MJTC_field = null; // Column doesn't exist
             }
-            if(isset($field)){ // field in the ticket table
-                $query = "SELECT name FROM `" . majesticsupport::$_db->prefix . "psmsc_options` WHERE custom_field = ".$custom_field->id." ORDER BY load_order;";
-                $field_options = majesticsupport::$_db->get_results($query);
-                if ($field_options) {
-                    foreach ($field_options as $field_option) {
-                        $option_values[] = $field_option->name;
+            if(isset($MJTC_field)){ // field in the ticket table
+                $MJTC_query = "SELECT name FROM `" . majesticsupport::$_db->prefix . "psmsc_options` WHERE custom_field = ".$MJTC_custom_field->id." ORDER BY load_order;";
+                $MJTC_field_options = majesticsupport::$_db->get_results($MJTC_query);
+                if ($MJTC_field_options) {
+                    foreach ($MJTC_field_options as $MJTC_field_option) {
+                        $MJTC_option_values[] = $MJTC_field_option->name;
                     }
                 }
             }
 
             // Build visibility data
-            $visibledata = [
+            $MJTC_visibledata = [
                 "visibleLogic" => [],
                 "visibleParent" => [],
                 "visibleValue" => [],
@@ -1283,49 +1283,49 @@ class MJTC_thirdpartyimportModel {
 
             $MJTC_defaultvalue_input = "";
             $MJTC_defaultvalue_select = "";
-            if($fieldtype == "combo" || $fieldtype == "radio" || $fieldtype == "multiple" || $fieldtype == "checkbox" || $fieldtype == "depandant_field") {
+            if($MJTC_fieldtype == "combo" || $MJTC_fieldtype == "radio" || $MJTC_fieldtype == "multiple" || $MJTC_fieldtype == "checkbox" || $MJTC_fieldtype == "depandant_field") {
 
-                $field_ids = explode('|', $custom_field->default_value);
+                $MJTC_field_ids = explode('|', $MJTC_custom_field->default_value);
 
                 // Sanitize and cast to integers
-                $field_id = isset($field_ids[0]) ? intval($field_ids[0]) : null;
+                $MJTC_field_id = isset($MJTC_field_ids[0]) ? intval($MJTC_field_ids[0]) : null;
 
                 // Check if we have valid IDs
-                if (!empty($field_id)) {
-                    $query = "SELECT name FROM `" . majesticsupport::$_db->prefix . "psmsc_options` WHERE id = " . $field_id;
-                    $name = majesticsupport::$_db->get_col($query);
+                if (!empty($MJTC_field_id)) {
+                    $MJTC_query = "SELECT name FROM `" . majesticsupport::$_db->prefix . "psmsc_options` WHERE id = " . $MJTC_field_id;
+                    $MJTC_name = majesticsupport::$_db->get_col($MJTC_query);
 
                     // Combine names into comma-separated string
-                    $vardata = !empty($name) ? implode(', ', $name) : '';
+                    $MJTC_vardata = !empty($MJTC_name) ? implode(', ', $MJTC_name) : '';
                 } else {
-                    $vardata = '';
+                    $MJTC_vardata = '';
                 }
 
-                $MJTC_defaultvalue_select = $vardata;
+                $MJTC_defaultvalue_select = $MJTC_vardata;
             } else {
-                $MJTC_defaultvalue_input = $custom_field->default_value;
+                $MJTC_defaultvalue_input = $MJTC_custom_field->default_value;
             }
 
             // Prepare field data for import
-            $fieldOrderingData = [
+            $MJTC_fieldOrderingData = [
                 "id" => "",
-                "field" => $slug,
-                "fieldtitle" => $custom_field->name,
+                "field" => $MJTC_slug,
+                "fieldtitle" => $MJTC_custom_field->name,
                 "ordering" => "",
                 "section" => "10",
-                "placeholder" => $custom_field->placeholder_text,
-                "description" => $custom_field->extra_info,
+                "placeholder" => $MJTC_custom_field->placeholder_text,
+                "description" => $MJTC_custom_field->extra_info,
                 "fieldfor" => "1",
                 "published" => "1",
                 "sys" => "0",
                 "cannotunpublish" => "0",
                 "required" => "0",
                 "size" => "100",
-                "maxlength" => $custom_field->char_limit,
+                "maxlength" => $MJTC_custom_field->char_limit,
                 "cols" => "",
                 "rows" => "",
                 "isuserfield" => "1",
-                "userfieldtype" => $fieldtype,
+                "userfieldtype" => $MJTC_fieldtype,
                 "depandant_field" => "",
                 "visible_field" => "",
                 "showonlisting" => "0",
@@ -1337,11 +1337,11 @@ class MJTC_thirdpartyimportModel {
                 "multiformid" => "1",
                 "userfieldparams" => "",
                 "visibleparams" => "",
-                "values" => $option_values,
-                "visibleParent" => $visibledata["visibleParent"],
-                "visibleValue" => $visibledata["visibleValue"],
-                "visibleCondition" => $visibledata["visibleCondition"],
-                "visibleLogic" => $visibledata["visibleLogic"],
+                "values" => $MJTC_option_values,
+                "visibleParent" => $MJTC_visibledata["visibleParent"],
+                "visibleValue" => $MJTC_visibledata["visibleValue"],
+                "visibleCondition" => $MJTC_visibledata["visibleCondition"],
+                "visibleLogic" => $MJTC_visibledata["visibleLogic"],
                 "readonly" => 0,
                 "adminonly" => 0,
                 "defaultvalue_select" => $MJTC_defaultvalue_select,
@@ -1349,112 +1349,112 @@ class MJTC_thirdpartyimportModel {
             ];
 
             // Store field in SupportCandy
-            $record_saved = MJTC_includer::MJTC_getModel('fieldordering')->storeUserField($fieldOrderingData);
+            $MJTC_record_saved = MJTC_includer::MJTC_getModel('fieldordering')->storeUserField($MJTC_fieldOrderingData);
 
-            if ($record_saved == 1) {
-                $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` ORDER BY id DESC LIMIT 1";
-                    $latest_record = majesticsupport::$_db->get_row($query);
+            if ($MJTC_record_saved == 1) {
+                $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` ORDER BY id DESC LIMIT 1";
+                    $MJTC_latest_record = majesticsupport::$_db->get_row($MJTC_query);
 
                 $this->sc_ticket_custom_fields[] = [
-                    "name" => $slug,
-                    "type" => $fieldtype,
-                    "ms_filedorderingid" => $latest_record->id,
-                    "ms_filedorderingfield" => $latest_record->field,
+                    "name" => $MJTC_slug,
+                    "type" => $MJTC_fieldtype,
+                    "ms_filedorderingid" => $MJTC_latest_record->id,
+                    "ms_filedorderingfield" => $MJTC_latest_record->field,
                 ];
-                $this->sc_ticket_custom_fields_custom[$custom_field->slug] = $latest_record->field;
+                $this->sc_ticket_custom_fields_custom[$MJTC_custom_field->slug] = $MJTC_latest_record->field;
                 
                 $this->support_candy_import_count['field']['imported'] += 1;
             } else {
                 $this->support_candy_import_count['field']['failed'] += 1;
-                // Optionally log: error_log("Failed to import field: $slug");
+                // Optionally log: die("Failed to import field: $MJTC_slug");
             }
         }
 
-        foreach ($custom_fields as $custom_field) {
-            $slug = $custom_field->slug;
-            if (!empty($MJTC_ticket_field_options[$slug]['visibility'])) {
-                $visibility_conditions = json_decode($MJTC_ticket_field_options[$slug]['visibility']);
-                $field = $this->getTicketCustomFieldId($custom_field->name);
-                $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = '".esc_sql($field)."' LIMIT 1";
-                $ms_field = majesticsupport::$_db->get_row($query);
+        foreach ($MJTC_custom_fields as $MJTC_custom_field) {
+            $MJTC_slug = $MJTC_custom_field->slug;
+            if (!empty($MJTC_ticket_field_options[$MJTC_slug]['visibility'])) {
+                $MJTC_visibility_conditions = json_decode($MJTC_ticket_field_options[$MJTC_slug]['visibility']);
+                $MJTC_field = $this->getTicketCustomFieldId($MJTC_custom_field->name);
+                $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = '".esc_sql($MJTC_field)."' LIMIT 1";
+                $ms_field = majesticsupport::$_db->get_row($MJTC_query);
                 if (empty($ms_field)) {
                     continue;
                 }
 
                 // Build visibility data
-                $visibledata = [
+                $MJTC_visibledata = [
                     "visibleLogic" => [],
                     "visibleParent" => [],
                     "visibleValue" => [],
                     "visibleCondition" => [],
                 ];
-                if ($visibility_conditions) {
-                    foreach ($visibility_conditions as $visibility_condition) {
-                        $visibleLogic = 'AND';
-                        foreach ($visibility_condition as $groupIndex => $group) {
-                            $fieldtype = '';
-                            if ($group->slug == 'usergroups' || $group->slug == 'description' || $group->slug == 'assigned_agent') {
+                if ($MJTC_visibility_conditions) {
+                    foreach ($MJTC_visibility_conditions as $MJTC_visibility_condition) {
+                        $MJTC_visibleLogic = 'AND';
+                        foreach ($MJTC_visibility_condition as $MJTC_groupIndex => $MJTC_group) {
+                            $MJTC_fieldtype = '';
+                            if ($MJTC_group->slug == 'usergroups' || $MJTC_group->slug == 'description' || $MJTC_group->slug == 'assigned_agent') {
                                 continue;
                             }
-                            if ($group->slug == 'priority') {
-                                $item_key = 'priority';
-                                $MJTC_value = $this->getTicketPriorityIdBySupportCandy($group->operand_val_1);
-                                $fieldtype = 'priority';
-                            } elseif ($group->slug == 'category') {
-                                $item_key = 'department';
-                                $MJTC_value = $this->getTicketDepartmentIdBySupportCandy($group->operand_val_1);
-                                $fieldtype = 'department';
-                            } elseif ($group->slug == 'subject') {
-                                $item_key = 'subject';
-                                $MJTC_value = $group->operand_val_1;
-                                $fieldtype = 'subject';
+                            if ($MJTC_group->slug == 'priority') {
+                                $MJTC_item_key = 'priority';
+                                $MJTC_value = $this->getTicketPriorityIdBySupportCandy($MJTC_group->operand_val_1);
+                                $MJTC_fieldtype = 'priority';
+                            } elseif ($MJTC_group->slug == 'category') {
+                                $MJTC_item_key = 'department';
+                                $MJTC_value = $this->getTicketDepartmentIdBySupportCandy($MJTC_group->operand_val_1);
+                                $MJTC_fieldtype = 'department';
+                            } elseif ($MJTC_group->slug == 'subject') {
+                                $MJTC_item_key = 'subject';
+                                $MJTC_value = $MJTC_group->operand_val_1;
+                                $MJTC_fieldtype = 'subject';
                             } else {
-                                // $item_key = $group->slug;
-                                $item_key = $this->sc_ticket_custom_fields_custom[$group->slug];
-                                $fieldtype = $this->checkTypeOfTheField($item_key);
-                                if ($fieldtype == 'textarea') {
+                                // $MJTC_item_key = $MJTC_group->slug;
+                                $MJTC_item_key = $this->sc_ticket_custom_fields_custom[$MJTC_group->slug];
+                                $MJTC_fieldtype = $this->checkTypeOfTheField($MJTC_item_key);
+                                if ($MJTC_fieldtype == 'textarea') {
                                     continue;
-                                } elseif ($this->sc_ticket_custom_fields_custom[$custom_field->slug] == $item_key) {
+                                } elseif ($this->sc_ticket_custom_fields_custom[$MJTC_custom_field->slug] == $MJTC_item_key) {
                                     continue;
                                 }
 
-                                if (in_array(strtolower($fieldtype), ['multiple', 'checkbox', 'combo', 'radio'])) {
-                                    $field_ids = explode('|', $group->operand_val_1[0]);
+                                if (in_array(strtolower($MJTC_fieldtype), ['multiple', 'checkbox', 'combo', 'radio'])) {
+                                    $MJTC_field_ids = explode('|', $MJTC_group->operand_val_1[0]);
 
                                     // Sanitize and cast to integers
-                                    $field_ids = array_map('intval', array_filter($field_ids));
+                                    $MJTC_field_ids = array_map('intval', array_filter($MJTC_field_ids));
 
                                     // Check if we have valid IDs
-                                    if (!empty($field_ids)) {
-                                        $placeholders = implode(',', $field_ids);
-                                        $query = "SELECT name FROM `" . majesticsupport::$_db->prefix . "psmsc_options` WHERE id IN ($placeholders)";
-                                        $names = majesticsupport::$_db->get_col($query);
+                                    if (!empty($MJTC_field_ids)) {
+                                        $MJTC_placeholders = implode(',', $MJTC_field_ids);
+                                        $MJTC_query = "SELECT name FROM `" . majesticsupport::$_db->prefix . "psmsc_options` WHERE id IN ($MJTC_placeholders)";
+                                        $MJTC_names = majesticsupport::$_db->get_col($MJTC_query);
 
                                         // Combine names into comma-separated string
-                                        $MJTC_value = !empty($names) ? implode(', ', $names) : '';
+                                        $MJTC_value = !empty($MJTC_names) ? implode(', ', $MJTC_names) : '';
                                     } else {
                                         $MJTC_value = '';
                                     }
                                 } else {
-                                    $MJTC_value = $group->operand_val_1;
+                                    $MJTC_value = $MJTC_group->operand_val_1;
                                 }
                             }
-                            if ($custom_field->slug == 'priority') {
-                                $slug = 'priority';
-                            } elseif ($custom_field->slug == 'category') {
-                                $slug = 'department';
-                            } elseif ($custom_field->slug == 'subject') {
-                                $slug = 'subject';
+                            if ($MJTC_custom_field->slug == 'priority') {
+                                $MJTC_slug = 'priority';
+                            } elseif ($MJTC_custom_field->slug == 'category') {
+                                $MJTC_slug = 'department';
+                            } elseif ($MJTC_custom_field->slug == 'subject') {
+                                $MJTC_slug = 'subject';
                             } else {
-                                $slug = $this->sc_ticket_custom_fields_custom[$custom_field->slug];
+                                $MJTC_slug = $this->sc_ticket_custom_fields_custom[$MJTC_custom_field->slug];
                             }
                             
-                            $visibledata["visibleParentField"][] = $slug;
-                            $visibledata["visibleParent"][] = $item_key;
-                            $visibledata["visibleCondition"][] = $this->mapOperatorToConditionCode($group->operator, $fieldtype);
-                            $visibledata["visibleValue"][] = $MJTC_value;
-                            $visibledata["visibleLogic"][] = $visibleLogic;
-                            $visibleLogic = 'OR';
+                            $MJTC_visibledata["visibleParentField"][] = $MJTC_slug;
+                            $MJTC_visibledata["visibleParent"][] = $MJTC_item_key;
+                            $MJTC_visibledata["visibleCondition"][] = $this->mapOperatorToConditionCode($MJTC_group->operator, $MJTC_fieldtype);
+                            $MJTC_visibledata["visibleValue"][] = $MJTC_value;
+                            $MJTC_visibledata["visibleLogic"][] = $MJTC_visibleLogic;
+                            $MJTC_visibleLogic = 'OR';
                         }
                         // remove default value in case of visiblity
                         $ms_field->defaultvalue = '';
@@ -1462,17 +1462,17 @@ class MJTC_thirdpartyimportModel {
                     }
                 }
 
-                $option_values = [];
+                $MJTC_option_values = [];
                 if(isset($ms_field->userfieldparams)){
-                    $options = json_decode($ms_field->userfieldparams, true);
-                    foreach($options as $MJTC_key => $MJTC_value){
-                        $option_values[] = $MJTC_value;
+                    $MJTC_options = json_decode($ms_field->userfieldparams, true);
+                    foreach($MJTC_options as $MJTC_key => $MJTC_value){
+                        $MJTC_option_values[] = $MJTC_value;
                     }
                 }
                 
                 // Prepare field data for import
 
-                $fieldOrderingData = [
+                $MJTC_fieldOrderingData = [
                     "id" => $ms_field->id,
                     "field" => $ms_field->field,
                     "fieldtitle" => $ms_field->fieldtitle,
@@ -1507,81 +1507,81 @@ class MJTC_thirdpartyimportModel {
                     "defaultvalue" => $ms_field->defaultvalue,
                     "defaultvalue_select" => $ms_field->defaultvalue,
                     "defaultvalue_input" => $ms_field->defaultvalue,
-                    "values" => $option_values,
-                    "visibleParent" => $visibledata["visibleParent"],
-                    "visibleValue" => $visibledata["visibleValue"],
-                    "visibleCondition" => $visibledata["visibleCondition"],
-                    "visibleLogic" => $visibledata["visibleLogic"],
+                    "values" => $MJTC_option_values,
+                    "visibleParent" => $MJTC_visibledata["visibleParent"],
+                    "visibleValue" => $MJTC_visibledata["visibleValue"],
+                    "visibleCondition" => $MJTC_visibledata["visibleCondition"],
+                    "visibleLogic" => $MJTC_visibledata["visibleLogic"],
                 ];
 
                 // Store field in SupportCandy
-                $record_saved = MJTC_includer::MJTC_getModel('fieldordering')->storeUserField($fieldOrderingData);
+                $MJTC_record_saved = MJTC_includer::MJTC_getModel('fieldordering')->storeUserField($MJTC_fieldOrderingData);
             }
         }
     }
 
-    private function mapOperatorToConditionCode($operator, $type) {
-        $operator = strtoupper(MJTC_majesticsupportphplib::MJTC_trim($operator));
-        $isComplex = false;
+    private function mapOperatorToConditionCode($MJTC_operator, $type) {
+        $MJTC_operator = strtoupper(MJTC_majesticsupportphplib::MJTC_trim($MJTC_operator));
+        $MJTC_isComplex = false;
 
         if (!empty($type)) {
-            $complexTypes = ['combo', 'checkbox', 'radio', 'multiple','priority','department'];
-            $isComplex = !in_array($type, $complexTypes);
+            $MJTC_complexTypes = ['combo', 'checkbox', 'radio', 'multiple','priority','department'];
+            $MJTC_isComplex = !in_array($type, $MJTC_complexTypes);
         }
 
-        switch ($operator) {
+        switch ($MJTC_operator) {
             case '=':
             case 'LIKE':
             case 'IN':
-                return $isComplex ? "2" : "1";
+                return $MJTC_isComplex ? "2" : "1";
 
             case 'NOT IN':
-                return $isComplex ? "3" : "0";
+                return $MJTC_isComplex ? "3" : "0";
 
             default:
-                return $isComplex ? "3" : "0";
+                return $MJTC_isComplex ? "3" : "0";
         }
     }
 
     // clean
     private function importSupportCandyAgents() {
         // check if user already processed for import
-        $imported_agents = array();
-        $imported_agent_json = get_option('mjtc_support_ticket_support_candy_data_agents');
-        if(!empty($imported_agents_json)){
-            $imported_agents = json_decode($imported_agents_json,true);
+        $MJTC_imported_agents = array();
+        $MJTC_imported_agent_json = get_option('mjtc_support_ticket_support_candy_data_agents');
+        if(!empty($MJTC_imported_agents_json)){
+            $MJTC_imported_agents = json_decode($MJTC_imported_agents_json,true);
         }
-        $query = "SELECT agent.*
+        $MJTC_query = "SELECT agent.*
                     FROM `" . majesticsupport::$_db->prefix . "psmsc_agents` AS agent;";
-        $agents = majesticsupport::$_db->get_results($query);
-        $total_agents = count($agents);
+        $MJTC_agents = majesticsupport::$_db->get_results($MJTC_query);
+        $total_agents = count($MJTC_agents);
 
-        if($agents){
-            foreach($agents AS $agent){
+        if($MJTC_agents){
+            foreach($MJTC_agents AS $MJTC_agent){
                 // Failed if addon not installed
                 if (!in_array('agent', majesticsupport::$_active_addons) ) {
                     $this->support_candy_import_count['agent']['failed']++;
                     continue;
                 }
-                $wpuid = (int) $agent->user;
+                $MJTC_wpuid = (int) $MJTC_agent->user;
                 // Skip if already imported
-                if (in_array($wpuid, $imported_agents, true)) {
+                if (in_array($MJTC_wpuid, $MJTC_imported_agents, true)) {
                     $this->support_candy_import_count['agent']['skipped']++;
                     continue;
                 }
-                $name = $agent->name;
+                $MJTC_name = $MJTC_agent->name;
 
-                $query = "
+                $MJTC_query = "
                     SELECT user.*
                         FROM `" . majesticsupport::$_db->prefix . "users` AS user
-                        WHERE user.id = " . $wpuid;
-                $wpuser = majesticsupport::$_db->get_row($query);
+                        WHERE user.id = " . $MJTC_wpuid;
+                $MJTC_wpuser = majesticsupport::$_db->get_row($MJTC_query);
 
-                if(!$wpuser){
+                if(!$MJTC_wpuser){
                     $this->support_candy_import_count['agent']['failed'] += 1;
                     continue;
                 }
-                $mjtc_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_getmajesticsupportuidbyuserid($wpuid);
+                $mjtc_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_getmajesticsupportuidbyuserid($MJTC_wpuid);
                 if (!empty($mjtc_user) && isset($mjtc_user[0]->id)) {
                     $mjtc_uid = (int)$mjtc_user[0]->id;
                 } else {
@@ -1589,60 +1589,60 @@ class MJTC_thirdpartyimportModel {
                     continue;
                 }
 
-                $query = "
+                $MJTC_query = "
                     SELECT staff.*
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff
                             WHERE staff.uid = " . $mjtc_uid;
-                $staff = majesticsupport::$_db->get_row($query);
+                $MJTC_staff = majesticsupport::$_db->get_row($MJTC_query);
 
-                if (!$staff) {
+                if (!$MJTC_staff) {
                     
-                    $timestamp = date_i18n('Y-m-d H:i:s');
+                    $MJTC_timestamp = date_i18n('Y-m-d H:i:s');
 
                     $MJTC_data = [
                         'id'           => '',
                         'uid'          => $mjtc_uid,
                         'groupid'      => '',
-                        'roleid'       => $this->getAgentRoleIdBySupportCandy($agent->role),
+                        'roleid'       => $this->getAgentRoleIdBySupportCandy($MJTC_agent->role),
                         'departmentid' => '',
-                        'firstname'    => $name,
+                        'firstname'    => $MJTC_name,
                         'lastname'     => '',
-                        'username'     => $wpuser->user_login,
-                        'email'        => $wpuser->user_email,
+                        'username'     => $MJTC_wpuser->user_login,
+                        'email'        => $MJTC_wpuser->user_email,
                         'signature'    => '',
                         'isadmin'      => '',
-                        'status'       => $agent->is_active,
-                        'updated'      => $timestamp,
-                        'created'      => $timestamp
+                        'status'       => $MJTC_agent->is_active,
+                        'updated'      => $MJTC_timestamp,
+                        'created'      => $MJTC_timestamp
                     ];
 
-                    $saved = MJTC_includer::MJTC_getModel('agent')->storeStaff($MJTC_data);
+                    $MJTC_saved = MJTC_includer::MJTC_getModel('agent')->storeStaff($MJTC_data);
 
                     $this->support_candy_import_count['agent']['imported'] += 1;
-                    $this->support_candy_agent_ids[] = $wpuid;
+                    $this->support_candy_agent_ids[] = $MJTC_wpuid;
                 } else {
                     $this->support_candy_import_count['agent']['skipped'] += 1;
                 }
             }
             // Save list of imported agent IDs
             if (!empty($this->support_candy_agent_ids)) {
-                update_option('mjtc_support_ticket_support_candy_data_agents', wp_json_encode(array_unique(array_merge($imported_agents, $this->support_candy_agent_ids))));
+                update_option('mjtc_support_ticket_support_candy_data_agents', wp_json_encode(array_unique(array_merge($MJTC_imported_agents, $this->support_candy_agent_ids))));
             }
         }
     }
 
     private function importSupportCandyAgentsRoles() {
         // check if role already processed for import
-        $imported_agent_roles = array();
-        $imported_agent_role_json = get_option('mjtc_support_ticket_support_candy_data_agent_roles');
-        if(!empty($imported_agent_roles_json)){
-            $imported_agent_roles = json_decode($imported_agent_roles_json,true);
+        $MJTC_imported_agent_roles = array();
+        $MJTC_imported_agent_role_json = get_option('mjtc_support_ticket_support_candy_data_agent_roles');
+        if(!empty($MJTC_imported_agent_roles_json)){
+            $MJTC_imported_agent_roles = json_decode($MJTC_imported_agent_roles_json,true);
         }
 
-        $wpsc_agent_roles = get_option('wpsc-agent-roles', []);
+        $MJTC_wpsc_agent_roles = get_option('wpsc-agent-roles', []);
 
         // Mapping role labels to permission keys
-        $permissionMap = [
+        $MJTC_permissionMap = [
             'View Credentials'         => ['view-pc-unassigned', 'view-pc-assigned-me', 'view-pc-assigned-others'],
             'Edit Credentials'         => ['modify-pc-unassigned', 'modify-pc-assigned-me', 'modify-pc-assigned-others'],
             'Delete Credentials'       => ['delete-pc-unassigned', 'delete-pc-assigned-me', 'delete-pc-assigned-others'],
@@ -1659,40 +1659,40 @@ class MJTC_thirdpartyimportModel {
         ];
 
         // Pre-fetch permission IDs for all labels
-        $permissionIds = [];
-        foreach ($permissionMap as $label => $_) {
+        $MJTC_permissionIds = [];
+        foreach ($MJTC_permissionMap as $MJTC_label => $_) {
             if (in_array('agent', majesticsupport::$_active_addons) ) {
-                $escapedLabel = esc_sql($label);
-                $sql = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_permissions` WHERE permission = '{$escapedLabel}' LIMIT 1";
-                $permissionIds[$label] = (int) majesticsupport::$_db->get_var($sql);
+                $MJTC_escapedLabel = esc_sql($MJTC_label);
+                $MJTC_sql = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_permissions` WHERE permission = '{$MJTC_escapedLabel}' LIMIT 1";
+                $MJTC_permissionIds[$MJTC_label] = (int) majesticsupport::$_db->get_var($MJTC_sql);
             }
         }
 
-        foreach ($wpsc_agent_roles as $role) {
+        foreach ($MJTC_wpsc_agent_roles as $MJTC_role) {
             // Failed if addon not installed
             if (!in_array('agent', majesticsupport::$_active_addons) ) {
                 $this->support_candy_import_count['agent_role']['failed']++;
                 continue;
             }
             // Skip if already imported
-            if (in_array($role['label'], $imported_agent_roles, true)) {
+            if (in_array($MJTC_role['label'], $MJTC_imported_agent_roles, true)) {
                 $this->support_candy_import_count['agent_role']['skipped']++;
                 continue;
             }
-            $query = "SELECT count(id)
-                    FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_roles` WHERE name ='".esc_sql($role['label'])."'";
-            $agent_role = majesticsupport::$_db->get_var($query);
+            $MJTC_query = "SELECT count(id)
+                    FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_roles` WHERE name ='".esc_sql($MJTC_role['label'])."'";
+            $MJTC_agent_role = majesticsupport::$_db->get_var($MJTC_query);
 
-            if($agent_role == 0){
-                $output = [];
-                $caps = $role['caps'] ?? [];
+            if($MJTC_agent_role == 0){
+                $MJTC_output = [];
+                $MJTC_caps = $MJTC_role['caps'] ?? [];
 
-                foreach ($permissionMap as $label => $permissions) {
-                    foreach ($permissions as $perm) {
-                        if (!empty($caps[$perm])) {
+                foreach ($MJTC_permissionMap as $MJTC_label => $MJTC_permissions) {
+                    foreach ($MJTC_permissions as $MJTC_perm) {
+                        if (!empty($MJTC_caps[$MJTC_perm])) {
                             // Assign permission ID for this label if exists
-                            if (!empty($permissionIds[$label])) {
-                                $output[$label] = $permissionIds[$label];
+                            if (!empty($MJTC_permissionIds[$MJTC_label])) {
+                                $MJTC_output[$MJTC_label] = $MJTC_permissionIds[$MJTC_label];
                             }
                             break; // Stop checking other permissions for this label
                         }
@@ -1700,8 +1700,8 @@ class MJTC_thirdpartyimportModel {
                 }
 
                 $MJTC_data = [
-                    'name'          => $role['label'],
-                    'roleperdata'   => $output,
+                    'name'          => $MJTC_role['label'],
+                    'roleperdata'   => $MJTC_output,
                     'id'            => '',
                     'created'       => '',
                     'updated'       => '',
@@ -1713,220 +1713,220 @@ class MJTC_thirdpartyimportModel {
                 // save role and role permissions
                 MJTC_includer::MJTC_getModel('role')->storeRole($MJTC_data);
                 $this->support_candy_import_count['agent_role']['imported'] += 1;
-                $this->support_candy_agent_role_ids[] = $role['label'];
+                $this->support_candy_agent_role_ids[] = $MJTC_role['label'];
             } else {
                 $this->support_candy_import_count['agent_role']['skipped'] += 1;
             }
         }
         // Save list of imported agent_role IDs
         if (!empty($this->support_candy_agent_role_ids)) {
-            update_option('mjtc_support_ticket_support_candy_data_agent_roles', wp_json_encode(array_unique(array_merge($imported_agent_roles, $this->support_candy_agent_role_ids))));
+            update_option('mjtc_support_ticket_support_candy_data_agent_roles', wp_json_encode(array_unique(array_merge($MJTC_imported_agent_roles, $this->support_candy_agent_role_ids))));
         }
 
     }
 
     private function importSupportCandyDepartments() {
         // check if department already processed for import
-        $imported_departments = array();
-        $imported_departments_json = get_option('mjtc_support_ticket_support_candy_data_departments');
-        if(!empty($imported_departments_json)){
-            $imported_departments = json_decode($imported_departments_json,true);
+        $MJTC_imported_departments = array();
+        $MJTC_imported_departments_json = get_option('mjtc_support_ticket_support_candy_data_departments');
+        if(!empty($MJTC_imported_departments_json)){
+            $MJTC_imported_departments = json_decode($MJTC_imported_departments_json,true);
         }
-        $query = "SELECT category.* FROM `" . majesticsupport::$_db->prefix . "psmsc_categories` AS category;";
-        $categories = majesticsupport::$_db->get_results($query);
+        $MJTC_query = "SELECT category.* FROM `" . majesticsupport::$_db->prefix . "psmsc_categories` AS category;";
+        $MJTC_categories = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($categories)) return;
+        if (empty($MJTC_categories)) return;
 
         // Get highest current ordering value
-        $query = "
+        $MJTC_query = "
             SELECT MAX(dept.ordering)
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS dept
         ";
-        $ordering = (int) majesticsupport::$_db->get_var($query);
-        $now = date_i18n('Y-m-d H:i:s');
+        $MJTC_ordering = (int) majesticsupport::$_db->get_var($MJTC_query);
+        $MJTC_now = date_i18n('Y-m-d H:i:s');
 
-        foreach ($categories as $category) {
+        foreach ($MJTC_categories as $MJTC_category) {
             // Skip if already imported
-            if (in_array($category->id, $imported_departments, true)) {
+            if (in_array($MJTC_category->id, $MJTC_imported_departments, true)) {
                 $this->support_candy_import_count['department']['skipped']++;
                 continue;
             }
-            $name = MJTC_majesticsupportphplib::MJTC_trim($category->name);
-            $lower_name = MJTC_majesticsupportphplib::MJTC_strtolower($name);
+            $MJTC_name = MJTC_majesticsupportphplib::MJTC_trim($MJTC_category->name);
+            $MJTC_lower_name = MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_name);
 
             // Check if department already exists
-            $check_query = "
+            $MJTC_check_query = "
                 SELECT department.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department
-                WHERE LOWER(department.departmentname) = '".esc_sql($name)."'
+                WHERE LOWER(department.departmentname) = '".esc_sql($MJTC_name)."'
             ";
-            $existing = majesticsupport::$_db->get_row($check_query);
+            $MJTC_existing = majesticsupport::$_db->get_row($MJTC_check_query);
 
-            if (!$existing) {
-                $row = MJTC_includer::MJTC_getTable('departments');
+            if (!$MJTC_existing) {
+                $MJTC_row = MJTC_includer::MJTC_getTable('departments');
 
                 $MJTC_data = [
                     'id'              => '',
                     'emailid'         => '1',
-                    'departmentname'  => $name,
-                    'ordering'        => $ordering,
+                    'departmentname'  => $MJTC_name,
+                    'ordering'        => $MJTC_ordering,
                     'status'          => '1',
                     'isdefault'       => '0',
                     'ispublic'        => '1',
-                    'updated'         => $now,
-                    'created'         => $now
+                    'updated'         => $MJTC_now,
+                    'created'         => $MJTC_now
                 ];
 
                 $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
-                $row->bind($MJTC_data);
+                $MJTC_row->bind($MJTC_data);
 
-                if (!$row->store()) {
+                if (!$MJTC_row->store()) {
                     $this->support_candy_import_count['department']['failed'] += 1;
                 } else {
-                    $this->support_candy_department_ids[] = $category->id;
+                    $this->support_candy_department_ids[] = $MJTC_category->id;
                     $this->support_candy_import_count['department']['imported'] += 1;
                 }
 
-                $ordering++;
+                $MJTC_ordering++;
             } else {
                 $this->support_candy_import_count['department']['skipped'] += 1;
             }
         }
         // Save list of imported department IDs
         if (!empty($this->support_candy_department_ids)) {
-            update_option('mjtc_support_ticket_support_candy_data_departments', wp_json_encode(array_unique(array_merge($imported_departments, $this->support_candy_department_ids))));
+            update_option('mjtc_support_ticket_support_candy_data_departments', wp_json_encode(array_unique(array_merge($MJTC_imported_departments, $this->support_candy_department_ids))));
         }
     }
 
     private function importSupportCandyPriorities() {
         // check if priority already processed for import
-        $imported_priorities = array();
-        $imported_priorities_json = get_option('mjtc_support_ticket_support_candy_data_priorities');
-        if(!empty($imported_priorities_json)){
-            $imported_priorities = json_decode($imported_priorities_json,true);
+        $MJTC_imported_priorities = array();
+        $MJTC_imported_priorities_json = get_option('mjtc_support_ticket_support_candy_data_priorities');
+        if(!empty($MJTC_imported_priorities_json)){
+            $MJTC_imported_priorities = json_decode($MJTC_imported_priorities_json,true);
         }
 
-        $query = "SELECT priority.* FROM `" . majesticsupport::$_db->prefix . "psmsc_priorities` AS priority;";
-        $priorities = majesticsupport::$_db->get_results($query);
+        $MJTC_query = "SELECT priority.* FROM `" . majesticsupport::$_db->prefix . "psmsc_priorities` AS priority;";
+        $MJTC_priorities = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($priorities)) return;
+        if (empty($MJTC_priorities)) return;
 
         // Get highest current ordering value
-        $query = "
+        $MJTC_query = "
             SELECT MAX(priority.ordering)
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority
         ";
-        $ordering = (int) majesticsupport::$_db->get_var($query);
+        $MJTC_ordering = (int) majesticsupport::$_db->get_var($MJTC_query);
 
-        foreach ($priorities as $priority) {
+        foreach ($MJTC_priorities as $MJTC_priority) {
             // Skip if already imported
-            if (in_array($priority->id, $imported_priorities, true)) {
+            if (in_array($MJTC_priority->id, $MJTC_imported_priorities, true)) {
                 $this->support_candy_import_count['priority']['skipped']++;
                 continue;
             }
 
-            $name = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($priority->name));
+            $MJTC_name = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_priority->name));
 
             // Check if this priority already exists in Majestic Support
-            $check_query = "
+            $MJTC_check_query = "
                 SELECT priority.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority
-                WHERE LOWER(priority.priority) = '" . esc_sql($name) . "'
+                WHERE LOWER(priority.priority) = '" . esc_sql($MJTC_name) . "'
                 LIMIT 1
             ";
-            $ms_priority = majesticsupport::$_db->get_row($check_query);
+            $ms_priority = majesticsupport::$_db->get_row($MJTC_check_query);
 
             if (!$ms_priority) {
-                $row = MJTC_includer::MJTC_getTable('priorities');
+                $MJTC_row = MJTC_includer::MJTC_getTable('priorities');
 
                 $MJTC_data = [
                     'id'               => '',
-                    'priority'         => $priority->name,
-                    'prioritycolour'   => $priority->color,
+                    'priority'         => $MJTC_priority->name,
+                    'prioritycolour'   => $MJTC_priority->color,
                     'priorityurgency'  => '',
                     'overduetypeid'    => 1,
                     'overdueinterval'  => 7,
-                    'ordering'         => $ordering,
+                    'ordering'         => $MJTC_ordering,
                     'status'           => '1',
                     'isdefault'        => '0',
                     'ispublic'         => '1'
                 ];
 
                 $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
-                $row->bind($MJTC_data);
+                $MJTC_row->bind($MJTC_data);
 
-                if (!$row->store()) {
+                if (!$MJTC_row->store()) {
                     $this->support_candy_import_count['priority']['failed'] += 1;
                 } else {
-                    $this->support_candy_priority_ids[] = $priority->id;
+                    $this->support_candy_priority_ids[] = $MJTC_priority->id;
                     $this->support_candy_import_count['priority']['imported'] += 1;
                 }
 
-                $ordering++;
+                $MJTC_ordering++;
             } else {
                 $this->support_candy_import_count['priority']['skipped'] += 1;
             }
         }
         // Save list of imported priority IDs
         if (!empty($this->support_candy_priority_ids)) {
-            update_option('mjtc_support_ticket_support_candy_data_priorities', wp_json_encode(array_unique(array_merge($imported_priorities, $this->support_candy_priority_ids))));
+            update_option('mjtc_support_ticket_support_candy_data_priorities', wp_json_encode(array_unique(array_merge($MJTC_imported_priorities, $this->support_candy_priority_ids))));
         }
     }
 
     private function importSupportCandyPremades() {
         // check if premade already processed for import
-        $imported_premades = array();
-        $imported_premades_json = get_option('mjtc_support_ticket_support_candy_data_premades');
-        if(!empty($imported_premades_json)){
-            $imported_premades = json_decode($imported_premades_json,true);
+        $MJTC_imported_premades = array();
+        $MJTC_imported_premades_json = get_option('mjtc_support_ticket_support_candy_data_premades');
+        if(!empty($MJTC_imported_premades_json)){
+            $MJTC_imported_premades = json_decode($MJTC_imported_premades_json,true);
         }
-        $query = "
+        $MJTC_query = "
             SELECT canned_reply.*
             FROM `" . majesticsupport::$_db->prefix . "psmsc_canned_reply` AS canned_reply
         ";
-        $canned_replies = majesticsupport::$_db->get_results($query);
+        $MJTC_canned_replies = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($canned_replies)) return;
+        if (empty($MJTC_canned_replies)) return;
 
-        foreach ($canned_replies as $canned_reply) {
-            $title = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($canned_reply->title));
+        foreach ($MJTC_canned_replies as $MJTC_canned_reply) {
+            $title = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_canned_reply->title));
             // Failed if addon not installed
             if (!in_array('cannedresponses', majesticsupport::$_active_addons) ) {
                 $this->support_candy_import_count['canned response']['failed']++;
                 continue;
             }
             // Skip if already imported
-            if (in_array($canned_reply->id, $imported_premades, true)) {
+            if (in_array($MJTC_canned_reply->id, $MJTC_imported_premades, true)) {
                 $this->support_candy_import_count['canned response']['skipped']++;
                 continue;
             }
             // Check if this priority already exists in Majestic Support
-            $check_query = "
+            $MJTC_check_query = "
                 SELECT premade.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_department_message_premade` AS premade
                 WHERE LOWER(premade.title) = '" . esc_sql($title) . "'
                 LIMIT 1
             ";
-            $ms_canned_reply = majesticsupport::$_db->get_row($check_query);
+            $ms_canned_reply = majesticsupport::$_db->get_row($MJTC_check_query);
 
             if (!$ms_canned_reply) {
 
                 $MJTC_departmentid = '';
 
                 // Try to match category to department
-                if (!empty($canned_reply->categories)) {
-                    $category_query = "
+                if (!empty($MJTC_canned_reply->categories)) {
+                    $MJTC_category_query = "
                         SELECT category.name
                         FROM `" . majesticsupport::$_db->prefix . "psmsc_categories` AS category
-                        WHERE category.id = " . esc_sql($canned_reply->categories) . "
+                        WHERE category.id = " . esc_sql($MJTC_canned_reply->categories) . "
                     ";
-                    $category = majesticsupport::$_db->get_row($category_query);
+                    $MJTC_category = majesticsupport::$_db->get_row($MJTC_category_query);
 
-                    if ($category) {
+                    if ($MJTC_category) {
                         $MJTC_department_query = "
                             SELECT department.id
                             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department
-                            WHERE LOWER(department.departmentname) = '" . MJTC_majesticsupportphplib::MJTC_strtolower(esc_sql($category->name)) . "'
+                            WHERE LOWER(department.departmentname) = '" . MJTC_majesticsupportphplib::MJTC_strtolower(esc_sql($MJTC_category->name)) . "'
                             LIMIT 1
                         ";
                         $MJTC_department = majesticsupport::$_db->get_row($MJTC_department_query);
@@ -1942,28 +1942,28 @@ class MJTC_thirdpartyimportModel {
                 }
 
                 // Prepare canned response data
-                $row = MJTC_includer::MJTC_getTable('cannedresponses');
-                $updated = date_i18n('Y-m-d H:i:s');
+                $MJTC_row = MJTC_includer::MJTC_getTable('cannedresponses');
+                $MJTC_updated = date_i18n('Y-m-d H:i:s');
 
                 $MJTC_data = [
                     'id'          => '',
                     'departmentid'=> $MJTC_departmentid,
-                    'title'       => $canned_reply->title,
-                    'answer'      => $canned_reply->body,
+                    'title'       => $MJTC_canned_reply->title,
+                    'answer'      => $MJTC_canned_reply->body,
                     'status'      => '1',
-                    'updated'     => $updated,
-                    'created'     => $canned_reply->date_created
+                    'updated'     => $MJTC_updated,
+                    'created'     => $MJTC_canned_reply->date_created
                 ];
 
                 $MJTC_data = majesticsupport::MJTC_sanitizeData($MJTC_data);
                 $MJTC_data['answer'] = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($MJTC_data['answer']);
                 $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
 
-                $row->bind($MJTC_data);
-                if (!$row->store()) {
+                $MJTC_row->bind($MJTC_data);
+                if (!$MJTC_row->store()) {
                     $this->support_candy_import_count['canned response']['failed'] += 1;
                 } else {
-                    $this->support_candy_premade_ids[] = $canned_reply->id;
+                    $this->support_candy_premade_ids[] = $MJTC_canned_reply->id;
                     $this->support_candy_import_count['canned response']['imported'] += 1;
                 }
             } else {
@@ -1973,81 +1973,81 @@ class MJTC_thirdpartyimportModel {
 
         // Save list of imported premade IDs
         if (!empty($this->support_candy_premade_ids)) {
-            update_option('mjtc_support_ticket_support_candy_data_premades', wp_json_encode(array_unique(array_merge($imported_premades, $this->support_candy_premade_ids))));
+            update_option('mjtc_support_ticket_support_candy_data_premades', wp_json_encode(array_unique(array_merge($MJTC_imported_premades, $this->support_candy_premade_ids))));
         }
     }
 
     private function importSupportCandyStatus() {
         // Load previously imported statuses
-        $imported_statuses = [];
-        $imported_statuses_json = get_option('mjtc_support_ticket_support_candy_data_statuses');
-        if (!empty($imported_statuses_json)) {
-            $imported_statuses = json_decode($imported_statuses_json, true);
+        $MJTC_imported_statuses = [];
+        $MJTC_imported_statuses_json = get_option('mjtc_support_ticket_support_candy_data_statuses');
+        if (!empty($MJTC_imported_statuses_json)) {
+            $MJTC_imported_statuses = json_decode($MJTC_imported_statuses_json, true);
         }
 
         // Get SupportCandy statuses (excluding system/default ones)
-        $query = "
+        $MJTC_query = "
             SELECT status.*
             FROM `" . majesticsupport::$_db->prefix . "psmsc_statuses` AS status
             WHERE status.id > 4
         ";
-        $statuses = majesticsupport::$_db->get_results($query);
+        $MJTC_statuses = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($statuses)) return;
+        if (empty($MJTC_statuses)) return;
 
         // Get highest current ordering value
-        $query = "
+        $MJTC_query = "
             SELECT MAX(status.ordering)
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS status
         ";
-        $ordering = (int) majesticsupport::$_db->get_var($query);
+        $MJTC_ordering = (int) majesticsupport::$_db->get_var($MJTC_query);
 
         // Build array of existing JS statuses (cleaned)
-        $query = "
+        $MJTC_query = "
             SELECT status.status
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS status
         ";
-        $msstatuses = majesticsupport::$_db->get_results($query);
-        $existing_status_names = array_map(function($status) {
-            return $this->cleanStringForCompare($status->status);
+        $msstatuses = majesticsupport::$_db->get_results($MJTC_query);
+        $MJTC_existing_status_names = array_map(function($MJTC_status) {
+            return $this->cleanStringForCompare($MJTC_status->status);
         }, $msstatuses);
 
-        foreach ($statuses as $status) {
-            $name = $status->name;
-            $compare_name = $this->cleanStringForCompare($name);
+        foreach ($MJTC_statuses as $MJTC_status) {
+            $MJTC_name = $MJTC_status->name;
+            $MJTC_compare_name = $this->cleanStringForCompare($MJTC_name);
 
             // Skip if name already exists
-            if (in_array($compare_name, $existing_status_names)) {
+            if (in_array($MJTC_compare_name, $MJTC_existing_status_names)) {
                 $this->support_candy_import_count['status']['skipped'] += 1;
                 continue;
             }
 
             // Skip if already imported
-            if (in_array($status->id, $imported_statuses)) {
+            if (in_array($MJTC_status->id, $MJTC_imported_statuses)) {
                 $this->support_candy_import_count['status']['skipped'] += 1;
                 continue;
             }
 
             // Prepare new status data
-            $row = MJTC_includer::MJTC_getTable('statuses');
+            $MJTC_row = MJTC_includer::MJTC_getTable('statuses');
             $MJTC_data = [
                 'id'             => '',
-                'status'         => $name,
-                'statuscolour'   => $status->color,
-                'statusbgcolour' => $status->bg_color,
+                'status'         => $MJTC_name,
+                'statuscolour'   => $MJTC_status->color,
+                'statusbgcolour' => $MJTC_status->bg_color,
                 'sys'            => '0',
-                'ordering'       => $ordering
+                'ordering'       => $MJTC_ordering
             ];
 
             $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
-            $row->bind($MJTC_data);
+            $MJTC_row->bind($MJTC_data);
 
-            if (!$row->store()) {
+            if (!$MJTC_row->store()) {
                 $this->support_candy_import_count['status']['failed'] += 1;
             } else {
-                $this->support_candy_status_ids[] = $status->id;
+                $this->support_candy_status_ids[] = $MJTC_status->id;
                 $this->support_candy_import_count['status']['imported'] += 1;
-                $ordering++;
+                $MJTC_ordering++;
             }
         }
 
@@ -2057,16 +2057,16 @@ class MJTC_thirdpartyimportModel {
         }
     }
 
-    private function cleanStringForCompare($string) {
-        if (!is_string($string) || $string === '') {
-            return $string;
+    private function cleanStringForCompare($MJTC_string) {
+        if (!is_string($MJTC_string) || $MJTC_string === '') {
+            return $MJTC_string;
         }
 
         // Remove spaces, dashes, and underscores
-        $string = MJTC_majesticsupportphplib::MJTC_str_replace([' ', '-', '_'], '', $string);
+        $MJTC_string = MJTC_majesticsupportphplib::MJTC_str_replace([' ', '-', '_'], '', $MJTC_string);
 
         // Convert to lowercase
-        return MJTC_majesticsupportphplib::MJTC_strtolower($string);
+        return MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_string);
     }
 
     function getSupportCandyDataStats($MJTC_count_for) {
@@ -2079,76 +2079,76 @@ class MJTC_thirdpartyimportModel {
             return new WP_Error('mjtc_inactive', 'SupportCandy is not active.');
         }
 
-        $entity_counts = [];
+        $MJTC_entity_counts = [];
 
         // Users
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "psmsc_customers'")) {
-            $query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "psmsc_customers`";
-            $MJTC_count = (int) majesticsupport::$_db->get_var($query);
-            if ($MJTC_count > 0) $entity_counts['user'] = $MJTC_count;
+            $MJTC_query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "psmsc_customers`";
+            $MJTC_count = (int) majesticsupport::$_db->get_var($MJTC_query);
+            if ($MJTC_count > 0) $MJTC_entity_counts['user'] = $MJTC_count;
         }
 
         // Agent Roles
-        $agent_roles = get_option('wpsc-agent-roles', []);
-        if (!empty($agent_roles)) {
-            $entity_counts['agent role'] = count($agent_roles);
+        $MJTC_agent_roles = get_option('wpsc-agent-roles', []);
+        if (!empty($MJTC_agent_roles)) {
+            $MJTC_entity_counts['agent role'] = count($MJTC_agent_roles);
         }
 
         // Agents
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "psmsc_agents'")) {
-            $query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "psmsc_agents`";
-            $MJTC_count = (int) majesticsupport::$_db->get_var($query);
-            if ($MJTC_count > 0) $entity_counts['agent'] = $MJTC_count;
+            $MJTC_query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "psmsc_agents`";
+            $MJTC_count = (int) majesticsupport::$_db->get_var($MJTC_query);
+            if ($MJTC_count > 0) $MJTC_entity_counts['agent'] = $MJTC_count;
         }
 
         // Departments
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "psmsc_categories'")) {
-            $query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "psmsc_categories`";
-            $MJTC_count = (int) majesticsupport::$_db->get_var($query);
-            if ($MJTC_count > 0) $entity_counts['department'] = $MJTC_count;
+            $MJTC_query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "psmsc_categories`";
+            $MJTC_count = (int) majesticsupport::$_db->get_var($MJTC_query);
+            if ($MJTC_count > 0) $MJTC_entity_counts['department'] = $MJTC_count;
         }
 
         // Priorities
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "psmsc_priorities'")) {
-            $query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "psmsc_priorities`";
-            $MJTC_count = (int) majesticsupport::$_db->get_var($query);
-            if ($MJTC_count > 0) $entity_counts['priority'] = $MJTC_count;
+            $MJTC_query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "psmsc_priorities`";
+            $MJTC_count = (int) majesticsupport::$_db->get_var($MJTC_query);
+            if ($MJTC_count > 0) $MJTC_entity_counts['priority'] = $MJTC_count;
         }
 
         // Canned Responses
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "psmsc_canned_reply'")) {
-            $query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "psmsc_canned_reply`";
-            $MJTC_count = (int) majesticsupport::$_db->get_var($query);
-            if ($MJTC_count > 0) $entity_counts['canned response'] = $MJTC_count;
+            $MJTC_query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "psmsc_canned_reply`";
+            $MJTC_count = (int) majesticsupport::$_db->get_var($MJTC_query);
+            if ($MJTC_count > 0) $MJTC_entity_counts['canned response'] = $MJTC_count;
         }
 
         // Statuses
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "psmsc_statuses'")) {
-            $query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "psmsc_statuses` WHERE id > 4";
-            $MJTC_count = (int) majesticsupport::$_db->get_var($query);
-            if ($MJTC_count > 0) $entity_counts['status'] = $MJTC_count;
+            $MJTC_query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "psmsc_statuses` WHERE id > 4";
+            $MJTC_count = (int) majesticsupport::$_db->get_var($MJTC_query);
+            if ($MJTC_count > 0) $MJTC_entity_counts['status'] = $MJTC_count;
         }
 
         // Custom Ticket Fields
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "psmsc_custom_fields'")) {
-            $query = "SELECT COUNT(*) 
+            $MJTC_query = "SELECT COUNT(*) 
                       FROM `" . majesticsupport::$_db->prefix . "psmsc_custom_fields`
                       WHERE `slug` LIKE 'cust_%' AND `type` LIKE 'cf_%' AND `field` = 'ticket'";
-            $MJTC_count = (int) majesticsupport::$_db->get_var($query);
-            if ($MJTC_count > 0) $entity_counts['field'] = $MJTC_count;
+            $MJTC_count = (int) majesticsupport::$_db->get_var($MJTC_query);
+            if ($MJTC_count > 0) $MJTC_entity_counts['field'] = $MJTC_count;
         }
 
         // Tickets with type 'report'
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "psmsc_tickets'")) {
-            $query = "SELECT COUNT(DISTINCT t.id)
+            $MJTC_query = "SELECT COUNT(DISTINCT t.id)
                       FROM `" . majesticsupport::$_db->prefix . "psmsc_tickets` AS t
                       INNER JOIN `" . majesticsupport::$_db->prefix . "psmsc_threads` AS r ON r.ticket = t.id
                       WHERE r.type = 'report'  AND t.is_active != 0";
-            $MJTC_count = (int) majesticsupport::$_db->get_var($query);
-            if ($MJTC_count > 0) $entity_counts['ticket'] = $MJTC_count;
+            $MJTC_count = (int) majesticsupport::$_db->get_var($MJTC_query);
+            if ($MJTC_count > 0) $MJTC_entity_counts['ticket'] = $MJTC_count;
         }
 
-        majesticsupport::$_data['entity_counts'] = $entity_counts;
+        majesticsupport::$_data['entity_counts'] = $MJTC_entity_counts;
     }
 
 
@@ -2178,22 +2178,22 @@ class MJTC_thirdpartyimportModel {
         // Prepare filesystem and create necessary directories
         require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
         require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
-        $filesystem = new WP_Filesystem_Direct(true);
-        $upload_dir = wp_upload_dir();
-        $upload_path = $upload_dir['basedir'];
+        $MJTC_filesystem = new WP_Filesystem_Direct(true);
+        $MJTC_upload_dir = wp_upload_dir();
+        $MJTC_upload_path = $MJTC_upload_dir['basedir'];
         $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-        $path = $upload_path . "/" . $MJTC_datadirectory;
+        $MJTC_path = $MJTC_upload_path . "/" . $MJTC_datadirectory;
 
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
-        $path .= '/attachmentdata';
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        $MJTC_path .= '/attachmentdata';
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
-        $path .= '/ticket';
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        $MJTC_path .= '/ticket';
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
 
         $this->importAwesomeSupportUsers();
@@ -2226,20 +2226,20 @@ class MJTC_thirdpartyimportModel {
             return new WP_Error('mjtc_inactive', 'Awesome Support is not active.');
         }
 
-        $entity_counts = [];
+        $MJTC_entity_counts = [];
 
         // Users
         $missingUser = 0;
-        $query = "SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "users`";
-        $users = majesticsupport::$_db->get_var($query);
-        if ($users > 0) $entity_counts['user'] = $users;
+        $MJTC_query = "SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "users`";
+        $MJTC_users = majesticsupport::$_db->get_var($MJTC_query);
+        if ($MJTC_users > 0) $MJTC_entity_counts['user'] = $MJTC_users;
 
         // Agents
-        $agents = get_users([
+        $MJTC_agents = get_users([
             'role' => 'wpas_agent',
         ]);
-        $MJTC_count = count($agents);
-        if ($MJTC_count > 0) $entity_counts['agent'] = $MJTC_count;
+        $MJTC_count = count($MJTC_agents);
+        if ($MJTC_count > 0) $MJTC_entity_counts['agent'] = $MJTC_count;
 
         // Departments
         $MJTC_departments = get_terms([
@@ -2248,136 +2248,136 @@ class MJTC_thirdpartyimportModel {
             'fields'     => 'ids'
         ]);
         $MJTC_count = is_array($MJTC_departments) ? count($MJTC_departments) : 0;
-        if ($MJTC_count > 0) $entity_counts['department'] = $MJTC_count;
+        if ($MJTC_count > 0) $MJTC_entity_counts['department'] = $MJTC_count;
 
         // Priorities
-        $priorities = get_terms([
+        $MJTC_priorities = get_terms([
             'taxonomy'   => 'ticket_priority',
             'hide_empty' => false,
             'fields'     => 'ids'
         ]);
-        $MJTC_count = is_array($priorities) ? count($priorities) : 0;
-        if ($MJTC_count > 0) $entity_counts['priority'] = $MJTC_count;
+        $MJTC_count = is_array($MJTC_priorities) ? count($MJTC_priorities) : 0;
+        if ($MJTC_count > 0) $MJTC_entity_counts['priority'] = $MJTC_count;
 
         // Canned Responses
         $MJTC_count = post_type_exists( 'canned-response' ) ? $this->getPostConutByType( 'canned-response' ) : 0;
-        if ($MJTC_count > 0) $entity_counts['canned response'] = $MJTC_count;
+        if ($MJTC_count > 0) $MJTC_entity_counts['canned response'] = $MJTC_count;
 
         // Statuses
         $MJTC_count = post_type_exists( 'wpass_status' ) ? $this->getPostConutByType( 'wpass_status' ) : 0;
-        if ($MJTC_count > 0) $entity_counts['status'] = $MJTC_count;
+        if ($MJTC_count > 0) $MJTC_entity_counts['status'] = $MJTC_count;
 
         // Products
-        $products = get_terms([
+        $MJTC_products = get_terms([
             'taxonomy'   => 'product',
             'hide_empty' => false,
             'fields'     => 'ids'
         ]);
-        $MJTC_count = is_array($products) ? count($products) : 0;
-        if ($MJTC_count > 0) $entity_counts['product'] = $MJTC_count;
+        $MJTC_count = is_array($MJTC_products) ? count($MJTC_products) : 0;
+        if ($MJTC_count > 0) $MJTC_entity_counts['product'] = $MJTC_count;
 
         // Faqs
         $MJTC_count = post_type_exists( 'faq' ) ? $this->getPostConutByType( 'faq' ) : 0;
-        if ($MJTC_count > 0) $entity_counts['faq'] = $MJTC_count;
+        if ($MJTC_count > 0) $MJTC_entity_counts['faq'] = $MJTC_count;
 
         // Custom Ticket Fields
-        $custom_fields = get_option("wpas_custom_fields");
+        $MJTC_custom_fields = get_option("wpas_custom_fields");
 
-        if (!empty($custom_fields)) {
-            $MJTC_count = is_array($custom_fields) ? count($custom_fields) : 0;
-            if ($MJTC_count > 0) $entity_counts['field'] = $MJTC_count;
+        if (!empty($MJTC_custom_fields)) {
+            $MJTC_count = is_array($MJTC_custom_fields) ? count($MJTC_custom_fields) : 0;
+            if ($MJTC_count > 0) $MJTC_entity_counts['field'] = $MJTC_count;
         }
 
         // Tickets 
         $MJTC_tickets = wpas_get_tickets('any');
         $MJTC_count = count($MJTC_tickets);
 
-        if ($MJTC_count > 0) $entity_counts['ticket'] = $MJTC_count;
+        if ($MJTC_count > 0) $MJTC_entity_counts['ticket'] = $MJTC_count;
 
-        majesticsupport::$_data['entity_counts'] = $entity_counts;
+        majesticsupport::$_data['entity_counts'] = $MJTC_entity_counts;
     }
 
     // delete data only for development
 
     function deletesupportcandyimporteddata(){
 
-        $query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE id > 27;";
-        majesticsupport::$_db->query($query);
+        $MJTC_query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE id > 27;";
+        majesticsupport::$_db->query($MJTC_query);
 
-        $query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET `visible_field`='' ";
-        majesticsupport::$_db->query($query);
+        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET `visible_field`='' ";
+        majesticsupport::$_db->query($MJTC_query);
 
-        $query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets`;";
-        majesticsupport::$_db->query($query);
+        $MJTC_query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets`;";
+        majesticsupport::$_db->query($MJTC_query);
 
-        $query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff_time`;";
-        majesticsupport::$_db->query($query);
+        $MJTC_query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff_time`;";
+        majesticsupport::$_db->query($MJTC_query);
 
-        $query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies`;";
-        majesticsupport::$_db->query($query);
+        $MJTC_query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies`;";
+        majesticsupport::$_db->query($MJTC_query);
         
-        $query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_attachments`;";
-        majesticsupport::$_db->query($query);
+        $MJTC_query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_attachments`;";
+        majesticsupport::$_db->query($MJTC_query);
         
-        $query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities`;";
-        majesticsupport::$_db->query($query);
+        $MJTC_query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities`;";
+        majesticsupport::$_db->query($MJTC_query);
         
         if (in_array('agent', majesticsupport::$_active_addons)) {
-            $query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff`;";
-            majesticsupport::$_db->query($query);
-            $query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_roles` WHERE id > 1;";
-            majesticsupport::$_db->query($query);
+            $MJTC_query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff`;";
+            majesticsupport::$_db->query($MJTC_query);
+            $MJTC_query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_roles` WHERE id > 1;";
+            majesticsupport::$_db->query($MJTC_query);
         }
         
-        $query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_users`;";
-        majesticsupport::$_db->query($query);
+        $MJTC_query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_users`;";
+        majesticsupport::$_db->query($MJTC_query);
         
-        $query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_department_message_premade`;";
-        majesticsupport::$_db->query($query);
+        $MJTC_query = "DELETE FROM `" . majesticsupport::$_db->prefix . "mjtc_support_department_message_premade`;";
+        majesticsupport::$_db->query($MJTC_query);
 
     }
 
     private function importAwesomeSupportAgents() {
         // check if user already processed for import
-        $imported_agents = array();
-        $imported_agent_json = get_option('mjtc_support_ticket_awesome_support_data_agents');
-        if(!empty($imported_agents_json)){
-            $imported_agents = json_decode($imported_agents_json,true);
+        $MJTC_imported_agents = array();
+        $MJTC_imported_agent_json = get_option('mjtc_support_ticket_awesome_support_data_agents');
+        if(!empty($MJTC_imported_agents_json)){
+            $MJTC_imported_agents = json_decode($MJTC_imported_agents_json,true);
         }
-        $agents = get_users([
+        $MJTC_agents = get_users([
             'role' => 'wpas_agent',
         ]);
-        $total_agents = count($agents);
+        $total_agents = count($MJTC_agents);
 
-        if($agents){
+        if($MJTC_agents){
             if (in_array('agent', majesticsupport::$_active_addons) ) {
-                $roleid = $this->getAgentRoleIdByAwesomeSupport();
+                $MJTC_roleid = $this->getAgentRoleIdByAwesomeSupport();
             }
-            foreach($agents AS $agent){
+            foreach($MJTC_agents AS $MJTC_agent){
                 // Failed if addon not installed
                 if (!in_array('agent', majesticsupport::$_active_addons) ) {
                     $this->awesome_support_import_count['agent']['failed']++;
                     continue;
                 }
-                $wpuid = (int) $agent->data->ID;
+                $MJTC_wpuid = (int) $MJTC_agent->data->ID;
                 // Skip if already imported
-                if (in_array($wpuid, $imported_agents, true)) {
+                if (in_array($MJTC_wpuid, $MJTC_imported_agents, true)) {
                     $this->awesome_support_import_count['agent']['skipped']++;
                     continue;
                 }
-                $name = $agent->data->display_name;
+                $MJTC_name = $MJTC_agent->data->display_name;
 
-                $query = "
+                $MJTC_query = "
                     SELECT user.*
                         FROM `" . majesticsupport::$_db->prefix . "users` AS user
-                        WHERE user.id = " . $wpuid;
-                $wpuser = majesticsupport::$_db->get_row($query);
+                        WHERE user.id = " . $MJTC_wpuid;
+                $MJTC_wpuser = majesticsupport::$_db->get_row($MJTC_query);
 
-                if(!$wpuser){
+                if(!$MJTC_wpuser){
                     $this->awesome_support_import_count['agent']['failed'] += 1;
                     continue;
                 }
-                $mjtc_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_getmajesticsupportuidbyuserid($wpuid);
+                $mjtc_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_getmajesticsupportuidbyuserid($MJTC_wpuid);
                 if (!empty($mjtc_user) && isset($mjtc_user[0]->id)) {
                     $mjtc_uid = (int)$mjtc_user[0]->id;
                 } else {
@@ -2385,44 +2385,44 @@ class MJTC_thirdpartyimportModel {
                     continue;
                 }
 
-                $query = "
+                $MJTC_query = "
                     SELECT staff.*
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff
                             WHERE staff.uid = " . $mjtc_uid;
-                $staff = majesticsupport::$_db->get_row($query);
+                $MJTC_staff = majesticsupport::$_db->get_row($MJTC_query);
 
-                if (!$staff) {
+                if (!$MJTC_staff) {
                     
-                    $timestamp = date_i18n('Y-m-d H:i:s');
+                    $MJTC_timestamp = date_i18n('Y-m-d H:i:s');
 
                     $MJTC_data = [
                         'id'           => '',
                         'uid'          => $mjtc_uid,
                         'groupid'      => '',
-                        'roleid'       =>  $roleid,
+                        'roleid'       =>  $MJTC_roleid,
                         'departmentid' => '',
-                        'firstname'    => $name,
+                        'firstname'    => $MJTC_name,
                         'lastname'     => '',
-                        'username'     => $wpuser->user_login,
-                        'email'        => $wpuser->user_email,
+                        'username'     => $MJTC_wpuser->user_login,
+                        'email'        => $MJTC_wpuser->user_email,
                         'signature'    => '',
                         'isadmin'      => '',
                         'status'       => 1,
-                        'updated'      => $timestamp,
-                        'created'      => $timestamp
+                        'updated'      => $MJTC_timestamp,
+                        'created'      => $MJTC_timestamp
                     ];
 
-                    $saved = MJTC_includer::MJTC_getModel('agent')->storeStaff($MJTC_data);
+                    $MJTC_saved = MJTC_includer::MJTC_getModel('agent')->storeStaff($MJTC_data);
 
                     $this->awesome_support_import_count['agent']['imported'] += 1;
-                    $this->awesome_support_agent_ids[] = $wpuid;
+                    $this->awesome_support_agent_ids[] = $MJTC_wpuid;
                 } else {
                     $this->awesome_support_import_count['agent']['skipped'] += 1;
                 }
             }
             // Save list of imported agent IDs
             if (!empty($this->awesome_support_agent_ids)) {
-                update_option('mjtc_support_ticket_awesome_support_data_agents', wp_json_encode(array_unique(array_merge($imported_agents, $this->awesome_support_agent_ids))));
+                update_option('mjtc_support_ticket_awesome_support_data_agents', wp_json_encode(array_unique(array_merge($MJTC_imported_agents, $this->awesome_support_agent_ids))));
             }
         }
     }
@@ -2434,15 +2434,15 @@ class MJTC_thirdpartyimportModel {
         $MJTC_data['status'] = 1;
         $MJTC_data['created'] = date_i18n('Y-m-d H:i:s');
 
-        $row = MJTC_includer::MJTC_getTable('acl_roles');
-        if (!$row->bind($MJTC_data)) {
-            $error = 1;
+        $MJTC_row = MJTC_includer::MJTC_getTable('acl_roles');
+        if (!$MJTC_row->bind($MJTC_data)) {
+            $MJTC_error = 1;
         }
-        if (!$row->store()) {
-            $error = 1;
+        if (!$MJTC_row->store()) {
+            $MJTC_error = 1;
         }
-        if (empty($error)) {
-            return $row->id;
+        if (empty($MJTC_error)) {
+            return $MJTC_row->id;
         }
 
         return null;
@@ -2450,53 +2450,53 @@ class MJTC_thirdpartyimportModel {
 
     private function importAwesomeSupportUsers() {
         // check if user already processed for import
-        $imported_users = array();
-        $imported_users_json = get_option('mjtc_support_ticket_awesome_support_data_users');
-        if(!empty($imported_users_json)){
-            $imported_users = json_decode($imported_users_json,true);
+        $MJTC_imported_users = array();
+        $MJTC_imported_users_json = get_option('mjtc_support_ticket_awesome_support_data_users');
+        if(!empty($MJTC_imported_users_json)){
+            $MJTC_imported_users = json_decode($MJTC_imported_users_json,true);
         }
 
         // Fetch all customers
-        $query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "users`";
-        $users = majesticsupport::$_db->get_results($query);
-        $wpUsers = array();
+        $MJTC_query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "users`";
+        $MJTC_users = majesticsupport::$_db->get_results($MJTC_query);
+        $MJTC_wpUsers = array();
         $mjtcUsers = array();
-        foreach ($users as $MJTC_key => $user) {
-            $wpUsers[] = $user->id;
+        foreach ($MJTC_users as $MJTC_key => $MJTC_user) {
+            $MJTC_wpUsers[] = $MJTC_user->id;
         }
-        $query = " SELECT wpuid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_users`";
-        $users = majesticsupport::$_db->get_results($query);
-        foreach ($users as $MJTC_key => $user) {
-            $mjtcUsers[] = $user->wpuid;
+        $MJTC_query = " SELECT wpuid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_users`";
+        $MJTC_users = majesticsupport::$_db->get_results($MJTC_query);
+        foreach ($MJTC_users as $MJTC_key => $MJTC_user) {
+            $mjtcUsers[] = $MJTC_user->wpuid;
         }
 
-        $missingUsers = array_diff($wpUsers,$mjtcUsers);
+        $missingUsers = array_diff($MJTC_wpUsers,$mjtcUsers);
 
         if (empty($missingUsers)) return;
 
         foreach ($missingUsers as $missingUser) {
-            $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "users` WHERE id = " . esc_sql($missingUser);
-            $customer = majesticsupport::$_db->get_row($query);
+            $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "users` WHERE id = " . esc_sql($missingUser);
+            $MJTC_customer = majesticsupport::$_db->get_row($MJTC_query);
 
-            $customer_id = intval($customer->ID);
-            $wpuid       = intval($customer->ID);
-            $name        = sanitize_text_field($customer->display_name ?? '');
-            $email       = sanitize_email($customer->user_email ?? '');
+            $MJTC_customer_id = intval($MJTC_customer->ID);
+            $MJTC_wpuid       = intval($MJTC_customer->ID);
+            $MJTC_name        = sanitize_text_field($MJTC_customer->display_name ?? '');
+            $MJTC_email       = sanitize_email($MJTC_customer->user_email ?? '');
 
             // Skip if already imported
-            if (in_array($customer_id, $imported_users, true)) {
+            if (in_array($MJTC_customer_id, $MJTC_imported_users, true)) {
                 $this->awesome_support_import_count['user']['skipped']++;
                 continue;
             }   
 
             // Prepare data for new user
-            $row = MJTC_includer::MJTC_getTable('users');
+            $MJTC_row = MJTC_includer::MJTC_getTable('users');
             $MJTC_data = [
                 'id'            => '',
-                'wpuid'         => $wpuid,
-                'name'          => $name,
+                'wpuid'         => $MJTC_wpuid,
+                'name'          => $MJTC_name,
                 'display_name'  => '',
-                'user_email'    => $email,
+                'user_email'    => $MJTC_email,
                 'status'        => 1,
                 'issocial'      => 0,
                 'socialid'      => null,
@@ -2504,30 +2504,30 @@ class MJTC_thirdpartyimportModel {
             ];
 
             // Attempt to save the new user
-            $row->bind($MJTC_data);
-            if (!$row->store()) {
+            $MJTC_row->bind($MJTC_data);
+            if (!$MJTC_row->store()) {
                 $this->awesome_support_import_count['user']['failed']++;
                 continue;
             }
 
             // Store successful import info
-            $this->awesome_support_users_array[$customer_id] = $row->wpuid;
-            $this->awesome_support_user_ids[] = $customer_id;
+            $this->awesome_support_users_array[$MJTC_customer_id] = $MJTC_row->wpuid;
+            $this->awesome_support_user_ids[] = $MJTC_customer_id;
             $this->awesome_support_import_count['user']['imported']++;
         }
 
         // Save list of imported user IDs
         if (!empty($this->awesome_support_user_ids)) {
-            update_option('mjtc_support_ticket_awesome_support_data_users', wp_json_encode(array_unique(array_merge($imported_users, $this->awesome_support_user_ids))));
+            update_option('mjtc_support_ticket_awesome_support_data_users', wp_json_encode(array_unique(array_merge($MJTC_imported_users, $this->awesome_support_user_ids))));
         }
     }
 
     private function importAwesomeSupportDepartments() {
         // check if department already processed for import
-        $imported_departments = array();
-        $imported_departments_json = get_option('mjtc_support_ticket_awesome_support_data_departments');
-        if(!empty($imported_departments_json)){
-            $imported_departments = json_decode($imported_departments_json,true);
+        $MJTC_imported_departments = array();
+        $MJTC_imported_departments_json = get_option('mjtc_support_ticket_awesome_support_data_departments');
+        if(!empty($MJTC_imported_departments_json)){
+            $MJTC_imported_departments = json_decode($MJTC_imported_departments_json,true);
         }
 
         if (!taxonomy_exists('department')) {
@@ -2541,166 +2541,166 @@ class MJTC_thirdpartyimportModel {
         if (empty($MJTC_departments)) return;
 
         // Get highest current ordering value
-        $query = "
+        $MJTC_query = "
             SELECT MAX(dept.ordering)
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS dept
         ";
-        $ordering = (int) majesticsupport::$_db->get_var($query);
-        $now = date_i18n('Y-m-d H:i:s');
+        $MJTC_ordering = (int) majesticsupport::$_db->get_var($MJTC_query);
+        $MJTC_now = date_i18n('Y-m-d H:i:s');
 
         foreach($MJTC_departments AS $MJTC_department){
             // Skip if already imported
-            if (in_array($MJTC_department->id, $imported_departments, true)) {
+            if (in_array($MJTC_department->id, $MJTC_imported_departments, true)) {
                 $this->awesome_support_import_count['department']['skipped']++;
                 continue;
             }
 
-            $name = MJTC_majesticsupportphplib::MJTC_trim($MJTC_department->name);
-            $lower_name = MJTC_majesticsupportphplib::MJTC_strtolower($name);
+            $MJTC_name = MJTC_majesticsupportphplib::MJTC_trim($MJTC_department->name);
+            $MJTC_lower_name = MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_name);
 
             // Check if department already exists
-            $check_query = "
+            $MJTC_check_query = "
                 SELECT department.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department
-                WHERE LOWER(department.departmentname) = '". esc_sql($name) ."'";
-            $existing = majesticsupport::$_db->get_row($check_query);
+                WHERE LOWER(department.departmentname) = '". esc_sql($MJTC_name) ."'";
+            $MJTC_existing = majesticsupport::$_db->get_row($MJTC_check_query);
 
-            if (!$existing) { // not exists
-                $row = MJTC_includer::MJTC_getTable('departments');
+            if (!$MJTC_existing) { // not exists
+                $MJTC_row = MJTC_includer::MJTC_getTable('departments');
 
-                $updated = date_i18n('Y-m-d H:i:s');
-                $created = date_i18n('Y-m-d H:i:s');
+                $MJTC_updated = date_i18n('Y-m-d H:i:s');
+                $MJTC_created = date_i18n('Y-m-d H:i:s');
 
                 $MJTC_data = [
                     'id'              => '',
                     'emailid'         => '1',
-                    'departmentname'  => $name,
-                    'ordering'        => $ordering,
+                    'departmentname'  => $MJTC_name,
+                    'ordering'        => $MJTC_ordering,
                     'status'          => '1',
                     'isdefault'       => '0',
                     'ispublic'        => '1',
-                    'updated'         => $now,
-                    'created'         => $now
+                    'updated'         => $MJTC_now,
+                    'created'         => $MJTC_now
                 ];
 
                 $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
-                $row->bind($MJTC_data);
+                $MJTC_row->bind($MJTC_data);
 
-                if (!$row->store()) {
+                if (!$MJTC_row->store()) {
                     $this->awesome_support_import_count['department']['failed'] += 1;
                 } else {
                     $this->awesome_support_department_ids[] = $MJTC_department->id;
                     $this->awesome_support_import_count['department']['imported'] += 1;
                 }
 
-                $ordering++;
+                $MJTC_ordering++;
             } else {
                 $this->awesome_support_import_count['department']['skipped'] += 1;
             }
         }
         // Save list of imported department IDs
         if (!empty($this->awesome_support_department_ids)) {
-            update_option('mjtc_support_ticket_awesome_support_data_departments', wp_json_encode(array_unique(array_merge($imported_departments, $this->awesome_support_department_ids))));
+            update_option('mjtc_support_ticket_awesome_support_data_departments', wp_json_encode(array_unique(array_merge($MJTC_imported_departments, $this->awesome_support_department_ids))));
         }
     }
     
     private function importAwesomeSupportPriorities() {
         // check if priority already processed for import
-        $imported_priorities = array();
-        $imported_priorities_json = get_option('mjtc_support_ticket_awesome_support_data_priorities');
-        if(!empty($imported_priorities_json)){
-            $imported_priorities = json_decode($imported_priorities_json,true);
+        $MJTC_imported_priorities = array();
+        $MJTC_imported_priorities_json = get_option('mjtc_support_ticket_awesome_support_data_priorities');
+        if(!empty($MJTC_imported_priorities_json)){
+            $MJTC_imported_priorities = json_decode($MJTC_imported_priorities_json,true);
         }
 
-        $priorities = get_terms([
+        $MJTC_priorities = get_terms([
             'taxonomy'   => 'ticket_priority',
             'hide_empty' => false,
         ]);
 
-        if (is_wp_error($priorities) || empty($priorities)) return;
+        if (is_wp_error($MJTC_priorities) || empty($MJTC_priorities)) return;
 
-        foreach ($priorities as $MJTC_key => $priority) {
-            $meta = get_term_meta($priority->term_id);
-            $priorities[$MJTC_key]->meta = $meta;
+        foreach ($MJTC_priorities as $MJTC_key => $MJTC_priority) {
+            $meta = get_term_meta($MJTC_priority->term_id);
+            $MJTC_priorities[$MJTC_key]->meta = $meta;
         }
         
         // Get highest current ordering value
-        $query = "
+        $MJTC_query = "
             SELECT MAX(priority.ordering)
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority
         ";
-        $ordering = (int) majesticsupport::$_db->get_var($query);
+        $MJTC_ordering = (int) majesticsupport::$_db->get_var($MJTC_query);
 
-        foreach ($priorities AS $priority) {
+        foreach ($MJTC_priorities AS $MJTC_priority) {
             // Skip if already imported
-            if (in_array($priority->id, $imported_priorities, true)) {
+            if (in_array($MJTC_priority->id, $MJTC_imported_priorities, true)) {
                 $this->awesome_support_import_count['priority']['skipped']++;
                 continue;
             }
 
-            $name = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($priority->name));
+            $MJTC_name = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_priority->name));
 
             // Check if this priority already exists in Majestic Support
-            $check_query = "
+            $MJTC_check_query = "
                 SELECT priority.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority
-                WHERE LOWER(priority.priority) = '" . esc_sql($name) . "'
+                WHERE LOWER(priority.priority) = '" . esc_sql($MJTC_name) . "'
                 LIMIT 1
             ";
-            $ms_priority = majesticsupport::$_db->get_row($check_query);
+            $ms_priority = majesticsupport::$_db->get_row($MJTC_check_query);
 
             if (!$ms_priority) {
-                $row = MJTC_includer::MJTC_getTable('priorities');
+                $MJTC_row = MJTC_includer::MJTC_getTable('priorities');
 
                 $MJTC_color = "#5e8f5b"; // default color
-                if (!empty($priority->meta['color'][0])) {
-                    $MJTC_color = $priority->meta['color'][0];
+                if (!empty($MJTC_priority->meta['color'][0])) {
+                    $MJTC_color = $MJTC_priority->meta['color'][0];
                 }
                 
                 $MJTC_data = [
                     'id'               => '',
-                    'priority'         => $priority->name,
+                    'priority'         => $MJTC_priority->name,
                     'prioritycolour'   => $MJTC_color,
                     'priorityurgency'  => '',
                     'overduetypeid'    => 1,
                     'overdueinterval'  => 7,
-                    'ordering'         => $ordering,
+                    'ordering'         => $MJTC_ordering,
                     'status'           => '1',
                     'isdefault'        => '0',
                     'ispublic'         => '1'
                 ];
 
                 $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
-                $row->bind($MJTC_data);
+                $MJTC_row->bind($MJTC_data);
 
-                if (!$row->store()) {
+                if (!$MJTC_row->store()) {
                     $this->awesome_support_import_count['priority']['failed'] += 1;
                 } else {
-                    $this->awesome_support_priority_ids[] = $priority->id;
+                    $this->awesome_support_priority_ids[] = $MJTC_priority->id;
                     $this->awesome_support_import_count['priority']['imported'] += 1;
                 }
 
-                $ordering++;
+                $MJTC_ordering++;
             } else {
                 $this->awesome_support_import_count['priority']['skipped'] += 1;
             }
         }
         // Save list of imported priority IDs
         if (!empty($this->awesome_support_priority_ids)) {
-            update_option('mjtc_support_ticket_awesome_support_data_priorities', wp_json_encode(array_unique(array_merge($imported_priorities, $this->awesome_support_priority_ids))));
+            update_option('mjtc_support_ticket_awesome_support_data_priorities', wp_json_encode(array_unique(array_merge($MJTC_imported_priorities, $this->awesome_support_priority_ids))));
         }
     }
 
     private function importAwesomeSupportStatus() {
         // Load previously imported statuses
-        $imported_statuses = [];
-        $imported_statuses_json = get_option('mjtc_support_ticket_awesome_support_data_statuses');
-        if (!empty($imported_statuses_json)) {
-            $imported_statuses = json_decode($imported_statuses_json, true);
+        $MJTC_imported_statuses = [];
+        $MJTC_imported_statuses_json = get_option('mjtc_support_ticket_awesome_support_data_statuses');
+        if (!empty($MJTC_imported_statuses_json)) {
+            $MJTC_imported_statuses = json_decode($MJTC_imported_statuses_json, true);
         }
 
         // Get SupportCandy statuses (excluding system/default ones)
-        $statuses = get_posts( [
+        $MJTC_statuses = get_posts( [
             'post_type'      => 'wpass_status',
             'post_status'    => 'any', // includes all except 'auto-draft'
             'orderby'        => 'ID',
@@ -2713,67 +2713,67 @@ class MJTC_thirdpartyimportModel {
             ]),
         ] );
 
-        if (empty($statuses)) return;
+        if (empty($MJTC_statuses)) return;
 
         // Get highest current ordering value
-        $query = "
+        $MJTC_query = "
             SELECT MAX(status.ordering)
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS status
         ";
-        $ordering = (int) majesticsupport::$_db->get_var($query);
+        $MJTC_ordering = (int) majesticsupport::$_db->get_var($MJTC_query);
 
         // Build array of existing JS statuses (cleaned)
-        $query = "
+        $MJTC_query = "
             SELECT status.status
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS status
         ";
-        $msstatuses = majesticsupport::$_db->get_results($query);
-        $existing_status_names = array_map(function($status) {
-            return $this->cleanStringForCompare($status->status);
+        $msstatuses = majesticsupport::$_db->get_results($MJTC_query);
+        $MJTC_existing_status_names = array_map(function($MJTC_status) {
+            return $this->cleanStringForCompare($MJTC_status->status);
         }, $msstatuses);
 
-        foreach ($statuses as $status) {
-            $name = $status->post_title;
-            $compare_name = $this->cleanStringForCompare($name);
+        foreach ($MJTC_statuses as $MJTC_status) {
+            $MJTC_name = $MJTC_status->post_title;
+            $MJTC_compare_name = $this->cleanStringForCompare($MJTC_name);
 
             // Skip if name already exists
-            if (in_array($compare_name, $existing_status_names)) {
+            if (in_array($MJTC_compare_name, $MJTC_existing_status_names)) {
                 $this->awesome_support_import_count['status']['skipped'] += 1;
                 continue;
             }
 
             // Skip if already imported
-            if (in_array($status->id, $imported_statuses)) {
+            if (in_array($MJTC_status->id, $MJTC_imported_statuses)) {
                 $this->awesome_support_import_count['status']['skipped'] += 1;
                 continue;
             }
 
-            $post_meta = get_post_meta($status->ID);
+            $MJTC_post_meta = get_post_meta($MJTC_status->ID);
             $MJTC_bgcolor = "#5e8f5b"; // default color
-            if (!empty($post_meta['status_color'][0])) {
-                $MJTC_bgcolor = $post_meta['status_color'][0];
+            if (!empty($MJTC_post_meta['status_color'][0])) {
+                $MJTC_bgcolor = $MJTC_post_meta['status_color'][0];
             }
 
             // Prepare new status data
-            $row = MJTC_includer::MJTC_getTable('statuses');
+            $MJTC_row = MJTC_includer::MJTC_getTable('statuses');
             $MJTC_data = [
                 'id'             => '',
-                'status'         => $name,
+                'status'         => $MJTC_name,
                 'statuscolour'   => '#FFF',
                 'statusbgcolour' => $MJTC_bgcolor,
                 'sys'            => '0',
-                'ordering'       => $ordering
+                'ordering'       => $MJTC_ordering
             ];
 
             $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
-            $row->bind($MJTC_data);
+            $MJTC_row->bind($MJTC_data);
 
-            if (!$row->store()) {
+            if (!$MJTC_row->store()) {
                 $this->awesome_support_import_count['status']['failed'] += 1;
             } else {
-                $this->awesome_support_status_ids[] = $status->id;
+                $this->awesome_support_status_ids[] = $MJTC_status->id;
                 $this->awesome_support_import_count['status']['imported'] += 1;
-                $ordering++;
+                $MJTC_ordering++;
             }
         }
 
@@ -2785,14 +2785,14 @@ class MJTC_thirdpartyimportModel {
 
     private function importAwesomeSupportPremades() {
         // check if premade already processed for import
-        $imported_premades = array();
-        $imported_premades_json = get_option('mjtc_support_ticket_awesome_support_data_premades');
-        if(!empty($imported_premades_json)){
-            $imported_premades = json_decode($imported_premades_json,true);
+        $MJTC_imported_premades = array();
+        $MJTC_imported_premades_json = get_option('mjtc_support_ticket_awesome_support_data_premades');
+        if(!empty($MJTC_imported_premades_json)){
+            $MJTC_imported_premades = json_decode($MJTC_imported_premades_json,true);
         }
 
         // Get SupportCandy statuses (excluding system/default ones)
-        $canned_replies = get_posts( [
+        $MJTC_canned_replies = get_posts( [
             'post_type'      => 'canned-response',
             'post_status'    => 'any', // includes all except 'auto-draft'
             'orderby'        => 'ID',
@@ -2805,54 +2805,54 @@ class MJTC_thirdpartyimportModel {
             ]),
         ] );
 
-        if (empty($canned_replies)) return;
+        if (empty($MJTC_canned_replies)) return;
 
-        foreach ($canned_replies as $canned_reply) {
-            $title = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($canned_reply->post_title));
+        foreach ($MJTC_canned_replies as $MJTC_canned_reply) {
+            $title = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_canned_reply->post_title));
             // Failed if addon not installed
             if (!in_array('cannedresponses', majesticsupport::$_active_addons) ) {
                 $this->awesome_support_import_count['canned response']['failed']++;
                 continue;
             }
             // Skip if already imported
-            if (in_array($canned_reply->id, $imported_premades, true)) {
+            if (in_array($MJTC_canned_reply->id, $MJTC_imported_premades, true)) {
                 $this->awesome_support_import_count['canned response']['skipped']++;
                 continue;
             }
             // Check if this premade already exists in Majestic Support
-            $check_query = "
+            $MJTC_check_query = "
                 SELECT premade.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_department_message_premade` AS premade
                 WHERE LOWER(premade.title) = '" . esc_sql($title) . "'
                 LIMIT 1
             ";
-            $ms_canned_reply = majesticsupport::$_db->get_row($check_query);
+            $ms_canned_reply = majesticsupport::$_db->get_row($MJTC_check_query);
 
             if (!$ms_canned_reply) {
             
                 $MJTC_departmentid = MJTC_includer::MJTC_getModel('department')->getDefaultDepartmentID();
                 // Prepare canned response data
-                $row = MJTC_includer::MJTC_getTable('cannedresponses');
-                $updated = date_i18n('Y-m-d H:i:s');
+                $MJTC_row = MJTC_includer::MJTC_getTable('cannedresponses');
+                $MJTC_updated = date_i18n('Y-m-d H:i:s');
 
                 $MJTC_data = [
                     'id'          => '',
                     'departmentid'=> $MJTC_departmentid,
-                    'title'       => $canned_reply->post_title,
-                    'answer'      => $canned_reply->post_content,
+                    'title'       => $MJTC_canned_reply->post_title,
+                    'answer'      => $MJTC_canned_reply->post_content,
                     'status'      => '1',
-                    'updated'     => $updated,
-                    'created'     => $canned_reply->post_date
+                    'updated'     => $MJTC_updated,
+                    'created'     => $MJTC_canned_reply->post_date
                 ];
 
                 $MJTC_data = majesticsupport::MJTC_sanitizeData($MJTC_data);
                 $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
 
-                $row->bind($MJTC_data);
-                if (!$row->store()) {
+                $MJTC_row->bind($MJTC_data);
+                if (!$MJTC_row->store()) {
                     $this->awesome_support_import_count['canned response']['failed'] += 1;
                 } else {
-                    $this->awesome_support_premade_ids[] = $canned_reply->id;
+                    $this->awesome_support_premade_ids[] = $MJTC_canned_reply->id;
                     $this->awesome_support_import_count['canned response']['imported'] += 1;
                 }
             } else {
@@ -2862,83 +2862,83 @@ class MJTC_thirdpartyimportModel {
 
         // Save list of imported premade IDs
         if (!empty($this->awesome_support_premade_ids)) {
-            update_option('mjtc_support_ticket_awesome_support_data_premades', wp_json_encode(array_unique(array_merge($imported_premades, $this->awesome_support_premade_ids))));
+            update_option('mjtc_support_ticket_awesome_support_data_premades', wp_json_encode(array_unique(array_merge($MJTC_imported_premades, $this->awesome_support_premade_ids))));
         }
     }
 
     private function importAwesomeSupportProducts(){
         // check if product already processed for import
-        $imported_products = array();
-        $imported_products_json = get_option('mjtc_support_ticket_awesome_support_data_products');
-        if(!empty($imported_products_json)){
-            $imported_products = json_decode($imported_products_json,true);
+        $MJTC_imported_products = array();
+        $MJTC_imported_products_json = get_option('mjtc_support_ticket_awesome_support_data_products');
+        if(!empty($MJTC_imported_products_json)){
+            $MJTC_imported_products = json_decode($MJTC_imported_products_json,true);
         }
 
-        $products = get_terms([
+        $MJTC_products = get_terms([
             'taxonomy'   => 'product',
             'hide_empty' => false,
         ]);
 
-        if (is_wp_error($products) || empty($products)) return;
+        if (is_wp_error($MJTC_products) || empty($MJTC_products)) return;
         
         // Get highest current ordering value
-        $query = "
+        $MJTC_query = "
             SELECT MAX(product.ordering)
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_products` AS product
         ";
-        $ordering = (int) majesticsupport::$_db->get_var($query);
+        $MJTC_ordering = (int) majesticsupport::$_db->get_var($MJTC_query);
 
-        foreach($products AS $product){
+        foreach($MJTC_products AS $MJTC_product){
             // Skip if already imported
-            if (in_array($product->term_id, $imported_products, true)) {
+            if (in_array($MJTC_product->term_id, $MJTC_imported_products, true)) {
                 $this->awesome_support_import_count['product']['skipped']++;
                 continue;
             }
 
-            $name = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($product->name));
+            $MJTC_name = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_product->name));
 
             // Check if this product already exists in Majestic Support
-            $check_query = "
+            $MJTC_check_query = "
                 SELECT product.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_products` AS product
-                WHERE LOWER(product.product) = '".esc_sql($name) ."'
+                WHERE LOWER(product.product) = '".esc_sql($MJTC_name) ."'
                 LIMIT 1
             ";
-            $ms_product = majesticsupport::$_db->get_row($check_query);
+            $ms_product = majesticsupport::$_db->get_row($MJTC_check_query);
 
             if(!$ms_product){
-                $row = MJTC_includer::MJTC_getTable('products');
+                $MJTC_row = MJTC_includer::MJTC_getTable('products');
 
                 $MJTC_color = "#5e8f5b"; // default color
-                if (!empty($product->meta['color'][0])) {
-                    $MJTC_color = $product->meta['color'][0];
+                if (!empty($MJTC_product->meta['color'][0])) {
+                    $MJTC_color = $MJTC_product->meta['color'][0];
                 }
                 
                 $MJTC_data = [
                     'id'               => '',
-                    'product'         => $product->name,
+                    'product'         => $MJTC_product->name,
                     'status'           => '1',
-                    'ordering'         => $ordering
+                    'ordering'         => $MJTC_ordering
                 ];
 
                 $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
-                $row->bind($MJTC_data);
+                $MJTC_row->bind($MJTC_data);
 
-                if (!$row->store()) {
+                if (!$MJTC_row->store()) {
                     $this->awesome_support_import_count['product']['failed'] += 1;
                 } else {
-                    $this->awesome_support_product_ids[] = $product->term_id;
+                    $this->awesome_support_product_ids[] = $MJTC_product->term_id;
                     $this->awesome_support_import_count['product']['imported'] += 1;
                 }
 
-                $ordering++;
+                $MJTC_ordering++;
             } else {
                 $this->awesome_support_import_count['product']['skipped'] += 1;
             }
         }
         // Save list of imported product IDs
         if (!empty($this->awesome_support_product_ids)) {
-            update_option('mjtc_support_ticket_awesome_support_data_products', wp_json_encode(array_unique(array_merge($imported_products, $this->awesome_support_product_ids))));
+            update_option('mjtc_support_ticket_awesome_support_data_products', wp_json_encode(array_unique(array_merge($MJTC_imported_products, $this->awesome_support_product_ids))));
         }
     }
 
@@ -2946,69 +2946,69 @@ class MJTC_thirdpartyimportModel {
     // 
     // ticket
     // 
-    function getAwesomeSupportTickets($as_ticket_custom_fields) {
+    function getAwesomeSupportTickets($MJTC_as_ticket_custom_fields) {
         // Check if tickets already processed for import
-        $imported_tickets = array();
-        $imported_tickets_json = get_option('mjtc_support_ticket_awesome_support_data_tickets');
-        if (!empty($imported_tickets_json)) {
-            $imported_tickets = json_decode($imported_tickets_json, true);
+        $MJTC_imported_tickets = array();
+        $MJTC_imported_tickets_json = get_option('mjtc_support_ticket_awesome_support_data_tickets');
+        if (!empty($MJTC_imported_tickets_json)) {
+            $MJTC_imported_tickets = json_decode($MJTC_imported_tickets_json, true);
         }
 
         $MJTC_tickets = wpas_get_tickets('any');
 
-        $new_tickets = array();
+        $MJTC_new_tickets = array();
         foreach($MJTC_tickets AS $MJTC_ticket){
             // Skip if ticket already imported
-            if (!empty($imported_tickets) && in_array($MJTC_ticket->id, $imported_tickets)) {
+            if (!empty($MJTC_imported_tickets) && in_array($MJTC_ticket->id, $MJTC_imported_tickets)) {
                 $this->awesome_support_import_count['ticket']['skipped'] += 1;
                 continue;
             }
 
             // Map custom fields
-            $params = array();
-            foreach ($as_ticket_custom_fields as $as_ticket_custom_field) {
-                $field_name = $as_ticket_custom_field["name"];
-                $custom_text = get_post_meta($MJTC_ticket->ID, '_wpas_'.$field_name, true);
-                $vardata = "";
+            $MJTC_params = array();
+            foreach ($MJTC_as_ticket_custom_fields as $MJTC_as_ticket_custom_field) {
+                $MJTC_field_name = $MJTC_as_ticket_custom_field["name"];
+                $MJTC_custom_text = get_post_meta($MJTC_ticket->ID, '_wpas_'.$MJTC_field_name, true);
+                $MJTC_vardata = "";
                 
-                if ($custom_text) {
-                    if ($as_ticket_custom_field["type"] == "date") {
-                        $vardata = gmdate("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime($custom_text));
+                if ($MJTC_custom_text) {
+                    if ($MJTC_as_ticket_custom_field["type"] == "date") {
+                        $MJTC_vardata = gmdate("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_custom_text));
                     } else {
-                        $vardata = $custom_text;
+                        $MJTC_vardata = $MJTC_custom_text;
                     }
 
-                    if ($vardata != '') {
-                        if (is_array($vardata)) {
-                            $vardata = implode(', ', array_filter($vardata));
+                    if ($MJTC_vardata != '') {
+                        if (is_array($MJTC_vardata)) {
+                            $MJTC_vardata = implode(', ', array_filter($MJTC_vardata));
                         }
-                        $params[$as_ticket_custom_field["ms_filedorderingfield"]] = MJTC_majesticsupportphplib::MJTC_htmlentities($vardata);
+                        $MJTC_params[$MJTC_as_ticket_custom_field["ms_filedorderingfield"]] = MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_vardata);
                     }
                 }
             }
-            $MJTC_ticketparams = html_entity_decode(wp_json_encode($params, JSON_UNESCAPED_UNICODE));
-            $post_meta = get_post_meta($MJTC_ticket->ID);
+            $MJTC_ticketparams = html_entity_decode(wp_json_encode($MJTC_params, JSON_UNESCAPED_UNICODE));
+            $MJTC_post_meta = get_post_meta($MJTC_ticket->ID);
             
             
-            $assign_to = "";
-            if(isset($post_meta["_wpas_assignee"][0])) $assign_to = $post_meta["_wpas_assignee"][0];
+            $MJTC_assign_to = "";
+            if(isset($MJTC_post_meta["_wpas_assignee"][0])) $MJTC_assign_to = $MJTC_post_meta["_wpas_assignee"][0];
             
-            $userinfo = $this->getAwesomeSupportTicketCustomerInfo($MJTC_ticket->post_author);
+            $MJTC_userinfo = $this->getAwesomeSupportTicketCustomerInfo($MJTC_ticket->post_author);
             
             $MJTC_departmentid = $this->getTicketDepartmentIdByAwesomeSupport($MJTC_ticket->ID);
-            $priorityid = $this->getTicketPriorityIdByAwesomeSupport($MJTC_ticket->ID);
-            $productid = $this->getTicketProductIdByAwesomeSupport($MJTC_ticket->ID);
-            $agentid = $this->getTicketAgentIdByAwesomeSupport($MJTC_ticket->ID);
+            $MJTC_priorityid = $this->getTicketPriorityIdByAwesomeSupport($MJTC_ticket->ID);
+            $MJTC_productid = $this->getTicketProductIdByAwesomeSupport($MJTC_ticket->ID);
+            $MJTC_agentid = $this->getTicketAgentIdByAwesomeSupport($MJTC_ticket->ID);
 
             //get user fields
-            $idresult = MJTC_includer::MJTC_getModel('ticket')->getRandomTicketId();
-            $MJTC_ticketid = $idresult['ticketid'];
-            $customticketno = $idresult['customticketno'];
+            $MJTC_idresult = MJTC_includer::MJTC_getModel('ticket')->getRandomTicketId();
+            $MJTC_ticketid = $MJTC_idresult['ticketid'];
+            $MJTC_customticketno = $MJTC_idresult['customticketno'];
 
-            $attachmentdir = MJTC_includer::MJTC_getModel('ticket')->getRandomFolderName();
+            $MJTC_attachmentdir = MJTC_includer::MJTC_getModel('ticket')->getRandomFolderName();
             $MJTC_ticket_status = 1;
 
-            $custom_statuses = get_posts( [
+            $MJTC_custom_statuses = get_posts( [
                 'post_type'      => 'wpass_status',
                 'post_status'    => 'any', // includes all except 'auto-draft'
                 'orderby'        => 'ID',
@@ -3020,22 +3020,22 @@ class MJTC_thirdpartyimportModel {
                     'fields'      => 'ids',
                 ]),
             ] );
-            $is_custom_status = 0;
-            foreach ($custom_statuses as $custom_statuse) {
-                if ($MJTC_ticket->post_status == $custom_statuse->post_name) {
-                    $is_custom_status = 1;
+            $MJTC_is_custom_status = 0;
+            foreach ($MJTC_custom_statuses as $MJTC_custom_statuse) {
+                if ($MJTC_ticket->post_status == $MJTC_custom_statuse->post_name) {
+                    $MJTC_is_custom_status = 1;
                     continue; // stop cheacking further
                 }
             }
             
-            if(!empty($is_custom_status)) {
+            if(!empty($MJTC_is_custom_status)) {
                 $MJTC_ticket_status = $this->getTicketStatusIdByAwesomeSupport($MJTC_ticket->post_status);
             } else {
-                if($post_meta["_wpas_status"][0] == "open"){
-                    if(isset($post_meta["_wpas_last_reply_date"][0])){
+                if($MJTC_post_meta["_wpas_status"][0] == "open"){
+                    if(isset($MJTC_post_meta["_wpas_last_reply_date"][0])){
                         $MJTC_ticket_status = 1;
                     
-                        if($post_meta["_wpas_is_waiting_client_reply"][0] == "1"){ // 1 means waiting agent reply
+                        if($MJTC_post_meta["_wpas_is_waiting_client_reply"][0] == "1"){ // 1 means waiting agent reply
                             $MJTC_ticket_status = 2;
                         }else{
                             $MJTC_ticket_status = 4;
@@ -3048,21 +3048,21 @@ class MJTC_thirdpartyimportModel {
 
             $MJTC_ticket_closed = "0000-00-00 00:00:00";
 
-            if(isset($post_meta["_ticket_closed_on"][0])){
-                if($post_meta["_ticket_closed_on"][0] == "closed"){
+            if(isset($MJTC_post_meta["_ticket_closed_on"][0])){
+                if($MJTC_post_meta["_ticket_closed_on"][0] == "closed"){
                     $MJTC_ticket_status = 5;
-                    if(isset($post_meta["_ticket_closed_on"][0])) {
-                        $MJTC_ticket_closed = $post_meta["_ticket_closed_on"][0];
+                    if(isset($MJTC_post_meta["_ticket_closed_on"][0])) {
+                        $MJTC_ticket_closed = $MJTC_post_meta["_ticket_closed_on"][0];
                     }
                 }
             }
-            $lastreply = "0000-00-00 00:00:00";
-            if(isset($post_meta["_wpas_last_reply_date"][0])){
-                $lastreply = $post_meta["_wpas_last_reply_date"][0];
+            $MJTC_lastreply = "0000-00-00 00:00:00";
+            if(isset($MJTC_post_meta["_wpas_last_reply_date"][0])){
+                $MJTC_lastreply = $MJTC_post_meta["_wpas_last_reply_date"][0];
             }
             
-            $isanswered = 0;
-            if($MJTC_ticket_status == 4) $isanswered = 1;
+            $MJTC_isanswered = 0;
+            if($MJTC_ticket_status == 4) $MJTC_isanswered = 1;
             
             $MJTC_ticket_closedby = "";
             // Ticket Default Status
@@ -3072,16 +3072,16 @@ class MJTC_thirdpartyimportModel {
             // 4 -> waiting for customer reply
             // 5 -> close ticket
     
-            $newTicketData = [
+            $MJTC_newTicketData = [
                 'id' => "",
-                'uid' => $userinfo["ms_uid"],
+                'uid' => $MJTC_userinfo["ms_uid"],
                 'ticketid' => $MJTC_ticketid,
                 'departmentid' => $MJTC_departmentid,
-                'priorityid' => $priorityid,
-                'productid' => $productid,
-                'staffid' => $agentid,
-                'email' => $userinfo["customer_email"],
-                'name' => $userinfo["customer_name"],
+                'priorityid' => $MJTC_priorityid,
+                'productid' => $MJTC_productid,
+                'staffid' => $MJTC_agentid,
+                'email' => $MJTC_userinfo["customer_email"],
+                'name' => $MJTC_userinfo["customer_name"],
                 'subject' => $MJTC_ticket->post_title,
                 'message' => $MJTC_ticket->post_content,
                 'helptopicid' => 0,
@@ -3090,18 +3090,18 @@ class MJTC_thirdpartyimportModel {
                 'phoneext' => "",
                 'status' => $MJTC_ticket_status,
                 'isoverdue' => "0",
-                'isanswered' => $isanswered,
+                'isanswered' => $MJTC_isanswered,
                 'duedate' => "0000-00-00 00:00:00",
                 'reopened' => "0000-00-00 00:00:00",
                 'closed' => $MJTC_ticket_closed,
                 'closedby' => $MJTC_ticket_closedby,
-                'lastreply' => $lastreply,
+                'lastreply' => $MJTC_lastreply,
                 'created' => $MJTC_ticket->post_date,
                 'updated' => $MJTC_ticket->post_modified,
                 'lock' => "0",
                 'ticketviaemail' => "0",
                 'ticketviaemail_id' => "0",
-                'attachmentdir' => $attachmentdir,
+                'attachmentdir' => $MJTC_attachmentdir,
                 'feedbackemail' => "0",
                 'mergestatus' => "0",
                 'mergewith' => "0",
@@ -3120,33 +3120,33 @@ class MJTC_thirdpartyimportModel {
                 'eddlicensekey' => "",
                 'envatodata' => "",
                 'paidsupportitemid' => "0",
-                'customticketno' => $customticketno
+                'customticketno' => $MJTC_customticketno
             ];
 
-            $row = MJTC_includer::MJTC_getTable('tickets');
-            $error = 0;
-            if (!$row->bind($newTicketData)) $error = 1;
-            if (!$row->store()) $error = 1;
+            $MJTC_row = MJTC_includer::MJTC_getTable('tickets');
+            $MJTC_error = 0;
+            if (!$MJTC_row->bind($MJTC_newTicketData)) $MJTC_error = 1;
+            if (!$MJTC_row->store()) $MJTC_error = 1;
 
-            if ($error == 1) {
+            if ($MJTC_error == 1) {
                 $this->awesome_support_import_count['ticket']['failed'] += 1;
             } else {
                 $this->awesome_support_ticket_ids[] = $MJTC_ticket->id;
                 $this->awesome_support_import_count['ticket']['imported'] += 1;
 
-                $ms_ticketid = $row->id;
+                $ms_ticketid = $MJTC_row->id;
 
                 //update hash value against ticket
-                $hash = MJTC_includer::MJTC_getModel('ticket')->generateHash($ms_ticketid);
-                $query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='" . esc_sql($hash) . "' WHERE id=" . esc_sql($ms_ticketid);
-                majesticsupport::$_db->query($query);
+                $MJTC_hash = MJTC_includer::MJTC_getModel('ticket')->generateHash($ms_ticketid);
+                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='" . esc_sql($MJTC_hash) . "' WHERE id=" . esc_sql($ms_ticketid);
+                majesticsupport::$_db->query($MJTC_query);
                 
-                $this->getAwesomeSupportTicketReplies($ms_ticketid, $MJTC_ticket->ID, $attachmentdir);
-                $this->getAwesomeSupportTicketAttachments($ms_ticketid, "", $MJTC_ticket->ID, "", $attachmentdir);
+                $this->getAwesomeSupportTicketReplies($ms_ticketid, $MJTC_ticket->ID, $MJTC_attachmentdir);
+                $this->getAwesomeSupportTicketAttachments($ms_ticketid, "", $MJTC_ticket->ID, "", $MJTC_attachmentdir);
 
 
                 if (in_array('privatecredentials', majesticsupport::$_active_addons)) {
-                    $this->getAwesomeSupportTicketPrivateCredentials($ms_ticketid, $userinfo["ms_uid"], $MJTC_ticket->ID);
+                    $this->getAwesomeSupportTicketPrivateCredentials($ms_ticketid, $MJTC_userinfo["ms_uid"], $MJTC_ticket->ID);
                 }
 
                 if (in_array('tickethistory', majesticsupport::$_active_addons)) {
@@ -3163,56 +3163,56 @@ class MJTC_thirdpartyimportModel {
 
     private function importAwesomeSupportTicketFields() {
         // Get all ticket-related custom fields
-        $custom_fields = get_option("wpas_custom_fields");
+        $MJTC_custom_fields = get_option("wpas_custom_fields");
 
-        if (!$custom_fields) return;
+        if (!$MJTC_custom_fields) return;
 
         $this->as_ticket_custom_fields = [];
 
-        foreach ($custom_fields as $custom_field) {
+        foreach ($MJTC_custom_fields as $MJTC_custom_field) {
             // Map field types
-            switch ($custom_field["field_type"]){
+            switch ($MJTC_custom_field["field_type"]){
                 case "text":
-                    $fieldtype = "text"; break;
+                    $MJTC_fieldtype = "text"; break;
                 case "url":
-                    $fieldtype = "text"; break;
+                    $MJTC_fieldtype = "text"; break;
                 case "email":
-                    $fieldtype = "email"; break;
+                    $MJTC_fieldtype = "email"; break;
                 case "number":
-                    $fieldtype = "text"; break;
+                    $MJTC_fieldtype = "text"; break;
                 case "date-field":
-                    $fieldtype = "date"; break;
+                    $MJTC_fieldtype = "date"; break;
                 case "password":
-                    $fieldtype = "text"; break;
+                    $MJTC_fieldtype = "text"; break;
                 case "upload":
-                    $fieldtype = "file"; break;
+                    $MJTC_fieldtype = "file"; break;
                 case "select":
-                    $fieldtype = "combo"; break;
+                    $MJTC_fieldtype = "combo"; break;
                 case "radio":
-                    $fieldtype = "radio"; break;
+                    $MJTC_fieldtype = "radio"; break;
                 case "checkbox":
-                    $fieldtype = "checkbox"; break;
+                    $MJTC_fieldtype = "checkbox"; break;
                 case "textarea":
-                    $fieldtype = "textarea"; break;
+                    $MJTC_fieldtype = "textarea"; break;
                 case "wysiwyg":
-                    $fieldtype = "wysiwyg"; break;
+                    $MJTC_fieldtype = "wysiwyg"; break;
                 default:
-                    $fieldtype = "text"; break;
+                    $MJTC_fieldtype = "text"; break;
             }
 
             // Load options for select-type fields
-            $option_values = [];
-            if(!empty($custom_field['options'])){ // field in the ticket table
-                $field_options = $custom_field['options'];
-                if ($field_options) {
-                    foreach ($field_options as $MJTC_key => $field_option) {
-                        $option_values[] = $MJTC_key;
+            $MJTC_option_values = [];
+            if(!empty($MJTC_custom_field['options'])){ // field in the ticket table
+                $MJTC_field_options = $MJTC_custom_field['options'];
+                if ($MJTC_field_options) {
+                    foreach ($MJTC_field_options as $MJTC_key => $MJTC_field_option) {
+                        $MJTC_option_values[] = $MJTC_key;
                     }
                 }
             }
 
             // Build visibility data
-            $visibledata = [
+            $MJTC_visibledata = [
                 "visibleLogic" => [],
                 "visibleParent" => [],
                 "visibleValue" => [],
@@ -3220,23 +3220,23 @@ class MJTC_thirdpartyimportModel {
             ];
 
             // Prepare field data for import
-            $fieldOrderingData = [
+            $MJTC_fieldOrderingData = [
                 "id" => "",
-                // "field" => $slug,
-                "field" => $custom_field['name'],
-                "fieldtitle" => $custom_field['title'],
+                // "field" => $MJTC_slug,
+                "field" => $MJTC_custom_field['name'],
+                "fieldtitle" => $MJTC_custom_field['title'],
                 "ordering" => "",
                 "section" => "10",
                 "fieldfor" => "1",
                 "published" => "1",
                 "sys" => "0",
                 "cannotunpublish" => "0",
-                "required" => $custom_field['required'],
+                "required" => $MJTC_custom_field['required'],
                 "size" => "100",
                 "cols" => "",
                 "rows" => "",
                 "isuserfield" => "1",
-                "userfieldtype" => $fieldtype,
+                "userfieldtype" => $MJTC_fieldtype,
                 "depandant_field" => "",
                 "visible_field" => "",
                 "showonlisting" => "0",
@@ -3247,199 +3247,199 @@ class MJTC_thirdpartyimportModel {
                 "userfieldparams" => "",
                 "multiformid" => "1",
                 "visibleparams" => "",
-                "values" => $option_values,
-                "visibleParent" => $visibledata["visibleParent"],
-                "visibleValue" => $visibledata["visibleValue"],
-                "visibleCondition" => $visibledata["visibleCondition"],
-                "visibleLogic" => $visibledata["visibleLogic"],
-                "placeholder" => $custom_field['placeholder'],
-                "description" => $custom_field['desc'],
-                "defaultvalue" => $custom_field['default'],
-                "readonly" => $custom_field['readonly'],
+                "values" => $MJTC_option_values,
+                "visibleParent" => $MJTC_visibledata["visibleParent"],
+                "visibleValue" => $MJTC_visibledata["visibleValue"],
+                "visibleCondition" => $MJTC_visibledata["visibleCondition"],
+                "visibleLogic" => $MJTC_visibledata["visibleLogic"],
+                "placeholder" => $MJTC_custom_field['placeholder'],
+                "description" => $MJTC_custom_field['desc'],
+                "defaultvalue" => $MJTC_custom_field['default'],
+                "readonly" => $MJTC_custom_field['readonly'],
             ];
 
             // Store field in SupportCandy
-            $record_saved = MJTC_includer::MJTC_getModel('fieldordering')->storeUserField($fieldOrderingData);
+            $MJTC_record_saved = MJTC_includer::MJTC_getModel('fieldordering')->storeUserField($MJTC_fieldOrderingData);
 
-            if ($record_saved == 1) {
-                $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` ORDER BY id DESC LIMIT 1";
-                $latest_record = majesticsupport::$_db->get_row($query);
+            if ($MJTC_record_saved == 1) {
+                $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` ORDER BY id DESC LIMIT 1";
+                $MJTC_latest_record = majesticsupport::$_db->get_row($MJTC_query);
 
                 $this->as_ticket_custom_fields[] = [
-                    "name" => $custom_field['name'],
-                    "type" => $fieldtype,
-                    "ms_filedorderingid" => $latest_record->id,
-                    "ms_filedorderingfield" => $latest_record->field,
+                    "name" => $MJTC_custom_field['name'],
+                    "type" => $MJTC_fieldtype,
+                    "ms_filedorderingid" => $MJTC_latest_record->id,
+                    "ms_filedorderingfield" => $MJTC_latest_record->field,
                 ];
                 $this->awesome_support_import_count['field']['imported'] += 1;
             } else {
                 $this->awesome_support_import_count['field']['failed'] += 1;
-                // Optionally log: error_log("Failed to import field: $slug");
+                // Optionally log: die("Failed to import field: $MJTC_slug");
             }
         }
     }
 
-    private function getAwesomeSupportTicketReplies($ms_ticket_id, $ast_ticket_id, $attachmentdir){
-        $query = "SELECT post.*
+    private function getAwesomeSupportTicketReplies($ms_ticket_id, $MJTC_ast_ticket_id, $MJTC_attachmentdir){
+        $MJTC_query = "SELECT post.*
                     FROM `" . majesticsupport::$_db->prefix . "posts` AS post
-                    WHERE post.post_parent = ".$ast_ticket_id."
+                    WHERE post.post_parent = ".$MJTC_ast_ticket_id."
                     AND post.post_type = 'ticket_reply'
                     ORDER BY post.id ASC";
                     
-        $posts = majesticsupport::$_db->get_results($query);
+        $MJTC_posts = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($posts)) return;
+        if (empty($MJTC_posts)) return;
 
 
-        foreach($posts AS $post){
-            $userinfo = $this->getAwesomeSupportTicketCustomerInfo($post->post_author);
-            $uid = $userinfo["ms_uid"];
-            $name = $userinfo["customer_name"];
-            if(empty($userinfo["ms_uid"])){
+        foreach($MJTC_posts AS $MJTC_post){
+            $MJTC_userinfo = $this->getAwesomeSupportTicketCustomerInfo($MJTC_post->post_author);
+            $MJTC_uid = $MJTC_userinfo["ms_uid"];
+            $MJTC_name = $MJTC_userinfo["customer_name"];
+            if(empty($MJTC_userinfo["ms_uid"])){
 
-                /*$agentid = $this->getTicketAgentIdByAwesomeSupport($conversation->person_id);
-                if($agentid){
-                    $query = "SELECT agent.*
+                /*$MJTC_agentid = $this->getTicketAgentIdByAwesomeSupport($MJTC_conversation->person_id);
+                if($MJTC_agentid){
+                    $MJTC_query = "SELECT agent.*
                                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS agent
-                                WHERE agent.id = ".$agentid.";";
+                                WHERE agent.id = ".$MJTC_agentid.";";
                                 
-                    $agent = majesticsupport::$_db->get_row($query);
-                    $uid = $agent->uid;
-                    $name = $agent->firstname;
-                    if($agent->lastname) $name = $name. " ". $agent->lastname;
+                    $MJTC_agent = majesticsupport::$_db->get_row($MJTC_query);
+                    $MJTC_uid = $MJTC_agent->uid;
+                    $MJTC_name = $MJTC_agent->firstname;
+                    if($MJTC_agent->lastname) $MJTC_name = $MJTC_name. " ". $MJTC_agent->lastname;
                     
                 } */
             }
 
-            $replyData = [
+            $MJTC_replyData = [
                 "id" => "",
-                "uid" => $uid,
+                "uid" => $MJTC_uid,
                 "ticketid" => $ms_ticket_id,
-                "name" => $name,
-                "message" => $post->post_content,
+                "name" => $MJTC_name,
+                "message" => $MJTC_post->post_content,
                 "staffid" => "",
                 "rating" => "",
                 "status" => "1",
-                "created" => $post->post_date,
+                "created" => $MJTC_post->post_date,
                 "ticketviaemail" => "",
                 "viewed_by" => "",
                 "viewed_on" => ""
             ];
-            $row = MJTC_includer::MJTC_getTable('replies');
-            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($replyData);// remove slashes with quotes.
-            $error = 0;
-            if (!$row->bind($MJTC_data)) {
-                $error = 1;
+            $MJTC_row = MJTC_includer::MJTC_getTable('replies');
+            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_replyData);// remove slashes with quotes.
+            $MJTC_error = 0;
+            if (!$MJTC_row->bind($MJTC_data)) {
+                $MJTC_error = 1;
             }
-            if (!$row->store()) {
-                $error = 1;
+            if (!$MJTC_row->store()) {
+                $MJTC_error = 1;
             }
 
-            $ms_ticket_reply_id = $row->id;
+            $ms_ticket_reply_id = $MJTC_row->id;
 
             if (!empty($ms_ticket_reply_id)) {
-                $this->getAwesomeSupportTicketAttachments($ms_ticket_id, $ms_ticket_reply_id, $ast_ticket_id, $post->ID, $attachmentdir);
+                $this->getAwesomeSupportTicketAttachments($ms_ticket_id, $ms_ticket_reply_id, $MJTC_ast_ticket_id, $MJTC_post->ID, $MJTC_attachmentdir);
             }
 
             if (in_array('timetracking', majesticsupport::$_active_addons)) {
-                $this->getAwesomeSupportTicketStaffTime($ms_ticket_id, $ast_ticket_id, $ms_ticket_reply_id, $post->ID);
+                $this->getAwesomeSupportTicketStaffTime($ms_ticket_id, $MJTC_ast_ticket_id, $ms_ticket_reply_id, $MJTC_post->ID);
             }
             
         }
     }
 
-    private function getAwesomeSupportTicketAttachments($ms_ticket_id, $ms_ticket_reply_id, $ast_ticket_id, $as_ticket_reply_id, $attachmentdir){
-        $as_ticket_reply_id = intval($as_ticket_reply_id);
+    private function getAwesomeSupportTicketAttachments($ms_ticket_id, $ms_ticket_reply_id, $MJTC_ast_ticket_id, $MJTC_as_ticket_reply_id, $MJTC_attachmentdir){
+        $MJTC_as_ticket_reply_id = intval($MJTC_as_ticket_reply_id);
 
-        if ($as_ticket_reply_id <= 0) return;
+        if ($MJTC_as_ticket_reply_id <= 0) return;
 
 
-        $query = "SELECT post.*
+        $MJTC_query = "SELECT post.*
                     FROM `" . majesticsupport::$_db->prefix . "posts` AS post
-                    WHERE post.post_parent = ".$as_ticket_reply_id."
+                    WHERE post.post_parent = ".$MJTC_as_ticket_reply_id."
                     AND post.post_type = 'attachment'
                     ORDER BY post.id ASC";
                     
-        $posts = majesticsupport::$_db->get_results($query);
+        $MJTC_posts = majesticsupport::$_db->get_results($MJTC_query);
 
 
-        foreach($posts AS $post){
-            $post_meta = get_post_meta($post->ID);
-            if(isset($post_meta["_wp_attachment_metadata"][0])){
-                $attachment = unserialize($post_meta["_wp_attachment_metadata"][0]);
-                $file_name = basename($attachment["file"]);         
+        foreach($MJTC_posts AS $MJTC_post){
+            $MJTC_post_meta = get_post_meta($MJTC_post->ID);
+            if(isset($MJTC_post_meta["_wp_attachment_metadata"][0])){
+                $MJTC_attachment = unserialize($MJTC_post_meta["_wp_attachment_metadata"][0]);
+                $MJTC_file_name = basename($MJTC_attachment["file"]);         
                 
             
-                $attachmentData = [
+                $MJTC_attachmentData = [
                     "id" => "",
                     "ticketid" => $ms_ticket_id,
                     "replyattachmentid" => $ms_ticket_reply_id,
                     "filesize" => "",
-                    "filename" => $file_name,
+                    "filename" => $MJTC_file_name,
                     "filekey" => "",
                     "deleted" => "",
                     "status" => "1",
-                    "created" => $post->post_date
+                    "created" => $MJTC_post->post_date
                 ];
-                $row = MJTC_includer::MJTC_getTable('attachments');
-                $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($attachmentData);// remove slashes with quotes.
-                $error = 0;
-                if (!$row->bind($MJTC_data)) {
-                    $error = 1;
+                $MJTC_row = MJTC_includer::MJTC_getTable('attachments');
+                $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_attachmentData);// remove slashes with quotes.
+                $MJTC_error = 0;
+                if (!$MJTC_row->bind($MJTC_data)) {
+                    $MJTC_error = 1;
                 }
-                if (!$row->store()) {
-                    $error = 1;
+                if (!$MJTC_row->store()) {
+                    $MJTC_error = 1;
                 }
                 require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
                 require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
-                $filesystem = new WP_Filesystem_Direct( true );
-                $upload_dir = wp_upload_dir();
-                $upload_path = $upload_dir['basedir'];         // Server path to the uploads directory
+                $MJTC_filesystem = new WP_Filesystem_Direct( true );
+                $MJTC_upload_dir = wp_upload_dir();
+                $MJTC_upload_path = $MJTC_upload_dir['basedir'];         // Server path to the uploads directory
                 $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-                $path = $upload_path."/".$MJTC_datadirectory."/attachmentdata/ticket/".$attachmentdir;
-                if(!$filesystem->exists($path)){
-                    wp_mkdir_p($path);
+                $MJTC_path = $MJTC_upload_path."/".$MJTC_datadirectory."/attachmentdata/ticket/".$MJTC_attachmentdir;
+                if(!$MJTC_filesystem->exists($MJTC_path)){
+                    wp_mkdir_p($MJTC_path);
                 }
-                $source = $upload_path . "/" . $attachment["file"]; // full path to original
-                if (!file_exists($source)) {
-                    $path_info = pathinfo($source);
+                $MJTC_source = $MJTC_upload_path . "/" . $MJTC_attachment["file"]; // full path to original
+                if (!file_exists($MJTC_source)) {
+                    $MJTC_path_info = pathinfo($MJTC_source);
 
                     // Get directory and base filename (without extension)
-                    $directory = $path_info['dirname'];
-                    $filename = $path_info['filename']; // e.g., 01_5
-                    $extension = $path_info['extension']; // e.g., jpg
+                    $MJTC_directory = $MJTC_path_info['dirname'];
+                    $MJTC_filename = $MJTC_path_info['filename']; // e.g., 01_5
+                    $MJTC_extension = $MJTC_path_info['extension']; // e.g., jpg
 
                     // Desired sizes to check
-                    $sizes = ['100x100', '150x150', '300x300', '600x337', '768x431', '300x168'];
-                    $resized_file = '';
+                    $MJTC_sizes = ['100x100', '150x150', '300x300', '600x337', '768x431', '300x168'];
+                    $MJTC_resized_file = '';
 
-                    foreach ($sizes as $size) {
-                        $resized_path = $directory . '/' . $filename . '-' . $size . '.' . $extension;
-                        if (file_exists($resized_path)) {
-                            $resized_file = $resized_path;
+                    foreach ($MJTC_sizes as $MJTC_size) {
+                        $MJTC_resized_path = $MJTC_directory . '/' . $MJTC_filename . '-' . $MJTC_size . '.' . $MJTC_extension;
+                        if (file_exists($MJTC_resized_path)) {
+                            $MJTC_resized_file = $MJTC_resized_path;
                             break;
                         }
                     }
 
                     // Fallback to original if no resized version found
-                    if (!$resized_file && file_exists($source)) {
-                        $resized_file = $source;
+                    if (!$MJTC_resized_file && file_exists($MJTC_source)) {
+                        $MJTC_resized_file = $MJTC_source;
                     }
                 } else {
-                    $resized_file = $source;
+                    $MJTC_resized_file = $MJTC_source;
                 }
-                $destination = $path."/".$file_name;
+                $MJTC_destination = $MJTC_path."/".$MJTC_file_name;
                 
-                $result = $filesystem->move($resized_file, $destination, true);
+                $MJTC_result = $MJTC_filesystem->move($MJTC_resized_file, $MJTC_destination, true);
             }
             
         }
     }
 
-    private function getAwesomeSupportTicketCustomerInfo($customerId){
+    private function getAwesomeSupportTicketCustomerInfo($MJTC_customerId){
         // Sanitize and validate customer ID
-        $customerId = intval($customerId);
-        if ($customerId <= 0) {
+        $MJTC_customerId = intval($MJTC_customerId);
+        if ($MJTC_customerId <= 0) {
             return [
                 "ms_uid" => "",
                 "customer_name" => "",
@@ -3448,13 +3448,13 @@ class MJTC_thirdpartyimportModel {
         }
 
         // Prepare secure query
-        $query = "
+        $MJTC_query = "
             SELECT customer.name, customer.user_email, customer.id AS ms_uid
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS customer
-            WHERE customer.wpuid = ". esc_sql($customerId) ."
+            WHERE customer.wpuid = ". esc_sql($MJTC_customerId) ."
             LIMIT 1
         ";
-        $MJTC_data = majesticsupport::$_db->get_row($query);
+        $MJTC_data = majesticsupport::$_db->get_row($MJTC_query);
 
         return [
             "ms_uid"       => $MJTC_data->ms_uid ?? "",
@@ -3463,26 +3463,26 @@ class MJTC_thirdpartyimportModel {
         ];
     }
 
-    private function getAwesomeSupportTicketPrivateCredentials($ms_ticket_id, $ms_ticket_uid, $post_id) {
+    private function getAwesomeSupportTicketPrivateCredentials($ms_ticket_id, $ms_ticket_uid, $MJTC_post_id) {
         $ms_ticket_uid = 1;
         // Get private credentials if they exist.
-        if( get_post_meta( $post_id, '_wpas_pc_credentials', true ) ) {
-            $credentials = get_post_meta( $post_id, '_wpas_pc_credentials', true );
+        if( get_post_meta( $MJTC_post_id, '_wpas_pc_credentials', true ) ) {
+            $MJTC_credentials = get_post_meta( $MJTC_post_id, '_wpas_pc_credentials', true );
             
-            $encryption_key = get_post_meta( $post_id, '_wpas_pc_encryption_key', true );
+            $MJTC_encryption_key = get_post_meta( $MJTC_post_id, '_wpas_pc_encryption_key', true );
 
-            foreach( $credentials as $MJTC_key => $MJTC_value ) {
-                $system   = $this->MJTC_decrypt( $MJTC_value[ "system" ], $encryption_key );
-                $username = $this->MJTC_decrypt( $MJTC_value[ "username" ], $encryption_key );
-                $password = $this->MJTC_decrypt( $MJTC_value[ "password" ], $encryption_key );
-                $MJTC_url      = $this->MJTC_decrypt( $MJTC_value[ "url" ], $encryption_key );
-                $note     = $this->MJTC_decrypt( $MJTC_value[ "note" ], $encryption_key );
+            foreach( $MJTC_credentials as $MJTC_key => $MJTC_value ) {
+                $MJTC_system   = $this->MJTC_decrypt( $MJTC_value[ "system" ], $MJTC_encryption_key );
+                $MJTC_username = $this->MJTC_decrypt( $MJTC_value[ "username" ], $MJTC_encryption_key );
+                $MJTC_password = $this->MJTC_decrypt( $MJTC_value[ "password" ], $MJTC_encryption_key );
+                $MJTC_url      = $this->MJTC_decrypt( $MJTC_value[ "url" ], $MJTC_encryption_key );
+                $MJTC_note     = $this->MJTC_decrypt( $MJTC_value[ "note" ], $MJTC_encryption_key );
 
-                $pc_array = [
-                    'credentialtype' => sanitize_text_field($system),
-                    'username'       => $username,
-                    'password'       => $password,
-                    'info'           => $note
+                $MJTC_pc_array = [
+                    'credentialtype' => sanitize_text_field($MJTC_system),
+                    'username'       => $MJTC_username,
+                    'password'       => $MJTC_password,
+                    'info'           => $MJTC_note
                 ];
 
                 $MJTC_data = [
@@ -3494,60 +3494,60 @@ class MJTC_thirdpartyimportModel {
                 ];
 
                 // Clean and encode credential info
-                $encoded = wp_json_encode(array_filter($pc_array));
-                $safe_encoded = MJTC_majesticsupportphplib::MJTC_safe_encoding($encoded);
-                $MJTC_data['data'] = MJTC_includer::MJTC_getObjectClass('privatecredentials')->encrypt($safe_encoded);
+                $MJTC_encoded = wp_json_encode(array_filter($MJTC_pc_array));
+                $MJTC_safe_encoded = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_encoded);
+                $MJTC_data['data'] = MJTC_includer::MJTC_getObjectClass('privatecredentials')->encrypt($MJTC_safe_encoded);
 
                 // Insert record
                 if ($MJTC_data['ticketid'] > 0 && $MJTC_data['uid'] > 0) {
-                    $row = MJTC_includer::MJTC_getTable('privatecredentials');
-                    if ($row->bind($MJTC_data)) {
-                        $row->store(); // Failure silently ignored here; consider logging
+                    $MJTC_row = MJTC_includer::MJTC_getTable('privatecredentials');
+                    if ($MJTC_row->bind($MJTC_data)) {
+                        $MJTC_row->store(); // Failure silently ignored here; consider logging
                     }
                 }
             }
         }
     }
 
-    private function decrypt( $message, $MJTC_key, $encoded = true ) {
+    private function decrypt( $MJTC_message, $MJTC_key, $MJTC_encoded = true ) {
         $method = 'aes-256-ctr';
 
-        if ( $message == '' ) {
+        if ( $MJTC_message == '' ) {
             return '';
         }
 
-        if ( $encoded ) {
-            $message = base64_decode( $message, true );
-            if ( $message === false ) {
+        if ( $MJTC_encoded ) {
+            $MJTC_message = base64_decode( $MJTC_message, true );
+            if ( $MJTC_message === false ) {
                 return false;
             }
         }
 
-        $nonceSize  = openssl_cipher_iv_length( $method );
-        $nonce      = mb_substr( $message, 0, $nonceSize, '8bit' );
-        $ciphertext = mb_substr( $message, $nonceSize, null, '8bit' );
+        $MJTC_nonceSize  = openssl_cipher_iv_length( $method );
+        $MJTC_nonce      = mb_substr( $MJTC_message, 0, $MJTC_nonceSize, '8bit' );
+        $MJTC_ciphertext = mb_substr( $MJTC_message, $MJTC_nonceSize, null, '8bit' );
 
-        $plaintext = '';
+        $MJTC_plaintext = '';
 
         try {
-            $plaintext = openssl_decrypt( $ciphertext, $method, $MJTC_key, OPENSSL_RAW_DATA, $nonce );
-        } catch ( Exception $e ) {
+            $MJTC_plaintext = openssl_decrypt( $MJTC_ciphertext, $method, $MJTC_key, OPENSSL_RAW_DATA, $MJTC_nonce );
+        } catch ( Exception $MJTC_e ) {
             return false;
         }
 
-        return $plaintext;
+        return $MJTC_plaintext;
 
     }
 
-    private function getAwesomeSupportTicketActivityLog($ms_ticket_id, $sc_ticket_id) {
-        $sc_ticket_id = intval($sc_ticket_id);
+    private function getAwesomeSupportTicketActivityLog($ms_ticket_id, $MJTC_sc_ticket_id) {
+        $MJTC_sc_ticket_id = intval($MJTC_sc_ticket_id);
         $ms_ticket_id = intval($ms_ticket_id);
 
-        if ($sc_ticket_id <= 0 || $ms_ticket_id <= 0) return;
+        if ($MJTC_sc_ticket_id <= 0 || $ms_ticket_id <= 0) return;
 
         $threads = get_posts( [
-            'post_parent'    => $sc_ticket_id,
-            'post_type'      => apply_filters( 'wpas_replies_post_type', array(
+            'post_parent'    => $MJTC_sc_ticket_id,
+            'post_type'      => apply_filters( 'MJTC_wpas_replies_post_type', array(
                                 'ticket_history',
                                 'ticket_reply',
                                 'ticket_log'
@@ -3569,75 +3569,75 @@ class MJTC_thirdpartyimportModel {
             $MJTC_ticketid = $ms_ticket_id;
 
             // Get user information
-            $userinfo = $this->getAwesomeSupportTicketCustomerInfo($thread->post_author);
-            $currentUserName = !empty($userinfo['customer_name']) 
-                ? esc_html($userinfo['customer_name']) 
+            $MJTC_userinfo = $this->getAwesomeSupportTicketCustomerInfo($thread->post_author);
+            $MJTC_currentUserName = !empty($MJTC_userinfo['customer_name']) 
+                ? esc_html($MJTC_userinfo['customer_name']) 
                 : esc_html(__('Guest', 'majestic-support'));
 
-            $messagetype = __('Successfully', 'majestic-support');
-            $eventtype = '';
-            $message = '';
+            $MJTC_messagetype = __('Successfully', 'majestic-support');
+            $MJTC_eventtype = '';
+            $MJTC_message = '';
 
             if ($thread->post_type == 'ticket_history') {
-                $eventtype = MJTC_majesticsupportphplib::MJTC_strip_tags($thread->post_content);
-                $messageWithBreaks = MJTC_majesticsupportphplib::MJTC_preg_replace('/<\/[^>]+>/', "$0 ", $thread->post_content);
-                $message = MJTC_majesticsupportphplib::MJTC_strip_tags($messageWithBreaks) . " " . __('by', 'majestic-support') . " ( $currentUserName )";
+                $MJTC_eventtype = MJTC_majesticsupportphplib::MJTC_strip_tags($thread->post_content);
+                $MJTC_messageWithBreaks = MJTC_majesticsupportphplib::MJTC_preg_replace('/<\/[^>]+>/', "$0 ", $thread->post_content);
+                $MJTC_message = MJTC_majesticsupportphplib::MJTC_strip_tags($MJTC_messageWithBreaks) . " " . __('by', 'majestic-support') . " ( $MJTC_currentUserName )";
             } elseif ($thread->post_type == 'ticket_reply') {
-                $eventtype = __('REPLIED_TICKET', 'majestic-support');
-                $message = __('Ticket is replied by', 'majestic-support') . " ( $currentUserName )";
+                $MJTC_eventtype = __('REPLIED_TICKET', 'majestic-support');
+                $MJTC_message = __('Ticket is replied by', 'majestic-support') . " ( $MJTC_currentUserName )";
             }
 
-            if (!empty($eventtype) && !empty($message)) {
+            if (!empty($MJTC_eventtype) && !empty($MJTC_message)) {
                 MJTC_includer::MJTC_getModel('tickethistory')->addActivityLog(
-                    $MJTC_ticketid, 1, esc_html($eventtype), esc_html($message), esc_html($messagetype)
+                    $MJTC_ticketid, 1, esc_html($MJTC_eventtype), esc_html($MJTC_message), esc_html($MJTC_messagetype)
                 );
             }
         }
     }
 
-    private function getAwesomeSupportTicketStaffTime($ms_ticket_id, $ast_ticket_id, $ms_reply_id, $as_reply_id) {
-        $as_reply_id = intval($as_reply_id);
+    private function getAwesomeSupportTicketStaffTime($ms_ticket_id, $MJTC_ast_ticket_id, $ms_reply_id, $MJTC_as_reply_id) {
+        $MJTC_as_reply_id = intval($MJTC_as_reply_id);
         $ms_ticket_id = intval($ms_ticket_id);
-        if ($as_reply_id <= 0 || $ms_ticket_id <= 0) return;
+        if ($MJTC_as_reply_id <= 0 || $ms_ticket_id <= 0) return;
 
         // Get all timer logs for the given Awesome Support ticket
         
-        $query = new WP_Query( array(
+        $MJTC_query = new WP_Query( array(
             'post_type' => 'trackedtimes',
             'post_status' => 'publish',
             'posts_per_page' => -1
         ) );
 
-        $time_ids = wp_list_pluck( $query->posts, 'ID' );
-        $duplicate_occurs = false;
+        $MJTC_time_ids = wp_list_pluck( $MJTC_query->posts, 'ID' );
+        $MJTC_duplicate_occurs = false;
 
-        foreach( $time_ids as $id ) {
-            $tracked_time = get_post_meta( $id, 'as_time_tracking_entry' );
+        foreach( $MJTC_time_ids as $MJTC_id ) {
+            $tracked_time = get_post_meta( $MJTC_id, 'as_time_tracking_entry' );
 
             if( !empty( $tracked_time ) ) {
-                if( ( $ast_ticket_id == $tracked_time[0]['ticket_id'] ) && ( $as_reply_id == $tracked_time[0]['ticket_reply'] ) ) {
+                if( ( $MJTC_ast_ticket_id == $tracked_time[0]['ticket_id'] ) && ( $MJTC_as_reply_id == $tracked_time[0]['ticket_reply'] ) ) {
 
                     // Get HelpDesk staff ID from SupportCandy agent ID
-                    // $staffid = $this->getMSAgentIdByScAgentId($timer->log_by);
-                    // if (empty($staffid)) continue;
+                    // $MJTC_staffid = $this->getMSAgentIdByScAgentId($MJTC_timer->log_by);
+                    // if (empty($MJTC_staffid)) continue;
 
-                    $created = $tracked_time[0]['start_date_time'];
+                    $MJTC_created = $tracked_time[0]['start_date_time'];
 
                     // Handle and validate interval string
                     
 
-                    $timer_minutes = $tracked_time[0]['individual_time'];
-                    if ($timer_minutes <= 0) continue;
+                    $MJTC_timer_minutes = $tracked_time[0]['individual_time'];
+                    if ($MJTC_timer_minutes <= 0) continue;
 
-                    $timer_seconds = $timer_minutes * 60;
+                    $MJTC_timer_seconds = $MJTC_timer_minutes * 60;
 
                     // Conflict detection
-                    $created_dt = new DateTime($created);
-                    $now = new DateTime();
-                    $interval_to_now = $created_dt->diff($now);
-                    $systemtime = ($interval_to_now->days * 86400) + ($interval_to_now->h * 3600) + ($interval_to_now->i * 60) + $interval_to_now->s;
+                    $MJTC_created_dt = new DateTime($MJTC_created);
+                    $MJTC_now = new DateTime();
+                    $MJTC_interval_to_now = $MJTC_created_dt->diff($MJTC_now);
+                    $MJTC_systemtime = ($MJTC_interval_to_now->days * 86400) + ($MJTC_interval_to_now->h * 3600) + ($MJTC_interval_to_now->i * 60) + $MJTC_interval_to_now->s;
 
-                    $conflict = ($timer_seconds > $systemtime) ? 1 : 0;
+                    $MJTC_conflict = ($MJTC_timer_seconds > $MJTC_systemtime) ? 1 : 0;
 
                     // Prepare data
                     $MJTC_data = [
@@ -3645,19 +3645,19 @@ class MJTC_thirdpartyimportModel {
                         'ticketid' => $ms_ticket_id,
                         'referencefor' => 1,
                         'referenceid' => $ms_reply_id,
-                        'usertime' => $timer_seconds,
-                        'systemtime' => $systemtime,
-                        'conflict' => $conflict,
+                        'usertime' => $MJTC_timer_seconds,
+                        'systemtime' => $MJTC_systemtime,
+                        'conflict' => $MJTC_conflict,
                         'description' => '',
                         'timer_edit_desc' => '',
                         'status' => 1,
-                        'created' => $created
+                        'created' => $MJTC_created
                     ];
 
-                    $row = MJTC_includer::MJTC_getTable('timetracking');
+                    $MJTC_row = MJTC_includer::MJTC_getTable('timetracking');
                     $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
 
-                    if (!$row->bind($MJTC_data) || !$row->store()) {
+                    if (!$MJTC_row->bind($MJTC_data) || !$MJTC_row->store()) {
                         // optionally log or count the failure
                         continue;
                     }
@@ -3673,18 +3673,18 @@ class MJTC_thirdpartyimportModel {
         if ($MJTC_ticketId <= 0) return null;
 
         // Fetch department from source table
-        $departmet_term = wp_get_object_terms($MJTC_ticketId, 'department');
+        $MJTC_departmet_term = wp_get_object_terms($MJTC_ticketId, 'department');
 
-        if (is_wp_error($departmet_term) || empty($departmet_term[0]->name)) return null;
+        if (is_wp_error($MJTC_departmet_term) || empty($MJTC_departmet_term[0]->name)) return null;
 
         // Find corresponding department in destination table
 
-        $name = $departmet_term[0]->name;
+        $MJTC_name = $MJTC_departmet_term[0]->name;
         
-        $query = "
+        $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments`
-                WHERE LOWER(departmentname) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($name)))."'";
-        $ms_department_id = majesticsupport::$_db->get_var($query);
+                WHERE LOWER(departmentname) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_name)))."'";
+        $ms_department_id = majesticsupport::$_db->get_var($MJTC_query);
         
         return $ms_department_id ? (int)$ms_department_id : null;
     }
@@ -3695,30 +3695,30 @@ class MJTC_thirdpartyimportModel {
         if ($MJTC_ticketId <= 0) return null;
 
         // Fetch priority from source table
-        $priority_term = wp_get_object_terms($MJTC_ticketId, 'ticket_priority');
+        $MJTC_priority_term = wp_get_object_terms($MJTC_ticketId, 'ticket_priority');
 
-        if (is_wp_error($priority_term) || empty($priority_term[0]->name)) return null;
+        if (is_wp_error($MJTC_priority_term) || empty($MJTC_priority_term[0]->name)) return null;
 
         // Find corresponding priority in destination table
         
-        $name = $priority_term[0]->name;
-        $query = "
+        $MJTC_name = $MJTC_priority_term[0]->name;
+        $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities`
-                WHERE LOWER(priority) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($name)))."'";;
-        $ms_priority_id = majesticsupport::$_db->get_var($query);
+                WHERE LOWER(priority) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_name)))."'";;
+        $ms_priority_id = majesticsupport::$_db->get_var($MJTC_query);
         
         return $ms_priority_id ? (int)$ms_priority_id : null;
     }
 
     private function getTicketStatusIdByAwesomeSupport($MJTC_ticket_status) {
-        $custom_status = wpas_get_post_status();
+        $MJTC_custom_status = wpas_get_post_status();
         if (empty($MJTC_ticket_status)) return null;
 
-        if (empty($custom_status[$MJTC_ticket_status])) return null;
+        if (empty($MJTC_custom_status[$MJTC_ticket_status])) return null;
 
         // Find matching status in destination table
-        $query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` WHERE LOWER(status) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($custom_status[$MJTC_ticket_status])))."'";
-        $ms_status_id = majesticsupport::$_db->get_var($query);
+        $MJTC_query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` WHERE LOWER(status) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_custom_status[$MJTC_ticket_status])))."'";
+        $ms_status_id = majesticsupport::$_db->get_var($MJTC_query);
 
         return $ms_status_id ? (int)$ms_status_id : null;
     }
@@ -3729,20 +3729,20 @@ class MJTC_thirdpartyimportModel {
         if ($MJTC_ticketId <= 0) return null;
 
         // Fetch product from source table
-        $assigned_agent = get_post_meta( $MJTC_ticketId, '_wpas_assignee', true );
+        $MJTC_assigned_agent = get_post_meta( $MJTC_ticketId, '_wpas_assignee', true );
 
-        if (is_wp_error($assigned_agent) || empty($assigned_agent)) return null;
+        if (is_wp_error($MJTC_assigned_agent) || empty($MJTC_assigned_agent)) return null;
 
-        $mjtc_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_getmajesticsupportuidbyuserid($assigned_agent);
+        $mjtc_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_getmajesticsupportuidbyuserid($MJTC_assigned_agent);
         if (!empty($mjtc_user) && isset($mjtc_user[0]->id)) {
             $mjtc_uid = (int)$mjtc_user[0]->id;
         } else {
             return;
         }
         
-        $query = "
+        $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` WHERE uid = ".$mjtc_uid;
-        $ms_agent_id = majesticsupport::$_db->get_var($query);
+        $ms_agent_id = majesticsupport::$_db->get_var($MJTC_query);
 
         return $ms_agent_id ? (int)$ms_agent_id : null;
     }
@@ -3753,31 +3753,31 @@ class MJTC_thirdpartyimportModel {
         if ($MJTC_ticketId <= 0) return null;
 
         // Fetch product from source table
-        $product_term = wp_get_object_terms($MJTC_ticketId, 'product');
+        $MJTC_product_term = wp_get_object_terms($MJTC_ticketId, 'product');
 
-        if (is_wp_error($product_term) || empty($product_term[0]->name)) return null;
+        if (is_wp_error($MJTC_product_term) || empty($MJTC_product_term[0]->name)) return null;
 
         // Find corresponding product in destination table
         
-        $name = $product_term[0]->name;
-        $query = "
+        $MJTC_name = $MJTC_product_term[0]->name;
+        $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_products`
-                WHERE LOWER(product) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($name)))."'";
-        $ms_product_id = majesticsupport::$_db->get_var($query);
+                WHERE LOWER(product) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_name)))."'";
+        $ms_product_id = majesticsupport::$_db->get_var($MJTC_query);
         
         return $ms_product_id ? (int)$ms_product_id : null;
     }
 
     private function importAwesomeSupportFaqs(){
         // Load previously imported faqs
-        $imported_faqs = [];
-        $imported_faqs_json = get_option('mjtc_support_ticket_awesome_support_data_faqs');
-        if (!empty($imported_faqs_json)) {
-            $imported_faqs = json_decode($imported_faqs_json, true);
+        $MJTC_imported_faqs = [];
+        $MJTC_imported_faqs_json = get_option('mjtc_support_ticket_awesome_support_data_faqs');
+        if (!empty($MJTC_imported_faqs_json)) {
+            $MJTC_imported_faqs = json_decode($MJTC_imported_faqs_json, true);
         }
 
         // Get SupportCandy faqs (excluding system/default ones)
-        $faqs = get_posts( [
+        $MJTC_faqs = get_posts( [
             'post_type'      => 'faq',
             'post_status'    => 'any', // includes all except 'auto-draft'
             'orderby'        => 'ID',
@@ -3790,73 +3790,73 @@ class MJTC_thirdpartyimportModel {
             ]),
         ] );
 
-        if (empty($faqs)) return;
+        if (empty($MJTC_faqs)) return;
 
         // Get highest current ordering value
-        $query = "
+        $MJTC_query = "
             SELECT MAX(faq.ordering)
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_faqs` AS faq
         ";
-        $ordering = (int) majesticsupport::$_db->get_var($query);
+        $MJTC_ordering = (int) majesticsupport::$_db->get_var($MJTC_query);
 
         // Build array of existing JS faqs (cleaned)
-        $query = "
+        $MJTC_query = "
             SELECT faq.subject
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_faqs` AS faq
         ";
-        $jsfaqs = majesticsupport::$_db->get_results($query);
-        $existing_faq_names = array_map(function($faq) {
-            return $this->cleanStringForCompare($faq->subject);
-        }, $jsfaqs);
+        $MJTC_jsfaqs = majesticsupport::$_db->get_results($MJTC_query);
+        $MJTC_existing_faq_names = array_map(function($MJTC_faq) {
+            return $this->cleanStringForCompare($MJTC_faq->subject);
+        }, $MJTC_jsfaqs);
 
-        foreach ($faqs as $faq) {
-            $name = $faq->post_title;
-            $compare_name = $this->cleanStringForCompare($name);
+        foreach ($MJTC_faqs as $MJTC_faq) {
+            $MJTC_name = $MJTC_faq->post_title;
+            $MJTC_compare_name = $this->cleanStringForCompare($MJTC_name);
 
             // Skip if name already exists
-            if (in_array($compare_name, $existing_faq_names)) {
+            if (in_array($MJTC_compare_name, $MJTC_existing_faq_names)) {
                 $this->awesome_support_import_count['faq']['skipped'] += 1;
                 continue;
             }
 
             // Skip if already imported
-            if (in_array($faq->ID, $imported_faqs)) {
+            if (in_array($MJTC_faq->ID, $MJTC_imported_faqs)) {
                 $this->awesome_support_import_count['faq']['skipped'] += 1;
                 continue;
             }
 
             $taxonomies = get_object_taxonomies('faq');
-            $terms = get_the_terms($faq->ID, $taxonomies[0]);
+            $terms = get_the_terms($MJTC_faq->ID, $taxonomies[0]);
             if(in_array('knowledgebase', majesticsupport::$_active_addons)) {
-                $categoryid = $this->getFaqCategoryIdByAwesomeSupport($terms[0]->name);
+                $MJTC_categoryid = $this->getFaqCategoryIdByAwesomeSupport($terms[0]->name);
             } else {
-                $categoryid = '';
+                $MJTC_categoryid = '';
             }
 
             // Prepare new faq data
-            $row = MJTC_includer::MJTC_getTable('faq');
+            $MJTC_row = MJTC_includer::MJTC_getTable('faq');
             $MJTC_data = [
                 'id'            => '',
-                'categoryid'    => $categoryid,
+                'categoryid'    => $MJTC_categoryid,
                 'staffid'       => 0,
-                'subject'       => $faq->post_title,
-                'content'       => $faq->post_content,
+                'subject'       => $MJTC_faq->post_title,
+                'content'       => $MJTC_faq->post_content,
                 'views'         => 0,
-                'ordering'      => $ordering,
-                'created'       => $faq->post_date,
+                'ordering'      => $MJTC_ordering,
+                'created'       => $MJTC_faq->post_date,
                 'status'        => 1,
                 'visible'       => 0,
             ];
 
             $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
-            $row->bind($MJTC_data);
+            $MJTC_row->bind($MJTC_data);
 
-            if (!$row->store()) {
+            if (!$MJTC_row->store()) {
                 $this->awesome_support_import_count['faq']['failed'] += 1;
             } else {
-                $this->awesome_support_faq_ids[] = $faq->id;
+                $this->awesome_support_faq_ids[] = $MJTC_faq->id;
                 $this->awesome_support_import_count['faq']['imported'] += 1;
-                $ordering++;
+                $MJTC_ordering++;
             }
         }
 
@@ -3866,49 +3866,49 @@ class MJTC_thirdpartyimportModel {
         }
     }
 
-    private function getFaqCategoryIdByAwesomeSupport($name){
-        $query = "
+    private function getFaqCategoryIdByAwesomeSupport($MJTC_name){
+        $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_categories`
-                WHERE LOWER(name) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($name)))."'";
-        $ms_category_id = majesticsupport::$_db->get_var($query);
+                WHERE LOWER(name) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_name)))."'";
+        $ms_category_id = majesticsupport::$_db->get_var($MJTC_query);
         if (empty($ms_category_id)) {
 
             $MJTC_data['id'] = '';
-            $MJTC_data['name'] = $name;
+            $MJTC_data['name'] = $MJTC_name;
             $MJTC_data['created'] = date_i18n('Y-m-d H:i:s');
 
-            $kb = '0';
-            $downloads = '0';
-            $announcement = '0';
-            $faqs = '1';
+            $MJTC_kb = '0';
+            $MJTC_downloads = '0';
+            $MJTC_announcement = '0';
+            $MJTC_faqs = '1';
 
-            $MJTC_data['kb'] = $kb;
-            $MJTC_data['downloads'] = $downloads;
-            $MJTC_data['announcement'] = $announcement;
-            $MJTC_data['faqs'] = $faqs;
+            $MJTC_data['kb'] = $MJTC_kb;
+            $MJTC_data['downloads'] = $MJTC_downloads;
+            $MJTC_data['announcement'] = $MJTC_announcement;
+            $MJTC_data['faqs'] = $MJTC_faqs;
             $MJTC_data['staffid'] = 0;
             $MJTC_data['status'] = 1;
 
-            $row = MJTC_includer::MJTC_getTable('categories');
+            $MJTC_row = MJTC_includer::MJTC_getTable('categories');
 
             $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);// remove slashes with quotes.
-            $error = 0;
-            if (!$row->bind($MJTC_data)) {
-                $error = 1;
+            $MJTC_error = 0;
+            if (!$MJTC_row->bind($MJTC_data)) {
+                $MJTC_error = 1;
             }
-            if (!$row->store()) {
-                $error = 1;
+            if (!$MJTC_row->store()) {
+                $MJTC_error = 1;
             }
-            if (empty($error)) {
-                $ms_category_id = $row->id;
+            if (empty($MJTC_error)) {
+                $ms_category_id = $MJTC_row->id;
             }
         }
         
         return $ms_category_id ? (int)$ms_category_id : null;
     }
 
-    private function getPostConutByType ( $post_type ) {
-        $MJTC_counts = wp_count_posts( $post_type );
+    private function getPostConutByType ( $MJTC_post_type ) {
+        $MJTC_counts = wp_count_posts( $MJTC_post_type );
         return isset( $MJTC_counts->publish ) ? (int) $MJTC_counts->publish : 0;
     }
     
@@ -3935,22 +3935,22 @@ class MJTC_thirdpartyimportModel {
         // Prepare filesystem and create necessary directories
         require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
         require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
-        $filesystem = new WP_Filesystem_Direct(true);
-        $upload_dir = wp_upload_dir();
-        $upload_path = $upload_dir['basedir'];
+        $MJTC_filesystem = new WP_Filesystem_Direct(true);
+        $MJTC_upload_dir = wp_upload_dir();
+        $MJTC_upload_path = $MJTC_upload_dir['basedir'];
         $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-        $path = $upload_path . "/" . $MJTC_datadirectory;
+        $MJTC_path = $MJTC_upload_path . "/" . $MJTC_datadirectory;
 
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
-        $path .= '/attachmentdata';
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        $MJTC_path .= '/attachmentdata';
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
-        $path .= '/ticket';
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        $MJTC_path .= '/ticket';
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
 
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "fs_persons'")) {
@@ -3982,69 +3982,69 @@ class MJTC_thirdpartyimportModel {
 
     private function getFluentSupportTickets() {
         // Check if tickets already processed for import
-        $imported_tickets = array();
-        $imported_tickets_json = get_option('mjtc_support_ticket_fluent_support_data_tickets');
-        if (!empty($imported_tickets_json)) {
-            $imported_tickets = json_decode($imported_tickets_json, true);
+        $MJTC_imported_tickets = array();
+        $MJTC_imported_tickets_json = get_option('mjtc_support_ticket_fluent_support_data_tickets');
+        if (!empty($MJTC_imported_tickets_json)) {
+            $MJTC_imported_tickets = json_decode($MJTC_imported_tickets_json, true);
         }
 
-        $query = "SELECT tickets.*
+        $MJTC_query = "SELECT tickets.*
                 FROM `" . majesticsupport::$_db->prefix . "fs_tickets` AS tickets
                 ORDER BY tickets.id ASC";
         
-        $MJTC_tickets = majesticsupport::$_db->get_results($query);
+        $MJTC_tickets = majesticsupport::$_db->get_results($MJTC_query);
         
-        $new_tickets = array();
+        $MJTC_new_tickets = array();
         foreach ($MJTC_tickets as $MJTC_ticket) {
             // Skip if ticket already imported
-            if (!empty($imported_tickets) && in_array($MJTC_ticket->id, $imported_tickets)) {
+            if (!empty($MJTC_imported_tickets) && in_array($MJTC_ticket->id, $MJTC_imported_tickets)) {
                 $this->fluent_support_import_count['ticket']['skipped'] += 1;
                 continue;
             }
 
             // Map custom fields
-            $params = array();
-            $query = "SELECT meta.*
+            $MJTC_params = array();
+            $MJTC_query = "SELECT meta.*
                         FROM `" . majesticsupport::$_db->prefix . "fs_meta` AS meta
                         WHERE object_type = 'ticket_meta'
                         AND object_id = ".$MJTC_ticket->id.";";
-            $MJTC_tickets_meta = majesticsupport::$_db->get_results($query);
+            $MJTC_tickets_meta = majesticsupport::$_db->get_results($MJTC_query);
             foreach($MJTC_tickets_meta as $MJTC_ticket_meta){
-                foreach ($this->fc_ticket_cf as $fs_ticket_custom_field => $mjtc_support_custom_field) {
-                    if($MJTC_ticket_meta->key == $fs_ticket_custom_field){
-                        $custom_field_value = "";
-                        $custom_field_value = $MJTC_ticket_meta->value;
-                        $custom_field_value = MJTC_majesticsupportphplib::MJTC_str_replace("|","",$custom_field_value);
-                        $custom_field_value = MJTC_majesticsupportphplib::MJTC_str_replace("|","",$custom_field_value);
-                        $vardata = "";
+                foreach ($this->fc_ticket_cf as $MJTC_fs_ticket_custom_field => $mjtc_support_custom_field) {
+                    if($MJTC_ticket_meta->key == $MJTC_fs_ticket_custom_field){
+                        $MJTC_custom_field_value = "";
+                        $MJTC_custom_field_value = $MJTC_ticket_meta->value;
+                        $MJTC_custom_field_value = MJTC_majesticsupportphplib::MJTC_str_replace("|","",$MJTC_custom_field_value);
+                        $MJTC_custom_field_value = MJTC_majesticsupportphplib::MJTC_str_replace("|","",$MJTC_custom_field_value);
+                        $MJTC_vardata = "";
                         
-                        $fieldtype = $this->checkTypeOfTheField($fs_ticket_custom_field);
-                        if($fieldtype == "date"){
-                            $vardata = gmdate("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime($custom_field_value));
+                        $MJTC_fieldtype = $this->checkTypeOfTheField($MJTC_fs_ticket_custom_field);
+                        if($MJTC_fieldtype == "date"){
+                            $MJTC_vardata = gmdate("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_custom_field_value));
                         }else{
-                            $vardata = $custom_field_value;
+                            $MJTC_vardata = $MJTC_custom_field_value;
                         }
-                        if($vardata != ''){
-                            if(is_array($vardata)){
-                                $vardata = implode(', ', array_filter($vardata));
+                        if($MJTC_vardata != ''){
+                            if(is_array($MJTC_vardata)){
+                                $MJTC_vardata = implode(', ', array_filter($MJTC_vardata));
                             }
-                            $params[$mjtc_support_custom_field] = MJTC_majesticsupportphplib::MJTC_htmlentities($vardata);
+                            $MJTC_params[$mjtc_support_custom_field] = MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_vardata);
                         }
                     }
                 }
             }
-            $MJTC_ticketparams = html_entity_decode(wp_json_encode($params, JSON_UNESCAPED_UNICODE));
+            $MJTC_ticketparams = html_entity_decode(wp_json_encode($MJTC_params, JSON_UNESCAPED_UNICODE));
 
             // Get linked data
-            $userinfo = $this->getFluentSupportTicketCustomerInfo($MJTC_ticket->customer_id);
-            $agentid = $this->getTicketAgentIdByFluentSupport($MJTC_ticket->agent_id);
-            $productid = $this->getTicketProductIdByFluentSupport($MJTC_ticket->product_id);
-            $priorityid = $this->getTicketPriorityIdByFluentSupport($MJTC_ticket->client_priority);
+            $MJTC_userinfo = $this->getFluentSupportTicketCustomerInfo($MJTC_ticket->customer_id);
+            $MJTC_agentid = $this->getTicketAgentIdByFluentSupport($MJTC_ticket->agent_id);
+            $MJTC_productid = $this->getTicketProductIdByFluentSupport($MJTC_ticket->product_id);
+            $MJTC_priorityid = $this->getTicketPriorityIdByFluentSupport($MJTC_ticket->client_priority);
 
-            $idresult = MJTC_includer::MJTC_getModel('ticket')->getRandomTicketId();
-            $MJTC_ticketid = $idresult['ticketid'];
-            $customticketno = $idresult['customticketno'];
-            $attachmentdir = MJTC_includer::MJTC_getModel('ticket')->getRandomFolderName();
+            $MJTC_idresult = MJTC_includer::MJTC_getModel('ticket')->getRandomTicketId();
+            $MJTC_ticketid = $MJTC_idresult['ticketid'];
+            $MJTC_customticketno = $MJTC_idresult['customticketno'];
+            $MJTC_attachmentdir = MJTC_includer::MJTC_getModel('ticket')->getRandomFolderName();
 
             // Determine ticket status
             $MJTC_ticket_status = 1;
@@ -4059,7 +4059,7 @@ class MJTC_thirdpartyimportModel {
                 }
             }elseif($MJTC_ticket->status == "closed") $MJTC_ticket_status = 5;
 
-            $isanswered = ($MJTC_ticket_status == 4) ? 1 : 0;
+            $MJTC_isanswered = ($MJTC_ticket_status == 4) ? 1 : 0;
 
             $MJTC_ticket_closed = "0000-00-00 00:00:00";
             $MJTC_ticket_closedby = "";
@@ -4074,15 +4074,15 @@ class MJTC_thirdpartyimportModel {
             // 4 -> waiting for customer reply
             // 5 -> close ticket
 
-            $newTicketData = [
+            $MJTC_newTicketData = [
                 'id' => "",
-                'uid' => $userinfo["ms_uid"],
+                'uid' => $MJTC_userinfo["ms_uid"],
                 'ticketid' => $MJTC_ticketid,
-                'productid' => $productid,
-                'priorityid' => $priorityid,
-                'staffid' => $agentid,
-                'email' => $userinfo["customer_email"],
-                'name' => $userinfo["customer_name"],
+                'productid' => $MJTC_productid,
+                'priorityid' => $MJTC_priorityid,
+                'staffid' => $MJTC_agentid,
+                'email' => $MJTC_userinfo["customer_email"],
+                'name' => $MJTC_userinfo["customer_name"],
                 'subject' => $MJTC_ticket->title,
                 'message' => $MJTC_ticket->content,
                 'helptopicid' => 0,
@@ -4091,7 +4091,7 @@ class MJTC_thirdpartyimportModel {
                 'phoneext' => "",
                 'status' => $MJTC_ticket_status,
                 'isoverdue' => "0",
-                'isanswered' => $isanswered,
+                'isanswered' => $MJTC_isanswered,
                 'duedate' => "0000-00-00 00:00:00",
                 'reopened' => "0000-00-00 00:00:00",
                 'closed' => $MJTC_ticket_closed,
@@ -4102,7 +4102,7 @@ class MJTC_thirdpartyimportModel {
                 'lock' => "0",
                 'ticketviaemail' => "0",
                 'ticketviaemail_id' => "0",
-                'attachmentdir' => $attachmentdir,
+                'attachmentdir' => $MJTC_attachmentdir,
                 'feedbackemail' => "0",
                 'mergestatus' => "0",
                 'mergewith' => "0",
@@ -4121,30 +4121,30 @@ class MJTC_thirdpartyimportModel {
                 'eddlicensekey' => "",
                 'envatodata' => "",
                 'paidsupportitemid' => "0",
-                'customticketno' => $customticketno
+                'customticketno' => $MJTC_customticketno
             ];
 
-            $row = MJTC_includer::MJTC_getTable('tickets');
-            $error = 0;
-            if (!$row->bind($newTicketData)) $error = 1;
-            if (!$row->store()) $error = 1;
+            $MJTC_row = MJTC_includer::MJTC_getTable('tickets');
+            $MJTC_error = 0;
+            if (!$MJTC_row->bind($MJTC_newTicketData)) $MJTC_error = 1;
+            if (!$MJTC_row->store()) $MJTC_error = 1;
 
-            if ($error == 1) {
+            if ($MJTC_error == 1) {
                 $this->fluent_support_import_count['ticket']['failed'] += 1;
             } else {
                 $this->fluent_support_ticket_ids[] = $MJTC_ticket->id;
                 $this->fluent_support_import_count['ticket']['imported'] += 1;
 
-                $ms_ticketid = $row->id;
-                $hash = MJTC_includer::MJTC_getModel('ticket')->generateHash($ms_ticketid);
-                $query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='" . esc_sql($hash) . "' WHERE id=" . esc_sql($ms_ticketid);
-                majesticsupport::$_db->query($query);
+                $ms_ticketid = $MJTC_row->id;
+                $MJTC_hash = MJTC_includer::MJTC_getModel('ticket')->generateHash($ms_ticketid);
+                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='" . esc_sql($MJTC_hash) . "' WHERE id=" . esc_sql($ms_ticketid);
+                majesticsupport::$_db->query($MJTC_query);
 
                 if(in_array('note', majesticsupport::$_active_addons)){
-                    $this->getFluentSupportTicketNotes($ms_ticketid, $MJTC_ticket->id, $attachmentdir);
+                    $this->getFluentSupportTicketNotes($ms_ticketid, $MJTC_ticket->id, $MJTC_attachmentdir);
                 }
-                $this->getFluentSupportTicketReplies($ms_ticketid, $MJTC_ticket->id, $attachmentdir);
-                $this->getFluentSupportTicketAttachments($ms_ticketid, $MJTC_ticket->id, $attachmentdir);
+                $this->getFluentSupportTicketReplies($ms_ticketid, $MJTC_ticket->id, $MJTC_attachmentdir);
+                $this->getFluentSupportTicketAttachments($ms_ticketid, $MJTC_ticket->id, $MJTC_attachmentdir);
 
                 if (in_array('tickethistory', majesticsupport::$_active_addons)) {
                     $this->getFluentSupportTicketActivityLog($ms_ticketid, $MJTC_ticket->id);
@@ -4163,73 +4163,73 @@ class MJTC_thirdpartyimportModel {
 
     private function importFluentSupportTicketFields() {
         // Get all ticket-related custom fields
-        $query = "
+        $MJTC_query = "
             SELECT * FROM `" . majesticsupport::$_db->prefix . "fs_meta`
             WHERE object_type = 'option' AND `key` = '_ticket_custom_fields';";
-        $custom_fields_serializeed = majesticsupport::$_db->get_row($query);
+        $MJTC_custom_fields_serializeed = majesticsupport::$_db->get_row($MJTC_query);
 
-        if (!$custom_fields_serializeed) return;
+        if (!$MJTC_custom_fields_serializeed) return;
 
-        $custom_fields = unserialize($custom_fields_serializeed->value);
+        $MJTC_custom_fields = unserialize($MJTC_custom_fields_serializeed->value);
         
 
-        if (!$custom_fields) return;
+        if (!$MJTC_custom_fields) return;
 
         $this->fc_ticket_cf = [];
 
 
-        foreach ($custom_fields as $custom_field) {
+        foreach ($MJTC_custom_fields as $MJTC_custom_field) {
             // Map field types
-            switch ($custom_field["type"]){
+            switch ($MJTC_custom_field["type"]){
                 case "text":
-                    $fieldtype = "text"; break;
+                    $MJTC_fieldtype = "text"; break;
                 case "select-one":
-                    $fieldtype = "combo"; break;
+                    $MJTC_fieldtype = "combo"; break;
                 case "radio":
-                    $fieldtype = "radio"; break;
+                    $MJTC_fieldtype = "radio"; break;
                 case "checkbox":
-                    $fieldtype = "checkbox"; break;
+                    $MJTC_fieldtype = "checkbox"; break;
                 case "textarea":
-                    $fieldtype = "textarea"; break;
+                    $MJTC_fieldtype = "textarea"; break;
                 case "number":
-                    $fieldtype = "text"; break;
+                    $MJTC_fieldtype = "text"; break;
                 default:
-                    $fieldtype = "text"; break;
+                    $MJTC_fieldtype = "text"; break;
             }
 
-            $query = "SELECT id,field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE isuserfield = 1 AND LOWER(fieldtitle) ='".esc_sql(MJTC_majesticsupportphplib::MJTC_strtolower($custom_field['label']))."' AND userfieldtype ='".esc_sql($fieldtype)."' AND fieldfor = 1";
-            $field_record = majesticsupport::$_db->get_row($query);
+            $MJTC_query = "SELECT id,field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE isuserfield = 1 AND LOWER(fieldtitle) ='".esc_sql(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_custom_field['label']))."' AND userfieldtype ='".esc_sql($MJTC_fieldtype)."' AND fieldfor = 1";
+            $MJTC_field_record = majesticsupport::$_db->get_row($MJTC_query);
 
-            if(!empty($field_record)){ // this will make sure
+            if(!empty($MJTC_field_record)){ // this will make sure
                 $this->fluent_support_import_count['field']['skipped'] += 1;
                 continue;
             }
 
             // Load options for select-type fields
-            $option_values = [];
-            if(isset($custom_field["options"])){
-                foreach($custom_field["options"] as $MJTC_key => $MJTC_value){
-                    $option_values[] = $MJTC_value;
+            $MJTC_option_values = [];
+            if(isset($MJTC_custom_field["options"])){
+                foreach($MJTC_custom_field["options"] as $MJTC_key => $MJTC_value){
+                    $MJTC_option_values[] = $MJTC_value;
                 }
             }
             // required
-            $required = 0;
-            if(isset($custom_field["required"])){
-                if($custom_field["required"] == "yes") $required = 1;
+            $MJTC_required = 0;
+            if(isset($MJTC_custom_field["required"])){
+                if($MJTC_custom_field["required"] == "yes") $MJTC_required = 1;
             }
             // admin olny
-            $adminonly = 0;
-            if(isset($custom_field["admin_only"])){
-                if($custom_field["admin_only"] == "yes") $adminonly = 1;
+            $MJTC_adminonly = 0;
+            if(isset($MJTC_custom_field["admin_only"])){
+                if($MJTC_custom_field["admin_only"] == "yes") $MJTC_adminonly = 1;
             }
             // placeholder
-            $placeholder = '';
-            if(isset($custom_field["placeholder"])){
-                $placeholder = $custom_field["placeholder"];
+            $MJTC_placeholder = '';
+            if(isset($MJTC_custom_field["placeholder"])){
+                $MJTC_placeholder = $MJTC_custom_field["placeholder"];
             }
 
             // Build visibility data
-            $visibledata = [
+            $MJTC_visibledata = [
                 "visibleLogic" => [],
                 "visibleParent" => [],
                 "visibleValue" => [],
@@ -4237,23 +4237,23 @@ class MJTC_thirdpartyimportModel {
             ];
 
             // Prepare field data for import
-            $fieldOrderingData = [
+            $MJTC_fieldOrderingData = [
                 "id" => "",
-                "field" => $custom_field["slug"],
-                "fieldtitle" => $custom_field['label'],
+                "field" => $MJTC_custom_field["slug"],
+                "fieldtitle" => $MJTC_custom_field['label'],
                 "ordering" => "",
                 "section" => "10",
                 "fieldfor" => "1",
                 "published" => "1",
                 "sys" => "0",
                 "cannotunpublish" => "0",
-                "required" => $required,
+                "required" => $MJTC_required,
                 "size" => "100",
                 "maxlength" => "255",
                 "cols" => "",
                 "rows" => "",
                 "isuserfield" => "1",
-                "userfieldtype" => $fieldtype,
+                "userfieldtype" => $MJTC_fieldtype,
                 "depandant_field" => "",
                 "visible_field" => "",
                 "showonlisting" => "0",
@@ -4264,25 +4264,25 @@ class MJTC_thirdpartyimportModel {
                 "userfieldparams" => "",
                 "multiformid" => "1",
                 "visibleparams" => "",
-                "values" => $option_values,
-                "visibleParent" => $visibledata["visibleParent"],
-                "visibleValue" => $visibledata["visibleValue"],
-                "visibleCondition" => $visibledata["visibleCondition"],
-                "visibleLogic" => $visibledata["visibleLogic"],
-                "placeholder" => $placeholder,
+                "values" => $MJTC_option_values,
+                "visibleParent" => $MJTC_visibledata["visibleParent"],
+                "visibleValue" => $MJTC_visibledata["visibleValue"],
+                "visibleCondition" => $MJTC_visibledata["visibleCondition"],
+                "visibleLogic" => $MJTC_visibledata["visibleLogic"],
+                "placeholder" => $MJTC_placeholder,
                 "description" => '',
                 "defaultvalue" => '',
                 "readonly" => '',
-                "adminonly" => $adminonly,
+                "adminonly" => $MJTC_adminonly,
             ];
 
             // Store field in SupportCandy
-            $record_saved = MJTC_includer::MJTC_getModel('fieldordering')->storeUserField($fieldOrderingData);
+            $MJTC_record_saved = MJTC_includer::MJTC_getModel('fieldordering')->storeUserField($MJTC_fieldOrderingData);
 
-            if ($record_saved == 1) {
-                $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` ORDER BY id DESC LIMIT 1";
-                $latest_record = majesticsupport::$_db->get_row($query);
-                $this->fc_ticket_cf[$custom_field["slug"]] = $latest_record->field;
+            if ($MJTC_record_saved == 1) {
+                $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` ORDER BY id DESC LIMIT 1";
+                $MJTC_latest_record = majesticsupport::$_db->get_row($MJTC_query);
+                $this->fc_ticket_cf[$MJTC_custom_field["slug"]] = $MJTC_latest_record->field;
 
                 $this->fluent_support_import_count['field']['imported'] += 1;
             } else {
@@ -4290,17 +4290,17 @@ class MJTC_thirdpartyimportModel {
             }
         }
 
-        foreach ($custom_fields as $custom_field) {
-            $field = $this->getTicketCustomFieldId($custom_field['label']);
-            $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = '".esc_sql($field)."' LIMIT 1";
-            $ms_field = majesticsupport::$_db->get_row($query);
+        foreach ($MJTC_custom_fields as $MJTC_custom_field) {
+            $MJTC_field = $this->getTicketCustomFieldId($MJTC_custom_field['label']);
+            $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = '".esc_sql($MJTC_field)."' LIMIT 1";
+            $ms_field = majesticsupport::$_db->get_row($MJTC_query);
             if (empty($ms_field)) {
                 continue;
             }
             
 
             // Build visibility data
-            $visibledata = [
+            $MJTC_visibledata = [
                 "visibleLogic" => [],
                 "visibleParent" => [],
                 "visibleValue" => [],
@@ -4308,64 +4308,64 @@ class MJTC_thirdpartyimportModel {
             ];
 
             
-            if (!empty($custom_field['conditions'])) {
-                $visibleLogic = 'AND';
-                if(isset($custom_field["match_type"]) && $custom_field["match_type"] == 'any'){
-                    $visibleLogic = 'OR';
+            if (!empty($MJTC_custom_field['conditions'])) {
+                $MJTC_visibleLogic = 'AND';
+                if(isset($MJTC_custom_field["match_type"]) && $MJTC_custom_field["match_type"] == 'any'){
+                    $MJTC_visibleLogic = 'OR';
                 }
 
-                foreach ($custom_field['conditions'] as $groupIndex => $group) {
-                    $fieldtype = '';
-                    if ($group['item_key'] == 'ticket_content' || $group['item_key'] == 'ticket_product_id') {
+                foreach ($MJTC_custom_field['conditions'] as $MJTC_groupIndex => $MJTC_group) {
+                    $MJTC_fieldtype = '';
+                    if ($MJTC_group['item_key'] == 'ticket_content' || $MJTC_group['item_key'] == 'ticket_product_id') {
                         continue;
                     }
-                    if ($group['item_key'] == 'ticket_client_priority') {
-                        $item_key = 'priority';
-                        $group['value'];
-                        $MJTC_value = $this->getTicketPriorityIdByFluentSupport($group['value']);
-                        $fieldtype = 'priority';
-                    } elseif ($group['item_key'] == 'ticket_title') {
-                        $item_key = 'subject';
-                        $MJTC_value = $group['value'];
-                        $fieldtype = 'subject';
+                    if ($MJTC_group['item_key'] == 'ticket_client_priority') {
+                        $MJTC_item_key = 'priority';
+                        $MJTC_group['value'];
+                        $MJTC_value = $this->getTicketPriorityIdByFluentSupport($MJTC_group['value']);
+                        $MJTC_fieldtype = 'priority';
+                    } elseif ($MJTC_group['item_key'] == 'ticket_title') {
+                        $MJTC_item_key = 'subject';
+                        $MJTC_value = $MJTC_group['value'];
+                        $MJTC_fieldtype = 'subject';
                     } else {
-                        // $item_key = $group['item_key'];
-                        if (empty($group['item_key'])) {
+                        // $MJTC_item_key = $MJTC_group['item_key'];
+                        if (empty($MJTC_group['item_key'])) {
                             continue;
                         }
-                        $item_key = $this->fc_ticket_cf[$group['item_key']];
-                        $fieldtype = $this->checkTypeOfTheField($item_key);
-                        if ($fieldtype == 'textarea') {
+                        $MJTC_item_key = $this->fc_ticket_cf[$MJTC_group['item_key']];
+                        $MJTC_fieldtype = $this->checkTypeOfTheField($MJTC_item_key);
+                        if ($MJTC_fieldtype == 'textarea') {
                             continue;
                         }
-                        $MJTC_value = $group['value'];
+                        $MJTC_value = $MJTC_group['value'];
                     }
-                    if ($custom_field["slug"] == 'ticket_client_priority') {
-                        $slug = 'priority';
-                    } elseif ($custom_field["slug"] == 'ticket_title') {
-                        $slug = 'subject';
+                    if ($MJTC_custom_field["slug"] == 'ticket_client_priority') {
+                        $MJTC_slug = 'priority';
+                    } elseif ($MJTC_custom_field["slug"] == 'ticket_title') {
+                        $MJTC_slug = 'subject';
                     } else {
-                        $slug = $this->fc_ticket_cf[$custom_field["slug"]];
+                        $MJTC_slug = $this->fc_ticket_cf[$MJTC_custom_field["slug"]];
                     }
                     
-                    $visibledata["visibleParentField"][] = $slug;
-                    $visibledata["visibleParent"][] = $item_key;
-                    $visibledata["visibleCondition"][] = $this->mapOperatorToConditionCodeForFluentSupport($group['operator'], $fieldtype);
-                    $visibledata["visibleValue"][] = $MJTC_value;
-                    $visibledata["visibleLogic"][] = $visibleLogic;
+                    $MJTC_visibledata["visibleParentField"][] = $MJTC_slug;
+                    $MJTC_visibledata["visibleParent"][] = $MJTC_item_key;
+                    $MJTC_visibledata["visibleCondition"][] = $this->mapOperatorToConditionCodeForFluentSupport($MJTC_group['operator'], $MJTC_fieldtype);
+                    $MJTC_visibledata["visibleValue"][] = $MJTC_value;
+                    $MJTC_visibledata["visibleLogic"][] = $MJTC_visibleLogic;
                 }
             }
 
-            $option_values = [];
-            if(isset($custom_field["options"])){
-                foreach($custom_field["options"] as $MJTC_key => $MJTC_value){
-                    $option_values[] = $MJTC_value;
+            $MJTC_option_values = [];
+            if(isset($MJTC_custom_field["options"])){
+                foreach($MJTC_custom_field["options"] as $MJTC_key => $MJTC_value){
+                    $MJTC_option_values[] = $MJTC_value;
                 }
             }
 
             // Prepare field data for import
 
-            $fieldOrderingData = [
+            $MJTC_fieldOrderingData = [
                 "id" => $ms_field->id,
                 "field" => $ms_field->field,
                 "fieldtitle" => $ms_field->fieldtitle,
@@ -4398,441 +4398,469 @@ class MJTC_thirdpartyimportModel {
                 "readonly" => $ms_field->readonly,
                 "adminonly" => $ms_field->adminonly,
                 "defaultvalue" => $ms_field->defaultvalue,
-                "values" => $option_values,
-                "visibleParent" => $visibledata["visibleParent"],
-                "visibleValue" => $visibledata["visibleValue"],
-                "visibleCondition" => $visibledata["visibleCondition"],
-                "visibleLogic" => $visibledata["visibleLogic"],
+                "values" => $MJTC_option_values,
+                "visibleParent" => $MJTC_visibledata["visibleParent"],
+                "visibleValue" => $MJTC_visibledata["visibleValue"],
+                "visibleCondition" => $MJTC_visibledata["visibleCondition"],
+                "visibleLogic" => $MJTC_visibledata["visibleLogic"],
             ];
 
             // Store field in SupportCandy
-            $record_saved = MJTC_includer::MJTC_getModel('fieldordering')->storeUserField($fieldOrderingData);
+            $MJTC_record_saved = MJTC_includer::MJTC_getModel('fieldordering')->storeUserField($MJTC_fieldOrderingData);
         }
     }
 
-    private function checkTypeOfTheField($field){
+    private function checkTypeOfTheField($MJTC_field){
         
-        $query = "
+        $MJTC_query = "
             SELECT userfieldtype FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering`
-                WHERE LOWER(field) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($field)))."'";
-        $userfieldtype = majesticsupport::$_db->get_var($query);
+                WHERE LOWER(field) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_field)))."'";
+        $MJTC_userfieldtype = majesticsupport::$_db->get_var($MJTC_query);
         
-        return $userfieldtype ? $userfieldtype : null;
+        return $MJTC_userfieldtype ? $MJTC_userfieldtype : null;
     }
 
-    private function getTicketCustomFieldId($fieldtitle){
+    private function getTicketCustomFieldId($MJTC_fieldtitle){
         
-        $query = "
+        $MJTC_query = "
             SELECT field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering`
-                WHERE LOWER(fieldtitle) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($fieldtitle)))."'";
-        $ms_field_id = majesticsupport::$_db->get_var($query);
+                WHERE LOWER(fieldtitle) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_fieldtitle)))."'";
+        $ms_field_id = majesticsupport::$_db->get_var($MJTC_query);
         
         return $ms_field_id ? $ms_field_id : null;
     }
 
-    private function mapOperatorToConditionCodeForFluentSupport ($operator, $type) {
-        $operator = strtoupper(MJTC_majesticsupportphplib::MJTC_trim($operator));
-        $isComplex = false;
+    private function mapOperatorToConditionCodeForFluentSupport ($MJTC_operator, $type) {
+        $MJTC_operator = strtoupper(MJTC_majesticsupportphplib::MJTC_trim($MJTC_operator));
+        $MJTC_isComplex = false;
 
         if (!empty($type)) {
-            $complexTypes = ['combo', 'checkbox', 'radio', 'multiple','priority'];
-            $isComplex = !in_array($type, $complexTypes);
+            $MJTC_complexTypes = ['combo', 'checkbox', 'radio', 'multiple','priority'];
+            $MJTC_isComplex = !in_array($type, $MJTC_complexTypes);
         }
 
-        switch (strtoupper($operator)) {
+        switch (strtoupper($MJTC_operator)) {
             case '=':
             case 'CONTAINS':
-                return $isComplex ? "2" : "1";
+                return $MJTC_isComplex ? "2" : "1";
             case '!=':
             case 'NOT_CONTAINS':
-                return $isComplex ? "3" : "0";
+                return $MJTC_isComplex ? "3" : "0";
             default:
-                return $isComplex ? "4" : "0"; // Fallback or unsupported operator
+                return $MJTC_isComplex ? "4" : "0"; // Fallback or unsupported operator
         }
     }
 
-    private function getFluentSupportTicketNotes($ms_ticket_id, $fs_ticket_id, $attachmentdir){
-        $query = "SELECT conversation.*
+    private function getFluentSupportTicketNotes($ms_ticket_id, $MJTC_fs_ticket_id, $MJTC_attachmentdir){
+        $MJTC_query = "SELECT conversation.*
                     FROM `" . majesticsupport::$_db->prefix . "fs_conversations` AS conversation
-                    WHERE conversation.ticket_id = ".$fs_ticket_id."
+                    WHERE conversation.ticket_id = ".$MJTC_fs_ticket_id."
                     AND conversation.conversation_type = 'note'
                     ORDER BY conversation.id ASC";
                     
-        $conversations = majesticsupport::$_db->get_results($query);
-        foreach($conversations AS $conversation){
+        $MJTC_conversations = majesticsupport::$_db->get_results($MJTC_query);
+        foreach($MJTC_conversations AS $MJTC_conversation){
 
-            $query = "
-            SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_users` WHERE wpuid = ".$conversation->person_id;
-            $agentid = $ms_user_id = majesticsupport::$_db->get_var($query);
-            $filename = $this->getFluentSupportNoteAttachments($fs_ticket_id, $conversation->id, $attachmentdir);
+            $MJTC_query = "
+            SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_users` WHERE wpuid = ".$MJTC_conversation->person_id;
+            $MJTC_agentid = $ms_user_id = majesticsupport::$_db->get_var($MJTC_query);
+            $MJTC_filename = $this->getFluentSupportNoteAttachments($MJTC_fs_ticket_id, $MJTC_conversation->id, $MJTC_attachmentdir);
 
-            $replyData = [
+            $MJTC_replyData = [
                 "id" => "",
                 "ticketid" => $ms_ticket_id,
-                "staffid" => $agentid,
-                "title" => MJTC_majesticsupportphplib::MJTC_strip_tags($conversation->content),
-                "note" => $conversation->content,
+                "staffid" => $MJTC_agentid,
+                "title" => MJTC_majesticsupportphplib::MJTC_strip_tags($MJTC_conversation->content),
+                "note" => $MJTC_conversation->content,
                 "status" => "1",
-                "created" => $conversation->created_at,
-                "filename" => $filename,
+                "created" => $MJTC_conversation->created_at,
+                "filename" => $MJTC_filename,
                 "filesize" => 5334
             ];
-            $row = MJTC_includer::MJTC_getTable('note');
-            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($replyData);// remove slashes with quotes.
-            $error = 0;
-            if (!$row->bind($MJTC_data)) {
-                $error = 1;
+            $MJTC_row = MJTC_includer::MJTC_getTable('note');
+            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_replyData);// remove slashes with quotes.
+            $MJTC_error = 0;
+            if (!$MJTC_row->bind($MJTC_data)) {
+                $MJTC_error = 1;
             }
-            if (!$row->store()) {
-                $error = 1;
+            if (!$MJTC_row->store()) {
+                $MJTC_error = 1;
             }
-            $ms_ticket_note_id = $row->id;
+            $ms_ticket_note_id = $MJTC_row->id;
         }
     }
 
-    private function getFluentSupportTicketReplies($ms_ticket_id, $fs_ticket_id, $attachmentdir){
-        $query = "SELECT conversation.*
+    private function getFluentSupportTicketReplies($ms_ticket_id, $MJTC_fs_ticket_id, $MJTC_attachmentdir){
+        $MJTC_query = "SELECT conversation.*
                     FROM `" . majesticsupport::$_db->prefix . "fs_conversations` AS conversation
-                    WHERE conversation.ticket_id = ".$fs_ticket_id."
+                    WHERE conversation.ticket_id = ".$MJTC_fs_ticket_id."
                     AND conversation.conversation_type = 'response'
                     ORDER BY conversation.id ASC";
                     
-        $conversations = majesticsupport::$_db->get_results($query);
-        foreach($conversations AS $conversation){
-            $userinfo = $this->getFluentSupportTicketCustomerInfo($conversation->person_id);
-            $uid = $userinfo["ms_uid"];
-            $name = $userinfo["customer_name"];
-            if(empty($userinfo["ms_uid"])){
+        $MJTC_conversations = majesticsupport::$_db->get_results($MJTC_query);
+        foreach($MJTC_conversations AS $MJTC_conversation){
+            $MJTC_userinfo = $this->getFluentSupportTicketCustomerInfo($MJTC_conversation->person_id);
+            $MJTC_uid = $MJTC_userinfo["ms_uid"];
+            $MJTC_name = $MJTC_userinfo["customer_name"];
+            if(empty($MJTC_userinfo["ms_uid"])){
 
-                $agentid = $this->getTicketAgentIDByFluentSupport($conversation->person_id);
-                if($agentid){
-                    $query = "SELECT agent.*
+                $MJTC_agentid = $this->getTicketAgentIDByFluentSupport($MJTC_conversation->person_id);
+                if($MJTC_agentid){
+                    $MJTC_query = "SELECT agent.*
                                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS agent
-                                WHERE agent.id = ".$agentid.";";
+                                WHERE agent.id = ".$MJTC_agentid.";";
                                 
-                    $agent = majesticsupport::$_db->get_row($query);
-                    $uid = $agent->uid;
-                    $name = $agent->firstname;
-                    if($agent->lastname) $name = $name. " ". $agent->lastname;
+                    $MJTC_agent = majesticsupport::$_db->get_row($MJTC_query);
+                    $MJTC_uid = $MJTC_agent->uid;
+                    $MJTC_name = $MJTC_agent->firstname;
+                    if($MJTC_agent->lastname) $MJTC_name = $MJTC_name. " ". $MJTC_agent->lastname;
                 }
             }
 
-            $replyData = [
+            $MJTC_replyData = [
                 "id" => "",
-                "uid" => $uid,
+                "uid" => $MJTC_uid,
                 "ticketid" => $ms_ticket_id,
-                "name" => $name,
-                "message" => $conversation->content,
+                "name" => $MJTC_name,
+                "message" => $MJTC_conversation->content,
                 "staffid" => "",
                 "rating" => "",
                 "status" => "1",
-                "created" => $conversation->created_at,
+                "created" => $MJTC_conversation->created_at,
                 "ticketviaemail" => "",
                 "viewed_by" => "",
                 "viewed_on" => ""
             ];
-            $row = MJTC_includer::MJTC_getTable('replies');
-            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($replyData);// remove slashes with quotes.
-            $error = 0;
-            if (!$row->bind($MJTC_data)) {
-                $error = 1;
+            $MJTC_row = MJTC_includer::MJTC_getTable('replies');
+            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_replyData);// remove slashes with quotes.
+            $MJTC_error = 0;
+            if (!$MJTC_row->bind($MJTC_data)) {
+                $MJTC_error = 1;
             }
-            if (!$row->store()) {
-                $error = 1;
+            if (!$MJTC_row->store()) {
+                $MJTC_error = 1;
             }
-            $ms_ticket_reply_id = $row->id;
-            $this->getFluentSupportReplyAttachments($ms_ticket_id, $ms_ticket_reply_id, $fs_ticket_id, $conversation->id, $attachmentdir);
+            $ms_ticket_reply_id = $MJTC_row->id;
+            $this->getFluentSupportReplyAttachments($ms_ticket_id, $ms_ticket_reply_id, $MJTC_fs_ticket_id, $MJTC_conversation->id, $MJTC_attachmentdir);
         }
     }
 
-    private function getFluentSupportNoteAttachments($fs_ticket_id, $fs_ticket_reply_id, $attachmentdir){
-        $query = "SELECT attachment.*
+    private function getFluentSupportNoteAttachments($MJTC_fs_ticket_id, $MJTC_fs_ticket_reply_id, $MJTC_attachmentdir){
+        $MJTC_query = "SELECT attachment.*
                     FROM `" . majesticsupport::$_db->prefix . "fs_attachments` AS attachment
-                    WHERE attachment.ticket_id = " . (int)$fs_ticket_id . " AND attachment.conversation_id = " . (int)$fs_ticket_reply_id . "
+                    WHERE attachment.ticket_id = " . (int)$MJTC_fs_ticket_id . " AND attachment.conversation_id = " . (int)$MJTC_fs_ticket_reply_id . "
                     ORDER BY attachment.id ASC";
                     
-        $attachment = majesticsupport::$_db->get_row($query);
+        $MJTC_attachment = majesticsupport::$_db->get_row($MJTC_query);
 
-        if (empty($attachment)) return;
+        if (empty($MJTC_attachment)) return;
 
-        require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
-        require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
+        // --- START FILESYSTEM FIX ---
+        global $wp_filesystem;
+        if (!function_exists('wp_handle_upload')) {
+            do_action('majesticsupport_load_wp_file');
+        }
+        if ( ! WP_Filesystem() ) {
+            return false;
+        }
+        $MJTC_filesystem = $wp_filesystem;
+        // --- END FILESYSTEM FIX ---
 
-        $filesystem = new WP_Filesystem_Direct(true);
-        $upload_dir = wp_upload_dir();
-        $upload_path = $upload_dir['basedir'];
+        $MJTC_upload_dir = wp_upload_dir();
+        $MJTC_upload_path = $MJTC_upload_dir['basedir'];
         $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-        $path = trailingslashit($upload_path) . $MJTC_datadirectory . "/attachmentdata/ticket/" . sanitize_file_name($attachmentdir);
+        $MJTC_path = trailingslashit($MJTC_upload_path) . $MJTC_datadirectory . "/attachmentdata/ticket/" . sanitize_file_name($MJTC_attachmentdir);
 
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
 
-        $safe_filename = sanitize_file_name($attachment->title);
-        $source = $attachment->file_path;
-        $destination = $path . "/" . $safe_filename;
+        $MJTC_safe_filename = sanitize_file_name($MJTC_attachment->title);
+        $MJTC_source = $MJTC_attachment->file_path;
+        $MJTC_destination = $MJTC_path . "/" . $MJTC_safe_filename;
         
-        $destination_new_name = $path."/".$attachment->title;
+        $MJTC_destination_new_name = $MJTC_path . "/" . $MJTC_attachment->title;
 
-        if (!file_exists($source)) {
+        // Replaced file_exists with $MJTC_filesystem->exists
+        if (!$MJTC_filesystem->exists($MJTC_source)) {
             return '';
         }
 
-        $result = $filesystem->copy($source, $destination, true);
-        if (!$result) {
+        $MJTC_result = $MJTC_filesystem->copy($MJTC_source, $MJTC_destination, true);
+        if (!$MJTC_result) {
             return '';
         }
-        rename($destination,$destination_new_name);
+        
+        // Replaced rename with $MJTC_filesystem->move
+        $MJTC_filesystem->move($MJTC_destination, $MJTC_destination_new_name, true);
 
-        return $safe_filename;
+        return $MJTC_safe_filename;
     }
 
-    private function getFluentSupportReplyAttachments($ms_ticket_id, $ms_ticket_reply_id, $fs_ticket_id, $fs_ticket_reply_id, $attachmentdir){
-        $query = "SELECT attachment.*
+    private function getFluentSupportReplyAttachments($ms_ticket_id, $ms_ticket_reply_id, $MJTC_fs_ticket_id, $MJTC_fs_ticket_reply_id, $MJTC_attachmentdir){
+        $MJTC_query = "SELECT attachment.*
                     FROM `" . majesticsupport::$_db->prefix . "fs_attachments` AS attachment
-                    WHERE attachment.ticket_id = " . (int)$fs_ticket_id . " AND attachment.conversation_id = " . (int)$fs_ticket_reply_id . "
+                    WHERE attachment.ticket_id = " . (int)$MJTC_fs_ticket_id . " AND attachment.conversation_id = " . (int)$MJTC_fs_ticket_reply_id . "
                     ORDER BY attachment.id ASC";
                     
-        $attachments = majesticsupport::$_db->get_results($query);
+        $MJTC_attachments = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($attachments)) return;
+        if (empty($MJTC_attachments)) return;
 
-        require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
-        require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
+        // --- START FILESYSTEM FIX ---
+        global $wp_filesystem;
+        if (!function_exists('wp_handle_upload')) {
+            do_action('majesticsupport_load_wp_file');
+        }
+        if ( ! WP_Filesystem() ) {
+            return false;
+        }
+        $MJTC_filesystem = $wp_filesystem;
+        // --- END FILESYSTEM FIX ---
 
-        $filesystem = new WP_Filesystem_Direct(true);
-        $upload_dir = wp_upload_dir();
-        $upload_path = $upload_dir['basedir'];
+        $MJTC_upload_dir = wp_upload_dir();
+        $MJTC_upload_path = $MJTC_upload_dir['basedir'];
         $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-        $path = trailingslashit($upload_path) . $MJTC_datadirectory . "/attachmentdata/ticket/" . sanitize_file_name($attachmentdir);
+        $MJTC_path = trailingslashit($MJTC_upload_path) . $MJTC_datadirectory . "/attachmentdata/ticket/" . sanitize_file_name($MJTC_attachmentdir);
 
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
 
-        foreach ($attachments as $attachment) {
-            $safe_filename = sanitize_file_name($attachment->title);
-            $source = $attachment->file_path;
-            $destination = $path . "/" . $safe_filename;
-            $destination_new_name = $path."/".$attachment->title;
-            $attachmentData = [
+        foreach ($MJTC_attachments as $MJTC_attachment) {
+            $MJTC_safe_filename = sanitize_file_name($MJTC_attachment->title);
+            $MJTC_source = $MJTC_attachment->file_path;
+            $MJTC_destination = $MJTC_path . "/" . $MJTC_safe_filename;
+            $MJTC_destination_new_name = $MJTC_path . "/" . $MJTC_attachment->title;
+            
+            $MJTC_attachmentData = [
                 "id" => "",
                 "ticketid" => $ms_ticket_id,
                 "replyattachmentid" => $ms_ticket_reply_id,
-                "filesize" => "", // Optionally: filesize($source)
-                "filename" => $safe_filename,
+                "filesize" => "", // Optionally: filesize($MJTC_source)
+                "filename" => $MJTC_safe_filename,
                 "filekey" => "",
                 "deleted" => "",
                 "status" => "1",
-                "created" => $attachment->created_at
+                "created" => $MJTC_attachment->created_at
             ];
 
-            $row = MJTC_includer::MJTC_getTable('attachments');
-            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($attachmentData);
+            $MJTC_row = MJTC_includer::MJTC_getTable('attachments');
+            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_attachmentData);
 
-            $error = 0;
-            if (!$row->bind($MJTC_data)) {
-                $error = 1;
-            }
-            if (!$row->store()) {
-                $error = 1;
+            if (!$MJTC_row->bind($MJTC_data) || !$MJTC_row->store()) {
+                continue; 
             }
 
-            if (!file_exists($source)) {
-                error_log("Attachment source file does not exist: " . $source);
+            // Replaced file_exists with $MJTC_filesystem->exists
+            if (!$MJTC_filesystem->exists($MJTC_source)) {
+                die( 'Attachment source file does not exist: ' . esc_html( $MJTC_source ) );
                 continue;
             }
 
-            $result = $filesystem->copy($source, $destination, true);
-            if (!$result) {
-                error_log("Failed to copy attachment from $source to $destination");
-            }
-            rename($destination,$destination_new_name);         
+            $MJTC_result = $MJTC_filesystem->copy($MJTC_source, $MJTC_destination, true);
+            if (!$MJTC_result) {
+                die( 'Failed to copy attachment from ' . esc_html( $MJTC_source ) . ' to ' . esc_html( $MJTC_destination ) );
+            } else {
+                // Replaced rename with $MJTC_filesystem->move
+                $MJTC_filesystem->move($MJTC_destination, $MJTC_destination_new_name, true);
+            }         
         }
     }
 
-    private function getFluentSupportTicketAttachments($ms_ticket_id, $fs_ticket_id, $attachmentdir){
-        $query = "SELECT attachment.*
+    private function getFluentSupportTicketAttachments($ms_ticket_id, $MJTC_fs_ticket_id, $MJTC_attachmentdir){
+        $MJTC_query = "SELECT attachment.*
                     FROM `" . majesticsupport::$_db->prefix . "fs_attachments` AS attachment
-                    WHERE attachment.ticket_id = " . (int)$fs_ticket_id . " AND attachment.conversation_id  IS NULL
+                    WHERE attachment.ticket_id = " . (int)$MJTC_fs_ticket_id . " AND attachment.conversation_id  IS NULL
                     ORDER BY attachment.id ASC";
                     
-        $attachments = majesticsupport::$_db->get_results($query);
+        $MJTC_attachments = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($attachments)) return;
+        if (empty($MJTC_attachments)) return;
 
-        require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
-        require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
+        // --- START FILESYSTEM FIX ---
+        global $wp_filesystem;
+        if (!function_exists('wp_handle_upload')) {
+            do_action('majesticsupport_load_wp_file');
+        }
+        if ( ! WP_Filesystem() ) {
+            return false;
+        }
+        $MJTC_filesystem = $wp_filesystem;
+        // --- END FILESYSTEM FIX ---
 
-        $filesystem = new WP_Filesystem_Direct(true);
-        $upload_dir = wp_upload_dir();
-        $upload_path = $upload_dir['basedir'];
+        $MJTC_upload_dir = wp_upload_dir();
+        $MJTC_upload_path = $MJTC_upload_dir['basedir'];
         $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-        $path = trailingslashit($upload_path) . $MJTC_datadirectory . "/attachmentdata/ticket/" . sanitize_file_name($attachmentdir);
+        $MJTC_path = trailingslashit($MJTC_upload_path) . $MJTC_datadirectory . "/attachmentdata/ticket/" . sanitize_file_name($MJTC_attachmentdir);
 
-        if (!$filesystem->exists($path)) {
-            wp_mkdir_p($path);
+        if (!$MJTC_filesystem->exists($MJTC_path)) {
+            wp_mkdir_p($MJTC_path);
         }
 
-        foreach ($attachments as $attachment) {
-            $safe_filename = sanitize_file_name($attachment->title);
-            $source = $attachment->file_path;
-            $destination = $path . "/" . $safe_filename;
-            $destination_new_name = $path."/".$attachment->title;
-            $attachmentData = [
+        foreach ($MJTC_attachments as $MJTC_attachment) {
+            $MJTC_safe_filename = sanitize_file_name($MJTC_attachment->title);
+            $MJTC_source = $MJTC_attachment->file_path;
+            $MJTC_destination = $MJTC_path . "/" . $MJTC_safe_filename;
+            $MJTC_destination_new_name = $MJTC_path . "/" . $MJTC_attachment->title;
+            
+            $MJTC_attachmentData = [
                 "id" => "",
                 "ticketid" => $ms_ticket_id,
                 "replyattachmentid" => 0,
-                "filesize" => "", // Optionally: filesize($source)
-                "filename" => $safe_filename,
+                "filesize" => "", // Optionally: filesize($MJTC_source)
+                "filename" => $MJTC_safe_filename,
                 "filekey" => "",
                 "deleted" => "",
                 "status" => "1",
-                "created" => $attachment->created_at
+                "created" => $MJTC_attachment->created_at
             ];
 
-            $row = MJTC_includer::MJTC_getTable('attachments');
-            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($attachmentData);
+            $MJTC_row = MJTC_includer::MJTC_getTable('attachments');
+            $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_attachmentData);
 
-            $error = 0;
-            if (!$row->bind($MJTC_data)) {
-                $error = 1;
+            $MJTC_error = 0;
+            if (!$MJTC_row->bind($MJTC_data)) {
+                $MJTC_error = 1;
             }
-            if (!$row->store()) {
-                $error = 1;
+            if (!$MJTC_row->store()) {
+                $MJTC_error = 1;
             }
 
-            if (!file_exists($source)) {
-                error_log("Attachment source file does not exist: " . $source);
+            // Use $MJTC_filesystem->exists instead of file_exists
+            if (!$MJTC_filesystem->exists($MJTC_source)) {
+                die("Attachment source file does not exist: " . esc_html( $MJTC_source) );
                 continue;
             }
 
-            $result = $filesystem->copy($source, $destination, true);
-            if (!$result) {
-                error_log("Failed to copy attachment from $source to $destination");
-            }
-            rename($destination,$destination_new_name);         
+            $MJTC_result = $MJTC_filesystem->copy($MJTC_source, $MJTC_destination, true);
+            if (!$MJTC_result) {
+                die( esc_html( "Failed to copy attachment from $MJTC_source to $MJTC_destination" ) );
+            } else {
+                // Replaced rename() with WP_Filesystem::move()
+                $MJTC_filesystem->move($MJTC_destination, $MJTC_destination_new_name, true);
+            }         
         }
     }
 
-    private function getFluentSupportTicketActivityLog($ms_ticket_id, $fs_ticket_id) {
-        $fs_ticket_id = intval($fs_ticket_id);
+    private function getFluentSupportTicketActivityLog($ms_ticket_id, $MJTC_fs_ticket_id) {
+        $MJTC_fs_ticket_id = intval($MJTC_fs_ticket_id);
         $ms_ticket_id = intval($ms_ticket_id);
 
-        if ($fs_ticket_id <= 0 || $ms_ticket_id <= 0) return;
+        if ($MJTC_fs_ticket_id <= 0 || $ms_ticket_id <= 0) return;
 
-        $query = "
+        $MJTC_query = "
             SELECT * FROM `" . majesticsupport::$_db->prefix . "fs_activities`
-            WHERE  object_type = 'ticket' AND object_id = ".$fs_ticket_id."
+            WHERE  object_type = 'ticket' AND object_id = ".$MJTC_fs_ticket_id."
             ORDER BY id DESC";
 
-        $threads = majesticsupport::$_db->get_results($query);
+        $threads = majesticsupport::$_db->get_results($MJTC_query);
         if (empty($threads)) return;
 
         foreach ($threads as $thread) {
             $MJTC_ticketid = $ms_ticket_id;
 
             // Get user information
-            $userinfo = $this->getFluentSupportTicketCustomerInfo($thread->person_id);
-            $currentUserName = !empty($userinfo['customer_name']) 
-                ? esc_html($userinfo['customer_name']) 
+            $MJTC_userinfo = $this->getFluentSupportTicketCustomerInfo($thread->person_id);
+            $MJTC_currentUserName = !empty($MJTC_userinfo['customer_name']) 
+                ? esc_html($MJTC_userinfo['customer_name']) 
                 : esc_html(__('Guest', 'majestic-support'));
 
-            $messagetype = __('Successfully', 'majestic-support');
-            $eventtype = MJTC_majesticsupportphplib::MJTC_str_replace("fluent_support/","",$thread->event_type);
-            $message = MJTC_majesticsupportphplib::MJTC_strip_tags($thread->description);
+            $MJTC_messagetype = __('Successfully', 'majestic-support');
+            $MJTC_eventtype = MJTC_majesticsupportphplib::MJTC_str_replace("fluent_support/","",$thread->event_type);
+            $MJTC_message = MJTC_majesticsupportphplib::MJTC_strip_tags($thread->description);
             
 
-            if (!empty($eventtype) && !empty($message)) {
+            if (!empty($MJTC_eventtype) && !empty($MJTC_message)) {
                 MJTC_includer::MJTC_getModel('tickethistory')->addActivityLog(
-                    $MJTC_ticketid, 1, esc_html($eventtype), esc_html($message), esc_html($messagetype)
+                    $MJTC_ticketid, 1, esc_html($MJTC_eventtype), esc_html($MJTC_message), esc_html($MJTC_messagetype)
                 );
             }
         }
     }
 
-    private function getFluentSupportTicketStaffTime($ms_ticket_id, $fs_ticket_id) {
-        $fs_ticket_id = intval($fs_ticket_id);
+    private function getFluentSupportTicketStaffTime($ms_ticket_id, $MJTC_fs_ticket_id) {
+        $MJTC_fs_ticket_id = intval($MJTC_fs_ticket_id);
         $ms_ticket_id = intval($ms_ticket_id);
-        if ($fs_ticket_id <= 0 || $ms_ticket_id <= 0) return;
+        if ($MJTC_fs_ticket_id <= 0 || $ms_ticket_id <= 0) return;
 
         // Get all timer logs for the given SupportCandy ticket
-        $query = "
+        $MJTC_query = "
             SELECT * FROM `" . majesticsupport::$_db->prefix . "fs_time_tracks`
-            WHERE ticket_id = ".$fs_ticket_id;
-        $timers = majesticsupport::$_db->get_results($query);
+            WHERE ticket_id = ".$MJTC_fs_ticket_id;
+        $MJTC_timers = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($timers)) return;
+        if (empty($MJTC_timers)) return;
 
-        foreach ($timers as $timer) {
+        foreach ($MJTC_timers as $MJTC_timer) {
             // Get HelpDesk staff ID from FluentSupport agent ID
-            $staffid = $this->getMSAgentIdByFSAgentId($timer->agent_id);
+            $MJTC_staffid = $this->getMSAgentIdByFSAgentId($MJTC_timer->agent_id);
 
-            $created = $timer->created_at;
+            $MJTC_created = $MJTC_timer->created_at;
 
-            $timer_minutes = $timer->working_minutes;
-            if ($timer_minutes <= 0) continue;
+            $MJTC_timer_minutes = $MJTC_timer->working_minutes;
+            if ($MJTC_timer_minutes <= 0) continue;
 
-            $timer_seconds = $timer_minutes * 60;
+            $MJTC_timer_seconds = $MJTC_timer_minutes * 60;
             // Conflict detection
-            $created_dt = new DateTime($created);
-            $now = new DateTime();
-            $interval_to_now = $created_dt->diff($now);
-            $systemtime = ($interval_to_now->days * 86400) + ($interval_to_now->h * 3600) + ($interval_to_now->i * 60) + $interval_to_now->s;
+            $MJTC_created_dt = new DateTime($MJTC_created);
+            $MJTC_now = new DateTime();
+            $MJTC_interval_to_now = $MJTC_created_dt->diff($MJTC_now);
+            $MJTC_systemtime = ($MJTC_interval_to_now->days * 86400) + ($MJTC_interval_to_now->h * 3600) + ($MJTC_interval_to_now->i * 60) + $MJTC_interval_to_now->s;
 
-            $conflict = ($timer_seconds > $systemtime) ? 1 : 0;
+            $MJTC_conflict = ($MJTC_timer_seconds > $MJTC_systemtime) ? 1 : 0;
 
             // Prepare data
             $MJTC_data = [
-                'staffid' => $staffid,
+                'staffid' => $MJTC_staffid,
                 'ticketid' => $ms_ticket_id,
                 'referencefor' => 1,
                 'referenceid' => 0,
-                'usertime' => $timer_seconds,
-                'systemtime' => $systemtime,
-                'conflict' => $conflict,
-                'description' => $timer->message,
-                'timer_edit_desc' => $timer->message,
+                'usertime' => $MJTC_timer_seconds,
+                'systemtime' => $MJTC_systemtime,
+                'conflict' => $MJTC_conflict,
+                'description' => $MJTC_timer->message,
+                'timer_edit_desc' => $MJTC_timer->message,
                 'status' => 1,
-                'created' => $created
+                'created' => $MJTC_created
             ];
 
-            $row = MJTC_includer::MJTC_getTable('timetracking');
+            $MJTC_row = MJTC_includer::MJTC_getTable('timetracking');
             $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
 
-            if (!$row->bind($MJTC_data) || !$row->store()) {
+            if (!$MJTC_row->bind($MJTC_data) || !$MJTC_row->store()) {
                 // optionally log or count the failure
                 continue;
             }
         }
     }
 
-    private function getMSAgentIdByFSAgentId($fs_agent_id) {
+    private function getMSAgentIdByFSAgentId($MJTC_fs_agent_id) {
         // Sanitize and validate input
-        $fs_agent_id = intval($fs_agent_id);
-        if ($fs_agent_id <= 0) return null;
+        $MJTC_fs_agent_id = intval($MJTC_fs_agent_id);
+        if ($MJTC_fs_agent_id <= 0) return null;
 
         // Secure SQL query using prepare()
-        $query = "
+        $MJTC_query = "
             SELECT agent.*
             FROM `" . majesticsupport::$_db->prefix . "fs_persons` AS fs_agent
             INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user
                 ON user.wpuid = fs_agent.user_id
             INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS agent
                 ON agent.uid = user.id
-            WHERE fs_agent.person_type = 'agent' AND fs_agent.id = " . esc_sql($fs_agent_id) . "
+            WHERE fs_agent.person_type = 'agent' AND fs_agent.id = " . esc_sql($MJTC_fs_agent_id) . "
             LIMIT 1
         ";
 
-        $ms_agent = majesticsupport::$_db->get_row($query);
+        $ms_agent = majesticsupport::$_db->get_row($MJTC_query);
 
         return $ms_agent ?: null;
     }
 
-    private function getFluentSupportTicketCustomerInfo($customerId) {
+    private function getFluentSupportTicketCustomerInfo($MJTC_customerId) {
         // Sanitize and validate customer ID
-        $customerId = intval($customerId);
-        if ($customerId <= 0) {
+        $MJTC_customerId = intval($MJTC_customerId);
+        if ($MJTC_customerId <= 0) {
             return [
                 "ms_uid" => "",
                 "customer_name" => "",
@@ -4841,17 +4869,17 @@ class MJTC_thirdpartyimportModel {
         }
 
         // Prepare secure query
-        $query = "
+        $MJTC_query = "
             SELECT CONCAT(customer.first_name, ' ', customer.last_name) AS name, customer.email, user.id AS ms_uid
             FROM `" . majesticsupport::$_db->prefix . "fs_persons` AS customer
             INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user
                 ON user.wpuid = customer.user_id
-            WHERE customer.id = " . esc_sql($customerId) . "
+            WHERE customer.id = " . esc_sql($MJTC_customerId) . "
             AND customer.person_type = 'customer'
             LIMIT 1
         ";
 
-        $MJTC_data = majesticsupport::$_db->get_row($query);
+        $MJTC_data = majesticsupport::$_db->get_row($MJTC_query);
 
         return [
             "ms_uid"       => $MJTC_data->ms_uid ?? "",
@@ -4860,121 +4888,121 @@ class MJTC_thirdpartyimportModel {
         ];
     }
 
-    private function getTicketAgentIdByFluentSupport($customerId) {
+    private function getTicketAgentIdByFluentSupport($MJTC_customerId) {
         // Validate customer ID
-        $customerId = intval($customerId);
-        if ($customerId <= 0) {
+        $MJTC_customerId = intval($MJTC_customerId);
+        if ($MJTC_customerId <= 0) {
             return null;
         }
 
         // Get mapped user info
-        $query = "SELECT agent.id
+        $MJTC_query = "SELECT agent.id
                     FROM `" . majesticsupport::$_db->prefix . "fs_persons` AS person
             INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user
                 ON user.wpuid = person.user_id
             INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS agent
                 ON agent.uid = user.id
-                    WHERE person.id = " . esc_sql($customerId) . "
+                    WHERE person.id = " . esc_sql($MJTC_customerId) . "
                     AND person.person_type = 'agent';";
-        $ms_agent = majesticsupport::$_db->get_var($query);
+        $ms_agent = majesticsupport::$_db->get_var($MJTC_query);
 
         return $ms_agent ?: null;
     }
 
-    private function getTicketProductIdByFluentSupport($productId){
+    private function getTicketProductIdByFluentSupport($MJTC_productId){
         // Sanitize and validate input
-        $productId = intval($productId);
-        if ($productId <= 0) return null;
+        $MJTC_productId = intval($MJTC_productId);
+        if ($MJTC_productId <= 0) return null;
 
         // Fetch product from source table
-        $query = "
+        $MJTC_query = "
             SELECT title
             FROM `" . majesticsupport::$_db->prefix . "fs_products` 
-            WHERE id = ".$productId;
-        $product_name = majesticsupport::$_db->get_var($query);
+            WHERE id = ".$MJTC_productId;
+        $MJTC_product_name = majesticsupport::$_db->get_var($MJTC_query);
 
-        if (empty($product_name)) return null;
+        if (empty($MJTC_product_name)) return null;
 
         // Find corresponding product in destination table
         
-        $name = $product_name;
-        $query = "
+        $MJTC_name = $MJTC_product_name;
+        $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_products`
-                WHERE LOWER(product) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($name)))."'";;
-        $ms_product_id = majesticsupport::$_db->get_var($query);
+                WHERE LOWER(product) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_name)))."'";;
+        $ms_product_id = majesticsupport::$_db->get_var($MJTC_query);
         
         return $ms_product_id ? (int)$ms_product_id : null;
     }
 
-    private function getTicketPriorityIdByFluentSupport($prioritName) {
+    private function getTicketPriorityIdByFluentSupport($MJTC_prioritName) {
         
         // Find corresponding priority in destination table
-        $query = "
+        $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` 
-                WHERE LOWER(priority) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($prioritName)))."'";
-        $ms_priority_id = majesticsupport::$_db->get_var($query);
+                WHERE LOWER(priority) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_prioritName)))."'";
+        $ms_priority_id = majesticsupport::$_db->get_var($MJTC_query);
 
         return $ms_priority_id ? (int)$ms_priority_id : null;
     }
 
     private function importFluentSupportUsers() {
         // check if user already processed for import
-        $imported_users = array();
-        $imported_users_json = get_option('mjtc_support_ticket_fluent_support_data_users');
-        if(!empty($imported_users_json)){
-            $imported_users = json_decode($imported_users_json,true);
+        $MJTC_imported_users = array();
+        $MJTC_imported_users_json = get_option('mjtc_support_ticket_fluent_support_data_users');
+        if(!empty($MJTC_imported_users_json)){
+            $MJTC_imported_users = json_decode($MJTC_imported_users_json,true);
         }
 
         // Fetch all customers
-        $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "fs_persons` WHERE person_type = 'customer' OR person_type = 'agent'";
-        $customers = majesticsupport::$_db->get_results($query);
+        $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "fs_persons` WHERE person_type = 'customer' OR person_type = 'agent'";
+        $MJTC_customers = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($customers)) return;
+        if (empty($MJTC_customers)) return;
 
-        foreach ($customers as $customer) {
-            if(!empty($customer->user_id)){
-                $wpuid = intval($customer->user_id);
+        foreach ($MJTC_customers as $MJTC_customer) {
+            if(!empty($MJTC_customer->user_id)){
+                $MJTC_wpuid = intval($MJTC_customer->user_id);
             }else{
-                $query = "SELECT user.ID
+                $MJTC_query = "SELECT user.ID
                     FROM `" . majesticsupport::$_db->prefix . "users` AS user
-                    WHERE user.user_email = '".esc_sql($customer->email)."'";
-                $user = majesticsupport::$_db->get_row($query);
-                if($user) $wpuid = intval($user->ID);
+                    WHERE user.user_email = '".esc_sql($MJTC_customer->email)."'";
+                $MJTC_user = majesticsupport::$_db->get_row($MJTC_query);
+                if($MJTC_user) $MJTC_wpuid = intval($MJTC_user->ID);
             }
-            if (empty($wpuid)) {
+            if (empty($MJTC_wpuid)) {
                 $this->fluent_support_import_count['user']['skipped']++;
                 continue;
             }
-            $customer_id = intval($customer->id);
-            $name        = sanitize_text_field($customer->first_name ?? '');
-            if($customer->last_name) $name = $name." ".sanitize_text_field($customer->last_name);
-            $email       = sanitize_email($customer->email ?? '');
+            $MJTC_customer_id = intval($MJTC_customer->id);
+            $MJTC_name        = sanitize_text_field($MJTC_customer->first_name ?? '');
+            if($MJTC_customer->last_name) $MJTC_name = $MJTC_name." ".sanitize_text_field($MJTC_customer->last_name);
+            $MJTC_email       = sanitize_email($MJTC_customer->email ?? '');
 
             // Skip if already imported
-            if (in_array($customer_id, $imported_users, true)) {
+            if (in_array($MJTC_customer_id, $MJTC_imported_users, true)) {
                 $this->fluent_support_import_count['user']['skipped']++;
                 continue;
             }
 
             // Check if user already exists
-            $user_query = "SELECT user.*
+            $MJTC_user_query = "SELECT user.*
                        FROM `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user
-                       WHERE user.wpuid = ".$wpuid;
-            $existing_user = majesticsupport::$_db->get_row($user_query);
+                       WHERE user.wpuid = ".$MJTC_wpuid;
+            $MJTC_existing_user = majesticsupport::$_db->get_row($MJTC_user_query);
 
-            if ($existing_user) {
+            if ($MJTC_existing_user) {
                 $this->fluent_support_import_count['user']['skipped']++;
                 continue;
             }
 
             // Prepare data for new user
-            $row = MJTC_includer::MJTC_getTable('users');
+            $MJTC_row = MJTC_includer::MJTC_getTable('users');
             $MJTC_data = [
                 'id'            => '',
-                'wpuid'         => $wpuid,
-                'name'          => $name,
-                'display_name'  => $name,
-                'user_email'    => $email,
+                'wpuid'         => $MJTC_wpuid,
+                'name'          => $MJTC_name,
+                'display_name'  => $MJTC_name,
+                'user_email'    => $MJTC_email,
                 'status'        => 1,
                 'issocial'      => 0,
                 'socialid'      => null,
@@ -4982,64 +5010,64 @@ class MJTC_thirdpartyimportModel {
             ];
 
             // Attempt to save the new user
-            $row->bind($MJTC_data);
-            if (!$row->store()) {
+            $MJTC_row->bind($MJTC_data);
+            if (!$MJTC_row->store()) {
                 $this->fluent_support_import_count['user']['failed']++;
                 continue;
             }
 
             // Store successful import info
-            $this->fluent_support_users_array[$customer_id] = $row->id;
-            $this->fluent_support_user_ids[] = $customer_id;
+            $this->fluent_support_users_array[$MJTC_customer_id] = $MJTC_row->id;
+            $this->fluent_support_user_ids[] = $MJTC_customer_id;
             $this->fluent_support_import_count['user']['imported']++;
         }
 
         // Save list of imported user IDs
         if (!empty($this->fluent_support_user_ids)) {
-            update_option('mjtc_support_ticket_fluent_support_data_users', wp_json_encode(array_unique(array_merge($imported_users, $this->fluent_support_user_ids))));
+            update_option('mjtc_support_ticket_fluent_support_data_users', wp_json_encode(array_unique(array_merge($MJTC_imported_users, $this->fluent_support_user_ids))));
         }
     }
 
     private function importFluentSupportAgents() {
         // check if user already processed for import
-        $imported_agents = array();
-        $imported_agent_json = get_option('mjtc_support_ticket_fluent_support_data_agents');
-        if(!empty($imported_agents_json)){
-            $imported_agents = json_decode($imported_agents_json,true);
+        $MJTC_imported_agents = array();
+        $MJTC_imported_agent_json = get_option('mjtc_support_ticket_fluent_support_data_agents');
+        if(!empty($MJTC_imported_agents_json)){
+            $MJTC_imported_agents = json_decode($MJTC_imported_agents_json,true);
         }
-        $query = "
+        $MJTC_query = "
             SELECT agent.*
             FROM `" . majesticsupport::$_db->prefix . "fs_persons` AS agent
             WHERE agent.person_type = 'agent';";
-        $agents = majesticsupport::$_db->get_results($query);
+        $MJTC_agents = majesticsupport::$_db->get_results($MJTC_query);
 
-        if($agents){
-            foreach($agents AS $agent){
+        if($MJTC_agents){
+            foreach($MJTC_agents AS $MJTC_agent){
                 // Failed if addon not installed
                 if (!in_array('agent', majesticsupport::$_active_addons) ) {
                     $this->fluent_support_import_count['agent']['failed']++;
                     continue;
                 }
-                $wpuid = (int) $agent->user_id;
+                $MJTC_wpuid = (int) $MJTC_agent->user_id;
                 // Skip if already imported
-                if (in_array($wpuid, $imported_agents, true)) {
+                if (in_array($MJTC_wpuid, $MJTC_imported_agents, true)) {
                     $this->fluent_support_import_count['agent']['skipped']++;
                     continue;
                 }
-                $first_name = $agent->first_name;
-                $last_name = $agent->last_name;
-                if($agent->status == "active") $agent_status = 1; else $agent_status = 0;
+                $MJTC_first_name = $MJTC_agent->first_name;
+                $MJTC_last_name = $MJTC_agent->last_name;
+                if($MJTC_agent->status == "active") $MJTC_agent_status = 1; else $MJTC_agent_status = 0;
 
-                $query = "SELECT user.*
+                $MJTC_query = "SELECT user.*
                             FROM `" . majesticsupport::$_db->prefix . "users` AS user
-                            WHERE user.id = " . $wpuid;
-                $wpuser = majesticsupport::$_db->get_row($query);
+                            WHERE user.id = " . $MJTC_wpuid;
+                $MJTC_wpuser = majesticsupport::$_db->get_row($MJTC_query);
 
-                if(!$wpuser){
+                if(!$MJTC_wpuser){
                     $this->fluent_support_import_count['agent']['failed'] += 1;
                     continue;
                 }
-                $mjtc_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_getmajesticsupportuidbyuserid($wpuid);
+                $mjtc_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_getmajesticsupportuidbyuserid($MJTC_wpuid);
                 if (!empty($mjtc_user) && isset($mjtc_user[0]->id)) {
                     $mjtc_uid = (int)$mjtc_user[0]->id;
                 } else {
@@ -5047,37 +5075,37 @@ class MJTC_thirdpartyimportModel {
                     continue;
                 }
 
-                $query = "SELECT staff.*
+                $MJTC_query = "SELECT staff.*
                             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff
                             WHERE staff.uid = " . $mjtc_uid;
-                $staff = majesticsupport::$_db->get_row($query);
+                $MJTC_staff = majesticsupport::$_db->get_row($MJTC_query);
 
-                if (!$staff) {
-                    $roleid = $this->getAgentRoleIdByFluentSupport($wpuid);
+                if (!$MJTC_staff) {
+                    $MJTC_roleid = $this->getAgentRoleIdByFluentSupport($MJTC_wpuid);
 
-                    $timestamp = date_i18n('Y-m-d H:i:s');
+                    $MJTC_timestamp = date_i18n('Y-m-d H:i:s');
 
                     $MJTC_data = [
                         'id'           => '',
                         'uid'          => $mjtc_uid,
                         'groupid'      => '',
-                        'roleid'       => $roleid,
+                        'roleid'       => $MJTC_roleid,
                         'departmentid' => '',
-                        'firstname'    => $first_name,
-                        'lastname'     => $last_name,
-                        'username'     => $wpuser->user_login,
-                        'email'        => $wpuser->user_email,
+                        'firstname'    => $MJTC_first_name,
+                        'lastname'     => $MJTC_last_name,
+                        'username'     => $MJTC_wpuser->user_login,
+                        'email'        => $MJTC_wpuser->user_email,
                         'signature'    => '',
                         'isadmin'      => '',
-                        'status'       => $agent_status,
-                        'updated'      => $timestamp,
-                        'created'      => $timestamp
+                        'status'       => $MJTC_agent_status,
+                        'updated'      => $MJTC_timestamp,
+                        'created'      => $MJTC_timestamp
                     ];
 
                     MJTC_includer::MJTC_getModel('agent')->storeStaff($MJTC_data);
 
                     $this->fluent_support_import_count['agent']['imported'] += 1;
-                    $this->fluent_support_agent_ids[] = $wpuid;
+                    $this->fluent_support_agent_ids[] = $MJTC_wpuid;
 
                 } else {
                     $this->fluent_support_import_count['agent']['skipped'] += 1;
@@ -5085,18 +5113,18 @@ class MJTC_thirdpartyimportModel {
             }
             // Save list of imported agent IDs
             if (!empty($this->fluent_support_agent_ids)) {
-                update_option('mjtc_support_ticket_fluent_support_data_agents', wp_json_encode(array_unique(array_merge($imported_agents, $this->fluent_support_agent_ids))));
+                update_option('mjtc_support_ticket_fluent_support_data_agents', wp_json_encode(array_unique(array_merge($MJTC_imported_agents, $this->fluent_support_agent_ids))));
             }
         }
     }
 
-    private function getAgentRoleIdByFluentSupport($id) {
-        $capabilities = get_user_meta($id, majesticsupport::$_db->prefix . 'capabilities', true);
-        $isAdmin = !empty($capabilities['administrator']);
-        $output = [];
+    private function getAgentRoleIdByFluentSupport($MJTC_id) {
+        $MJTC_capabilities = get_user_meta($MJTC_id, majesticsupport::$_db->prefix . 'capabilities', true);
+        $MJTC_isAdmin = !empty($MJTC_capabilities['administrator']);
+        $MJTC_output = [];
 
         // Define capability-to-permission mappings
-        $capabilityPermissions = [
+        $MJTC_capabilityPermissions = [
             'fst_manage_saved_replies' => [
                 'Add Canned Response' => 75,
                 'Edit Canned Response' => 76,
@@ -5157,17 +5185,17 @@ class MJTC_thirdpartyimportModel {
         ];
 
         // Loop through capabilities and add matching permissions
-        foreach ($capabilityPermissions as $capKey => $permissions) {
-            if (!empty($capabilities[$capKey]) || $isAdmin) {
-                $output = array_merge($output, $permissions);
+        foreach ($MJTC_capabilityPermissions as $MJTC_capKey => $MJTC_permissions) {
+            if (!empty($MJTC_capabilities[$MJTC_capKey]) || $MJTC_isAdmin) {
+                $MJTC_output = array_merge($MJTC_output, $MJTC_permissions);
             }
         }
 
-        $name = 'Fluent Support Agent ' . $id;
+        $MJTC_name = 'Fluent Support Agent ' . $MJTC_id;
 
         $MJTC_data = [
-            'name'          => $name,
-            'roleperdata'   => $output,
+            'name'          => $MJTC_name,
+            'roleperdata'   => $MJTC_output,
             'id'            => '',
             'created'       => '',
             'updated'       => '',
@@ -5180,176 +5208,176 @@ class MJTC_thirdpartyimportModel {
         MJTC_includer::MJTC_getModel('role')->storeRole($MJTC_data);
 
         // Retrieve role ID
-        $query = 'SELECT id FROM `' . majesticsupport::$_db->prefix . 'mjtc_support_acl_roles` WHERE name = "' . esc_sql($name) . '"';
-        $id = majesticsupport::$_db->get_var($query);
-        return $id;
+        $MJTC_query = 'SELECT id FROM `' . majesticsupport::$_db->prefix . 'mjtc_support_acl_roles` WHERE name = "' . esc_sql($MJTC_name) . '"';
+        $MJTC_id = majesticsupport::$_db->get_var($MJTC_query);
+        return $MJTC_id;
     }
 
     private function importFluentSupportProducts(){
         // check if product already processed for import
-        $imported_products = array();
-        $imported_products_json = get_option('mjtc_support_ticket_fluent_support_data_products');
-        if(!empty($imported_products_json)){
-            $imported_products = json_decode($imported_products_json,true);
+        $MJTC_imported_products = array();
+        $MJTC_imported_products_json = get_option('mjtc_support_ticket_fluent_support_data_products');
+        if(!empty($MJTC_imported_products_json)){
+            $MJTC_imported_products = json_decode($MJTC_imported_products_json,true);
         }
 
-        $query = "SELECT product.* FROM `" . majesticsupport::$_db->prefix . "fs_products` AS product;";
-        $products = majesticsupport::$_db->get_results($query);
+        $MJTC_query = "SELECT product.* FROM `" . majesticsupport::$_db->prefix . "fs_products` AS product;";
+        $MJTC_products = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($products)) return;
+        if (empty($MJTC_products)) return;
         
         // Get highest current ordering value
-        $query = "
+        $MJTC_query = "
             SELECT MAX(product.ordering)
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_products` AS product
         ";
-        $ordering = (int) majesticsupport::$_db->get_var($query);
+        $MJTC_ordering = (int) majesticsupport::$_db->get_var($MJTC_query);
 
-        foreach($products AS $product){
+        foreach($MJTC_products AS $MJTC_product){
             // Skip if already imported
-            if (in_array($product->id, $imported_products, true)) {
+            if (in_array($MJTC_product->id, $MJTC_imported_products, true)) {
                 $this->fluent_support_import_count['product']['skipped']++;
                 continue;
             }
 
-            $name = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($product->title));
+            $MJTC_name = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_product->title));
 
             // Check if this product already exists in Majestic Support
-            $check_query = "
+            $MJTC_check_query = "
                 SELECT product.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_products` AS product
-                WHERE LOWER(product.product) = '".esc_sql($name) ."'
+                WHERE LOWER(product.product) = '".esc_sql($MJTC_name) ."'
                 LIMIT 1
             ";
-            $ms_product = majesticsupport::$_db->get_row($check_query);
+            $ms_product = majesticsupport::$_db->get_row($MJTC_check_query);
 
             if(!$ms_product){
-                $row = MJTC_includer::MJTC_getTable('products');
+                $MJTC_row = MJTC_includer::MJTC_getTable('products');
                 
                 $MJTC_data = [
                     'id'               => '',
-                    'product'         => $name,
+                    'product'         => $MJTC_name,
                     'status'           => '1',
-                    'ordering'         => $ordering
+                    'ordering'         => $MJTC_ordering
                 ];
 
                 $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
-                $row->bind($MJTC_data);
+                $MJTC_row->bind($MJTC_data);
 
-                if (!$row->store()) {
+                if (!$MJTC_row->store()) {
                     $this->fluent_support_import_count['product']['failed'] += 1;
                 } else {
-                    $this->fluent_support_product_ids[] = $product->id;
+                    $this->fluent_support_product_ids[] = $MJTC_product->id;
                     $this->fluent_support_import_count['product']['imported'] += 1;
                 }
 
-                $ordering++;
+                $MJTC_ordering++;
             } else {
                 $this->fluent_support_import_count['product']['skipped'] += 1;
             }
         }
         // Save list of imported product IDs
         if (!empty($this->fluent_support_product_ids)) {
-            update_option('mjtc_support_ticket_fluent_support_data_products', wp_json_encode(array_unique(array_merge($imported_products, $this->fluent_support_product_ids))));
+            update_option('mjtc_support_ticket_fluent_support_data_products', wp_json_encode(array_unique(array_merge($MJTC_imported_products, $this->fluent_support_product_ids))));
         }
     }
     
     private function importFluentSupportPriorities() {
         // check if priority already processed for import
-        $imported_priorities = array();
-        $imported_priorities_json = get_option('mjtc_support_ticket_fluent_support_data_priorities');
-        if(!empty($imported_priorities_json)){
-            $imported_priorities = json_decode($imported_priorities_json,true);
+        $MJTC_imported_priorities = array();
+        $MJTC_imported_priorities_json = get_option('mjtc_support_ticket_fluent_support_data_priorities');
+        if(!empty($MJTC_imported_priorities_json)){
+            $MJTC_imported_priorities = json_decode($MJTC_imported_priorities_json,true);
         }
-        $priorities = array('Normal' => '#00a32a', 'Medium' => '#a5b2bd', 'Critical' => '#f06060');
+        $MJTC_priorities = array('Normal' => '#00a32a', 'Medium' => '#a5b2bd', 'Critical' => '#f06060');
 
-        if (empty($priorities)) return;
+        if (empty($MJTC_priorities)) return;
 
         // Get highest current ordering value
-        $query = "
+        $MJTC_query = "
             SELECT MAX(priority.ordering)
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority
         ";
-        $ordering = (int) majesticsupport::$_db->get_var($query);
+        $MJTC_ordering = (int) majesticsupport::$_db->get_var($MJTC_query);
 
-        foreach ($priorities as $MJTC_key => $priority) {
+        foreach ($MJTC_priorities as $MJTC_key => $MJTC_priority) {
             // Skip if already imported
-            if (in_array($priority, $imported_priorities, true)) {
+            if (in_array($MJTC_priority, $MJTC_imported_priorities, true)) {
                 $this->fluent_support_import_count['priority']['skipped']++;
                 continue;
             }
-            $name = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_key));
+            $MJTC_name = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_key));
 
             // Check if this priority already exists in Majestic Support
-            $check_query = "
+            $MJTC_check_query = "
                 SELECT priority.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority
-                WHERE LOWER(priority.priority) = '" . esc_sql($name) . "'
+                WHERE LOWER(priority.priority) = '" . esc_sql($MJTC_name) . "'
                 LIMIT 1
             ";
-            $ms_priority = majesticsupport::$_db->get_row($check_query);
+            $ms_priority = majesticsupport::$_db->get_row($MJTC_check_query);
 
             if (!$ms_priority) {
-                $row = MJTC_includer::MJTC_getTable('priorities');
+                $MJTC_row = MJTC_includer::MJTC_getTable('priorities');
 
                 $MJTC_data = [
                     'id'               => '',
-                    'priority'         => $name,
-                    'prioritycolour'   => $priority,
+                    'priority'         => $MJTC_name,
+                    'prioritycolour'   => $MJTC_priority,
                     'priorityurgency'  => '',
                     'overduetypeid'    => 1,
                     'overdueinterval'  => 7,
-                    'ordering'         => $ordering,
+                    'ordering'         => $MJTC_ordering,
                     'status'           => '1',
                     'isdefault'        => '0',
                     'ispublic'         => '1'
                 ];
 
                 $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
-                $row->bind($MJTC_data);
+                $MJTC_row->bind($MJTC_data);
 
-                if (!$row->store()) {
+                if (!$MJTC_row->store()) {
                     $this->fluent_support_import_count['priority']['failed'] += 1;
                 } else {
-                    $this->fluent_support_priority_ids[] = $priority;
+                    $this->fluent_support_priority_ids[] = $MJTC_priority;
                     $this->fluent_support_import_count['priority']['imported'] += 1;
                 }
 
-                $ordering++;
+                $MJTC_ordering++;
             } else {
                 $this->fluent_support_import_count['priority']['skipped'] += 1;
             }
         }
         // Save list of imported priority IDs
         if (!empty($this->fluent_support_priority_ids)) {
-            update_option('mjtc_support_ticket_fluent_support_data_priorities', wp_json_encode(array_unique(array_merge($imported_priorities, $this->fluent_support_priority_ids))));
+            update_option('mjtc_support_ticket_fluent_support_data_priorities', wp_json_encode(array_unique(array_merge($MJTC_imported_priorities, $this->fluent_support_priority_ids))));
         }
     }
 
     private function importFluentSupportPremades() {
         // check if premade already processed for import
-        $imported_premades = array();
-        $imported_premades_json = get_option('mjtc_support_ticket_fluent_support_data_premades');
-        if(!empty($imported_premades_json)){
-            $imported_premades = json_decode($imported_premades_json,true);
+        $MJTC_imported_premades = array();
+        $MJTC_imported_premades_json = get_option('mjtc_support_ticket_fluent_support_data_premades');
+        if(!empty($MJTC_imported_premades_json)){
+            $MJTC_imported_premades = json_decode($MJTC_imported_premades_json,true);
         }
-        $query = "
+        $MJTC_query = "
             SELECT canned_reply.*
             FROM `" . majesticsupport::$_db->prefix . "fs_saved_replies` AS canned_reply
         ";
-        $canned_replies = majesticsupport::$_db->get_results($query);
+        $MJTC_canned_replies = majesticsupport::$_db->get_results($MJTC_query);
 
-        if (empty($canned_replies)) return;
+        if (empty($MJTC_canned_replies)) return;
 
-        foreach ($canned_replies as $canned_reply) {
-            $title = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($canned_reply->title));
+        foreach ($MJTC_canned_replies as $MJTC_canned_reply) {
+            $title = MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_canned_reply->title));
             // Failed if addon not installed
             if (!in_array('cannedresponses', majesticsupport::$_active_addons) ) {
                 $this->fluent_support_import_count['canned response']['failed']++;
                 continue;
             }
             // Skip if already imported
-            if (in_array($canned_reply->id, $imported_premades, true)) {
+            if (in_array($MJTC_canned_reply->id, $MJTC_imported_premades, true)) {
                 $this->fluent_support_import_count['canned response']['skipped']++;
                 continue;
             }
@@ -5359,13 +5387,13 @@ class MJTC_thirdpartyimportModel {
                 continue;
             }
             // Check if this premade already exists in Majestic Support
-            $check_query = "
+            $MJTC_check_query = "
                 SELECT premade.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_department_message_premade` AS premade
                 WHERE LOWER(premade.title) = '" . esc_sql($title) . "'
                 LIMIT 1
             ";
-            $ms_canned_reply = majesticsupport::$_db->get_row($check_query);
+            $ms_canned_reply = majesticsupport::$_db->get_row($MJTC_check_query);
 
             if (!$ms_canned_reply) {
                 $MJTC_departmentid = '';
@@ -5391,10 +5419,10 @@ class MJTC_thirdpartyimportModel {
 
                 // Step 3: If still no department found, insert 'Support' and get its ID
                 if (!$MJTC_department) {
-                    $row = MJTC_includer::MJTC_getTable('departments');
+                    $MJTC_row = MJTC_includer::MJTC_getTable('departments');
 
-                        $updated = date_i18n('Y-m-d H:i:s');
-                        $created = date_i18n('Y-m-d H:i:s');
+                        $MJTC_updated = date_i18n('Y-m-d H:i:s');
+                        $MJTC_created = date_i18n('Y-m-d H:i:s');
 
                         $MJTC_data = [
                             'id'              => '',
@@ -5404,43 +5432,43 @@ class MJTC_thirdpartyimportModel {
                             'status'          => '1',
                             'isdefault'       => '0',
                             'ispublic'        => '1',
-                            'updated'         => $updated,
-                            'created'         => $created
+                            'updated'         => $MJTC_updated,
+                            'created'         => $MJTC_created
                         ];
 
                         $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
-                        $row->bind($MJTC_data);
+                        $MJTC_row->bind($MJTC_data);
 
-                        if ($row->store()) {
-                            $MJTC_departmentid = $row->id;
+                        if ($MJTC_row->store()) {
+                            $MJTC_departmentid = $MJTC_row->id;
                         }
                 } else {
                     $MJTC_departmentid = $MJTC_department->id;
                 }
 
                 // Prepare canned response data
-                $row = MJTC_includer::MJTC_getTable('cannedresponses');
-                $updated = date_i18n('Y-m-d H:i:s');
+                $MJTC_row = MJTC_includer::MJTC_getTable('cannedresponses');
+                $MJTC_updated = date_i18n('Y-m-d H:i:s');
 
                 $MJTC_data = [
                     'id'          => '',
                     'departmentid'=> $MJTC_departmentid,
-                    'title'       => $canned_reply->title,
-                    'answer'      => $canned_reply->content,
+                    'title'       => $MJTC_canned_reply->title,
+                    'answer'      => $MJTC_canned_reply->content,
                     'status'      => '1',
-                    'updated'     => $updated,
-                    'created'     => $canned_reply->created_at
+                    'updated'     => $MJTC_updated,
+                    'created'     => $MJTC_canned_reply->created_at
                 ];
 
                 $MJTC_data = majesticsupport::MJTC_sanitizeData($MJTC_data);
                 $MJTC_data['answer'] = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($MJTC_data['answer']);
                 $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);
 
-                $row->bind($MJTC_data);
-                if (!$row->store()) {
+                $MJTC_row->bind($MJTC_data);
+                if (!$MJTC_row->store()) {
                     $this->fluent_support_import_count['canned response']['failed'] += 1;
                 } else {
-                    $this->fluent_support_premade_ids[] = $canned_reply->id;
+                    $this->fluent_support_premade_ids[] = $MJTC_canned_reply->id;
                     $this->fluent_support_import_count['canned response']['imported'] += 1;
                 }
             } else {
@@ -5450,7 +5478,7 @@ class MJTC_thirdpartyimportModel {
 
         // Save list of imported premade IDs
         if (!empty($this->fluent_support_premade_ids)) {
-            update_option('mjtc_support_ticket_fluent_support_data_premades', wp_json_encode(array_unique(array_merge($imported_premades, $this->fluent_support_premade_ids))));
+            update_option('mjtc_support_ticket_fluent_support_data_premades', wp_json_encode(array_unique(array_merge($MJTC_imported_premades, $this->fluent_support_premade_ids))));
         }
     }
 
@@ -5464,62 +5492,62 @@ class MJTC_thirdpartyimportModel {
             return new WP_Error('mjtc_inactive', 'FluentSupport is not active.');
         }
 
-        $entity_counts = [];
+        $MJTC_entity_counts = [];
 
         // Users
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "fs_persons'")) {
-            $query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "fs_persons` WHERE person_type = 'customer' OR person_type = 'agent'";
-            $MJTC_count = (int) majesticsupport::$_db->get_var($query);
-            if ($MJTC_count > 0) $entity_counts['user'] = $MJTC_count;
+            $MJTC_query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "fs_persons` WHERE person_type = 'customer' OR person_type = 'agent'";
+            $MJTC_count = (int) majesticsupport::$_db->get_var($MJTC_query);
+            if ($MJTC_count > 0) $MJTC_entity_counts['user'] = $MJTC_count;
         }
 
         // Agents
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "fs_persons'")) {
-            $query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "fs_persons` AS agent
+            $MJTC_query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "fs_persons` AS agent
             WHERE agent.person_type = 'agent';";
-            $MJTC_count = (int) majesticsupport::$_db->get_var($query);
-            if ($MJTC_count > 0) $entity_counts['agent'] = $MJTC_count;
+            $MJTC_count = (int) majesticsupport::$_db->get_var($MJTC_query);
+            if ($MJTC_count > 0) $MJTC_entity_counts['agent'] = $MJTC_count;
         }
 
         // Priorities
-        $entity_counts['priority'] = 3;
+        $MJTC_entity_counts['priority'] = 3;
 
         // Canned Responses
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "fs_saved_replies'")) {
-            $query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "fs_saved_replies`";
-            $MJTC_count = (int) majesticsupport::$_db->get_var($query);
-            if ($MJTC_count > 0) $entity_counts['canned response'] = $MJTC_count;
+            $MJTC_query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "fs_saved_replies`";
+            $MJTC_count = (int) majesticsupport::$_db->get_var($MJTC_query);
+            if ($MJTC_count > 0) $MJTC_entity_counts['canned response'] = $MJTC_count;
         }
 
         // Products
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "fs_products'")) {
-            $query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "fs_products`";
-            $MJTC_count = (int) majesticsupport::$_db->get_var($query);
-            if ($MJTC_count > 0) $entity_counts['product'] = $MJTC_count;
+            $MJTC_query = "SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "fs_products`";
+            $MJTC_count = (int) majesticsupport::$_db->get_var($MJTC_query);
+            if ($MJTC_count > 0) $MJTC_entity_counts['product'] = $MJTC_count;
         }
 
         // Custom Ticket Fields
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "fs_meta'")) {
-            $query = "
+            $MJTC_query = "
             SELECT * FROM `" . majesticsupport::$_db->prefix . "fs_meta`
             WHERE object_type = 'option' AND `key` = '_ticket_custom_fields';";
-            $custom_fields_serializeed = majesticsupport::$_db->get_row($query);
-            if (!empty($custom_fields_serializeed)) {
-                $custom_fields = unserialize($custom_fields_serializeed->value);
-                $MJTC_count = count($custom_fields);
-                if ($MJTC_count > 0) $entity_counts['field'] = $MJTC_count;
+            $MJTC_custom_fields_serializeed = majesticsupport::$_db->get_row($MJTC_query);
+            if (!empty($MJTC_custom_fields_serializeed)) {
+                $MJTC_custom_fields = unserialize($MJTC_custom_fields_serializeed->value);
+                $MJTC_count = count($MJTC_custom_fields);
+                if ($MJTC_count > 0) $MJTC_entity_counts['field'] = $MJTC_count;
             }
         }
 
         // Tickets with type 'report'
         if (majesticsupport::$_db->get_var("SHOW TABLES LIKE '" . majesticsupport::$_db->prefix . "fs_tickets'")) {
-            $query = "SELECT COUNT(DISTINCT tickets.id)
+            $MJTC_query = "SELECT COUNT(DISTINCT tickets.id)
                 FROM `" . majesticsupport::$_db->prefix . "fs_tickets` AS tickets";
-            $MJTC_count = (int) majesticsupport::$_db->get_var($query);
-            if ($MJTC_count > 0) $entity_counts['ticket'] = $MJTC_count;
+            $MJTC_count = (int) majesticsupport::$_db->get_var($MJTC_query);
+            if ($MJTC_count > 0) $MJTC_entity_counts['ticket'] = $MJTC_count;
         }
 
-        majesticsupport::$_data['entity_counts'] = $entity_counts;
+        majesticsupport::$_data['entity_counts'] = $MJTC_entity_counts;
     }
 }
 

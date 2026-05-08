@@ -8,13 +8,13 @@ if (!defined('ABSPATH'))
         MJTC_message::MJTC_getMessage();
         include_once(MJTC_PLUGIN_PATH . 'includes/header.php'); ?>
         <div class="mjtc-support-top-sec-header">
-            <img class="mjtc-transparent-header-img1" alt="<?php echo esc_html(__('image', 'majestic-support')); ?>"
+            <img class="mjtc-transparent-header-img1" alt="<?php echo esc_attr(__('Image', 'majestic-support')); ?>"
                 src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/tp-image.png" />
             <div class="mjtc-support-top-sec-left-header">
                 <div class="mjtc-support-main-heading">
                     <?php echo esc_html(__("Login",'majestic-support')); ?>
                 </div>
-                <?php MJTC_includer::MJTC_getModel('majesticsupport')->getPageBreadcrumps('login'); ?>
+                <div class="mjtc-support-sub-heading"><?php echo esc_html(__("Access your account securely to manage tickets, view updates, and connect with support",'majestic-support')); ?></div>
             </div>
         </div>
         <div class="mjtc-support-cont-main-wrapper">
@@ -22,11 +22,11 @@ if (!defined('ABSPATH'))
                 <div class="mjtc-support-login-wrapper">
                     <div class="mjtc-support-login">
                         <?php
-                        $redirecturl = MJTC_request::MJTC_getVar('mjtc_redirecturl','GET', MJTC_majesticsupportphplib::MJTC_safe_encoding(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport','mjslay'=>'controlpanel'))));
-                        $redirecturl = MJTC_majesticsupportphplib::MJTC_safe_decoding($redirecturl);
+                        $MJTC_redirecturl = MJTC_request::MJTC_getVar('mjtc_redirecturl','GET', MJTC_majesticsupportphplib::MJTC_safe_encoding(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport','mjslay'=>'controlpanel'))));
+                        $MJTC_redirecturl = MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_redirecturl);
                         if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()) { // Display WordPress login form:
-                            $args = array(
-                                'redirect' => $redirecturl,
+                            $MJTC_args = array(
+                                'redirect' => $MJTC_redirecturl,
                                 'form_id' => 'loginform-custom',
                                 'label_username' => esc_html(__('Username', 'majestic-support')),
                                 'label_password' => esc_html(__('Password', 'majestic-support')),
@@ -34,7 +34,7 @@ if (!defined('ABSPATH'))
                                 'label_log_in' => esc_html(__('Login', 'majestic-support')),
                                 'remember' => true
                             );
-                            wp_login_form($args);
+                            wp_login_form($MJTC_args);
                         }else{ // user not Staff
                             MJTC_layout::MJTC_getYouAreLoggedIn();
                         }

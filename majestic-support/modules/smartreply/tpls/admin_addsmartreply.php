@@ -39,20 +39,22 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                         <div class="mjtc-form-title"><?php echo esc_html(__('Ticket Subject', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
                         <div class="mjtc-form-value" onclick="addtext();">
                             <?php echo wp_kses(MJTC_formfield::MJTC_text('ticketsubjects[]', isset(majesticsupport::$_data[0]->smartreplycolour) ? majesticsupport::$_data[0]->smartreply : '', array('class' => 'inputbox mjtc-form-input-field', 'placeholder' =>  esc_html(__('Enter Ticket Subject', 'majestic-support')), 'autocomplete' => 'off')), MJTC_ALLOWED_TAGS); ?>
-                           <span class="ms-add-ticket-subject-overall-wrapper"> <img class="ms-add-ticket-subject" alt="<?php echo esc_html(__('Add','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/smart-reply/PLUS-ICON-new.png" /></span>
+                           <span class="ms-add-ticket-subject-overall-wrapper">
+                                <svg class="ms-add-ticket-subject" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+                            </span>
                         </div>
                     </div>
                     <?php
                     if (isset(majesticsupport::$_data[0]->ticketsubjects)) {
-                        foreach (majesticsupport::$_data[0]->ticketsubjects as $MJTC_key => $message) {
+                        foreach (majesticsupport::$_data[0]->ticketsubjects as $MJTC_key => $MJTC_message) {
                             $MJTC_count =  $MJTC_key+1;
                             $MJTC_divid = "divedit_".$MJTC_count;
                             ?>
                             <div id="<?php echo esc_attr($MJTC_divid) ?>" class="mjtc-form-wrapper fullwidth">
                             <div class="mjtc-form-value del-btn-wrp">
-                                <?php echo wp_kses(MJTC_formfield::MJTC_text('ticketsubjects[]', isset($message) ? majesticsupport::MJTC_getVarValue($message) : '', array('class' => 'inputbox one mjtc-form-input-field usr-input1', 'data-validation' => 'required', 'placeholder' => 'Ticket Subject Here')),MJTC_ALLOWED_TAGS); ?>
+                                <?php echo wp_kses(MJTC_formfield::MJTC_text('ticketsubjects[]', isset($MJTC_message) ? majesticsupport::MJTC_getVarValue($MJTC_message) : '', array('class' => 'inputbox one mjtc-form-input-field usr-input1', 'data-validation' => 'required', 'placeholder' => 'Ticket Subject Here')),MJTC_ALLOWED_TAGS); ?>
                                 <button type="button" onClick="deleteMsg(<?php echo esc_js($MJTC_divid) ?>)" class="del-btn">
-                                    <img src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/smart-reply/delete.png" alt="<?php echo esc_html(__('delete','majestic-support')); ?>">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path></svg>
                                 </button>
                             </div>
                             </div>
@@ -75,6 +77,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                 <?php echo wp_kses(MJTC_formfield::MJTC_hidden('uid', MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid()), MJTC_ALLOWED_TAGS); ?>
                 <div class="mjtc-form-button">
                     <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('save', esc_html(__('Save Smart Reply', 'majestic-support')), array('class' => 'button mjtc-form-save','onClick' => 'return validateInput();')), MJTC_ALLOWED_TAGS); ?>
+                    <a href="admin.php?page=majesticsupport_smartreply" class="mjtc-form-cancel"><?php echo esc_html(__('Cancel','majestic-support')); ?></a>
                 </div>
             </form>
         </div>
@@ -86,7 +89,7 @@ $majesticsupport_js ="
     function addtext(){
         var reqvalue = jQuery('#ms-ticket-subject :input').val();
         if(reqvalue!='') {
-            var str = '<div id=\"div_'+divid+'\" class=\"mjtc-form-wrapper fullwidth\"><div class=\"mjtc-form-value del-btn-wrp\"><input type=\"text\" name=\"ticketsubjects[]\" id=\"ticketsubjects\" value=\"'+reqvalue+'\" class=\"inputbox one mjtc-form-input-field\" data-validation=\"required\" placeholder=\"Ticket Subject Here\"><button type=\"button\" onClick=\"deleteMsg(div_'+divid+')\" class=\"del-btn\"><img src=\"". esc_url(MJTC_PLUGIN_URL)."includes/images/smart-reply/delete.png\" alt=\"". esc_html(__('delete','majestic-support'))."\"></button></div></div>';
+            var str = '<div id=\"div_'+divid+'\" class=\"mjtc-form-wrapper fullwidth\"><div class=\"mjtc-form-value del-btn-wrp\"><input type=\"text\" name=\"ticketsubjects[]\" id=\"ticketsubjects\" value=\"'+reqvalue+'\" class=\"inputbox one mjtc-form-input-field\" data-validation=\"required\" placeholder=\"Ticket Subject Here\"><button type=\"button\" onClick=\"deleteMsg(div_'+divid+')\" class=\"del-btn\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z\"></path></svg></button></div></div>';
             jQuery('#ms-ticket-subject').after(str);
 
             jQuery('#ms-ticket-subject :input').val('');
@@ -111,7 +114,7 @@ $majesticsupport_js ="
     function validate(e) {
         var reqvalue = jQuery('#ms-ticket-subject :input').val();
         if(reqvalue!='') {
-            var str = '<div id=\"div_'+divid+'\" class=\"mjtc-form-wrapper fullwidth\"><div class=\"mjtc-form-value del-btn-wrp\"><input type=\"text\" name=\"ticketsubjects[]\" id=\"ticketsubjects\" value=\"'+reqvalue+'\" class=\"inputbox one mjtc-form-input-field\" data-validation=\"required\" placeholder=\"Ticket Subject Here\"><button type=\"button\" onClick=\"deleteMsg(div_'+divid+')\" class=\"del-btn\"><img src=\"". esc_url(MJTC_PLUGIN_URL)."includes/images/smart-reply/delete.png\" alt=\"". esc_html(__('delete','majestic-support'))."\"></button></div></div>';
+            var str = '<div id=\"div_'+divid+'\" class=\"mjtc-form-wrapper fullwidth\"><div class=\"mjtc-form-value del-btn-wrp\"><input type=\"text\" name=\"ticketsubjects[]\" id=\"ticketsubjects\" value=\"'+reqvalue+'\" class=\"inputbox one mjtc-form-input-field\" data-validation=\"required\" placeholder=\"Ticket Subject Here\"><button type=\"button\" onClick=\"deleteMsg(div_'+divid+')\" class=\"del-btn\"><img src=\"". esc_url(MJTC_PLUGIN_URL)."includes/images/smart-reply/delete.png\" alt=\"". esc_html(__('Delete','majestic-support'))."\"></button></div></div>';
             jQuery('#ms-ticket-subject').after(str);
 
             jQuery('#ms-ticket-subject :input').val('');

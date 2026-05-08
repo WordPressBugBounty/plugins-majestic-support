@@ -25,7 +25,7 @@ jQuery(document).ready(function () {
 
 ";
 wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
-$dayshours = array(
+$MJTC_dayshours = array(
     (object) array('id' => '1', 'text' => esc_html(__('Days', 'majestic-support'))),
     (object) array('id' => '2', 'text' => esc_html(__('Hours', 'majestic-support')))
     );
@@ -47,18 +47,18 @@ $dayshours = array(
                     <div class="mjtc-form-title"><?php echo esc_html(__('Color', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
                     <div class="mjtc-form-value">
                         <?php
-                        $style = '';
+                        $MJTC_style = '';
                         if (!empty(majesticsupport::$_data[0]->prioritycolour)) {
-                            $style = "background:".majesticsupport::$_data[0]->prioritycolour;
+                            $MJTC_style = "background:".majesticsupport::$_data[0]->prioritycolour;
                         } ?>
-                        <span style="<?php echo esc_attr($style); ?>" class="mjtc-form-prioritycolor-wrp"></span>
+                        <span style="<?php echo esc_attr($MJTC_style); ?>" class="mjtc-form-prioritycolor-wrp"></span>
                         <?php echo wp_kses(MJTC_formfield::MJTC_text('prioritycolor', isset(majesticsupport::$_data[0]->prioritycolour) ? majesticsupport::$_data[0]->prioritycolour : '', array('class' => 'inputbox mjtc-form-input-field mjtc-form-prioritycolor-field', 'data-validation' => 'required', 'autocomplete' => 'off')), MJTC_ALLOWED_TAGS); ?>
                     </div>
                 </div>
                 <?php if(in_array('overdue', majesticsupport::$_active_addons)){ ?>
                     <div class="mjtc-form-wrapper">
                         <div class="mjtc-form-title"><?php echo esc_html(__('Ticket Overdue Interval Type', 'majestic-support')); ?></div>
-                        <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('overduetypeid', $dayshours , (isset(majesticsupport::$_data[0]->overduetypeid) ? majesticsupport::$_data[0]->overduetypeid : '' ), '',array('class' => 'inputbox mjtc-form-select-field')), MJTC_ALLOWED_TAGS)?></div>
+                        <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('overduetypeid', $MJTC_dayshours , (isset(majesticsupport::$_data[0]->overduetypeid) ? majesticsupport::$_data[0]->overduetypeid : '' ), '',array('class' => 'inputbox mjtc-form-select-field')), MJTC_ALLOWED_TAGS)?></div>
                     </div>
                     <div class="mjtc-form-wrapper">
                         <div class="mjtc-form-title"><?php echo esc_html(__('Ticket Overdue', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
@@ -84,6 +84,7 @@ $dayshours = array(
                 <?php echo wp_kses(MJTC_formfield::MJTC_hidden('uid', MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid()), MJTC_ALLOWED_TAGS); ?>
                 <div class="mjtc-form-button">
                     <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('save', esc_html(__('Save Priority', 'majestic-support')), array('class' => 'button mjtc-form-save')), MJTC_ALLOWED_TAGS); ?>
+                    <a href="admin.php?page=majesticsupport_priority" class="mjtc-form-cancel"><?php echo esc_html(__('Cancel','majestic-support')); ?></a>
                 </div>
             </form>
         </div>

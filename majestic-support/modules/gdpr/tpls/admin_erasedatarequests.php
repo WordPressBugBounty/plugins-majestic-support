@@ -26,60 +26,62 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
             <?php if (!empty(majesticsupport::$_data[0])) { ?>
                 <table id="majestic-support-table">
                     <tr class="majestic-support-table-heading">
-                        <th class="left"><?php echo esc_html(__('Subject', 'majestic-support')); ?></th>
-                        <th class="left"><?php echo esc_html(__('Message', 'majestic-support')); ?></th>
-                        <th ><?php echo esc_html(__('Email', 'majestic-support')); ?></th>
-                        <th><?php echo esc_html(__('Request Status', 'majestic-support')); ?></th>
-                        <th><?php echo esc_html(__('Created', 'majestic-support')); ?></th>
-                        <th><?php echo esc_html(__('Action', 'majestic-support')); ?></th>
+                        <th class="left majestic-support-table-title"><?php echo esc_html(__('Subject', 'majestic-support')); ?></th>
+                        <th class="left majestic-support-table-subject"><?php echo esc_html(__('Message', 'majestic-support')); ?></th>
+                        <th class="majestic-support-table-requestemail"><?php echo esc_html(__('Email', 'majestic-support')); ?></th>
+                        <th class="majestic-support-table-status"><?php echo esc_html(__('Request Status', 'majestic-support')); ?></th>
+                        <th class="majestic-support-table-created-date"><?php echo esc_html(__('Created', 'majestic-support')); ?></th>
+                        <th class="majestic-support-table-erase-actions"><?php echo esc_html(__('Action', 'majestic-support')); ?></th>
                     </tr>
                     <?php
                     foreach (majesticsupport::$_data[0] AS $MJTC_request) {
                         ?>
                         <tr>
-                            <td class="left">
+                            <td class="left majestic-support-table-title">
                                 <span class="majestic-support-table-responsive-heading">
                                     <?php echo esc_html(__('Subject', 'majestic-support'));echo esc_html(" : "); ?>
                                 </span>
                                 <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_request->subject)); ?>
                             </td>
-                            <td class="left">
+                            <td class="left majestic-support-table-subject">
                                 <span class="majestic-support-table-responsive-heading">
                                     <?php echo esc_html(__('Message', 'majestic-support'));echo esc_html(" : "); ?>
                                 </span>
                                 <?php echo wp_kses($MJTC_request->message, MJTC_ALLOWED_TAGS); ?>
                             </td>
-                            <td>
+                            <td class="majestic-support-table-requestemail">
                                 <span class="majestic-support-table-responsive-heading">
                                     <?php echo esc_html(__('Email', 'majestic-support')); echo esc_html(" : "); ?>
                                 </span>
                                 <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_request->user_email)); ?>
                             </td>
-                            <td>
+                            <td class="majestic-support-table-status">
                                 <span class="majestic-support-table-responsive-heading">
                                     <?php echo esc_html(__('Request Status', 'majestic-support')); echo esc_html(" : "); ?>
                                 </span>
-                                <?php
-                                    if($MJTC_request->status == 1){
-                                        echo esc_html(__('Awaiting response','majestic-support'));
-                                    }elseif($MJTC_request->status == 2){
-                                        echo esc_html(__('Erased identifying data','majestic-support'));
-                                    }else{
-                                        echo esc_html(__('Deleted','majestic-support'));
-                                    }
-                                ?>
+                                <span class="mjtc-badge-warning">
+                                    <?php
+                                        if($MJTC_request->status == 1){
+                                            echo esc_html(__('Awaiting response','majestic-support'));
+                                        }elseif($MJTC_request->status == 2){
+                                            echo esc_html(__('Erased identifying data','majestic-support'));
+                                        }else{
+                                            echo esc_html(__('Deleted','majestic-support'));
+                                        }
+                                    ?>
+                                </span>
                             </td>
-                            <td>
+                            <td class="majestic-support-table-created-date">
                                 <span class="majestic-support-table-responsive-heading">
                                     <?php echo esc_html(__('Created', 'majestic-support'));echo esc_html(" : "); ?>
                                 </span>
                                 <?php echo esc_html(date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_request->created))); ?>
                             </td>
-                            <td>
-                                <a title="<?php echo esc_attr(__('Erase identifying data', 'majestic-support'));?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure to erase identifying data', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_gdpr&task=eraseidentifyinguserdata&action=mstask&majesticsupportid='.esc_attr($MJTC_request->uid),'erase-userdata-'.esc_attr($MJTC_request->uid)));?>">
+                            <td class="majestic-support-table-erase-actions">
+                                <a title="<?php echo esc_attr(__('Erase identifying data', 'majestic-support'));?>" class="action-btn majestic-support-table-erase-identifying-data" onclick="return confirm('<?php echo esc_html(__('Are you sure to erase identifying data', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_gdpr&task=eraseidentifyinguserdata&action=mstask&majesticsupportid='.esc_attr($MJTC_request->uid),'erase-userdata-'.esc_attr($MJTC_request->uid)));?>">
                                     <?php echo esc_html(__('Erase identifying data', 'majestic-support'));?>
                                 </a>
-                                <a title="<?php echo esc_attr(__('Delete data', 'majestic-support'));?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_gdpr&task=deleteuserdata&action=mstask&majesticsupportid='.esc_attr($MJTC_request->uid),'delete-userdata-'.esc_attr($MJTC_request->uid)));?>">
+                                <a title="<?php echo esc_attr(__('Delete data', 'majestic-support'));?>" class="action-btn majestic-support-table-erase-delete-data" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_gdpr&task=deleteuserdata&action=mstask&majesticsupportid='.esc_attr($MJTC_request->uid),'delete-userdata-'.esc_attr($MJTC_request->uid)));?>">
                                     <?php echo esc_html(__('Delete data', 'majestic-support'));?>
                                 </a>
                             </td>

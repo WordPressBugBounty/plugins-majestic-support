@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                     <?php
                     if (!empty(majesticsupport::$_data['extra_addons'])) { ?>
                         <div class="msadmin-update-key-errormsgwrp">
-                            <img alt="<?php echo esc_html(__("Info", 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/icon.png" />
+                            <img alt="<?php echo esc_attr(__("Info", 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/icon.png" />
                             <?php echo esc_html(__("The highlighted addons are not included in your current license. Please adjust your selection accordingly.", 'majestic-support')); ?>
                         </div>
                         <?php
@@ -34,40 +34,40 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                         </div>
                     </div>
                     <?php
-                    $addon_array = [];
+                    $MJTC_addon_array = [];
 
-                    $all_plugins = get_plugins();
-                    $extra_addons = majesticsupport::$_data['extra_addons'];
-                    $allowed_addons = majesticsupport::$_data['allowed_addons'];
+                    $MJTC_all_plugins = get_plugins();
+                    $MJTC_extra_addons = majesticsupport::$_data['extra_addons'];
+                    $MJTC_allowed_addons = majesticsupport::$_data['allowed_addons'];
                     
 
-                    foreach ($all_plugins as $plugin_file => $plugin_data) {
+                    foreach ($MJTC_all_plugins as $MJTC_plugin_file => $MJTC_plugin_data) {
                         // Match plugin directory or main file starting with 'majestic-support-'
-                        if (MJTC_majesticsupportphplib::MJTC_strpos($plugin_file, 'majestic-support-') === 0) {
-                            $slug = MJTC_majesticsupportphplib::MJTC_dirname($plugin_file); // Gets 'majestic-support-actions'
-                            $addon_array[$slug] = $plugin_data;
+                        if (MJTC_majesticsupportphplib::MJTC_strpos($MJTC_plugin_file, 'majestic-support-') === 0) {
+                            $MJTC_slug = MJTC_majesticsupportphplib::MJTC_dirname($MJTC_plugin_file); // Gets 'majestic-support-actions'
+                            $MJTC_addon_array[$MJTC_slug] = $MJTC_plugin_data;
                         }
                     }
                     ?>
                     <div class="msadmin-update-key-all-addons-wrp">
                         <?php 
-                        if (!empty($addon_array)) {
+                        if (!empty($MJTC_addon_array)) {
                             $majesticsupport_addons = MJTC_includer::MJTC_getModel('premiumplugin')->MJTC_getAddonsArray();
-                            foreach ($addon_array as $MJTC_key => $MJTC_value) {
-                                $error_class = '';
-                                $isChecked = false;
-                                if (!empty($extra_addons)) {
-                                    if(MJTC_majesticsupportphplib::MJTC_strpos($extra_addons, $MJTC_key) !== false) {
-                                        $error_class = 'msadmin-update-key-single-addon-red';
+                            foreach ($MJTC_addon_array as $MJTC_key => $MJTC_value) {
+                                $MJTC_error_class = '';
+                                $MJTC_isChecked = false;
+                                if (!empty($MJTC_extra_addons)) {
+                                    if(MJTC_majesticsupportphplib::MJTC_strpos($MJTC_extra_addons, $MJTC_key) !== false) {
+                                        $MJTC_error_class = 'msadmin-update-key-single-addon-red';
                                     }
                                 }
-                                if (!empty($allowed_addons)) {
-                                    if(MJTC_majesticsupportphplib::MJTC_strpos($allowed_addons, $MJTC_key) !== false) {
-                                        $isChecked = true;
+                                if (!empty($MJTC_allowed_addons)) {
+                                    if(MJTC_majesticsupportphplib::MJTC_strpos($MJTC_allowed_addons, $MJTC_key) !== false) {
+                                        $MJTC_isChecked = true;
                                     }
                                 } ?>
-                                <div class="msadmin-update-key-single-addon <?php echo esc_attr($error_class); ?>">
-                                    <input id="addon-<?php echo esc_attr( $MJTC_key ); ?>" name="<?php echo esc_attr( $MJTC_key ); ?>" class="msadmin-update-key-checkbox" type="checkbox" <?php echo $isChecked ? 'checked' : ''; ?>>
+                                <div class="msadmin-update-key-single-addon <?php echo esc_attr($MJTC_error_class); ?>">
+                                    <input id="addon-<?php echo esc_attr( $MJTC_key ); ?>" name="<?php echo esc_attr( $MJTC_key ); ?>" class="msadmin-update-key-checkbox" type="checkbox" <?php echo esc_attr($MJTC_isChecked) ? 'checked' : ''; ?>>
                                     <?php
                                     if (!empty($majesticsupport_addons[$MJTC_value['TextDomain']]['title'])) {
                                         echo esc_html($majesticsupport_addons[$MJTC_value['TextDomain']]['title']);
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                         ?>
                     </div>
                     <div class="msadmin-update-key-infomsgwrp">
-                        <img alt="<?php echo esc_html(__("Info", 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/addon-images/info-icon.png" />
+                        <img alt="<?php echo esc_attr(__("Info", 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/addon-images/info-icon.png" />
                         <?php echo esc_html(__("This will replace the old key with the new one.", 'majestic-support')); ?>
                     </div>
                     <div class="msadmin-update-key-updtebtn-wrp">

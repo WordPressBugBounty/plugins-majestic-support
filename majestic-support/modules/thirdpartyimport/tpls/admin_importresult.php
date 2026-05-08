@@ -9,19 +9,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
         <?php MJTC_includer::MJTC_getModel('majesticsupport')->getPageTitle('importresult'); ?>
         <div id="msadmin-data-wrp">
             <?php
-            $results_array = get_option('mjtc_import_counts');
-            $plugin_label = 'SupportCandy';
+            $MJTC_results_array = get_option('mjtc_import_counts');
+            $MJTC_plugin_label = 'SupportCandy';
             if(!empty(majesticsupport::$_data['import_for'])){
-                $import_for = majesticsupport::$_data['import_for'];
-                if($import_for == 1){
-                    $plugin_label = 'SupportCandy';
-                } elseif($import_for == 2){
-                    $plugin_label = 'AwesomeSupport';
-                } elseif($import_for == 3){
-                    $plugin_label = 'FluentSupport';
+                $MJTC_import_for = majesticsupport::$_data['import_for'];
+                if($MJTC_import_for == 1){
+                    $MJTC_plugin_label = 'SupportCandy';
+                } elseif($MJTC_import_for == 2){
+                    $MJTC_plugin_label = 'AwesomeSupport';
+                } elseif($MJTC_import_for == 3){
+                    $MJTC_plugin_label = 'FluentSupport';
                 }
             }
-            if(!empty($results_array)){ ?>
+            if(!empty($MJTC_results_array)){ ?>
                 <table class="ms-import-data-result-import-table" id="ms-import-data-result-table">
                     <thead>
                         <tr>
@@ -34,36 +34,36 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($results_array as $type => $MJTC_counts){
-                            $label = ucwords(str_replace(['_', 'jobtype', 'jobapply'], [' ', 'Job Type', 'Job Application'], $type));
-                            $imported = (int) $MJTC_counts['imported'];
-                            $skipped  = (int) $MJTC_counts['skipped'];
-                            $failed   = (int) $MJTC_counts['failed'];
-                            if ($imported > 0 || $skipped > 0 || $failed > 0) {
-                                if($label == 'Field') {
-                                    $show_message = 1;
+                        foreach ($MJTC_results_array as $type => $MJTC_counts){
+                            $MJTC_label = ucwords(str_replace(['_', 'jobtype', 'jobapply'], [' ', 'Job Type', 'Job Application'], $type));
+                            $MJTC_imported = (int) $MJTC_counts['imported'];
+                            $MJTC_skipped  = (int) $MJTC_counts['skipped'];
+                            $MJTC_failed   = (int) $MJTC_counts['failed'];
+                            if ($MJTC_imported > 0 || $MJTC_skipped > 0 || $MJTC_failed > 0) {
+                                if($MJTC_label == 'Field') {
+                                    $MJTC_show_message = 1;
                                 }
-                                if($label == 'Priority') {
-                                    $label = 'Priorities';
-                                }elseif($label == 'Status') {
-                                    $label = 'Statuses';
+                                if($MJTC_label == 'Priority') {
+                                    $MJTC_label = 'Priorities';
+                                }elseif($MJTC_label == 'Status') {
+                                    $MJTC_label = 'Statuses';
                                 }else{
-                                    $label = $label.'s';
+                                    $MJTC_label = $MJTC_label.'s';
                                 }
                                 ?>
                                 <tr>
-                                    <td><?php echo esc_html(majesticsupport::MJTC_getVarValue($label)); ?></td>
+                                    <td><?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_label)); ?></td>
 
                                     <td class="ms-import-data-result-success">
-                                        <?php echo esc_html( $imported .' '. __('imported.','majestic-support') ); ?>
+                                        <?php echo esc_html( $MJTC_imported .' '. __('Imported','majestic-support') ); ?>
                                     </td>
 
                                     <td class="ms-import-data-result-similar">
-                                        <?php echo esc_html( $skipped .' '. __('skipped.','majestic-support') ); ?>
+                                        <?php echo esc_html( $MJTC_skipped .' '. __('Skipped','majestic-support') ); ?>
                                     </td>
 
                                     <td class="ms-import-data-result-failed">
-                                        <?php echo esc_html( $failed .' '. __('failed.','majestic-support') ); ?>
+                                        <?php echo esc_html( $MJTC_failed .' '. __('Failed','majestic-support') ); ?>
                                     </td>
                                 </tr>
                                 <?php 
@@ -72,7 +72,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                     </tbody>
                 </table>
                 <?php 
-                if(!empty($show_message) && in_array('multiform', majesticsupport::$_active_addons)){ ?>
+                if(!empty($MJTC_show_message) && in_array('multiform', majesticsupport::$_active_addons)){ ?>
                     <div class="ms-import-data-addon-messagewrp">
                         <span class="ms-import-data-addon-message">
                             <?php echo  esc_html(__('Fields are only available in the default form.','majestic-support')); ?>

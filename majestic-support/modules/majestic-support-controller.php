@@ -10,8 +10,8 @@ class majesticsupportController {
     }
 
     function handleRequest() {
-        $module = MJTC_request::MJTC_getVar('mjsmod', null, 'majesticsupport');
-        MJTC_includer::MJTC_include_file($module);
+        $MJTC_module = MJTC_request::MJTC_getVar('mjsmod', null, 'majesticsupport');
+        MJTC_includer::MJTC_include_file($MJTC_module);
     }
 
 }

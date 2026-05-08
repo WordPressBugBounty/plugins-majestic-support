@@ -13,31 +13,31 @@ class MJTC_includer {
      * Includes files
      */
 
-    public static function MJTC_include_file($filename, $module_name = null) {
-        $module_name = MJTC_majesticsupportphplib::MJTC_clean_file_path($module_name);
-        $filename = MJTC_majesticsupportphplib::MJTC_clean_file_path($filename);
-        if ($module_name != null) {
-            $file_path = MJTC_includer::MJTC_getPluginPath($module_name,'file',$filename);
-            if (file_exists(MJTC_PLUGIN_PATH . 'includes/css/inc-css/' . $module_name . '-' . $filename . '.css.php')) {
-                require_once(MJTC_PLUGIN_PATH . 'includes/css/inc-css/' . $module_name . '-' . $filename . '.css.php');
+    public static function MJTC_include_file($MJTC_filename, $MJTC_module_name = null) {
+        $MJTC_module_name = MJTC_majesticsupportphplib::MJTC_clean_file_path($MJTC_module_name);
+        $MJTC_filename = MJTC_majesticsupportphplib::MJTC_clean_file_path($MJTC_filename);
+        if ($MJTC_module_name != null) {
+            $MJTC_file_path = MJTC_includer::MJTC_getPluginPath($MJTC_module_name,'file',$MJTC_filename);
+            if (!is_admin() && file_exists(MJTC_PLUGIN_PATH . 'includes/css/style.css')) {
+                wp_enqueue_style('majesticsupport-main-css', MJTC_PLUGIN_URL . 'includes/css/style.css', array(), '1.0.0');
             }
-			if (locate_template('majestic-support/' . $module_name . '-' . $filename . '.php', 1, 1)) {
+			if (locate_template('majestic-support/' . $MJTC_module_name . '-' . $MJTC_filename . '.php', 1, 1)) {
 			   return;
 			}
 
-            if(file_exists($file_path)){
-                include_once $file_path;
+            if(file_exists($MJTC_file_path)){
+                include_once $MJTC_file_path;
             }else{
-                $file_path = MJTC_includer::MJTC_getPluginPath('premiumplugin','file','missingaddon');
-                include_once $file_path;
+                $MJTC_file_path = MJTC_includer::MJTC_getPluginPath('premiumplugin','file','missingaddon');
+                include_once $MJTC_file_path;
             }
         } else {
-            $file_path = MJTC_includer::MJTC_getPluginPath($filename,'file');
-            if(file_exists($file_path)){
-                include_once $file_path;
+            $MJTC_file_path = MJTC_includer::MJTC_getPluginPath($MJTC_filename,'file');
+            if(file_exists($MJTC_file_path)){
+                include_once $MJTC_file_path;
             }else{
-                $file_path = MJTC_includer::MJTC_getPluginPath('premiumplugin','file');
-                include_once $file_path;
+                $MJTC_file_path = MJTC_includer::MJTC_getPluginPath('premiumplugin','file');
+                include_once $MJTC_file_path;
             }
         }
         return;
@@ -47,7 +47,7 @@ class MJTC_includer {
      * Static function to handle the page slugs
      */
 
-    public static function MJTC_include_slug($page_slug) {
+    public static function MJTC_include_slug($MJTC_page_slug) {
         include_once MJTC_PLUGIN_PATH . 'modules/majestic-support-controller.php';
     }
 
@@ -56,42 +56,42 @@ class MJTC_includer {
      */
 
     public static function MJTC_getModel($modelname) {
-        $file_path = MJTC_includer::MJTC_getPluginPath($modelname,'model');
-        include_once $file_path;
-        $classname = "MJTC_" . $modelname . 'Model';
-        $obj = new $classname();
-        return $obj;
+        $MJTC_file_path = MJTC_includer::MJTC_getPluginPath($modelname,'model');
+        include_once $MJTC_file_path;
+        $MJTC_classname = "MJTC_" . $modelname . 'Model';
+        $MJTC_obj = new $MJTC_classname();
+        return $MJTC_obj;
     }
 
     /*
      * Static function for the classes objects
      */
 
-    public static function MJTC_getObjectClass($classname) {
-        $file_path = MJTC_includer::MJTC_getPluginPath($classname,'class');
+    public static function MJTC_getObjectClass($MJTC_classname) {
+        $MJTC_file_path = MJTC_includer::MJTC_getPluginPath($MJTC_classname,'class');
 
-        include_once $file_path;
-        $classname = 'MJTC_'.esc_attr($classname);
-        $obj = new $classname();
-        return $obj;
+        include_once $MJTC_file_path;
+        $MJTC_classname = 'MJTC_'.esc_attr($MJTC_classname);
+        $MJTC_obj = new $MJTC_classname();
+        return $MJTC_obj;
     }
 
-    public static function MJTC_getClassesInclude($classname) {
-        $file_path = MJTC_includer::MJTC_getPluginPath($classname,'class');
-        include_once $file_path;
+    public static function MJTC_getClassesInclude($MJTC_classname) {
+        $MJTC_file_path = MJTC_includer::MJTC_getPluginPath($MJTC_classname,'class');
+        include_once $MJTC_file_path;
     }
 
     /*
      * Static function for the controller object
      */
 
-    public static function MJTC_getController($controllername) {
-        $file_path = MJTC_includer::MJTC_getPluginPath($controllername,'controller');
+    public static function MJTC_getController($MJTC_controllername) {
+        $MJTC_file_path = MJTC_includer::MJTC_getPluginPath($MJTC_controllername,'controller');
 
-        include_once $file_path;
-        $classname = "MJTC_".$controllername . "Controller";
-        $obj = new $classname();
-        return $obj;
+        include_once $MJTC_file_path;
+        $MJTC_classname = "MJTC_".$MJTC_controllername . "Controller";
+        $MJTC_obj = new $MJTC_classname();
+        return $MJTC_obj;
     }
 
     /*
@@ -99,71 +99,71 @@ class MJTC_includer {
      */
 
     public static function MJTC_getTable($tableclass) {
-        $file_path = MJTC_includer::MJTC_getPluginPath($tableclass,'table');
+        $MJTC_file_path = MJTC_includer::MJTC_getPluginPath($tableclass,'table');
         require_once MJTC_PLUGIN_PATH . 'includes/tables/table.php';
-        include_once $file_path;
-        $classname = "MJTC_" . $tableclass . 'Table';
-        $obj = new $classname();
-        return $obj;
+        include_once $MJTC_file_path;
+        $MJTC_classname = "MJTC_" . $tableclass . 'Table';
+        $MJTC_obj = new $MJTC_classname();
+        return $MJTC_obj;
     }
 
     /*
      *  Identify file path to include or require this fucntion helps to accommodate addon calls
      */
 
-    public static function MJTC_getPluginPath($module,$type,$file_name = '') {
-        $module = MJTC_majesticsupportphplib::MJTC_clean_file_path($module);
-        $file_name = MJTC_majesticsupportphplib::MJTC_clean_file_path($file_name);
+    public static function MJTC_getPluginPath($MJTC_module,$type,$MJTC_file_name = '') {
+        $MJTC_module = MJTC_majesticsupportphplib::MJTC_clean_file_path($MJTC_module);
+        $MJTC_file_name = MJTC_majesticsupportphplib::MJTC_clean_file_path($MJTC_file_name);
 
-        $addons_secondry = array('articles','articleattachmet','banemaillog','downloadattachment','roleaccessdepartments','rolepermissions','useraccessdepartments','userpermissions', 'role', 'acl_roles', 'acl_role_access_departments', 'acl_role_permissions', 'categories' ,'email_banlist', 'acl_user_access_departments','articles_attachments','email_banlist','acl_user_permissions', 'facebook', 'linkedin','socialUser');
-		$new_addon_entry = "";
-		$new_addon_entry = apply_filters('ms_ticket_include_thirdparty_addon_in_array',$addons_secondry);
-		if($new_addon_entry){
-			$addons_secondry[] = $new_addon_entry;
+        $MJTC_addons_secondry = array('articles','articleattachmet','banemaillog','downloadattachment','roleaccessdepartments','rolepermissions','useraccessdepartments','userpermissions', 'role', 'acl_roles', 'acl_role_access_departments', 'acl_role_permissions', 'categories' ,'email_banlist', 'acl_user_access_departments','articles_attachments','email_banlist','acl_user_permissions', 'facebook', 'linkedin','socialUser');
+		$MJTC_new_addon_entry = "";
+		$MJTC_new_addon_entry = apply_filters('ms_ticket_include_thirdparty_addon_in_array',$MJTC_addons_secondry);
+		if($MJTC_new_addon_entry){
+			$MJTC_addons_secondry[] = $MJTC_new_addon_entry;
 		}
-		$new_addon_layoutname = "";
-		$new_addon_layoutname = apply_filters('ms_ticket_include_thirdparty_addon_layoutname',false);
+		$MJTC_new_addon_layoutname = "";
+		$MJTC_new_addon_layoutname = apply_filters('ms_ticket_include_thirdparty_addon_layoutname',false);
 
-        if(in_array($module, majesticsupport::$_active_addons)){
-            $path = WP_PLUGIN_DIR.'/'.'majestic-support-'.$module.'/';
+        if(in_array($MJTC_module, majesticsupport::$_active_addons)){
+            $MJTC_path = WP_PLUGIN_DIR.'/'.'majestic-support-'.$MJTC_module.'/';
             switch ($type) {
                 case 'file':
-                    if($file_name != ''){
-                        $file_path = $path . 'module/tpls/' . $file_name . '.php';
+                    if($MJTC_file_name != ''){
+                        $MJTC_file_path = $MJTC_path . 'module/tpls/' . $MJTC_file_name . '.php';
                     }else{
-                        $file_path = $path . 'module/controller.php';
+                        $MJTC_file_path = $MJTC_path . 'module/controller.php';
                     }
                     break;
                 case 'model':
-                    $file_path = $path . 'module/model.php';
+                    $MJTC_file_path = $MJTC_path . 'module/model.php';
                     break;
                 case 'class':
-                    $file_path = $path . 'classes/' . $module . '.php';
+                    $MJTC_file_path = $MJTC_path . 'classes/' . $MJTC_module . '.php';
                     break;
                 case 'controller':
-                    $file_path = $path . 'module/controller.php';
+                    $MJTC_file_path = $MJTC_path . 'module/controller.php';
                     break;
                 case 'table':
-                    $file_path = $path . 'includes/' . $module . '-table.php';
+                    $MJTC_file_path = $MJTC_path . 'includes/' . $MJTC_module . '-table.php';
                     break;
             }
 
-        }elseif(in_array($module, $addons_secondry)){ // to handle the case of modules that are submodules for some addon
-            $parent_module = '';
-            switch ($module) {// to identify addon for submodules.
+        }elseif(in_array($MJTC_module, $MJTC_addons_secondry)){ // to handle the case of modules that are submodules for some addon
+            $MJTC_parent_module = '';
+            switch ($MJTC_module) {// to identify addon for submodules.
                 case 'articles':
                 case 'articleattachmet':
                 case 'articles_attachments':
                 case 'categories':
-                    $parent_module = 'knowledgebase';
+                    $MJTC_parent_module = 'knowledgebase';
                     break;
                 case 'banemaillog':
                 case 'email_banlist':
                 case 'email_banlist':
-                    $parent_module = 'banemail';
+                    $MJTC_parent_module = 'banemail';
                     break;
                 case 'downloadattachment':
-                    $parent_module = 'download';
+                    $MJTC_parent_module = 'download';
                     break;
                 case 'roleaccessdepartments':
                 case 'rolepermissions':
@@ -175,73 +175,73 @@ class MJTC_includer {
                 case 'acl_user_access_departments':
                 case 'acl_role_permissions':
                 case 'acl_user_permissions':
-                    $parent_module = 'agent';
+                    $MJTC_parent_module = 'agent';
                     break;
                 case 'facebook':
                 case 'linkedin':
                 case 'socialUser':
-                    $parent_module = 'sociallogin';
+                    $MJTC_parent_module = 'sociallogin';
                     break;
-                case $new_addon_entry:
-                    $parent_module = $new_addon_layoutname;
+                case $MJTC_new_addon_entry:
+                    $MJTC_parent_module = $MJTC_new_addon_layoutname;
             }
 
-            $path = WP_PLUGIN_DIR.'/'.'majestic-support-'.$parent_module.'/';
-            if(in_array($parent_module, majesticsupport::$_active_addons)){
+            $MJTC_path = WP_PLUGIN_DIR.'/'.'majestic-support-'.$MJTC_parent_module.'/';
+            if(in_array($MJTC_parent_module, majesticsupport::$_active_addons)){
                 switch ($type) {
                     case 'file':
-                        if($file_name != ''){
-                            $file_path = $path . $module.'/tpls/' . $file_name . '.php';
+                        if($MJTC_file_name != ''){
+                            $MJTC_file_path = $MJTC_path . $MJTC_module.'/tpls/' . $MJTC_file_name . '.php';
                         }else{
-                            $file_path = $path . $module.'/controller.php';
+                            $MJTC_file_path = $MJTC_path . $MJTC_module.'/controller.php';
                         }
                         break;
                     case 'model':
-                        $file_path = $path . $module.'/model.php';
+                        $MJTC_file_path = $MJTC_path . $MJTC_module.'/model.php';
                         break;
 
                     case 'class':
-                        $file_path = $path . 'classes/' . $module . '.php';
+                        $MJTC_file_path = $MJTC_path . 'classes/' . $MJTC_module . '.php';
                         break;
                     case 'controller':
-                        $file_path = $path . $module.'/controller.php';
+                        $MJTC_file_path = $MJTC_path . $MJTC_module.'/controller.php';
                         break;
                     case 'table':
-                        $file_path = $path . 'includes/' . $module . '-table.php';
+                        $MJTC_file_path = $MJTC_path . 'includes/' . $MJTC_module . '-table.php';
                         break;
                 }
             }else{
-                $file_path = MJTC_includer::MJTC_getPluginPath('premiumplugin','file');
+                $MJTC_file_path = MJTC_includer::MJTC_getPluginPath('premiumplugin','file');
             }
         }else{
-            $path = MJTC_PLUGIN_PATH;
+            $MJTC_path = MJTC_PLUGIN_PATH;
             switch ($type) {
                 case 'file':
-                    if($file_name != ''){
-                        $file_path = $path . 'modules/' . $module . '/tpls/' . $file_name . '.php';
+                    if($MJTC_file_name != ''){
+                        $MJTC_file_path = $MJTC_path . 'modules/' . $MJTC_module . '/tpls/' . $MJTC_file_name . '.php';
                     }else{
-                        $file_path = $path . 'modules/' . $module . '/controller.php';
+                        $MJTC_file_path = $MJTC_path . 'modules/' . $MJTC_module . '/controller.php';
                     }
                     break;
                 case 'model':
-                        $file_path = $path . 'modules/' . $module . '/model.php';
+                        $MJTC_file_path = $MJTC_path . 'modules/' . $MJTC_module . '/model.php';
                     break;
 
                 case 'class':
-                    $file_path = $path . 'includes/classes/' . $module . '.php';
+                    $MJTC_file_path = $MJTC_path . 'includes/classes/' . $MJTC_module . '.php';
                     break;
                 case 'controller':
-                        $file_path = $path . 'modules/' . $module . '/controller.php';
+                        $MJTC_file_path = $MJTC_path . 'modules/' . $MJTC_module . '/controller.php';
                     break;
                 case 'table':
-                    $file_path = $path . 'includes/tables/' . $module . '.php';;
+                    $MJTC_file_path = $MJTC_path . 'includes/tables/' . $MJTC_module . '.php';;
                     break;
             }
         }
-        return $file_path;
+        return $MJTC_file_path;
     }
 
 }
 
-$includer = new MJTC_includer();
+$MJTC_includer = new MJTC_includer();
 ?>

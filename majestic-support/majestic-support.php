@@ -3,14 +3,14 @@
 /**
  * @package Majestic Support
  * @author Majestic Support
- * @version 1.1.3
+ * @version 1.1.4
  */
 /*
   Plugin Name: Majestic Support - The Leading-Edge Help Desk & Customer Support Plugin
   Plugin URI: https://www.majesticsupport.com
   Description: Majestic Support is a trusted open source ticket system. Majestic Support is a simple, easy to use, web-based customer support system. User can create ticket from front-end. Majestic Support comes packed with lot features than most of the expensive(and complex) support ticket system on market. Majestic Support provide you best industry Majestic Support system.
   Author: Majestic Support
-  Version: 1.1.3
+  Version: 1.1.4
   License: GPLv3
   Text Domain: majestic-support
   
@@ -33,7 +33,7 @@ class majesticsupport {
     public static $_sortlinks;
     public static $_msg;
     public static $_wpprefixforuser;
-    public static $_colors;
+    public static $MJTC_colors;
     public static $_active_addons;
     public static $_addon_query;
     public static $_currentversion;
@@ -46,17 +46,17 @@ class majesticsupport {
         // php 8.1 issues
         require_once 'includes/majesticsupportphplib.php';
         // to check what addons are active and create an array.
-        $plugin_array = get_option('active_plugins');
-        $addon_array = array();
-        foreach ($plugin_array as $MJTC_key => $MJTC_value) {
-            $plugin_name = pathinfo($MJTC_value, PATHINFO_FILENAME);
-            if(MJTC_majesticsupportphplib::MJTC_strstr($plugin_name, 'majestic-support-')){
-                if($plugin_name != ''){
-                    $addon_array[] = MJTC_majesticsupportphplib::MJTC_str_replace('majestic-support-', '', $plugin_name);
+        $MJTC_plugin_array = get_option('active_plugins');
+        $MJTC_addon_array = array();
+        foreach ($MJTC_plugin_array as $MJTC_key => $MJTC_value) {
+            $MJTC_plugin_name = pathinfo($MJTC_value, PATHINFO_FILENAME);
+            if(MJTC_majesticsupportphplib::MJTC_strstr($MJTC_plugin_name, 'majestic-support-')){
+                if($MJTC_plugin_name != ''){
+                    $MJTC_addon_array[] = MJTC_majesticsupportphplib::MJTC_str_replace('majestic-support-', '', $MJTC_plugin_name);
                 }
             }
         }
-        self::$_active_addons = $addon_array;
+        self::$_active_addons = $MJTC_addon_array;
         // above code is its right place
         self::includes();
         self::mjtcLoadWpCoreFiles();
@@ -66,7 +66,7 @@ class majesticsupport {
         self::$_data = array();
         self::$_search = array();
         self::$_captcha = array();
-        self::$_currentversion = '113';
+        self::$_currentversion = '114';
         self::$_addon_query = array('select'=>'','join'=>'','where'=>'');
         self::$_mjtcsession = MJTC_includer::MJTC_getObjectClass('wphdsession');
         global $wpdb;
@@ -88,7 +88,7 @@ class majesticsupport {
         }
         add_filter('wpmu_drop_tables', array($this, 'majesticsupport_delete_site')); //when site is deleted in multisite
 
-        add_action('plugins_loaded', array($this, 'load_plugin_textdomain'));
+        // add_action('plugins_loaded', array($this, 'load_plugin_textdomain'));
         add_action('majesticsupport_updateticketstatus', array($this,'updateticketstatus'));
         add_action('majesticsupport_checkforaddonsupdate', array($this,'checkforaddonsupdate'));
         if(in_array('actions',majesticsupport::$_active_addons)){
@@ -96,11 +96,11 @@ class majesticsupport {
         }
         add_action('admin_init', array($this, 'majesticsupport_activation_redirect'));
         add_action( 'wp_footer', array($this,'checkScreenTag') );
-        add_action( 'resetnotificationvalues', array($this, 'resetNotificationValues'));
+        add_action( 'MJTC_resetnotificationvalues', array($this, 'resetNotificationValues'));
         //for style sheets
         add_action('wp_head', array($this,'ms_register_plugin_styles'));
         add_action('admin_enqueue_scripts', array($this,'ms_admin_register_plugin_styles') );
-        add_action('reset_ms_aadon_query', array($this,'reset_ms_aadon_query') );
+        add_action('MJTC_reset_addon_query', array($this,'MJTC_reset_addon_query') );
         add_action('majesticsupport_ticketviaemail', array($this,'ticketviaemail'));// this also handles ticket over due and ticket feedback
         add_action('init', array($this,'ms_handle_public_cronjob'));
         add_action('admin_init', array($this,'ms_handle_search_form_data'));
@@ -130,21 +130,21 @@ class majesticsupport {
         add_action('admin_notices', array($this , 'mjtc_show_expiry_error_notice') );
     }
 
-    function majesticsupport_customschedules($schedules){
-        $schedules['halfhour'] = array(
+    function majesticsupport_customschedules($MJTC_schedules){
+        $MJTC_schedules['halfhour'] = array(
            'interval' => 1800,
            'display'=> 'Half hour'
         );
-       return $schedules;
+       return $MJTC_schedules;
     }
 
-    function MJTC_activate($network_wide = false) {
+    function MJTC_activate($MJTC_network_wide = false) {
         include_once 'includes/activation.php';
-        if(function_exists('is_multisite') && is_multisite() && $network_wide){
+        if(function_exists('is_multisite') && is_multisite() && $MJTC_network_wide){
             global $wpdb;
-            $MJTC_blogs = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
-            foreach($MJTC_blogs as $blog_id){
-                switch_to_blog( $blog_id );
+            $MJTC_blogs = $wpdb->get_col( $wpdb->prepare( "SELECT blog_id FROM $wpdb->blogs", array() ) );
+            foreach($MJTC_blogs as $MJTC_blog_id){
+                switch_to_blog( $MJTC_blog_id );
                 MJTC_activation::MJTC_activate();
                 restore_current_blog();
             }
@@ -158,21 +158,21 @@ class majesticsupport {
 
     }
 
-    function majesticsupport_new_site($new_site){
-        $pluginname = plugin_basename(__FILE__);
-        if(is_plugin_active_for_network($pluginname)){
+    function majesticsupport_new_site($MJTC_new_site){
+        $MJTC_pluginname = plugin_basename(__FILE__);
+        if(is_plugin_active_for_network($MJTC_pluginname)){
             include_once 'includes/activation.php';
-            switch_to_blog($new_site->blog_id);
+            switch_to_blog($MJTC_new_site->blog_id);
             MJTC_activation::MJTC_activate();
             restore_current_blog();
         }
     }
 
-    function majesticsupport_new_blog($blog_id, $user_id, $domain, $path, $site_id, $meta){
-        $pluginname = plugin_basename(__FILE__);
-        if(is_plugin_active_for_network($pluginname)){
+    function majesticsupport_new_blog($MJTC_blog_id, $MJTC_user_id, $MJTC_domain, $MJTC_path, $MJTC_site_id, $meta){
+        $MJTC_pluginname = plugin_basename(__FILE__);
+        if(is_plugin_active_for_network($MJTC_pluginname)){
             include_once 'includes/activation.php';
-            switch_to_blog($blog_id);
+            switch_to_blog($MJTC_blog_id);
             MJTC_activation::MJTC_activate();
             restore_current_blog();
         }
@@ -190,14 +190,14 @@ class majesticsupport {
     function majesticsupport_activation_redirect(){
         if (get_option('majesticsupport_do_activation_redirect')) {
             delete_option('majesticsupport_do_activation_redirect');
-            exit(esc_url(wp_safe_redirect(admin_url('admin.php?page=majesticsupport_postinstallation&mjslay=stepone'))));
+            exit(esc_url(wp_safe_redirect(admin_url('admin.php?page=majesticsupport_postinstallation&mjslay=welcome'))));
         }
     }
 
     function ms_handle_public_cronjob(){
-        $action = MJTC_request::MJTC_getVar('mscron','get',null);
-        if ($action) {
-            switch ($action) {
+        $MJTC_action = MJTC_request::MJTC_getVar('mscron','get',null);
+        if ($MJTC_action) {
+            switch ($MJTC_action) {
                 case 'ticketviaemail':
                     do_action('majesticsupport_ticketviaemail');
                     break;
@@ -213,57 +213,57 @@ class majesticsupport {
     }
 
     function mjtc_safe_style_css(){
-        $styles[] = 'display';
-        $styles[] = 'color';
-        $styles[] = 'width';
-        $styles[] = 'max-width';
-        $styles[] = 'min-width';
-        $styles[] = 'height';
-        $styles[] = 'min-height';
-        $styles[] = 'max-height';
-        $styles[] = 'background-color';
-        $styles[] = 'border';
-        $styles[] = 'border-bottom';
-        $styles[] = 'border-top';
-        $styles[] = 'border-left';
-        $styles[] = 'border-right';
-        $styles[] = 'border-color';
-        $styles[] = 'padding';
-        $styles[] = 'padding-top';
-        $styles[] = 'padding-bottom';
-        $styles[] = 'padding-left';
-        $styles[] = 'padding-right';
-        $styles[] = 'margin';
-        $styles[] = 'margin-top';
-        $styles[] = 'margin-bottom';
-        $styles[] = 'margin-left';
-        $styles[] = 'margin-right';
-        $styles[] = 'background';
-        $styles[] = 'font-weight';
-        $styles[] = 'font-size';
-        $styles[] = 'text-align';
-        $styles[] = 'text-decoration';
-        $styles[] = 'text-transform';
-        $styles[] = 'line-height';
-        $styles[] = 'visibility';
-        $styles[] = 'cellspacing';
-        $styles[] = 'data-id';
-        $styles[] = 'cursor';
-        $styles[] = 'vertical-align';
-        $styles[] = 'float';
-        $styles[] = 'position';
-        $styles[] = 'left';
-        $styles[] = 'right';
-        $styles[] = 'bottom';
-        $styles[] = 'top';
-        $styles[] = 'z-index';
-        $styles[] = 'overflow';
-        return $styles;
+        $MJTC_styles[] = 'display';
+        $MJTC_styles[] = 'color';
+        $MJTC_styles[] = 'width';
+        $MJTC_styles[] = 'max-width';
+        $MJTC_styles[] = 'min-width';
+        $MJTC_styles[] = 'height';
+        $MJTC_styles[] = 'min-height';
+        $MJTC_styles[] = 'max-height';
+        $MJTC_styles[] = 'background-color';
+        $MJTC_styles[] = 'border';
+        $MJTC_styles[] = 'border-bottom';
+        $MJTC_styles[] = 'border-top';
+        $MJTC_styles[] = 'border-left';
+        $MJTC_styles[] = 'border-right';
+        $MJTC_styles[] = 'border-color';
+        $MJTC_styles[] = 'padding';
+        $MJTC_styles[] = 'padding-top';
+        $MJTC_styles[] = 'padding-bottom';
+        $MJTC_styles[] = 'padding-left';
+        $MJTC_styles[] = 'padding-right';
+        $MJTC_styles[] = 'margin';
+        $MJTC_styles[] = 'margin-top';
+        $MJTC_styles[] = 'margin-bottom';
+        $MJTC_styles[] = 'margin-left';
+        $MJTC_styles[] = 'margin-right';
+        $MJTC_styles[] = 'background';
+        $MJTC_styles[] = 'font-weight';
+        $MJTC_styles[] = 'font-size';
+        $MJTC_styles[] = 'text-align';
+        $MJTC_styles[] = 'text-decoration';
+        $MJTC_styles[] = 'text-transform';
+        $MJTC_styles[] = 'line-height';
+        $MJTC_styles[] = 'visibility';
+        $MJTC_styles[] = 'cellspacing';
+        $MJTC_styles[] = 'data-id';
+        $MJTC_styles[] = 'cursor';
+        $MJTC_styles[] = 'vertical-align';
+        $MJTC_styles[] = 'float';
+        $MJTC_styles[] = 'position';
+        $MJTC_styles[] = 'left';
+        $MJTC_styles[] = 'right';
+        $MJTC_styles[] = 'bottom';
+        $MJTC_styles[] = 'top';
+        $MJTC_styles[] = 'z-index';
+        $MJTC_styles[] = 'overflow';
+        return $MJTC_styles;
     }
 
     function ms_handle_search_form_data(){
 
-        $isadmin = is_admin();
+        $MJTC_isadmin = is_admin();
         $mjslay = '';
         if(isset($_REQUEST['mjslay'])){
             $mjslay = majesticsupport::MJTC_sanitizeData($_REQUEST['mjslay']); // MJTC_sanitizeData() function uses wordpress santize functions
@@ -272,18 +272,18 @@ class majesticsupport {
         }elseif(isset($_REQUEST['mjtcslay'])){
             $mjslay = majesticsupport::MJTC_sanitizeData($_REQUEST['mjtcslay']); // MJTC_sanitizeData() function uses wordpress santize functions
         }
-        $layoutname = MJTC_majesticsupportphplib::MJTC_explode("majesticsupport_", $mjslay);// admin page has wpjobportal_ prefix
-        if(isset($layoutname[1])){
-            $mjslay = $layoutname[1];
+        $MJTC_layoutname = MJTC_majesticsupportphplib::MJTC_explode("majesticsupport_", $mjslay);// admin page has wpjobportal_ prefix
+        if(isset($MJTC_layoutname[1])){
+            $mjslay = $MJTC_layoutname[1];
         }        
-        $callfrom = 3;
+        $MJTC_callfrom = 3;
         if(isset($_REQUEST['MS_form_search']) && $_REQUEST['MS_form_search'] == 'MS_SEARCH'){
-            $callfrom = 1;
+            $MJTC_callfrom = 1;
         }elseif(MJTC_request::MJTC_getVar('pagenum', 'get', null) != null){
-            $callfrom = 2;
+            $MJTC_callfrom = 2;
         }
 
-        $setcookies = false;
+        $MJTC_setcookies = false;
         $MJTC_ticket_search_cookie_data = '';
         $ms_search_array = array();
         switch($mjslay){
@@ -292,36 +292,36 @@ class majesticsupport {
             case 'ticket':
             case 'staffmyticket':
                 if( in_array('agent',majesticsupport::$_active_addons) ){
-                    $agent = MJTC_includer::MJTC_getModel('agent')->isUserStaff();
+                    $MJTC_agent = MJTC_includer::MJTC_getModel('agent')->isUserStaff();
                 }else{
-                    $agent = false;
+                    $MJTC_agent = false;
                 }
-                if(is_admin() || $agent){
-                    $search_userfields = MJTC_includer::MJTC_getObjectClass('customfields')->adminFieldsForSearch(1);
+                if(is_admin() || $MJTC_agent){
+                    $MJTC_search_userfields = MJTC_includer::MJTC_getObjectClass('customfields')->adminFieldsForSearch(1);
                 } else {
-                    $search_userfields = MJTC_includer::MJTC_getObjectClass('customfields')->userFieldsForSearch(1);
+                    $MJTC_search_userfields = MJTC_includer::MJTC_getObjectClass('customfields')->userFieldsForSearch(1);
                 }
-                if($callfrom == 1){
+                if($MJTC_callfrom == 1){
                     if(is_admin()){
-                        $ms_search_array = MJTC_includer::MJTC_getModel('ticket')->getAdminTicketSearchFormData($search_userfields);
+                        $ms_search_array = MJTC_includer::MJTC_getModel('ticket')->getAdminTicketSearchFormData($MJTC_search_userfields);
                     }else{
-                        $ms_search_array = MJTC_includer::MJTC_getModel('ticket')->getFrontSideTicketSearchFormData($search_userfields);
+                        $ms_search_array = MJTC_includer::MJTC_getModel('ticket')->getFrontSideTicketSearchFormData($MJTC_search_userfields);
                     }
-                    $setcookies = true;
-                }elseif($callfrom == 2){
-                    $ms_search_array = MJTC_includer::MJTC_getModel('ticket')->getCookiesSavedSearchDataTicket($search_userfields);
+                    $MJTC_setcookies = true;
+                }elseif($MJTC_callfrom == 2){
+                    $ms_search_array = MJTC_includer::MJTC_getModel('ticket')->getCookiesSavedSearchDataTicket($MJTC_search_userfields);
                 }else{
                     majesticsupport::removeusersearchcookies();
                 }
-                MJTC_includer::MJTC_getModel('ticket')->setSearchVariableForTicket($ms_search_array,$search_userfields);
+                MJTC_includer::MJTC_getModel('ticket')->setSearchVariableForTicket($ms_search_array,$MJTC_search_userfields);
             break;
             case 'departments':
             case 'department':
-                $deptname = (is_admin()) ? 'departmentname' : 'ms-dept';
-                if($callfrom == 1){
+                $MJTC_deptname = (is_admin()) ? 'departmentname' : 'ms-dept';
+                if($MJTC_callfrom == 1){
                     $ms_search_array = MJTC_includer::MJTC_getModel('department')->getAdminDepartmentSearchFormData();
-                    $setcookies = true;
-                }elseif($callfrom == 2){
+                    $MJTC_setcookies = true;
+                }elseif($MJTC_callfrom == 2){
                     if(isset($_COOKIE['ms_ticket_search_data'])){
                         $MJTC_ticket_search_cookie_data = majesticsupport::MJTC_sanitizeData($_COOKIE['ms_ticket_search_data']); // MJTC_sanitizeData() function uses wordpress santize functions
                         $MJTC_ticket_search_cookie_data = json_decode( MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_ticket_search_cookie_data) , true );
@@ -338,14 +338,14 @@ class majesticsupport {
                 majesticsupport::$_search['department']['pagesize'] = isset($ms_search_array['pagesize']) ? $ms_search_array['pagesize'] : null;
             break;
             case 'erasedatarequests':
-                if($callfrom == 1 && is_admin()){
-                    $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-                    if (! wp_verify_nonce( $nonce, 'erase-data-requests') ) {
+                if($MJTC_callfrom == 1 && is_admin()){
+                    $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+                    if (! wp_verify_nonce( $MJTC_nonce, 'erase-data-requests') ) {
                         die( 'Security check Failed' );
                     }
                     $ms_search_array = MJTC_includer::MJTC_getModel('gdpr')->getAdminSearchFormDataGDPR();
-                    $setcookies = true;
-                }elseif($callfrom == 2){
+                    $MJTC_setcookies = true;
+                }elseif($MJTC_callfrom == 2){
                     if(isset($_COOKIE['ms_ticket_search_data'])){
                         $MJTC_ticket_search_cookie_data = majesticsupport::MJTC_sanitizeData($_COOKIE['ms_ticket_search_data']); // MJTC_sanitizeData() function uses wordpress santize functions
                         $MJTC_ticket_search_cookie_data = json_decode( MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_ticket_search_cookie_data) , true );
@@ -361,10 +361,10 @@ class majesticsupport {
             break;
             case 'priorities':
             case 'priority':
-                if($callfrom == 1 && is_admin()){
+                if($MJTC_callfrom == 1 && is_admin()){
                     $ms_search_array = MJTC_includer::MJTC_getModel('priority')->getAdminSearchFormDataPriority();
-                    $setcookies = true;
-                }elseif($callfrom == 2){
+                    $MJTC_setcookies = true;
+                }elseif($MJTC_callfrom == 2){
                     if(isset($_COOKIE['ms_ticket_search_data'])){
                         $MJTC_ticket_search_cookie_data = majesticsupport::MJTC_sanitizeData($_COOKIE['ms_ticket_search_data']); // MJTC_sanitizeData() function uses wordpress santize functions
                         $MJTC_ticket_search_cookie_data = json_decode( MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_ticket_search_cookie_data) , true );
@@ -382,10 +382,10 @@ class majesticsupport {
             break;
             case 'statuses':
             case 'status':
-                if($callfrom == 1 && is_admin()){
+                if($MJTC_callfrom == 1 && is_admin()){
                     $ms_search_array = MJTC_includer::MJTC_getModel('status')->getAdminSearchFormDataStatus();
-                    $setcookies = true;
-                }elseif($callfrom == 2){
+                    $MJTC_setcookies = true;
+                }elseif($MJTC_callfrom == 2){
                     if(isset($_COOKIE['ms_ticket_search_data'])){
                         $MJTC_ticket_search_cookie_data = majesticsupport::MJTC_sanitizeData($_COOKIE['ms_ticket_search_data']); // MJTC_sanitizeData() function uses wordpress santize functions
                         $MJTC_ticket_search_cookie_data = json_decode( MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_ticket_search_cookie_data) , true );
@@ -403,10 +403,10 @@ class majesticsupport {
             break;
             case 'products':
             case 'product':
-                if($callfrom == 1 && is_admin()){
+                if($MJTC_callfrom == 1 && is_admin()){
                     $ms_search_array = MJTC_includer::MJTC_getModel('product')->getAdminSearchFormDataProduct();
-                    $setcookies = true;
-                }elseif($callfrom == 2){
+                    $MJTC_setcookies = true;
+                }elseif($MJTC_callfrom == 2){
                     if(isset($_COOKIE['ms_ticket_search_data'])){
                         $MJTC_ticket_search_cookie_data = majesticsupport::MJTC_sanitizeData($_COOKIE['ms_ticket_search_data']); // MJTC_sanitizeData() function uses wordpress santize functions
                         $MJTC_ticket_search_cookie_data = json_decode( MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_ticket_search_cookie_data) , true );
@@ -425,9 +425,9 @@ class majesticsupport {
             case 'smartreplies':
             case 'smartreply':
                 $title = (is_admin()) ? 'title' : 'ms-title';
-                if($callfrom == 1){
-                    $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-                    if (! wp_verify_nonce( $nonce, 'smart-replies') ) {
+                if($MJTC_callfrom == 1){
+                    $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+                    if (! wp_verify_nonce( $MJTC_nonce, 'smart-replies') ) {
                         die( 'Security check Failed' );
                     }
                     if (MJTC_request::MJTC_getVar($title) != '') {
@@ -437,8 +437,8 @@ class majesticsupport {
                     }
                     $ms_search_array['search_from_smartreply'] = 1;
                     $ms_search_array = MJTC_includer::MJTC_getModel('smartreply')->getAdminSearchFormDataSmartReply();
-                    $setcookies = true;
-                }elseif($callfrom == 2){
+                    $MJTC_setcookies = true;
+                }elseif($MJTC_callfrom == 2){
                     if(isset($_COOKIE['ms_ticket_search_data'])){
                         $MJTC_ticket_search_cookie_data = majesticsupport::MJTC_sanitizeData($_COOKIE['ms_ticket_search_data']);// MJTC_sanitizeData() function uses wordpress santize functions
                         $MJTC_ticket_search_cookie_data = json_decode( MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_ticket_search_cookie_data) , true );
@@ -455,10 +455,10 @@ class majesticsupport {
                 majesticsupport::$_search['smartreply']['pagesize'] = isset($ms_search_array['pagesize']) ? $ms_search_array['pagesize'] : null;
             break;
             case 'slug':
-                if($callfrom == 1 && is_admin()){
+                if($MJTC_callfrom == 1 && is_admin()){
                     $ms_search_array = MJTC_includer::MJTC_getModel('slug')->getAdminSearchFormDataSlug();
-                    $setcookies = true;
-                }elseif($callfrom == 2){
+                    $MJTC_setcookies = true;
+                }elseif($MJTC_callfrom == 2){
                     if(isset($_COOKIE['ms_ticket_search_data'])){
                         $MJTC_ticket_search_cookie_data = majesticsupport::MJTC_sanitizeData($_COOKIE['ms_ticket_search_data']); // MJTC_sanitizeData() function uses wordpress santize functions
                         $MJTC_ticket_search_cookie_data = json_decode( MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_ticket_search_cookie_data) , true );
@@ -474,10 +474,10 @@ class majesticsupport {
             break;
             case 'emails':
             case 'email':
-                if($callfrom == 1 && is_admin()){
+                if($MJTC_callfrom == 1 && is_admin()){
                     $ms_search_array = MJTC_includer::MJTC_getModel('email')->getAdminSearchFormDataEmails();
-                    $setcookies = true;
-                }elseif($callfrom == 2){
+                    $MJTC_setcookies = true;
+                }elseif($MJTC_callfrom == 2){
                     if(isset($_COOKIE['ms_ticket_search_data'])){
                         $MJTC_ticket_search_cookie_data = majesticsupport::MJTC_sanitizeData($_COOKIE['ms_ticket_search_data']); // MJTC_sanitizeData() function uses wordpress santize functions
                         $MJTC_ticket_search_cookie_data = json_decode( MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_ticket_search_cookie_data) , true );
@@ -497,17 +497,17 @@ class majesticsupport {
             case 'departmentdetailreport':
             case 'userdetailreport':
             case 'stafftimereport':
-                if($callfrom == 1 && is_admin()){
-                    $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-                    if (! wp_verify_nonce( $nonce, 'reports') ) {
+                if($MJTC_callfrom == 1 && is_admin()){
+                    $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+                    if (! wp_verify_nonce( $MJTC_nonce, 'reports') ) {
                         die( 'Security check Failed' );
                     }
                     $ms_search_array['date_start'] = MJTC_request::MJTC_getVar('date_start');
                     $ms_search_array['date_end'] = MJTC_request::MJTC_getVar('date_end');
                     $ms_search_array['uid'] = MJTC_request::MJTC_getVar('uid');
                     $ms_search_array['search_from_reports'] = 1;
-                    $setcookies = true;
-                }elseif($callfrom == 2 && is_admin()){
+                    $MJTC_setcookies = true;
+                }elseif($MJTC_callfrom == 2 && is_admin()){
                     if(isset($_COOKIE['ms_ticket_search_data'])){
                         $MJTC_ticket_search_cookie_data = majesticsupport::MJTC_sanitizeData($_COOKIE['ms_ticket_search_data']); // MJTC_sanitizeData() function uses wordpress santize functions
                         $MJTC_ticket_search_cookie_data = json_decode( MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_ticket_search_cookie_data) , true );
@@ -525,12 +525,12 @@ class majesticsupport {
                 majesticsupport::$_search['report']['uid'] = isset($ms_search_array['uid']) ? $ms_search_array['uid'] : null;
             break;
             case 'staffreports':
-                if($callfrom == 1){
+                if($MJTC_callfrom == 1){
                     $ms_search_array['ms-date-start'] = MJTC_request::MJTC_getVar('ms-date-start');
                     $ms_search_array['ms-date-end'] = MJTC_request::MJTC_getVar('ms-date-end');
                     $ms_search_array['search_from_reports_staff'] = 1;
-                    $setcookies = true;
-                }elseif($callfrom == 2){
+                    $MJTC_setcookies = true;
+                }elseif($MJTC_callfrom == 2){
                     if(isset($_COOKIE['ms_ticket_search_data'])){
                         $MJTC_ticket_search_cookie_data = majesticsupport::MJTC_sanitizeData($_COOKIE['ms_ticket_search_data']); // MJTC_sanitizeData() function uses wordpress santize functions
                         $MJTC_ticket_search_cookie_data = json_decode( MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_ticket_search_cookie_data) , true );
@@ -547,64 +547,64 @@ class majesticsupport {
             break;
             case 'admin_staffdetailreport':
             case 'staffdetailreport':
-                $start_date = is_admin() ? 'date_start' : 'ms-date-start';
-                $end_date = is_admin() ? 'date_end' : 'ms-date-end';
-                if($callfrom == 1){
-                    $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-                    if (! wp_verify_nonce( $nonce, 'staff-detail-report') ) {
+                $MJTC_start_date = is_admin() ? 'date_start' : 'ms-date-start';
+                $MJTC_end_date = is_admin() ? 'date_end' : 'ms-date-end';
+                if($MJTC_callfrom == 1){
+                    $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+                    if (! wp_verify_nonce( $MJTC_nonce, 'staff-detail-report') ) {
                         die( 'Security check Failed' );
                     }
-                    $ms_search_array[$start_date] = MJTC_request::MJTC_getVar($start_date);
-                    $ms_search_array[$end_date] = MJTC_request::MJTC_getVar($end_date);
+                    $ms_search_array[$MJTC_start_date] = MJTC_request::MJTC_getVar($MJTC_start_date);
+                    $ms_search_array[$MJTC_end_date] = MJTC_request::MJTC_getVar($MJTC_end_date);
                     $ms_search_array['search_from_reports_detail'] = 1;
-                    $setcookies = true;
-                }elseif($callfrom == 2){
+                    $MJTC_setcookies = true;
+                }elseif($MJTC_callfrom == 2){
                     if(isset($_COOKIE['ms_ticket_search_data'])){
                         $MJTC_ticket_search_cookie_data = majesticsupport::MJTC_sanitizeData($_COOKIE['ms_ticket_search_data']); // MJTC_sanitizeData() function uses wordpress santize functions
                         $MJTC_ticket_search_cookie_data = json_decode( MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_ticket_search_cookie_data) , true );
                     }
                     if(!empty($MJTC_ticket_search_cookie_data) && isset($MJTC_ticket_search_cookie_data['search_from_reports_detail'])){
-                        $ms_search_array[$start_date] = $MJTC_ticket_search_cookie_data[$start_date];
-                        $ms_search_array[$end_date] = $MJTC_ticket_search_cookie_data[$end_date];
+                        $ms_search_array[$MJTC_start_date] = $MJTC_ticket_search_cookie_data[$MJTC_start_date];
+                        $ms_search_array[$MJTC_end_date] = $MJTC_ticket_search_cookie_data[$MJTC_end_date];
                     }
                 }else{
                     majesticsupport::removeusersearchcookies();
                 }
-                majesticsupport::$_search['report'][$start_date] = isset($ms_search_array[$start_date]) ? $ms_search_array[$start_date] : null;
-                majesticsupport::$_search['report'][$end_date] = isset($ms_search_array[$end_date]) ? $ms_search_array[$end_date] : null;
+                majesticsupport::$_search['report'][$MJTC_start_date] = isset($ms_search_array[$MJTC_start_date]) ? $ms_search_array[$MJTC_start_date] : null;
+                majesticsupport::$_search['report'][$MJTC_end_date] = isset($ms_search_array[$MJTC_end_date]) ? $ms_search_array[$MJTC_end_date] : null;
             break;
             case 'ticketdetail':
                 $MJTC_ticketid = MJTC_request::MJTC_getVar('majesticsupportid');
                 if (in_array('agent', majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) { //staff
                     if(current_user_can('ms_support_ticket')){
-                        $timecookies['ticket_time_start'][$MJTC_ticketid] = gmdate("Y-m-d h:i:s");
+                        $MJTC_timecookies['ticket_time_start'][$MJTC_ticketid] = gmdate("Y-m-d h:i:s");
                     }else{
                         majesticsupport::$_data['permission_granted'] = MJTC_includer::MJTC_getModel('ticket')->validateTicketDetailForStaff($MJTC_ticketid);
                         if (majesticsupport::$_data['permission_granted']) { // validation passed
                             if(in_array('timetracking', majesticsupport::$_active_addons)){
-                                $timecookies['ticket_time_start'][$MJTC_ticketid] = gmdate("Y-m-d h:i:s");
+                                $MJTC_timecookies['ticket_time_start'][$MJTC_ticketid] = gmdate("Y-m-d h:i:s");
                             }
                         }
                     }
                 } else { // user
                     if(current_user_can('ms_support_ticket') || current_user_can('ms_support_ticket_tickets')){
                         if(in_array('timetracking', majesticsupport::$_active_addons)){
-                            $timecookies['ticket_time_start'][$MJTC_ticketid] = gmdate("Y-m-d h:i:s");
+                            $MJTC_timecookies['ticket_time_start'][$MJTC_ticketid] = gmdate("Y-m-d h:i:s");
                         }
                     }
                 }
-                if(isset($timecookies['ticket_time_start'][$MJTC_ticketid])){
+                if(isset($MJTC_timecookies['ticket_time_start'][$MJTC_ticketid])){
                     $MJTC_val = 'ticket_time_start_'.esc_attr($MJTC_ticketid);
-                    MJTC_majesticsupportphplib::MJTC_setcookie($MJTC_val , $timecookies['ticket_time_start'][$MJTC_ticketid] , 0, COOKIEPATH);
+                    MJTC_majesticsupportphplib::MJTC_setcookie($MJTC_val , $MJTC_timecookies['ticket_time_start'][$MJTC_ticketid] , 0, COOKIEPATH);
                     if ( SITECOOKIEPATH != COOKIEPATH ){
-                        MJTC_majesticsupportphplib::MJTC_setcookie('majesticsupport-timetack' , $timecookies , 0, SITECOOKIEPATH);
+                        MJTC_majesticsupportphplib::MJTC_setcookie('majesticsupport-timetack' , $MJTC_timecookies , 0, SITECOOKIEPATH);
                     }
                 }
             break;
         }
 
-        if($setcookies){
-            majesticsupport::setusersearchcookies($setcookies,$ms_search_array);
+        if($MJTC_setcookies){
+            majesticsupport::setusersearchcookies($MJTC_setcookies,$ms_search_array);
         }
     }
 
@@ -642,8 +642,8 @@ class majesticsupport {
         }
     }
 
-    public static function setusersearchcookies($cookiesval, $ms_search_array){
-        if(!$cookiesval)
+    public static function setusersearchcookies($MJTC_cookiesval, $ms_search_array){
+        if(!$MJTC_cookiesval)
             return false;
         $MJTC_data = wp_json_encode( $ms_search_array );
         $MJTC_data = MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_data);
@@ -679,8 +679,8 @@ class majesticsupport {
     }
 
     function checkforaddonsupdate() {
-        $addone_count = MJTC_includer::MJTC_getModel('majesticsupport')->showUpdateAvaliableAlert();
-        if ($addone_count != 0) { 
+        $MJTC_addone_count = MJTC_includer::MJTC_getModel('majesticsupport')->showUpdateAvaliableAlert();
+        if ($MJTC_addone_count != 0) { 
             $MJTC_url = admin_url("?page=majesticsupport_premiumplugin&mjslay=addonstatus");?>
             <div class="notice notice-info is-dismissible">
                 <p>
@@ -699,8 +699,8 @@ class majesticsupport {
      */
 
      function printTicket() {
-        $layout = MJTC_request::MJTC_getVar('mjslay');
-        if ($layout == 'printticket') {
+        $MJTC_layout = MJTC_request::MJTC_getVar('mjslay');
+        if ($MJTC_layout == 'printticket') {
             $MJTC_ticketid = MJTC_request::MJTC_getVar('majesticsupportid');
             if(in_array('agent', majesticsupport::$_active_addons)){
                 majesticsupport::$_data['user_staff'] = MJTC_includer::MJTC_getModel('agent')->isUserStaff();
@@ -717,13 +717,13 @@ class majesticsupport {
         }
     }
 
-    function MJTC_deactivate($network_wide = false) {
+    function MJTC_deactivate($MJTC_network_wide = false) {
         include_once 'includes/deactivation.php';
-        if(function_exists('is_multisite') && is_multisite() && $network_wide){
+        if(function_exists('is_multisite') && is_multisite() && $MJTC_network_wide){
             global $wpdb;
-            $MJTC_blogs = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
-            foreach($MJTC_blogs as $blog_id){
-                switch_to_blog( $blog_id );
+            $MJTC_blogs = $wpdb->get_col( $wpdb->prepare( "SELECT blog_id FROM $wpdb->blogs", array() ) );
+            foreach($MJTC_blogs as $MJTC_blog_id){
+                switch_to_blog( $MJTC_blog_id );
                 MJTC_deactivation::MJTC_deactivate();
                 restore_current_blog();
             }
@@ -732,28 +732,28 @@ class majesticsupport {
         }
     }
 
-    function ms_login_redirect( $redirect_to, $MJTC_request, $user ) {
+    function ms_login_redirect( $MJTC_redirect_to, $MJTC_request, $MJTC_user ) {
         //is there a user to check?
         global $user;
         if ( isset( $user->roles ) && is_array( $user->roles ) ) {
             //check for admins
             if ( in_array( 'administrator', $user->roles ) ) {
                 // redirect them to the default place
-                return $redirect_to;
+                return $MJTC_redirect_to;
             } else {
-                $redirecturl = MJTC_request::MJTC_getVar('redirect_to');
-                if(majesticsupport::$_config['login_redirect'] == 1 && $redirecturl == null){
-                    $pageid = majesticsupport::getPageid();
-                    $link = "index.php?page_id=".$pageid;
-                    return $link;
-                }elseif($redirecturl != null){
-                    return $redirecturl;
+                $MJTC_redirecturl = MJTC_request::MJTC_getVar('redirect_to');
+                if(majesticsupport::$_config['login_redirect'] == 1 && $MJTC_redirecturl == null){
+                    $MJTC_pageid = majesticsupport::getPageid();
+                    $MJTC_link = "index.php?page_id=".$MJTC_pageid;
+                    return $MJTC_link;
+                }elseif($MJTC_redirecturl != null){
+                    return $MJTC_redirecturl;
                 }else{
                     return home_url();
                 }
             }
         } else {
-            return $redirect_to;
+            return $MJTC_redirect_to;
         }
     }
 
@@ -763,17 +763,17 @@ class majesticsupport {
 
     function registeractions() {
         //Ticket Action Hooks
-        add_action('ms-ticketcreate', array($this, 'ticketcreate'), 10, 1);
-        add_action('ms-ticketreply', array($this, 'ticketreply'), 10, 1);
-        add_action('ms-ticketclose', array($this, 'ticketclose'), 10, 1);
-        add_action('ms-ticketdelete', array($this, 'ticketdelete'), 10, 1);
-        add_action('ms-ticketbeforelisting', array($this, 'ticketbeforelisting'), 10, 1);
-        add_action('ms-ticketbeforeview', array($this, 'ticketbeforeview'), 10, 1);
+        add_action('MJTC_ticketcreate', array($this, 'ticketcreate'), 10, 1);
+        add_action('MJTC_ticketreply', array($this, 'ticketreply'), 10, 1);
+        add_action('MJTC_ticketclose', array($this, 'ticketclose'), 10, 1);
+        add_action('MJTC_ticketdelete', array($this, 'ticketdelete'), 10, 1);
+        add_action('MJTC_ticketbeforelisting', array($this, 'ticketbeforelisting'), 10, 1);
+        add_action('MJTC_ticketbeforeview', array($this, 'ticketbeforeview'), 10, 1);
         //Email Hooks
-        add_action('ms-beforeemailticketcreate', array($this, 'beforeemailticketcreate'), 10, 4);
-        add_action('ms-beforeemailticketreply', array($this, 'beforeemailticketreply'), 10, 4);
-        add_action('ms-beforeemailticketclose', array($this, 'beforeemailticketclose'), 10, 4);
-        add_action('ms-beforeemailticketdelete', array($this, 'beforeemailticketdelete'), 10, 4);
+        add_action('MJTC_beforeemailticketcreate', array($this, 'beforeemailticketcreate'), 10, 4);
+        add_action('MJTC_beforeemailticketreply', array($this, 'beforeemailticketreply'), 10, 4);
+        add_action('MJTC_beforeemailticketclose', array($this, 'beforeemailticketclose'), 10, 4);
+        add_action('MJTC_beforeemailticketdelete', array($this, 'beforeemailticketdelete'), 10, 4);
     }
 
     //Funtions for Ticket Hooks
@@ -802,19 +802,19 @@ class majesticsupport {
     }
 
     //Funtion for Email Hooks
-    function beforeemailticketcreate($recevierEmail, $MJTC_subject, $body, $senderEmail) {
+    function beforeemailticketcreate($MJTC_recevierEmail, $MJTC_subject, $MJTC_body, $MJTC_senderEmail) {
         return;
     }
 
-    function beforeemailticketdelete($recevierEmail, $MJTC_subject, $body, $senderEmail) {
+    function beforeemailticketdelete($MJTC_recevierEmail, $MJTC_subject, $MJTC_body, $MJTC_senderEmail) {
         return;
     }
 
-    function beforeemailticketreply($recevierEmail, $MJTC_subject, $body, $senderEmail) {
+    function beforeemailticketreply($MJTC_recevierEmail, $MJTC_subject, $MJTC_body, $MJTC_senderEmail) {
         return;
     }
 
-    function beforeemailticketclose($recevierEmail, $MJTC_subject, $body, $senderEmail) {
+    function beforeemailticketclose($MJTC_recevierEmail, $MJTC_subject, $MJTC_body, $MJTC_senderEmail) {
         return;
     }
 
@@ -868,20 +868,20 @@ class majesticsupport {
      * Localization
      */
 
-    public function load_plugin_textdomain() {
+    // public function load_plugin_textdomain() {
         //if(!load_plugin_textdomain('majestic-support')){
-            load_plugin_textdomain('majestic-support', false, MJTC_majesticsupportphplib::MJTC_dirname(plugin_basename(__FILE__)) . '/languages/');
+            // load_plugin_textdomain('majestic-support', false, MJTC_majesticsupportphplib::MJTC_dirname(plugin_basename(__FILE__)) . '/languages/');
         /*}else{
             load_plugin_textdomain('majestic-support');
         }*/
-    }
+    // }
 
     /*
      * Check the current request and handle according to it
      */
 
-    function checkRequest($content) {
-        return $content;
+    function checkRequest($MJTC_content) {
+        return $MJTC_content;
     }
 
     /*
@@ -890,16 +890,16 @@ class majesticsupport {
 
     static function addStyleSheets() {
         wp_enqueue_script('jquery');
-        wp_enqueue_script('majesticsupport-commonjs',MJTC_PLUGIN_URL.'includes/js/common.js');
-        wp_enqueue_script('majesticsupport-responsivetablejs',MJTC_PLUGIN_URL.'includes/js/responsivetable.js');
+        wp_enqueue_script('majesticsupport-commonjs', MJTC_PLUGIN_URL . 'includes/js/common.js', array(), '1.0.0', true);
+        wp_enqueue_script('majesticsupport-responsivetablejs', MJTC_PLUGIN_URL . 'includes/js/responsivetable.js', array(), '1.0.0', true);
         wp_enqueue_script('jquery-ui-accordion');
-        wp_enqueue_script('majesticsupport-formvalidator',MJTC_PLUGIN_URL.'includes/js/jquery.form-validator.js');
+        wp_enqueue_script('majesticsupport-formvalidator',MJTC_PLUGIN_URL.'includes/js/jquery.form-validator.js', array(), '1.0.0', true);
         wp_enqueue_script( 'majestic-support-cmain-js', MJTC_PLUGIN_URL . 'includes/js/common_main.js', array( 'jquery' ),'1.0.0', true);
         if(in_array('notification', majesticsupport::$_active_addons)){
             wp_localize_script('commonjs', 'common', array('apiKey_firebase' => majesticsupport::$_config['apiKey_firebase'],'authDomain_firebase'=> majesticsupport::$_config['authDomain_firebase'],'databaseURL_firebase'=>majesticsupport::$_config['databaseURL_firebase'], 'projectId_firebase' => majesticsupport::$_config['projectId_firebase'], 'storageBucket_firebase' => majesticsupport::$_config['storageBucket_firebase'], 'messagingSenderId_firebase' => majesticsupport::$_config['messagingSenderId_firebase']));
         }
         //to localize validation error messages
-        $js = '
+        $MJTC_js = '
         jQuery.formUtils.LANG = {
             errorTitle: "'.esc_html(__("Form submission failed!",'majestic-support')).'",
             requiredFields: "'.esc_html(__("You have not answered all required fields",'majestic-support')).'",
@@ -934,34 +934,32 @@ class majesticsupport {
             badCVV: "'.esc_html(__("The CVV number was not correct",'majestic-support')).'"
         };
         ';
-        wp_add_inline_script('ms-formvalidator',$js);
+        wp_add_inline_script('ms-formvalidator',$MJTC_js);
     }
 
     public static function ms_register_plugin_styles(){
         global $wp_styles;
+            wp_enqueue_style('majesticsupport-icon-css', MJTC_PLUGIN_URL . 'includes/css/majestic_support.css', array(), '1.0.0');
         if (!isset($wp_styles->queue)) {
-            wp_enqueue_style('majesticsupport-main-css', MJTC_PLUGIN_URL . 'includes/css/style.css');
             // responsive style sheets
             wp_enqueue_style('majesticsupport-desktop-css', MJTC_PLUGIN_URL . 'includes/css/style_desktop.css',array(),'1.0.0','(min-width: 783px) and (max-width: 1280px)');
             wp_enqueue_style('majesticsupport-tablet-css', MJTC_PLUGIN_URL . 'includes/css/style_tablet.css',array(),'1.0.0','(min-width: 668px) and (max-width: 782px)');
             wp_enqueue_style('majesticsupport-mobile-css', MJTC_PLUGIN_URL . 'includes/css/style_mobile.css',array(),'1.0.0','(min-width: 481px) and (max-width: 667px)');
             wp_enqueue_style('majesticsupport-oldmobile-css', MJTC_PLUGIN_URL . 'includes/css/style_oldmobile.css',array(),'1.0.0','(max-width: 480px)');
             if(is_rtl()){
-                wp_enqueue_style('majesticsupport-main-css-rtl', MJTC_PLUGIN_URL . 'includes/css/stylertl.css');
+                wp_enqueue_style('majesticsupport-main-css-rtl', MJTC_PLUGIN_URL . 'includes/css/stylertl.css', array(), '1.0.0');
             }
-            $MJTC_color = require_once(MJTC_PLUGIN_PATH . 'includes/css/style.php');
-            wp_enqueue_style('majesticsupport-color-css', MJTC_PLUGIN_URL . 'includes/css/color.css');
         } else {    
             MJTC_includer::MJTC_getModel('majesticsupport')->checkIfMainCssFileIsEnqued();
         }
     }
 
     public static function ms_admin_register_plugin_styles() {
-        wp_register_style('mjsupport-bootstrapcss', MJTC_PLUGIN_URL . 'includes/css/bootstrap.min.css');
-        wp_register_style('mjsupport-admincss', MJTC_PLUGIN_URL . 'includes/css/admincss.css');
+        wp_register_style('mjsupport-bootstrapcss', MJTC_PLUGIN_URL . 'includes/css/bootstrap.min.css', array(), '1.0.0');
+        wp_register_style('mjsupport-admincss', MJTC_PLUGIN_URL . 'includes/css/admincss.css', array(), '1.0.0');
         wp_enqueue_style('mjsupport-admincss');
         if(is_rtl()){
-            wp_register_style('mjsupport-admincss-rtl', MJTC_PLUGIN_URL . 'includes/css/admincssrtl.css');
+            wp_register_style('mjsupport-admincss-rtl', MJTC_PLUGIN_URL . 'includes/css/admincssrtl.css', array(), '1.0.0');
             wp_enqueue_style('mjsupport-admincss-rtl');
         }
     }
@@ -974,19 +972,19 @@ class majesticsupport {
         if(majesticsupport::$_pageid != ''){
             return majesticsupport::$_pageid;
         }else{
-            $pageid = MJTC_request::MJTC_getVar('page_id','GET');
-            if($pageid){
-                return $pageid;
+            $MJTC_pageid = MJTC_request::MJTC_getVar('page_id','GET');
+            if($MJTC_pageid){
+                return $MJTC_pageid;
             }else{ // in case of categories popup
-                $query = "SELECT configvalue FROM `".majesticsupport::$_db->prefix."mjtc_support_config` WHERE configname = 'default_pageid'";
-                $pageid = majesticsupport::$_db->get_var($query);
-                return $pageid;
+                $MJTC_query = "SELECT configvalue FROM `".majesticsupport::$_db->prefix."mjtc_support_config` WHERE configname = 'default_pageid'";
+                $MJTC_pageid = majesticsupport::$_db->get_var($MJTC_query);
+                return $MJTC_pageid;
             }
         }
     }
 
-    public static function setPageID($id) {
-        majesticsupport::$_pageid = $id;
+    public static function setPageID($MJTC_id) {
+        majesticsupport::$_pageid = $MJTC_id;
         return;
     }
 
@@ -1001,9 +999,9 @@ class majesticsupport {
         }
     }
 
-    public static function MJTC_getVarValue($text_string) {
+    public static function MJTC_getVarValue($MJTC_text_string) {
         $translations = get_translations_for_domain('majestic-support');
-        $translation  = $translations->translate( $text_string );
+        $translation  = $translations->translate( $MJTC_text_string );
         return esc_html($translation);
     }
 
@@ -1011,74 +1009,115 @@ class majesticsupport {
      * function to parse the spaces in given string
      */
 
-    public static function parseSpaces($string) {
+    public static function parseSpaces($MJTC_string) {
         // php 8 issue for str_replce
-        if($string == ''){
-            return $string;
+        if($MJTC_string == ''){
+            return $MJTC_string;
         }
-        return MJTC_majesticsupportphplib::MJTC_str_replace('%20',' ',$string);
+        return MJTC_majesticsupportphplib::MJTC_str_replace('%20',' ',$MJTC_string);
     }
 
     static function checkScreenTag(){
         if(!is_admin()){
             if (majesticsupport::$_config['support_screentag'] == 1) { // we need to show the support ticket tag
                 if (majesticsupport::$_config['support_custom_img'] == '0') {
-                    $img_scr = MJTC_PLUGIN_URL.'includes/images/support.png';
+                    $MJTC_img_scr = MJTC_PLUGIN_URL.'includes/images/support.png';
                 } else {
-                    $maindir = wp_upload_dir();
-                    $basedir = $maindir['baseurl'];
+                    $MJTC_maindir = wp_upload_dir();
+                    $MJTC_basedir = $MJTC_maindir['baseurl'];
                     $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-                    $img_scr = $basedir . '/' . $MJTC_datadirectory.'/supportImg/'.esc_attr(majesticsupport::$_config['support_custom_img']);
+                    $MJTC_img_scr = $MJTC_basedir . '/' . $MJTC_datadirectory.'/supportImg/'.esc_attr(majesticsupport::$_config['support_custom_img']);
                 }
                 if (isset(majesticsupport::$_config['support_custom_txt']) && majesticsupport::$_config['support_custom_txt'] != '') {
-                    $support_txt = majesticsupport::$_config['support_custom_txt'];
+                    $MJTC_support_txt = majesticsupport::$_config['support_custom_txt'];
                 } else {
-                    $support_txt = "Support";
+                    $MJTC_support_txt = "Support";
                 }
-                $location = 'left';
+                $MJTC_location = 'left';
+                $MJTC_borderradius = '0px 8px 8px 0px';
+                $MJTC_padding = '5px 10px 5px 10px';
                 switch (majesticsupport::$_config['screentag_position']) {
                     case 1: // Top left
-                        break;
+                        $MJTC_top = "30px";
+                        $MJTC_left = "0px";
+                        $MJTC_right = "auto";
+                        $MJTC_bottom = "auto";
+                    break;
                     case 2: // Top right
-                        $location = 'right';
-                        break;
+                        $MJTC_top = "30px";
+                        $MJTC_left = "auto";
+                        $MJTC_right = "0px";
+                        $MJTC_bottom = "auto";
+                        $MJTC_location = 'right';
+                        $MJTC_borderradius = '8px 0px 0px 8px';
+                        $MJTC_padding = '5px 20px 5px 10px';
+                    break;
                     case 3: // middle left
-                        break;
+                        $MJTC_top = "48%";
+                        $MJTC_left = "0px";
+                        $MJTC_right = "auto";
+                        $MJTC_bottom = "auto";
+                    break;
                     case 4: // middle right
-                        $location = 'right';
-                        break;
+                        $MJTC_top = "48%";
+                        $MJTC_left = "auto";
+                        $MJTC_right = "0px";
+                        $MJTC_bottom = "auto";
+                        $MJTC_location = 'right';
+                        $MJTC_borderradius = '8px 0px 0px 8px';
+                        $MJTC_padding = '5px 20px 5px 10px';
+                    break;
                     case 5: // bottom left
-                        break;
+                        $MJTC_top = "auto";
+                        $MJTC_left = "0px";
+                        $MJTC_right = "auto";
+                        $MJTC_bottom = "30px";
+                    break;
                     case 6: // bottom right
-                        $location = 'right';
-                        break;
+                        $MJTC_top = "auto";
+                        $MJTC_left = "auto";
+                        $MJTC_right = "0px";
+                        $MJTC_bottom = "30px";
+                        $MJTC_location = 'right';
+                        $MJTC_borderradius = '8px 0px 0px 8px';
+                        $MJTC_padding = '5px 20px 5px 10px';
+                    break;
                 }
 
-                $html ='
-                        <div id="mjtc-support_screentag">
+                $MJTC_html ='
+                        <div id="mjtc-support_screentag" style = "top:'.$MJTC_top.';left:'.$MJTC_left.';right:'.$MJTC_right.';bottom:'.$MJTC_bottom.';padding:'.$MJTC_padding.';border-radius:'.$MJTC_borderradius.';">
                         <a class="mjtc-support_screentag_anchor" href="' . esc_url(site_url('?page_id=' . esc_attr(majesticsupport::$_config['default_pageid']))) . '">';
-                if($location == 'right'){
-                    $html .= '<img class="mjtc-support_screentag_image" alt="screen tag" src="'.esc_url($img_scr).'" /><span class="text">'.esc_html(majesticsupport::MJTC_getVarValue($support_txt)).'</span>';
+                if($MJTC_location == 'right'){
+                    if (majesticsupport::$_config['support_custom_img'] == '0') {
+                        $MJTC_html .= '<svg style="margin-'.$MJTC_location.':10px;" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"></path><path d="M21 16v2a4 4 0 0 1-4 4h-5"></path></svg>';
+                    } else {
+                        $MJTC_html .= '<img class="mjtc-support_screentag_image" style="margin-'.$MJTC_location.':10px;" alt="screen tag" src="'.esc_url($MJTC_img_scr).'" /><span class="text">'.esc_html(majesticsupport::MJTC_getVarValue($MJTC_support_txt)).'</span>';
+                    }
                 }else{
-                    $html .= '<span class="text">'.esc_html(majesticsupport::MJTC_getVarValue($support_txt)).'</span><img class="mjtc-support_screentag_image" alt="screen tag" src="'.esc_url($img_scr).'" />';
+                    if (majesticsupport::$_config['support_custom_img'] == '0') {
+                        $MJTC_html .= '<span class="text">'.esc_html(majesticsupport::MJTC_getVarValue($MJTC_support_txt)).'</span>
+                        <svg style="margin-'.$MJTC_location.':10px;" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"></path><path d="M21 16v2a4 4 0 0 1-4 4h-5"></path></svg>';
+                    } else {
+                        $MJTC_html .= '<span class="text">'.esc_html(majesticsupport::MJTC_getVarValue($MJTC_support_txt)).'</span><img class="mjtc-support_screentag_image" style="margin-'.$MJTC_location.':10px;" alt="screen tag" src="'.esc_url($MJTC_img_scr).'" />';
+                    }
                 }
-                $html .= '</a>
+                $MJTC_html .= '</a>
                         </div>';
                         $majesticsupport_js = '
                             jQuery(document).ready(function(){
-                                jQuery("div#mjtc-support_screentag").css("'.esc_attr($location).'","-"+(jQuery("div#mjtc-support_screentag span.text").width() + 25)+"px");
+                                jQuery("div#mjtc-support_screentag").css("'.esc_attr($MJTC_location).'","-"+(jQuery("div#mjtc-support_screentag span.text").width() + 25)+"px");
                                 jQuery("div#mjtc-support_screentag").css("opacity",1);
                                 jQuery("div#mjtc-support_screentag").hover(
                                     function(){
-                                        jQuery(this).animate({'.esc_attr($location).': "+="+(jQuery("div#mjtc-support_screentag span.text").width() + 25)}, 1000);
+                                        jQuery(this).animate({'.esc_attr($MJTC_location).': "+="+(jQuery("div#mjtc-support_screentag span.text").width() + 25)}, 1000);
                                     },
                                     function(){
-                                        jQuery(this).animate({'.esc_attr($location).': "-="+(jQuery("div#mjtc-support_screentag span.text").width() + 25)}, 1000);
+                                        jQuery(this).animate({'.esc_attr($MJTC_location).': "-="+(jQuery("div#mjtc-support_screentag span.text").width() + 25)}, 1000);
                                     }
                                 );
                             });';
                         wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
-                echo wp_kses($html, MJTC_ALLOWED_TAGS);
+                echo wp_kses($MJTC_html, MJTC_ALLOWED_TAGS);
             }
         }
     }
@@ -1204,68 +1243,68 @@ class majesticsupport {
         }
     }
 
-    function reset_ms_aadon_query(){
+    function MJTC_reset_addon_query(){
         majesticsupport::$_addon_query = array('select'=>'','join'=>'','where'=>'');
     }
 
     function majesticsupport_load_wp_plugin_file() {
-        $wp_admin_url = admin_url('includes/plugin.php');
-        $wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $wp_admin_url);
-        require_once($wp_admin_path);
+        $MJTC_wp_admin_url = admin_url('includes/plugin.php');
+        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
+        require_once($MJTC_wp_admin_path);
     }
 
     function majesticsupport_load_wp_admin_file() {
-        $wp_admin_url = admin_url('includes/admin.php');
-        $wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $wp_admin_url);
-        require_once($wp_admin_path);
+        $MJTC_wp_admin_url = admin_url('includes/admin.php');
+        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
+        require_once($MJTC_wp_admin_path);
     }
 
     function majesticsupport_load_wp_file() {
-        $wp_admin_url = admin_url('includes/file.php');
-        $wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $wp_admin_url);
-        require_once($wp_admin_path);
+        $MJTC_wp_admin_url = admin_url('includes/file.php');
+        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
+        require_once($MJTC_wp_admin_path);
     }
 
     function majesticsupport_load_wp_pcl_zip() {
-        $wp_admin_url = admin_url('includes/class-pclzip.php');
-        $wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $wp_admin_url);
-        require_once($wp_admin_path);
+        $MJTC_wp_admin_url = admin_url('includes/class-pclzip.php');
+        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
+        require_once($MJTC_wp_admin_path);
     }
 
     function majesticsupport_load_wp_ajax_upgrader_skin() {
-        $wp_admin_url = admin_url('includes/class-wp-ajax-upgrader-skin.php');
-        $wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $wp_admin_url);
-        require_once($wp_admin_path);
+        $MJTC_wp_admin_url = admin_url('includes/class-wp-ajax-upgrader-skin.php');
+        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
+        require_once($MJTC_wp_admin_path);
     }
 
     function majesticsupport_load_wp_upgrader() {
-        $wp_admin_url = admin_url('includes/class-wp-upgrader.php');
-        $wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $wp_admin_url);
-        require_once($wp_admin_path);
+        $MJTC_wp_admin_url = admin_url('includes/class-wp-upgrader.php');
+        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
+        require_once($MJTC_wp_admin_path);
     }
 
     function majesticsupport_load_wp_plugin_upgrader() {
-        $wp_admin_url = admin_url('includes/class-plugin-upgrader.php');
-        $wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $wp_admin_url);
-        require_once($wp_admin_path);
+        $MJTC_wp_admin_url = admin_url('includes/class-plugin-upgrader.php');
+        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
+        require_once($MJTC_wp_admin_path);
     }
 
     function majesticsupport_load_wp_translation_install() {
-        $wp_admin_url = admin_url('includes/translation-install.php');
-        $wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $wp_admin_url);
-        require_once($wp_admin_path);
+        $MJTC_wp_admin_url = admin_url('includes/translation-install.php');
+        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
+        require_once($MJTC_wp_admin_path);
     }
 
     function majesticsupport_load_wp_plugin_install() {
-        $wp_admin_url = admin_url('includes/plugin-install.php');
-        $wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $wp_admin_url);
-        require_once($wp_admin_path);
+        $MJTC_wp_admin_url = admin_url('includes/plugin-install.php');
+        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
+        require_once($MJTC_wp_admin_path);
     }
 
     function majesticsupport_load_phpass() {
-        $wp_site_url = site_url('wp-includes/class-phpass.php');
-        $wp_site_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $wp_site_url);
-        require_once($wp_site_path);
+        $MJTC_wp_site_url = site_url('wp-includes/class-phpass.php');
+        $MJTC_wp_site_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_site_url);
+        require_once($MJTC_wp_site_path);
     }
 
     function ticketviaemail() {// this funtion also handles ticket overdue bcz of hours confiuration
@@ -1291,36 +1330,36 @@ function mjtc_custom_init_session() {
 // add the filter
 $majesticsupport = new majesticsupport();
 
-add_filter( 'login_form_middle', 'msAddLostPasswordLink' );
-function msAddLostPasswordLink($content) {
-   return $content.'
+add_filter( 'login_form_middle', 'MJTC_AddLostPasswordLink' );
+function MJTC_AddLostPasswordLink($MJTC_content) {
+   return $MJTC_content.'
    <a href="'.site_url().'/wp-login.php?action=lostpassword">'. esc_html(__('Lost your password','majestic-support')) .'?</a>';
 }
 
-add_filter( 'login_form_middle', 'msAddRegisterLink' );
-function msAddRegisterLink($content) {
+add_filter( 'login_form_middle', 'MJTC_AddRegisterLink' );
+function MJTC_AddRegisterLink($MJTC_content) {
     if(get_option('users_can_register')){
-        $registerval = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('set_register_link');
-        $registerlink = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('register_link');
-        if($registerval == 3){
-            $content .= ' <a href="'.esc_url(wp_registration_url()).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
-        }else if($registerval == 2 && $registerlink != ""){
-            $content .= ' <a href="'.esc_url($registerlink).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
+        $MJTC_registerval = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('set_register_link');
+        $MJTC_registerlink = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('register_link');
+        if($MJTC_registerval == 3){
+            $MJTC_content .= ' <a href="'.esc_url(wp_registration_url()).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
+        }else if($MJTC_registerval == 2 && $MJTC_registerlink != ""){
+            $MJTC_content .= ' <a href="'.esc_url($MJTC_registerlink).'" title="' . esc_html(__('Register', 'majestic-support')) . '">' . esc_html(__('Register', 'majestic-support')) . '</a>';
         }else{
-            $content .= ' <a href="'.esc_url(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport','mjslay'=>'userregister'))).'" title="' . esc_html(__('Register', 'majestic-support')) . '">'. esc_html(__('Register','majestic-support')) .'</a>';
+            $MJTC_content .= ' <a href="'.esc_url(majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport','mjslay'=>'userregister'))).'" title="' . esc_html(__('Register', 'majestic-support')) . '">'. esc_html(__('Register','majestic-support')) .'</a>';
         }
     }
-    return $content;
+    return $MJTC_content;
 }
 
-add_action( 'ms_addon_update_date_failed', 'msaddonUpdateDateFailed' );
-function msaddonUpdateDateFailed(){
+add_action( 'ms_addon_update_date_failed', 'MJTC_addonUpdateDateFailed' );
+function MJTC_addonUpdateDateFailed(){
     die();
 }
 
-add_filter('style_loader_tag', 'msW3cValidation', 10, 2);
-add_filter('script_loader_tag', 'msW3cValidation', 10, 2);
-function msW3cValidation($tag, $handle) {
+add_filter('style_loader_tag', 'MJTC_W3cValidation', 10, 2);
+add_filter('script_loader_tag', 'MJTC_W3cValidation', 10, 2);
+function MJTC_W3cValidation($tag, $MJTC_handle) {
     return MJTC_majesticsupportphplib::MJTC_preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
 }
 
@@ -1337,83 +1376,80 @@ if(is_admin() && is_file('includes/classes/msadminreviewbox.php')){
     
 }
 
-function ms_get_avatar($uid, $class = '') {
+function MJTC_get_avatar($MJTC_uid, $MJTC_class = '') {
     // Default avatar image URL
     $MJTC_defaultImage = MJTC_PLUGIN_URL . '/includes/images/user.png';
 
     // Ensure the UID is valid and numeric
-    if (!is_numeric($uid) || !$uid) {
-        return '<img alt="' . esc_html(__('image', 'majestic-support')) . '" src="' . esc_url($MJTC_defaultImage) . '" class="' . esc_attr($class) . '" />';
+    if (!is_numeric($MJTC_uid) || !$MJTC_uid) {
+        return '<img alt="' . esc_html(__('Image', 'majestic-support')) . '" src="' . esc_url($MJTC_defaultImage) . '" class="' . esc_attr($MJTC_class) . '" />';
     }
 
     // in case if user is agent
     if ( in_array('agent',majesticsupport::$_active_addons)) {
-        $query = "
-        SELECT id, photo FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff WHERE staff.uid = ".esc_sql($uid);
-        $staff_data = majesticsupport::$_db->get_row($query);
-        if (!empty($staff_data->photo)) {
-            $maindir = wp_upload_dir();
-            $path = $maindir['baseurl'];
+        $MJTC_query = "
+        SELECT id, photo FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff WHERE staff.uid = ".esc_sql($MJTC_uid);
+        $MJTC_staff_data = majesticsupport::$_db->get_row($MJTC_query);
+        if (!empty($MJTC_staff_data->photo)) {
+            $MJTC_maindir = wp_upload_dir();
+            $MJTC_path = $MJTC_maindir['baseurl'];
 
-            $imageurl = $path."/".majesticsupport::$_config['data_directory']."/staffdata/staff_".$staff_data->id."/".$staff_data->photo;
+            $MJTC_imageurl = $MJTC_path."/".majesticsupport::$_config['data_directory']."/staffdata/staff_".$MJTC_staff_data->id."/".$MJTC_staff_data->photo;
 
-            return '<img alt="' . esc_html(__('image', 'majestic-support')) . '" src="' . esc_url($imageurl) . '" class="' . esc_attr($class) . '" />';
+            return '<img alt="' . esc_html(__('Image', 'majestic-support')) . '" src="' . esc_url($MJTC_imageurl) . '" class="' . esc_attr($MJTC_class) . '" />';
         }
     }
-    $uid = MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById($uid);
+    $MJTC_uid = MJTC_includer::MJTC_getModel('majesticsupport')->getWPUidById($MJTC_uid);
 
     // Get the avatar URL
     if(majesticsupport::$_config['show_avatar'] == 1){
-        $avatar_url = get_avatar_url($uid, array('size' => 96));
+        $MJTC_avatar_url = get_avatar_url($MJTC_uid, array('size' => 96));
     } else {
-        $avatar_url = "";
+        $MJTC_avatar_url = "";
     }
 
     // Check if the avatar URL is valid
-    if (!empty($avatar_url) && @getimagesize($avatar_url)) {
+    if (!empty($MJTC_avatar_url) && @getimagesize($MJTC_avatar_url)) {
         // Use WordPress's get_avatar function to generate the avatar HTML
-        return get_avatar($uid, 96, '', '', array('class' => $class));
+        return get_avatar($MJTC_uid, 96, '', '', array('class' => $MJTC_class));
     } else {
         // Fallback to the default image if the avatar URL is invalid
-        return '<img alt="' . esc_html(__('image', 'majestic-support')) . '" src="' . esc_url($MJTC_defaultImage) . '" class="' . esc_attr($class) . '" />';
+        return '<img alt="' . esc_html(__('Image', 'majestic-support')) . '" src="' . esc_url($MJTC_defaultImage) . '" class="' . esc_attr($MJTC_class) . '" />';
     }
 }
 
-function mjtc_checkPluginInfo($slug){
-    if(file_exists(WP_PLUGIN_DIR . '/'.$slug) && is_plugin_active($slug)){
-        $text = esc_html(__("Activated",'majestic-support'));
-        $disabled = "disabled";
-        $class = "mjtc-btn-activated";
-        $availability = "-1";
-    }else if(file_exists(WP_PLUGIN_DIR . '/'.$slug) && !is_plugin_active($slug)){
-        $text = esc_html(__("Active Now",'majestic-support'));
-        $disabled = "";
-        $class = "mjtc-btn-green mjtc-btn-active-now";
-        $availability = "1";
-    }else if(!file_exists(WP_PLUGIN_DIR . '/'.$slug)){
-        $text = esc_html(__("Install Now",'majestic-support'));
-        $disabled = "";
-        $class = "mjtc-btn-install-now";
-        $availability = "0";
+function mjtc_checkPluginInfo($MJTC_slug){
+    if(file_exists(WP_PLUGIN_DIR . '/'.$MJTC_slug) && is_plugin_active($MJTC_slug)){
+        $MJTC_text = esc_html(__("Activated",'majestic-support'));
+        $MJTC_disabled = "disabled";
+        $MJTC_class = "mjtc-btn-activated";
+        $MJTC_availability = "-1";
+    }else if(file_exists(WP_PLUGIN_DIR . '/'.$MJTC_slug) && !is_plugin_active($MJTC_slug)){
+        $MJTC_text = esc_html(__("Active Now",'majestic-support'));
+        $MJTC_disabled = "";
+        $MJTC_class = "mjtc-btn-green mjtc-btn-active-now";
+        $MJTC_availability = "1";
+    }else if(!file_exists(WP_PLUGIN_DIR . '/'.$MJTC_slug)){
+        $MJTC_text = esc_html(__("Install Now",'majestic-support'));
+        $MJTC_disabled = "";
+        $MJTC_class = "mjtc-btn-install-now";
+        $MJTC_availability = "0";
     }
-    return array("text" => $text, "disabled" => $disabled, "class" => $class, "availability" => $availability);
+    return array("text" => $MJTC_text, "disabled" => $MJTC_disabled, "class" => $MJTC_class, "availability" => $MJTC_availability);
 }
 
 add_action( 'upgrader_process_complete', 'majesticsupport_upgrade_completed', 10, 2 ); // some time above hook does not workin, so add this hook.
-function majesticsupport_upgrade_completed( $upgrader_object, $options ) {
+function majesticsupport_upgrade_completed( $MJTC_upgrader_object, $MJTC_options ) {
     // The path to our plugin's main file
-    $our_plugin = plugin_basename( __FILE__ );
+    $MJTC_our_plugin = plugin_basename( __FILE__ );
     // If an update has taken place and the updated type is plugins and the plugins element exists
-    if( $options['action'] == 'update' && $options['type'] == 'plugin' && isset( $options['plugins'] ) ) {
+    if( $MJTC_options['action'] == 'update' && $MJTC_options['type'] == 'plugin' && isset( $MJTC_options['plugins'] ) ) {
         // Iterate through the plugins being updated and check if ours is there
-        foreach( $options['plugins'] as $plugin ) {
-            if( $plugin == $our_plugin ) {
-                // restore colors data
-                require(MJTC_PLUGIN_PATH . 'includes/css/style.php');
-                // restore colors data end
+        foreach( $MJTC_options['plugins'] as $MJTC_plugin ) {
+            if( $MJTC_plugin == $MJTC_our_plugin ) {
                 update_option('ms_currentversion', majesticsupport::$_currentversion);
                 include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-                MJTC_updates::MJTC_checkUpdates('113');
+                MJTC_updates::MJTC_checkUpdates('114');
                 MJTC_includer::MJTC_getModel('majesticsupport')->updateColorFile();
                 MJTC_includer::MJTC_getModel('majesticsupport')->mjtc_check_license_status();
                 MJTC_includer::MJTC_getModel('majesticsupport')->MSAddonsAutoUpdate();
@@ -1423,4 +1459,38 @@ function majesticsupport_upgrade_completed( $upgrader_object, $options ) {
     }
 }
 
+
+// =========================================================================
+// LOAD PLUGIN TRANSLATIONS (AUTO-FALLBACK TO PLUGIN LANGUAGES FOLDER)
+// =========================================================================
+add_action('plugins_loaded', 'majesticsupport_load_plugin_textdomain', 1);
+
+function majesticsupport_load_plugin_textdomain() {
+    $domain = 'majestic-support';
+    $locale = function_exists('determine_locale') ? determine_locale() : get_locale();
+    $locale = apply_filters('plugin_locale', $locale, $domain);
+
+    $candidates = array_unique(array_filter([
+        $locale,
+        strtolower((string) $locale),
+        strpos((string) $locale, '_') !== false ? substr((string) $locale, 0, 2) : '',
+    ]));
+
+    foreach ($candidates as $candidate) {
+        $global_mo = trailingslashit(WP_LANG_DIR) . 'plugins/' . $domain . '-' . $candidate . '.mo';
+        if (file_exists($global_mo) && load_textdomain($domain, $global_mo)) {
+            return;
+        }
+    }
+
+    foreach ($candidates as $candidate) {
+        $bundled_mo = trailingslashit(MJTC_PLUGIN_PATH) . 'languages/' . $domain . '-' . $candidate . '.mo';
+        if (file_exists($bundled_mo) && load_textdomain($domain, $bundled_mo)) {
+            return;
+        }
+    }
+
+    // Keep the standard WordPress path registration as a final fallback.
+    load_plugin_textdomain($domain, false, dirname(plugin_basename(__FILE__)) . '/languages');
+}
 ?>

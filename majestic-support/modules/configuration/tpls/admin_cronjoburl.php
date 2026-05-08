@@ -21,8 +21,8 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
         <div id="msadmin-data-wrp" class="">
             <!-- ticket via email cron -->
             <div id="cp_wraper">
-                <?php $array = array('even', 'odd');
-                $k = 0; ?>
+                <?php $MJTC_array = array('even', 'odd');
+                $MJTC_k = 0; ?>
                 <div id="tabs" class="tabs">
                     <ul>
                         <li><a title="<?php echo esc_attr(__('Web Cron Job','majestic-support')); ?>" class="selected" data-css="controlpanel" href="#webcrown"><?php echo esc_html(__('Web Cron Job','majestic-support')); ?></a></li>
@@ -35,43 +35,43 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                     <div id="webcrown">
                         <div id="cron_job">
                             <span class="crown_text"><?php echo esc_html(__('Configuration of a backup job with webcron.org','majestic-support')); ?></span>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left">
-                                    <?php echo esc_html(__('Name of cron job','majestic-support')); ?>
+                                    <?php echo esc_html(__('Name Of Cron Job','majestic-support')); ?>
                                 </span>
                                 <span class="crown_text_right"><?php echo esc_html(__('Ticket via email','majestic-support')); ?></span>
                             </div>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left">
                                     <?php echo esc_html(__('Timeout','majestic-support')); ?>
                                 </span>
                                 <span class="crown_text_right"><?php echo esc_html(__('180 secs If the setting is not completely increased, most sites will work with a setting of between 180 and 600','majestic-support')); ?></span>
                             </div>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
-                                <span class="crown_text_left"><?php echo esc_html(__('URL you want to execute','majestic-support')); ?></span>
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
+                                <span class="crown_text_left"><?php echo esc_html(__('URL You Want To Execute','majestic-support')); ?></span>
                                 <span class="crown_text_right">
                                     <?php echo esc_html(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid()))); ?>
                                 </span>
                             </div>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left"><?php echo esc_html(__('Login','majestic-support')); ?></span>
                                 <span class="crown_text_right">
                                     <?php echo esc_html(__('Leave this blank','majestic-support')); ?>
                                 </span>
                             </div>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left"><?php echo esc_html(__('Password','majestic-support')); ?></span>
                                 <span class="crown_text_right"><?php echo esc_html(__('Leave this blank','majestic-support')); ?></span>
                             </div>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left">
-                                    <?php echo esc_html(__('Execution time','majestic-support')); ?>
+                                    <?php echo esc_html(__('Execution Time','majestic-support')); ?>
                                 </span>
                                 <span class="crown_text_right">
                                     <?php echo esc_html(__('That the grid below the other options select when and how','majestic-support')); ?>
                                 </span>
                             </div>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left"><?php echo esc_html(__('Alerts','majestic-support')); ?></span>
                                 <span class="crown_text_right">
                                 <?php echo esc_html(__('If you have already set up alert methods in the webcron.org interface, we recommend choosing an alert type','majestic-support')); ?>
@@ -108,17 +108,17 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                             <div id="cron_job_detail_wrapper" class="even">
                                 <span class="crown_text_right fullwidth">
                                     <?php
-                                    echo wp_kses('  $curl_handle=curl_init();<br>
-                                                curl_setopt($curl_handle, CURLOPT_URL, \'' . esc_url(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid()))).'\');<br>
-                                                curl_setopt($curl_handle,CURLOPT_FOLLOWLOCATION, TRUE);<br>
-                                                curl_setopt($curl_handle,CURLOPT_MAXREDIRS, 10000);<br>
-                                                curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER, 1);<br>
-                                                $buffer = curl_exec($curl_handle);<br>
-                                                curl_close($curl_handle);<br>
-                                                if (empty($buffer))<br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;echo "' . esc_html(__('Sorry the cron job didnot work','majestic-support')) . '";<br>
+                                    echo wp_kses('  $MJTC_curl_handle=curl_init();<br>
+                                                curl_setopt($MJTC_curl_handle, CURLOPT_URL, \'' . esc_url(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid()))).'\');<br>
+                                                curl_setopt($MJTC_curl_handle,CURLOPT_FOLLOWLOCATION, TRUE);<br>
+                                                curl_setopt($MJTC_curl_handle,CURLOPT_MAXREDIRS, 10000);<br>
+                                                curl_setopt($MJTC_curl_handle,CURLOPT_RETURNTRANSFER, 1);<br>
+                                                $MJTC_buffer = curl_exec($MJTC_curl_handle);<br>
+                                                curl_close($MJTC_curl_handle);<br>
+                                                if (empty($MJTC_buffer))<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;echo "' . esc_html(__('Sorry the cron job did not work','majestic-support')) . '";<br>
                                                 else<br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;echo esc_attr($buffer);<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;echo esc_attr($MJTC_buffer);<br>
                                                 ', MJTC_ALLOWED_TAGS);
                                     ?>
                                 </span>
@@ -141,8 +141,8 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
             </div>
             <!-- update ticket status cron -->
             <div id="cp_wraper">
-                <?php $array = array('even', 'odd');
-                $k = 0; ?>
+                <?php $MJTC_array = array('even', 'odd');
+                $MJTC_k = 0; ?>
                 <div id="tabs" class="tabs">
                     <ul>
                         <li><a title="<?php echo esc_attr(__('Web Cron Job','majestic-support')); ?>" class="selected" data-css="controlpanel" href="#webcrown"><?php echo esc_html(__('Web Cron Job','majestic-support')); ?></a></li>
@@ -155,43 +155,43 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                     <div id="webcrown">
                         <div id="cron_job">
                             <span class="crown_text"><?php echo esc_html(__('Configuration of a backup job with webcron.org','majestic-support')); ?></span>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left">
-                                    <?php echo esc_html(__('Name of cron job','majestic-support')); ?>
+                                    <?php echo esc_html(__('Name Of Cron Job','majestic-support')); ?>
                                 </span>
                                 <span class="crown_text_right"><?php echo esc_html(__('Update ticket status','majestic-support')); ?></span>
                             </div>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left">
                                     <?php echo esc_html(__('Timeout','majestic-support')); ?>
                                 </span>
                                 <span class="crown_text_right"><?php echo esc_html(__('180 secs If the setting is not completely increased, most sites will work with a setting of between 180 and 600','majestic-support')); ?></span>
                             </div>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
-                                <span class="crown_text_left"><?php echo esc_html(__('URL you want to execute','majestic-support')); ?></span>
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
+                                <span class="crown_text_left"><?php echo esc_html(__('URL You Want To Execute','majestic-support')); ?></span>
                                 <span class="crown_text_right">
                                     <?php echo esc_html(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid()))); ?>
                                 </span>
                             </div>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left"><?php echo esc_html(__('Login','majestic-support')); ?></span>
                                 <span class="crown_text_right">
                                     <?php echo esc_html(__('Leave this blank','majestic-support')); ?>
                                 </span>
                             </div>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left"><?php echo esc_html(__('Password','majestic-support')); ?></span>
                                 <span class="crown_text_right"><?php echo esc_html(__('Leave this blank','majestic-support')); ?></span>
                             </div>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left">
-                                    <?php echo esc_html(__('Execution time','majestic-support')); ?>
+                                    <?php echo esc_html(__('Execution Time','majestic-support')); ?>
                                 </span>
                                 <span class="crown_text_right">
                                     <?php echo esc_html(__('That the grid below the other options select when and how','majestic-support')); ?>
                                 </span>
                             </div>
-                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($array[$k]);$k = 1 - $k; ?>">
+                            <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left"><?php echo esc_html(__('Alerts','majestic-support')); ?></span>
                                 <span class="crown_text_right">
                                 <?php echo esc_html(__('If you have already set up alert methods in the webcron.org interface, we recommend choosing an alert type','majestic-support')); ?>
@@ -228,17 +228,17 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                             <div id="cron_job_detail_wrapper" class="even">
                                 <span class="crown_text_right fullwidth">
                                     <?php
-                                    echo wp_kses('  $curl_handle=curl_init();<br>
-                                                curl_setopt($curl_handle, CURLOPT_URL, \'' . esc_url(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid()))).'\');<br>
-                                                curl_setopt($curl_handle,CURLOPT_FOLLOWLOCATION, TRUE);<br>
-                                                curl_setopt($curl_handle,CURLOPT_MAXREDIRS, 10000);<br>
-                                                curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER, 1);<br>
-                                                $buffer = curl_exec($curl_handle);<br>
-                                                curl_close($curl_handle);<br>
-                                                if (empty($buffer))<br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;echo "' . esc_html(__('Sorry the cron job didnot work','majestic-support')) . '";<br>
+                                    echo wp_kses('  $MJTC_curl_handle=curl_init();<br>
+                                                curl_setopt($MJTC_curl_handle, CURLOPT_URL, \'' . esc_url(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid()))).'\');<br>
+                                                curl_setopt($MJTC_curl_handle,CURLOPT_FOLLOWLOCATION, TRUE);<br>
+                                                curl_setopt($MJTC_curl_handle,CURLOPT_MAXREDIRS, 10000);<br>
+                                                curl_setopt($MJTC_curl_handle,CURLOPT_RETURNTRANSFER, 1);<br>
+                                                $MJTC_buffer = curl_exec($MJTC_curl_handle);<br>
+                                                curl_close($MJTC_curl_handle);<br>
+                                                if (empty($MJTC_buffer))<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;echo "' . esc_html(__('Sorry the cron job did not work','majestic-support')) . '";<br>
                                                 else<br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;echo esc_attr($buffer);<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;echo esc_attr($MJTC_buffer);<br>
                                                 ', MJTC_ALLOWED_TAGS);
                                     ?>
                                 </span>

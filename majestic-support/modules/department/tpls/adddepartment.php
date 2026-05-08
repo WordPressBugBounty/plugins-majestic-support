@@ -11,7 +11,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                     $type = array((object) array('id' => '1', 'text' => esc_html(__('Public', 'majestic-support'))),
                         (object) array('id' => '0', 'text' => esc_html(__('Private', 'majestic-support')))
                     );
-                    $status = array((object) array('id' => '1', 'text' => esc_html(__('Enabled', 'majestic-support'))),
+                    $MJTC_status = array((object) array('id' => '1', 'text' => esc_html(__('Enabled', 'majestic-support'))),
                         (object) array('id' => '0', 'text' => esc_html(__('Disabled', 'majestic-support')))
                     );
                     $MJTC_yesno = array((object) array('id' => '1', 'text' => esc_html(__('Yes', 'majestic-support'))),
@@ -29,7 +29,7 @@ if (majesticsupport::$_config['offline'] == 2) {
     ?>  
     <?php include_once(MJTC_PLUGIN_PATH . 'includes/header.php'); ?>
     <div class="mjtc-support-top-sec-header">
-        <img class="mjtc-transparent-header-img1" alt="<?php echo esc_html(__('image', 'majestic-support')); ?>"
+        <img class="mjtc-transparent-header-img1" alt="<?php echo esc_attr(__('Image', 'majestic-support')); ?>"
             src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/tp-image.png" />
         <div class="mjtc-support-top-sec-left-header">
             <div class="mjtc-support-main-heading">
@@ -40,7 +40,7 @@ if (majesticsupport::$_config['offline'] == 2) {
     </div>
     <div class="mjtc-support-cont-main-wrapper">
         <div class="mjtc-support-cont-wrapper mjtc-support-cont-wrapper-color">
-            <div class="mjtc-support-add-form-wrapper">
+            <div class="mjtc-support-add-form-main-wrapper">
                 <?php
                 $MJTC_nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : '';
                 ?>
@@ -99,15 +99,15 @@ if (majesticsupport::$_config['offline'] == 2) {
                             <?php echo esc_html(__('Status', 'majestic-support')); ?>&nbsp;<span style="color: red;">*</span>
                         </div>
                         <div class="mjtc-support-from-field mjtc-support-form-field-select">
-                            <?php echo wp_kses(MJTC_formfield::MJTC_select('status', $status, isset(majesticsupport::$_data[0]->status) ? majesticsupport::$_data[0]->status : '', esc_html(__('Select Status', 'majestic-support')), array('class' => 'inputbox mjtc-support-form-field-input')), MJTC_ALLOWED_TAGS); ?>
+                            <?php echo wp_kses(MJTC_formfield::MJTC_select('status', $MJTC_status, isset(majesticsupport::$_data[0]->status) ? majesticsupport::$_data[0]->status : '', esc_html(__('Select Status', 'majestic-support')), array('class' => 'inputbox mjtc-support-form-field-input')), MJTC_ALLOWED_TAGS); ?>
                         </div>
                     </div>
                     <div class="mjtc-support-from-field-wrp mjtc-support-from-field-wrp-full-width">
                         <div class="mjtc-support-from-field-title">
                             <?php echo esc_html(__('Default', 'majestic-support')); ?>&nbsp;<span style="color: red;">*</span>
                         </div>
-                        <div class="mjtc-support-from-field mjtc-support-form-field-select">
-                            <?php echo wp_kses(MJTC_formfield::MJTC_radiobutton('isdefault', array('2' => esc_html(__('Default with auto assign', 'majestic-support')), '1' => esc_html(__('Yes', 'majestic-support')), '0' => esc_html(__('No', 'majestic-support'))), isset(majesticsupport::$_data[0]->isdefault) ? majesticsupport::$_data[0]->isdefault : '0', array('class' => 'radiobutton mjtc-support-form-field-radio-btn')), MJTC_ALLOWED_TAGS); ?>
+                        <div class="mjtc-support-from-field mjtc-support-form-field-select mjtc-support-radio-btn-wrp">
+                            <?php echo wp_kses(MJTC_formfield::MJTC_radiobutton('isdefault', array('2' => esc_html(__('Default With Auto Assign', 'majestic-support')), '1' => esc_html(__('Yes', 'majestic-support')), '0' => esc_html(__('No', 'majestic-support'))), isset(majesticsupport::$_data[0]->isdefault) ? majesticsupport::$_data[0]->isdefault : '0', array('class' => 'radiobutton mjtc-support-form-field-radio-btn')), MJTC_ALLOWED_TAGS); ?>
 
                         </div>
                     </div>

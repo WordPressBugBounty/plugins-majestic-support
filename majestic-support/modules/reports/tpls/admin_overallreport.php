@@ -2,10 +2,10 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 $MJTC_protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 wp_enqueue_script('jquery-ui-datepicker');
-wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
-wp_enqueue_style('majesticsupport-status-graph', MJTC_PLUGIN_URL . 'includes/css/status_graph.css');
-wp_enqueue_script('majesticsupport-google-charts', MJTC_PLUGIN_URL . 'includes/js/google-charts.js');
-wp_register_script( 'majesticsupport-google-charts-handle', '' );
+wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css', array(), '1.0.0');
+wp_enqueue_style('majesticsupport-status-graph', MJTC_PLUGIN_URL . 'includes/css/status_graph.css', array(), '1.0.0');
+wp_enqueue_script('majesticsupport-google-charts', MJTC_PLUGIN_URL . 'includes/js/google-charts.js', array(), '1.0.0', true);
+wp_register_script( 'majesticsupport-google-charts-handle', false, array(), '1.0.0', true );
 wp_enqueue_script( 'majesticsupport-google-charts-handle' );
 $majesticsupport_js ="
     jQuery(document).ready(function ($) {
@@ -13,7 +13,7 @@ $majesticsupport_js ="
         google.setOnLoadCallback(drawBarChart);
         function drawBarChart() {
             var data = google.visualization.arrayToDataTable([
-                ['". esc_html(__('Status','majestic-support'))."', '". esc_html(__('Tickets By Status','majestic-support'))."', { role: 'style' }],". majesticsupport::$_data['bar_chart']."
+                ['". esc_html(__('Status','majestic-support'))."', '". esc_html(__('Tickets By Statuses','majestic-support'))."', { role: 'style' }],". majesticsupport::$_data['bar_chart']."
             ]);
             var view = new google.visualization.DataView(data);
             view.setColumns([0, 1,
@@ -53,7 +53,7 @@ $majesticsupport_js ="
     google.setOnLoadCallback(drawPie3d1Chart);
     function drawPie3d1Chart() {
         var data = google.visualization.arrayToDataTable([
-          ['". esc_html(__('Departments','majestic-support'))."', '". esc_html(__('Tickets By Department','majestic-support'))."'],
+          ['". esc_html(__('Departments','majestic-support'))."', '". esc_html(__('Tickets By Departments','majestic-support'))."'],
           ".wp_kses(majesticsupport::$_data['pie3d_chart1'], MJTC_ALLOWED_TAGS)."
         ]);
 
@@ -70,7 +70,7 @@ $majesticsupport_js ="
     google.setOnLoadCallback(drawPie3d2Chart);
     function drawPie3d2Chart() {
         var data = google.visualization.arrayToDataTable([
-          ['". esc_html(__('Priorities','majestic-support'))."', '". esc_html(__('Tickets By Priority','majestic-support'))."'],
+          ['". esc_html(__('Priorities','majestic-support'))."', '". esc_html(__('Tickets By Priorities','majestic-support'))."'],
           ".wp_kses(majesticsupport::$_data['pie3d_chart2'], MJTC_ALLOWED_TAGS)."
         ]);
 
@@ -136,26 +136,26 @@ wp_add_inline_script('majesticsupport-google-charts-handle',$majesticsupport_js)
         <?php MJTC_includer::MJTC_getModel('majesticsupport')->getPageTitle('overal_statistics'); ?>
         <div id="msadmin-data-wrp">
             <?php
-            $open_percentage = 0;
+            $MJTC_open_percentage = 0;
             $MJTC_close_percentage = 0;
-            $overdue_percentage = 0;
-            $answered_percentage = 0;
-            $allticket_percentage = 0;
+            $MJTC_overdue_percentage = 0;
+            $MJTC_answered_percentage = 0;
+            $MJTC_allticket_percentage = 0;
             if(isset(majesticsupport::$_data['ticket_total']) && isset(majesticsupport::$_data['ticket_total']['allticket']) && majesticsupport::$_data['ticket_total']['allticket'] != 0){
-                $open_percentage = round((majesticsupport::$_data['ticket_total']['openticket'] / majesticsupport::$_data['ticket_total']['allticket']) * 100);
+                $MJTC_open_percentage = round((majesticsupport::$_data['ticket_total']['openticket'] / majesticsupport::$_data['ticket_total']['allticket']) * 100);
                 $MJTC_close_percentage = round((majesticsupport::$_data['ticket_total']['closeticket'] / majesticsupport::$_data['ticket_total']['allticket']) * 100);
-                $overdue_percentage = round((majesticsupport::$_data['ticket_total']['overdueticket'] / majesticsupport::$_data['ticket_total']['allticket']) * 100);
-                $answered_percentage = round((majesticsupport::$_data['ticket_total']['answeredticket'] / majesticsupport::$_data['ticket_total']['allticket']) * 100);
+                $MJTC_overdue_percentage = round((majesticsupport::$_data['ticket_total']['overdueticket'] / majesticsupport::$_data['ticket_total']['allticket']) * 100);
+                $MJTC_answered_percentage = round((majesticsupport::$_data['ticket_total']['answeredticket'] / majesticsupport::$_data['ticket_total']['allticket']) * 100);
             }
             if(isset(majesticsupport::$_data['ticket_total']) && isset(majesticsupport::$_data['ticket_total']['allticket']) && majesticsupport::$_data['ticket_total']['allticket'] != 0){
-                $allticket_percentage = 100;
+                $MJTC_allticket_percentage = 100;
             }
             ?>
             <div class="mjtc-support-count">
                 <div class="mjtc-support-link">
                     <a class="mjtc-support-link mjtc-support-green" href="#" data-tab-number="1" title="<?php echo esc_attr(__('Open Ticket','majestic-support')); ?>">
-                        <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($open_percentage); ?>" >
-                            <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($open_percentage); ?>">
+                        <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($MJTC_open_percentage); ?>" >
+                            <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($MJTC_open_percentage); ?>">
                                 <div class="circle">
                                     <div class="mask full">
                                          <div class="fill mjtc-support-open"></div>
@@ -180,9 +180,9 @@ wp_add_inline_script('majesticsupport-google-charts-handle',$majesticsupport_js)
                     </a>
                 </div>
                 <div class="mjtc-support-link">
-                    <a class="mjtc-support-link mjtc-support-brown" href="#" data-tab-number="2" title="<?php echo esc_attr(__('answered ticket','majestic-support')); ?>">
-                        <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($answered_percentage); ?>" >
-                            <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($answered_percentage); ?>">
+                    <a class="mjtc-support-link mjtc-support-brown" href="#" data-tab-number="2" title="<?php echo esc_attr(__('Answered Tickets','majestic-support')); ?>">
+                        <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($MJTC_answered_percentage); ?>" >
+                            <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($MJTC_answered_percentage); ?>">
                                 <div class="circle">
                                     <div class="mask full">
                                          <div class="fill mjtc-support-answer"></div>
@@ -207,9 +207,9 @@ wp_add_inline_script('majesticsupport-google-charts-handle',$majesticsupport_js)
                 </div>
                 <?php if(in_array('overdue', majesticsupport::$_active_addons)){ ?>
                   <div class="mjtc-support-link">
-                      <a class="mjtc-support-link mjtc-support-orange" href="#" data-tab-number="3" title="<?php echo esc_attr(__('overdue ticket','majestic-support')); ?>">
-                          <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($overdue_percentage); ?>" >
-                              <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($overdue_percentage); ?>">
+                      <a class="mjtc-support-link mjtc-support-orange" href="#" data-tab-number="3" title="<?php echo esc_attr(__('Overdue Tickets','majestic-support')); ?>">
+                          <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($MJTC_overdue_percentage); ?>" >
+                              <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($MJTC_overdue_percentage); ?>">
                                   <div class="circle">
                                       <div class="mask full">
                                            <div class="fill mjtc-support-overdue"></div>
@@ -260,9 +260,9 @@ wp_add_inline_script('majesticsupport-google-charts-handle',$majesticsupport_js)
                     </a>
                 </div>
                 <div class="mjtc-support-link">
-                    <a class="mjtc-support-link mjtc-support-blue" href="#" data-tab-number="5" title="<?php echo esc_attr(__('all ticket','majestic-support')); ?>">
-                        <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($allticket_percentage); ?>">
-                            <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($allticket_percentage); ?>">
+                    <a class="mjtc-support-link mjtc-support-blue" href="#" data-tab-number="5" title="<?php echo esc_attr(__('All Tickets','majestic-support')); ?>">
+                        <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($MJTC_allticket_percentage); ?>">
+                            <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($MJTC_allticket_percentage); ?>">
                                 <div class="circle">
                                     <div class="mask full">
                                          <div class="fill mjtc-support-allticket"></div>
@@ -287,7 +287,7 @@ wp_add_inline_script('majesticsupport-google-charts-handle',$majesticsupport_js)
                 </div>
             </div>
             <div class="mjtc-admin-report">
-                <div class="mjtc-admin-subtitle"><?php echo esc_html(__('Tickets By Status And Priorities','majestic-support')); ?></div>
+                <div class="mjtc-admin-subtitle"><?php echo esc_html(__('Tickets By Statuses And Priorities','majestic-support')); ?></div>
                 <div class="mjtc-admin-rep-graph" id="stack_chart_horizontal" style="float:left; height:400px;width:100%; "></div>
             </div>
             <div class="mjtc-admin-report halfwidth">
@@ -299,11 +299,11 @@ wp_add_inline_script('majesticsupport-google-charts-handle',$majesticsupport_js)
             	<div class="mjtc-admin-rep-graph" id="pie3d_chart2" style="height:400px;width:100%;"></div>
             </div>
             <div class="mjtc-admin-report halfwidth">
-            	<div class="mjtc-admin-subtitle box3"><?php echo esc_html(__('Tickets By Status','majestic-support')); ?></div>
+            	<div class="mjtc-admin-subtitle box3"><?php echo esc_html(__('Tickets By Statuses','majestic-support')); ?></div>
             	<div class="mjtc-admin-rep-graph" id="bar_chart" style="height:400px;width:100%;"></div>
             </div>
             <div class="mjtc-admin-report halfwidth">
-              <div class="mjtc-admin-subtitle box4"><?php echo esc_html(__('Tickets By Channel','majestic-support')); ?></div>
+              <div class="mjtc-admin-subtitle box4"><?php echo esc_html(__('Tickets By Channels','majestic-support')); ?></div>
               <div class="mjtc-admin-rep-graph" id="stack_chart" style="height:400px;width:100%;"></div>
             </div>
             <?php if(in_array('agent', majesticsupport::$_active_addons)){ ?>

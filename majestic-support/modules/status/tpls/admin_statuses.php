@@ -18,7 +18,7 @@ $majesticsupport_js ="
 ";
 wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
 wp_enqueue_script('jquery-ui-sortable');
-wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
+wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css', array(), '1.0.0');
 MJTC_message::MJTC_getMessage(); ?>
 <div id="msadmin-wrapper">
     <div id="msadmin-leftmenu">
@@ -39,71 +39,77 @@ MJTC_message::MJTC_getMessage(); ?>
                     <table id="majestic-support-table">
                         <thead>
                         <tr class="majestic-support-table-heading">
-                            <th><?php echo esc_html(__('Ordering', 'majestic-support')); ?></th>
-                            <th class="left"><?php echo esc_html(__('Title', 'majestic-support')); ?></th>
-                            <th><?php echo esc_html(__('Text Color', 'majestic-support')); ?></th>
-                            <th><?php echo esc_html(__('Background Color', 'majestic-support')); ?></th>
-                            <th><?php echo esc_html(__('Action', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-ordering"><?php echo esc_html(__('Ordering', 'majestic-support')); ?></th>
+                            <th class="left majestic-support-table-title"><?php echo esc_html(__('Title', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-textcolor"><?php echo esc_html(__('Text Color', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-backgroundcolor"><?php echo esc_html(__('Background Color', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-action"><?php echo esc_html(__('Action', 'majestic-support')); ?></th>
                         </tr>
                         </thead>
                         <tbody>
-
                         <?php
                         $MJTC_number = 0;
                         $MJTC_count = COUNT(majesticsupport::$_data[0]) - 1; //For zero base indexing
                         $MJTC_pagenum = MJTC_request::MJTC_getVar('pagenum', 'get', 1);
                         $MJTC_islastordershow = MJTC_pagination::MJTC_isLastOrdering(majesticsupport::$_data['total'], $MJTC_pagenum);
-                        foreach (majesticsupport::$_data[0] AS $status) {
+                        foreach (majesticsupport::$_data[0] AS $MJTC_status) {
                             ?>
 
-                            <tr id="id_<?php echo esc_attr($status->id); ?>">
-                                <td class="mjtc-textaligncenter ms-order-grab-column">
+                            <tr id="id_<?php echo esc_attr($MJTC_status->id); ?>">
+                                <td class="mjtc-textaligncenter ms-order-grab-column  majestic-support-table-ordering">
                                     <span class="majestic-support-table-responsive-heading">
                                         <?php echo esc_html(__('Ordering', 'majestic-support')); echo esc_html(" : "); ?>
                                     </span>
-                                    <img alt="<?php echo esc_html(__('grab','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/list-full.png'?>"/>
+                                    <div class="ms-grab-handle" title="Drag to reorder">
+                                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg>
+                                    </div>
                                 </td>
 
-                                <td class="left">
+                                <td class="left majestic-support-table-title">
                                     <span class="majestic-support-table-responsive-heading">
                                         <?php
                                         echo esc_html(__('Title', 'majestic-support'));
                                         echo esc_html(" : ");
                                         ?>
                                     </span>
-                                    <a title="<?php echo esc_attr(__('Status','majestic-support')); ?>" href="?page=majesticsupport_status&mjslay=addstatus&majesticsupportid=<?php echo esc_attr($status->id); ?>">
-                                        <?php echo esc_html(majesticsupport::MJTC_getVarValue($status->status)); ?>
+                                    <a title="<?php echo esc_attr(__('Status','majestic-support')); ?>" href="?page=majesticsupport_status&mjslay=addstatus&majesticsupportid=<?php echo esc_attr($MJTC_status->id); ?>">
+                                        <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_status->status)); ?>
                                     </a>
                                 </td>
 
-                                <td>
+                                <td class="majestic-support-table-textcolor">
                                     <span class="majestic-support-table-responsive-heading">
                                         <?php
                                         echo esc_html(__('Text Color', 'majestic-support'));
                                         echo esc_html(" : ");
                                         ?>
                                     </span>
-                                    <span class="mjtc-support-admin-prirrity-color" style="background:<?php echo esc_attr($status->statuscolour); ?>;color:#ffffff;">
-                                        <?php echo esc_html($status->statuscolour); ?>
+                                    <span class="mjtc-support-admin-prirrity-color">
+                                        <div class="mjtc-color-swatch" style="background:<?php echo esc_attr($MJTC_status->statuscolour); ?>;color:#ffffff;"></div>
+                                        <span class="mjtc-color-code"><?php echo esc_html($MJTC_status->statuscolour); ?></span>
                                     </span>
                                 </td>
 
-                                <td>
+                                <td class="majestic-support-table-backgroundcolor">
                                     <span class="majestic-support-table-responsive-heading">
                                         <?php
                                         echo esc_html(__('Background Color', 'majestic-support'));
                                         echo esc_html(" : ");
                                         ?>
                                     </span>
-                                    <span class="mjtc-support-admin-prirrity-color" style="background:<?php echo esc_attr($status->statusbgcolour); ?>;color:#ffffff;">
-                                        <?php echo esc_html($status->statusbgcolour); ?>
+                                    <span class="mjtc-support-admin-prirrity-color" >
+                                        <div class="mjtc-color-swatch" style="background:<?php echo esc_attr($MJTC_status->statusbgcolour); ?>;color:#ffffff;"></div>
+                                        <span class="mjtc-color-code"> <?php echo esc_html($MJTC_status->statusbgcolour); ?></span>
                                     </span>
                                 </td>
-                                <td>
-                                    <a title="<?php echo esc_html(__('Edit','majestic-support')); ?>" class="action-btn" href="?page=majesticsupport_status&mjslay=addstatus&majesticsupportid=<?php echo esc_attr($status->id); ?>"><img alt="<?php echo esc_html(__('Edit','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/edit.png" /></a>
-                                    <?php if($status->sys != 1) { ?>
-                                    &nbsp;&nbsp;
-                                        <a title="<?php echo esc_html(__('Delete','majestic-support')); ?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_status&task=deletestatus&action=mstask&statusid='.esc_attr($status->id),'delete-status-'.$status->id));?>"><img alt="<?php echo esc_html(__('Delete','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/delete.png" /></a>
+                                <td class="majestic-support-table-action">
+                                    <a title="<?php echo esc_attr(__('Edit','majestic-support')); ?>" class="action-btn majestic-support-table-edit-action" href="?page=majesticsupport_status&mjslay=addstatus&majesticsupportid=<?php echo esc_attr($MJTC_status->id); ?>">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
+                                    </a>
+                                    <?php if($MJTC_status->sys != 1) { ?>
+                                        <a title="<?php echo esc_attr(__('Delete','majestic-support')); ?>" class="action-btn majestic-support-table-delete-action" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_status&task=deletestatus&action=mstask&statusid='.esc_attr($MJTC_status->id),'delete-status-'.$MJTC_status->id));?>">
+                                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path></svg>
+                                        </a>
                                     <?php } ?>
                                 </td>
                             </tr>

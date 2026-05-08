@@ -10,36 +10,36 @@ class MJTC_priorityController {
     }
 
     function handleRequest() {
-        $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'priorities');
+        $MJTC_layout = MJTC_request::MJTC_getLayout('mjslay', null, 'priorities');
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
-        if (self::canaddfile($layout)) {
-            switch ($layout) {
+        if (self::canaddfile($MJTC_layout)) {
+            switch ($MJTC_layout) {
                 case 'admin_priorities':
                     MJTC_includer::MJTC_getModel('priority')->getPriorities();
                     break;
                 case 'admin_addpriority':
-                    $id = MJTC_request::MJTC_getVar('majesticsupportid', 'get');
-                    MJTC_includer::MJTC_getModel('priority')->getPriorityForForm($id);
+                    $MJTC_id = MJTC_request::MJTC_getVar('majesticsupportid', 'get');
+                    MJTC_includer::MJTC_getModel('priority')->getPriorityForForm($MJTC_id);
                     break;
                 default:
                     exit;
             }
-            $module = (is_admin()) ? 'page' : 'mjsmod';
-            $module = MJTC_request::MJTC_getVar($module, null, 'priority');
-            $module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $module);
-            MJTC_includer::MJTC_include_file($layout, $module);
+            $MJTC_module = (is_admin()) ? 'page' : 'mjsmod';
+            $MJTC_module = MJTC_request::MJTC_getVar($MJTC_module, null, 'priority');
+            $MJTC_module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $MJTC_module);
+            MJTC_includer::MJTC_include_file($MJTC_layout, $MJTC_module);
         }
     }
 
-    function canaddfile($layout) {
-        $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
-        if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
+    function canaddfile($MJTC_layout) {
+        $MJTC_nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
+        if ( wp_verify_nonce( $MJTC_nonce_value, 'MJTC_nonce') ) {
             if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
             } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
                 return false;
             } else {
-                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($layout, 'admin_') === 0){
+                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($MJTC_layout, 'admin_') === 0){
                     return false;
                 }
                 return true;
@@ -48,9 +48,9 @@ class MJTC_priorityController {
     }
 
     static function savepriority() {
-        $id = MJTC_request::MJTC_getVar('id');
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-priority-'.$id) ) {
+        $MJTC_id = MJTC_request::MJTC_getVar('id');
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'save-priority-'.$MJTC_id) ) {
             die( 'Security check Failed' );
         }
         if (!current_user_can('manage_options')) { //only admin can change it.
@@ -68,12 +68,12 @@ class MJTC_priorityController {
     }
 
     static function deletepriority() {
-        $id = MJTC_request::MJTC_getVar('priorityid');
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'delete-priority-'.$id) ) {
+        $MJTC_id = MJTC_request::MJTC_getVar('priorityid');
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'delete-priority-'.$MJTC_id) ) {
             die( 'Security check Failed' );
         }
-        MJTC_includer::MJTC_getModel('priority')->removePriority($id);
+        MJTC_includer::MJTC_getModel('priority')->removePriority($MJTC_id);
         if (is_admin()) {
             $MJTC_url = admin_url("admin.php?page=majesticsupport_priority&mjslay=priorities");
         } else {
@@ -84,12 +84,12 @@ class MJTC_priorityController {
     }
 
     static function makedefault() {
-        $id = MJTC_request::MJTC_getVar('priorityid');
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'make-default-'.$id) ) {
+        $MJTC_id = MJTC_request::MJTC_getVar('priorityid');
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'make-default-'.$MJTC_id) ) {
             die( 'Security check Failed' );
         }
-        MJTC_includer::MJTC_getModel('priority')->makeDefault($id);
+        MJTC_includer::MJTC_getModel('priority')->makeDefault($MJTC_id);
         $MJTC_pagenum = MJTC_request::MJTC_getVar('pagenum');
         $MJTC_url = "admin.php?page=majesticsupport_priority&mjslay=priorities";
         if ($MJTC_pagenum)
@@ -99,12 +99,12 @@ class MJTC_priorityController {
     }
 
     static function ordering() {
-        $id = MJTC_request::MJTC_getVar('priorityid');
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'ordering-'.$id) ) {
+        $MJTC_id = MJTC_request::MJTC_getVar('priorityid');
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'ordering-'.$MJTC_id) ) {
             die( 'Security check Failed' );
         }
-        MJTC_includer::MJTC_getModel('priority')->setOrdering($id);
+        MJTC_includer::MJTC_getModel('priority')->setOrdering($MJTC_id);
         $MJTC_pagenum = MJTC_request::MJTC_getVar('pagenum');
         $MJTC_url = "admin.php?page=majesticsupport_priority&mjslay=priorities";
         if ($MJTC_pagenum)
@@ -115,5 +115,5 @@ class MJTC_priorityController {
 
 }
 
-$priorityController = new MJTC_priorityController();
+$MJTC_priorityController = new MJTC_priorityController();
 ?>

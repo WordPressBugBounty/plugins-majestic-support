@@ -35,6 +35,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                 <?php echo wp_kses(MJTC_formfield::MJTC_hidden('uid', MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid()), MJTC_ALLOWED_TAGS); ?>
                 <div class="mjtc-form-button">
                     <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('save', esc_html(__('Save Product', 'majestic-support')), array('class' => 'button mjtc-form-save')), MJTC_ALLOWED_TAGS); ?>
+                    <a href="admin.php?page=majesticsupport_product" class="mjtc-form-cancel"><?php echo esc_html(__('Cancel','majestic-support')); ?></a>
                 </div>
             </form>
         </div>

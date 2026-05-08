@@ -2,10 +2,10 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 $MJTC_protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 wp_enqueue_script('jquery-ui-datepicker');
-wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
-$id = MJTC_request::MJTC_getVar('id');
-wp_enqueue_script('majesticsupport-google-charts', MJTC_PLUGIN_URL . 'includes/js/google-charts.js');
-wp_register_script( 'majesticsupport-google-charts-handle', '' );
+wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css', array(), '1.0.0');
+$MJTC_id = MJTC_request::MJTC_getVar('id');
+wp_enqueue_script('majesticsupport-google-charts', MJTC_PLUGIN_URL . 'includes/js/google-charts.js', array(), '1.0.0', true);
+wp_register_script( 'majesticsupport-google-charts-handle', false, array(), '1.0.0', true );
 wp_enqueue_script( 'majesticsupport-google-charts-handle' );
 $majesticsupport_js ="
     jQuery(document).ready(function ($) {
@@ -54,17 +54,17 @@ MJTC_message::MJTC_getMessage();
         <?php  MJTC_includer::MJTC_getClassesInclude('msadminsidemenu'); ?>
     </div>
     <div id="msadmin-data">
-    <span class="mjtc-adminhead-title"> <a class="jsanchor-backlink" href="<?php echo esc_url(admin_url('admin.php?page=majesticsupport_reports&mjslay=staffdetailreport&id='.esc_attr($id)));?>"><img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/back-icon.png" /></a> <span class="jsheadtext"><?php echo esc_html(__("Report By Agent", 'majestic-support')) ?></span>
+    <span class="mjtc-adminhead-title"> <a class="jsanchor-backlink" href="<?php echo esc_url(admin_url('admin.php?page=majesticsupport_reports&mjslay=staffdetailreport&id='.esc_attr($MJTC_id)));?>"><img alt="<?php echo esc_attr(__('Image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/back-icon.png" /></a> <span class="jsheadtext"><?php echo esc_html(__("Report By Agent", 'majestic-support')) ?></span>
     </span>
     <a href="<?php echo esc_url(admin_url('admin.php?page=majesticsupport_reports&mjslay=staffreport&date_start='.esc_attr(majesticsupport::$_data['filter']['date_start']).'&date_end='.esc_attr(majesticsupport::$_data['filter']['date_end']))); ?>"></a>
-    <form class="mjtc-filter-form mjtc-report-form" name="majesticsupportform" id="majesticsupportform" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_reports&mjslay=stafftimereport&id=".$id),"reports")); ?>">
+    <form class="mjtc-filter-form mjtc-report-form" name="majesticsupportform" id="majesticsupportform" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_reports&mjslay=stafftimereport&id=".$MJTC_id),"reports")); ?>">
         <?php
-            $curdate = date_i18n('Y-m-d');
-            $enddate = date_i18n('Y-m-d', MJTC_majesticsupportphplib::MJTC_strtotime("now -1 month"));
-            $date_start = !empty(majesticsupport::$_data['filter']['date_start']) ? majesticsupport::$_data['filter']['date_start'] : $curdate;
-            $date_end = !empty(majesticsupport::$_data['filter']['date_end']) ? majesticsupport::$_data['filter']['date_end'] : $enddate;
-        	echo wp_kses(MJTC_formfield::MJTC_text('date_start', $date_start, array('class' => 'custom_date','placeholder' => esc_html(__('Start Date','majestic-support')))), MJTC_ALLOWED_TAGS);
-        	echo wp_kses(MJTC_formfield::MJTC_text('date_end', $date_end, array('class' => 'custom_date','placeholder' => esc_html(__('End Date','majestic-support')))), MJTC_ALLOWED_TAGS);
+            $MJTC_curdate = date_i18n('Y-m-d');
+            $MJTC_enddate = date_i18n('Y-m-d', MJTC_majesticsupportphplib::MJTC_strtotime("now -1 month"));
+            $MJTC_date_start = !empty(majesticsupport::$_data['filter']['date_start']) ? majesticsupport::$_data['filter']['date_start'] : $MJTC_curdate;
+            $MJTC_date_end = !empty(majesticsupport::$_data['filter']['date_end']) ? majesticsupport::$_data['filter']['date_end'] : $MJTC_enddate;
+        	echo wp_kses(MJTC_formfield::MJTC_text('date_start', $MJTC_date_start, array('class' => 'custom_date','placeholder' => esc_html(__('Start Date','majestic-support')))), MJTC_ALLOWED_TAGS);
+        	echo wp_kses(MJTC_formfield::MJTC_text('date_end', $MJTC_date_end, array('class' => 'custom_date','placeholder' => esc_html(__('End Date','majestic-support')))), MJTC_ALLOWED_TAGS);
         	echo wp_kses(MJTC_formfield::MJTC_hidden('MS_form_search', 'MS_SEARCH'), MJTC_ALLOWED_TAGS);
     	?>
         <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('go', esc_html(__('Search', 'majestic-support')), array('class' => 'button')), MJTC_ALLOWED_TAGS); ?>

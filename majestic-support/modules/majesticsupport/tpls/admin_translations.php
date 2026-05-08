@@ -18,31 +18,31 @@
         <div id="msadmin-data-wrp" class="p0">
             <div id="black_wrapper_translation"></div>
             <div id="mstran_loading">
-                <img alt="<?php echo esc_html(__('spinning wheel','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/spinning-wheel.gif" />
+                <div class="ms-css-spinner"></div>
             </div>
 
             <div id="mjtc-language-wrapper">
                 <div class="mstopheading"><?php echo esc_html(__('Get','majestic-support')).' Majestic Support '.esc_html(__('Translations','majestic-support')); ?></div>
-                <div id="gettranslation" class="gettranslation"><img alt="<?php echo esc_html(__('Download','majestic-support')); ?>" style="width:18px; height:auto;" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/download-icon.png" /><?php echo esc_html(__('Get','majestic-support')).' '.esc_html(__('Translations','majestic-support')); ?></div>
+                <div id="gettranslation" class="gettranslation"><img alt="<?php echo esc_attr(__('Download','majestic-support')); ?>" style="width:18px; height:auto;" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/download-icon.png" /><?php echo esc_html(__('Get','majestic-support')).' '.esc_html(__('Translations','majestic-support')); ?></div>
                 <div id="mjtc_ddl">
                     <span class="title"><?php echo esc_html(__('Select','majestic-support')).' '.esc_html(__('Translation','majestic-support')); ?>:</span>
                     <span class="combo" id="mjtc_combo"></span>
-                    <span class="button" id="jsdownloadbutton"><img alt="<?php echo esc_html(__('Download','majestic-support')); ?>" style="width:14px; height:auto;" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/download-icon.png" /><?php echo esc_html(__('Download','majestic-support')); ?></span>
+                    <span class="button" id="jsdownloadbutton"><img alt="<?php echo esc_attr(__('Download','majestic-support')); ?>" style="width:14px; height:auto;" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/download-icon.png" /><?php echo esc_html(__('Download','majestic-support')); ?></span>
                     <div id="mscodeinputbox" class="mjtc-some-disc"></div>
-                    <div class="mjtc-some-disc"><img alt="<?php echo esc_html(__('info','majestic-support')); ?>" style="width:18px; height:auto;" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/info-icon.png" /><?php echo esc_html(__('When WordPress language change to fr, Majestic Support language will auto change to fr','majestic-support')); ?></div>
+                    <div class="mjtc-some-disc"><img alt="<?php echo esc_attr(__('Info','majestic-support')); ?>" style="width:18px; height:auto;" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/info-icon.png" /><?php echo esc_html(__('When WordPress language change to fr, Majestic Support language will auto change to fr','majestic-support')); ?></div>
                 </div>
                 <div id="mjtc-emessage-wrapper">
-                    <img alt="<?php echo esc_html(__('c error','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/c_error.png" />
+                    <img alt="<?php echo esc_attr(__('c error','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/c_error.png" />
                     <div id="jslang_em_text"></div>
                 </div>
                 <div id="mjtc-emessage-wrapper_ok">
-                    <img alt="<?php echo esc_html(__('saved','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/saved.png" />
+                    <img alt="<?php echo esc_attr(__('saved','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/saved.png" />
                     <div id="jslang_em_text_ok"></div>
                 </div>
             </div>
             <div id="mjtc-lang-toserver">
-                <div class="col"><a class="anc one" href="#" target="_blank" title="<?php echo esc_attr(__('Contribute In Translation','majestic-support')); ?>"><img alt="<?php echo esc_html(__('translate','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/translation-icon.png" /><?php echo esc_html(__('Contribute In Translation','majestic-support')); ?></a></div>
-                <div class="col"><a class="anc two" href="http://www.joomsky.com/translations.html" target="_blank" title="<?php echo esc_attr(__('Manual Download','majestic-support')); ?>"><img alt="<?php echo esc_html(__('Manual Download','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/manual-download.png" /><?php echo esc_html(__('Manual Download','majestic-support')); ?></a></div>
+                <div class="col"><a class="anc one" href="#" target="_blank" title="<?php echo esc_attr(__('Contribute In Translation','majestic-support')); ?>"><img alt="<?php echo esc_attr(__('translate','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/translation-icon.png" /><?php echo esc_html(__('Contribute In Translation','majestic-support')); ?></a></div>
+                <div class="col"><a class="anc two" href="http://www.joomsky.com/translations.html" target="_blank" title="<?php echo esc_attr(__('Manual Download','majestic-support')); ?>"><img alt="<?php echo esc_attr(__('Manual Download','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/manual-download.png" /><?php echo esc_html(__('Manual Download','majestic-support')); ?></a></div>
             </div>
         </div>
 </div>
@@ -124,7 +124,7 @@ $majesticsupport_js ="
 
     function jsShowLoading(){
         jQuery('div#black_wrapper_translation').show();
-        jQuery('div#mstran_loading').show();
+        jQuery('div#mstran_loading').css('display', 'flex');
     }
 
     function jsHideLoading(){

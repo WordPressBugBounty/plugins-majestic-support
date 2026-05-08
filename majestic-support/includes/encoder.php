@@ -5,17 +5,17 @@ if (!defined('ABSPATH'))
 
 class MJTC_encoder {
 
-    private $securekey, $iv;
+    private $MJTC_securekey, $MJTC_iv;
 
-    function __construct($textkey = '') {
+    function __construct($MJTC_textkey = '') {
     }
 
-    function MJTC_encrypt($input) {
-        return MJTC_majesticsupportphplib::MJTC_safe_encoding($input);
+    function MJTC_encrypt($MJTC_input) {
+        return MJTC_majesticsupportphplib::MJTC_safe_encoding($MJTC_input);
     }
 
-    function MJTC_decrypt($input) {
-        return MJTC_majesticsupportphplib::MJTC_safe_decoding($input);
+    function MJTC_decrypt($MJTC_input) {
+        return MJTC_majesticsupportphplib::MJTC_safe_decoding($MJTC_input);
     }
 
 }

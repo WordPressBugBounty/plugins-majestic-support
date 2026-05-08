@@ -1,15 +1,17 @@
 <?php
 if (!defined('ABSPATH')) die('Restricted Access');
-$tran_data = json_decode(majesticsupport::$_data[0]['mstran']);
+$MJTC_tran_data = json_decode(majesticsupport::$_data[0]['mstran']);
 ?>
 <div id="mjtc-spt-admin-wrapper">
     <div id="mjtc-spt-cparea">
         <div id="ms-main-wrapper" class="post-installation">
             <div class="mjtc-admin-title-installtion">
-                <span class="ms_heading"><?php echo esc_html(__('Majestic Support Settings','majestic-support')); ?></span>
+                <span class="ms_heading">
+                    <?php echo esc_html(__('Majestic Support Settings','majestic-support')); ?>
+                </span>
                 <div class="close-button-bottom">
                     <a href="admin.php?page=majesticsupport" class="close-button">
-                        <img alt="<?php echo esc_html(__('image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/postinstallation/close-icon.png';?>" />
+                        <img alt="<?php echo esc_attr(__('Image', 'majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/postinstallation/close-icon.png';?>" />
                     </a>
                 </div>
             </div>
@@ -28,7 +30,7 @@ $tran_data = json_decode(majesticsupport::$_data[0]['mstran']);
                                 <span class="text"><?php echo esc_html(__('Ticket Settings','majestic-support')); ?></span>
                             </a>
                         </li>
-                        <?php if($tran_data){ ?>
+                        <?php if($MJTC_tran_data){ ?>
                             <li class="header-parts third-part active">
                                <a href="<?php echo esc_url(admin_url("admin.php?page=majesticsupport_postinstallation&mjslay=translationoption")); ?>" title="link" class="tab_icon">
                                    <img class="start" src="<?php echo esc_url(MJTC_PLUGIN_URL).'includes/images/postinstallation/translation.png';?>" />
@@ -59,7 +61,7 @@ $tran_data = json_decode(majesticsupport::$_data[0]['mstran']);
                     <div class="post-installtion-content">
                         <div id="black_wrapper_translation"></div>
                         <div id="mstran_loading">
-                            <img alt="<?php echo esc_html(__('spinning wheel','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/spinning-wheel.gif" />
+                            <div class="ms-css-spinner"></div>
                         </div>
                         <form id="majesticsupport-form-ins" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_postinstallation&task=save&action=mstask"),"save")); ?>">
                             <div class="pic-config">
@@ -67,18 +69,18 @@ $tran_data = json_decode(majesticsupport::$_data[0]['mstran']);
                                     <?php echo esc_html(__('Language code','majestic-support'));?>:
                                 </div>
                                 <div class="field">
-                                    <?php echo wp_kses(MJTC_formfield::MJTC_text('codelang', isset($tran_data->code) ? $tran_data->lang_fullname . " (" . $tran_data->code . ")" : '' , array('class' => 'inputbox ms-postsetting', 'data-validation' => 'required' , 'readonly' => true)), MJTC_ALLOWED_TAGS) ?>
+                                    <?php echo wp_kses(MJTC_formfield::MJTC_text('codelang', isset($MJTC_tran_data->code) ? $MJTC_tran_data->lang_fullname . " (" . $MJTC_tran_data->code . ")" : '' , array('class' => 'inputbox ms-postsetting', 'data-validation' => 'required' , 'readonly' => true)), MJTC_ALLOWED_TAGS) ?>
                                 </div>
                                 <div class="desc">
                                     <?php echo esc_html(__('Want to download translation file? Click on download. It will take sometime.','majestic-support'));?>
                                 </div>
                             </div>
                             <div id="mjtc-emessage-wrapper">
-                                <img alt="<?php echo esc_html(__('c error','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/c_error.png" />
+                                <img alt="<?php echo esc_attr(__('c error','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/c_error.png" />
                                 <div id="jslang_em_text"></div>
                             </div>
                             <div id="mjtc-emessage-wrapper_ok">
-                                <img alt="<?php echo esc_html(__('saved','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/saved.png" />
+                                <img alt="<?php echo esc_attr(__('saved','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/saved.png" />
                                 <div id="jslang_em_text_ok"></div>
                             </div>
                             <div class="pic-button-part pic-3-button">
@@ -92,8 +94,8 @@ $tran_data = json_decode(majesticsupport::$_data[0]['mstran']);
                             <?php echo wp_kses(MJTC_formfield::MJTC_hidden('action', 'postinstallation_save'), MJTC_ALLOWED_TAGS); ?>
                             <?php echo wp_kses(MJTC_formfield::MJTC_hidden('form_request', 'majesticsupport'), MJTC_ALLOWED_TAGS); ?>
                             <?php echo wp_kses(MJTC_formfield::MJTC_hidden('step', 'translationoption'), MJTC_ALLOWED_TAGS); ?>
-                            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('translations', isset($tran_data->name->lang_name) ? $tran_data->name->lang_name: ''), MJTC_ALLOWED_TAGS); ?>
-                            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('languagecode', isset($tran_data->code) ? $tran_data->code: ''), MJTC_ALLOWED_TAGS); ?>
+                            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('translations', isset($MJTC_tran_data->name->lang_name) ? $MJTC_tran_data->name->lang_name: ''), MJTC_ALLOWED_TAGS); ?>
+                            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('languagecode', isset($MJTC_tran_data->code) ? $MJTC_tran_data->code: ''), MJTC_ALLOWED_TAGS); ?>
                         </form>
                     </div>
                 </div>
@@ -132,7 +134,7 @@ $majesticsupport_js ="
 
     function jsShowLoading(){
         jQuery('div#black_wrapper_translation').show();
-        jQuery('div#mstran_loading').show();
+        jQuery('div#mstran_loading').css('display', 'flex');
     }
 
     function jsHideLoading(){

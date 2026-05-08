@@ -5,7 +5,7 @@ if (!defined('ABSPATH'))
 
 class MJTC_emailtemplateModel {
 
-    function getTemplate($tempfor, $formid, $langcode) {
+    function getTemplate($tempfor, $MJTC_formid, $MJTC_langcode) {
         switch ($tempfor) {
             case 'tk-nw' : $tempatefor = 'ticket-new';
                 break;
@@ -64,40 +64,40 @@ class MJTC_emailtemplateModel {
             default: $tempatefor = 'ticket-new';
                 break;
         }
-        if (!empty($langcode)) {
-            $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_multilanguageemailtemplates` WHERE templatefor = '" . esc_sql($tempatefor) . "' AND language_id = '" . esc_sql($langcode) . "'";
+        if (!empty($MJTC_langcode)) {
+            $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_multilanguageemailtemplates` WHERE templatefor = '" . esc_sql($tempatefor) . "' AND language_id = '" . esc_sql($MJTC_langcode) . "'";
         } else {
-            $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = '" . esc_sql($tempatefor) . "'";
+            $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = '" . esc_sql($tempatefor) . "'";
         }
-        if (!empty($formid)) {
-            $query .= " AND multiformid = " . esc_sql($formid);
+        if (!empty($MJTC_formid)) {
+            $MJTC_query .= " AND multiformid = " . esc_sql($MJTC_formid);
         } else {
-            $query .= " AND (multiformid IS NULL OR multiformid = '')";
+            $MJTC_query .= " AND (multiformid IS NULL OR multiformid = '')";
         }
-        majesticsupport::$_data[0] = majesticsupport::$_db->get_row(($query));
-        $multiformname = '';
+        majesticsupport::$_data[0] = majesticsupport::$_db->get_row(($MJTC_query));
+        $MJTC_multiformname = '';
         if(in_array('multiform', majesticsupport::$_active_addons) && !empty(majesticsupport::$_data[0]->multiformid)){
-            $query = "SELECT title
+            $MJTC_query = "SELECT title
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_multiform` WHERE id = ".esc_sql(majesticsupport::$_data[0]->multiformid);
-            $multiformname = majesticsupport::$_db->get_var($query);
+            $MJTC_multiformname = majesticsupport::$_db->get_var($MJTC_query);
         }
-        majesticsupport::$_data[0]->multiformname = $multiformname;
+        majesticsupport::$_data[0]->multiformname = $MJTC_multiformname;
 
         do_action('majesticsupport_load_wp_translation_install');
         $translations = wp_get_available_translations();
-        $installed = wp_get_installed_translations('core');
+        $MJTC_installed = wp_get_installed_translations('core');
 
-        $language_name = '';
+        $MJTC_language_name = '';
         if(in_array('multilanguageemailtemplates', majesticsupport::$_active_addons) && !empty(majesticsupport::$_data[0]->language_id)){
-            $language_name = isset($translations[majesticsupport::$_data[0]->language_id]['english_name']) ? $translations[majesticsupport::$_data[0]->language_id]['english_name'] : ucfirst(str_replace('_', '-', majesticsupport::$_data[0]->language_id));
+            $MJTC_language_name = isset($translations[majesticsupport::$_data[0]->language_id]['english_name']) ? $translations[majesticsupport::$_data[0]->language_id]['english_name'] : ucfirst(str_replace('_', '-', majesticsupport::$_data[0]->language_id));
         }
-        majesticsupport::$_data[0]->language_name = $language_name;
+        majesticsupport::$_data[0]->language_name = $MJTC_language_name;
         
         if (in_array('multiform', majesticsupport::$_active_addons) || in_array('multilanguageemailtemplates', majesticsupport::$_active_addons)) {
             
-            $query = '';
+            $MJTC_query = '';
             if(in_array('multiform', majesticsupport::$_active_addons)){
-                $query = "
+                $MJTC_query = "
                     (
                         SELECT
                             tmpl.multiformid AS formid,
@@ -116,12 +116,12 @@ class MJTC_emailtemplateModel {
                 ";
             }
             if (in_array('multiform', majesticsupport::$_active_addons) && in_array('multilanguageemailtemplates', majesticsupport::$_active_addons)) {
-                $query .= " UNION ALL ";
+                $MJTC_query .= " UNION ALL ";
             }
 
             if (in_array('multilanguageemailtemplates', majesticsupport::$_active_addons)) {
                 if (in_array('multiform', majesticsupport::$_active_addons)) {
-                    $query .= "
+                    $MJTC_query .= "
                         (
                             SELECT
                                 ltmpl.multiformid AS formid,
@@ -139,7 +139,7 @@ class MJTC_emailtemplateModel {
                         )
                     ";
                 } else {
-                    $query .= "
+                    $MJTC_query .= "
                         (
                             SELECT
                                 ltmpl.multiformid AS formid,
@@ -153,64 +153,73 @@ class MJTC_emailtemplateModel {
                 }
             }
 
-            $list = majesticsupport::$_db->get_results($query);
+            $MJTC_list = majesticsupport::$_db->get_results($MJTC_query);
 
-            $langLookup = [];
+            $MJTC_langLookup = [];
 
-            if (!empty($installed['default'])) {
-                foreach ($installed['default'] as $code => $MJTC_value) {
-                    $langLookup[$code] = isset($translations[$code]['english_name']) 
-                        ? $translations[$code]['english_name'] 
-                        : ucfirst(str_replace('_', '-', $code));
+            if (!empty($MJTC_installed['default'])) {
+                foreach ($MJTC_installed['default'] as $MJTC_code => $MJTC_value) {
+                    $MJTC_langLookup[$MJTC_code] = isset($translations[$MJTC_code]['english_name']) 
+                        ? $translations[$MJTC_code]['english_name'] 
+                        : ucfirst(str_replace('_', '-', $MJTC_code));
                 }
             }
 
-            // Now enrich $list with language names
-            foreach ($list as $MJTC_key => &$item) {
-                if (empty($item->formname) && empty($item->language)) {
-                    unset($list[$MJTC_key]); // This removes the item from the array
+            // Now enrich $MJTC_list with language names
+            foreach ($MJTC_list as $MJTC_key => &$MJTC_item) {
+                if (empty($MJTC_item->formname) && empty($MJTC_item->language)) {
+                    unset($MJTC_list[$MJTC_key]); // This removes the item from the array
                     continue;
                 }
 
-                if (!empty($item->language)) {
-                    $item->language_name = isset($langLookup[$item->language])
-                        ? $langLookup[$item->language]
-                        : ucfirst(str_replace('_', '-', $item->language));
+                if (!empty($MJTC_item->language)) {
+                    $MJTC_item->language_name = isset($MJTC_langLookup[$MJTC_item->language])
+                        ? $MJTC_langLookup[$MJTC_item->language]
+                        : ucfirst(str_replace('_', '-', $MJTC_item->language));
                 } else {
-                    $item->language_name = ''; // or 'Default'
+                    $MJTC_item->language_name = ''; // or 'Default'
                 }
             }
 
-            majesticsupport::$_data[0]->multiTemplates = $list;
+            majesticsupport::$_data[0]->multiTemplates = $MJTC_list;
         }
 
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
-        majesticsupport::$_data[2] = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1, $formid);
+        majesticsupport::$_data[2] = MJTC_includer::MJTC_getModel('fieldordering')->getUserfieldsfor(1, $MJTC_formid);
         return ;
     }
 
     //For the Email template
     function storeEmailTemplate($MJTC_data) {
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'save-email-template-'.$MJTC_data['id']) ) {
+            die( 'Security check Failed' );
+        }
+        if (!current_user_can('manage_options')) { //only admin can change it.
+            return false;
+        }
+
+
         $MJTC_data['title'] = isset($MJTC_data['title']) ? $MJTC_data['title'] : '';
         $MJTC_data['status'] = isset($MJTC_data['status']) ? $MJTC_data['status'] : 1;
         $MJTC_data['body'] = wpautop(wptexturize(MJTC_majesticsupportphplib::MJTC_stripslashes($_POST['body'])));
 
-        $row = MJTC_includer::MJTC_getTable('emailtemplates');
+        $MJTC_row = MJTC_includer::MJTC_getTable('emailtemplates');
 
-        $error = 0;
-        if (!$row->bind($MJTC_data)) {
-            $error = 1;
+        $MJTC_error = 0;
+        if (!$MJTC_row->bind($MJTC_data)) {
+            $MJTC_error = 1;
         }
-        if (!$row->store()) {
-            $error = 1;
+        if (!$MJTC_row->store()) {
+            $MJTC_error = 1;
         }
-        if ($error == 0) {
+        if ($MJTC_error == 0) {
             MJTC_message::MJTC_setMessage(esc_html(__('Email template has been stored', 'majestic-support')), 'updated');
             if(isset($MJTC_data['multiformid']) && empty($MJTC_data['multiformid'])) {
-                $query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` SET multiformid = NULL WHERE multiformid = '0' AND id = ".$row->id;
-                majesticsupport::$_db->query($query);
+                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` SET multiformid = NULL WHERE multiformid = '0' AND id = ".$MJTC_row->id;
+                majesticsupport::$_db->query($MJTC_query);
             }
         } else {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
@@ -220,32 +229,32 @@ class MJTC_emailtemplateModel {
     }
 
     function getDefaultEmailTemplate() {
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'list-email-template') ) {
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'list-email-template') ) {
             die( 'Security check Failed' );
         }
         $templatefor = MJTC_request::MJTC_getVar('templatefor');
-        $query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = '" . esc_sql($templatefor) . "'";
-        $result = majesticsupport::$_db->get_row($query);
-        $MJTC_data =  array('defaultsubject'=>MJTC_majesticsupportphplib::MJTC_htmlentities($result->subject),'defaultbody'=>MJTC_majesticsupportphplib::MJTC_htmlentities($result->body) , 'defaultid'=>MJTC_majesticsupportphplib::MJTC_htmlentities($result->id));
+        $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = '" . esc_sql($templatefor) . "'";
+        $MJTC_result = majesticsupport::$_db->get_row($MJTC_query);
+        $MJTC_data =  array('defaultsubject'=>MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_result->subject),'defaultbody'=>MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_result->body) , 'defaultid'=>MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_result->id));
         return wp_json_encode($MJTC_data);
 
     }
 
-    function removeFormEmailTemplate($id, $source) {
-        if (!is_numeric($id))
+    function removeFormEmailTemplate($MJTC_id, $MJTC_source) {
+        if (!is_numeric($MJTC_id))
             return false;
         
-        if ($source == 'multi' && in_array('multilanguageemailtemplates', majesticsupport::$_active_addons)) {
-            $row = MJTC_includer::MJTC_getTable('multilanguageemailtemplates');
+        if ($MJTC_source == 'multi' && in_array('multilanguageemailtemplates', majesticsupport::$_active_addons)) {
+            $MJTC_row = MJTC_includer::MJTC_getTable('multilanguageemailtemplates');
         } else {
-            $row = MJTC_includer::MJTC_getTable('emailtemplates');
+            $MJTC_row = MJTC_includer::MJTC_getTable('emailtemplates');
         }
-        if ($row->delete($id)) {
-            MJTC_message::MJTC_setMessage(esc_html(__('Email tempate has been deleted', 'majestic-support')), 'updated');
+        if ($MJTC_row->delete($MJTC_id)) {
+            MJTC_message::MJTC_setMessage(esc_html(__('Email template has been deleted', 'majestic-support')), 'updated');
         } else {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
-            MJTC_message::MJTC_setMessage(esc_html(__('Email tempate has not been deleted', 'majestic-support')), 'error');
+            MJTC_message::MJTC_setMessage(esc_html(__('Email template has not been deleted', 'majestic-support')), 'error');
         }
 
         return;

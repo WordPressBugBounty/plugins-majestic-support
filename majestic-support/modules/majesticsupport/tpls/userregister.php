@@ -2,7 +2,7 @@
 if (!defined('ABSPATH'))
     die('Restricted Access');
 if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest() && majesticsupport::$_config['show_captcha_on_visitor_from_ticket'] == 1 && majesticsupport::$_config['captcha_selection'] == 1) {
-    wp_enqueue_script( 'majesticsupport-recaptcha', 'https://www.google.com/recaptcha/api.js' );
+    wp_enqueue_script( 'majesticsupport-recaptcha', 'https://www.google.com/recaptcha/api.js', array(), '1.0.0', true );
 }
 $majesticsupport_js ="
     jQuery(document).ready(function ($) {
@@ -19,24 +19,24 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
 if (majesticsupport::$_config['offline'] == 2) {
     if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()) {
         // check to make sure user registration is enabled
-        $is_enable = get_option('users_can_register');
+        $MJTC_is_enable = get_option('users_can_register');
         // only show the registration form if allowed
-        if ($is_enable) {
+        if ($MJTC_is_enable) {
             MJTC_message::MJTC_getMessage();
             include_once(MJTC_PLUGIN_PATH . 'includes/header.php'); ?>
             <div class="mjtc-support-top-sec-header">
-                <img class="mjtc-transparent-header-img1" alt="<?php echo esc_html(__('image', 'majestic-support')); ?>"
+                <img class="mjtc-transparent-header-img1" alt="<?php echo esc_attr(__('Image', 'majestic-support')); ?>"
                     src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/tp-image.png" />
                 <div class="mjtc-support-top-sec-left-header">
                     <div class="mjtc-support-main-heading">
                         <?php echo esc_html(__("Register",'majestic-support')); ?>
                     </div>
-                    <?php MJTC_includer::MJTC_getModel('majesticsupport')->getPageBreadcrumps('register'); ?>
+                    <div class="mjtc-support-sub-heading"><?php echo esc_html(__("Create a new account to access all support features and stay connected with our team.",'majestic-support')); ?></div>
                 </div>
             </div>
     <div class="mjtc-support-cont-main-wrapper">
         <div class="mjtc-support-cont-wrapper mjtc-support-cont-wrapper-color">
-            <div class="mjtc-support-add-form-wrapper">
+            <div class="mjtc-support-add-form-main-wrapper">
                 <?php MJTC_show_error_messages();?> <!-- show any error messages after form submission -->
                 <form id="ms_registration_form" class="ms_form" action="" method="POST">
                     <div class="mjtc-support-from-field-wrp mjtc-support-from-field-wrp-full-width">
@@ -52,7 +52,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                             <?php echo esc_html(__('Email','majestic-support')); ?> <span style="color:red">*</span>
                         </div>
                         <div class="mjtc-support-from-field">
-                            <input name="ms_user_email" id="ms_user_email" class="required mjtc-support-form-field-input" type="text" data-validation="required"/>
+                            <input name="MJTC_user_email" id="MJTC_user_email" class="required mjtc-support-form-field-input" type="text" data-validation="required"/>
                         </div>
                     </div>
                     <div class="mjtc-support-from-field-wrp mjtc-support-from-field-wrp-full-width">
@@ -60,7 +60,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                             <?php echo esc_html(__('First Name','majestic-support')); ?>
                         </div>
                         <div class="mjtc-support-from-field">
-                            <input name="ms_user_first" id="ms_user_first" class="required mjtc-support-form-field-input" type="text"/>
+                            <input name="MJTC_user_first" id="MJTC_user_first" class="required mjtc-support-form-field-input" type="text"/>
                         </div>
                     </div>
                     <div class="mjtc-support-from-field-wrp mjtc-support-from-field-wrp-full-width">
@@ -68,7 +68,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                             <?php echo esc_html(__('Last Name','majestic-support')); ?>
                         </div>
                         <div class="mjtc-support-from-field">
-                            <input name="ms_user_last" id="ms_user_last" class="required mjtc-support-form-field-input" type="text"/>
+                            <input name="MJTC_user_last" id="MJTC_user_last" class="required mjtc-support-form-field-input" type="text"/>
                         </div>
                     </div>
                     <div class="mjtc-support-from-field-wrp mjtc-support-from-field-wrp-full-width">
@@ -76,7 +76,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                             <?php echo esc_html(__('Password','majestic-support')); ?> <span style="color:red">*</span>
                         </div>
                         <div class="mjtc-support-from-field">
-                            <input name="ms_user_pass" id="password" class="required mjtc-support-form-field-input" type="password" data-validation="required"/>
+                            <input name="MJTC_ms_user_pass" id="password" class="required mjtc-support-form-field-input" type="password" data-validation="required"/>
                         </div>
                     </div>
                     <div class="mjtc-support-from-field-wrp mjtc-support-from-field-wrp-full-width">
@@ -84,7 +84,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                             <?php echo esc_html(__('Repeat Password','majestic-support')); ?> <span style="color:red">*</span>
                         </div>
                         <div class="mjtc-support-from-field">
-                            <input name="ms_user_pass_confirm" id="password_again" class="required mjtc-support-form-field-input" type="password" data-validation="required"/>
+                            <input name="MJTC_MJTC_user_pass_confirm" id="password_again" class="required mjtc-support-form-field-input" type="password" data-validation="required"/>
                         </div>
                     </div>
 
@@ -102,10 +102,10 @@ if (majesticsupport::$_config['offline'] == 2) {
                         <?php
                     }
                     MJTC_includer::MJTC_getModel('fieldordering')->getFieldsOrderingforForm(3);
-                    foreach (majesticsupport::$_data['fieldordering'] as $field) {
-                        wp_kses(MJTC_includer::MJTC_getObjectClass('customfields')->MJTC_formCustomFields($field), MJTC_ALLOWED_TAGS);
+                    foreach (majesticsupport::$_data['fieldordering'] as $MJTC_field) {
+                        wp_kses(MJTC_includer::MJTC_getObjectClass('customfields')->MJTC_formCustomFields($MJTC_field), MJTC_ALLOWED_TAGS);
                     }
-                    $google_recaptcha_3 = false;
+                    $MJTC_google_recaptcha_3 = false;
                     if (majesticsupport::$_config['captcha_on_registration'] == 1) { ?>
                         <div class="mjtc-support-from-field-wrp mjtc-support-from-field-wrp-full-width">
                             <div class="mjtc-support-from-field-title">
@@ -114,16 +114,16 @@ if (majesticsupport::$_config['offline'] == 2) {
                             <div class="mjtc-support-from-field">
                                 <?php
                                 if (majesticsupport::$_config['captcha_selection'] == 1) { // Google recaptcha
-                                    $error = null;
+                                    $MJTC_error = null;
                                     if (majesticsupport::$_config['recaptcha_version'] == 1) {
                                         $MJTC_data = '<div class="g-recaptcha" data-sitekey="'.wp_kses_post(majesticsupport::$_config['recaptcha_publickey']).'"></div>';
                                         echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
                                     } else {
-                                        $google_recaptcha_3 = true;
+                                        $MJTC_google_recaptcha_3 = true;
                                     }
                                 } else { // own captcha
-                                    $captcha = new MJTC_captcha;
-                                    echo wp_kses($captcha->MJTC_getCaptchaForForm(), MJTC_ALLOWED_TAGS);
+                                    $MJTC_captcha = new MJTC_captcha;
+                                    echo wp_kses($MJTC_captcha->MJTC_getCaptchaForForm(), MJTC_ALLOWED_TAGS);
                                 } ?>
                             </div>
                         </div>
@@ -132,7 +132,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                     <input type="hidden" name="ms_support_register_nonce" value="<?php echo esc_attr(wp_create_nonce('ms-support-register-nonce')); ?>"/>
                     <div class="mjtc-support-form-btn-wrp">
                         <?php
-                        if($google_recaptcha_3 == true && MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()){ // to handle case of google recpatcha version 3
+                        if($MJTC_google_recaptcha_3 == true && MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()){ // to handle case of google recpatcha version 3
                             echo wp_kses(MJTC_formfield::MJTC_button('save', esc_html(__('Register', 'majestic-support')), array('class' => 'mjtc-support-save-button g-recaptcha', 'data-callback' => 'onSubmit', 'data-action' => 'submit', 'data-sitekey' => esc_attr(majesticsupport::$_config['recaptcha_publickey']))), MJTC_ALLOWED_TAGS);
                         } else {
                             echo wp_kses(MJTC_formfield::MJTC_submitbutton('save', esc_html(__('Register', 'majestic-support')), array('class' => 'mjtc-support-save-button')), MJTC_ALLOWED_TAGS);
@@ -149,8 +149,8 @@ if (majesticsupport::$_config['offline'] == 2) {
             MJTC_layout::MJTC_getYouAreLoggedIn();
     }
 }
-if(isset($google_recaptcha) && $google_recaptcha){
-    wp_enqueue_script( 'majesticsupport-recaptcha', 'https://www.google.com/recaptcha/api.js' );
+if(isset($MJTC_google_recaptcha) && $MJTC_google_recaptcha){
+    wp_enqueue_script( 'majesticsupport-recaptcha', 'https://www.google.com/recaptcha/api.js', array(), '1.0.0', true );
 }
 ?>
         </div>

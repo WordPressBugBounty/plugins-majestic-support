@@ -520,22 +520,22 @@ function MJTC_parse_request($q) {
 }
 add_action('parse_request', 'MJTC_parse_request');
 
-function MJTC_redirect_canonical($MJTC_redirect_url, $MJTC_requested_url) {
+function MJTC_redirect_canonical($redirect_url, $requested_url) {
     global $wp_rewrite;
     if(is_home() || is_front_page()){
         $array = MJTC_includer::MJTC_getModel('slug')->getRedirectCanonicalArray();
         $ret = false;
         foreach($array AS $layout){
-            if(MJTC_majesticsupportphplib::MJTC_strstr($MJTC_requested_url, $layout)){
+            if(MJTC_majesticsupportphplib::MJTC_strstr($requested_url, $layout)){
                 $ret = true;
                 break;
             }
         }
         if($ret == true){
-            return $MJTC_requested_url;
+            return $requested_url;
         }
     }
-      return $MJTC_redirect_url;
+      return $redirect_url;
 }
 add_filter('redirect_canonical', 'MJTC_redirect_canonical', 11, 2);
 

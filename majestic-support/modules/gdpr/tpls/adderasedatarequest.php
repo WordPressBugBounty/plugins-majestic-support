@@ -4,6 +4,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 <div class="ms-main-up-wrapper">
     <?php
     if (majesticsupport::$_config['offline'] == 2) {
+        if ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff() && !majesticsupport::$_data['staff_enabled']) {
+            MJTC_layout::MJTC_getStaffMemberDisable();
+            return;
+        }
             $MJTC_yesno = array((object) array('id' => '1', 'text' => esc_html(__('Yes', 'majestic-support'))),
                 (object) array('id' => '0', 'text' => esc_html(__('No', 'majestic-support')))
             );
@@ -21,23 +25,23 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
     <?php $MJTC_formdata = MJTC_formfield::MJTC_getFormData(); ?>
     <?php include_once(MJTC_PLUGIN_PATH . 'includes/header.php'); ?>
     <div class="mjtc-support-top-sec-header">
-        <img class="mjtc-transparent-header-img1" alt="<?php echo esc_html(__('image', 'majestic-support')); ?>"
+        <img class="mjtc-transparent-header-img1" alt="<?php echo esc_attr(__('Image', 'majestic-support')); ?>"
         src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/tp-image.png" />
         <div class="mjtc-support-top-sec-left-header">
             <div class="mjtc-support-main-heading">
                 <?php echo esc_html(__("User Data",'majestic-support')); ?>
             </div>
-            <?php MJTC_includer::MJTC_getModel('majesticsupport')->getPageBreadcrumps('userdata'); ?>
+            <div class="mjtc-support-sub-heading"><?php echo esc_html(__("Manage your personal data, including export and deletion requests.",'majestic-support')); ?></div>
         </div>
     </div>
     <div class="mjtc-support-cont-main-wrapper">
         <div class="mjtc-support-cont-wrapper mjtc-support-cont-wrapper-color">
         <?php if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid() != 0) { ?>
-            <div class="mjtc-support-add-form-wrapper">
+            <div class="mjtc-support-add-form-main-wrapper">
                 <div class="mjtc-support-top-search-wrp">
                     <div class="mjtc-support-search-heading-wrp">
                         <div class="mjtc-support-heading-left">
-                            <?php echo esc_html(__('Export your data', 'majestic-support')); ?>
+                            <?php echo esc_html(__('Export Your Data', 'majestic-support')); ?>
                         </div>
                         <div class="mjtc-support-heading-right">
                             <!-- majesticsupportid removed due to security reasons -->

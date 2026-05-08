@@ -64,7 +64,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                     <div class="mjtc-form-title"><?php echo esc_html(__('Field Text', 'majestic-support')); ?>&nbsp;<span style="color: red;" >*</span></div>
                     <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_text('termsandconditions_text', $MJTC_termsandconditions_text, array('class' => 'inputbox mjtc-form-input-field', 'data-validation' => 'required')), MJTC_ALLOWED_TAGS) ?></div>
                     <div class="mjtc-form-desc">
-                        <?php echo esc_html(__('e.g., "I have read and agree to the [link] Terms and Conditions [/link]." The text between [link] and [/link] will be linked to provided URL or WordPress page.', 'majestic-support')); ?>
+                        <?php echo esc_html(__("e.g., 'I have read and agree to the [link] Terms and Conditions [/link].' The text between [link] and [/link] will be linked to provided URL or WordPress page.", 'majestic-support')); ?>
                     </div>
                 </div>
                 <?php
@@ -73,7 +73,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                     (object) array('id' => 0, 'text' => esc_html(__('No', 'majestic-support'))));
                 $MJTC_linktype = array(
                     (object) array('id' => 1, 'text' => esc_html(__('Direct Link', 'majestic-support'))),
-                    (object) array('id' => 2, 'text' => esc_html(__('Wordpress Page', 'majestic-support'))),
+                    (object) array('id' => 2, 'text' => esc_html(__('WordPress Page', 'majestic-support'))),
                     (object) array('id' => 3, 'text' => esc_html(__('None', 'majestic-support'))));
                 ?>
                 <div class="mjtc-form-wrapper">
@@ -100,6 +100,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                 <?php echo wp_kses(MJTC_formfield::MJTC_hidden('isvisitorpublished', 1), MJTC_ALLOWED_TAGS); ?>
                 <div class="mjtc-form-button">
                     <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('save', esc_html(__('Save', 'majestic-support')), array('class' => 'button mjtc-form-save')), MJTC_ALLOWED_TAGS); ?>
+                    <a href="admin.php?page=majesticsupport_gdpr&mjslay=gdprfields" class="mjtc-form-cancel"><?php echo esc_html(__('Cancel','majestic-support')); ?></a>
                 </div>
             </form>
         </div>

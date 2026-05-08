@@ -8,22 +8,22 @@ class MJTC_reviewbox {
     }
 
     public function MJTC_admin_notices() {
-        $is_hidden = get_option("majesticsupport_hide_review_box");
-        if($is_hidden !== false) {
+        $MJTC_is_hidden = get_option("majesticsupport_hide_review_box");
+        if($MJTC_is_hidden !== false) {
             return;
         }
-        $current_count = get_option("majesticsupport_show_review_box_after");
-        if($current_count === false) {
-            $date = gmdate("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime("+30 days"));
-            add_option("majesticsupport_show_review_box_after", $date);
+        $MJTC_current_count = get_option("majesticsupport_show_review_box_after");
+        if($MJTC_current_count === false) {
+            $MJTC_date = gmdate("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime("+30 days"));
+            add_option("majesticsupport_show_review_box_after", $MJTC_date);
             return;
-        } else if($current_count < 35) {
+        } else if($MJTC_current_count < 35) {
             
         }
-        $date_to_show = get_option("majesticsupport_show_review_box_after");
-        if($date_to_show !== false) {
-            $current_date = gmdate("Y-m-d");
-            if($current_date < $date_to_show) {
+        $MJTC_date_to_show = get_option("majesticsupport_show_review_box_after");
+        if($MJTC_date_to_show !== false) {
+            $MJTC_current_date = gmdate("Y-m-d");
+            if($MJTC_current_date < $MJTC_date_to_show) {
                 return;
             }
         }
@@ -51,7 +51,7 @@ class MJTC_reviewbox {
                                 <?php echo esc_html(__("Not this time",'majestic-support')); ?>
                             </a>
                             <a data-mode="happy" class="majesticsupport-premio-review-box-hide-btn review-happy" href="javascript:;">
-                                <img alt="<?php echo esc_attr(__('happy','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/review/happy.png">
+                                <img alt="<?php echo esc_attr(__('Happy','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/review/happy.png">
                                 <?php echo esc_html(__("I've already rated you",'majestic-support')); ?>
                             </a>
                         </div>

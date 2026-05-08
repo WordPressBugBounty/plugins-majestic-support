@@ -11,10 +11,10 @@ class MJTC_majesticsupportadmin {
 
     function MJTC_mainmenu() {
         if (current_user_can('ms_support_ticket')) {
-            $unresolved_tickets = MJTC_includer::MJTC_getModel('ticket')->getUnresolvedAdminTicketsCount();
+            $MJTC_unresolved_tickets = MJTC_includer::MJTC_getModel('ticket')->getUnresolvedAdminTicketsCount();
             $MJTC_count_str = '';
-            if ($unresolved_tickets > 0) {
-                $MJTC_count_str = ' <span class="update-plugins"><span class="plugin-count">' . $unresolved_tickets . '</span></span>';
+            if ($MJTC_unresolved_tickets > 0) {
+                $MJTC_count_str = ' <span class="update-plugins"><span class="plugin-count">' . $MJTC_unresolved_tickets . '</span></span>';
             }
             add_menu_page(esc_html(__('Majestic Support Control Panel', 'majestic-support')), // Page title
                     esc_html(__('Majestic Support', 'majestic-support')). $MJTC_count_str, // menu title
@@ -88,7 +88,7 @@ class MJTC_majesticsupportadmin {
 
             add_submenu_page('majesticsupport_hide', // parent slug
                     esc_html(__('Statuses', 'majestic-support')), // Page title
-                    esc_html(__('status', 'majestic-support')), // menu title
+                    esc_html(__('Status', 'majestic-support')), // menu title
                     'ms_support_ticket', // capability
                     'majesticsupport_status', //menu slug
                     array($this, 'MJTC_showAdminPage') // function name
@@ -102,7 +102,7 @@ class MJTC_majesticsupportadmin {
             );
             add_submenu_page('majesticsupport_hide', // parent slug
                     esc_html(__('Products', 'majestic-support')), // Page title
-                    esc_html(__('product', 'majestic-support')), // menu title
+                    esc_html(__('Products', 'majestic-support')), // menu title
                     'ms_support_ticket', // capability
                     'majesticsupport_product', //menu slug
                     array($this, 'MJTC_showAdminPage') // function name
@@ -273,8 +273,8 @@ class MJTC_majesticsupportadmin {
 
             if(in_array('feedback', majesticsupport::$_active_addons)){
                 add_submenu_page('majesticsupport_hide', // parent slug
-                        esc_html(__('Feedbacks', 'majestic-support')), // Page title
-                        esc_html(__('Feedbacks', 'majestic-support')), // menu title
+                        esc_html(__('Feedback', 'majestic-support')), // Page title
+                        esc_html(__('Feedback', 'majestic-support')), // menu title
                         'ms_support_ticket', // capability
                         'majesticsupport_feedback', //menu slug
                         array($this, 'MJTC_showAdminPage') // function name
@@ -304,8 +304,8 @@ class MJTC_majesticsupportadmin {
 
             if(in_array('emailcc', majesticsupport::$_active_addons)){
                 add_submenu_page('majesticsupport_hide', // parent slug
-                        esc_html(__("Emailcc", 'majestic-support')), // Page title
-                        esc_html(__("Emailcc", 'majestic-support')), // menu title
+                        esc_html(__("Email CC", 'majestic-support')), // Page title
+                        esc_html(__("Email CC", 'majestic-support')), // menu title
                         'ms_support_ticket', // capability
                         'majesticsupport_emailcc', //menu slug
                         array($this, 'MJTC_showAdminPage') // function name
@@ -328,8 +328,8 @@ class MJTC_majesticsupportadmin {
 
             if(in_array('ticketclosereason', majesticsupport::$_active_addons)){
                 add_submenu_page('majesticsupport', // parent slug
-                        esc_html(__("Ticket Close Reason", 'majestic-support')), // Page title
-                        esc_html(__("Ticket Close Reason", 'majestic-support')), // menu title
+                        esc_html(__("Ticket Close Reasons", 'majestic-support')), // Page title
+                        esc_html(__("Ticket Close Reasons", 'majestic-support')), // menu title
                         'ms_support_ticket', // capability
                         'majesticsupport_ticketclosereason', //menu slug
                         array($this, 'MJTC_showAdminPage') // function name
@@ -364,8 +364,8 @@ class MJTC_majesticsupportadmin {
             }
 
             add_submenu_page('majesticsupport', // parent slug
-                    esc_html(__('Install Addons', 'majestic-support')), // Page title
-                    esc_html(__('Install Addons', 'majestic-support')), // menu title
+                    esc_html(__('Install Add-ons', 'majestic-support')), // Page title
+                    esc_html(__('Install Add-ons', 'majestic-support')), // menu title
                     'ms_support_ticket', // capability
                     'majesticsupport_premiumplugin', //menu slug
                     array($this, 'MJTC_showAdminPage') // function name
@@ -440,20 +440,20 @@ class MJTC_majesticsupportadmin {
         }
     }
 
-    function MJTC_addMissingAddonPage($module_name){
+    function MJTC_addMissingAddonPage($MJTC_module_name){
         add_submenu_page('majesticsupport_hide', // parent slug
-                esc_html(__('Premium Addon', 'majestic-support')), // Page title
-                esc_html(__('Premium Addon', 'majestic-support')), // menu title
-                'ms_support_ticket', // capability
-                'majesticsupport_'.$module_name, //menu slug
-                array($this, 'MJTC_showMissingAddonPage') // function name
+            esc_html(__('Premium Addons', 'majestic-support')), // Page title
+            esc_html(__('Premium Addons', 'majestic-support')), // menu title
+            'ms_support_ticket', // capability
+            'majesticsupport_'.$MJTC_module_name, //menu slug
+            array($this, 'MJTC_showMissingAddonPage') // function name
         );
     }
 
     function MJTC_showAdminPage() {
-        $page = MJTC_request::MJTC_getVar('page');
-        $page = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $page);
-        MJTC_includer::MJTC_include_file($page);
+        $MJTC_page = MJTC_request::MJTC_getVar('page');
+        $MJTC_page = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $MJTC_page);
+        MJTC_includer::MJTC_include_file($MJTC_page);
     }
 
     function MJTC_showMissingAddonPage() {

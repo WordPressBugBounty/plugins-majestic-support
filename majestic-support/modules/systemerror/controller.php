@@ -10,37 +10,37 @@ class MJTC_systemerrorController {
     }
 
     function handleRequest() {
-        $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'systemerrors');
+        $MJTC_layout = MJTC_request::MJTC_getLayout('mjslay', null, 'systemerrors');
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
-        if (self::canaddfile($layout)) {
-            switch ($layout) {
+        if (self::canaddfile($MJTC_layout)) {
+            switch ($MJTC_layout) {
                 case 'admin_systemerrors':
                     MJTC_includer::MJTC_getModel('systemerror')->getSystemErrors();
                     break;
 
                 case 'admin_addsystemerror':
-                    $id = MJTC_request::MJTC_getVar('majesticsupportid', 'get');
-                    MJTC_includer::MJTC_getModel('systemerror')->getsystemerrorForForm($id);
+                    $MJTC_id = MJTC_request::MJTC_getVar('majesticsupportid', 'get');
+                    MJTC_includer::MJTC_getModel('systemerror')->getsystemerrorForForm($MJTC_id);
                     break;
                 default:
                     exit;
             }
-            $module = (is_admin()) ? 'page' : 'mjsmod';
-            $module = MJTC_request::MJTC_getVar($module, null, 'systemerror');
-            $module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $module);
-            MJTC_includer::MJTC_include_file($layout, $module);
+            $MJTC_module = (is_admin()) ? 'page' : 'mjsmod';
+            $MJTC_module = MJTC_request::MJTC_getVar($MJTC_module, null, 'systemerror');
+            $MJTC_module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $MJTC_module);
+            MJTC_includer::MJTC_include_file($MJTC_layout, $MJTC_module);
         }
     }
 
-    function canaddfile($layout) {
-        $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
-        if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
+    function canaddfile($MJTC_layout) {
+        $MJTC_nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
+        if ( wp_verify_nonce( $MJTC_nonce_value, 'MJTC_nonce') ) {
             if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
             } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
                 return false;
             } else {
-                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($layout, 'admin_') === 0){
+                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($MJTC_layout, 'admin_') === 0){
                     return false;
                 }
                 return true;
@@ -61,12 +61,12 @@ class MJTC_systemerrorController {
     }
 
     static function deletesystemerror() {
-        $id = MJTC_request::MJTC_getVar('systemerrorid');
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'delete-systemerror-'.$id) ) {
+        $MJTC_id = MJTC_request::MJTC_getVar('systemerrorid');
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'delete-systemerror-'.$MJTC_id) ) {
             die( 'Security check Failed' );
         }
-        MJTC_includer::MJTC_getModel('systemerror')->removeSystemError($id);
+        MJTC_includer::MJTC_getModel('systemerror')->removeSystemError($MJTC_id);
         if (is_admin()) {
             $MJTC_url = admin_url("admin.php?page=majesticsupport_systemerror&mjslay=systemerrors");
         } else {
@@ -78,5 +78,5 @@ class MJTC_systemerrorController {
 
 }
 
-$systemerrorController = new MJTC_systemerrorController();
+$MJTC_systemerrorController = new MJTC_systemerrorController();
 ?>

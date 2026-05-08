@@ -19,7 +19,7 @@ $majesticsupport_js ="
 ";
 wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
 wp_enqueue_script('jquery-ui-sortable');
-wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
+wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css', array(), '1.0.0');
 MJTC_message::MJTC_getMessage(); ?>
 <div id="msadmin-wrapper">
     <div id="msadmin-leftmenu">
@@ -40,20 +40,20 @@ MJTC_message::MJTC_getMessage(); ?>
                     <table id="majestic-support-table">
                         <thead>
                         <tr class="majestic-support-table-heading">
-                            <th><?php echo esc_html(__('Ordering', 'majestic-support')); ?></th>
-                            <th class="left"><?php echo esc_html(__('Title', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-ordering"><?php echo esc_html(__('Ordering', 'majestic-support')); ?></th>
+                            <th class="left majestic-support-table-title"><?php echo esc_html(__('Title', 'majestic-support')); ?></th>
                             <?php if(in_array('overdue', majesticsupport::$_active_addons)){ ?>
-                                <th>
+                                <th class="majestic-support-table-interval-date">
                                     <?php echo esc_html(__('Date Interval', 'majestic-support')); ?>&nbsp;<?php $MJTC_data = '('.esc_html(__('Days', 'majestic-support')).'/'.esc_html(__('Hours', 'majestic-support')).')'; 
                                         echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
                                     ?>
                                 </th>
-                                <th><?php echo esc_html(__('Ticket Overdue', 'majestic-support')); ?></th>
+                                <th class="majestic-support-table-created-date"><?php echo esc_html(__('Ticket Overdue', 'majestic-support')); ?></th>
                             <?php } ?>
-                            <th><?php echo esc_html(__('Public', 'majestic-support')); ?></th>
-                            <th><?php echo esc_html(__('Default', 'majestic-support')); ?></th>
-                            <th><?php echo esc_html(__('Order', 'majestic-support')); ?></th>
-                            <th><?php echo esc_html(__('Action', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-public"><?php echo esc_html(__('Public', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-default"><?php echo esc_html(__('Default', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-color"><?php echo esc_html(__('Order', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-actions"><?php echo esc_html(__('Action', 'majestic-support')); ?></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -63,53 +63,64 @@ MJTC_message::MJTC_getMessage(); ?>
                         $MJTC_count = COUNT(majesticsupport::$_data[0]) - 1; //For zero base indexing
                         $MJTC_pagenum = MJTC_request::MJTC_getVar('pagenum', 'get', 1);
                         $MJTC_islastordershow = MJTC_pagination::MJTC_isLastOrdering(majesticsupport::$_data['total'], $MJTC_pagenum);
-                        foreach (majesticsupport::$_data[0] AS $priority) {
-                            $isdefault = ($priority->isdefault == 1) ? 'good.png' : 'close.png';
-                            $ispublic = ($priority->ispublic == 1) ? 'good.png' : 'close.png';
-                            $MJTC_ticketoverduetype = ($priority->overduetypeid == 1) ? 'Days' : 'Hours';
+                        foreach (majesticsupport::$_data[0] AS $MJTC_priority) {
+                            $MJTC_isdefault = ($MJTC_priority->status == 1) ? __('Yes', 'majestic-support') : __('No', 'majestic-support');
+                            $MJTC_defaultclass = ($MJTC_priority->status == 1) ? 'majestic-support-yes' : 'majestic-support-no';
+                            $MJTC_ispublic = ($MJTC_priority->ispublic == 1) ? __('Yes', 'majestic-support') : __('No', 'majestic-support');
+                            $MJTC_publicclass = ($MJTC_priority->ispublic == 1) ? 'majestic-support-yes' : 'majestic-support-no';
+                            $MJTC_ticketoverduetype = ($MJTC_priority->overduetypeid == 1) ? 'Days' : 'Hours';
                             ?>
 
-                            <tr id="id_<?php echo esc_attr($priority->id); ?>">
-                                <td class="mjtc-textaligncenter ms-order-grab-column">
+                            <tr id="id_<?php echo esc_attr($MJTC_priority->id); ?>">
+                                <td class="mjtc-textaligncenter ms-order-grab-column majestic-support-table-ordering">
                                     <span class="majestic-support-table-responsive-heading">
                                         <?php echo esc_html(__('Ordering', 'majestic-support')); echo esc_html(" : "); ?>
                                     </span>
-                                    <img alt="<?php echo esc_html(__('grab','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/list-full.png'?>"/>
+                                    <div class="ms-grab-handle" title="Drag to reorder">
+                                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg>
+                                    </div>
                                 </td>
 
-                                <td class="left"><span class="majestic-support-table-responsive-heading"><?php
+                                <td class="left majestic-support-table-title"><span class="majestic-support-table-responsive-heading"><?php
                                         echo esc_html(__('Title', 'majestic-support'));
                                         echo esc_html(" : ");
-                                        ?></span><a title="<?php echo esc_attr(__('Priority','majestic-support')); ?>" href="?page=majesticsupport_priority&mjslay=addpriority&majesticsupportid=<?php echo esc_attr($priority->id); ?>"><?php echo esc_html(majesticsupport::MJTC_getVarValue($priority->priority)); ?></a></td>
+                                        ?></span><a title="<?php echo esc_attr(__('Priority','majestic-support')); ?>" href="?page=majesticsupport_priority&mjslay=addpriority&majesticsupportid=<?php echo esc_attr($MJTC_priority->id); ?>"><?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_priority->priority)); ?></a></td>
                                 <?php if(in_array('overdue', majesticsupport::$_active_addons)){ ?>
-                                    <td><span class="majestic-support-table-responsive-heading"><?php
+                                    <td class="majestic-support-table-interval-date"><span class="majestic-support-table-responsive-heading"><?php
                                         echo esc_html(__('Date Interval', 'majestic-support'));
                                         echo esc_html(" : ");
-                                        ?></span><?php echo esc_html(majesticsupport::MJTC_getVarValue($priority->overdueinterval)); ?></td>
-                                    <td><span class="majestic-support-table-responsive-heading"><?php
+                                        ?></span><?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_priority->overdueinterval)); ?></td>
+                                    <td class="majestic-support-table-created-date"><span class="majestic-support-table-responsive-heading"><?php
                                         echo esc_html(__('Ticket Overdue', 'majestic-support'));
                                         echo esc_html(" : ");
                                         ?></span><?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_ticketoverduetype)); ?></td>
                                 <?php } ?>
-                                <td><span class="majestic-support-table-responsive-heading"><?php
-                                        echo esc_html(__('Public', 'majestic-support'));
+                                <td class="majestic-support-table-public <?php echo esc_attr($MJTC_publicclass); ?>"><span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Public', 'majestic-support'));
                                         echo esc_html(" : ");
-                                        ?></span> <img alt="<?php echo esc_html(__('Public','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/<?php echo esc_attr($ispublic); ?>" /></td>
-                                <td><span class="majestic-support-table-responsive-heading"><?php
+                                        ?></span><span class="majestic-support-table-status-dot"></span><?php echo esc_html($MJTC_ispublic); ?></td>
+                                <td class="majestic-support-table-default <?php echo esc_attr($MJTC_defaultclass); ?>"><span class="majestic-support-table-responsive-heading"><?php
                                     echo esc_html(__('Default', 'majestic-support'));
                                     echo esc_html(" : ");
                                     ?></span>
-                                    <?php $MJTC_url = '?page=majesticsupport_priority&task=makedefault&action=mstask&priorityid='.esc_attr($priority->id);
+                                    <?php $MJTC_url = '?page=majesticsupport_priority&task=makedefault&action=mstask&priorityid='.esc_attr($MJTC_priority->id);
                                     if($MJTC_pagenum > 1){
                                         $MJTC_url .= '&pagenum=' . $MJTC_pagenum;
-                                    }?><a title="<?php echo esc_attr(__('Default','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'make-default-'.$priority->id)); ?>" ><img alt="<?php echo esc_html(__('Default','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/<?php echo esc_attr($isdefault); ?>" /></a></td>
-                                <td><span class="majestic-support-table-responsive-heading"><?php
+                                    }?><a title="<?php echo esc_attr(__('Default','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'make-default-'.$MJTC_priority->id)); ?>" ><span class="majestic-support-table-status-dot"></span><?php echo esc_html($MJTC_isdefault); ?></a></td>
+                                <td class="majestic-support-table-color"><span class="majestic-support-table-responsive-heading"><?php
                             echo esc_html(__('Color', 'majestic-support'));
                             echo esc_html(" : ");
-                            ?></span> <span class="mjtc-support-admin-prirrity-color" style="background:<?php echo esc_attr($priority->prioritycolour); ?>;color:#ffffff;"> <?php echo esc_html($priority->prioritycolour); ?></span></td>
-                                <td>
-                                    <a title="<?php echo esc_attr(__('Edit','majestic-support')); ?>" class="action-btn" href="?page=majesticsupport_priority&mjslay=addpriority&majesticsupportid=<?php echo esc_attr($priority->id); ?>"><img alt="<?php echo esc_html(__('Edit','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/edit.png" /></a>&nbsp;&nbsp;
-                                    <a title="<?php echo esc_attr(__('Delete','majestic-support')); ?>" class="action-btn" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete it?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_priority&task=deletepriority&action=mstask&priorityid='.esc_attr($priority->id),'delete-priority-'.$priority->id));?>"><img alt="<?php echo esc_html(__('Delete','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/delete.png" /></a>
+                            ?></span> <span class="mjtc-support-admin-prirrity-color" >
+                                <span class="mjtc-color-swatch" style="background:<?php echo esc_attr($MJTC_priority->prioritycolour); ?>;color:#ffffff;"></span>
+                                <span class="mjtc-color-code"><?php echo esc_html($MJTC_priority->prioritycolour); ?></span>
+                            </span>
+                            </td>
+                                <td class="majestic-support-table-actions">
+                                    <a title="<?php echo esc_attr(__('Edit','majestic-support')); ?>" class="action-btn majestic-support-table-edit-action" href="?page=majesticsupport_priority&mjslay=addpriority&majesticsupportid=<?php echo esc_attr($MJTC_priority->id); ?>">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
+                                    </a>
+                                    <a title="<?php echo esc_attr(__('Delete','majestic-support')); ?>" class="action-btn majestic-support-table-delete-action" onclick="return confirm('<?php echo esc_html(__('Are you sure you want to delete?', 'majestic-support')); ?>');" href="<?php echo esc_url(wp_nonce_url('?page=majesticsupport_priority&task=deletepriority&action=mstask&priorityid='.esc_attr($MJTC_priority->id),'delete-priority-'.$MJTC_priority->id));?>">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path></svg>
+                                    </a>
                                 </td>
                             </tr>
                         <?php

@@ -56,32 +56,32 @@ if (!defined('ABSPATH'))
 			<p>
 				<label for="<?php echo esc_attr( $this->get_field_id( 'majesticsupportpages' ) ); ?>"><?php __( 'Majestic Support Pages', 'majestic-support' ); ?>:</label>
 				<select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'majesticsupportpages' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'majesticsupportpages' ) ); ?>" >
-					<option value="majesticsupport" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Majestic Support control panel','majestic-support'); ?></option>
-					<option value="majesticsupport_addticket" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_addticket' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Add ticket','majestic-support'); ?></option>
-					<option value="majesticsupport_mytickets" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_mytickets' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('My tickets','majestic-support'); ?></option>
+					<option value="majesticsupport" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Majestic Support Control Panel','majestic-support'); ?></option>
+					<option value="majesticsupport_addticket" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_addticket' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Add Ticket','majestic-support'); ?></option>
+					<option value="majesticsupport_mytickets" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_mytickets' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('My Tickets','majestic-support'); ?></option>
 
 				<?php if(in_array('download', majesticsupport::$_active_addons)){ ?>
-					<option value="majesticsupport_downloads" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_downloads' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('List downloads','majestic-support'); ?></option>
-					<option value="majesticsupport_downloads_latest" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_downloads_latest' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Latest downloads','majestic-support'); ?></option>
-					<option value="majesticsupport_downloads_popular" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_downloads_popular' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Popular downloads','majestic-support'); ?></option>
+					<option value="majesticsupport_downloads" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_downloads' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('List Downloads','majestic-support'); ?></option>
+					<option value="majesticsupport_downloads_latest" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_downloads_latest' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Latest Downloads','majestic-support'); ?></option>
+					<option value="majesticsupport_downloads_popular" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_downloads_popular' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Popular Downloads','majestic-support'); ?></option>
 				<?php }?>
 
 				<?php if(in_array('knowledgebase', majesticsupport::$_active_addons)){ ?>
-					<option value="majesticsupport_knowledgebase" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_knowledgebase' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('List knowledge base','majestic-support'); ?></option>
-					<option value="majesticsupport_knowledgebase_latest" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_knowledgebase_latest' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Latest knowledge base','majestic-support'); ?></option>
-					<option value="majesticsupport_knowledgebase_popular" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_knowledgebase_popular' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Popular knowledge base','majestic-support'); ?></option>
+					<option value="majesticsupport_knowledgebase" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_knowledgebase' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('List Knowledge Base','majestic-support'); ?></option>
+					<option value="majesticsupport_knowledgebase_latest" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_knowledgebase_latest' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Latest Knowledge Base','majestic-support'); ?></option>
+					<option value="majesticsupport_knowledgebase_popular" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_knowledgebase_popular' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Popular Knowledge Base','majestic-support'); ?></option>
 				<?php }?>
 
 				<?php if(in_array('faq', majesticsupport::$_active_addons)){ ?>
-					<option value="majesticsupport_faqs" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_faqs' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('List FAQ`s','majestic-support'); ?></option>
-					<option value="majesticsupport_faqs_latest" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_faqs_latest' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Latest FAQ`s','majestic-support'); ?></option>
-					<option value="majesticsupport_faqs_popular" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_faqs_popular' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Popular FAQ`s','majestic-support'); ?></option>
+					<option value="majesticsupport_faqs" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_faqs' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('List FAQs','majestic-support'); ?></option>
+					<option value="majesticsupport_faqs_latest" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_faqs_latest' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Latest FAQs','majestic-support'); ?></option>
+					<option value="majesticsupport_faqs_popular" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_faqs_popular' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Popular FAQs','majestic-support'); ?></option>
 				<?php }?>
 
 				<?php if(in_array('announcement', majesticsupport::$_active_addons)){ ?>
-					<option value="majesticsupport_announcements" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_announcements' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('List announcements','majestic-support'); ?></option>
-					<option value="majesticsupport_announcements_latest" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_announcements_latest' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Latest announcements','majestic-support'); ?></option>
-					<option value="majesticsupport_announcements_popular" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_announcements_popular' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Popular announcements','majestic-support'); ?></option>
+					<option value="majesticsupport_announcements" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_announcements' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('List Announcements','majestic-support'); ?></option>
+					<option value="majesticsupport_announcements_latest" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_announcements_latest' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Latest Announcements','majestic-support'); ?></option>
+					<option value="majesticsupport_announcements_popular" <?php echo wp_kses(( $majesticsupportpages == 'majesticsupport_announcements_popular' ) ? 'selected="selected"' : false, MJTC_ALLOWED_TAGS); ?>><?php echo esc_html__('Popular Announcements','majestic-support'); ?></option>
 				<?php }?>
 				</select>
 			</p>

@@ -10,9 +10,9 @@ class MJTC_table {
     public $primarykey = '';
     public $tablename = '';
 
-    function __construct($tbl, $pk) {
+    function __construct($tbl, $MJTC_pk) {
         $this->tablename = majesticsupport::$_db->prefix . 'mjtc_support_' . $tbl;
-        $this->primarykey = $pk;
+        $this->primarykey = $MJTC_pk;
     }
 
     public function bind($MJTC_data) {
@@ -23,32 +23,32 @@ class MJTC_table {
         } else { // New case
             $this->isnew = true;
         }
-        $result = $this->setColumns($MJTC_data);
-        return $result;
+        $MJTC_result = $this->setColumns($MJTC_data);
+        return $MJTC_result;
     }
 
     protected function setColumns($MJTC_data) {
         if ($this->isnew == true) { // new record insert
-            $array = get_object_vars($this);
-            if(isset($array['id'])){
-                unset($array['id']);
+            $MJTC_array = get_object_vars($this);
+            if(isset($MJTC_array['id'])){
+                unset($MJTC_array['id']);
             }
-            unset($array['isnew']);
-            unset($array['primarykey']);
-            unset($array['tablename']);
-            unset($array['columns']);
-            foreach ($array AS $k => $v) {
-                if (isset($MJTC_data[$k])) {
-                    $this->$k = $MJTC_data[$k];
+            unset($MJTC_array['isnew']);
+            unset($MJTC_array['primarykey']);
+            unset($MJTC_array['tablename']);
+            unset($MJTC_array['columns']);
+            foreach ($MJTC_array AS $MJTC_k => $MJTC_v) {
+                if (isset($MJTC_data[$MJTC_k])) {
+                    $this->$MJTC_k = $MJTC_data[$MJTC_k];
                 }
-                $this->columns[$k] = $this->$k;
+                $this->columns[$MJTC_k] = $this->$MJTC_k;
             }
         } else { // update record
             if (isset($MJTC_data[$this->primarykey])) {
-                foreach ($MJTC_data AS $k => $v) {
-                    if (isset($this->$k)) {
-                        $this->$k = $v;
-                        $this->columns[$k] = $v;
+                foreach ($MJTC_data AS $MJTC_k => $MJTC_v) {
+                    if (isset($this->$MJTC_k)) {
+                        $this->$MJTC_k = $MJTC_v;
+                        $this->columns[$MJTC_k] = $MJTC_v;
                     }
                 }
             } else {
@@ -63,7 +63,7 @@ class MJTC_table {
             majesticsupport::$_db->insert($this->tablename, $this->columns);
             if (majesticsupport::$_db->last_error == null) {
                 $this->{$this->primarykey} = majesticsupport::$_db->insert_id;
-                $id = majesticsupport::$_db->insert_id;
+                $MJTC_id = majesticsupport::$_db->insert_id;
             } else {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
                 return false;
@@ -79,22 +79,22 @@ class MJTC_table {
     }
 
     function update($MJTC_data) {
-        $result = $this->bind($MJTC_data);
-        if ($result == false) {
+        $MJTC_result = $this->bind($MJTC_data);
+        if ($MJTC_result == false) {
             return false;
         }
-        $result = $this->store();
-        if ($result == false) {
+        $MJTC_result = $this->store();
+        if ($MJTC_result == false) {
             return false;
         }
         return true;
     }
 
-    function delete($id) {
-        if (!is_numeric($id))
+    function delete($MJTC_id) {
+        if (!is_numeric($MJTC_id))
             return false;
 
-        majesticsupport::$_db->delete($this->tablename, array($this->primarykey => $id));
+        majesticsupport::$_db->delete($this->tablename, array($this->primarykey => $MJTC_id));
         if (majesticsupport::$_db->last_error == null) {
             return true;
         } else {
@@ -107,20 +107,20 @@ class MJTC_table {
         return true;
     }
 
-    function load($id){
-        if(!is_numeric($id)) return false;
-        $query = "SELECT * FROM `".$this->tablename."` WHERE ".esc_sql($this->primarykey)." = ".esc_sql($id);
-        $result = majesticsupport::$_db->get_row($query);
-        $array = get_object_vars($this);
-        unset($array['isnew']);
-        unset($array['primarykey']);
-        unset($array['tablename']);
-        unset($array['columns']);
-        foreach ($array AS $k => $v) {
-            if (isset($result->$k)) {
-                $this->$k = $result->$k;
+    function load($MJTC_id){
+        if(!is_numeric($MJTC_id)) return false;
+        $MJTC_query = "SELECT * FROM `".$this->tablename."` WHERE ".esc_sql($this->primarykey)." = ".esc_sql($MJTC_id);
+        $MJTC_result = majesticsupport::$_db->get_row($MJTC_query);
+        $MJTC_array = get_object_vars($this);
+        unset($MJTC_array['isnew']);
+        unset($MJTC_array['primarykey']);
+        unset($MJTC_array['tablename']);
+        unset($MJTC_array['columns']);
+        foreach ($MJTC_array AS $MJTC_k => $MJTC_v) {
+            if (isset($MJTC_result->$MJTC_k)) {
+                $this->$MJTC_k = $MJTC_result->$MJTC_k;
             }
-            $this->columns[$k] = $this->$k;
+            $this->columns[$MJTC_k] = $this->$MJTC_k;
         }
         return true;
     }

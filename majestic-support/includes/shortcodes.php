@@ -14,55 +14,55 @@ class MJTC_shortcodes {
         add_shortcode('majesticsupport_mytickets', array($this, 'MJTC_show_my_ticket'));
     }
 
-    function MJTC_show_main_ticket($raw_args, $content = null) {
+    function MJTC_show_main_ticket($MJTC_raw_args, $MJTC_content = null) {
         //default set of parameters for the front end shortcodes
         ob_start();
         $MJTC_defaults = array(
             'mjsmod' => '',
             'mjslay' => '',
         );
-        $sanitized_args = shortcode_atts($MJTC_defaults, $raw_args);
+        $MJTC_sanitized_args = shortcode_atts($MJTC_defaults, $MJTC_raw_args);
         if(isset(majesticsupport::$_data['sanitized_args']) && !empty(majesticsupport::$_data['sanitized_args'])){
-            majesticsupport::$_data['sanitized_args'] += $sanitized_args;
+            majesticsupport::$_data['sanitized_args'] += $MJTC_sanitized_args;
         }else{
-            majesticsupport::$_data['sanitized_args'] = $sanitized_args;
+            majesticsupport::$_data['sanitized_args'] = $MJTC_sanitized_args;
         }
-        $pageid = get_the_ID();
-        majesticsupport::setPageID($pageid);
+        $MJTC_pageid = get_the_ID();
+        majesticsupport::setPageID($MJTC_pageid);
         MJTC_includer::MJTC_include_slug('');
-        $content .= ob_get_clean();
-        return $content;
+        $MJTC_content .= ob_get_clean();
+        return $MJTC_content;
     }
 
-    function MJTC_show_form_ticket($raw_args, $content = null) {
+    function MJTC_show_form_ticket($MJTC_raw_args, $MJTC_content = null) {
         //default set of parameters for the front end shortcodes
         ob_start();
-        $pageid = get_the_ID();
-        majesticsupport::setPageID($pageid);
-        $module = MJTC_Request::MJTC_getVar('mjsmod', '', 'ticket');
-        $layout = MJTC_Request::MJTC_getVar('mjslay', '', 'addticket');
-        if ($layout != 'addticket' && $layout != 'staffaddticket') {
-            $module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $module);
-            MJTC_includer::MJTC_include_file($module);
+        $MJTC_pageid = get_the_ID();
+        majesticsupport::setPageID($MJTC_pageid);
+        $MJTC_module = MJTC_Request::MJTC_getVar('mjsmod', '', 'ticket');
+        $MJTC_layout = MJTC_Request::MJTC_getVar('mjslay', '', 'addticket');
+        if ($MJTC_layout != 'addticket' && $MJTC_layout != 'staffaddticket') {
+            $MJTC_module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $MJTC_module);
+            MJTC_includer::MJTC_include_file($MJTC_module);
         } else {
             $MJTC_defaults = array(
                 'job_type' => '',
                 'city' => '',
                 'company' => '',
             );
-            $sanitized_args = shortcode_atts($MJTC_defaults, $raw_args);
+            $MJTC_sanitized_args = shortcode_atts($MJTC_defaults, $MJTC_raw_args);
             if(isset(majesticsupport::$_data['sanitized_args']) && !empty(majesticsupport::$_data['sanitized_args'])){
-                majesticsupport::$_data['sanitized_args'] += $sanitized_args;
+                majesticsupport::$_data['sanitized_args'] += $MJTC_sanitized_args;
             }else{
-                majesticsupport::$_data['sanitized_args'] = $sanitized_args;
+                majesticsupport::$_data['sanitized_args'] = $MJTC_sanitized_args;
             }
             majesticsupport::$_data['short_code_header'] = 'addticket';
             if ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
-                $id = MJTC_request::MJTC_getVar('majesticsupportid');
-                $per_task = ($id == null) ? 'Add Ticket' : 'Edit Ticket';
-                majesticsupport::$_data['permission_granted'] = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask($per_task);
+                $MJTC_id = MJTC_request::MJTC_getVar('majesticsupportid');
+                $MJTC_per_task = ($MJTC_id == null) ? 'Add Ticket' : 'Edit Ticket';
+                majesticsupport::$_data['permission_granted'] = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask($MJTC_per_task);
                 if (majesticsupport::$_data['permission_granted']) {
-                    MJTC_includer::MJTC_getModel('ticket')->getTicketsForForm($id);
+                    MJTC_includer::MJTC_getModel('ticket')->getTicketsForForm($MJTC_id);
                 }
                 MJTC_includer::MJTC_include_file('staffaddticket', 'agent');
             } else {
@@ -70,92 +70,92 @@ class MJTC_shortcodes {
                 MJTC_includer::MJTC_include_file('addticket', 'ticket');
             }
         }
-        $content .= ob_get_clean();
-        return $content;
+        $MJTC_content .= ob_get_clean();
+        return $MJTC_content;
     }
 
-    function MJTC_show_form_ticket_for_multiform($raw_args, $content = null) {
-        $formid = $raw_args['formid'];
+    function MJTC_show_form_ticket_for_multiform($MJTC_raw_args, $MJTC_content = null) {
+        $MJTC_formid = $MJTC_raw_args['formid'];
         //default set of parameters for the front end shortcodes
         ob_start();
-        $pageid = get_the_ID();
-        majesticsupport::setPageID($pageid);
-        $module = MJTC_Request::MJTC_getVar('mjsmod', '', 'ticket');
-        $layout = MJTC_Request::MJTC_getVar('mjslay', '', 'addticket');
-        if ($layout != 'addticket' && $layout != 'staffaddticket') {
-            $module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $module);
-            MJTC_includer::MJTC_include_file($module);
+        $MJTC_pageid = get_the_ID();
+        majesticsupport::setPageID($MJTC_pageid);
+        $MJTC_module = MJTC_Request::MJTC_getVar('mjsmod', '', 'ticket');
+        $MJTC_layout = MJTC_Request::MJTC_getVar('mjslay', '', 'addticket');
+        if ($MJTC_layout != 'addticket' && $MJTC_layout != 'staffaddticket') {
+            $MJTC_module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $MJTC_module);
+            MJTC_includer::MJTC_include_file($MJTC_module);
         } else {
             $MJTC_defaults = array(
                 'job_type' => '',
                 'city' => '',
                 'company' => '',
             );
-            $sanitized_args = shortcode_atts($MJTC_defaults, $raw_args);
+            $MJTC_sanitized_args = shortcode_atts($MJTC_defaults, $MJTC_raw_args);
             if(isset(majesticsupport::$_data['sanitized_args']) && !empty(majesticsupport::$_data['sanitized_args'])){
-                majesticsupport::$_data['sanitized_args'] += $sanitized_args;
+                majesticsupport::$_data['sanitized_args'] += $MJTC_sanitized_args;
             }else{
-                majesticsupport::$_data['sanitized_args'] = $sanitized_args;
+                majesticsupport::$_data['sanitized_args'] = $MJTC_sanitized_args;
             }
             majesticsupport::$_data['short_code_header'] = 'addticket';
             if ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
-                $id = MJTC_request::MJTC_getVar('majesticsupportid');
-                $per_task = ($id == null) ? 'Add Ticket' : 'Edit Ticket';
-                majesticsupport::$_data['permission_granted'] = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask($per_task);
+                $MJTC_id = MJTC_request::MJTC_getVar('majesticsupportid');
+                $MJTC_per_task = ($MJTC_id == null) ? 'Add Ticket' : 'Edit Ticket';
+                majesticsupport::$_data['permission_granted'] = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask($MJTC_per_task);
                 if (majesticsupport::$_data['permission_granted']) {
-                    MJTC_includer::MJTC_getModel('ticket')->getTicketsForForm($id, $formid);
+                    MJTC_includer::MJTC_getModel('ticket')->getTicketsForForm($MJTC_id, $MJTC_formid);
                 }
                 MJTC_includer::MJTC_include_file('staffaddticket', 'agent');
             } else {
-                MJTC_includer::MJTC_getModel('ticket')->getTicketsForForm(null, $formid);
+                MJTC_includer::MJTC_getModel('ticket')->getTicketsForForm(null, $MJTC_formid);
                 MJTC_includer::MJTC_include_file('addticket', 'ticket');
             }
         }
-        $content .= ob_get_clean();
-        return $content;
+        $MJTC_content .= ob_get_clean();
+        return $MJTC_content;
     }
 
-    function MJTC_show_my_ticket($raw_args, $content = null) {
+    function MJTC_show_my_ticket($MJTC_raw_args, $MJTC_content = null) {
         //default set of parameters for the front end shortcodes
         ob_start();
-        $pageid = get_the_ID();
-        majesticsupport::setPageID($pageid);
-        $module = MJTC_Request::MJTC_getVar('mjsmod', '', 'ticket');
-        $layout = MJTC_Request::MJTC_getVar('mjslay', '', 'myticket');
-        if ($layout != 'myticket' && $layout != 'staffmyticket') {
-            $module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $module);
-            MJTC_includer::MJTC_include_file($module);
+        $MJTC_pageid = get_the_ID();
+        majesticsupport::setPageID($MJTC_pageid);
+        $MJTC_module = MJTC_Request::MJTC_getVar('mjsmod', '', 'ticket');
+        $MJTC_layout = MJTC_Request::MJTC_getVar('mjslay', '', 'myticket');
+        if ($MJTC_layout != 'myticket' && $MJTC_layout != 'staffmyticket') {
+            $MJTC_module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $MJTC_module);
+            MJTC_includer::MJTC_include_file($MJTC_module);
         } else {
             $MJTC_defaults = array(
                 'list' => '',
                 'ticketid' => '',
             );
-            $list = MJTC_request::MJTC_getVar('list', 'get', null);
+            $MJTC_list = MJTC_request::MJTC_getVar('list', 'get', null);
             $MJTC_ticketid = MJTC_request::MJTC_getVar('ticketid', null, null);
-            $args = shortcode_atts($MJTC_defaults, $raw_args);
+            $MJTC_args = shortcode_atts($MJTC_defaults, $MJTC_raw_args);
             if(isset(majesticsupport::$_data['sanitized_args']) && !empty(majesticsupport::$_data['sanitized_args'])){
-                majesticsupport::$_data['sanitized_args'] += $args;
+                majesticsupport::$_data['sanitized_args'] += $MJTC_args;
             }else{
-                majesticsupport::$_data['sanitized_args'] = $args;
+                majesticsupport::$_data['sanitized_args'] = $MJTC_args;
             }
-            if ($list == null)
-                $list = $args['list'];
+            if ($MJTC_list == null)
+                $MJTC_list = $MJTC_args['list'];
             if ($MJTC_ticketid == null)
-                $MJTC_ticketid = $args['ticketid'];
+                $MJTC_ticketid = $MJTC_args['ticketid'];
             majesticsupport::$_data['short_code_header'] = 'myticket';
             if ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
                 MJTC_includer::MJTC_getModel('ticket')->getStaffTickets();
                 MJTC_includer::MJTC_include_file('staffmyticket', 'agent');
             } else {
-                MJTC_includer::MJTC_getModel('ticket')->getMyTickets($list, $MJTC_ticketid);
+                MJTC_includer::MJTC_getModel('ticket')->getMyTickets($MJTC_list, $MJTC_ticketid);
                 MJTC_includer::MJTC_include_file('myticket', 'ticket');
             }
         }
-        $content .= ob_get_clean();
-        return $content;
+        $MJTC_content .= ob_get_clean();
+        return $MJTC_content;
     }
 
 }
 
-$shortcodes = new MJTC_shortcodes();
+$MJTC_shortcodes = new MJTC_shortcodes();
 ?>

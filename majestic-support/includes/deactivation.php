@@ -9,14 +9,14 @@ class MJTC_deactivation {
         wp_clear_scheduled_hook('mjtc_process_transation_key_status');
         wp_clear_scheduled_hook('majesticsupport_updateticketstatus');
         wp_clear_scheduled_hook('majesticsupport_ticketviaemail');
-        $timestamp = wp_next_scheduled( 'ms_delete_expire_session_data' );
-        wp_unschedule_event( $timestamp, 'ms_delete_expire_session_data' );
-        $id = majesticsupport::getPageid();
-        majesticsupport::$_db->get_var("UPDATE `" . majesticsupport::$_db->prefix . "posts` SET post_status = 'draft' WHERE ID = ".esc_sql($id));
+        $MJTC_timestamp = wp_next_scheduled( 'ms_delete_expire_session_data' );
+        wp_unschedule_event( $MJTC_timestamp, 'ms_delete_expire_session_data' );
+        $MJTC_id = majesticsupport::getPageid();
+        majesticsupport::$_db->get_var("UPDATE `" . majesticsupport::$_db->prefix . "posts` SET post_status = 'draft' WHERE ID = ".esc_sql($MJTC_id));
 
         //Delete capabilities
-        $role = get_role( 'administrator' );
-        $role->remove_cap( 'ms_support_ticket' );
+        $MJTC_role = get_role( 'administrator' );
+        $MJTC_role->remove_cap( 'ms_support_ticket' );
     }
 
     static function MJTC_tables_to_drop() {

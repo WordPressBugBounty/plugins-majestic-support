@@ -5,8 +5,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
     require_once MJTC_PLUGIN_PATH.'includes/addon-updater/msupdater.php';
     $MJTC_SUPPORTTICKETUpdater  = new MJTC_SUPPORTTICKETUpdater();
-    $cdnversiondata = $MJTC_SUPPORTTICKETUpdater->MJTC_getPluginVersionDataFromCDN();
-    $not_installed = array();
+    $MJTC_cdnversiondata = $MJTC_SUPPORTTICKETUpdater->MJTC_getPluginVersionDataFromCDN();
+    $MJTC_not_installed = array();
 
     $majesticsupport_addons = MJTC_includer::MJTC_getModel('premiumplugin')->MJTC_getAddonsArray();
 ?>
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             </div>
             <div class="msadmin-autoupdte-addons-cardwrp">
                 <div class="msadmin-autoupdte-addons-cardlogo">
-                    <img alt="<?php echo esc_html(__('Auto Update','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/addon-images/addons/icon.png" />
+                    <img alt="<?php echo esc_attr(__('Auto Update','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/addon-images/addons/icon.png" />
                 </div>
                 <div class="msadmin-autoupdte-addons-cardwrp-rightwrp">
                     <div class="msadmin-autoupdte-addons-card-title">
@@ -50,49 +50,49 @@ if ( ! defined( 'ABSPATH' ) ) {
     		<!-- admin addons status -->
             <div id="black_wrapper_translation"></div>
             <div id="mstran_loading">
-                <img alt="<?php echo esc_html(__('spinning wheel','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/spinning-wheel.gif" />
+                <div class="ms-css-spinner"></div>
             </div>
             <div class="msadmin-addons-list-wrp">
                 <?php
-                $installed_plugins = get_plugins();
+                $MJTC_installed_plugins = get_plugins();
                 ?>
                 <?php
                     foreach ($majesticsupport_addons as $MJTC_key1 => $MJTC_value1) {
-                        $matched = 0;
-                        $version = "";
-                        foreach ($installed_plugins as $name => $MJTC_value) {
-                            $install_plugin_name = MJTC_majesticsupportphplib::MJTC_str_replace(".php","",MJTC_majesticsupportphplib::MJTC_basename($name));
-                            if($MJTC_key1 == $install_plugin_name){
-                                $matched = 1;
-                                $version = $MJTC_value["Version"];
-                                $install_plugin_matched_name = $install_plugin_name;
+                        $MJTC_matched = 0;
+                        $MJTC_version = "";
+                        foreach ($MJTC_installed_plugins as $MJTC_name => $MJTC_value) {
+                            $MJTC_install_plugin_name = MJTC_majesticsupportphplib::MJTC_str_replace(".php","",MJTC_majesticsupportphplib::MJTC_basename($MJTC_name));
+                            if($MJTC_key1 == $MJTC_install_plugin_name){
+                                $MJTC_matched = 1;
+                                $MJTC_version = $MJTC_value["Version"];
+                                $MJTC_install_plugin_matched_name = $MJTC_install_plugin_name;
                             }
                         }
-                        $status = '';
-                        if($matched == 1){ //installed
-                            $name = $MJTC_key1;
+                        $MJTC_status = '';
+                        if($MJTC_matched == 1){ //installed
+                            $MJTC_name = $MJTC_key1;
                             $title = $MJTC_value1['title'];
-                            $img = MJTC_majesticsupportphplib::MJTC_str_replace("majestic-support-", "", $MJTC_key1).'.png';
-                            $cdnavailableversion = "";
-                            foreach ($cdnversiondata as $cdnname => $cdnversion) {
-                                $install_plugin_name_simple = MJTC_majesticsupportphplib::MJTC_str_replace("-", "", $install_plugin_matched_name);
-                                if($cdnname == MJTC_majesticsupportphplib::MJTC_str_replace("-", "", $install_plugin_matched_name)){
-                                    if($cdnversion > $version){ // new version available
-                                        $status = 'update_available';
-                                        $cdnavailableversion = $cdnversion;
+                            $MJTC_img = MJTC_majesticsupportphplib::MJTC_str_replace("majestic-support-", "", $MJTC_key1).'.png';
+                            $MJTC_cdnavailableversion = "";
+                            foreach ($MJTC_cdnversiondata as $MJTC_cdnname => $MJTC_cdnversion) {
+                                $MJTC_install_plugin_name_simple = MJTC_majesticsupportphplib::MJTC_str_replace("-", "", $MJTC_install_plugin_matched_name);
+                                if($MJTC_cdnname == MJTC_majesticsupportphplib::MJTC_str_replace("-", "", $MJTC_install_plugin_matched_name)){
+                                    if($MJTC_cdnversion > $MJTC_version){ // new version available
+                                        $MJTC_status = 'update_available';
+                                        $MJTC_cdnavailableversion = $MJTC_cdnversion;
                                     }else{
-                                        $status = 'updated';
+                                        $MJTC_status = 'updated';
                                     }
                                 }    
                             }
-                            mjtc_printAddoneStatus($name, $title, $img, $version, $status, $cdnavailableversion);
+                            mjtc_printAddoneStatus($MJTC_name, $title, $MJTC_img, $MJTC_version, $MJTC_status, $MJTC_cdnavailableversion);
                         }else{ // not installed
-                            $img = MJTC_majesticsupportphplib::MJTC_str_replace("majestic-support-", "", $MJTC_key1).'.png';
-                            $not_installed[] = array("name" => $MJTC_key1, "title" => $MJTC_value1['title'], "img" => $img, "status" => 'not-installed', "version" => "---");
+                            $MJTC_img = MJTC_majesticsupportphplib::MJTC_str_replace("majestic-support-", "", $MJTC_key1).'.png';
+                            $MJTC_not_installed[] = array("name" => $MJTC_key1, "title" => $MJTC_value1['title'], "img" => $MJTC_img, "status" => 'not-installed', "version" => "---");
                         }
                     }
-                    foreach ($not_installed as $notinstall_addon) {
-                        mjtc_printAddoneStatus($notinstall_addon["name"], $notinstall_addon["title"], $notinstall_addon["img"], $notinstall_addon["version"], $notinstall_addon["status"]);
+                    foreach ($MJTC_not_installed as $MJTC_notinstall_addon) {
+                        mjtc_printAddoneStatus($MJTC_notinstall_addon["name"], $MJTC_notinstall_addon["title"], $MJTC_notinstall_addon["img"], $MJTC_notinstall_addon["version"], $MJTC_notinstall_addon["status"]);
                     }
                 ?>
             </div>
@@ -101,64 +101,64 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 
 <?php
-function mjtc_printAddoneStatus($name, $title, $img, $version, $status, $cdnavailableversion = ''){
-    $addoneinfo = MJTC_includer::MJTC_getModel('premiumplugin')->MJTC_checkAddoneInfo($name);
-    if ($status == 'update_available') {
-        $wrpclass = 'ms-admin-addon-status ms-admin-addons-status-update-wrp';
-        $btnclass = 'ms-admin-addons-update-btn';
-        $btntxt = 'Update Now';
-        //$btnlink = 'id="ms-admin-addons-update" data-for="'.esc_attr($name).'"';
-		$btnlink = 'id=ms-admin-addons-update data-for='.esc_attr($name).'';
+function mjtc_printAddoneStatus($MJTC_name, $title, $MJTC_img, $MJTC_version, $MJTC_status, $MJTC_cdnavailableversion = ''){
+    $MJTC_addoneinfo = MJTC_includer::MJTC_getModel('premiumplugin')->MJTC_checkAddoneInfo($MJTC_name);
+    if ($MJTC_status == 'update_available') {
+        $MJTC_wrpclass = 'ms-admin-addon-status ms-admin-addons-status-update-wrp';
+        $MJTC_btnclass = 'ms-admin-addons-update-btn';
+        $MJTC_btntxt = 'Update Now';
+        //$MJTC_btnlink = 'id="ms-admin-addons-update" data-for="'.esc_attr($MJTC_name).'"';
+		$MJTC_btnlink = 'id=ms-admin-addons-update data-for='.esc_attr($MJTC_name).'';
         $msg = '<span id="ms-admin-addon-status-cdnversion">'.esc_html(__('New Update Version','majestic-support'));
-        $msg .= '<span>'." ".$cdnavailableversion." ".'</span>';
+        $msg .= '<span>'." ".$MJTC_cdnavailableversion." ".'</span>';
         $msg .= esc_html(__('is Available','majestic-support')).'</span>';
-    } elseif ($status == 'expired') {
-        $wrpclass = 'ms-admin-addon-status ms-admin-addons-status-expired-wrp';
-        $btnclass = 'ms-admin-addons-expired-btn';
-        $btntxt = 'Expired';
-        $btnlink = '';
+    } elseif ($MJTC_status == 'expired') {
+        $MJTC_wrpclass = 'ms-admin-addon-status ms-admin-addons-status-expired-wrp';
+        $MJTC_btnclass = 'ms-admin-addons-expired-btn';
+        $MJTC_btntxt = 'Expired';
+        $MJTC_btnlink = '';
         $msg = '';
-    } elseif ($status == 'updated') {
-        $wrpclass = 'ms-admin-addon-status';
-        $btnclass = '';
-        $btntxt = 'Updated';
-        $btnlink = '';
+    } elseif ($MJTC_status == 'updated') {
+        $MJTC_wrpclass = 'ms-admin-addon-status';
+        $MJTC_btnclass = '';
+        $MJTC_btntxt = 'Updated';
+        $MJTC_btnlink = '';
         $msg = '';
     } else {
-        $wrpclass = 'ms-admin-addon-status';
-        $btnclass = 'ms-admin-addons-buy-btn';
-        $btntxt = 'Buy Now';
-        $btnlink = 'href="https://majesticsupport.com/add-ons/"';
+        $MJTC_wrpclass = 'ms-admin-addon-status';
+        $MJTC_btnclass = 'ms-admin-addons-buy-btn';
+        $MJTC_btntxt = 'Buy Now';
+        $MJTC_btnlink = 'href="https://majesticsupport.com/add-ons/"';
         $msg = '';
     }
-    $html = '
-    <div class="'.esc_attr($wrpclass).'" id="'.esc_attr($name).'">
+    $MJTC_html = '
+    <div class="'.esc_attr($MJTC_wrpclass).'" id="'.esc_attr($MJTC_name).'">
         <div class="ms-addon-status-image-wrp">
-            <img alt="Addone image" src="'.esc_url(MJTC_PLUGIN_URL).'includes/images/admincp/addon/'.esc_attr($img).'" />
+            <img alt="Addone image" src="'.esc_url(MJTC_PLUGIN_URL).'includes/images/admincp/addon/'.esc_attr($MJTC_img).'" />
         </div>
         <div class="ms-admin-addon-status-title-wrp">
             <h2>'. esc_html(majesticsupport::MJTC_getVarValue($title)) .'</h2>
-            <a class="'. esc_attr($addoneinfo["actionClass"]) .'" href="'. esc_url($addoneinfo["url"]) .'">
-                '. esc_html(majesticsupport::MJTC_getVarValue($addoneinfo["action"])) .'
+            <a class="'. esc_attr($MJTC_addoneinfo["actionClass"]) .'" href="'. esc_url($MJTC_addoneinfo["url"]) .'">
+                '. esc_html(majesticsupport::MJTC_getVarValue($MJTC_addoneinfo["action"])) .'
             </a>
             '.wp_kses($msg, MJTC_ALLOWED_TAGS).'
         </div>
         <div class="ms-admin-addon-status-addonstatus-wrp">
-            <span>'. esc_html(__('Status: ','majestic-support')) .'</span>
+            <span>'. esc_html(__('Status','majestic-support')).': ' .'</span>
             <span class="ms-admin-adons-status-Active" href="#">
-                '. esc_html(majesticsupport::MJTC_getVarValue($addoneinfo["status"])) .'
+                '. esc_html(majesticsupport::MJTC_getVarValue($MJTC_addoneinfo["status"])) .'
             </span>
         </div>
         <div class="ms-admin-addon-status-addonsversion-wrp">
             <span id="ms-admin-addon-status-cversion">
                 '. esc_html(__('Version','majestic-support')).': 
                 <span>
-                    '. esc_html($version) .'
+                    '. esc_html($MJTC_version) .'
                 </span>
             </span>
         </div>
         <div class="msadmin-addon-status-addonstatusbtn-wrp">
-            <a '.esc_attr($btnlink).' class="'.esc_attr($btnclass).'">'.esc_html(majesticsupport::MJTC_getVarValue($btntxt)) .'</a>
+            <a '.esc_attr($MJTC_btnlink).' class="'.esc_attr($MJTC_btnclass).'">'.esc_html(majesticsupport::MJTC_getVarValue($MJTC_btntxt)) .'</a>
         </div>
         <div class="msadmin-addon-status-msg msadmin_success">
             <img src="'. esc_url(MJTC_PLUGIN_URL) .'includes/images/admincp/addon/success.png" />
@@ -169,7 +169,7 @@ function mjtc_printAddoneStatus($name, $title, $img, $version, $status, $cdnavai
             <span class="msadmin-addon-status-msg-txt"></span>
         </div>
     </div>';
-        echo wp_kses($html, MJTC_ALLOWED_TAGS);
+        echo wp_kses($MJTC_html, MJTC_ALLOWED_TAGS);
     }
 
 ?>
@@ -209,7 +209,7 @@ $majesticsupport_js ="
     });
     function jsShowLoading(){
         jQuery('div#black_wrapper_translation').show();
-        jQuery('div#mstran_loading').show();
+        jQuery('div#mstran_loading').css('display', 'flex');
     }
 
     function jsHideLoading(){

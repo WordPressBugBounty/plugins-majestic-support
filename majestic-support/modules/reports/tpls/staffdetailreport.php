@@ -11,10 +11,10 @@ if (majesticsupport::$_config['offline'] == 2) {
     <!-- admin -->
 <?php
 wp_enqueue_script('jquery-ui-datepicker');
-wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
+wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css', array(), '1.0.0');
 $mjtc_scriptdateformat = MJTC_includer::MJTC_getModel('majesticsupport')->MJTC_getDateFormat();
-wp_enqueue_script('majesticsupport-google-charts', MJTC_PLUGIN_URL . 'includes/js/google-charts.js');
-wp_register_script( 'majesticsupport-google-charts-handle', '' );
+wp_enqueue_script('majesticsupport-google-charts', MJTC_PLUGIN_URL . 'includes/js/google-charts.js', array(), '1.0.0', true);
+wp_register_script( 'majesticsupport-google-charts-handle', false, array(), '1.0.0', true );
 wp_enqueue_script( 'majesticsupport-google-charts-handle' );
     $majesticsupport_js ="
         jQuery(document).ready(function($) {
@@ -70,11 +70,11 @@ wp_enqueue_script( 'majesticsupport-google-charts-handle' );
     wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
     include_once(MJTC_PLUGIN_PATH . 'includes/header.php'); ?>
     <div class="mjtc-support-top-sec-header">
-        <img class="mjtc-transparent-header-img1" alt="<?php echo esc_html(__('image', 'majestic-support')); ?>"
+        <img class="mjtc-transparent-header-img1" alt="<?php echo esc_attr(__('Image', 'majestic-support')); ?>"
             src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/tp-image.png" />
         <div class="mjtc-support-top-sec-left-header">
             <div class="mjtc-support-main-heading">
-                <?php echo esc_html(__("Agent detail Report",'majestic-support')); ?>
+                <?php echo esc_html(__("Agent Detail Report",'majestic-support')); ?>
             </div>
             <?php MJTC_includer::MJTC_getModel('majesticsupport')->getPageBreadcrumps('agentdetailreport'); ?>
         </div>
@@ -87,17 +87,17 @@ wp_enqueue_script( 'majesticsupport-google-charts-handle' );
                         <form class="mjtc-filter-form" name="majesticsupportform" id="majesticsupportform" method="POST"
                             action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'reports', 'mjslay'=>'staffdetailreport','ms-id'=>majesticsupport::$_data['staff_report']->id)),"staff-detail-report")); ?>">
                             <?php
-                $curdate = date_i18n('Y-m-d');
-                $enddate = date_i18n('Y-m-d', MJTC_majesticsupportphplib::MJTC_strtotime("now -1 month"));
-                $date_start = !empty(majesticsupport::$_data['filter']['ms-date-start']) ? majesticsupport::$_data['filter']['ms-date-start'] : $curdate;
-                $date_end = !empty(majesticsupport::$_data['filter']['ms-date-end']) ? majesticsupport::$_data['filter']['ms-date-end'] : $enddate; ?>
+                $MJTC_curdate = date_i18n('Y-m-d');
+                $MJTC_enddate = date_i18n('Y-m-d', MJTC_majesticsupportphplib::MJTC_strtotime("now -1 month"));
+                $MJTC_date_start = !empty(majesticsupport::$_data['filter']['ms-date-start']) ? majesticsupport::$_data['filter']['ms-date-start'] : $MJTC_curdate;
+                $MJTC_date_end = !empty(majesticsupport::$_data['filter']['ms-date-end']) ? majesticsupport::$_data['filter']['ms-date-end'] : $MJTC_enddate; ?>
                 <?php echo wp_kses("<input type='hidden' name='ms-id' value='" . esc_attr(majesticsupport::$_data['staff_report']->id) . "'/>", MJTC_ALLOWED_TAGS); ?>
                 <div class="mjtc-support-fields-wrp">
                     <div class="mjtc-support-form-field">
-                        <?php echo wp_kses(MJTC_formfield::MJTC_text('ms-date-start', date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($date_start)), array('class' => 'custom_date mjtc-support-field-input','placeholder' => esc_html(__('Start Date','majestic-support')))), MJTC_ALLOWED_TAGS); ?>
+                        <?php echo wp_kses(MJTC_formfield::MJTC_text('ms-date-start', date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_date_start)), array('class' => 'custom_date mjtc-support-field-input','placeholder' => esc_html(__('Start Date','majestic-support')))), MJTC_ALLOWED_TAGS); ?>
                     </div>
                     <div class="mjtc-support-form-field">
-                        <?php echo wp_kses(MJTC_formfield::MJTC_text('ms-date-end', date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($date_end)), array('class' => 'custom_date mjtc-support-field-input','placeholder' => esc_html(__('End Date','majestic-support')))), MJTC_ALLOWED_TAGS); ?>
+                        <?php echo wp_kses(MJTC_formfield::MJTC_text('ms-date-end', date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_date_end)), array('class' => 'custom_date mjtc-support-field-input','placeholder' => esc_html(__('End Date','majestic-support')))), MJTC_ALLOWED_TAGS); ?>
                     </div>
                 </div>
                 <div class="mjtc-support-search-form-btn-wrp">
@@ -118,72 +118,72 @@ wp_enqueue_script( 'majesticsupport-google-charts-handle' );
                     <?php echo esc_html(__('Agent Report', 'majestic-support')) ?>
                 </div>
                 <?php
-                $agent = majesticsupport::$_data['staff_report'];
-                if(!empty($agent)){ ?>
+                $MJTC_agent = majesticsupport::$_data['staff_report'];
+                if(!empty($MJTC_agent)){ ?>
                     <div class="mjtc-admin-staff-wrapper padding">
                         <div class="mjtc-col-md-4 nopadding mjtc-festaffreport-img">
                             <div class="mjtc-report-staff-image-wrapper">
                                 <?php
-                                echo wp_kses_post(ms_get_avatar($agent->uid, 'mjtc-report-staff-pic')); ?>
+                                echo wp_kses_post(MJTC_get_avatar($MJTC_agent->uid, 'mjtc-report-staff-pic')); ?>
                             </div>
                             <div class="mjtc-report-staff-cnt">
                                 <div class="mjtc-report-staff-name">
                                     <?php
-                                    if($agent->firstname && $agent->lastname){
-                                        $agentname = $agent->firstname . ' ' . $agent->lastname;
+                                    if($MJTC_agent->firstname && $MJTC_agent->lastname){
+                                        $MJTC_agentname = $MJTC_agent->firstname . ' ' . $MJTC_agent->lastname;
                                     }else{
-                                        $agentname = $agent->display_name;
+                                        $MJTC_agentname = $MJTC_agent->display_name;
                                     }
-                                    echo esc_html(majesticsupport::MJTC_getVarValue($agentname));
+                                    echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_agentname));
                                 ?>
                                 </div>
                                 <div class="mjtc-report-staff-username">
                                     <?php
-                                    if($agent->display_name){
-                                        $username = $agent->display_name;
+                                    if($MJTC_agent->display_name){
+                                        $MJTC_username = $MJTC_agent->display_name;
                                     }else{
-                                        $username = $agent->user_nicename;
+                                        $MJTC_username = $MJTC_agent->user_nicename;
                                     }
-                                    echo esc_html(majesticsupport::MJTC_getVarValue($username));
+                                    echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_username));
                                 ?>
                                 </div>
                                 <div class="mjtc-report-staff-email">
                                     <?php
-                                    if($agent->email){
-                                        $email = $agent->email;
+                                    if($MJTC_agent->email){
+                                        $MJTC_email = $MJTC_agent->email;
                                     }else{
-                                        $email = $agent->user_email;
+                                        $MJTC_email = $MJTC_agent->user_email;
                                     }
-                                    echo esc_html($email);
+                                    echo esc_html($MJTC_email);
                                 ?>
                                 </div>
                             </div>
                         </div>
                         <div class="mjtc-col-md-8 nopadding mjtc-festaffreport-data">
                             <div class="mjtc-col-md-2 mjtc-col-md-offset-1 mjtc-admin-report-box box1">
-                                <span class="mjtc-report-box-number"><?php echo esc_html($agent->openticket); ?></span>
+                                <span class="mjtc-report-box-number"><?php echo esc_html($MJTC_agent->openticket); ?></span>
                                 <span class="mjtc-report-box-title"><?php echo esc_html(__('New','majestic-support')); ?></span>
                                 <div class="mjtc-report-box-color"></div>
                             </div>
                             <div class="mjtc-col-md-2 mjtc-admin-report-box box2">
-                                <span class="mjtc-report-box-number"><?php echo esc_html($agent->answeredticket); ?></span>
+                                <span class="mjtc-report-box-number"><?php echo esc_html($MJTC_agent->answeredticket); ?></span>
                                 <span class="mjtc-report-box-title"><?php echo esc_html(__('Answered','majestic-support')); ?></span>
                                 <div class="mjtc-report-box-color"></div>
                             </div>
                             <div class="mjtc-col-md-2 mjtc-admin-report-box box3">
-                                <span class="mjtc-report-box-number"><?php echo esc_html($agent->pendingticket); ?></span>
+                                <span class="mjtc-report-box-number"><?php echo esc_html($MJTC_agent->pendingticket); ?></span>
                                 <span class="mjtc-report-box-title"><?php echo esc_html(__('Pending','majestic-support')); ?></span>
                                 <div class="mjtc-report-box-color"></div>
                             </div>
                             <?php if(in_array('overdue', majesticsupport::$_active_addons)){ ?>
                                 <div class="mjtc-col-md-2 mjtc-admin-report-box box4">
-                                    <span class="mjtc-report-box-number"><?php echo esc_html($agent->overdueticket); ?></span>
+                                    <span class="mjtc-report-box-number"><?php echo esc_html($MJTC_agent->overdueticket); ?></span>
                                     <span class="mjtc-report-box-title"><?php echo esc_html(__('Overdue','majestic-support')); ?></span>
                                     <div class="mjtc-report-box-color"></div>
                                 </div>
                             <?php } ?>
                             <div class="mjtc-col-md-2 mjtc-admin-report-box box5">
-                                <span class="mjtc-report-box-number"><?php echo esc_html($agent->closeticket); ?></span>
+                                <span class="mjtc-report-box-number"><?php echo esc_html($MJTC_agent->closeticket); ?></span>
                                 <span class="mjtc-report-box-title"><?php echo esc_html(__('Closed','majestic-support')); ?></span>
                                 <div class="mjtc-report-box-color"></div>
                             </div>
@@ -232,44 +232,44 @@ wp_enqueue_script( 'majesticsupport-google-charts-handle' );
                                             // 5 -> close ticket
                                             /*switch($MJTC_ticket->status){
                                                 case 0:
-                                                    $status = '<font color="#159667">'.esc_html(__('New','majestic-support')).'</font>';
+                                                    $MJTC_status = '<font color="#159667">'.esc_html(__('New','majestic-support')).'</font>';
                                                     if($MJTC_ticket->isoverdue == 1)
-                                                        $status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
+                                                        $MJTC_status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
                                                 break;
                                                 case 1:
-                                                    $status = '<font color="#f39f10">'.esc_html(__('Pending','majestic-support')).'</font>';
+                                                    $MJTC_status = '<font color="#f39f10">'.esc_html(__('Pending','majestic-support')).'</font>';
                                                     if($MJTC_ticket->isoverdue == 1)
-                                                        $status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
+                                                        $MJTC_status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
                                                 break;
                                                 case 2:
-                                                    $status = '<font color="#f39f10">'.esc_html(__('In Progress','majestic-support')).'</font>';
+                                                    $MJTC_status = '<font color="#f39f10">'.esc_html(__('In Progress','majestic-support')).'</font>';
                                                     if($MJTC_ticket->isoverdue == 1)
-                                                        $status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
+                                                        $MJTC_status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
                                                 break;
                                                 case 3:
-                                                    $status = '<font color="#2168A2">'.esc_html(__('Answered','majestic-support')).'</font>';
+                                                    $MJTC_status = '<font color="#2168A2">'.esc_html(__('Answered','majestic-support')).'</font>';
                                                     if($MJTC_ticket->isoverdue == 1)
-                                                        $status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
+                                                        $MJTC_status = '<font color="#B82B2B">'.esc_html(__('Overdue','majestic-support')).'</font>';
                                                 break;
                                                 case 4:
-                                                    $status = '<font color="#3D355A">'.esc_html(__('Closed','majestic-support')).'</font>';
+                                                    $MJTC_status = '<font color="#3D355A">'.esc_html(__('Closed','majestic-support')).'</font>';
                                                 break;
                                                 case 5:
-                                                    $status = '<font color="#3D355A">'.esc_html(__('Merged','majestic-support')).'</font>';
+                                                    $MJTC_status = '<font color="#3D355A">'.esc_html(__('Merged','majestic-support')).'</font>';
                                                 break;
                                             }*/
 if (!in_array($MJTC_ticket->status, [5, 6]) && $MJTC_ticket->isoverdue == 1) {
-                                            $status = __('Overdue','majestic-support');
+                                            $MJTC_status = __('Overdue','majestic-support');
                                             $MJTC_color = '#FFFFFF';
                                             $MJTC_bgcolor = '#DB624C';
                                         } else {
-                                            $status = $MJTC_ticket->statustitle;
+                                            $MJTC_status = $MJTC_ticket->statustitle;
                                             $MJTC_color = $MJTC_ticket->statuscolour;
                                             $MJTC_bgcolor = $MJTC_ticket->statusbgcolour;
                                         }
                                         ?>
                                     <span class="mjtc-ticket-priority" style="background:<?php echo esc_attr($MJTC_bgcolor); ?>;color:<?php echo esc_attr($MJTC_color); ?>">
-                                        <?php echo esc_html($status); ?>
+                                        <?php echo esc_html($MJTC_status); ?>
                                     </span>
                                     </div>
                                     <div class="mjtc-support-table-body-col mjtc-col-md-3 mjtc-col-xs-3">

@@ -1,7 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 wp_enqueue_script('jquery-ui-datepicker');
-wp_enqueue_style('jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
+wp_enqueue_style('jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css', array(), '1.0.0');
 $majesticsupport_js ="
     var nextorid = 1;
     var nextandid = 1;
@@ -269,13 +269,13 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                 (object) array('id' => 'termsandconditions', 'text' => esc_html(__('Terms and Conditions', 'majestic-support'))));
         }
         $MJTC_fieldsize = array(
-             (object) array('id' => 50, 'text' => esc_html(__('50%', 'majestic-support'))),
-            (object) array('id' => 100, 'text' => esc_html(__('100%', 'majestic-support'))));
+             (object) array('id' => 50, 'text' => esc_html('50%')),
+            (object) array('id' => 100, 'text' => esc_html('100%')));
         ?>
         <div id="msadmin-data-wrp">
             <?php if(isset(majesticsupport::$_data['formid'])){ $MJTC_mformid = majesticsupport::$_data['formid']; }else{ $MJTC_mformid = MJTC_includer::MJTC_getModel('ticket')->getDefaultMultiFormId(); } ?>
             <?php $MJTC_nonce_id = isset(majesticsupport::$_data[0]['userfield']->id) ? majesticsupport::$_data[0]['userfield']->id : '';?>
-            <form class="msadmin-form" id="adminForm" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_fieldordering&task=saveuserfeild&formid=$MJTC_mformid"),"save-userfeild-".$MJTC_nonce_id)); ?>">
+            <form class="msadmin-form msadmin-addfield-form" id="adminForm" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_fieldordering&task=saveuserfeild&formid=$MJTC_mformid"),"save-userfeild-".$MJTC_nonce_id)); ?>">
                 <?php if (empty(majesticsupport::$_data[0]['userfield']->id) || (!empty(majesticsupport::$_data[0]['userfield']->id) && !empty(majesticsupport::$_data[0]['userfield']->isuserfield))) { ?>
                     <div class="mjtc-form-wrapper">
                         <div class="mjtc-form-title"><?php echo esc_html(__('Field Type', 'majestic-support')); ?><font class="required-notifier">*</font></div>
@@ -300,7 +300,8 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                                 <?php echo esc_html(__('To choose a default value, first add values in the area below', 'majestic-support')); ?>
                             </span>
                             <span class="mjtc-form-subtitle" id="defaultvalue_not_available" style="display:none;">
-                                <?php echo esc_html(__('This option is not available in this case', 'majestic-support')); ?>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
+                                <?php echo esc_html(__('This option is not available in this field type', 'majestic-support')); ?>
                             </span>
                         </div>
                         <div class="mjtc-form-value">
@@ -330,7 +331,8 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                         <div class="mjtc-form-title">
                             <?php echo esc_html(__('Admin Search', 'majestic-support')); ?>
                             <span class="mjtc-form-subtitle" id="subtitle_adminSearch" style="display:none;">
-                                <?php echo esc_html(__('This option is not available in this case', 'majestic-support')); ?>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
+                                <?php echo esc_html(__('This option is not available in this field type', 'majestic-support')); ?>
                             </span>
                         </div>
                         <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('search_admin', $MJTC_yesno, isset(majesticsupport::$_data[0]['userfield']->search_admin) ? majesticsupport::$_data[0]['userfield']->search_admin : 1, '', array('class' => 'inputbox one mjtc-form-select-field')), MJTC_ALLOWED_TAGS); ?></div>
@@ -339,7 +341,8 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                         <div class="mjtc-form-title">
                             <?php echo esc_html(__('User Search', 'majestic-support')); ?>
                             <span class="mjtc-form-subtitle" id="subtitle_userSearch" style="display:none;">
-                                <?php echo esc_html(__('This option is not available in this case', 'majestic-support')); ?>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
+                                <?php echo esc_html(__('This option is not available in this field type', 'majestic-support')); ?>
                             </span>
                         </div>
                         <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('search_user', $MJTC_yesno, isset(majesticsupport::$_data[0]['userfield']->search_user) ? majesticsupport::$_data[0]['userfield']->search_user : 1, '', array('class' => 'inputbox one mjtc-form-select-field')), MJTC_ALLOWED_TAGS); ?></div>
@@ -364,9 +367,10 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                 if (empty(majesticsupport::$_data[0]['userfield']->id) || (!empty(majesticsupport::$_data[0]['userfield']->field) && !in_array(majesticsupport::$_data[0]['userfield']->field, ['termsandconditions1','termsandconditions2','termsandconditions3']))) { ?>
                     <div class="mjtc-form-wrapper for-terms-condtions-hide">
                         <div class="mjtc-form-title">
-                            <?php echo esc_html(__('Place Holder', 'majestic-support')); ?>
+                            <?php echo esc_html(__('Placeholder', 'majestic-support')); ?>
                             <span class="mjtc-form-subtitle" id="placeholder_not_available" style="display:none;">
-                                <?php echo esc_html(__('This option is not available in this case', 'majestic-support')); ?>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
+                                <?php echo esc_html(__('This option is not available in this field type', 'majestic-support')); ?>
                             </span>
                         </div>
                         <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_text('placeholder', isset(majesticsupport::$_data[0]['userfield']->placeholder) ? majesticsupport::$_data[0]['userfield']->placeholder : '', array('class' => 'inputbox one mjtc-form-input-field','maxlength'=>225)), MJTC_ALLOWED_TAGS); ?></div>
@@ -379,7 +383,8 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                         <div class="mjtc-form-title">
                             <?php echo esc_html(__('Read Only', 'majestic-support')); ?>
                             <span class="mjtc-form-subtitle" id="subtitle_readOnly" style="display:none;">
-                                <?php echo esc_html(__('This option is not available in this case', 'majestic-support')); ?>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
+                                <?php echo esc_html(__('This option is not available in this field type', 'majestic-support')); ?>
                             </span>
                         </div>
                         <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('readonly', $MJTC_yesno, isset(majesticsupport::$_data[0]['userfield']->readonly) ? majesticsupport::$_data[0]['userfield']->readonly : 0, '', array('class' => 'inputbox one mjtc-form-select-field')), MJTC_ALLOWED_TAGS); ?></div>
@@ -387,7 +392,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                     <?php 
                     if (empty(majesticsupport::$_data[0]['userfield']->cannotunpublish)) { ?>
                         <div class="mjtc-form-wrapper for-terms-condtions-hide">
-                            <div class="mjtc-form-title"><?php echo esc_html(__('Admin/Agent Only', 'majestic-support')); ?></div>
+                            <div class="mjtc-form-title"><?php echo esc_html(__('Admin / Agent Only', 'majestic-support')); ?></div>
                             <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('adminonly', $MJTC_yesno, isset(majesticsupport::$_data[0]['userfield']->adminonly) ? majesticsupport::$_data[0]['userfield']->adminonly : 0, '', array('class' => 'inputbox one mjtc-form-select-field')), MJTC_ALLOWED_TAGS); ?></div>
                         </div>
                         <?php 
@@ -427,15 +432,15 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                                             ?>
                                             <span class="input-field-wrapper">
                                                 <input name="<?php echo esc_attr($MJTC_textvar); ?>" id="<?php echo esc_attr($MJTC_textvar); ?>" value="<?php echo esc_attr($MJTC_each); ?>" class="inputbox one user-field" type="text">
-                                                <img alt="<?php echo esc_html(__('Delete', 'majestic-support')); ?>" class="input-field-remove-img" src="<?php echo esc_url(MJTC_PLUGIN_URL) ?>includes/images/delete.png">
+                                                <svg  class="input-field-remove-img" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path></svg>
                                             </span><?php
                                         }
                                     }
-                                    // $safe_divid = wp_json_encode($MJTC_divid, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
+                                    // $MJTC_safe_divid = wp_json_encode($MJTC_divid, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
                                     $mjtc_value = esc_js($MJTC_divid);
                                     $mjtc_value = ($MJTC_divid);
                                     ?>
-                                    <input id="depandant-field-button" class="ms-button-link button user-field-val-button" onclick="getNextField('<?php echo esc_js($mjtc_value); ?>', this);" value="<?php echo esc_html(__('Add More', 'majestic-support')); ?>" type="button">
+                                    <input id="depandant-field-button" class="ms-button-link button user-field-val-button" onclick="getNextField('<?php echo esc_js($mjtc_value); ?>', this);" value="<?php echo esc_attr(__('Add More', 'majestic-support')); ?>" type="button">
                                 </div>
                             </div><?php
                         }
@@ -476,7 +481,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                             <div class="mjtc-form-title"><?php echo esc_html(__('Terms and Conditions Text', 'majestic-support')); ?></div>
                             <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_text('termsandconditions_text', $MJTC_termsandconditions_text , array('class' => 'inputbox one mjtc-form-input-field')), MJTC_ALLOWED_TAGS); ?></div>
                             <div class="mjtc-form-desc">
-                                <?php echo esc_html(__("e.g ' I have read and agree to the [link] Terms and Conditions[/link].  ' The text between [link] and [/link] will be linked to provided url or wordpress page.", 'majestic-support')); ?>
+                                <?php echo esc_html(__("e.g ' I have read and agree to the [link] Terms and Conditions[/link].  ' The text between [link] and [/link] will be linked to provided url or WordPress page.", 'majestic-support')); ?>
                             </div>
                         </div>
                         <div class="mjtc-form-wrapper ">
@@ -484,7 +489,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                             <?php
                             $MJTC_linktype = array(
                                 (object) array('id' => 1, 'text' => esc_html(__('Direct Link', 'majestic-support'))),
-                                (object) array('id' => 2, 'text' => esc_html(__('Wordpress Page', 'majestic-support'))),
+                                (object) array('id' => 2, 'text' => esc_html(__('WordPress Page', 'majestic-support'))),
                                 (object) array('id' => 3, 'text' => esc_html(__('None', 'majestic-support'))));
                             ?>
                             <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('termsandconditions_linktype', $MJTC_linktype, $MJTC_termsandconditions_linktype, esc_html(__('Select Link Type', 'majestic-support')), array('class' => 'inputbox one mjtc-form-select-field')), MJTC_ALLOWED_TAGS); ?></div>
@@ -495,7 +500,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                         </div>
                         <div class="mjtc-form-wrapper for-terms-condtions-linktype2" style="display: none;">
                             <div class="mjtc-form-title"><?php echo esc_html(__('Terms and Conditions Page', 'majestic-support')); ?></div>
-                            <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('termsandconditions_page', MJTC_includer::MJTC_getModel('configuration')->getPageList(), $MJTC_termsandconditions_page, esc_html(__('Select Wordpress page','majestic-support')), array('class' => 'inputbox one mjtc-form-select-field')), MJTC_ALLOWED_TAGS); ?></div>
+                            <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_select('termsandconditions_page', MJTC_includer::MJTC_getModel('configuration')->getPageList(), $MJTC_termsandconditions_page, esc_html(__('Select WordPress page','majestic-support')), array('class' => 'inputbox one mjtc-form-select-field')), MJTC_ALLOWED_TAGS); ?></div>
                         </div>
                     </div>
                     <?php 
@@ -519,8 +524,8 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                             </div>
                             <div class="mjtc-form-visible-or-row"></div>
                             <div class="mjtc-visible-conditions-addbtn-wrp">
-                                <span class="mjtc-form-visible-addmore" onclick="getMoreORRow(this, <?php echo esc_js(majesticsupport::$_data['fieldfor']); ?>, <?php echo esc_js($MJTC_mformid); ?>, '<?php echo esc_js(isset(majesticsupport::$_data[0]['userfield']->field) ? majesticsupport::$_data[0]['userfield']->field : ''); ?>', '<?php echo esc_js(isset(majesticsupport::$_data[0]['userfield']->id) ? majesticsupport::$_data[0]['userfield']->id : ''); ?>')">
-                                    <img alt="<?php echo esc_html(__('OR', 'majestic-support')); ?>" class="input-field-remove-img" src="<?php echo esc_url(MJTC_PLUGIN_URL) ?>includes/images/plus-icon.png">
+                                <span class="mjtc-form-visible-addmore" onclick="getMoreORRow(this, <?php echo esc_js(majesticsupport::$_data['fieldfor']); ?>, <?php echo esc_js($MJTC_mformid); ?>, '<?php echo isset(majesticsupport::$_data[0]['userfield']->field) ? esc_js(majesticsupport::$_data[0]['userfield']->field) : ''; ?>', '<?php echo isset(majesticsupport::$_data[0]['userfield']->id) ? esc_js(majesticsupport::$_data[0]['userfield']->id) : ''; ?>')">
+                                    <svg class="input-field-remove-img" viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
                                     <?php echo esc_html(__('OR', 'majestic-support')); ?>
                                 </span>
                             </div>
@@ -561,7 +566,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                                                     <div class="mjtc-visible-conditions-body-row">
                                                         <div class="mjtc-visible-conditions-body-value">
                                                             <span onclick='deleteOrRow("mjtc_or_row_<?php echo esc_js($MJTC_nextorid); ?>")' class='mjtc-visible-conditions-delbtn'>
-                                                                <img class='input-field-remove-img' src='<?php echo esc_url(MJTC_PLUGIN_URL) ?>includes/images/delete-2.png' />
+                                                                <svg class="input-field-remove-img" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path></svg>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -577,8 +582,8 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                                         } ?>
                                         <div class="mjtc-form-visible-or-row"></div>
                                         <div class="mjtc-visible-conditions-addbtn-wrp">
-                                            <span class="mjtc-form-visible-addmore" onclick="getMoreORRow(this, <?php echo esc_js(majesticsupport::$_data['fieldfor']); ?>, <?php echo esc_js($MJTC_mformid); ?>, '<?php echo esc_js( isset(majesticsupport::$_data[0]['userfield']->field ) ? majesticsupport::$_data[0]['userfield']->field : '' ); ?>', '<?php echo esc_js( isset( majesticsupport::$_data[0]['userfield']->id ) ? majesticsupport::$_data[0]['userfield']->id : '' ); ?>')">
-                                                <img alt="<?php echo esc_html(__('OR', 'majestic-support')); ?>" class="input-field-remove-img" src="<?php echo esc_url(MJTC_PLUGIN_URL) ?>includes/images/plus-icon.png">
+                                            <span class="mjtc-form-visible-addmore" onclick="getMoreORRow(this, <?php echo esc_js(majesticsupport::$_data['fieldfor']); ?>, <?php echo esc_js($MJTC_mformid); ?>, '<?php echo isset(majesticsupport::$_data[0]['userfield']->field ) ? esc_js(majesticsupport::$_data[0]['userfield']->field) : '' ; ?>', '<?php echo isset( majesticsupport::$_data[0]['userfield']->id ) ? esc_js(majesticsupport::$_data[0]['userfield']->id) : ''; ?>')">
+                                                <svg class="input-field-remove-img" viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
                                                 <?php echo esc_html(__('OR', 'majestic-support')); ?>
                                             </span>
                                         </div>
@@ -594,8 +599,8 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                     } ?>
                     <div class="mjtc-form-visible-add-row"></div>
                     <div class="mjtc-visible-conditions-addbtn-wrp">
-                        <span class="mjtc-form-visible-addmore" onclick="getMoreANDRow(<?php echo esc_js(majesticsupport::$_data['fieldfor']); ?>, <?php echo esc_js($MJTC_mformid); ?>, '<?php echo esc_js( isset(majesticsupport::$_data[0]['userfield']->field ) ? majesticsupport::$_data[0]['userfield']->field : '' ); ?>', '<?php echo esc_js( isset(majesticsupport::$_data[0]['userfield']->id) ? majesticsupport::$_data[0]['userfield']->id : ''); ?>')">
-                            <img alt="<?php echo esc_html(__('AND', 'majestic-support')); ?>" class="input-field-remove-img" src="<?php echo esc_url(MJTC_PLUGIN_URL) ?>includes/images/plus-icon.png">
+                        <span class="mjtc-form-visible-addmore" onclick="getMoreANDRow(<?php echo esc_js(majesticsupport::$_data['fieldfor']); ?>, <?php echo esc_js($MJTC_mformid); ?>, '<?php echo isset(majesticsupport::$_data[0]['userfield']->field ) ? esc_js(majesticsupport::$_data[0]['userfield']->field) : '' ; ?>', '<?php echo isset(majesticsupport::$_data[0]['userfield']->id) ? esc_js(majesticsupport::$_data[0]['userfield']->id) : ''; ?>')">
+                            <svg class="input-field-remove-img" viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
                             <?php echo esc_html(__('Add new', 'majestic-support')).' "'.esc_html(__('AND', 'majestic-support')).'" '.esc_html(__('visibility condition', 'majestic-support')); ?>
                         </span>
                     </div>
@@ -611,7 +616,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                                         ?>
                                         <span class="input-field-wrapper">
                                             <?php echo wp_kses(MJTC_formfield::MJTC_text('values['.esc_attr($MJTC_val).']', isset($MJTC_val) ? $MJTC_val : '', array('class' => 'inputbox one user-field', 'onchange' => 'updateSelectOptionsForDefaultValues()')), MJTC_ALLOWED_TAGS); ?>
-                                            <img alt="<?php echo esc_html(__('Delete', 'majestic-support')); ?>" class="input-field-remove-img" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/delete.png" />
+                                            <svg class="input-field-remove-img" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path></svg>
                                         </span>
                                     <?php
                                     }
@@ -619,7 +624,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                                     $MJTC_val = isset($MJTC_val) ? $MJTC_val : ''; ?>
                                     <span class="input-field-wrapper">
                                     <?php echo wp_kses(MJTC_formfield::MJTC_text('values['.esc_attr($MJTC_val).']', $MJTC_val, array('class' => 'inputbox one user-field', 'onchange' => 'updateSelectOptionsForDefaultValues()')), MJTC_ALLOWED_TAGS); ?>
-                                        <img alt="<?php echo esc_html(__('Delete', 'majestic-support')); ?>" class="input-field-remove-img" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/delete.png" />
+                                        <svg class="input-field-remove-img" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path></svg>
                                     </span>
                                 <?php
                                 }
@@ -641,6 +646,13 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                 <?php echo wp_kses(MJTC_formfield::MJTC_hidden('arraynames2', $MJTC_arraynames), MJTC_ALLOWED_TAGS); ?>
                 <div class="mjtc-form-button">
                     <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('save', esc_html(__('Save Field', 'majestic-support')), array('class' => 'button mjtc-form-save')), MJTC_ALLOWED_TAGS); ?>
+                    <?php
+                    if (majesticsupport::$_data['fieldfor'] == 1) { ?>
+                        <a href="?page=majesticsupport_fieldordering&fieldfor=<?php echo esc_attr(majesticsupport::$_data['fieldfor']); ?>&formid=<?php echo esc_attr($MJTC_mformid) ?>" class="mjtc-form-cancel"><?php echo esc_html(__('Cancel','majestic-support')); ?></a>
+                        <?php
+                    } else { ?>
+                        <a href="?page=majesticsupport_fieldordering&fieldfor=<?php echo esc_attr(majesticsupport::$_data['fieldfor']); ?>" class="mjtc-form-cancel"><?php echo esc_html(__('Cancel','majestic-support')); ?></a>
+                    <?php } ?>
                 </div>
             </form>
         </div>
@@ -917,11 +929,11 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
             }
 
             function insertNewRow() {
-                var fieldhtml = '<span class=\"input-field-wrapper\" ><input onchange=\"updateSelectOptionsForDefaultValues();\" name=\"values[]\" id=\"values[]\" value=\"\" class=\"inputbox one user-field\" type=\"text\" /><img alt=\"". esc_html(__('Delete', 'majestic-support')) ."\" class=\"input-field-remove-img\" src=\"". esc_url(MJTC_PLUGIN_URL)."includes/images/delete.png\" /></span>';
+                var fieldhtml = '<span class=\"input-field-wrapper\" ><input onchange=\"updateSelectOptionsForDefaultValues();\" name=\"values[]\" id=\"values[]\" value=\"\" class=\"inputbox one user-field\" type=\"text\" /><svg class=\"input-field-remove-img\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"currentColor\"><path d=\"M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z\"></path></svg></span>';
                 jQuery('#user-field-val-button').before(fieldhtml);
             }
             jQuery(document).ready(function () {
-                jQuery('body').delegate('img.input-field-remove-img', 'click', function () {
+                jQuery('body').delegate('.input-field-remove-img', 'click', function () {
                     jQuery(this).parent().remove();
                     updateSelectOptionsForDefaultValues();
                 });

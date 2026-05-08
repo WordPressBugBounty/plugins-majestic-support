@@ -11,8 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
             <div id="majesticsupport-content">
                 <h1 class="ms-missing-addon-message" >
                     <?php
-                    $addon_name = MJTC_request::MJTC_getVar('page');
-                    echo esc_html(MJTC_majesticsupportphplib::MJTC_ucfirst($addon_name)).'&nbsp;';
+                    $MJTC_addon_name = MJTC_request::MJTC_getVar('page');
+                    echo esc_html(MJTC_majesticsupportphplib::MJTC_ucfirst($MJTC_addon_name)).'&nbsp;';
                     echo esc_html(__('addon in no longer active','majestic-support')).'!';
                     ?>
 

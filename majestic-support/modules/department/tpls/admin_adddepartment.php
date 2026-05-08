@@ -57,7 +57,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                 </div>
                 <div class="mjtc-form-wrapper" >
                     <div class="mjtc-form-title"><?php echo esc_html(__('Default', 'majestic-support')); ?></div>
-                    <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_radiobutton('isdefault', array('2' => esc_html(__('Default with auto assign', 'majestic-support')), '1' => esc_html(__('Yes', 'majestic-support')), '0' => esc_html(__('No', 'majestic-support'))), isset(majesticsupport::$_data[0]->isdefault) ? majesticsupport::$_data[0]->isdefault : '0', array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS); ?></div>
+                    <div class="mjtc-form-value"><?php echo wp_kses(MJTC_formfield::MJTC_radiobutton('isdefault', array('2' => esc_html(__('Default With Auto Assign', 'majestic-support')), '1' => esc_html(__('Yes', 'majestic-support')), '0' => esc_html(__('No', 'majestic-support'))), isset(majesticsupport::$_data[0]->isdefault) ? majesticsupport::$_data[0]->isdefault : '0', array('class' => 'radiobutton')), MJTC_ALLOWED_TAGS); ?></div>
                 </div>
                 <?php echo wp_kses(MJTC_formfield::MJTC_hidden('id', isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : ''), MJTC_ALLOWED_TAGS); ?>
                 <?php echo wp_kses(MJTC_formfield::MJTC_hidden('created', isset(majesticsupport::$_data[0]->created) ? majesticsupport::$_data[0]->created : ''), MJTC_ALLOWED_TAGS); ?>
@@ -66,6 +66,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                 <?php echo wp_kses(MJTC_formfield::MJTC_hidden('form_request', 'majesticsupport'), MJTC_ALLOWED_TAGS); ?>
                 <div class="mjtc-form-button">
                     <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('save', esc_html(__('Save Department', 'majestic-support')), array('class' => 'button mjtc-form-save')), MJTC_ALLOWED_TAGS); ?>
+                    <a href="admin.php?page=majesticsupport_department" class="mjtc-form-cancel"><?php echo esc_html(__('Cancel','majestic-support')); ?></a>
                 </div>
             </form>
         </div>

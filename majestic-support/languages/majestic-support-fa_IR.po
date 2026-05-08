@@ -1,0 +1,7559 @@
+msgid ""
+msgstr "Project-Id-Version: \nPOT-Creation-Date: 2026-04-28 17:46+0500\nPO-Revision-Date: 2026-04-28 17:47+0500\nLast-Translator: \nLanguage-Team: \nLanguage: fa_IR\nPlural-Forms: nplurals=2; plural=(n > 1);\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nX-Generator: Poedit 3.9\nX-Poedit-Basepath: plugins\nX-Poedit-KeywordsList: __;esc_html__;esc_attr__\nX-Poedit-SearchPath-0: .\n"
+
+msgid "You are not allowed"
+msgstr "شما مجاز نیستید"
+
+msgid "The ticket has been locked"
+msgstr "تیکت قفل شد"
+
+msgid "Successfully"
+msgstr "با موفقیت"
+
+msgid "The ticket has not been locked"
+msgstr "تیکت قفل نشد"
+
+msgid "Error"
+msgstr "خطا"
+
+msgid "Lock Ticket"
+msgstr "قفل کردن تیکت"
+
+msgid "The ticket is locked by"
+msgstr "تیکت قفل شده توسط"
+
+msgid "The ticket has been unlocked"
+msgstr "قفل تیکت باز شد"
+
+msgid "The ticket has not been unlocked"
+msgstr "قفل تیکت باز نشد"
+
+msgid "Unlock Ticket"
+msgstr "باز کردن قفل تیکت"
+
+msgid "The ticket is unlocked by"
+msgstr "قفل تیکت باز شده توسط"
+
+msgid "User already an agent"
+msgstr "کاربر از قبل کارشناس پشتیبانی است"
+
+msgid "The agent has not been stored"
+msgstr "کارشناس پشتیبانی ذخیره نشد"
+
+msgid "The agent has been stored"
+msgstr "کارشناس پشتیبانی ذخیره شد"
+
+msgid "The agent has been deleted"
+msgstr "کارشناس پشتیبانی حذف شد"
+
+msgid "The agent has not been deleted"
+msgstr "کارشناس پشتیبانی حذف نشد"
+
+msgid "The agent in use cannot delete"
+msgstr "کارشناس پشتیبانیِ در حال استفاده قابل حذف نیست"
+
+msgid "Agent"
+msgstr "کارشناس پشتیبانی"
+
+msgid "status has been changed"
+msgstr "وضعیت تغییر کرد"
+
+msgid "status has not been changed"
+msgstr "وضعیت تغییر نکرد"
+
+msgid "ID"
+msgstr "شناسه"
+
+msgid "User Name"
+msgstr "نام کاربری"
+
+msgid "Email Address"
+msgstr "آدرس ایمیل"
+
+msgid "Name"
+msgstr "نام"
+
+msgid "Email"
+msgstr "ایمیل"
+
+msgid "Previous"
+msgstr "قبلی"
+
+msgid "Next"
+msgstr "بعدی"
+
+msgid "Error Deleting Logo"
+msgstr "خطا در حذف لوگو"
+
+msgid "Active"
+msgstr "فعال"
+
+msgid "Disabled"
+msgstr "غیرفعال"
+
+msgid "Uploaded file extension error."
+msgstr "خطا در پسوند فایل بارگذاری‌شده."
+
+msgid "Select User"
+msgstr "انتخاب کاربر"
+
+msgid "Username"
+msgstr "نام کاربری"
+
+msgid "Search"
+msgstr "جستجو"
+
+msgid "Reset"
+msgstr "بازنشانی"
+
+msgid "Use search feature to select the user"
+msgstr "برای انتخاب کاربر از قابلیت جستجو استفاده کنید"
+
+msgid "Image"
+msgstr "تصویر"
+
+msgid "Add Agent"
+msgstr "افزودن کارشناس پشتیبانی"
+
+msgid "WP User ID"
+msgstr "شناسه کاربر WP"
+
+msgid "WP Username"
+msgstr "نام کاربری WP"
+
+msgid "WP Full Name"
+msgstr "نام کامل WP"
+
+msgid "WP Email Address"
+msgstr "آدرس ایمیل WP"
+
+msgid "User"
+msgstr "کاربر"
+
+msgid "Roles"
+msgstr "نقش‌ها"
+
+msgid "Select Role"
+msgstr "انتخاب نقش"
+
+msgid "First Name"
+msgstr "نام"
+
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+msgid "Office Phone"
+msgstr "تلفن دفتر"
+
+msgid "Extension"
+msgstr "داخلی"
+
+msgid "Mobile No"
+msgstr "شماره موبایل"
+
+msgid "Picture"
+msgstr "تصویر"
+
+msgid "cross"
+msgstr "ضربدر"
+
+msgid "Maximum File Size"
+msgstr "حداکثر اندازه فایل"
+
+msgid "File Extension Type"
+msgstr "نوع پسوند فایل"
+
+msgid "Append Signature"
+msgstr "افزودن امضا"
+
+msgid "Append signature with a reply"
+msgstr "افزودن امضا به پاسخ"
+
+msgid "Signature"
+msgstr "امضا"
+
+msgid "Account Status"
+msgstr "وضعیت حساب"
+
+msgid "Select Status"
+msgstr "انتخاب وضعیت"
+
+msgid "Save"
+msgstr "ذخیره"
+
+msgid "Cancel"
+msgstr "لغو"
+
+msgid "Close"
+msgstr "بستن"
+
+msgid "User Detail"
+msgstr "جزئیات کاربر"
+
+msgid "Append"
+msgstr "افزودن"
+
+msgid "Department Section"
+msgstr "بخش دپارتمان"
+
+msgid "Ticket Section"
+msgstr "بخش تیکت"
+
+msgid "Agent Section"
+msgstr "بخش کارشناسان پشتیبانی"
+
+msgid "Knowledge Base Section"
+msgstr "بخش پایگاه دانش"
+
+msgid "FAQ Section"
+msgstr "بخش پرسش‌های متداول"
+
+msgid "Download Section"
+msgstr "بخش دانلود"
+
+msgid "Announcement Section"
+msgstr "بخش اطلاعیه‌ها"
+
+msgid "Mail Section"
+msgstr "بخش ایمیل"
+
+msgid "Help Topic Section"
+msgstr "بخش موضوعات راهنما"
+
+msgid "Premade Response Section"
+msgstr "بخش پاسخ‌های آماده"
+
+msgid "Smart Reply Section"
+msgstr "بخش پاسخ هوشمند"
+
+msgid "Ban Email Section"
+msgstr "بخش ایمیل‌های مسدود"
+
+msgid "AI Reply Section"
+msgstr "بخش پاسخ هوش مصنوعی"
+
+msgid "Select / Deselect All"
+msgstr "انتخاب / لغو انتخاب همه"
+
+msgid "Save Permissions"
+msgstr "ذخیره مجوزها"
+
+msgid "Agent Details"
+msgstr "جزئیات کارشناس پشتیبانی"
+
+msgid "Permissions"
+msgstr "مجوزها"
+
+msgid "Role"
+msgstr "نقش"
+
+msgid "Status"
+msgstr "وضعیت"
+
+msgid "Created"
+msgstr "ایجاد شده"
+
+msgid "Action"
+msgstr "عملیات"
+
+msgid "Staff"
+msgstr "کارکنان"
+
+msgid "Change Status"
+msgstr "تغییر وضعیت"
+
+msgid "Edit"
+msgstr "ویرایش"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Are you sure you want to delete?"
+msgstr "آیا مطمئن هستید که می‌خواهید حذف کنید؟"
+
+msgid "Something went wrong. Please try again later."
+msgstr "مشکلی پیش آمد. لطفاً بعداً دوباره تلاش کنید."
+
+msgid "My Profile"
+msgstr "پروفایل من"
+
+msgid "View and update your personal information, account settings, and preferences in one place."
+msgstr "اطلاعات شخصی، تنظیمات حساب و ترجیحات خود را در یک مکان مشاهده و به‌روزرسانی کنید."
+
+msgid "Upload Image"
+msgstr "بارگذاری تصویر"
+
+msgid "Phone No"
+msgstr "شماره تلفن"
+
+msgid "Upload file limit exceeds"
+msgstr "محدودیت بارگذاری فایل بیش از حد مجاز است"
+
+msgid "No help topic found"
+msgstr "هیچ موضوع راهنمایی یافت نشد"
+
+msgid "Error file size too large"
+msgstr "خطا: اندازه فایل بیش از حد بزرگ است"
+
+msgid "Submit Ticket"
+msgstr "ارسال تیکت"
+
+msgid "Submit a new support ticket and get help from our team quickly."
+msgstr "یک تیکت پشتیبانی جدید ارسال کنید و سریع از تیم ما کمک بگیرید."
+
+msgid "Select"
+msgstr "انتخاب"
+
+msgid "premade"
+msgstr "آماده"
+
+msgid "Add more"
+msgstr "افزودن بیشتر"
+
+msgid "Remove"
+msgstr "حذف"
+
+msgid "Reason for edit"
+msgstr "دلیل ویرایش"
+
+msgid "Internal Note"
+msgstr "یادداشت داخلی"
+
+msgid "Order id found"
+msgstr "شناسه سفارش یافت شد"
+
+msgid "Order id not found"
+msgstr "شناسه سفارش یافت نشد"
+
+msgid "Dated"
+msgstr "دارای تاریخ"
+
+msgid "Assign To Me"
+msgstr "اختصاص به من"
+
+msgid "Add reason in the other box"
+msgstr "دلیل را در کادر دیگر وارد کنید"
+
+msgid "First make some selection!"
+msgstr "ابتدا یک مورد را انتخاب کنید!"
+
+msgid "My Tickets"
+msgstr "تیکت‌های من"
+
+msgid "Manage, track, and resolve all your support tickets in one place."
+msgstr "همه تیکت‌های پشتیبانی خود را در یک مکان مدیریت، پیگیری و حل کنید."
+
+msgid "All Tickets"
+msgstr "همه تیکت‌ها"
+
+msgid "All Records"
+msgstr "همه رکوردها"
+
+msgid "Open"
+msgstr "باز"
+
+msgid "Action Required"
+msgstr "نیازمند اقدام"
+
+msgid "Overdue"
+msgstr "معوق"
+
+msgid "Urgent"
+msgstr "فوری"
+
+msgid "Answered"
+msgstr "پاسخ داده شده"
+
+msgid "Awaiting Response"
+msgstr "در انتظار پاسخ"
+
+msgid "Closed Tickets"
+msgstr "تیکت‌های بسته‌شده"
+
+msgid "Case Closed"
+msgstr "پرونده بسته شد"
+
+msgid "Or"
+msgstr "یا"
+
+msgid "Ticket ID"
+msgstr "شناسه تیکت"
+
+msgid "Advanced Filters"
+msgstr "فیلترهای پیشرفته"
+
+msgid "From"
+msgstr "از"
+
+msgid "Select Agent"
+msgstr "انتخاب کارشناس پشتیبانی"
+
+msgid "Start Date"
+msgstr "تاریخ شروع"
+
+msgid "End Date"
+msgstr "تاریخ پایان"
+
+msgid "Assign Ticket"
+msgstr "اختصاص تیکت"
+
+msgid "Assigned To Me"
+msgstr "اختصاص‌یافته به من"
+
+msgid "Closed"
+msgstr "بسته شده"
+
+msgid "All"
+msgstr "همه"
+
+msgid "Tickets"
+msgstr "تیکت‌ها"
+
+msgid "sort"
+msgstr "مرتب‌سازی"
+
+msgid "Created via Email"
+msgstr "ایجاد شده از طریق ایمیل"
+
+msgid "Closed On"
+msgstr "بسته‌شده در"
+
+msgid "Last Reply"
+msgstr "آخرین پاسخ"
+
+msgid "The ticket is locked"
+msgstr "تیکت قفل است"
+
+msgid "The ticket marks as overdue"
+msgstr "تیکت به‌عنوان معوق علامت‌گذاری شده است"
+
+msgid "Closed By"
+msgstr "بسته‌شده توسط"
+
+msgid "Resolved By"
+msgstr "حل‌شده توسط"
+
+msgid "Unassigned"
+msgstr "اختصاص‌نیافته"
+
+msgid "Edit Ticket"
+msgstr "ویرایش تیکت"
+
+msgid "Delete Ticket"
+msgstr "حذف تیکت"
+
+msgid "Are you sure you want to delete this ticket"
+msgstr "آیا مطمئن هستید که می‌خواهید این تیکت را حذف کنید؟"
+
+msgid "Close Ticket"
+msgstr "بستن تیکت"
+
+msgid "Are you sure to close this ticket"
+msgstr "آیا مطمئن هستید که می‌خواهید این تیکت را ببندید؟"
+
+msgid "Reopen Ticket"
+msgstr "بازگشایی تیکت"
+
+msgid "View Details"
+msgstr "مشاهده جزئیات"
+
+msgid "Agent Permissions"
+msgstr "مجوزهای کارشناس پشتیبانی"
+
+msgid "Agents"
+msgstr "کارشناسان پشتیبانی"
+
+msgid "Organize your support team by managing agent profiles, access levels, and assignments."
+msgstr "با مدیریت پروفایل کارشناسان پشتیبانی، سطح دسترسی و اختصاص‌ها، تیم پشتیبانی خود را سازمان‌دهی کنید."
+
+msgid "Search By Username"
+msgstr "جستجو بر اساس نام کاربری"
+
+msgid "Full Name"
+msgstr "نام کامل"
+
+msgid "Already exists"
+msgstr "از قبل وجود دارد"
+
+msgid "The role has been stored"
+msgstr "نقش ذخیره شد"
+
+msgid "The role has not been stored"
+msgstr "نقش ذخیره نشد"
+
+msgid "The role has been deleted"
+msgstr "نقش حذف شد"
+
+msgid "The role has not been deleted"
+msgstr "نقش حذف نشد"
+
+msgid "The role currently in use cannot be deleted"
+msgstr "نقشی که در حال استفاده است قابل حذف نیست"
+
+msgid "Add Role"
+msgstr "افزودن نقش"
+
+msgid "Save Role"
+msgstr "ذخیره نقش"
+
+msgid "Role Name"
+msgstr "نام نقش"
+
+msgid "Role Permission"
+msgstr "مجوز نقش"
+
+msgid "Role Permissions"
+msgstr "مجوزهای نقش"
+
+msgid "Manage role settings to control what agents can view, edit, and perform."
+msgstr "تنظیمات نقش را مدیریت کنید تا مشخص شود کارشناسان چه چیزهایی را می‌توانند ببینند، ویرایش کنند و انجام دهند."
+
+msgid "Agent permissions have been stored"
+msgstr "مجوزهای کارشناس پشتیبانی ذخیره شد"
+
+msgid "Subject"
+msgstr "موضوع"
+
+msgid "Description"
+msgstr "توضیحات"
+
+msgid "Department"
+msgstr "دپارتمان"
+
+msgid "Priority"
+msgstr "اولویت"
+
+msgid "Submit Type"
+msgstr "نوع ارسال"
+
+msgid "Contain"
+msgstr "شامل"
+
+msgid "Matched"
+msgstr "مطابقت دارد"
+
+msgid "Select Condition Operator"
+msgstr "انتخاب عملگر شرط"
+
+msgid "Select Department"
+msgstr "انتخاب دپارتمان"
+
+msgid "Select Priority"
+msgstr "انتخاب اولویت"
+
+msgid "Select Submit Type"
+msgstr "انتخاب نوع ارسال"
+
+msgid "Rule has been stored"
+msgstr "قانون ذخیره شد"
+
+msgid "Rule has not been stored"
+msgstr "قانون ذخیره نشد"
+
+msgid "Rule has been deleted"
+msgstr "قانون حذف شد"
+
+msgid "Rule has not been deleted"
+msgstr "قانون حذف نشد"
+
+msgid "Rule"
+msgstr "قانون"
+
+msgid "in use cannot be deleted"
+msgstr "در حال استفاده قابل حذف نیست"
+
+msgid "Condition Title"
+msgstr "عنوان شرط"
+
+msgid "Select Condition Title"
+msgstr "انتخاب عنوان شرط"
+
+msgid "Condition Operator"
+msgstr "عملگر شرط"
+
+msgid "Condition Value"
+msgstr "مقدار شرط"
+
+msgid "Select Condition Value"
+msgstr "انتخاب مقدار شرط"
+
+msgid "Delete Condition"
+msgstr "حذف شرط"
+
+msgid "No Operator found"
+msgstr "هیچ عملگری یافت نشد"
+
+msgid "No Value found"
+msgstr "هیچ مقداری یافت نشد"
+
+msgid "Rule Title"
+msgstr "عنوان قانون"
+
+msgid "+ Add More Condition"
+msgstr "+ افزودن شرط بیشتر"
+
+msgid "Save Rule"
+msgstr "ذخیره قانون"
+
+msgid "Records per page"
+msgstr "رکورد در هر صفحه"
+
+msgid "Sr#"
+msgstr "ردیف#"
+
+msgid "Save Ordering"
+msgstr "ذخیره ترتیب"
+
+msgid "An announcement has been stored"
+msgstr "اعلان ذخیره شد"
+
+msgid "An announcement has not been stored"
+msgstr "اعلان ذخیره نشد"
+
+msgid "An announcement has been deleted"
+msgstr "اعلان حذف شد"
+
+msgid "An announcement has not been deleted"
+msgstr "اعلان حذف نشد"
+
+msgid "Announcement"
+msgstr "اطلاعیه"
+
+msgid "ordering has been changed"
+msgstr "ترتیب تغییر کرد"
+
+msgid "ordering has not changed"
+msgstr "ترتیب تغییر نکرد"
+
+msgid "Public"
+msgstr "عمومی"
+
+msgid "Private"
+msgstr "خصوصی"
+
+msgid "Add Announcement"
+msgstr "افزودن اطلاعیه"
+
+msgid "Title"
+msgstr "عنوان"
+
+msgid "Parent Category"
+msgstr "دسته‌بندی مادر"
+
+msgid "Select Category"
+msgstr "انتخاب دسته‌بندی"
+
+msgid "Select Visibility"
+msgstr "انتخاب قابلیت مشاهده"
+
+msgid "All users"
+msgstr "همه کاربران"
+
+msgid "Only logged-in users"
+msgstr "فقط کاربران واردشده"
+
+msgid "Visible To"
+msgstr "قابل مشاهده برای"
+
+msgid "Save Announcement"
+msgstr "ذخیره اطلاعیه"
+
+msgid "Category"
+msgstr "دسته‌بندی"
+
+msgid "Ordering"
+msgstr "ترتیب"
+
+msgid "Announcement Detail"
+msgstr "جزئیات اطلاعیه"
+
+msgid "Category Name"
+msgstr "نام دسته‌بندی"
+
+msgid "Announcements"
+msgstr "اطلاعیه‌ها"
+
+msgid "Stay updated with the latest news, updates, and important information from our support team."
+msgstr "با آخرین اخبار، به‌روزرسانی‌ها و اطلاعات مهم تیم پشتیبانی ما به‌روز بمانید."
+
+msgid "Categories"
+msgstr "دسته‌بندی‌ها"
+
+msgid "Posted"
+msgstr "ارسال‌شده"
+
+msgid "ago"
+msgstr "قبل"
+
+msgid "Publish and organize announcements to communicate news and system changes."
+msgstr "اطلاعیه‌ها را برای اطلاع‌رسانی اخبار و تغییرات سیستم منتشر و سازمان‌دهی کنید."
+
+msgid "Add Announcements"
+msgstr "افزودن اطلاعیه‌ها"
+
+msgid "Logger Email"
+msgstr "ایمیل ثبت‌کننده"
+
+msgid "Log"
+msgstr "گزارش"
+
+msgid "Logger"
+msgstr "ثبت‌کننده"
+
+msgid "IP Address"
+msgstr "آدرس IP"
+
+msgid "Ban email has been stored"
+msgstr "ایمیل مسدود ذخیره شد"
+
+msgid "Ban email has not been stored"
+msgstr "ایمیل مسدود ذخیره نشد"
+
+msgid "Ban email has been deleted"
+msgstr "ایمیل مسدود حذف شد"
+
+msgid "Ban email has not been deleted"
+msgstr "ایمیل مسدود حذف نشد"
+
+msgid "Ban email does not exist"
+msgstr "ایمیل مسدود وجود ندارد"
+
+msgid "Add Email"
+msgstr "افزودن ایمیل"
+
+msgid "Save Email"
+msgstr "ذخیره ایمیل"
+
+msgid "Save Banned Email"
+msgstr "ذخیره ایمیل مسدود"
+
+msgid "Emails"
+msgstr "ایمیل‌ها"
+
+msgid "Submitter"
+msgstr "ارسال‌کننده"
+
+msgid "Banned Emails"
+msgstr "ایمیل‌های مسدود"
+
+msgid "Keep your support system secure by blocking specific email addresses from interacting with your platform."
+msgstr "با مسدود کردن آدرس‌های ایمیل مشخص از تعامل با پلتفرم، سیستم پشتیبانی خود را امن نگه دارید."
+
+msgid "Premade response message has been stored"
+msgstr "پیام پاسخ آماده ذخیره شد"
+
+msgid "Premade response message has not been stored"
+msgstr "پیام پاسخ آماده ذخیره نشد"
+
+msgid "Premade department message has been deleted"
+msgstr "پیام آماده دپارتمان حذف شد"
+
+msgid "Premade department message has not been deleted"
+msgstr "پیام آماده دپارتمان حذف نشد"
+
+msgid "Premade response"
+msgstr "پاسخ آماده"
+
+msgid "Add Premade Response"
+msgstr "افزودن پاسخ آماده"
+
+msgid "Response"
+msgstr "پاسخ"
+
+msgid "Save Premade Response"
+msgstr "ذخیره پاسخ آماده"
+
+msgid "The department under which the answer will be made is available"
+msgstr "دپارتمانی که پاسخ در آن ایجاد می‌شود در دسترس است"
+
+msgid "Offline"
+msgstr "آفلاین"
+
+msgid "Last Updated"
+msgstr "آخرین به‌روزرسانی"
+
+msgid "Not updated"
+msgstr "به‌روزرسانی نشده"
+
+msgid "Premade Response"
+msgstr "پاسخ آماده"
+
+msgid "Create, edit, and manage premade responses to streamline support communication."
+msgstr "پاسخ‌های آماده را برای ساده‌سازی ارتباطات پشتیبانی ایجاد، ویرایش و مدیریت کنید."
+
+msgid "Latest Tickets"
+msgstr "آخرین تیکت‌ها"
+
+msgid "Last Month Ticket Stats"
+msgstr "آمار تیکت‌های ماه گذشته"
+
+msgid "New"
+msgstr "جدید"
+
+msgid "Pending"
+msgstr "در انتظار"
+
+msgid "The attachment has been removed"
+msgstr "پیوست حذف شد"
+
+msgid "The attachment has not been removed"
+msgstr "پیوست حذف نشد"
+
+msgid "The download has been stored"
+msgstr "دانلود ذخیره شد"
+
+msgid "The download has not been stored"
+msgstr "دانلود ذخیره نشد"
+
+msgid "Download"
+msgstr "دانلود"
+
+msgid "The download has been deleted"
+msgstr "دانلود حذف شد"
+
+msgid "The download has not been deleted"
+msgstr "دانلود حذف نشد"
+
+msgid "Download All"
+msgstr "دانلود همه"
+
+msgid "Add Download"
+msgstr "افزودن دانلود"
+
+msgid "Attachments"
+msgstr "پیوست‌ها"
+
+msgid "Save Download"
+msgstr "ذخیره دانلود"
+
+msgid "Add More Files"
+msgstr "افزودن فایل‌های بیشتر"
+
+msgid "Delete attachment"
+msgstr "حذف پیوست"
+
+msgid "Attachment"
+msgstr "پیوست"
+
+msgid "Downloads"
+msgstr "دانلودها"
+
+msgid "Access and download all available files, resources, and attachments related to your account."
+msgstr "به همه فایل‌ها، منابع و پیوست‌های مرتبط با حساب خود دسترسی داشته باشید و آن‌ها را دانلود کنید."
+
+msgid "Maintain and control access to downloadable files and documents."
+msgstr "دسترسی به فایل‌ها و اسناد قابل دانلود را نگهداری و کنترل کنید."
+
+msgid "Files"
+msgstr "فایل‌ها"
+
+msgid "Majestic Support"
+msgstr "Majestic Support"
+
+msgid "Get Help"
+msgstr "دریافت کمک"
+
+msgid "Select Product"
+msgstr "انتخاب محصول"
+
+msgid "Select license key"
+msgstr "انتخاب کلید مجوز"
+
+msgid "Admin New Ticket Received"
+msgstr "تیکت جدید توسط مدیر دریافت شد"
+
+msgid "Staff New Ticket Received"
+msgstr "تیکت جدید توسط کارکنان دریافت شد"
+
+msgid "New Department Received"
+msgstr "دپارتمان جدید دریافت شد"
+
+msgid "New Group Received"
+msgstr "گروه جدید دریافت شد"
+
+msgid "New Agent Received"
+msgstr "کارشناس پشتیبانی جدید دریافت شد"
+
+msgid "New Help Topic Received"
+msgstr "موضوع راهنمای جدید دریافت شد"
+
+msgid "Admin Reassign Ticket"
+msgstr "اختصاص مجدد تیکت توسط مدیر"
+
+msgid "Staff Reassign Ticket"
+msgstr "اختصاص مجدد تیکت توسط کارکنان"
+
+msgid "Admin Close Ticket"
+msgstr "بستن تیکت توسط مدیر"
+
+msgid "Staff Close Ticket"
+msgstr "بستن تیکت توسط کارکنان"
+
+msgid "Admin Delete Ticket"
+msgstr "حذف تیکت توسط مدیر"
+
+msgid "Staff Delete Ticket"
+msgstr "حذف تیکت توسط کارکنان"
+
+msgid "Admin Overdue Ticket"
+msgstr "تیکت معوق برای مدیر"
+
+msgid "Staff Overdue Ticket"
+msgstr "تیکت معوق برای کارکنان"
+
+msgid "Admin Email Banned"
+msgstr "ایمیل مسدود شد برای مدیر"
+
+msgid "Staff Email Banned"
+msgstr "ایمیل مسدود شد برای کارکنان"
+
+msgid "Admin Ticket Transferred to Department"
+msgstr "تیکت توسط مدیر به دپارتمان منتقل شد"
+
+msgid "Staff Ticket Transferred to Department"
+msgstr "تیکت توسط کارکنان به دپارتمان منتقل شد"
+
+msgid "Admin Email banned and ticket closed"
+msgstr "ایمیل توسط مدیر مسدود و تیکت بسته شد"
+
+msgid "Staff Email banned and ticket closed"
+msgstr "ایمیل توسط کارکنان مسدود و تیکت بسته شد"
+
+msgid "Admin Email Unbanned"
+msgstr "رفع مسدودی ایمیل توسط مدیر"
+
+msgid "Staff Email Unbanned"
+msgstr "رفع مسدودی ایمیل توسط کارکنان"
+
+msgid "Admin Ticket Reply"
+msgstr "پاسخ تیکت توسط مدیر"
+
+msgid "Staff Ticket Reply"
+msgstr "پاسخ تیکت توسط کارکنان"
+
+msgid "Ticket Received"
+msgstr "تیکت دریافت شد"
+
+msgid "Banemail try new ticket"
+msgstr "ایمیل مسدود تلاش کرد تیکت جدید ایجاد کند"
+
+msgid "Admin Ticket has been locked"
+msgstr "تیکت توسط مدیر قفل شد"
+
+msgid "Staff Ticket has been locked"
+msgstr "تیکت توسط کارکنان قفل شد"
+
+msgid "Admin Ticket has been unlocked"
+msgstr "قفل تیکت توسط مدیر باز شد"
+
+msgid "Staff Ticket has been unlocked"
+msgstr "قفل تیکت توسط کارکنان باز شد"
+
+msgid "Admin In progress Ticket"
+msgstr "تیکت در حال انجام برای مدیر"
+
+msgid "Staff In progress Ticket"
+msgstr "تیکت در حال انجام برای کارکنان"
+
+msgid "Admin Ticket priority changed"
+msgstr "اولویت تیکت توسط مدیر تغییر کرد"
+
+msgid "Staff Ticket priority changed"
+msgstr "اولویت تیکت توسط کارکنان تغییر کرد"
+
+msgid "New Mail has been sent"
+msgstr "جدید ایمیل ارسال شد"
+
+msgid "New Reply has been sent"
+msgstr "جدید پاسخ ارسال شد"
+
+msgid "Delete User Data"
+msgstr "حذف داده‌های کاربر"
+
+msgid "Email CC has been stored"
+msgstr "CC ایمیل ذخیره شد"
+
+msgid "Email CC has not been stored"
+msgstr "CC ایمیل ذخیره نشد"
+
+msgid "Email CC has been deleted"
+msgstr "CC ایمیل حذف شد"
+
+msgid "Email CC has not been deleted"
+msgstr "CC ایمیل حذف نشد"
+
+msgid "Email CC "
+msgstr "CC ایمیل"
+
+msgid "Email CC"
+msgstr "CC ایمیل"
+
+msgid "Template Type"
+msgstr "نوع قالب"
+
+msgid "Select Template Type"
+msgstr "انتخاب نوع قالب"
+
+msgid "Delete row"
+msgstr "حذف ردیف"
+
+msgid "Template For"
+msgstr "قالب برای"
+
+msgid "Select Template For"
+msgstr "انتخاب قالب برای"
+
+msgid "Template Title"
+msgstr "عنوان قالب"
+
+msgid "Add More Row"
+msgstr "افزودن ردیف بیشتر"
+
+msgid "Save Email CC"
+msgstr "ذخیره CC ایمیل"
+
+msgid "Service is running, please close the page"
+msgstr "سرویس در حال اجرا است، لطفاً صفحه را ببندید"
+
+msgid "Admin email address and email piping address cannot be the same, your email piping will not be work."
+msgstr "آدرس ایمیل مدیر و آدرس ایمیل پایپینگ نمی‌توانند یکسان باشند؛ پایپینگ ایمیل شما کار نخواهد کرد."
+
+msgid "Your setting is working please this."
+msgstr "تنظیمات شما کار می‌کند؛ لطفاً این را بررسی کنید."
+
+msgid "Connection established but the system cannot read any email"
+msgstr "اتصال برقرار شد اما سیستم نمی‌تواند هیچ ایمیلی را بخواند"
+
+msgid "IMAP is either not installed or not enabled in your server. Contact to hosting company"
+msgstr "IMAP روی سرور شما نصب یا فعال نیست. با شرکت هاستینگ تماس بگیرید"
+
+msgid "The setting has been stored."
+msgstr "تنظیمات ذخیره شد."
+
+msgid "The setting has not been stored."
+msgstr "تنظیمات ذخیره نشد."
+
+msgid "Email address already exist"
+msgstr "آدرس ایمیل از قبل وجود دارد"
+
+msgid "Email for email piping has been stored"
+msgstr "ایمیل مربوط به پایپینگ ایمیل ذخیره شد"
+
+msgid "Email for email piping has not been stored"
+msgstr "ایمیل مربوط به پایپینگ ایمیل ذخیره نشد"
+
+msgid "The email has been deleted"
+msgstr "ایمیل حذف شد"
+
+msgid "The email has not been deleted"
+msgstr "ایمیل حذف نشد"
+
+msgid "Enabled"
+msgstr "فعال شده"
+
+msgid "Only New Tickets"
+msgstr "فقط تیکت‌های جدید"
+
+msgid "Only Replies"
+msgstr "فقط پاسخ‌ها"
+
+msgid "Both"
+msgstr "هر دو"
+
+msgid "Gmail"
+msgstr "Gmail"
+
+msgid "Yahoo"
+msgstr "Yahoo"
+
+msgid "Aol"
+msgstr "Aol"
+
+msgid "Hotmail"
+msgstr "Hotmail"
+
+msgid "Other"
+msgstr "دیگر"
+
+msgid "Yes"
+msgstr "بله"
+
+msgid "No"
+msgstr "خیر"
+
+msgid "Please enter the Hostname first"
+msgstr "لطفاً ابتدا نام میزبان را وارد کنید"
+
+msgid "Please enable email piping setting first"
+msgstr "لطفاً ابتدا تنظیمات پایپینگ ایمیل را فعال کنید"
+
+msgid "Enable email piping"
+msgstr "فعال‌سازی پایپینگ ایمیل"
+
+msgid "Ticket Type"
+msgstr "نوع تیکت"
+
+msgid "Which email type to read"
+msgstr "کدام نوع ایمیل خوانده شود"
+
+msgid "Save attachments if found in an email"
+msgstr "در صورت وجود پیوست در ایمیل، آن را ذخیره کنید"
+
+msgid "Host Type"
+msgstr "نوع میزبان"
+
+msgid "Select your email service provider"
+msgstr "ارائه‌دهنده سرویس ایمیل خود را انتخاب کنید"
+
+msgid "Host Name"
+msgstr "نام میزبان"
+
+msgid "Enabled SSL"
+msgstr "SSL فعال شده"
+
+msgid "Do you have enabled SSL on your domain?"
+msgstr "آیا SSL روی دامنه شما فعال است؟"
+
+msgid "Host Port Number"
+msgstr "شماره پورت میزبان"
+
+msgid "Host port number to read an email from"
+msgstr "شماره پورت میزبان برای خواندن ایمیل"
+
+msgid "Email address to read emails"
+msgstr "آدرس ایمیل برای خواندن ایمیل‌ها"
+
+msgid "Password"
+msgstr "رمز عبور"
+
+msgid "Password for a given email address"
+msgstr "رمز عبور برای آدرس ایمیل داده‌شده"
+
+msgid "check"
+msgstr "بررسی"
+
+msgid "Check Settings"
+msgstr "بررسی تنظیمات"
+
+msgid "If the system does not respond in 30 seconds"
+msgstr "اگر سیستم در ۳۰ ثانیه پاسخ نداد"
+
+msgid "it means system unable to connect email server"
+msgstr "یعنی سیستم قادر به اتصال به سرور ایمیل نیست"
+
+msgid "Save Settings"
+msgstr "ذخیره تنظیمات"
+
+msgid "Cron Job"
+msgstr "کرون جاب"
+
+msgid "Web Cron Job"
+msgstr "کرون جاب وب"
+
+msgid "Wget"
+msgstr "Wget"
+
+msgid "Curl"
+msgstr "Curl"
+
+msgid "PHP Script"
+msgstr "اسکریپت PHP"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Configuration of a backup job with webcron.org"
+msgstr "پیکربندی یک کار پشتیبان با webcron.org"
+
+msgid "Name Of Cron Job"
+msgstr "نام کرون جاب"
+
+msgid "Log in to webcron.org and in the cron area, click on "
+msgstr "وارد webcron.org شوید و در بخش کرون روی آن کلیک کنید"
+
+msgid "Timeout"
+msgstr "مهلت زمانی"
+
+msgid "180 secs If the setting is not completely increased, most sites will work with a setting of between 180 and 600"
+msgstr "۱۸۰ ثانیه؛ اگر این مقدار کامل افزایش نیافته باشد، بیشتر سایت‌ها با مقداری بین ۱۸۰ تا ۶۰۰ کار می‌کنند"
+
+msgid "URL You Want To Execute"
+msgstr "URL که می‌خواهید اجرا شود"
+
+msgid "Login"
+msgstr "ورود"
+
+msgid "Leave this blank"
+msgstr "این را خالی بگذارید"
+
+msgid "Execution Time"
+msgstr "زمان اجرا"
+
+msgid "That the grid below the other options select when and how"
+msgstr "در جدول زیر گزینه‌های دیگر زمان و روش اجرا را انتخاب کنید"
+
+msgid "Alerts"
+msgstr "هشدارها"
+
+msgid "If you have already set up alerts methods in the webcron.org interface, we recommend choosing an alert type"
+msgstr "اگر روش‌های هشدار را در رابط webcron.org تنظیم کرده‌اید، پیشنهاد می‌کنیم نوع هشدار را انتخاب کنید"
+
+msgid "Cron scheduling using wget"
+msgstr "زمان‌بندی کرون با wget"
+
+msgid "Cron scheduling using Curl"
+msgstr "زمان‌بندی کرون با Curl"
+
+msgid "Custom PHP script to run the cron job"
+msgstr "اسکریپت PHP سفارشی برای اجرای کرون جاب"
+
+msgid "Sorry the cron job did not work"
+msgstr "متأسفانه کرون جاب کار نکرد"
+
+msgid "URL for use with your own scripts and third party"
+msgstr "URL برای استفاده با اسکریپت‌های خودتان و شخص ثالث"
+
+msgid "It is recommended to run the script every hour."
+msgstr "توصیه می‌شود اسکریپت هر ساعت اجرا شود."
+
+msgid "Ticket Email Type"
+msgstr "نوع ایمیل تیکت"
+
+msgid "ticket email"
+msgstr "ایمیل تیکت"
+
+msgid "Overall Reports"
+msgstr "گزارش‌های کلی"
+
+msgid "Agents Report"
+msgstr "گزارش کارشناسان پشتیبانی"
+
+msgid "Department Report"
+msgstr "گزارش دپارتمان"
+
+msgid "Departments Report"
+msgstr "گزارش دپارتمان‌ها"
+
+msgid "Majestic Support Overall Reports"
+msgstr "گزارش‌های کلی Majestic Support"
+
+msgid "Tickets By Statuses"
+msgstr "تیکت‌ها بر اساس وضعیت‌ها"
+
+msgid "Tickets By Departments"
+msgstr "تیکت‌ها بر اساس دپارتمان‌ها"
+
+msgid "Tickets By Priorities"
+msgstr "تیکت‌ها بر اساس اولویت‌ها"
+
+msgid "Tickets By Channels"
+msgstr "تیکت‌ها بر اساس کانال‌ها"
+
+msgid "Direct"
+msgstr "مستقیم"
+
+msgid "Direct reply"
+msgstr "پاسخ مستقیم"
+
+msgid "Email reply"
+msgstr "پاسخ ایمیلی"
+
+msgid "Tickets By staff"
+msgstr "تیکت‌ها بر اساس کارکنان"
+
+msgid "Report By"
+msgstr "گزارش بر اساس"
+
+msgid "agent"
+msgstr "کارشناس پشتیبانی"
+
+msgid "To"
+msgstr "تا"
+
+msgid "Report By Agents"
+msgstr "گزارش بر اساس کارشناسان پشتیبانی"
+
+msgid "Ticket status by days"
+msgstr "وضعیت تیکت بر اساس روزها"
+
+msgid "Date"
+msgstr "تاریخ"
+
+msgid "Tickets Staff"
+msgstr "کارکنان تیکت‌ها"
+
+msgid "Average Rating"
+msgstr "میانگین امتیاز"
+
+msgid "Average Time"
+msgstr "میانگین زمان"
+
+msgid "Report By Agent"
+msgstr "گزارش بر اساس کارشناس پشتیبانی"
+
+msgid "Rating"
+msgstr "امتیاز"
+
+msgid "Time"
+msgstr "زمان"
+
+msgid "Report By Department"
+msgstr "گزارش بر اساس دپارتمان"
+
+msgid "Tickets By Department"
+msgstr "تیکت‌ها بر اساس دپارتمان"
+
+msgid "Department Name"
+msgstr "نام دپارتمان"
+
+msgid "User Report"
+msgstr "گزارش کاربر"
+
+msgid "Users report"
+msgstr "گزارش کاربران"
+
+msgid "Users Tickets"
+msgstr "تیکت‌های کاربران"
+
+msgid "Report By Departments"
+msgstr "گزارش بر اساس دپارتمان‌ها"
+
+msgid "Tickets Data"
+msgstr "داده‌های تیکت‌ها"
+
+msgid "Message"
+msgstr "پیام"
+
+msgid "Assigned To"
+msgstr "اختصاص داده‌شده به"
+
+msgid "Updated"
+msgstr "به‌روزرسانی‌شده"
+
+msgid "Due Date"
+msgstr "تاریخ سررسید"
+
+msgid "Closed Date"
+msgstr "تاریخ بسته شدن"
+
+msgid "Closed Time"
+msgstr "زمان بسته شدن"
+
+msgid "Requester User Name"
+msgstr "نام کاربری درخواست‌کننده"
+
+msgid "Requester Name"
+msgstr "نام درخواست‌کننده"
+
+msgid "Requester Email"
+msgstr "ایمیل درخواست‌کننده"
+
+msgid "Requester Phone"
+msgstr "تلفن درخواست‌کننده"
+
+msgid "Requester help Topic"
+msgstr "موضوع راهنمای درخواست‌کننده"
+
+msgid "Ticket Attachment"
+msgstr "پیوست تیکت"
+
+msgid "Posted By"
+msgstr "ارسال‌شده توسط"
+
+msgid "Note Title"
+msgstr "عنوان یادداشت"
+
+msgid "Note Message"
+msgstr "پیام یادداشت"
+
+msgid "Posted Date"
+msgstr "تاریخ ارسال"
+
+msgid "Note Attachment"
+msgstr "پیوست یادداشت"
+
+msgid "User Time"
+msgstr "زمان کاربر"
+
+msgid "System Time"
+msgstr "زمان سیستم"
+
+msgid "Edit Reason"
+msgstr "دلیل ویرایش"
+
+msgid "Reply Date"
+msgstr "تاریخ پاسخ"
+
+msgid "Reply By"
+msgstr "پاسخ توسط"
+
+msgid "Reply Attachment"
+msgstr "پیوست پاسخ"
+
+msgid "Total Tracking Time"
+msgstr "کل زمان پیگیری"
+
+msgid "In Progress"
+msgstr "در حال انجام"
+
+msgid "Ticket Status"
+msgstr "وضعیت تیکت"
+
+msgid "Select Ticket Status"
+msgstr "انتخاب وضعیت تیکت"
+
+msgid "Ticket Overdue"
+msgstr "تیکت معوق"
+
+msgid "Select Ticket Overdue Status"
+msgstr "انتخاب وضعیت معوق بودن تیکت"
+
+msgid "Export Style"
+msgstr "سبک خروجی گرفتن"
+
+msgid "Single Header"
+msgstr "سربرگ تکی"
+
+msgid "Multiple Header"
+msgstr "سربرگ چندگانه"
+
+msgid "Export"
+msgstr "خروجی گرفتن"
+
+msgid "Easily export your support data, tickets, and reports for backup or analysis purposes."
+msgstr "داده‌های پشتیبانی، تیکت‌ها و گزارش‌های خود را به‌سادگی برای پشتیبان‌گیری یا تحلیل خروجی بگیرید."
+
+msgid "FAQ has been stored"
+msgstr "پرسش متداول ذخیره شد"
+
+msgid "FAQ has not been stored"
+msgstr "پرسش متداول ذخیره نشد"
+
+msgid "FAQ has been deleted"
+msgstr "پرسش متداول حذف شد"
+
+msgid "FAQ has not been deleted"
+msgstr "پرسش متداول حذف نشد"
+
+msgid "FAQ"
+msgstr "پرسش متداول"
+
+msgid "Add FAQs"
+msgstr "افزودن پرسش‌های متداول"
+
+msgid "Save FAQ"
+msgstr "ذخیره پرسش متداول"
+
+msgid "Content"
+msgstr "محتوا"
+
+msgid "FAQ Detail"
+msgstr "جزئیات پرسش متداول"
+
+msgid "FAQs"
+msgstr "پرسش‌های متداول"
+
+msgid "Explore our FAQ section to understand features, troubleshoot problems, and save time."
+msgstr "برای شناخت قابلیت‌ها، رفع مشکلات و صرفه‌جویی در زمان، بخش پرسش‌های متداول را بررسی کنید."
+
+msgid "Search Title"
+msgstr "جستجوی عنوان"
+
+msgid "Search Keywords"
+msgstr "جستجوی کلیدواژه‌ها"
+
+msgid "Sub Category Faqs"
+msgstr "پرسش‌های متداول زیر‌دسته"
+
+msgid "Manage FAQs to reduce support requests and provide instant guidance."
+msgstr "پرسش‌های متداول را برای کاهش درخواست‌های پشتیبانی و ارائه راهنمایی فوری مدیریت کنید."
+
+msgid "Add FAQ"
+msgstr "افزودن پرسش متداول"
+
+msgid "Feedback has been stored"
+msgstr "بازخورد ذخیره شد"
+
+msgid "Feedback has not been stored"
+msgstr "بازخورد ذخیره نشد"
+
+msgid "user image"
+msgstr "تصویر کاربر"
+
+msgid "feedback image"
+msgstr "تصویر بازخورد"
+
+msgid "Feedback"
+msgstr "بازخورد"
+
+msgid "Easily monitor customer suggestions and ratings to make informed improvements in your support system."
+msgstr "پیشنهادها و امتیازهای مشتریان را به‌سادگی پایش کنید تا بهبودهای آگاهانه‌ای در سیستم پشتیبانی خود ایجاد کنید."
+
+msgid "Latest Feedback"
+msgstr "آخرین بازخورد"
+
+msgid "Form Feedback"
+msgstr "بازخورد فرم"
+
+msgid "Submit Feedback"
+msgstr "ارسال بازخورد"
+
+msgid "Help topic has been stored"
+msgstr "موضوع راهنما ذخیره شد"
+
+msgid "Help topic has not been stored"
+msgstr "موضوع راهنما ذخیره نشد"
+
+msgid "Help topic has been deleted"
+msgstr "موضوع راهنما حذف شد"
+
+msgid "Help topic has not been deleted"
+msgstr "موضوع راهنما حذف نشد"
+
+msgid "Help topic in use cannot be deleting"
+msgstr "موضوع راهنمای در حال استفاده قابل حذف نیست"
+
+msgid "Help topic"
+msgstr "موضوع راهنما"
+
+msgid "Add Help Topic"
+msgstr "افزودن موضوع راهنما"
+
+msgid "Help Topic"
+msgstr "موضوع راهنما"
+
+msgid "Save Help Topic"
+msgstr "ذخیره موضوع راهنما"
+
+msgid "Help Topics"
+msgstr "موضوعات راهنما"
+
+msgid "Configure help topics to improve ticket classification and workflow efficiency."
+msgstr "موضوعات راهنما را برای بهبود طبقه‌بندی تیکت و کارایی گردش کار پیکربندی کنید."
+
+msgid "The category has been stored"
+msgstr "دسته‌بندی ذخیره شد"
+
+msgid "The category has not been stored"
+msgstr "دسته‌بندی ذخیره نشد"
+
+msgid "The category has been deleted"
+msgstr "دسته‌بندی حذف شد"
+
+msgid "The category has not been deleted"
+msgstr "دسته‌بندی حذف نشد"
+
+msgid "The category in use cannot be deleting"
+msgstr "دسته‌بندی در حال استفاده قابل حذف نیست"
+
+msgid "Knowledgebase article has been stored"
+msgstr "مقاله پایگاه دانش ذخیره شد"
+
+msgid "Knowledgebase article has not been stored"
+msgstr "مقاله پایگاه دانش ذخیره نشد"
+
+msgid "The article has been deleted"
+msgstr "مقاله حذف شد"
+
+msgid "The article has not been deleted"
+msgstr "مقاله حذف نشد"
+
+msgid "Article"
+msgstr "مقاله"
+
+msgid "The parent category does not have this type."
+msgstr "دسته‌بندی مادر این نوع را ندارد."
+
+msgid "Would you like to add this type to Parent Category?"
+msgstr "آیا می‌خواهید این نوع را به دسته‌بندی مادر اضافه کنید؟"
+
+msgid "Child category has this type,"
+msgstr "دسته‌بندی فرزند این نوع را دارد،"
+
+msgid "You cannot unmark it."
+msgstr "نمی‌توانید علامت آن را بردارید."
+
+msgid "Draft"
+msgstr "پیش‌نویس"
+
+msgid "Add Knowledge Base"
+msgstr "افزودن پایگاه دانش"
+
+msgid "Meta Description"
+msgstr "توضیحات متا"
+
+msgid "Meta Keywords"
+msgstr "کلیدواژه‌های متا"
+
+msgid "Visible"
+msgstr "قابل مشاهده"
+
+msgid "Save Knowledge Base"
+msgstr "ذخیره پایگاه دانش"
+
+msgid "Please select at least one category for"
+msgstr "لطفاً حداقل یک دسته‌بندی انتخاب کنید برای"
+
+msgid "Add Category"
+msgstr "افزودن دسته‌بندی"
+
+msgid "Category For"
+msgstr "دسته‌بندی برای"
+
+msgid "Knowledge Base"
+msgstr "پایگاه دانش"
+
+msgid "Logo"
+msgstr "لوگو"
+
+msgid "Save Category"
+msgstr "ذخیره دسته‌بندی"
+
+msgid "Meta Data Options"
+msgstr "گزینه‌های داده متا"
+
+msgid "Category Title"
+msgstr "عنوان دسته‌بندی"
+
+msgid "Knowledge Base Detail"
+msgstr "جزئیات پایگاه دانش"
+
+msgid "Article Attachments"
+msgstr "پیوست‌های مقاله"
+
+msgid "Build and structure helpful resources to support customers efficiently."
+msgstr "منابع مفید را برای پشتیبانی مؤثر از مشتریان ایجاد و ساختاربندی کنید."
+
+msgid "Organize support tickets by defining clear and structured categories."
+msgstr "با تعریف دسته‌بندی‌های روشن و ساختاریافته، تیکت‌های پشتیبانی را سازمان‌دهی کنید."
+
+msgid "Explore articles, guides, and tutorials to get the most out of our support services."
+msgstr "برای بهره‌مندی بیشتر از خدمات پشتیبانی، مقالات، راهنماها و آموزش‌ها را بررسی کنید."
+
+msgid "Knowledge Base Articles"
+msgstr "مقالات پایگاه دانش"
+
+msgid "Sub Category Knowledge Base"
+msgstr "پایگاه دانش زیر‌دسته"
+
+msgid "Mail has not been marked as read"
+msgstr "ایمیل به‌عنوان خوانده‌شده علامت‌گذاری نشد"
+
+msgid "Mail has been marked as read"
+msgstr "ایمیل به‌عنوان خوانده‌شده علامت‌گذاری شد"
+
+msgid "Message field cannot be empty"
+msgstr "فیلد پیام نمی‌تواند خالی باشد"
+
+msgid "Mail has been sent"
+msgstr "ایمیل ارسال شد"
+
+msgid "Mail has not been sent"
+msgstr "ایمیل ارسال نشد"
+
+msgid "Mail has been deleted"
+msgstr "ایمیل حذف شد"
+
+msgid "Mail has not been deleted"
+msgstr "ایمیل حذف نشد"
+
+msgid "Mail"
+msgstr "ایمیل"
+
+msgid "is in use cannot be delete"
+msgstr "is در حال استفاده قابل حذف نیست"
+
+msgid "Mail cannot mark as to read"
+msgstr "ایمیل را نمی‌توان به‌عنوان خوانده‌شده علامت‌گذاری کرد"
+
+msgid "Mail cannot mark as unread"
+msgstr "ایمیل را نمی‌توان به‌عنوان خوانده‌نشده علامت‌گذاری کرد"
+
+msgid "Mail has been marked as unread"
+msgstr "ایمیل به‌عنوان خوانده‌نشده علامت‌گذاری شد"
+
+msgid "Inbox"
+msgstr "صندوق ورودی"
+
+msgid "Outbox"
+msgstr "صندوق خروجی"
+
+msgid "Compose"
+msgstr "نوشتن"
+
+msgid "Send"
+msgstr "ارسال"
+
+msgid "Read"
+msgstr "خوانده‌شده"
+
+msgid "Unread"
+msgstr "خوانده‌نشده"
+
+msgid "To use this feature you must be agent"
+msgstr "برای استفاده از این قابلیت باید کارشناس پشتیبانی باشید"
+
+msgid "Select Type"
+msgstr "انتخاب نوع"
+
+msgid "To use this feature you must have agents addon."
+msgstr "برای استفاده از این قابلیت باید افزودنی کارشناسان را داشته باشید."
+
+msgid "Re"
+msgstr "پاسخ:"
+
+msgid "mark read"
+msgstr "علامت‌گذاری به‌عنوان خوانده‌شده"
+
+msgid "mark unread"
+msgstr "علامت‌گذاری به‌عنوان خوانده‌نشده"
+
+msgid "Replies"
+msgstr "پاسخ‌ها"
+
+msgid "Reply"
+msgstr "پاسخ"
+
+msgid "Set up and customize email notifications to keep your support team and users informed seamlessly."
+msgstr "اعلان‌های ایمیل را تنظیم و سفارشی کنید تا تیم پشتیبانی و کاربران همیشه به‌خوبی مطلع بمانند."
+
+msgid "Incoming"
+msgstr "دریافتی"
+
+msgid "Messages"
+msgstr "پیام‌ها"
+
+msgid "Sent Items"
+msgstr "موارد ارسال‌شده"
+
+msgid "New Message"
+msgstr "پیام جدید"
+
+msgid "Write New"
+msgstr "نوشتن جدید"
+
+msgid "Type Message"
+msgstr "نوشتن پیام"
+
+msgid "Search Subject"
+msgstr "جستجوی موضوع"
+
+msgid "Outbox is empty"
+msgstr "صندوق خروجی خالی است"
+
+msgid "No sent messages found."
+msgstr "هیچ پیام ارسال‌شده‌ای یافت نشد."
+
+msgid "Limit exceeds maximum tickets"
+msgstr "محدودیت از حداکثر تیکت‌ها بیشتر است"
+
+msgid "The maximum number of open tickets limit has been exceeded."
+msgstr "حداکثر تعداد تیکت‌های باز از حد مجاز بیشتر شده است."
+
+msgid "Ticket has been closed due to merged with"
+msgstr "تیکت به دلیل ادغام با مورد زیر بسته شده است"
+
+msgid "Ticket"
+msgstr "تیکت"
+
+msgid "has been merged into"
+msgstr "ادغام شده در"
+
+msgid "Merge Ticket"
+msgstr "ادغام تیکت"
+
+msgid "Search Ticket To Merge Into Another"
+msgstr "جستجوی تیکت برای ادغام در تیکت دیگر"
+
+msgid "Edit Last Reply"
+msgstr "ویرایش آخرین پاسخ"
+
+msgid "Merge Ticket Latest Reply"
+msgstr "ادغام آخرین پاسخ تیکت"
+
+msgid "Merge"
+msgstr "ادغام"
+
+msgid "Ticket has been merged"
+msgstr "تیکت ادغام شد"
+
+msgid "Ticket has not been merged"
+msgstr "تیکت ادغام نشد"
+
+msgid "Disabled form cannot be set as default"
+msgstr "فرم غیرفعال را نمی‌توان به‌عنوان پیش‌فرض تنظیم کرد"
+
+msgid "Form has been stored"
+msgstr "فرم ذخیره شد"
+
+msgid "Form has not been stored"
+msgstr "فرم ذخیره نشد"
+
+msgid "Multiform has been deleted"
+msgstr "فرم چندگانه حذف شد"
+
+msgid "Multiform has not been deleted"
+msgstr "فرم چندگانه حذف نشد"
+
+msgid "Multiform in use"
+msgstr "چندفرمی در حال استفاده است"
+
+msgid " cannot deleted"
+msgstr "قابل حذف نیست"
+
+msgid "Default form cannot be set as disabled"
+msgstr "فرم پیش‌فرض را نمی‌توان غیرفعال کرد"
+
+msgid "Multiforms"
+msgstr "چندفرمی‌ها"
+
+msgid "Multiform"
+msgstr "چندفرمی"
+
+msgid "default has not been changed"
+msgstr "پیش‌فرض تغییر نکرد"
+
+msgid "default has been changed"
+msgstr "پیش‌فرض تغییر کرد"
+
+msgid "Create Ticket"
+msgstr "ایجاد تیکت"
+
+msgid "multiform"
+msgstr "چندفرمی"
+
+msgid "Email template has not been stored"
+msgstr "قالب ایمیل ذخیره نشد"
+
+msgid "Required Field(s) are not filled"
+msgstr "فیلد(های) الزامی پر نشده‌اند"
+
+msgid "Email template already exist"
+msgstr "قالب ایمیل از قبل وجود دارد"
+
+msgid "Email template has been stored"
+msgstr "قالب ایمیل ذخیره شد"
+
+msgid "Default"
+msgstr "پیش‌فرض"
+
+msgid "Save Multiform"
+msgstr "ذخیره چندفرمی"
+
+msgid "Fields"
+msgstr "فیلدها"
+
+msgid "Drag to reorder"
+msgstr "برای تغییر ترتیب بکشید"
+
+msgid "Edit Fields"
+msgstr "ویرایش فیلدها"
+
+msgid "Select Languages"
+msgstr "انتخاب زبان‌ها"
+
+msgid "Select Language"
+msgstr "انتخاب زبان"
+
+msgid "Email Template has been successfully deleted"
+msgstr "قالب ایمیل با موفقیت حذف شد"
+
+msgid "The internal note has been posted"
+msgstr "یادداشت داخلی ارسال شد"
+
+msgid "The internal note has not been posted"
+msgstr "یادداشت داخلی ارسال نشد"
+
+msgid "Post Internal Note"
+msgstr "ارسال یادداشت داخلی"
+
+msgid "The internal note is posted by"
+msgstr "یادداشت داخلی ارسال شده توسط"
+
+msgid "Ticket Notification"
+msgstr "اعلان تیکت"
+
+msgid "Once Weekly"
+msgstr "هفته‌ای یک‌بار"
+
+msgid "Thanks for subscribing!"
+msgstr "از اشتراک شما سپاسگزاریم!"
+
+msgid "Ticket already marked overdue"
+msgstr "تیکت از قبل به‌عنوان معوق علامت‌گذاری شده است"
+
+msgid "The ticket has been marked as overdue"
+msgstr "تیکت به‌عنوان معوق علامت‌گذاری شد"
+
+msgid "The ticket has not been marked as overdue"
+msgstr "تیکت به‌عنوان معوق علامت‌گذاری نشد"
+
+msgid "System"
+msgstr "سیستم"
+
+msgid "Mark Overdue"
+msgstr "علامت‌گذاری به‌عنوان معوق"
+
+msgid "The ticket is marked as overdue by"
+msgstr "تیکت به‌عنوان معوق علامت‌گذاری شده توسط"
+
+msgid "The ticket has been unmarked as overdue"
+msgstr "علامت معوق از تیکت برداشته شد"
+
+msgid "The ticket has not been unmarked as overdue"
+msgstr "علامت معوق از تیکت برداشته نشد"
+
+msgid "Unmark Overdue"
+msgstr "برداشتن علامت معوق"
+
+msgid "The ticket is unmarked as overdue by"
+msgstr "علامت معوق تیکت برداشته شده توسط"
+
+msgid "Paid Support"
+msgstr "پشتیبانی پولی"
+
+msgid "Check if you want to use this product for paid support"
+msgstr "اگر می‌خواهید از این محصول برای پشتیبانی پولی استفاده کنید، این گزینه را فعال کنید"
+
+msgid "Paid support type"
+msgstr "نوع پشتیبانی پولی"
+
+msgid "One-off Support"
+msgstr "پشتیبانی یک‌باره"
+
+msgid "Subscription Support"
+msgstr "پشتیبانی اشتراکی"
+
+msgid "Number of tickets"
+msgstr "تعداد تیکت‌ها"
+
+msgid "Enter allowed number of tickets that customer can post. Enter -1 for unlimited tickets."
+msgstr "تعداد مجاز تیکت‌هایی را که مشتری می‌تواند ارسال کند وارد کنید. برای تیکت نامحدود، -1 وارد کنید."
+
+msgid "Add / Edit Credential"
+msgstr "افزودن / ویرایش اعتبارنامه"
+
+msgid "Please share private credentials only when necessary. Your information remains confidential."
+msgstr "لطفاً فقط در صورت ضرورت اعتبارنامه‌های خصوصی را به اشتراک بگذارید. اطلاعات شما محرمانه می‌ماند."
+
+msgid "Credential Type"
+msgstr "نوع اعتبارنامه"
+
+msgid "Additional Info"
+msgstr "اطلاعات اضافی"
+
+msgid "Please insert values"
+msgstr "لطفاً مقادیر را وارد کنید"
+
+msgid "Visitor"
+msgstr "بازدیدکننده"
+
+msgid "Added by"
+msgstr "افزوده‌شده توسط"
+
+msgid "Credential removed on ticket close"
+msgstr "اعتبارنامه هنگام بسته شدن تیکت حذف شد"
+
+msgid "Failed to retrieve data"
+msgstr "بازیابی داده‌ها ناموفق بود"
+
+msgid "Reason has been stored"
+msgstr "دلیل ذخیره شد"
+
+msgid "Reason has not been stored"
+msgstr "دلیل ذخیره نشد"
+
+msgid "Reason has been deleted"
+msgstr "دلیل حذف شد"
+
+msgid "Reason has not been deleted"
+msgstr "دلیل حذف نشد"
+
+msgid "Reason"
+msgstr "دلیل"
+
+msgid "Are you going to close this ticket?"
+msgstr "آیا می‌خواهید این تیکت را ببندید؟"
+
+msgid "If you have a moment, please select a reason for closing the ticket."
+msgstr "اگر فرصتی دارید، لطفاً دلیل بستن تیکت را انتخاب کنید."
+
+msgid "Your response would be helpful to other users, as we believe that the success of the support system is largely dependent on how well customers are treated."
+msgstr "پاسخ شما برای سایر کاربران مفید خواهد بود، زیرا باور داریم موفقیت سیستم پشتیبانی تا حد زیادی به نحوه برخورد با مشتریان وابسته است."
+
+msgid "Submit & Close"
+msgstr "ارسال و بستن"
+
+msgid "Skip & Close"
+msgstr "رد کردن و بستن"
+
+msgid "Add Reason"
+msgstr "افزودن دلیل"
+
+msgid "Save Reason"
+msgstr "ذخیره دلیل"
+
+msgid "Ticket Close Reasons"
+msgstr "دلایل بستن تیکت"
+
+msgid "Define and manage reasons used when closing support tickets."
+msgstr "دلایل مورد استفاده هنگام بستن تیکت‌های پشتیبانی را تعریف و مدیریت کنید."
+
+msgid "Mail Notification Widget"
+msgstr "ایمیل اعلان ابزارک"
+
+msgid "Show newly and reply mail notifications"
+msgstr "نمایش اعلان‌های ایمیل جدید و پاسخ‌ها"
+
+msgid "New mail from"
+msgstr "ایمیل جدید از"
+
+msgid "Replied By"
+msgstr "پاسخ داده‌شده توسط"
+
+msgid "Mail Notification"
+msgstr "ایمیل اعلان"
+
+msgid "Layout"
+msgstr "چیدمان"
+
+msgid "Vertical"
+msgstr "عمودی"
+
+msgid "Horizontal"
+msgstr "افقی"
+
+msgid "Max Record"
+msgstr "حداکثر رکورد"
+
+msgid "My Ticket Widget"
+msgstr "My تیکت ابزارک"
+
+msgid "Show unanswered tickets"
+msgstr "نمایش تیکت‌های بدون پاسخ"
+
+msgid "Waiting Reply"
+msgstr "در انتظار پاسخ"
+
+msgid "Order tickets"
+msgstr "سفارش تیکت‌ها"
+
+msgid "Product"
+msgstr "محصول"
+
+msgid "Order"
+msgstr "سفارش"
+
+msgid "Transaction Key"
+msgstr "کلید تراکنش"
+
+msgid "Please select )"
+msgstr "لطفاً انتخاب کنید )"
+
+msgid "</b> and Enter your license key and hit to authenticate. A valid key is required for updates."
+msgstr "</b> و کلید مجوز خود را وارد کنید و برای احراز هویت اقدام کنید. برای به‌روزرسانی‌ها یک کلید معتبر لازم است."
+
+msgid "Hide notice"
+msgstr "پنهان کردن اعلان"
+
+msgid "Control Panel"
+msgstr "پنل کنترل"
+
+msgid "Edit Announcement"
+msgstr "ویرایش اطلاعیه"
+
+msgid "Departments"
+msgstr "دپارتمان‌ها"
+
+msgid "Add Department"
+msgstr "افزودن دپارتمان"
+
+msgid "Edit Department"
+msgstr "ویرایش دپارتمان"
+
+msgid "Staff Reports"
+msgstr "گزارش‌های کارکنان"
+
+msgid "Staff reports"
+msgstr "گزارش‌های کارکنان"
+
+msgid "Departments report"
+msgstr "گزارش دپارتمان‌ها"
+
+msgid "Edit Download"
+msgstr "ویرایش دانلود"
+
+msgid "Edit FAQ"
+msgstr "ویرایش پرسش متداول"
+
+msgid "Edit Knowledge Base"
+msgstr "ویرایش پایگاه دانش"
+
+msgid "Edit Category"
+msgstr "ویرایش دسته‌بندی"
+
+msgid "Send Message"
+msgstr "ارسال پیام"
+
+msgid "Edit Role"
+msgstr "ویرایش نقش"
+
+msgid "Staffs"
+msgstr "کارکنان"
+
+msgid "Add Staff"
+msgstr "افزودن کارکنان"
+
+msgid "Edit Staff"
+msgstr "ویرایش کارکنان"
+
+msgid "Staff Permissions"
+msgstr "کارکنان مجوزها"
+
+msgid "Add Ticket"
+msgstr "افزودن تیکت"
+
+msgid "Ticket Detail"
+msgstr "جزئیات تیکت"
+
+msgid "home icon"
+msgstr "آیکن خانه"
+
+msgid "Plus"
+msgstr "به‌علاوه"
+
+msgid "Equals"
+msgstr "مساوی"
+
+msgid "Minus"
+msgstr "منها"
+
+msgid "stars"
+msgstr "ستاره‌ها"
+
+msgid "Please write appreciated review at WP Extension Directory"
+msgstr "لطفاً در دایرکتوری افزونه‌های WP یک نظر ارزشمند ثبت کنید"
+
+msgid "We'd love to hear from you. It'll only take 2 minutes of your time, and will really help us spread the word"
+msgstr "خوشحال می‌شویم نظر شما را بشنویم. فقط ۲ دقیقه زمان می‌برد و به معرفی ما بسیار کمک می‌کند"
+
+msgid "love"
+msgstr "علاقه"
+
+msgid "I'd love to help :)"
+msgstr "خوشحال می‌شوم کمک کنم :)"
+
+msgid "sad"
+msgstr "ناراحت"
+
+msgid "Not this time"
+msgstr "این بار نه"
+
+msgid "Happy"
+msgstr "خوشحال"
+
+msgid "I've already rated you"
+msgstr "قبلاً امتیاز داده‌ام"
+
+msgid "close"
+msgstr "بستن"
+
+msgid "thanks"
+msgstr "سپاس"
+
+msgid "You are awesome !......"
+msgstr "شما فوق‌العاده هستید!......"
+
+msgid "Thanks for your support, we really appreciate it."
+msgstr "از حمایت شما سپاسگزاریم؛ واقعاً قدردان آن هستیم."
+
+msgid "Majestic Support Team"
+msgstr "تیم Majestic Support"
+
+msgid "Remind you about this later?"
+msgstr "بعداً این را به شما یادآوری کنیم؟"
+
+msgid "Remind me in 3 days"
+msgstr "۳ روز دیگر یادآوری کن"
+
+msgid "Remind me in 10 days"
+msgstr "۱۰ روز دیگر یادآوری کن"
+
+msgid "Remind me in 30 days"
+msgstr "۳۰ روز دیگر یادآوری کن"
+
+msgid "Don't remind me about this"
+msgstr "دیگر این را به من یادآوری نکن"
+
+msgid "Overview"
+msgstr "نمای کلی"
+
+msgid "Dashboard"
+msgstr "داشبورد"
+
+msgid "About Us"
+msgstr "درباره ما"
+
+msgid "System Errors"
+msgstr "خطاهای سیستم"
+
+msgid "Slugs"
+msgstr "نامک‌ها"
+
+msgid "Reports"
+msgstr "گزارش‌ها"
+
+msgid "Overall Statistics"
+msgstr "آمار کلی"
+
+msgid "Agent Reports"
+msgstr "گزارش‌های کارشناسان پشتیبانی"
+
+msgid "Department Reports"
+msgstr "گزارش‌های دپارتمان"
+
+msgid "User Reports"
+msgstr "گزارش‌های کاربران"
+
+msgid "Satisfaction Report"
+msgstr "گزارش رضایت"
+
+msgid "Management"
+msgstr "مدیریت"
+
+msgid "Agent Auto Assign"
+msgstr "اختصاص خودکار کارشناس"
+
+msgid "Auto Assign"
+msgstr "اختصاص خودکار"
+
+msgid "Agent Roles"
+msgstr "نقش‌های کارشناس پشتیبانی"
+
+msgid "Add Agent Role"
+msgstr "افزودن نقش کارشناس پشتیبانی"
+
+msgid "Products"
+msgstr "محصولات"
+
+msgid "Add Product"
+msgstr "افزودن محصول"
+
+msgid "Feedback Fields"
+msgstr "فیلدهای بازخورد"
+
+msgid "Smart Replies"
+msgstr "پاسخ‌های هوشمند"
+
+msgid "Smart Reply"
+msgstr "پاسخ هوشمند"
+
+msgid "Add Smart Reply"
+msgstr "افزودن پاسخ هوشمند"
+
+msgid "Premade Responses"
+msgstr "پاسخ‌های آماده"
+
+msgid "Configuration"
+msgstr "پیکربندی"
+
+msgid "Settings"
+msgstr "تنظیمات"
+
+msgid "Cron Job URLs"
+msgstr "URLهای کرون جاب"
+
+msgid "Colors"
+msgstr "رنگ‌ها"
+
+msgid "Priorities"
+msgstr "اولویت‌ها"
+
+msgid "Add Priority"
+msgstr "افزودن اولویت"
+
+msgid "Ticket Statuses"
+msgstr "وضعیت‌های تیکت"
+
+msgid "Add Ticket Status"
+msgstr "افزودن وضعیت تیکت"
+
+msgid "Addons"
+msgstr "افزودنی‌ها"
+
+msgid "Install Add-ons"
+msgstr "نصب افزودنی‌ها"
+
+msgid "Add-ons Status"
+msgstr "وضعیت افزودنی‌ها"
+
+msgid "Update Key"
+msgstr "به‌روزرسانی کلید"
+
+msgid "Add-ons List"
+msgstr "فهرست افزودنی‌ها"
+
+msgid "Shortcodes"
+msgstr "کدهای کوتاه"
+
+msgid "Import Data"
+msgstr "درون‌ریزی داده‌ها"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "GDPR Fields"
+msgstr "فیلدهای GDPR"
+
+msgid "Erase Data Requests"
+msgstr "درخواست‌های پاک‌سازی داده"
+
+msgid "Help"
+msgstr "راهنما"
+
+msgid "EMAIL SETTINGS"
+msgstr "تنظیمات ایمیل"
+
+msgid "System Emails"
+msgstr "ایمیل‌های سیستم"
+
+msgid "Email Templates"
+msgstr "قالب‌های ایمیل"
+
+msgid "New Ticket"
+msgstr "تیکت جدید"
+
+msgid "Agent Ticket"
+msgstr "تیکت کارشناس پشتیبانی"
+
+msgid "New Agent"
+msgstr "کارشناس پشتیبانی جدید"
+
+msgid "Reassign Ticket"
+msgstr "اختصاص مجدد تیکت"
+
+msgid "Ban Email"
+msgstr "مسدود کردن ایمیل"
+
+msgid "Ban email try to create ticket"
+msgstr "ایمیل مسدود تلاش کرد تیکت ایجاد کند"
+
+msgid "Department Transfer"
+msgstr "انتقال دپارتمان"
+
+msgid "Ban Email and Close Ticket"
+msgstr "مسدود کردن ایمیل و بستن تیکت"
+
+msgid "Unban Email"
+msgstr "رفع مسدودی ایمیل"
+
+msgid "Response Ticket"
+msgstr "پاسخ به تیکت"
+
+msgid "Reply Ticket"
+msgstr "پاسخ تیکت"
+
+msgid "New Ticket Admin Alert"
+msgstr "هشدار مدیر برای تیکت جدید"
+
+msgid "In Progress Ticket"
+msgstr "تیکت در حال انجام"
+
+msgid "Ticket Priority Is Changed By"
+msgstr "تیکت اولویت Is تغییر‌یافته توسط"
+
+msgid "New Mail Received"
+msgstr "ایمیل جدید دریافت شد"
+
+msgid "New Mail Message Received"
+msgstr "پیام ایمیل جدید دریافت شد"
+
+msgid "Feedback Email To User"
+msgstr "ایمیل بازخورد به کاربر"
+
+msgid "User Reply On Closed Ticket"
+msgstr "پاسخ کاربر به تیکت بسته‌شده"
+
+msgid "Email Piping"
+msgstr "پایپینگ ایمیل"
+
+msgid "Emial CC"
+msgstr "CC ایمیل"
+
+msgid "Add Emial CC"
+msgstr "افزودن CC ایمیل"
+
+msgid "Add Email CC"
+msgstr "افزودن CC ایمیل"
+
+msgid "Banned Email Log List"
+msgstr "فهرست گزارش ایمیل‌های مسدود"
+
+msgid "Ban Emails"
+msgstr "مسدود کردن ایمیل‌ها"
+
+msgid "CONTENT"
+msgstr "محتوا"
+
+msgid "Select Form"
+msgstr "انتخاب فرم"
+
+msgid "No Record Found"
+msgstr "هیچ رکوردی یافت نشد"
+
+msgid "Hello Visitor!"
+msgstr "سلام بازدیدکننده!"
+
+msgid "Log out"
+msgstr "خروج"
+
+msgid "div"
+msgstr "div"
+
+msgid "iframe"
+msgstr "iframe"
+
+msgid "Sorry"
+msgstr "متأسفیم"
+
+msgid "There was no record found"
+msgstr "هیچ رکوردی یافت نشد"
+
+msgid "Sorry!"
+msgstr "متأسفیم!"
+
+msgid "Access Denied"
+msgstr "دسترسی رد شد"
+
+msgid "You have no permission to access this page"
+msgstr "شما مجوز دسترسی به این صفحه را ندارید"
+
+msgid "Register"
+msgstr "ثبت‌نام"
+
+msgid "User is not allowed to access this page."
+msgstr "کاربر مجاز به دسترسی به این صفحه نیست."
+
+msgid "You are already Logged In."
+msgstr "شما از قبل وارد شده‌اید."
+
+msgid "Your account has been disabled, please contact the administrator."
+msgstr "حساب شما غیرفعال شده است؛ لطفاً با مدیر تماس بگیرید."
+
+msgid "You are not logged in"
+msgstr "شما وارد نشده‌اید"
+
+msgid "To access the page, please login"
+msgstr "برای دسترسی به صفحه، لطفاً وارد شوید"
+
+msgid "User is not allowed to view this Ticket"
+msgstr "کاربر مجاز به مشاهده این تیکت نیست"
+
+msgid "Registration has been disabled by admin, please contact the system administrator."
+msgstr "ثبت‌نام توسط مدیر غیرفعال شده است؛ لطفاً با مدیر سیستم تماس بگیرید."
+
+msgid "You have already given the feedback for this ticket."
+msgstr "شما قبلاً برای این تیکت بازخورد داده‌اید."
+
+msgid "Ticket not found...!"
+msgstr "تیکت یافت نشد...!"
+
+msgid "User is not allowed to view this page"
+msgstr "کاربر مجاز به مشاهده این صفحه نیست"
+
+msgid "Thank you so much for your feedback"
+msgstr "از بازخورد شما بسیار سپاسگزاریم"
+
+msgid "Majestic Support Control Panel"
+msgstr "Majestic Support کنترل پنل"
+
+msgid "Slug"
+msgstr "نامک"
+
+msgid "Statuses"
+msgstr "وضعیت‌ها"
+
+msgid "System Error"
+msgstr "خطای سیستم"
+
+msgid "Translations"
+msgstr "ترجمه‌ها"
+
+msgid "User Fields"
+msgstr "فیلدهای کاربر"
+
+msgid "Ban list log"
+msgstr "گزارش فهرست مسدودی"
+
+msgid "Field Ordering"
+msgstr "ترتیب فیلدها"
+
+msgid "Post Installation"
+msgstr "پس از نصب"
+
+msgid "Premium Addons"
+msgstr "افزودنی‌های پریمیوم"
+
+msgid "Success!"
+msgstr "موفقیت!"
+
+msgid "Username / password is incorrect"
+msgstr "نام کاربری / رمز عبور نادرست است"
+
+msgid "Username already taken"
+msgstr "نام کاربری قبلاً گرفته شده است"
+
+msgid "Invalid username"
+msgstr "نام کاربری نامعتبر است"
+
+msgid "Please enter a username"
+msgstr "لطفاً نام کاربری را وارد کنید"
+
+msgid "Invalid email"
+msgstr "ایمیل نامعتبر است"
+
+msgid "Email already registered"
+msgstr "ایمیل قبلاً ثبت شده است"
+
+msgid "Please enter a password"
+msgstr "لطفاً رمز عبور را وارد کنید"
+
+msgid "Passwords do not match"
+msgstr "رمزهای عبور مطابقت ندارند"
+
+msgid "Invalid captcha"
+msgstr "کپچای نامعتبر"
+
+msgid "User has been successfully registered"
+msgstr "کاربر با موفقیت ثبت‌نام شد"
+
+msgid "Could not subscribe to the newsletter"
+msgstr "امکان عضویت در خبرنامه وجود نداشت"
+
+msgid "Please check confirmation email to complete your subscription for the newsletter"
+msgstr "برای تکمیل اشتراک خبرنامه، لطفاً ایمیل تأیید را بررسی کنید"
+
+msgid "You have successfully subscribed to the newsletter"
+msgstr "شما با موفقیت در خبرنامه عضو شدید"
+
+msgid "Auto Append Signature"
+msgstr "افزودن خودکار امضا"
+
+msgid "Signature will auto append in the ticket reply page for admin"
+msgstr "امضا به‌صورت خودکار در صفحه پاسخ تیکت برای مدیر افزوده می‌شود"
+
+msgid "Majestic Support Pages"
+msgstr "Majestic Support صفحه‌ها"
+
+msgid "List Downloads"
+msgstr "فهرست دانلودها"
+
+msgid "Latest Downloads"
+msgstr "آخرین دانلودها"
+
+msgid "Popular Downloads"
+msgstr "محبوب دانلودها"
+
+msgid "List Knowledge Base"
+msgstr "فهرست دانش پایگاه"
+
+msgid "Latest Knowledge Base"
+msgstr "آخرین دانش پایگاه"
+
+msgid "Popular Knowledge Base"
+msgstr "محبوب دانش پایگاه"
+
+msgid "List FAQs"
+msgstr "فهرست پرسش‌های متداول"
+
+msgid "Latest FAQs"
+msgstr "آخرین پرسش‌های متداول"
+
+msgid "Popular FAQs"
+msgstr "محبوب پرسش‌های متداول"
+
+msgid "List Announcements"
+msgstr "فهرست اطلاعیه‌ها"
+
+msgid "Latest Announcements"
+msgstr "آخرین اطلاعیه‌ها"
+
+msgid "Popular Announcements"
+msgstr "محبوب اطلاعیه‌ها"
+
+msgid "Your Majestic Support license key has expired or is invalid. Please update it to continue receiving support and updates."
+msgstr "کلید مجوز Majestic Support شما منقضی شده یا نامعتبر است. لطفاً برای ادامه دریافت پشتیبانی و به‌روزرسانی آن را به‌روزرسانی کنید."
+
+msgid "Hey there! We have recently launched a fresh update for the add-ons. Dont forget to update the add-ons to enjoy the greatest features!"
+msgstr "سلام! به‌تازگی یک به‌روزرسانی تازه برای افزودنی‌ها منتشر کرده‌ایم. برای استفاده از بهترین قابلیت‌ها، فراموش نکنید افزودنی‌ها را به‌روزرسانی کنید!"
+
+msgid "View"
+msgstr "مشاهده"
+
+msgid "Form submission failed!"
+msgstr "ارسال فرم ناموفق بود!"
+
+msgid "You have not answered all required fields"
+msgstr "شما به همه فیلدهای الزامی پاسخ نداده‌اید"
+
+msgid "You have not given a correct time"
+msgstr "زمان صحیحی وارد نکرده‌اید"
+
+msgid "You have not given a correct e-mail address"
+msgstr "آدرس ایمیل صحیحی وارد نکرده‌اید"
+
+msgid "You have not given a correct phone number"
+msgstr "شماره تلفن صحیحی وارد نکرده‌اید"
+
+msgid "You have not given a correct answer to the security question"
+msgstr "پاسخ صحیحی به سؤال امنیتی نداده‌اید"
+
+msgid "You have not given a correct date"
+msgstr "تاریخ صحیحی وارد نکرده‌اید"
+
+msgid "The input value must be between "
+msgstr "مقدار ورودی باید بین"
+
+msgid " characters"
+msgstr "نویسه باشد"
+
+msgid "The input value is longer than "
+msgstr "مقدار ورودی طولانی‌تر از"
+
+msgid "The input value is shorter than "
+msgstr "مقدار ورودی کوتاه‌تر از"
+
+msgid "Input values could not be confirmed"
+msgstr "مقادیر ورودی قابل تأیید نیستند"
+
+msgid "Incorrect domain value"
+msgstr "مقدار دامنه نادرست است"
+
+msgid "The input value is not a correct URL"
+msgstr "مقدار ورودی یک URL صحیح نیست"
+
+msgid "The input value is incorrect"
+msgstr "مقدار ورودی نادرست است"
+
+msgid "The input value was not a correct number"
+msgstr "مقدار ورودی یک عدد صحیح نبود"
+
+msgid "Your social security number was incorrect"
+msgstr "شماره تأمین اجتماعی شما نادرست بود"
+
+msgid "Incorrect UK VAT Number"
+msgstr "شماره VAT بریتانیا نادرست است"
+
+msgid "The password isn't strong enough"
+msgstr "رمز عبور به اندازه کافی قوی نیست"
+
+msgid "You have to choose at least "
+msgstr "باید حداقل انتخاب کنید"
+
+msgid " answers"
+msgstr "پاسخ"
+
+msgid "The input value can only contain alphanumeric characters "
+msgstr "مقدار ورودی فقط می‌تواند شامل نویسه‌های حروفی‌عددی باشد"
+
+msgid " and "
+msgstr "و"
+
+msgid "The file you are trying to upload is too large"
+msgstr "فایلی که می‌خواهید بارگذاری کنید بسیار بزرگ است"
+
+msgid "The file you are trying to upload is of the wrong type"
+msgstr "فایلی که می‌خواهید بارگذاری کنید از نوع نادرست است"
+
+msgid "Please choose between "
+msgstr "لطفاً بین این موارد انتخاب کنید"
+
+msgid "Please choose at least "
+msgstr "لطفاً حداقل انتخاب کنید"
+
+msgid "Please choose a maximum of "
+msgstr "لطفاً حداکثر انتخاب کنید"
+
+msgid " item(s)"
+msgstr "مورد"
+
+msgid "The credit card number is not correct"
+msgstr "شماره کارت اعتباری صحیح نیست"
+
+msgid "The CVV number was not correct"
+msgstr "شماره CVV صحیح نبود"
+
+msgid "Lost your password"
+msgstr "رمز عبور خود را فراموش کرده‌اید"
+
+msgid "Activated"
+msgstr "فعال شد"
+
+msgid "Active Now"
+msgstr "اکنون فعال است"
+
+msgid "Install Now"
+msgstr "اکنون نصب کنید"
+
+msgid "Pagination default page size not saved"
+msgstr "اندازه پیش‌فرض صفحه‌بندی ذخیره نشد"
+
+msgid "Data directory cannot empty."
+msgstr "دایرکتوری داده‌ها نمی‌تواند خالی باشد."
+
+msgid "Data directory is not proper."
+msgstr "دایرکتوری داده‌ها معتبر نیست."
+
+msgid "Data directory is not writable."
+msgstr "دایرکتوری داده‌ها قابل نوشتن نیست."
+
+msgid "System slug not be empty."
+msgstr "نامک سیستم نمی‌تواند خالی باشد."
+
+msgid "System slug is conflicted with post or page slug."
+msgstr "نامک سیستم با نامک یک نوشته یا برگه تداخل دارد."
+
+msgid "Google reCAPTCHA"
+msgstr "Google reCAPTCHA"
+
+msgid "Own Captcha"
+msgstr "کپچای اختصاصی"
+
+msgid "Any"
+msgstr "هر کدام"
+
+msgid "Addition"
+msgstr "جمع"
+
+msgid "Subtraction"
+msgstr "تفریق"
+
+msgid "reCAPTCHA v2"
+msgstr "reCAPTCHA v2"
+
+msgid "reCAPTCHA v3"
+msgstr "reCAPTCHA v3"
+
+msgid "Show"
+msgstr "نمایش"
+
+msgid "Hide"
+msgstr "پنهان کردن"
+
+msgid "Majestic Support Login Page"
+msgstr "Majestic Support ورود صفحه"
+
+msgid "WordPress Default Login Page"
+msgstr "WordPress پیش‌فرض ورود صفحه"
+
+msgid "Custom"
+msgstr "سفارشی"
+
+msgid "Majestic Support Register Page"
+msgstr "Majestic Support ثبت‌نام صفحه"
+
+msgid "WordPress Default Register Page"
+msgstr "WordPress پیش‌فرض ثبت‌نام صفحه"
+
+msgid "Top left"
+msgstr "بالا چپ"
+
+msgid "Top right"
+msgstr "بالا راست"
+
+msgid "Middle left"
+msgstr "وسط چپ"
+
+msgid "Middle right"
+msgstr "وسط راست"
+
+msgid "Bottom left"
+msgstr "پایین چپ"
+
+msgid "Bottom right"
+msgstr "پایین راست"
+
+msgid "Random"
+msgstr "تصادفی"
+
+msgid "Sequence"
+msgstr "ترتیبی"
+
+msgid "Oldest First"
+msgstr "قدیمی‌ترین اول"
+
+msgid "Newest First"
+msgstr "جدیدترین اول"
+
+msgid "Ascending"
+msgstr "صعودی"
+
+msgid "Descending"
+msgstr "نزولی"
+
+msgid "Single"
+msgstr "تکی"
+
+msgid "Multiple"
+msgstr "چندگانه"
+
+msgid "Online"
+msgstr "آنلاین"
+
+msgid "Days"
+msgstr "روزها"
+
+msgid "Hours"
+msgstr "ساعت‌ها"
+
+msgid "General"
+msgstr "عمومی"
+
+msgid "General Settings"
+msgstr "تنظیمات عمومی"
+
+msgid "Basic configuration for your support portal visibility and behavior"
+msgstr "پیکربندی پایه برای نمایش و رفتار پرتال پشتیبانی شما"
+
+msgid "Set the heading of your plugin"
+msgstr "عنوان افزونه را تنظیم کنید"
+
+msgid "Ticket Default Page"
+msgstr "تیکت پیش‌فرض صفحه"
+
+msgid "Select the Majestic Support default page. Email links and support icons might not work if this is not set."
+msgstr "برگه پیش‌فرض Majestic Support را انتخاب کنید. اگر این گزینه تنظیم نشود، لینک‌های ایمیل و آیکن‌های پشتیبانی ممکن است درست کار نکنند."
+
+msgid "Data Directory"
+msgstr "دایرکتوری داده‌ها"
+
+msgid "Set the name for your data directory. You must rename the folder in the file system manually first."
+msgstr "نام دایرکتوری داده‌ها را تنظیم کنید. ابتدا باید پوشه را به‌صورت دستی در فایل‌سیستم تغییر نام دهید."
+
+msgid "Date Format"
+msgstr "تاریخ فرمت"
+
+msgid "Set the default date format"
+msgstr "فرمت پیش‌فرض تاریخ را تنظیم کنید"
+
+msgid "DD-MM-YYYY"
+msgstr "DD-MM-YYYY"
+
+msgid "MM-DD-YYYY"
+msgstr "MM-DD-YYYY"
+
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+msgid "Pagination default page size"
+msgstr "اندازه پیش‌فرض صفحه‌بندی"
+
+msgid "Set the number of records per page"
+msgstr "تعداد رکوردها در هر صفحه را تنظیم کنید"
+
+msgid "Breadcrumbs"
+msgstr "مسیر راهنما"
+
+msgid "Show or hide breadcrumbs"
+msgstr "نمایش یا پنهان‌سازی مسیر راهنما"
+
+msgid "Top Header"
+msgstr "بالا سربرگ"
+
+msgid "Show or hide top header"
+msgstr "نمایش یا پنهان‌سازی سربرگ بالا"
+
+msgid "Show User Avatar"
+msgstr "نمایش کاربر آواتار"
+
+msgid "Showing avatars may slightly slow down page loading"
+msgstr "نمایش آواتارها ممکن است بارگذاری صفحه را کمی کندتر کند"
+
+msgid "Show count on tickets"
+msgstr "نمایش تعداد روی تیکت‌ها"
+
+msgid "Show the number of open, closed, and answered tickets in my tickets and dashboard"
+msgstr "نمایش تعداد تیکت‌های باز، بسته و پاسخ‌داده‌شده در بخش تیکت‌های من و داشبورد"
+
+msgid "Default wp role for new users"
+msgstr "نقش پیش‌فرض WP برای کاربران جدید"
+
+msgid "Select the role you want to assign to new users"
+msgstr "نقشی را که می‌خواهید به کاربران جدید اختصاص دهید انتخاب کنید"
+
+msgid "User Options"
+msgstr "کاربر گزینه‌ها"
+
+msgid "Control file upload limits and allowed types"
+msgstr "محدودیت‌های بارگذاری فایل و نوع فایل‌های مجاز را کنترل کنید"
+
+msgid "No. of attachments"
+msgstr "تعداد پیوست‌ها"
+
+msgid "Number of attachments allowed at a time"
+msgstr "تعداد پیوست‌های مجاز در هر بار"
+
+msgid "File maximum size"
+msgstr "حداکثر اندازه فایل"
+
+msgid "Maximum size allowed in Kb"
+msgstr "حداکثر اندازه مجاز بر حسب کیلوبایت"
+
+msgid "File extensions"
+msgstr "پسوندهای فایل"
+
+msgid "File extensions allowed to attach (comma separated)"
+msgstr "پسوندهای مجاز برای پیوست، جداشده با ویرگول"
+
+msgid "Configure the login behavior for your support users"
+msgstr "رفتار ورود کاربران پشتیبانی را پیکربندی کنید"
+
+msgid "Set Login Link"
+msgstr "تنظیم ورود لینک"
+
+msgid "Set login link default or custom"
+msgstr "لینک ورود را به‌صورت پیش‌فرض یا سفارشی تنظیم کنید"
+
+msgid "Custom Login Link"
+msgstr "سفارشی ورود لینک"
+
+msgid "Enter custom URL if custom is selected above"
+msgstr "اگر گزینه سفارشی را انتخاب کرده‌اید، URL سفارشی را وارد کنید"
+
+msgid "Configure user registration settings"
+msgstr "تنظیمات ثبت‌نام کاربران را پیکربندی کنید"
+
+msgid "Set register Link"
+msgstr "لینک ثبت‌نام را تنظیم کنید"
+
+msgid "To enable registrations, go to WordPress General Settings and enable Anyone can register"
+msgstr "برای فعال‌سازی ثبت‌نام، به تنظیمات عمومی WordPress بروید و گزینه «هر کسی می‌تواند نام‌نویسی کند» را فعال کنید"
+
+msgid "Custom Register Link"
+msgstr "سفارشی ثبت‌نام لینک"
+
+msgid "Enter custom registration URL"
+msgstr "URL ثبت‌نام سفارشی را وارد کنید"
+
+msgid "Support Icon"
+msgstr "آیکن پشتیبانی"
+
+msgid "Floating icon settings for the front-end"
+msgstr "تنظیمات آیکن شناور برای بخش کاربری"
+
+msgid "Enable or disable your support icon"
+msgstr "آیکن پشتیبانی را فعال یا غیرفعال کنید"
+
+msgid "Custom Image"
+msgstr "سفارشی تصویر"
+
+msgid "Upload a custom image for the support icon"
+msgstr "یک تصویر سفارشی برای آیکن پشتیبانی بارگذاری کنید"
+
+msgid "Custom Text"
+msgstr "متن سفارشی"
+
+msgid "Set custom support text"
+msgstr "متن پشتیبانی سفارشی را تنظیم کنید"
+
+msgid "Support Icon Position"
+msgstr "موقعیت آیکن پشتیبانی"
+
+msgid "Select a position for your support icon"
+msgstr "موقعیت آیکن پشتیبانی را انتخاب کنید"
+
+msgid "Maintenance mode settings"
+msgstr "تنظیمات حالت تعمیر و نگهداری"
+
+msgid "Set your plugin offline for front end"
+msgstr "افزونه را برای بخش کاربری آفلاین کنید"
+
+msgid "Offline Message"
+msgstr "آفلاین پیام"
+
+msgid "Set the offline message for your user"
+msgstr "پیام آفلاین را برای کاربر تنظیم کنید"
+
+msgid "WooCommerce integration settings"
+msgstr "تنظیمات یکپارچه‌سازی WooCommerce"
+
+msgid "Woocommerce Category"
+msgstr "دسته‌بندی WooCommerce"
+
+msgid "Select category to display only products of this category on shop page"
+msgstr "دسته‌ای را انتخاب کنید تا فقط محصولات همان دسته در صفحه فروشگاه نمایش داده شوند"
+
+msgid "Ticket Settings"
+msgstr "تنظیمات تیکت"
+
+msgid "Core configuration for ticket ID formats, reply behavior, and user limits"
+msgstr "پیکربندی اصلی برای فرمت شناسه تیکت، رفتار پاسخ‌ها و محدودیت‌های کاربر"
+
+msgid "Ticket ID Prefix"
+msgstr "پیشوند شناسه تیکت"
+
+msgid "Set a prefix for the custom ticket ID"
+msgstr "یک پیشوند برای شناسه سفارشی تیکت تنظیم کنید"
+
+msgid "Ticket ID sequence"
+msgstr "دنباله شناسه تیکت"
+
+msgid "Set the ticket ID sequentially or randomly"
+msgstr "شناسه تیکت را به‌صورت ترتیبی یا تصادفی تنظیم کنید"
+
+msgid "Pad Zeros"
+msgstr "افزودن صفرهای ابتدایی"
+
+msgid "To pad an integer with leading zeros to a specific length"
+msgstr "برای تکمیل عدد با صفرهای ابتدایی تا طول مشخص"
+
+msgid "Ticket ID Suffix"
+msgstr "پسوند شناسه تیکت"
+
+msgid "Set the suffix for your custom ticket ID"
+msgstr "پسوند شناسه سفارشی تیکت را تنظیم کنید"
+
+msgid "Maximum tickets"
+msgstr "حداکثر تیکت‌ها"
+
+msgid "Maximum ticket per user"
+msgstr "حداکثر تیکت برای هر کاربر"
+
+msgid "Max Ticket"
+msgstr "حداکثر تیکت"
+
+msgid "Maximum open tickets"
+msgstr "حداکثر تیکت‌های باز"
+
+msgid "Maximum number of tickets opened per user"
+msgstr "حداکثر تعداد تیکت‌های باز برای هر کاربر"
+
+msgid "Reopen ticket within days"
+msgstr "بازگشایی تیکت طی چند روز"
+
+msgid "The ticket will reopen within the given number of days"
+msgstr "تیکت در بازه تعداد روزهای تعیین‌شده قابل بازگشایی خواهد بود"
+
+msgid "Multiforms Popup For New Tickets"
+msgstr "پنجره فرم‌های چندگانه برای تیکت‌های جدید"
+
+msgid "Show or hide the multiform popup when creating a new ticket"
+msgstr "نمایش یا پنهان‌سازی پنجره فرم چندگانه هنگام ایجاد تیکت جدید"
+
+msgid "User can print ticket"
+msgstr "کاربر می‌تواند تیکت را چاپ کند"
+
+msgid "Can users print a ticket from the ticket detail or not?"
+msgstr "آیا کاربران بتوانند از صفحه جزئیات تیکت، تیکت را چاپ کنند یا خیر؟"
+
+msgid "Allow Users To Reply via Email On Closed Ticket"
+msgstr "اجازه پاسخ کاربران از طریق ایمیل به تیکت بسته‌شده"
+
+msgid "Select whether users can reply to closed email piping tickets"
+msgstr "مشخص کنید کاربران بتوانند به تیکت‌های بسته‌شده ایجادشده از ایمیل پاسخ دهند یا خیر"
+
+msgid "Show Admin OR Agent Email On Ticket Reply"
+msgstr "نمایش مدیر OR کارشناس پشتیبانی ایمیل On پاسخ تیکت"
+
+msgid "Select whether users can see the email of administrator or agent on the ticket reply"
+msgstr "مشخص کنید کاربران بتوانند ایمیل مدیر یا کارشناس پشتیبانی را در پاسخ تیکت ببینند یا خیر"
+
+msgid "Ticket Replies ordering"
+msgstr "ترتیب پاسخ‌های تیکت"
+
+msgid "Set the default ordering for ticket replies in the detail page."
+msgstr "ترتیب پیش‌فرض پاسخ‌های تیکت را در صفحه جزئیات تنظیم کنید."
+
+msgid "Show Anonymous Name On Ticket Reply"
+msgstr "نمایش نام ناشناس در پاسخ تیکت"
+
+msgid "Select whether users can see the name of administrator or agent on ticket reply"
+msgstr "مشخص کنید کاربران بتوانند نام مدیر یا کارشناس پشتیبانی را در پاسخ تیکت ببینند یا خیر"
+
+msgid "Show Message Read Icon for Admin On Ticket Detail"
+msgstr "نمایش آیکن خوانده‌شدن پیام برای مدیر در جزئیات تیکت"
+
+msgid "Select whether the message read icon is displayed to the administrator"
+msgstr "مشخص کنید آیکن خوانده‌شدن پیام برای مدیر نمایش داده شود یا خیر"
+
+msgid "Show Message Read Icon For Agents on Ticket Detail"
+msgstr "نمایش آیکن خوانده‌شدن پیام برای کارشناسان در جزئیات تیکت"
+
+msgid "Select whether the message read icon is displayed to agents"
+msgstr "مشخص کنید آیکن خوانده‌شدن پیام برای کارشناسان نمایش داده شود یا خیر"
+
+msgid "Show Message Read Icon For Users On Ticket Detail"
+msgstr "نمایش آیکن خوانده‌شدن پیام برای کاربران در جزئیات تیکت"
+
+msgid "Select whether the message read icon is displayed to users"
+msgstr "مشخص کنید آیکن خوانده‌شدن پیام برای کاربران نمایش داده شود یا خیر"
+
+msgid "Ticket Auto Close"
+msgstr "بستن خودکار تیکت"
+
+msgid "Ticket auto-close if user does not respond within given days"
+msgstr "بستن خودکار تیکت اگر کاربر در روزهای تعیین‌شده پاسخ ندهد"
+
+msgid "Auto Close"
+msgstr "بستن خودکار"
+
+msgid "Show ticket delete button"
+msgstr "نمایش دکمه حذف تیکت"
+
+msgid "Select whether users can see the ticket delete button"
+msgstr "مشخص کنید کاربران بتوانند دکمه حذف تیکت را ببینند یا خیر"
+
+msgid "Ticket close reason Type"
+msgstr "نوع دلیل بستن تیکت"
+
+msgid "Select whether users can save single or multiple reasons"
+msgstr "مشخص کنید کاربران بتوانند یک دلیل یا چند دلیل ذخیره کنند"
+
+msgid "Ticket Close Reason"
+msgstr "دلیل بستن تیکت"
+
+msgid "Maximum Record For Smart Reply"
+msgstr "حداکثر رکورد برای هوشمند پاسخ"
+
+msgid "Set the number of replies to show"
+msgstr "تعداد پاسخ‌های قابل نمایش را تنظیم کنید"
+
+msgid "New ticket message"
+msgstr "پیام تیکت جدید"
+
+msgid "This message will show on the new ticket"
+msgstr "این پیام در تیکت جدید نمایش داده می‌شود"
+
+msgid "Ticket Listing"
+msgstr "فهرست تیکت‌ها"
+
+msgid "Manage how tickets are sorted, ordered, and what information is visible in lists"
+msgstr "نحوه مرتب‌سازی، ترتیب نمایش و اطلاعات قابل مشاهده تیکت‌ها در فهرست‌ها را مدیریت کنید"
+
+msgid "Ticket listing ordering"
+msgstr "ترتیب فهرست تیکت‌ها"
+
+msgid "Set default ordering for ticket listing"
+msgstr "ترتیب پیش‌فرض فهرست تیکت‌ها را تنظیم کنید"
+
+msgid "Ticket listing sorting"
+msgstr "مرتب‌سازی فهرست تیکت‌ها"
+
+msgid "Set default sorting for ticket listing"
+msgstr "مرتب‌سازی پیش‌فرض فهرست تیکت‌ها را تنظیم کنید"
+
+msgid "Closed info. on admin closed tickets"
+msgstr "اطلاعات بستن در تیکت‌های بسته‌شده مدیر"
+
+msgid "Allows admin to see who closed the ticket and when"
+msgstr "به مدیر اجازه می‌دهد ببیند چه کسی تیکت را چه زمانی بسته است"
+
+msgid "Closed info. on agent closed tickets"
+msgstr "اطلاعات بستن در تیکت‌های بسته‌شده کارشناس"
+
+msgid "Allows agent to see who closed the ticket and when"
+msgstr "به کارشناس اجازه می‌دهد ببیند چه کسی تیکت را چه زمانی بسته است"
+
+msgid "Closed info. on user closed tickets"
+msgstr "اطلاعات بستن در تیکت‌های بسته‌شده کاربر"
+
+msgid "Allows user to see who closed the ticket and when"
+msgstr "به کاربر اجازه می‌دهد ببیند چه کسی تیکت را چه زمانی بسته است"
+
+msgid "Assigned info. on admin tickets"
+msgstr "اطلاعات اختصاص در تیکت‌های مدیر"
+
+msgid "Allows admin to see to whom the ticket has been assigned"
+msgstr "به مدیر اجازه می‌دهد ببیند تیکت به چه کسی اختصاص یافته است"
+
+msgid "Assigned info. on agent tickets"
+msgstr "اطلاعات اختصاص در تیکت‌های کارشناس"
+
+msgid "Allows agent to see to whom the ticket has been assigned"
+msgstr "به کارشناس اجازه می‌دهد ببیند تیکت به چه کسی اختصاص یافته است"
+
+msgid "Assigned info. on user tickets"
+msgstr "اطلاعات اختصاص در تیکت‌های کاربر"
+
+msgid "Allows user to see to whom the ticket has been assigned"
+msgstr "به کاربر اجازه می‌دهد ببیند تیکت به چه کسی اختصاص یافته است"
+
+msgid "Visitor Ticket Setting"
+msgstr "تنظیمات تیکت بازدیدکننده"
+
+msgid "Guest access and messaging configuration"
+msgstr "پیکربندی دسترسی مهمان و پیام‌رسانی"
+
+msgid "Visitors can create tickets"
+msgstr "بازدیدکنندگان می‌توانند تیکت ایجاد کنند"
+
+msgid "Allow visitors to create tickets or not"
+msgstr "اجازه ایجاد تیکت توسط بازدیدکنندگان یا عدم اجازه"
+
+msgid "Visitor ticket creation message"
+msgstr "پیام ایجاد تیکت توسط بازدیدکننده"
+
+msgid "This text will appear whenever a visitor creates a ticket"
+msgstr "این متن هر زمان که بازدیدکننده تیکت ایجاد کند نمایش داده می‌شود"
+
+msgid "Configure default email addresses for system alerts and administrative notifications"
+msgstr "آدرس‌های ایمیل پیش‌فرض را برای هشدارهای سیستم و اعلان‌های مدیریتی پیکربندی کنید"
+
+msgid "Default alert email"
+msgstr "ایمیل هشدار پیش‌فرض"
+
+msgid "If the ticket department email is not selected, then this email is used to send emails"
+msgstr "اگر ایمیل دپارتمان تیکت انتخاب نشده باشد، از این ایمیل برای ارسال ایمیل‌ها استفاده می‌شود"
+
+msgid "Add New Email"
+msgstr "افزودن ایمیل جدید"
+
+msgid "Default admin email"
+msgstr "ایمیل پیش‌فرض مدیر"
+
+msgid "Admin email address to receive emails"
+msgstr "آدرس ایمیل مدیر برای دریافت ایمیل‌ها"
+
+msgid "Captcha"
+msgstr "کپچا"
+
+msgid "Captcha Setting"
+msgstr "تنظیمات کپچا"
+
+msgid "Basic security settings for registration and visitor forms"
+msgstr "تنظیمات امنیتی پایه برای فرم‌های ثبت‌نام و بازدیدکننده"
+
+msgid "Show captcha on registration form"
+msgstr "نمایش کپچا در فرم ثبت‌نام"
+
+msgid "Select whether you want to show captcha on the registration form or not"
+msgstr "مشخص کنید کپچا در فرم ثبت‌نام نمایش داده شود یا خیر"
+
+msgid "Show captcha on the visitor ticket form"
+msgstr "نمایش کپچا در فرم تیکت بازدیدکننده"
+
+msgid "Show captcha when a visitor wants to create a ticket"
+msgstr "نمایش کپچا زمانی که بازدیدکننده می‌خواهد تیکت ایجاد کند"
+
+msgid "Captcha selection"
+msgstr "انتخاب کپچا"
+
+msgid "Which captcha do you want to add?"
+msgstr "کدام کپچا را می‌خواهید اضافه کنید؟"
+
+msgid "Configure Google reCAPTCHA API keys and version"
+msgstr "کلیدهای API و نسخه Google reCAPTCHA را پیکربندی کنید"
+
+msgid "Google reCAPTCHA version"
+msgstr "نسخه Google reCAPTCHA"
+
+msgid "Select the Google reCAPTCHA version"
+msgstr "نسخه Google reCAPTCHA را انتخاب کنید"
+
+msgid "Google reCAPTCHA site key"
+msgstr "کلید سایت Google reCAPTCHA"
+
+msgid "Please enter the site key for Google reCAPTCHA from https://www.google.com/recaptcha/admin"
+msgstr "لطفاً کلید سایت Google reCAPTCHA را از https://www.google.com/recaptcha/admin وارد کنید"
+
+msgid "Google reCAPTCHA secret key"
+msgstr "کلید مخفی Google reCAPTCHA"
+
+msgid "Please enter the secret key for Google reCAPTCHA from https://www.google.com/recaptcha/admin"
+msgstr "لطفاً کلید محرمانه Google reCAPTCHA را از https://www.google.com/recaptcha/admin وارد کنید"
+
+msgid "Custom math-based captcha configuration"
+msgstr "پیکربندی کپچای سفارشی مبتنی بر ریاضی"
+
+msgid "Own captcha calculation type"
+msgstr "نوع محاسبه کپچای اختصاصی"
+
+msgid "Select the calculation type (addition or subtraction)"
+msgstr "نوع محاسبه را انتخاب کنید (جمع یا تفریق)"
+
+msgid "Own captcha operands"
+msgstr "عملوندهای کپچای اختصاصی"
+
+msgid "Select the total number of operands to be given"
+msgstr "تعداد کل عملوندهایی را که باید نمایش داده شوند انتخاب کنید"
+
+msgid "Positive Answer Upon Own Captcha Subtraction"
+msgstr "پاسخ مثبت هنگام تفریق در کپچای اختصاصی"
+
+msgid "Selecting Yes ensures that the result of the subtraction will always be positive"
+msgstr "انتخاب «بله» تضمین می‌کند که نتیجه تفریق همیشه مثبت باشد"
+
+msgid "Email Settings"
+msgstr "تنظیمات ایمیل"
+
+msgid "Email Regarding Banned Users"
+msgstr "ایمیل مربوط به کاربران مسدودشده"
+
+msgid "Manage notifications when banned accounts attempt to interact with the system"
+msgstr "اعلان‌ها را هنگام تلاش حساب‌های مسدودشده برای تعامل با سیستم مدیریت کنید"
+
+msgid "Mail to admin"
+msgstr "ایمیل به مدیر"
+
+msgid "Send an email to the admin when a banned email tries to create a ticket"
+msgstr "وقتی ایمیل مسدودشده تلاش می‌کند تیکت ایجاد کند، برای مدیر ایمیل ارسال شود"
+
+msgid "Ticket Operations Email Setting"
+msgstr "تنظیمات ایمیل عملیات تیکت"
+
+msgid "Configure who receives notifications for specific ticket lifecycle events (Admin, Agent, and User)"
+msgstr "مشخص کنید چه کسانی اعلان رویدادهای چرخه عمر تیکت را دریافت کنند (مدیر، کارشناس و کاربر)"
+
+msgid "New ticket"
+msgstr "جدید تیکت"
+
+msgid "Ticket reassign"
+msgstr "اختصاص مجدد تیکت"
+
+msgid "Ticket close"
+msgstr "بستن تیکت"
+
+msgid "Ticket delete"
+msgstr "حذف تیکت"
+
+msgid "Ticket marked as overdue"
+msgstr "تیکت به‌عنوان دیرکرددار علامت‌گذاری شد"
+
+msgid "Ticket ban email"
+msgstr "مسدودسازی ایمیل در تیکت"
+
+msgid "Ticket unban email"
+msgstr "رفع مسدودی ایمیل در تیکت"
+
+msgid "Ticket department transfer"
+msgstr "انتقال دپارتمان تیکت"
+
+msgid "Ticket reply User"
+msgstr "تیکت پاسخ کاربر"
+
+msgid "Ticket Response Agent"
+msgstr "تیکت پاسخ کارشناس پشتیبانی"
+
+msgid "Ticket lock"
+msgstr "قفل تیکت"
+
+msgid "Actions"
+msgstr "عملیات"
+
+msgid "Ticket unlock"
+msgstr "باز کردن قفل تیکت"
+
+msgid "Ticket Change Priority"
+msgstr "تغییر اولویت تیکت"
+
+msgid "Send Feedback Email To User"
+msgstr "ارسال ایمیل بازخورد به کاربر"
+
+msgid "Agent Settings"
+msgstr "تنظیمات کارشناس پشتیبانی"
+
+msgid "Dashboard Links"
+msgstr "لینک‌های داشبورد"
+
+msgid "Toggle which features and modules are visible to agents on their primary control panel"
+msgstr "قابلیت‌ها و ماژول‌هایی را که در پنل اصلی کارشناسان نمایش داده می‌شوند فعال یا غیرفعال کنید"
+
+msgid "Knowledgebase"
+msgstr "پایگاه دانش"
+
+msgid "Canned Responses"
+msgstr "پاسخ‌های آماده"
+
+msgid "Agent Feedback"
+msgstr "بازخورد کارشناس پشتیبانی"
+
+msgid "User Data"
+msgstr "داده‌های کاربر"
+
+msgid "Export Ticket"
+msgstr "خروجی گرفتن از تیکت"
+
+msgid "Login / Logout Button"
+msgstr "دکمه ورود / خروج"
+
+msgid "Ticket Total Count"
+msgstr "تعداد کل تیکت‌ها"
+
+msgid "Recent Active Tickets"
+msgstr "تیکت‌های فعال اخیر"
+
+msgid "Quick Actions"
+msgstr "اقدامات سریع"
+
+msgid "Ticket Departments"
+msgstr "دپارتمان‌های تیکت"
+
+msgid "Recent Feedback"
+msgstr "بازخورد اخیر"
+
+msgid "Recent Activity"
+msgstr "فعالیت اخیر"
+
+msgid "Weekly Leaderboard"
+msgstr "جدول رتبه‌بندی هفتگی"
+
+msgid "VIP Clients Watchlist"
+msgstr "فهرست پایش مشتریان VIP"
+
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+msgid "Daily Velocity"
+msgstr "سرعت روزانه"
+
+msgid "Knowledge Base (Summary)"
+msgstr "پایگاه دانش (خلاصه)"
+
+msgid "Downloads (Summary)"
+msgstr "دانلودها (خلاصه)"
+
+msgid "Announcements (Summary)"
+msgstr "اطلاعیه‌ها (خلاصه)"
+
+msgid "FAQs (Summary)"
+msgstr "پرسش‌های متداول (خلاصه)"
+
+msgid "Top Menu Links"
+msgstr "لینک‌های منوی بالا"
+
+msgid "Configure visibility of quick links in the top navigation bar for agents"
+msgstr "نمایش لینک‌های سریع در نوار پیمایش بالای کارشناسان را پیکربندی کنید"
+
+msgid "Profile"
+msgstr "پروفایل"
+
+msgid "User Settings"
+msgstr "تنظیمات کاربر"
+
+msgid "Toggle which features and modules are visible to customers on their front-end dashboard"
+msgstr "قابلیت‌ها و ماژول‌هایی را که در داشبورد کاربری مشتریان نمایش داده می‌شوند فعال یا غیرفعال کنید"
+
+msgid "Erase User Data"
+msgstr "پاک‌سازی داده‌های کاربر"
+
+msgid "Registration"
+msgstr "ثبت‌نام"
+
+msgid "Configure visibility of quick links in the top navigation bar for customers"
+msgstr "نمایش لینک‌های سریع در نوار پیمایش بالای مشتریان را پیکربندی کنید"
+
+msgid "Login/Logout Button"
+msgstr "دکمه ورود/خروج"
+
+msgid "Feedback Settings"
+msgstr "تنظیمات بازخورد"
+
+msgid "Configure automated feedback request timing and custom success messages"
+msgstr "زمان‌بندی درخواست بازخورد خودکار و پیام‌های موفقیت سفارشی را پیکربندی کنید"
+
+msgid "Feedback Email Delay Type"
+msgstr "نوع تأخیر ایمیل بازخورد"
+
+msgid "Select delay type for feedback email (Days or Hours)"
+msgstr "نوع تأخیر ایمیل بازخورد را انتخاب کنید (روز یا ساعت)"
+
+msgid "Feedback Email Delay"
+msgstr "تأخیر ایمیل بازخورد"
+
+msgid "Set the number of days or hours to send a feedback email after a ticket is closed"
+msgstr "تعداد روز یا ساعت برای ارسال ایمیل بازخورد پس از بسته‌شدن تیکت را تنظیم کنید"
+
+msgid "Success message after submitting feedback"
+msgstr "پیام موفقیت پس از ارسال بازخورد"
+
+msgid "This text will appear whenever anyone submits feedback"
+msgstr "این متن هر زمان که کسی بازخورد ارسال کند نمایش داده می‌شود"
+
+msgid "Advanced settings for processing incoming emails and automated user creation"
+msgstr "تنظیمات پیشرفته برای پردازش ایمیل‌های دریافتی و ایجاد خودکار کاربر"
+
+msgid "UTF Auto Switch"
+msgstr "تغییر خودکار UTF"
+
+msgid "Enable this to automatically handle UTF-8 character encoding for incoming emails"
+msgstr "این گزینه را فعال کنید تا کدگذاری نویسه‌های UTF-8 برای ایمیل‌های دریافتی به‌صورت خودکار مدیریت شود"
+
+msgid "Create User via email"
+msgstr "ایجاد کاربر از طریق ایمیل"
+
+msgid "Allow the system to automatically create a WordPress user account if the sender does not exist"
+msgstr "اگر فرستنده وجود ندارد، اجازه دهید سیستم به‌صورت خودکار یک حساب کاربری WordPress ایجاد کند"
+
+msgid "Push Notifications"
+msgstr "اعلان‌های پوش"
+
+msgid "Firebase Notifications"
+msgstr "اعلان‌های Firebase"
+
+msgid "Configure Firebase Cloud Messaging to enable real-time desktop notifications for your support staff"
+msgstr "Firebase Cloud Messaging را برای فعال‌سازی اعلان‌های دسکتاپ بلادرنگ برای کارکنان پشتیبانی پیکربندی کنید"
+
+msgid "Find and add the Firebase API keys."
+msgstr "کلیدهای API Firebase را پیدا کرده و اضافه کنید."
+
+msgid "User's API Key"
+msgstr "کلید API کاربر"
+
+msgid "Firebase API key for the front user"
+msgstr "کلید API Firebase برای کاربر بخش کاربری"
+
+msgid "Auth Domain"
+msgstr "دامنه احراز هویت"
+
+msgid "Firebase Auth Domain"
+msgstr "دامنه احراز هویت Firebase"
+
+msgid "Database URL"
+msgstr "URL پایگاه داده"
+
+msgid "Firebase Database URL"
+msgstr "URL پایگاه داده Firebase"
+
+msgid "Project ID"
+msgstr "شناسه پروژه"
+
+msgid "Firebase Project ID"
+msgstr "شناسه پروژه Firebase"
+
+msgid "Bucket Storage"
+msgstr "فضای ذخیره‌سازی باکت"
+
+msgid "Firebase Bucket Storage"
+msgstr "فضای ذخیره‌سازی باکت Firebase"
+
+msgid "Message Sender ID"
+msgstr "شناسه فرستنده پیام"
+
+msgid "Firebase Message Sender ID"
+msgstr "شناسه فرستنده پیام Firebase"
+
+msgid "Private Server Key"
+msgstr "کلید خصوصی سرور"
+
+msgid "Firebase Server Key"
+msgstr "کلید سرور Firebase"
+
+msgid "Logo Image for Desktop Notifications"
+msgstr "تصویر لوگو برای اعلان‌های دسکتاپ"
+
+msgid "Upload a logo to display in push notification alerts"
+msgstr "لوگویی بارگذاری کنید تا در هشدارهای اعلان فوری نمایش داده شود"
+
+msgid "Private Credentials"
+msgstr "اعتبارنامه‌های خصوصی"
+
+msgid "Manage encryption keys and secondary security layers for sensitive stored data"
+msgstr "کلیدهای رمزنگاری و لایه‌های امنیتی ثانویه برای داده‌های حساس ذخیره‌شده را مدیریت کنید"
+
+msgid "Secret Key"
+msgstr "کلید مخفی"
+
+msgid "Changing the encryption key of private credentials will cause all existing credentials to be discarded"
+msgstr "تغییر کلید رمزنگاری اطلاعات محرمانه خصوصی باعث می‌شود همه اطلاعات محرمانه موجود کنار گذاشته شوند"
+
+msgid "Second Level Security"
+msgstr "امنیت سطح دوم"
+
+msgid "For enhanced security, change the encryption method in %s on line 10"
+msgstr "برای امنیت بیشتر، روش رمزنگاری را در %s در خط 10 تغییر دهید"
+
+msgid "Envato Validation"
+msgstr "اعتبارسنجی Envato"
+
+msgid "Configure Envato API integration to verify customer purchase codes and support eligibility"
+msgstr "یکپارچه‌سازی API Envato را برای تأیید کدهای خرید مشتری و شرایط دریافت پشتیبانی پیکربندی کنید"
+
+msgid "Api Key"
+msgstr "کلید API"
+
+msgid "Enter Envato api key. You can generate a personal token at build.envato.com"
+msgstr "کلید API Envato را وارد کنید. می‌توانید یک توکن شخصی در build.envato.com ایجاد کنید"
+
+msgid "Click here to generate an api key"
+msgstr "برای ایجاد کلید API اینجا کلیک کنید"
+
+msgid "License Mandatory"
+msgstr "مجوز الزامی"
+
+msgid "Prevent users from submitting a ticket without a valid license for one of your products"
+msgstr "از ارسال تیکت توسط کاربران بدون مجوز معتبر برای یکی از محصولات شما جلوگیری کنید"
+
+msgid "Product ID"
+msgstr "شناسه محصول"
+
+msgid "A comma-separated list of Envato product IDs (e.g., 123456, 789012)"
+msgstr "فهرستی از شناسه‌های محصولات Envato که با ویرگول جدا شده‌اند (مثلاً 123456، 789012)"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid "Configure MailChimp API integration to sync your support users with your marketing audiences"
+msgstr "یکپارچه‌سازی API Mailchimp را برای همگام‌سازی کاربران پشتیبانی با مخاطبان بازاریابی خود پیکربندی کنید"
+
+msgid "Enter MailChimp API key"
+msgstr "کلید API Mailchimp را وارد کنید"
+
+msgid "Audience ID"
+msgstr "شناسه مخاطبان"
+
+msgid "Find Audience ID in your MailChimp account settings under Audience name and defaults"
+msgstr "شناسه مخاطبان را در تنظیمات حساب Mailchimp، در بخش نام مخاطبان و پیش‌فرض‌ها پیدا کنید"
+
+msgid "Enable double opt-in"
+msgstr "فعال‌سازی تأیید دو مرحله‌ای عضویت"
+
+msgid "You must also enable double opt-in in your MailChimp account for this to work correctly"
+msgstr "برای عملکرد صحیح، باید گزینه تأیید دوباره عضویت را نیز در حساب Mailchimp فعال کنید"
+
+msgid "Welcome email"
+msgstr "ایمیل خوشامدگویی"
+
+msgid "You can enable Final Welcome Email in your MailChimp account settings"
+msgstr "می‌توانید ایمیل خوشامدگویی نهایی را در تنظیمات حساب Mailchimp فعال کنید"
+
+msgid "Easy Digital Downloads"
+msgstr "Easy Digital Downloads"
+
+msgid "Configure integration with Easy Digital Downloads to verify customer licenses before providing support"
+msgstr "یکپارچه‌سازی با Easy Digital Downloads را برای تأیید مجوز مشتریان پیش از ارائه پشتیبانی پیکربندی کنید"
+
+msgid "Verify License On Ticket Creation"
+msgstr "اعتبارسنجی مجوز هنگام ایجاد تیکت"
+
+msgid "Enable this to require a valid EDD license key from the user when they attempt to create a new support ticket"
+msgstr "این گزینه را فعال کنید تا هنگام ایجاد تیکت پشتیبانی جدید، کلید مجوز معتبر EDD از کاربر درخواست شود"
+
+msgid "Home Page"
+msgstr "صفحه اصلی"
+
+msgid "Sample Page"
+msgstr "صفحه نمونه"
+
+msgid "WordPress Default"
+msgstr "پیش‌فرض WordPress"
+
+msgid "Blog"
+msgstr "وبلاگ"
+
+msgid "This feature is part of a premium addon"
+msgstr "این قابلیت بخشی از یک افزودنی پریمیوم است"
+
+msgid "Unlock with"
+msgstr "باز کردن با"
+
+msgid "Requires"
+msgstr "نیازمند"
+
+msgid "This image will be shown as the default image for entities & users if no other image is provided"
+msgstr "اگر تصویر دیگری ارائه نشود، این تصویر به‌عنوان تصویر پیش‌فرض برای موجودیت‌ها و کاربران نمایش داده می‌شود"
+
+msgid "Discard"
+msgstr "صرف‌نظر"
+
+msgid "Save Changes"
+msgstr "ذخیره تغییرات"
+
+msgid "Quickly find any setting"
+msgstr "هر تنظیمی را سریع پیدا کنید"
+
+msgid "Search by setting title or tooltip description"
+msgstr "جستجو بر اساس عنوان تنظیم یا توضیح راهنما"
+
+msgid "Admin"
+msgstr "مدیر"
+
+msgid "Unlock"
+msgstr "باز کردن"
+
+msgid "This and other powerful features are available in the"
+msgstr "این قابلیت و قابلیت‌های قدرتمند دیگر در دسترس هستند در"
+
+msgid "No settings found for your search"
+msgstr "هیچ تنظیمی برای جستجوی شما یافت نشد"
+
+msgid "Copied to clipboard"
+msgstr "در کلیپ‌بورد کپی شد"
+
+msgid "Search results for"
+msgstr "نتایج جستجو برای"
+
+msgid "Ticket via email"
+msgstr "تیکت از طریق ایمیل"
+
+msgid "If you have already set up alert methods in the webcron.org interface, we recommend choosing an alert type"
+msgstr "اگر روش‌های هشدار را قبلاً در رابط webcron.org تنظیم کرده‌اید، توصیه می‌کنیم یک نوع هشدار انتخاب کنید"
+
+msgid "OR"
+msgstr "یا"
+
+msgid "URL for use with your own scripts and third-party scripts"
+msgstr "URL برای استفاده با اسکریپت‌های خودتان و اسکریپت‌های شخص ثالث"
+
+msgid "Update ticket status"
+msgstr "به‌روزرسانی وضعیت تیکت"
+
+msgid "You cannot use this email, it is used in email piping"
+msgstr "نمی‌توانید از این ایمیل استفاده کنید، چون در تبدیل ایمیل به تیکت استفاده می‌شود"
+
+msgid "The department has been stored"
+msgstr "دپارتمان ذخیره شد"
+
+msgid "The department has not been stored"
+msgstr "دپارتمان ذخیره نشد"
+
+msgid "The department has been deleted"
+msgstr "دپارتمان حذف شد"
+
+msgid "The department has not been deleted"
+msgstr "دپارتمان حذف نشد"
+
+msgid "The department in use cannot be delete"
+msgstr "دپارتمان در حال استفاده قابل حذف نیست"
+
+msgid "Select Help Topic"
+msgstr "انتخاب موضوع راهنما"
+
+msgid "Outgoing Email"
+msgstr "ایمیل خروجی"
+
+msgid "Select Email"
+msgstr "انتخاب ایمیل"
+
+msgid "Tickets of this department will receive emails from this email"
+msgstr "تیکت‌های این دپارتمان ایمیل‌ها را از این آدرس دریافت می‌کنند"
+
+msgid "Receive Email"
+msgstr "دریافت ایمیل"
+
+msgid "Default With Auto Assign"
+msgstr "پیش‌فرض با اختصاص خودکار"
+
+msgid "Save Department"
+msgstr "ذخیره دپارتمان"
+
+msgid "The user of this department will receive an email with the new ticket"
+msgstr "کاربر این دپارتمان ایمیلی همراه با تیکت جدید دریافت خواهد کرد"
+
+msgid "Yes with auto assign"
+msgstr "بله، با اختصاص خودکار"
+
+msgid "Configure departments to structure your support system and improve team coordination."
+msgstr "دپارتمان‌ها را برای ساختاربندی سیستم پشتیبانی و بهبود هماهنگی تیم پیکربندی کنید."
+
+msgid "Outgoing"
+msgstr "خروجی"
+
+msgid "Click here to give us feedback"
+msgstr "برای ارسال بازخورد اینجا کلیک کنید"
+
+msgid "Email Already Exist"
+msgstr "ایمیل از قبل وجود دارد"
+
+msgid "The email has been stored"
+msgstr "ایمیل ذخیره شد"
+
+msgid "The email has not been stored"
+msgstr "ایمیل ذخیره نشد"
+
+msgid "Test email has been sent on : "
+msgstr "ایمیل آزمایشی ارسال شد به:"
+
+msgid "Message could not be sent. Mailer Error: "
+msgstr "پیام ارسال نشد. خطای ارسال‌کننده:"
+
+msgid "Ticket History"
+msgstr "تاریخچه تیکت"
+
+msgid "SMTP"
+msgstr "SMTP"
+
+msgid "False"
+msgstr "نادرست"
+
+msgid "True"
+msgstr "درست"
+
+msgid "TLS"
+msgstr "TLS"
+
+msgid "SSL"
+msgstr "SSL"
+
+msgid "Send Email By"
+msgstr "ارسال ایمیل توسط"
+
+msgid "SMTP host type"
+msgstr "نوع میزبان SMTP"
+
+msgid "SMTP host"
+msgstr "میزبان SMTP"
+
+msgid "SMTP Authentication"
+msgstr "احراز هویت SMTP"
+
+msgid "SMTP Secure"
+msgstr "امنیت SMTP"
+
+msgid "SMTP Port"
+msgstr "پورت SMTP"
+
+msgid "Auto Response"
+msgstr "پاسخ خودکار"
+
+msgid "Some values are not acceptable please retry"
+msgstr "برخی مقادیر قابل قبول نیستند؛ لطفاً دوباره تلاش کنید"
+
+msgid "Info"
+msgstr "اطلاعات"
+
+msgid "System email used for sending email"
+msgstr "ایمیل سیستم برای ارسال ایمیل استفاده می‌شود"
+
+msgid "Email template has been deleted"
+msgstr "قالب ایمیل حذف شد"
+
+msgid "Email template has not been deleted"
+msgstr "قالب ایمیل حذف نشد"
+
+msgid "Ban Email Try To Create Ticket"
+msgstr "تلاش ایمیل مسدودشده برای ایجاد تیکت"
+
+msgid "Data Deleted"
+msgstr "داده حذف شد"
+
+msgid "Default Email Template"
+msgstr "قالب ایمیل پیش‌فرض"
+
+msgid "This template is used for all forms and languages unless a specific custom template is created."
+msgstr "تا زمانی که قالب سفارشی مشخصی ایجاد نشود، این قالب برای همه فرم‌ها و زبان‌ها استفاده می‌شود."
+
+msgid "This template is used for all forms unless a specific form template is created."
+msgstr "تا زمانی که قالب مشخصی برای فرم ایجاد نشود، این قالب برای همه فرم‌ها استفاده می‌شود."
+
+msgid "This template is used for all languages unless a specific language template is created."
+msgstr "تا زمانی که قالب مشخصی برای زبان ایجاد نشود، این قالب برای همه زبان‌ها استفاده می‌شود."
+
+msgid "View/Edit Default Template"
+msgstr "مشاهده/ویرایش قالب پیش‌فرض"
+
+msgid "Form & Language-Specific Email Templates"
+msgstr "قالب‌های ایمیل مخصوص فرم و زبان"
+
+msgid "Form-Specific Email Templates"
+msgstr "قالب‌های ایمیل مخصوص فرم"
+
+msgid "Language-Specific Email Templates"
+msgstr "قالب‌های ایمیل مخصوص زبان"
+
+msgid "Customize email content for individual form, for specific language, or a combination of both. If no custom template exists for a given form or language, the default template will be used."
+msgstr "محتوای ایمیل را برای یک فرم مشخص، یک زبان مشخص یا ترکیبی از هر دو سفارشی کنید. اگر برای فرم یا زبان موردنظر قالب سفارشی وجود نداشته باشد، از قالب پیش‌فرض استفاده می‌شود."
+
+msgid "Customize email content for individual form. If no custom template exists for a form, the default template will be used."
+msgstr "محتوای ایمیل را برای یک فرم مشخص سفارشی کنید. اگر برای آن فرم قالب سفارشی وجود نداشته باشد، از قالب پیش‌فرض استفاده می‌شود."
+
+msgid "Customize email content for specific language. If no custom template exists for a language, the default template will be used."
+msgstr "محتوای ایمیل را برای یک زبان مشخص سفارشی کنید. اگر برای آن زبان قالب سفارشی وجود نداشته باشد، از قالب پیش‌فرض استفاده می‌شود."
+
+msgid "Select A Form"
+msgstr "انتخاب یک فرم"
+
+msgid "Select A Language"
+msgstr "انتخاب یک زبان"
+
+msgid "Create Template"
+msgstr "ایجاد قالب"
+
+msgid "Existing Custom Templates"
+msgstr "قالب‌های سفارشی موجود"
+
+msgid "Form Name"
+msgstr "نام فرم"
+
+msgid "Language"
+msgstr "زبان"
+
+msgid "Preview"
+msgstr "پیش‌نمایش"
+
+msgid "Form"
+msgstr "فرم"
+
+msgid "Language:"
+msgstr "زبان:"
+
+msgid "Body"
+msgstr "بدنه"
+
+msgid "Parameters"
+msgstr "پارامترها"
+
+msgid "Tracking ID"
+msgstr "شناسه پیگیری"
+
+msgid "Ticket URL"
+msgstr "تیکت URL"
+
+msgid "Ticket Priority"
+msgstr "اولویت تیکت"
+
+msgid "Department title"
+msgstr "عنوان دپارتمان"
+
+msgid "Group Title"
+msgstr "عنوان گروه"
+
+msgid "Agent name"
+msgstr "نام کارشناس"
+
+msgid "Help topic title"
+msgstr "عنوان موضوع راهنما"
+
+msgid "Feedback URL"
+msgstr "بازخورد URL"
+
+msgid "Ticket Subject"
+msgstr "تیکت موضوع"
+
+msgid "Ticket Tracking ID"
+msgstr "شناسه رهگیری تیکت"
+
+msgid "Close Date"
+msgstr "تاریخ بستن"
+
+msgid "Save Email Template"
+msgstr "ذخیره قالب ایمیل"
+
+msgid "Note:"
+msgstr "یادداشت:"
+
+msgid "Features marked with"
+msgstr "قابلیت‌هایی که با این علامت مشخص شده‌اند"
+
+msgid "are only available with its own addon."
+msgstr "فقط با افزودنی مربوط به خودشان در دسترس هستند."
+
+msgid "Field mark as published"
+msgstr "فیلد به‌عنوان منتشرشده علامت‌گذاری شد"
+
+msgid "Field mark as unpublished"
+msgstr "فیلد به‌عنوان منتشرنشده علامت‌گذاری شد"
+
+msgid "Field cannot be mark as published"
+msgstr "فیلد را نمی‌توان به‌عنوان منتشرشده علامت‌گذاری کرد"
+
+msgid "Field mark as required"
+msgstr "فیلد به‌عنوان اجباری علامت‌گذاری شد"
+
+msgid "Field mark as not required"
+msgstr "فیلد به‌عنوان غیراجباری علامت‌گذاری شد"
+
+msgid "Field ordering down"
+msgstr "انتقال ترتیب فیلد به پایین"
+
+msgid "Field ordering up"
+msgstr "انتقال ترتیب فیلد به بالا"
+
+msgid "Please Insert At least one value for every option"
+msgstr "لطفاً برای هر گزینه حداقل یک مقدار وارد کنید"
+
+msgid "Parent field has not been stored"
+msgstr "فیلد والد ذخیره نشد"
+
+msgid "Field has not been stored"
+msgstr "فیلد ذخیره نشد"
+
+msgid "Field has been stored"
+msgstr "فیلد ذخیره شد"
+
+msgid "Child fields has not been stored"
+msgstr "فیلدهای فرزند ذخیره نشدند"
+
+msgid "Field has been updated"
+msgstr "فیلد به‌روزرسانی شد"
+
+msgid "Parent Field"
+msgstr "فیلد والد"
+
+msgid "Equal"
+msgstr "برابر"
+
+msgid "Not Equal"
+msgstr "نابرابر"
+
+msgid "Not Contain"
+msgstr "شامل نباشد"
+
+msgid "Edit Field"
+msgstr "ویرایش فیلد"
+
+msgid "Field Title"
+msgstr "عنوان فیلد"
+
+msgid "User Published"
+msgstr "منتشرشده برای کاربر"
+
+msgid "Visitor Published"
+msgstr "منتشرشده برای بازدیدکننده"
+
+msgid "Placeholder"
+msgstr "جای‌نگهدار"
+
+msgid "Required"
+msgstr "الزامی"
+
+msgid "User Search"
+msgstr "کاربر جستجو"
+
+msgid "Admin Search"
+msgstr "مدیر جستجو"
+
+msgid "Show On Listing"
+msgstr "نمایش در فهرست"
+
+msgid "Advanced"
+msgstr "پیشرفته"
+
+msgid "Field has not been deleted"
+msgstr "فیلد حذف نشد"
+
+msgid "Field has been deleted"
+msgstr "فیلد حذف شد"
+
+msgid "Select Parent"
+msgstr "انتخاب والد"
+
+msgid "Select Child"
+msgstr "انتخاب فرزند"
+
+msgid "Select Condition"
+msgstr "انتخاب شرط"
+
+msgid "AND"
+msgstr "و"
+
+msgid "Text Field"
+msgstr "فیلد متنی"
+
+msgid "Check Box"
+msgstr "چک‌باکس"
+
+msgid "Drop Down"
+msgstr "کشویی"
+
+msgid "Text Area"
+msgstr "ناحیه متنی"
+
+msgid "Radio Button"
+msgstr "دکمه رادیویی"
+
+msgid "Upload File"
+msgstr "بارگذاری فایل"
+
+msgid "Multi Select"
+msgstr "انتخاب چندگانه"
+
+msgid "Terms and Conditions"
+msgstr "شرایط و ضوابط"
+
+msgid "Dependent Field"
+msgstr "فیلد وابسته"
+
+msgid "Field Type"
+msgstr "نوع فیلد"
+
+msgid "Default Value"
+msgstr "پیش‌فرض مقدار"
+
+msgid "To choose a default value, first add values in the area below"
+msgstr "برای انتخاب مقدار پیش‌فرض، ابتدا مقادیر را در بخش زیر اضافه کنید"
+
+msgid "This option is not available in this field type"
+msgstr "این گزینه برای این نوع فیلد در دسترس نیست"
+
+msgid "Select Default Value"
+msgstr "انتخاب پیش‌فرض مقدار"
+
+msgid "Read Only"
+msgstr "فقط خواندنی"
+
+msgid "Admin / Agent Only"
+msgstr "فقط مدیر / کارشناس"
+
+msgid "Field Size"
+msgstr "فیلد اندازه"
+
+msgid "Add More"
+msgstr "افزودن بیشتر"
+
+msgid "Max Length"
+msgstr "حداکثر طول"
+
+msgid "Columns"
+msgstr "ستون‌ها"
+
+msgid "Rows"
+msgstr "ردیف‌ها"
+
+msgid "Terms and Conditions Text"
+msgstr "متن شرایط و ضوابط"
+
+msgid "e.g ' I have read and agree to the [link] Terms and Conditions[/link].  ' The text between [link] and [/link] will be linked to provided url or WordPress page."
+msgstr "مثلاً «شرایط و ضوابط [link]را خوانده‌ام و می‌پذیرم[/link].» متن بین [link] و [/link] به URL ارائه‌شده یا برگه WordPress لینک می‌شود."
+
+msgid "Terms and Conditions Link Type"
+msgstr "نوع لینک شرایط و ضوابط"
+
+msgid "Direct Link"
+msgstr "مستقیم لینک"
+
+msgid "WordPress Page"
+msgstr "WordPress صفحه"
+
+msgid "None"
+msgstr "هیچ‌کدام"
+
+msgid "Select Link Type"
+msgstr "انتخاب لینک نوع"
+
+msgid "Terms and Conditions Link"
+msgstr "لینک شرایط و ضوابط"
+
+msgid "Terms and Conditions Page"
+msgstr "برگه شرایط و ضوابط"
+
+msgid "Select WordPress page"
+msgstr "انتخاب برگه WordPress"
+
+msgid "Visibility Conditions"
+msgstr "شرایط نمایش"
+
+msgid "Add new"
+msgstr "افزودن جدید"
+
+msgid "visibility condition"
+msgstr "شرط نمایش"
+
+msgid "Use the table below to add new values"
+msgstr "برای افزودن مقادیر جدید از جدول زیر استفاده کنید"
+
+msgid "Add Value"
+msgstr "افزودن مقدار"
+
+msgid "Save Field"
+msgstr "ذخیره فیلد"
+
+msgid "S.No"
+msgstr "شماره"
+
+msgid "Published"
+msgstr "منتشرشده"
+
+msgid "Unpublished"
+msgstr "منتشرنشده"
+
+msgid "Not required"
+msgstr "غیراجباری"
+
+msgid "users popup"
+msgstr "پنجره کاربران"
+
+msgid "Can Not Unpublished"
+msgstr "قابل لغو انتشار نیست"
+
+msgid "can not mark as not required"
+msgstr "نمی‌توان به‌عنوان غیراجباری علامت‌گذاری کرد"
+
+msgid "Cannot unpublished field"
+msgstr "فیلد قابل لغو انتشار نیست"
+
+msgid "File upload fields and Check box fields cannot be made required."
+msgstr "فیلدهای بارگذاری فایل و چک‌باکس را نمی‌توان اجباری کرد."
+
+msgid "Please fill required fields."
+msgstr "لطفاً فیلدهای اجباری را تکمیل کنید."
+
+msgid "Erasing data request has been stored"
+msgstr "درخواست حذف داده‌ها ذخیره شد"
+
+msgid "Failed while storing"
+msgstr "خطا هنگام ذخیره‌سازی"
+
+msgid "Erase data request withdrawn"
+msgstr "درخواست پاک‌سازی داده پس گرفته شد"
+
+msgid "Failed while performing action"
+msgstr "انجام عملیات ناموفق بود"
+
+msgid "User identifying data erased"
+msgstr "داده‌های شناسایی کاربر حذف شدند"
+
+msgid "User data Deleted"
+msgstr "داده‌های کاربر حذف شد"
+
+msgid "Manage your personal data, including export and deletion requests."
+msgstr "داده‌های شخصی خود، از جمله درخواست‌های برون‌بری و حذف را مدیریت کنید."
+
+msgid "Export Your Data"
+msgstr "برون‌بری داده‌های شما"
+
+msgid "You have filed a request to remove your data."
+msgstr "شما درخواستی برای حذف داده‌های خود ثبت کرده‌اید."
+
+msgid "To withdraw erases data request"
+msgstr "برای لغو درخواست حذف داده‌ها"
+
+msgid "Request the removal of data from the system."
+msgstr "درخواست حذف داده‌ها از سیستم."
+
+msgid "Field Text"
+msgstr "متن فیلد"
+
+msgid "e.g., 'I have read and agree to the [link] Terms and Conditions [/link].' The text between [link] and [/link] will be linked to provided URL or WordPress page."
+msgstr "مثلاً «شرایط و ضوابط [link]را خوانده‌ام و می‌پذیرم[/link].» متن بین [link] و [/link] به URL ارائه‌شده یا برگه WordPress لینک می‌شود."
+
+msgid "Link Type"
+msgstr "نوع لینک"
+
+msgid "Link Page"
+msgstr "لینک صفحه"
+
+msgid "Select Page"
+msgstr "انتخاب صفحه"
+
+msgid "User Email"
+msgstr "ایمیل کاربر"
+
+msgid "Request Status"
+msgstr "وضعیت درخواست"
+
+msgid "Awaiting response"
+msgstr "در انتظار پاسخ"
+
+msgid "Erased identifying data"
+msgstr "داده‌های شناسایی پاک شد"
+
+msgid "Deleted"
+msgstr "حذف‌شده"
+
+msgid "Erase identifying data"
+msgstr "پاک‌سازی داده‌های شناسایی"
+
+msgid "Are you sure to erase identifying data"
+msgstr "آیا مطمئن هستید که می‌خواهید داده‌های شناسایی را پاک کنید؟"
+
+msgid "Delete data"
+msgstr "حذف داده‌ها"
+
+msgid "Link"
+msgstr "لینک"
+
+msgid "Direct URL"
+msgstr "مستقیم URL"
+
+msgid "Page Title or URL"
+msgstr "صفحه عنوان or URL"
+
+msgid "Manual Entry"
+msgstr "ورود دستی"
+
+msgid "Dir is not writable"
+msgstr "دایرکتوری قابل نوشتن نیست"
+
+msgid "Unable to connect to the server"
+msgstr "امکان اتصال به سرور وجود ندارد"
+
+msgid "Language is not installed"
+msgstr "زبان نصب نشده است"
+
+msgid "Language directory is not writable"
+msgstr "دایرکتوری زبان قابل نوشتن نیست"
+
+msgid "Required language is not installed but similar language like"
+msgstr "زبان موردنیاز نصب نشده است، اما زبان مشابهی مانند"
+
+msgid "is found in your system"
+msgstr "در سیستم شما پیدا شد"
+
+msgid "Language code"
+msgstr "کد زبان"
+
+msgid "Empty values"
+msgstr "مقادیر خالی"
+
+msgid "File is not writable"
+msgstr "فایل قابل نوشتن نیست"
+
+msgid "File successfully downloaded"
+msgstr "فایل با موفقیت دانلود شد"
+
+msgid "User ID"
+msgstr "کاربر ID"
+
+msgid "Ordering updated"
+msgstr "ترتیب به‌روزرسانی شد"
+
+msgid "Missing user(s) added successfully!"
+msgstr "کاربران جاافتاده با موفقیت اضافه شدند!"
+
+msgid "No missing user found!"
+msgstr "هیچ کاربر جاافتاده‌ای پیدا نشد!"
+
+msgid "Monitor tickets, track agent activity, and manage your support system from one place."
+msgstr "تیکت‌ها را پایش کنید، فعالیت کارشناسان را دنبال کنید و سیستم پشتیبانی خود را از یک مکان مدیریت کنید."
+
+msgid "Get to know Majestic Support, the powerful ticket support system designed to streamline customer communication and support workflows."
+msgstr "با Majestic Support آشنا شوید؛ سیستم قدرتمند تیکت پشتیبانی که برای ساده‌سازی ارتباط با مشتری و جریان‌های کاری پشتیبانی طراحی شده است."
+
+msgid "How to translate Majestic Support"
+msgstr "نحوه ترجمه Majestic Support"
+
+msgid "Configure and manage translations for Majestic Support."
+msgstr "ترجمه‌های Majestic Support را پیکربندی و مدیریت کنید."
+
+msgid "Remove All"
+msgstr "حذف همه"
+
+msgid "Track and review system errors to maintain smooth plugin performance."
+msgstr "خطاهای سیستم را پیگیری و بررسی کنید تا عملکرد افزونه روان بماند."
+
+msgid "How to create ticket"
+msgstr "نحوه ایجاد تیکت"
+
+msgid "Create a new support ticket on behalf of a user and manage customer issues efficiently."
+msgstr "از طرف کاربر تیکت پشتیبانی جدید ایجاد کنید و مشکلات مشتری را به‌صورت مؤثر مدیریت کنید."
+
+msgid "View complete ticket details, conversation history, and manage responses efficiently."
+msgstr "جزئیات کامل تیکت و تاریخچه گفتگو را مشاهده کنید و پاسخ‌ها را به‌صورت مؤثر مدیریت کنید."
+
+msgid "Add"
+msgstr "افزودن"
+
+msgid "Add Field"
+msgstr "افزودن فیلد"
+
+msgid "How to setup user fields"
+msgstr "نحوه تنظیم فیلدهای کاربر"
+
+msgid "Manage and customize user fields to collect and organize user information."
+msgstr "فیلدهای کاربر را برای جمع‌آوری و سازمان‌دهی اطلاعات کاربران مدیریت و سفارشی کنید."
+
+msgid "Add a new custom field to capture specific information."
+msgstr "برای دریافت اطلاعات خاص، یک فیلد سفارشی جدید اضافه کنید."
+
+msgid "Reset All"
+msgstr "بازنشانی همه"
+
+msgid "Customize the admin URL slugs for plugin pages."
+msgstr "نامک‌های URL مدیریت را برای صفحات افزونه سفارشی کنید."
+
+msgid "View and manage all support tickets from a centralized dashboard."
+msgstr "همه تیکت‌های پشتیبانی را از یک داشبورد متمرکز مشاهده و مدیریت کنید."
+
+msgid "Standardize how your support requests are resolved and tracked."
+msgstr "روش حل و پیگیری درخواست‌های پشتیبانی را استاندارد کنید."
+
+msgid "Add Ticket Close Reason"
+msgstr "افزودن دلیل بستن تیکت"
+
+msgid "Improve your support analytics by adding a specific new closing category."
+msgstr "با افزودن یک دسته‌بندی مشخص برای بستن تیکت، تحلیل‌های پشتیبانی خود را بهبود دهید."
+
+msgid "Pull your support records and reports for backups or team meetings."
+msgstr "سوابق و گزارش‌های پشتیبانی را برای پشتیبان‌گیری یا جلسات تیمی دریافت کنید."
+
+msgid "How to set smartreply"
+msgstr "نحوه تنظیم پاسخ هوشمند"
+
+msgid "Speed up resolution times by building a library of pre-written answers."
+msgstr "با ساخت کتابخانه‌ای از پاسخ‌های از پیش نوشته‌شده، زمان حل مشکلات را کاهش دهید."
+
+msgid "Help your agents reply faster to repetitive questions."
+msgstr "به کارشناسان کمک کنید به پرسش‌های تکراری سریع‌تر پاسخ دهند."
+
+msgid "Add Multiform"
+msgstr "افزودن فرم چندگانه"
+
+msgid "How to set multiforms"
+msgstr "نحوه تنظیم چندفرمی‌ها"
+
+msgid "Manage custom support forms for different types of customer inquiries."
+msgstr "فرم‌های پشتیبانی سفارشی را برای انواع مختلف درخواست‌های مشتری مدیریت کنید."
+
+msgid "Set up a new multiform with custom fields for a specific support request."
+msgstr "برای یک نوع درخواست پشتیبانی خاص، یک فرم چندگانه جدید با فیلدهای سفارشی تنظیم کنید."
+
+msgid "Manage your support team directory and monitor agent activity."
+msgstr "فهرست تیم پشتیبانی را مدیریت کرده و فعالیت کارشناسان را پایش کنید."
+
+msgid "Set up a new agent account and assign their role and department."
+msgstr "حساب کارشناس جدید ایجاد کنید و نقش و دپارتمان او را اختصاص دهید."
+
+msgid "Add Conditions"
+msgstr "افزودن شرط‌ها"
+
+msgid "Conditions"
+msgstr "شرط‌ها"
+
+msgid "Eliminate manual triage by automatically routing new tickets to available agents."
+msgstr "با هدایت خودکار تیکت‌های جدید به کارشناسان در دسترس، بررسی و ارجاع دستی را حذف کنید."
+
+msgid "Add Rule"
+msgstr "افزودن قانون"
+
+msgid "Set up a new automated rule for distributing incoming tickets."
+msgstr "یک قانون خودکار جدید برای توزیع تیکت‌های ورودی تنظیم کنید."
+
+msgid "Manage granular access levels and security privileges for your support staff."
+msgstr "سطوح دسترسی دقیق و مجوزهای امنیتی کارکنان پشتیبانی را مدیریت کنید."
+
+msgid "Add Permissions"
+msgstr "افزودن مجوزها"
+
+msgid "Select the modules and features this new permission set can access."
+msgstr "ماژول‌ها و قابلیت‌هایی را که این مجموعه مجوز جدید می‌تواند به آن‌ها دسترسی داشته باشد انتخاب کنید."
+
+msgid "The control center for your support desk. Manage all your core configurations here."
+msgstr "مرکز کنترل میز پشتیبانی شما. همه پیکربندی‌های اصلی را اینجا مدیریت کنید."
+
+msgid "The exact trigger links required to keep your email fetching, notifications, and cleanups running on time."
+msgstr "لینک‌های اجرای دقیق موردنیاز برای اینکه دریافت ایمیل، اعلان‌ها و پاک‌سازی‌ها به‌موقع اجرا شوند."
+
+msgid "How to add Shortcode"
+msgstr "نحوه افزودن کد کوتاه"
+
+msgid "A complete list of codes to integrate Majestic Support features directly into your site's pages."
+msgstr "فهرست کامل کدها برای افزودن مستقیم قابلیت‌های Majestic Support به صفحات سایت شما."
+
+msgid "How to set colors"
+msgstr "نحوه تنظیم رنگ‌ها"
+
+msgid "Customize the look and feel of your support portal to match your brand."
+msgstr "ظاهر و حس پرتال پشتیبانی را مطابق برند خود سفارشی کنید."
+
+msgid "Deep dive into your support metrics, ticket volume, and team performance"
+msgstr "بررسی عمیق معیارهای پشتیبانی، حجم تیکت‌ها و عملکرد تیم"
+
+msgid "Export Data"
+msgstr "خروجی گرفتن از داده‌ها"
+
+msgid "Get a complete, bird's-eye view of your entire support operation."
+msgstr "نمایی کامل و کلی از کل عملیات پشتیبانی خود دریافت کنید."
+
+msgid "Track individual agent performance, resolution times, and daily productivity."
+msgstr "عملکرد هر کارشناس، زمان حل و بهره‌وری روزانه را پیگیری کنید."
+
+msgid "Agent Detail Report"
+msgstr "گزارش کارشناس پشتیبانی جزئیات"
+
+msgid "View a complete timeline of an agent's workload, resolutions, and active tickets."
+msgstr "خط زمانی کامل حجم کار، موارد حل‌شده و تیکت‌های فعال یک کارشناس را مشاهده کنید."
+
+msgid "Identify which departments are experiencing high traffic and where more resources are needed."
+msgstr "تشخیص دهید کدام دپارتمان‌ها بار کاری بیشتری دارند و کجا به منابع بیشتری نیاز است."
+
+msgid "Department Detail Report"
+msgstr "گزارش دپارتمان جزئیات"
+
+msgid "Analyze the full lifecycle of tickets and agent efficiency within this chosen department."
+msgstr "چرخه کامل عمر تیکت‌ها و کارایی کارشناسان را در این دپارتمان انتخاب‌شده تحلیل کنید."
+
+msgid "Analyze ticket volume and support engagement across your entire user base."
+msgstr "حجم تیکت‌ها و تعامل پشتیبانی را در کل کاربران خود تحلیل کنید."
+
+msgid "User Detail Report"
+msgstr "گزارش جزئیات کاربر"
+
+msgid "View the complete support history, ticket timeline, and interaction data for a specific user."
+msgstr "تاریخچه کامل پشتیبانی، خط زمانی تیکت‌ها و داده‌های تعامل یک کاربر خاص را مشاهده کنید."
+
+msgid "Satisfaction Reports"
+msgstr "گزارش‌های رضایت"
+
+msgid "Monitor customer happiness and review the ratings left for your support team."
+msgstr "رضایت مشتریان را پایش کرده و امتیازهای ثبت‌شده برای تیم پشتیبانی را بررسی کنید."
+
+msgid "Add Email Piping"
+msgstr "افزودن پایپینگ ایمیل"
+
+msgid "Set up an email gateway to sync your support inbox directly with the dashboard."
+msgstr "یک درگاه ایمیل تنظیم کنید تا صندوق پشتیبانی مستقیماً با داشبورد همگام شود."
+
+msgid "View and monitor all active email connections and their synchronization status."
+msgstr "همه اتصال‌های فعال ایمیل و وضعیت همگام‌سازی آن‌ها را مشاهده و پایش کنید."
+
+msgid "Add GDPR Field"
+msgstr "افزودن GDPR فیلد"
+
+msgid "Create a new compliance field for your forms to ensure data protection standards."
+msgstr "برای رعایت استانداردهای حفاظت از داده، یک فیلد انطباق جدید برای فرم‌های خود ایجاد کنید."
+
+msgid "Manage the data protection and privacy consent fields used throughout your support system."
+msgstr "فیلدهای رضایت حریم خصوصی و حفاظت از داده را که در سراسر سیستم پشتیبانی استفاده می‌شوند مدیریت کنید."
+
+msgid "Review and process user requests to have their personal data permanently removed."
+msgstr "درخواست‌های کاربران برای حذف دائمی داده‌های شخصی را بررسی و پردازش کنید."
+
+msgid "Explore and manage available extensions to power up your support dashboard."
+msgstr "افزونه‌های موجود را برای تقویت داشبورد پشتیبانی بررسی و مدیریت کنید."
+
+msgid "Unlock advanced features and professional tools with our premium support extensions."
+msgstr "با افزودنی‌های حرفه‌ای پشتیبانی، قابلیت‌های پیشرفته و ابزارهای حرفه‌ای را فعال کنید."
+
+msgid "Follow the steps below to successfully install and activate your new features."
+msgstr "برای نصب و فعال‌سازی موفق قابلیت‌های جدید، مراحل زیر را دنبال کنید."
+
+msgid "View the ratings and comments left by users to monitor your service quality."
+msgstr "برای پایش کیفیت خدمات، امتیازها و دیدگاه‌های ثبت‌شده توسط کاربران را مشاهده کنید."
+
+msgid "Create a new team or category to help organize and route incoming tickets."
+msgstr "برای سازمان‌دهی و مسیریابی تیکت‌های ورودی، یک تیم یا دسته‌بندی جدید ایجاد کنید."
+
+msgid "Manage your support divisions and assign agents to specific team queues."
+msgstr "بخش‌های پشتیبانی خود را مدیریت کرده و کارشناسان را به صف‌های تیمی مشخص اختصاص دهید."
+
+msgid "Define a new urgency level to help your team prioritize critical issues."
+msgstr "برای کمک به اولویت‌بندی مشکلات حیاتی، یک سطح فوریت جدید تعریف کنید."
+
+msgid "Customize ticket urgency levels and visual indicators for your support queue."
+msgstr "سطوح فوریت تیکت و نشانگرهای بصری صف پشتیبانی را سفارشی کنید."
+
+msgid "Add Status"
+msgstr "افزودن وضعیت"
+
+msgid "Create a new custom status to better track the lifecycle of your tickets."
+msgstr "برای رهگیری بهتر چرخه عمر تیکت‌ها، یک وضعیت سفارشی جدید ایجاد کنید."
+
+msgid "Manage the different stages a ticket moves through from open to resolved."
+msgstr "مراحل مختلفی را که تیکت از حالت باز تا حل‌شده طی می‌کند مدیریت کنید."
+
+msgid "View and manage the products or services your team provides support for."
+msgstr "محصولات یا خدماتی را که تیم شما برای آن‌ها پشتیبانی ارائه می‌دهد مشاهده و مدیریت کنید."
+
+msgid "Register a new product to allow customers to select it when opening tickets."
+msgstr "یک محصول جدید ثبت کنید تا مشتریان هنگام ایجاد تیکت بتوانند آن را انتخاب کنند."
+
+msgid "Upload and migrate your existing ticket or user data into the system."
+msgstr "داده‌های موجود تیکت یا کاربر را در سیستم بارگذاری و مهاجرت دهید."
+
+msgid "Import Data Report"
+msgstr "درون‌ریزی داده‌ها گزارش"
+
+msgid "Review the success rate and details of your most recent data migration."
+msgstr "نرخ موفقیت و جزئیات جدیدترین مهاجرت داده را بررسی کنید."
+
+msgid "Create a new grouping for your Knowledge Base articles or FAQs."
+msgstr "برای مقالات پایگاه دانش یا پرسش‌های متداول، یک گروه‌بندی جدید ایجاد کنید."
+
+msgid "Organize your support content into logical groups for easier browsing."
+msgstr "محتوای پشتیبانی را برای مرور آسان‌تر در گروه‌های منطقی سازمان‌دهی کنید."
+
+msgid "Write and publish a new article to help users find answers themselves."
+msgstr "یک مقاله جدید بنویسید و منتشر کنید تا کاربران خودشان پاسخ را پیدا کنند."
+
+msgid "How to use Knowledge Base"
+msgstr "نحوه استفاده از پایگاه دانش"
+
+msgid "Manage your self-service articles and help guides in one central location."
+msgstr "مقالات خودیاری و راهنماهای کمک را در یک محل مرکزی مدیریت کنید."
+
+msgid "Upload a new file, driver, or document for your customers to download."
+msgstr "یک فایل، درایور یا سند جدید برای دانلود مشتریان بارگذاری کنید."
+
+msgid "How to use downloads"
+msgstr "نحوه استفاده از دانلودها"
+
+msgid "Manage the files and resources available for your users to access and download."
+msgstr "فایل‌ها و منابع قابل دسترسی و دانلود برای کاربران را مدیریت کنید."
+
+msgid "Create a new frequently asked question and answer pair for your site."
+msgstr "یک پرسش و پاسخ متداول جدید برای سایت خود ایجاد کنید."
+
+msgid "How to create FAQ"
+msgstr "نحوه ایجاد پرسش متداول"
+
+msgid "Organize and manage quick answers to the most common customer questions."
+msgstr "پاسخ‌های سریع به رایج‌ترین پرسش‌های مشتریان را سازمان‌دهی و مدیریت کنید."
+
+msgid "Post a new news update or system alert for your users to see."
+msgstr "یک خبر جدید یا هشدار سیستمی منتشر کنید تا کاربران ببینند."
+
+msgid "How to add announcement"
+msgstr "نحوه افزودن اطلاعیه"
+
+msgid "Manage the global notifications and news updates shown to your customers."
+msgstr "اعلان‌های عمومی و به‌روزرسانی‌های خبری نمایش‌داده‌شده به مشتریان را مدیریت کنید."
+
+msgid "Add Help Topics"
+msgstr "افزودن موضوعات راهنما"
+
+msgid "How to use help topic"
+msgstr "نحوه استفاده از موضوع راهنما"
+
+msgid "Manage the subject lines users can select when opening a new ticket."
+msgstr "موضوعاتی را که کاربران هنگام ایجاد تیکت جدید می‌توانند انتخاب کنند مدیریت کنید."
+
+msgid "Create a new predefined topic to help categorize incoming user requests."
+msgstr "برای دسته‌بندی درخواست‌های ورودی کاربران، یک موضوع از پیش تعریف‌شده جدید ایجاد کنید."
+
+msgid "How to set SMTP"
+msgstr "نحوه تنظیم SMTP"
+
+msgid "Configure the mail accounts used by the system to send notifications and replies."
+msgstr "حساب‌های ایمیلی را که سیستم برای ارسال اعلان‌ها و پاسخ‌ها استفاده می‌کند پیکربندی کنید."
+
+msgid "Connect a new email account to the system for outgoing or incoming mail."
+msgstr "یک حساب ایمیل جدید برای ایمیل‌های ورودی یا خروجی به سیستم متصل کنید."
+
+msgid "Manage your library of 'canned responses' to answer common questions instantly."
+msgstr "کتابخانه پاسخ‌های آماده خود را برای پاسخ سریع به پرسش‌های رایج مدیریت کنید."
+
+msgid "Draft a new reusable message template to speed up agent reply times."
+msgstr "یک قالب پیام قابل استفاده مجدد ایجاد کنید تا زمان پاسخ کارشناسان کوتاه‌تر شود."
+
+msgid "Define agent roles and manage their access levels within the dashboard."
+msgstr "نقش‌های کارشناسان و سطوح دسترسی آن‌ها را در داشبورد مدیریت کنید."
+
+msgid "Create a new staff role with specific permissions and system access."
+msgstr "یک نقش کارمند جدید با مجوزها و دسترسی سیستم مشخص ایجاد کنید."
+
+msgid "View your incoming mail queue and manage communication from your customers."
+msgstr "صف ایمیل‌های ورودی را مشاهده کرده و ارتباط با مشتریان را مدیریت کنید."
+
+msgid "Review sent messages and pending outgoing communication from your system."
+msgstr "پیام‌های ارسال‌شده و ارتباطات خروجی در انتظار را در سیستم بررسی کنید."
+
+msgid "Draft and send a new direct message or announcement to your users."
+msgstr "یک پیام مستقیم یا اعلان جدید برای کاربران خود ایجاد و ارسال کنید."
+
+msgid "Review the details of this specific communication and its thread history."
+msgstr "جزئیات این ارتباط خاص و تاریخچه رشته گفتگوی آن را بررسی کنید."
+
+msgid "View a history of blocked attempts from blacklisted email addresses."
+msgstr "تاریخچه تلاش‌های مسدودشده از آدرس‌های ایمیل لیست سیاه را مشاهده کنید."
+
+msgid "Add Banned Email"
+msgstr "افزودن ایمیل مسدود"
+
+msgid "Block specific email addresses or domains from creating tickets in your system."
+msgstr "آدرس‌های ایمیل یا دامنه‌های مشخص را از ایجاد تیکت در سیستم خود مسدود کنید."
+
+msgid "Blacklist a specific address to prevent spam or unwanted ticket submissions."
+msgstr "برای جلوگیری از هرزنامه یا ارسال تیکت ناخواسته، یک آدرس مشخص را به لیست سیاه اضافه کنید."
+
+msgid "How to use email cc"
+msgstr "نحوه استفاده از CC ایمیل"
+
+msgid "Manage the email addresses that should automatically receive a carbon copy of tickets."
+msgstr "آدرس‌های ایمیلی را که باید به‌صورت خودکار نسخه CC تیکت‌ها را دریافت کنند مدیریت کنید."
+
+msgid "Add a new recipient to be automatically included in ticket communications."
+msgstr "یک گیرنده جدید اضافه کنید تا به‌صورت خودکار در ارتباطات تیکت‌ها قرار گیرد."
+
+msgid "Customize the layout and design of the automated emails sent by your system."
+msgstr "چیدمان و طراحی ایمیل‌های خودکاری را که سیستم ارسال می‌کند سفارشی کنید."
+
+msgid "Find documentation and resources to help you master your support platform."
+msgstr "مستندات و منابعی را پیدا کنید که به تسلط شما بر پلتفرم پشتیبانی کمک می‌کنند."
+
+msgid "Addons Status"
+msgstr "افزودنی‌ها وضعیت"
+
+msgid "Review the current health and activation status of your installed extensions."
+msgstr "سلامت فعلی و وضعیت فعال‌سازی افزونه‌های نصب‌شده را بررسی کنید."
+
+msgid "Home"
+msgstr "خانه"
+
+msgid "Design"
+msgstr "طراحی"
+
+msgid "Reasons"
+msgstr "دلایل"
+
+msgid "Majestic Support System"
+msgstr "Majestic Support سیستم"
+
+msgid "Majestic Support for WordPress is a top-tier ticket system that can significantly enhance your customers’ support experience."
+msgstr "Majestic Support برای WordPress یک سیستم تیکت سطح بالا است که می‌تواند تجربه پشتیبانی مشتریان شما را به‌طور چشمگیری بهبود دهد."
+
+msgid "Version"
+msgstr "نسخه"
+
+msgid " (Pro)"
+msgstr " (حرفه‌ای)"
+
+msgid "Active Installs"
+msgstr "نصب‌های فعال"
+
+msgid "Total Downloads"
+msgstr "کل دانلودها"
+
+msgid "Our Story"
+msgstr "داستان ما"
+
+msgid "Majestic"
+msgstr "Majestic"
+
+msgid "was born out of a simple frustration: customer support tools were either too clunky, too expensive, or didn't integrate well with WordPress. We believed businesses deserved a solution that lived right inside their own dashboard, keeping data secure and workflows seamless."
+msgstr "از یک نارضایتی ساده شکل گرفت: ابزارهای پشتیبانی مشتری یا بیش از حد پیچیده بودند، یا بسیار گران، یا با WordPress به‌خوبی یکپارچه نمی‌شدند. ما باور داشتیم کسب‌وکارها شایسته راهکاری هستند که درست در داشبورد خودشان اجرا شود، داده‌ها را امن نگه دارد و جریان‌های کاری را روان کند."
+
+msgid "Today, our goal is to provide the most intuitive, fast, and customizable support portal available on the market. We are continuously listening to user feedback to shape the future of this tool."
+msgstr "امروز هدف ما ارائه یکی از شهودی‌ترین، سریع‌ترین و قابل‌سفارشی‌سازی‌ترین پرتال‌های پشتیبانی بازار است. ما پیوسته به بازخورد کاربران گوش می‌دهیم تا آینده این ابزار را شکل دهیم."
+
+msgid "We recently implemented the Majestic Support plugin for a client’s website to manage ticketing, and it has proven to be an excellent choice. This highly optimized ticket management system offers many features, including an intelligent Smart Reply feature that saves time by suggesting relevant replies. One of the standout features of Majestic Support is its exceptional support and development team, who are always ready to assist. Their commitment to collaboration significantly enhances the user experience. If I had to select a ticket management plugin again, I would choose Majestic Support. The combination of a powerful plugin, and a dedicated support team makes it a top-tier solution for any business needing effective ticket management."
+msgstr "ما اخیراً افزونه Majestic Support را برای مدیریت تیکت‌ها در وب‌سایت یک مشتری پیاده‌سازی کردیم و این افزونه انتخابی عالی بود. این سیستم بسیار بهینه مدیریت تیکت، قابلیت‌های زیادی دارد؛ از جمله پاسخ هوشمند که با پیشنهاد پاسخ‌های مرتبط در زمان صرفه‌جویی می‌کند. یکی از نقاط قوت Majestic Support، تیم پشتیبانی و توسعه عالی آن است که همیشه آماده کمک هستند. تعهد آن‌ها به همکاری، تجربه کاربری را به‌طور قابل توجهی بهتر می‌کند. اگر دوباره بخواهم افزونه‌ای برای مدیریت تیکت انتخاب کنم، Majestic Support را انتخاب می‌کنم. ترکیب یک افزونه قدرتمند و تیم پشتیبانی متعهد، آن را به راهکاری سطح بالا برای هر کسب‌وکاری تبدیل می‌کند که به مدیریت مؤثر تیکت نیاز دارد."
+
+msgid "Why I Love Majestic Support for Ticketing"
+msgstr "چرا Majestic Support را برای مدیریت تیکت دوست دارم"
+
+msgid "Why Choose Majestic?"
+msgstr "چرا Majestic را انتخاب کنیم؟"
+
+msgid "Lightning Fast"
+msgstr "بسیار سریع"
+
+msgid "Built with modern code standards ensuring your admin panel and frontend load instantly."
+msgstr "با استانداردهای مدرن کدنویسی ساخته شده تا پنل مدیریت و بخش کاربری شما سریع بارگذاری شوند."
+
+msgid "Fully Customizable"
+msgstr "کاملاً قابل سفارشی‌سازی"
+
+msgid "Tailor every color, status, and layout to perfectly match your brand's unique identity."
+msgstr "هر رنگ، وضعیت و چیدمان را طوری تنظیم کنید که کاملاً با هویت منحصربه‌فرد برند شما هماهنگ باشد."
+
+msgid "Team Collaboration"
+msgstr "همکاری تیمی"
+
+msgid "Easily assign tickets, manage departments, and communicate seamlessly with internal notes."
+msgstr "تیکت‌ها را به‌راحتی اختصاص دهید، دپارتمان‌ها را مدیریت کنید و با یادداشت‌های داخلی بدون وقفه ارتباط برقرار کنید."
+
+msgid "Recent Updates"
+msgstr "به‌روزرسانی‌های اخیر"
+
+msgid "View Full Changelog"
+msgstr "مشاهده کامل تغییرات"
+
+msgid "v1.1.2"
+msgstr "v1.1.2"
+
+msgid "Major Update: Security Enhancements, AI Features & Advanced Customization"
+msgstr "به‌روزرسانی بزرگ: بهبودهای امنیتی، قابلیت‌های AI و سفارشی‌سازی پیشرفته"
+
+msgid "This release focuses on strengthening security while introducing powerful new features and flexibility across the system. We’ve added configuration-based reply ordering in ticket details and significantly enhanced field ordering with new options such as placeholders, descriptions, admin-only controls, default values, and multiple visibility conditions. Product selection and custom status support have also been introduced, along with a token-based option for checking ticket status.\n                                On the usability side, we’ve improved the priority form with a color preview option and updated minimum required fields for better validation. User experience has been enhanced by adding GDPR fields to the registration form and introducing configuration-based user avatars.\n                                A major highlight of this release is the introduction of AI-powered reply suggestions, helping agents respond more efficiently. Additionally, we’ve added SupportCandy import functionality to simplify migration from other systems. Overall, this update delivers better security, smarter automation, and more control for administrators."
+msgstr "این نسخه بر تقویت امنیت تمرکز دارد و در عین حال قابلیت‌های جدید قدرتمند و انعطاف‌پذیری بیشتری را در سراسر سیستم اضافه می‌کند. ترتیب پاسخ‌ها در جزئیات تیکت اکنون بر اساس پیکربندی قابل کنترل است و ترتیب فیلدها با گزینه‌هایی مانند placeholder، توضیحات، کنترل‌های فقط مدیر، مقدارهای پیش‌فرض و چندین شرط نمایش به‌طور قابل توجهی بهبود یافته است. پشتیبانی از انتخاب محصول، وضعیت سفارشی و گزینه مبتنی بر توکن برای بررسی وضعیت تیکت نیز اضافه شده است.\n                                از نظر کاربردپذیری، فرم اولویت با پیش‌نمایش رنگ بهبود یافته و حداقل فیلدهای الزامی برای اعتبارسنجی بهتر به‌روزرسانی شده‌اند. تجربه کاربر با افزودن فیلدهای GDPR به فرم ثبت‌نام و معرفی آواتارهای کاربر مبتنی بر پیکربندی بهتر شده است.\n                                نکته مهم این نسخه، معرفی پیشنهادهای پاسخ مبتنی بر AI است که به کارشناسان کمک می‌کند کارآمدتر پاسخ دهند. همچنین قابلیت درون‌ریزی از SupportCandy اضافه شده تا مهاجرت از سیستم‌های دیگر ساده‌تر شود. در مجموع، این به‌روزرسانی امنیت بهتر، خودکارسازی هوشمندتر و کنترل بیشتر برای مدیران فراهم می‌کند."
+
+msgid "Released on"
+msgstr "منتشرشده در"
+
+msgid "v1.1.1"
+msgstr "v1.1.1"
+
+msgid "Security Update"
+msgstr "به‌روزرسانی امنیتی"
+
+msgid "This release fixes security issues reported during the WordPress review process and improves the overall security of the plugin. Users are strongly encouraged to update to the latest version."
+msgstr "این نسخه مشکلات امنیتی گزارش‌شده در فرایند بررسی WordPress را رفع می‌کند و امنیت کلی افزونه را بهبود می‌دهد. به کاربران اکیداً توصیه می‌شود به آخرین نسخه به‌روزرسانی کنند."
+
+msgid "v1.1.0"
+msgstr "v1.1.0"
+
+msgid "Security & Bug Fix Update"
+msgstr "به‌روزرسانی امنیتی و رفع باگ"
+
+msgid "This release includes important security fixes along with general bug fixes. Issues identified during the WordPress plugin review process have been resolved, and overall stability and performance have been improved."
+msgstr "این نسخه شامل اصلاحات امنیتی مهم همراه با رفع خطاهای عمومی است. مشکلات شناسایی‌شده در فرایند بررسی افزونه WordPress رفع شده‌اند و پایداری و عملکرد کلی بهبود یافته است."
+
+msgid "Core Development"
+msgstr "توسعه هسته"
+
+msgid "MS"
+msgstr "MS"
+
+msgid "Lead Developer & Creator of Majestic"
+msgstr "توسعه‌دهنده اصلی و سازنده Majestic"
+
+msgid "View Profile"
+msgstr "مشاهده پروفایل"
+
+msgid "Unlock Pro Features"
+msgstr "فعال‌سازی قابلیت‌های حرفه‌ای"
+
+msgid "Take your customer support to the next level with advanced tools designed for teams."
+msgstr "با ابزارهای پیشرفته طراحی‌شده برای تیم‌ها، پشتیبانی مشتریان خود را به سطح بالاتری ببرید."
+
+msgid "Unlimited Departments"
+msgstr "دپارتمان‌های نامحدود"
+
+msgid "Automated Workflows"
+msgstr "گردش‌کارهای خودکار"
+
+msgid "Custom Ticket Fields"
+msgstr "سفارشی تیکت فیلدها"
+
+msgid "Upgrade Now"
+msgstr "اکنون ارتقا دهید"
+
+msgid "Featured Tutorial"
+msgstr "آموزش ویژه"
+
+msgid "Video Thumbnail"
+msgstr "تصویر بندانگشتی ویدئو"
+
+msgid "Getting Started with Majestic"
+msgstr "شروع کار با Majestic"
+
+msgid "Live Demo"
+msgstr "دموی زنده"
+
+msgid "Community Forum"
+msgstr "انجمن جامعه کاربری"
+
+msgid "Report a Bug"
+msgstr "گزارش خطا"
+
+msgid "Documentation"
+msgstr "مستندات"
+
+msgid "Compatible With"
+msgstr "سازگار با"
+
+msgid "Elementor"
+msgstr "Elementor"
+
+msgid "WPML"
+msgstr "WPML"
+
+msgid "MemberPress"
+msgstr "MemberPress"
+
+msgid "System Status"
+msgstr "سیستم وضعیت"
+
+msgid "WP Version"
+msgstr "نسخه WP"
+
+msgid "PHP Version"
+msgstr "نسخه PHP"
+
+msgid "Max Upload Size"
+msgstr "حداکثر اندازه بارگذاری"
+
+msgid "PHP Memory Limit"
+msgstr "محدودیت حافظه PHP"
+
+msgid "Database Status"
+msgstr "وضعیت پایگاه داده"
+
+msgid "Connected"
+msgstr "متصل"
+
+msgid "Disconnected"
+msgstr "قطع اتصال"
+
+msgid "Customize Layout"
+msgstr "سفارشی‌سازی چیدمان"
+
+msgid "Stats Overview"
+msgstr "نمای کلی آمار"
+
+msgid "Welcome Banner"
+msgstr "بنر خوشامدگویی"
+
+msgid "Overdue Tickets"
+msgstr "معوق تیکت‌ها"
+
+msgid "Unassigned & Quick Actions"
+msgstr "اختصاص‌نیافته & سریع عملیات"
+
+msgid "Recent Tickets List"
+msgstr "اخیر تیکت‌ها فهرست"
+
+msgid "Ticket Volume & Status"
+msgstr "حجم و وضعیت تیکت‌ها"
+
+msgid "Analytics Breakdown"
+msgstr "جزئیات تحلیل‌ها"
+
+msgid "Activity & Canned Responses"
+msgstr "فعالیت و پاسخ‌های آماده"
+
+msgid "VIP & Feedback"
+msgstr "VIP & بازخورد"
+
+msgid "Performance & Timers"
+msgstr "عملکرد و زمان‌سنج‌ها"
+
+msgid "Recommended Addons"
+msgstr "افزودنی‌های پیشنهادی"
+
+msgid "KB & Help Guide"
+msgstr "پایگاه دانش و راهنمای کمک"
+
+msgid "Reset Default"
+msgstr "بازنشانی پیش‌فرض"
+
+msgid "Done"
+msgstr "انجام شد"
+
+msgid "Welcome Back, Admin"
+msgstr "خوش آمدید، مدیر"
+
+msgid "All system metrics are performing optimally. You have"
+msgstr "همه شاخص‌های سیستم به‌خوبی عمل می‌کنند. شما دارید"
+
+msgid "waiting in the queue—assign them promptly to maintain efficient support operations."
+msgstr "در صف انتظار هستند؛ برای حفظ عملکرد مؤثر پشتیبانی، آن‌ها را سریع اختصاص دهید."
+
+msgid "System metrics are healthy. All tickets are currently assigned and being handled efficiently."
+msgstr "شاخص‌های سیستم سالم هستند. همه تیکت‌ها در حال حاضر اختصاص یافته‌اند و به‌صورت مؤثر رسیدگی می‌شوند."
+
+msgid "Open Tickets"
+msgstr "باز تیکت‌ها"
+
+msgid "New Tickets"
+msgstr "جدید تیکت‌ها"
+
+msgid "Pending Tickets"
+msgstr "در انتظار تیکت‌ها"
+
+msgid "Answered Tickets"
+msgstr "پاسخ داده‌شده تیکت‌ها"
+
+msgid "Addone update is Live!"
+msgstr "به‌روزرسانی افزودنی منتشر شده است!"
+
+msgid "Experience AI-powered responses and smoother analytics."
+msgstr "پاسخ‌های مبتنی بر AI و تحلیل‌های روان‌تر را تجربه کنید."
+
+msgid "View Addone Status"
+msgstr "مشاهده افزودنیe وضعیت"
+
+msgid "plugin"
+msgstr "افزونه"
+
+msgid "View All"
+msgstr "مشاهده همه"
+
+msgid "Unassigned Tickets"
+msgstr "اختصاص‌نیافته تیکت‌ها"
+
+msgid "Assign"
+msgstr "اختصاص"
+
+msgid "add missing users"
+msgstr "افزودن کاربران جاافتاده"
+
+msgid "Sync WP Users"
+msgstr "همگام‌سازی کاربران WP"
+
+msgid "Recent Tickets"
+msgstr "اخیر تیکت‌ها"
+
+msgid "Ticket Volume"
+msgstr "حجم تیکت‌ها"
+
+msgid "Last 7 Days"
+msgstr "۷ روز گذشته"
+
+msgid "By Priorities"
+msgstr "توسط اولویت‌ها"
+
+msgid "No data available"
+msgstr "داده‌ای موجود نیست"
+
+msgid "By Departments"
+msgstr "توسط دپارتمان‌ها"
+
+msgid "No department data"
+msgstr "داده‌ای برای دپارتمان وجود ندارد"
+
+msgid "By Products"
+msgstr "توسط محصولات"
+
+msgid "No product data available"
+msgstr "داده‌ای برای محصول وجود ندارد"
+
+msgid "Activity Log"
+msgstr "فعالیت گزارش"
+
+msgid "The best support plugin for the majestic support has everything you need."
+msgstr "Majestic Support همه چیزهایی را که برای یک افزونه پشتیبانی قدرتمند نیاز دارید در اختیار شما می‌گذارد."
+
+msgid "Install Add-on"
+msgstr "نصب افزودنی"
+
+msgid "Manage"
+msgstr "مدیریت"
+
+msgid "VIP Tickets"
+msgstr "تیکت‌های VIP"
+
+msgid "No active VIP tickets found."
+msgstr "هیچ تیکت VIP فعالی پیدا نشد."
+
+msgid "Feedback On Closed"
+msgstr "بازخورد در بسته‌شده"
+
+msgid "Agents Performance"
+msgstr "عملکرد کارشناسان"
+
+msgid "Assigned"
+msgstr "اختصاص‌یافته"
+
+msgid "Solved"
+msgstr "حل‌شده"
+
+msgid "The system has no agents add an agent to maximize your productivity."
+msgstr "سیستم هیچ کارشناسی ندارد؛ برای افزایش بهره‌وری یک کارشناس اضافه کنید."
+
+msgid "Agent Add-on Not Installed"
+msgstr "افزودنی کارشناس نصب نشده است"
+
+msgid "Don't limit yourself—install the Agent addon for maximum productivity."
+msgstr "خودتان را محدود نکنید؛ برای بیشترین بهره‌وری، افزودنی کارشناس را نصب کنید."
+
+msgid "agent addone"
+msgstr "افزودنی کارشناس"
+
+msgid "Install Agent Addon"
+msgstr "نصب افزودنی کارشناس"
+
+msgid "Active Timers"
+msgstr "زمان‌سنج‌های فعال"
+
+msgid "Logged "
+msgstr "ثبت‌شده "
+
+msgid "No time logs found"
+msgstr "هیچ گزارش زمانی پیدا نشد"
+
+msgid "Manage support staff and assignments"
+msgstr "کارکنان پشتیبانی و واگذاری‌ها را مدیریت کنید"
+
+msgid "AI Powered Reply"
+msgstr "پاسخ مبتنی بر AI"
+
+msgid "Generate smart responses with AI"
+msgstr "با AI پاسخ‌های هوشمند تولید کنید"
+
+msgid "Auto Close Ticket"
+msgstr "بستن خودکار تیکت"
+
+msgid "Close inactive tickets automatically"
+msgstr "تیکت‌های غیرفعال را به‌صورت خودکار ببندید"
+
+msgid "Collect customer satisfaction ratings"
+msgstr "امتیازهای رضایت مشتریان را جمع‌آوری کنید"
+
+msgid "Organize tickets by specific topics"
+msgstr "تیکت‌ها را بر اساس موضوعات مشخص سازمان‌دهی کنید"
+
+msgid "Private Note"
+msgstr "خصوصی یادداشت"
+
+msgid "Add internal notes for staff eyes only"
+msgstr "یادداشت‌های داخلی فقط برای کارکنان اضافه کنید"
+
+msgid "Create a self-service help portal"
+msgstr "یک پرتال راهنمای خودخدمت ایجاد کنید"
+
+msgid "Max Tickets"
+msgstr "حداکثر تیکت‌ها"
+
+msgid "Limit open tickets per user"
+msgstr "تعداد تیکت‌های باز برای هر کاربر را محدود کنید"
+
+msgid "Merge Tickets"
+msgstr "ادغام تیکت‌ها"
+
+msgid "Combine duplicate tickets into one"
+msgstr "تیکت‌های تکراری را در یک تیکت ادغام کنید"
+
+msgid "Track tickets past their SLA"
+msgstr "تیکت‌هایی را که از SLA عبور کرده‌اند پیگیری کنید"
+
+msgid "Send emails via reliable SMTP"
+msgstr "ایمیل‌ها را از طریق SMTP مطمئن ارسال کنید"
+
+msgid "View audit logs of ticket changes"
+msgstr "گزارش‌های ممیزی تغییرات تیکت را مشاهده کنید"
+
+msgid "Save time with reusable templates"
+msgstr "با قالب‌های قابل استفاده مجدد در زمان صرفه‌جویی کنید"
+
+msgid "Convert emails into tickets"
+msgstr "ایمیل‌ها را به تیکت تبدیل کنید"
+
+msgid "Time Tracking"
+msgstr "پیگیری زمان"
+
+msgid "Log time spent on each ticket"
+msgstr "زمان صرف‌شده برای هر تیکت را ثبت کنید"
+
+msgid "Advanced frontend user capabilities"
+msgstr "قابلیت‌های پیشرفته کاربر در بخش کاربری"
+
+msgid "Ticket Actions"
+msgstr "تیکت عملیات"
+
+msgid "Bulk actions and automation tools"
+msgstr "اقدام‌های گروهی و ابزارهای خودکارسازی"
+
+msgid "Broadcast news to all users"
+msgstr "ارسال خبر به همه کاربران"
+
+msgid "Block spam email addresses"
+msgstr "مسدود کردن آدرس‌های ایمیل هرزنامه"
+
+msgid "Desktop Notifications"
+msgstr "اعلان‌های دسکتاپ"
+
+msgid "Get real-time browser alerts"
+msgstr "دریافت هشدارهای مرورگر به‌صورت لحظه‌ای"
+
+msgid "Download ticket data to CSV/Excel"
+msgstr "دانلود داده‌های تیکت در CSV/Excel"
+
+msgid "Manage file attachments efficiently"
+msgstr "پیوست‌های فایل را به‌صورت مؤثر مدیریت کنید"
+
+msgid "Build a frequently asked questions list"
+msgstr "یک فهرست پرسش‌های متداول بسازید"
+
+msgid "Admin Widgets"
+msgstr "مدیر ابزارک‌ها"
+
+msgid "Dashboard stats for WP admin home"
+msgstr "آمار داشبورد برای صفحه اصلی مدیریت WP"
+
+msgid "Internal Mail"
+msgstr "ایمیل داخلی"
+
+msgid "Private staff-to-staff messaging"
+msgstr "پیام‌رسانی خصوصی بین کارکنان"
+
+msgid "Embed support forms anywhere"
+msgstr "فرم‌های پشتیبانی را در هر جایی جاسازی کنید"
+
+msgid "Show order info inside tickets"
+msgstr "نمایش اطلاعات سفارش داخل تیکت‌ها"
+
+msgid "Securely collect user login details"
+msgstr "جزئیات ورود کاربر را به‌صورت امن دریافت کنید"
+
+msgid "Verify Envato purchase codes"
+msgstr "اعتبارسنجی کدهای خرید Envato"
+
+msgid "Sync users to mailing lists"
+msgstr "کاربران را با فهرست‌های ایمیلی همگام کنید"
+
+msgid "Charge users for premium tickets"
+msgstr "از کاربران برای تیکت‌های ویژه هزینه دریافت کنید"
+
+msgid "Easy Digital Download"
+msgstr "Easy Digital Download"
+
+msgid "EDD integration for digital products"
+msgstr "یکپارچه‌سازی EDD برای محصولات دیجیتال"
+
+msgid "Multi-Language Emails"
+msgstr "ایمیل‌های چندزبانه"
+
+msgid "Send notifications in user languages"
+msgstr "اعلان‌ها را به زبان کاربران ارسال کنید"
+
+msgid "CC additional users on ticket replies"
+msgstr "کاربران اضافی را در پاسخ‌های تیکت CC کنید"
+
+msgid "Multi Forms"
+msgstr "فرم‌های چندگانه"
+
+msgid "Create multiple custom ticket forms"
+msgstr "چند فرم تیکت سفارشی ایجاد کنید"
+
+msgid "Round-robin ticket assignment"
+msgstr "واگذاری چرخشی تیکت"
+
+msgid "Close Reasons"
+msgstr "بستن دلایل"
+
+msgid "Ask why a ticket is being closed"
+msgstr "دلیل بسته‌شدن تیکت را بپرسید"
+
+msgid "Activate Now"
+msgstr "اکنون فعال کنید"
+
+msgid "Beta"
+msgstr "بتا"
+
+msgid "Awesome Support"
+msgstr "Awesome Support"
+
+msgid "SupportCandy"
+msgstr "SupportCandy"
+
+msgid "Fluent Support"
+msgstr "Fluent Support"
+
+msgid "Top Knowledge Base Articles"
+msgstr "برترین مقالات پایگاه دانش"
+
+msgid "Views"
+msgstr "بازدیدها"
+
+msgid "Quick Help Guide"
+msgstr "راهنمای سریع"
+
+msgid "Getting Started"
+msgstr "شروع کار"
+
+msgid "Installation & Setup"
+msgstr "نصب و راه‌اندازی"
+
+msgid "Watch"
+msgstr "مشاهده"
+
+msgid "Fields Manager"
+msgstr "مدیریت فیلدها"
+
+msgid "Notifications"
+msgstr "اعلان‌ها"
+
+msgid "Setup System Emails"
+msgstr "تنظیم ایمیل‌های سیستم"
+
+msgid "New Update Version"
+msgstr "نسخه به‌روزرسانی جدید"
+
+msgid "is Available"
+msgstr "در دسترس است"
+
+msgid "Saving..."
+msgstr "در حال ذخیره..."
+
+msgid "Videos Guidance"
+msgstr "راهنمای ویدئویی"
+
+msgid "A reputable support system that offers step-by-step YouTube video guides to help you understand."
+msgstr "یک سیستم پشتیبانی معتبر که برای کمک به درک بهتر، راهنماهای ویدیویی مرحله‌به‌مرحله YouTube ارائه می‌دهد."
+
+msgid "View All Videos"
+msgstr "مشاهده همه ویدیوها"
+
+msgid "Contact Us For Support"
+msgstr "برای پشتیبانی با ما تماس بگیرید"
+
+msgid "At Majestic Support, we are committed to offering prompt and helpful customer care to help you at every step."
+msgstr "در Majestic Support متعهد هستیم در هر مرحله، خدمات مشتری سریع و مفید ارائه کنیم."
+
+msgid "Submit ticket"
+msgstr "ارسال تیکت"
+
+msgid "How to setup"
+msgstr "نحوه راه‌اندازی"
+
+msgid "Ticket Creation"
+msgstr "ایجاد تیکت"
+
+msgid "Visitor ticket creation"
+msgstr "ایجاد تیکت توسط بازدیدکننده"
+
+msgid "How to set ticket auto close"
+msgstr "نحوه تنظیم بستن خودکار تیکت"
+
+msgid "How to reopen closed ticket"
+msgstr "نحوه بازگشایی تیکت بسته‌شده"
+
+msgid "How to lock a ticket"
+msgstr "نحوه قفل کردن تیکت"
+
+msgid "How to add private note"
+msgstr "نحوه افزودن یادداشت خصوصی"
+
+msgid "View ticket history"
+msgstr "مشاهده تاریخچه تیکت"
+
+msgid "How to setup custom fields"
+msgstr "نحوه تنظیم فیلدهای سفارشی"
+
+msgid "Set ticket auto overdue"
+msgstr "تنظیم دیرکرد خودکار تیکت"
+
+msgid "Manually set ticket overdue"
+msgstr "تنظیم دستی دیرکرد تیکت"
+
+msgid "How to merge tickets"
+msgstr "نحوه ادغام تیکت‌ها"
+
+msgid "How to export tickets"
+msgstr "نحوه برون‌بری تیکت‌ها"
+
+msgid "How use help topic"
+msgstr "نحوه استفاده از موضوع راهنما"
+
+msgid "How to change department"
+msgstr "نحوه تغییر دپارتمان"
+
+msgid "How to use multi-forms"
+msgstr "نحوه استفاده از فرم‌های چندگانه"
+
+msgid "How to paid support"
+msgstr "نحوه استفاده از پشتیبانی پولی"
+
+msgid "How to use premade response"
+msgstr "نحوه استفاده از پاسخ آماده"
+
+msgid "How to add private credentials"
+msgstr "نحوه افزودن اطلاعات محرمانه خصوصی"
+
+msgid "How to ban/unban user"
+msgstr "نحوه مسدود/رفع مسدودی کاربر"
+
+msgid "Agent system"
+msgstr "سیستم کارشناسان"
+
+msgid "Manually assign ticket to agent"
+msgstr "اختصاص دستی تیکت به کارشناس"
+
+msgid "How to edit time"
+msgstr "نحوه ویرایش زمان"
+
+msgid "How to use time tracking"
+msgstr "نحوه استفاده از پیگیری زمان"
+
+msgid "How to use smart replies"
+msgstr "نحوه استفاده از پاسخ‌های هوشمند"
+
+msgid "How to show counts"
+msgstr "نحوه نمایش شمارش‌ها"
+
+msgid "How to set Captcha"
+msgstr "نحوه تنظیم کپچا"
+
+msgid "How to set login redirect"
+msgstr "نحوه تنظیم تغییر مسیر ورود"
+
+msgid "How to set fields ordering"
+msgstr "نحوه تنظیم ترتیب فیلدها"
+
+msgid "Setup"
+msgstr "راه‌اندازی"
+
+msgid "How to enable email piping"
+msgstr "نحوه فعال‌سازی تبدیل ایمیل به تیکت"
+
+msgid "How to translate"
+msgstr "نحوه ترجمه"
+
+msgid "How to install add-ons"
+msgstr "نحوه نصب افزودنی‌ها"
+
+msgid "and"
+msgstr "و"
+
+msgid "How to use knowledge base"
+msgstr "نحوه استفاده از پایگاه دانش"
+
+msgid "Misc"
+msgstr "متفرقه"
+
+msgid "How to use internal mail"
+msgstr "نحوه استفاده از ایمیل داخلی"
+
+msgid "Use front-end widgets"
+msgstr "استفاده از ابزارک‌های فرانت‌اند"
+
+msgid "How to enable admin widgets"
+msgstr "نحوه فعال‌سازی ابزارک‌های مدیریت"
+
+msgid "Majestic Support / Majestic Support Control Panel"
+msgstr "Majestic Support / Majestic Support کنترل پنل"
+
+msgid "Copy"
+msgstr "کپی"
+
+msgid "Majestic Support / Majestic Support main control panel"
+msgstr "Majestic Support / پنل کنترل اصلی Majestic Support"
+
+msgid "Add new ticket form for both the user and the agent"
+msgstr "فرم تیکت جدید برای کاربر و کارشناس اضافه کنید"
+
+msgid "Add Ticket Using Multiform"
+msgstr "افزودن تیکت با فرم چندگانه"
+
+msgid "My tickets for both user and agent"
+msgstr "تیکت‌های من برای کاربر و کارشناس"
+
+msgid "Show latest downloads. Options"
+msgstr "نمایش آخرین دانلودها. گزینه‌ها"
+
+msgid "i.e."
+msgstr "یعنی"
+
+msgid "Show popular downloads. Options"
+msgstr "نمایش دانلودهای محبوب. گزینه‌ها"
+
+msgid "Show latest knowledge base. Options"
+msgstr "نمایش آخرین مطالب پایگاه دانش. گزینه‌ها"
+
+msgid "Popular knowledge base"
+msgstr "پایگاه دانش محبوب"
+
+msgid "Show popular knowledge base. Options"
+msgstr "نمایش مطالب محبوب پایگاه دانش. گزینه‌ها"
+
+msgid "Show latest FAQs. Options"
+msgstr "نمایش آخرین پرسش‌های متداول. گزینه‌ها"
+
+msgid "Show popular FAQs. Options"
+msgstr "نمایش پرسش‌های متداول محبوب. گزینه‌ها"
+
+msgid "Show latest announcements. Options"
+msgstr "نمایش آخرین اعلان‌ها. گزینه‌ها"
+
+msgid "Show popular announcements. Options"
+msgstr "نمایش اعلان‌های محبوب. گزینه‌ها"
+
+msgid "Get"
+msgstr "دریافت"
+
+msgid "Translation"
+msgstr "ترجمه"
+
+msgid "When WordPress language change to fr, Majestic Support language will auto change to fr"
+msgstr "وقتی زبان WordPress به fr تغییر کند، زبان Majestic Support نیز به‌صورت خودکار به fr تغییر می‌کند"
+
+msgid "c error"
+msgstr "خطای c"
+
+msgid "saved"
+msgstr "ذخیره شد"
+
+msgid "Contribute In Translation"
+msgstr "مشارکت در ترجمه"
+
+msgid "translate"
+msgstr "ترجمه"
+
+msgid "Manual Download"
+msgstr "دانلود دستی"
+
+msgid "Log In"
+msgstr "گزارش In"
+
+msgid "Log Out"
+msgstr "خروج"
+
+msgid "Welcome"
+msgstr "خوش آمدید"
+
+msgid "Back"
+msgstr "بازگشت"
+
+msgid "Here's what's happening in your support queue today."
+msgstr "این‌ها مواردی هستند که امروز در صف پشتیبانی شما رخ می‌دهند."
+
+msgid "NA"
+msgstr "ناموجود"
+
+msgid "Total Tickets"
+msgstr "کل تیکت‌ها"
+
+msgid "My Assigned Tickets"
+msgstr "My اختصاص‌یافته تیکت‌ها"
+
+msgid "Ticket Details"
+msgstr "جزئیات تیکت"
+
+msgid "No tickets found."
+msgstr "هیچ تیکتی پیدا نشد."
+
+msgid "No ticket found yet."
+msgstr "هنوز هیچ تیکتی پیدا نشده است."
+
+msgid "State"
+msgstr "استان/وضعیت"
+
+msgid "SLA Due"
+msgstr "سررسید SLA"
+
+msgid "Quick Action"
+msgstr "سریع عملیات"
+
+msgid "Avg:"
+msgstr "میانگین:"
+
+msgid "No recent feedback found."
+msgstr "هیچ بازخورد اخیری یافت نشد."
+
+msgid "Top Agents"
+msgstr "بالا کارشناسان پشتیبانی"
+
+msgid "You"
+msgstr "شما"
+
+msgid "Leaderboard is empty for this week."
+msgstr "جدول رتبه‌بندی این هفته خالی است."
+
+msgid "No VIP clients currently watched."
+msgstr "در حال حاضر هیچ مشتری VIP تحت پایش نیست."
+
+msgid "No articles available."
+msgstr "مقاله‌ای موجود نیست."
+
+msgid "Browse All Articles"
+msgstr "مرور همه مقالات"
+
+msgid "View All Downloads"
+msgstr "مشاهده همه دانلودها"
+
+msgid "No downloads available."
+msgstr "دانلودی موجود نیست."
+
+msgid "View All Announcements"
+msgstr "مشاهده همه اعلان‌ها"
+
+msgid "No new announcements."
+msgstr "اعلان جدیدی وجود ندارد."
+
+msgid "View All FAQs"
+msgstr "مشاهده همه پرسش‌های متداول"
+
+msgid "No FAQs configured."
+msgstr "هیچ پرسش متداولی پیکربندی نشده است."
+
+msgid "Closed Archive"
+msgstr "بایگانی بسته‌شده‌ها"
+
+msgid "No department data available"
+msgstr "داده‌ای برای دپارتمان موجود نیست"
+
+msgid "No recent activity found."
+msgstr "هیچ فعالیت اخیری یافت نشد."
+
+msgid "Avg Time"
+msgstr "میانگین زمان"
+
+msgid "Access your account securely to manage tickets, view updates, and connect with support"
+msgstr "برای مدیریت تیکت‌ها، مشاهده به‌روزرسانی‌ها و ارتباط با پشتیبانی، به‌صورت امن وارد حساب خود شوید"
+
+msgid "Keep me login"
+msgstr "مرا وارد نگه دار"
+
+msgid "Create a new account to access all support features and stay connected with our team."
+msgstr "برای دسترسی به همه قابلیت‌های پشتیبانی و ارتباط با تیم ما، یک حساب جدید ایجاد کنید."
+
+msgid "Repeat Password"
+msgstr "تکرار رمز عبور"
+
+msgid "Subscribe to the newsletter"
+msgstr "عضویت در خبرنامه"
+
+msgid "has been changed"
+msgstr "تغییر کرد"
+
+msgid "has not been changed"
+msgstr "تغییر نکرد"
+
+msgid "Complete"
+msgstr "تکمیل"
+
+msgid "Settings Complete"
+msgstr "تنظیمات کامل شد"
+
+msgid "Skip Setup"
+msgstr "رد کردن راه‌اندازی"
+
+msgid "Setting you applied has been saved successfully."
+msgstr "تنظیمی که اعمال کردید با موفقیت ذخیره شد."
+
+msgid "Finish"
+msgstr "پایان"
+
+msgid "Sequential"
+msgstr "ترتیبی"
+
+msgid "Step 4 of "
+msgstr "مرحله ۴ از "
+
+msgid "Set Email Delay Time"
+msgstr "تنظیم زمان تأخیر ایمیل"
+
+msgid "Set Email Delay"
+msgstr "تنظیم ایمیل تأخیر"
+
+msgid "Step 1 of "
+msgstr "مرحله ۱ از "
+
+msgid "Enter the site title"
+msgstr "عنوان سایت را وارد کنید"
+
+msgid "You need to rename the existing data directory in the file system before changing the data directory name"
+msgstr "پیش از تغییر نام دایرکتوری داده‌ها، باید دایرکتوری داده موجود را در فایل‌سیستم تغییر نام دهید"
+
+msgid "Date format for plugin"
+msgstr "فرمت تاریخ برای افزونه"
+
+msgid "Show Breadcrumbs"
+msgstr "نمایش مسیر راهنما"
+
+msgid "Show navigation in breadcrumbs"
+msgstr "نمایش پیمایش در مسیر راهنما"
+
+msgid "Upload file size in KB's"
+msgstr "اندازه فایل بارگذاری بر حسب کیلوبایت"
+
+msgid "File Extension"
+msgstr "فایل پسوند"
+
+msgid "Next Setup"
+msgstr "راه‌اندازی بعدی"
+
+msgid "Step 3 of "
+msgstr "مرحله ۳ از "
+
+msgid "Step 2 of "
+msgstr "مرحله ۲ از "
+
+msgid "Visitor can create ticket"
+msgstr "بازدیدکننده می‌تواند تیکت ایجاد کند"
+
+msgid "Enable / Disable Open Ticket"
+msgstr "فعال/غیرفعال‌سازی ایجاد تیکت"
+
+msgid "Set ticket id sequential or random"
+msgstr "شناسه تیکت را ترتیبی یا تصادفی تنظیم کنید"
+
+msgid "Maximum Tickets"
+msgstr "حداکثر تیکت‌ها"
+
+msgid "Set Maximum Ticket Per user"
+msgstr "حداکثر تیکت برای هر کاربر را تنظیم کنید"
+
+msgid "Maximum Open Tickets"
+msgstr "حداکثر باز تیکت‌ها"
+
+msgid "Reopen ticket within Days"
+msgstr "بازگشایی تیکت در چند روز"
+
+msgid "The ticket can be reopened within a given number of days"
+msgstr "تیکت می‌تواند در تعداد روزهای تعیین‌شده دوباره باز شود"
+
+msgid "Show Captcha to visitor on ticket form"
+msgstr "نمایش کپچا به بازدیدکننده در فرم تیکت"
+
+msgid "Enable / Disable Captcha on Ticket Form"
+msgstr "فعال/غیرفعال‌سازی کپچا در فرم تیکت"
+
+msgid "Select the total operands to be given"
+msgstr "تعداد کل عملوندهایی را که باید نمایش داده شوند انتخاب کنید"
+
+msgid "Own captcha subtraction answer positive"
+msgstr "مثبت بودن پاسخ تفریق کپچای اختصاصی"
+
+msgid "Enable / Disable Own Captcha subtraction"
+msgstr "فعال/غیرفعال‌سازی تفریق در کپچای اختصاصی"
+
+msgid "Enable Print Ticket"
+msgstr "فعال‌سازی چاپ تیکت"
+
+msgid "Enable / Disable Print Ticket"
+msgstr "فعال/غیرفعال‌سازی چاپ تیکت"
+
+msgid "Majestic Support Settings"
+msgstr "تنظیمات Majestic Support"
+
+msgid "Download Translation File"
+msgstr "دانلود فایل ترجمه"
+
+msgid "Want to download translation file? Click on download. It will take sometime."
+msgstr "می‌خواهید فایل ترجمه را دانلود کنید؟ روی دانلود کلیک کنید. این کار کمی زمان می‌برد."
+
+msgid "Download & Next"
+msgstr "دانلود و بعدی"
+
+msgid "Skip this step"
+msgstr "رد کردن این مرحله"
+
+msgid "Plugin Activated Successfully!"
+msgstr "افزونه با موفقیت فعال شد!"
+
+msgid "Thank you for choosing Majestic. Your powerful, natively integrated WordPress support system is installed and ready to be configured."
+msgstr "از انتخاب Majestic سپاسگزاریم. سیستم قدرتمند پشتیبانی WordPress شما نصب شده و آماده پیکربندی است."
+
+msgid "Go to Dashboard"
+msgstr "Go to داشبورد"
+
+msgid "Recommended Next Steps"
+msgstr "مراحل بعدی پیشنهادی"
+
+msgid "Follow these quick steps to get your support portal fully operational."
+msgstr "این مراحل سریع را دنبال کنید تا پرتال پشتیبانی شما کاملاً عملیاتی شود."
+
+msgid "Configure Settings"
+msgstr "پیکربندی تنظیمات"
+
+msgid "Set up your email notifications, ticket prefixes, and general support rules."
+msgstr "اعلان‌های ایمیل، پیشوندهای تیکت و قوانین عمومی پشتیبانی را تنظیم کنید."
+
+msgid "Design Your Portal"
+msgstr "طراحی پرتال شما"
+
+msgid "Apply preset themes or pick custom colors so the portal matches your branding."
+msgstr "از قالب‌های آماده استفاده کنید یا رنگ‌های سفارشی انتخاب کنید تا پرتال با برند شما هماهنگ شود."
+
+msgid "Customize Colors"
+msgstr "سفارشی‌سازی رنگ‌ها"
+
+msgid "Add Departments"
+msgstr "افزودن دپارتمان‌ها"
+
+msgid "Create specific departments (e.g. Sales, Billing) and assign agents to handle them."
+msgstr "دپارتمان‌های مشخصی ایجاد کنید (مثلاً فروش، مالی) و کارشناسان را برای رسیدگی به آن‌ها اختصاص دهید."
+
+msgid "Manage Departments"
+msgstr "مدیریت دپارتمان‌ها"
+
+msgid "Need help getting started?"
+msgstr "برای شروع به کمک نیاز دارید؟"
+
+msgid "Our comprehensive documentation covers everything from basic setup to advanced workflows."
+msgstr "مستندات جامع ما همه چیز را از راه‌اندازی پایه تا جریان‌های کاری پیشرفته پوشش می‌دهد."
+
+msgid "Video Tutorials"
+msgstr "آموزش‌های ویدئویی"
+
+msgid "Please insert activation key to proceed"
+msgstr "برای ادامه، کلید فعال‌سازی را وارد کنید"
+
+msgid "Please select at least one addon!"
+msgstr "لطفاً حداقل یک افزودنی انتخاب کنید!"
+
+msgid "Addon(s) Installed successfully!"
+msgstr "افزودنی(ها) با موفقیت نصب شد!"
+
+msgid "Addon(s) Installation Failed"
+msgstr "نصب افزودنی(ها) ناموفق بود"
+
+msgid "Addon Installation Failed"
+msgstr "نصب افزودنی ناموفق بود"
+
+msgid "Addon installation failed"
+msgstr "نصب افزودنی ناموفق بود"
+
+msgid "Addon Installation Failed, File download error"
+msgstr "نصب افزودنی ناموفق بود، خطا در دانلود فایل"
+
+msgid "Deactivate"
+msgstr "غیرفعال‌سازی"
+
+msgid "Deactivated"
+msgstr "غیرفعال شد"
+
+msgid "Activate"
+msgstr "فعال‌سازی"
+
+msgid "Not Installed"
+msgstr "نصب نشده"
+
+msgid "Addon Installed Successfully"
+msgstr "افزودنی با موفقیت نصب شد"
+
+msgid "Canned Response"
+msgstr "پاسخ آماده"
+
+msgid "Desktop Notification"
+msgstr "اعلان دسکتاپ"
+
+msgid "Front-end Widgets"
+msgstr "ابزارک‌های بخش کاربری"
+
+msgid "Ticket Closed Reason"
+msgstr "تیکت بسته‌شده دلیل"
+
+msgid "left image"
+msgstr "تصویر چپ"
+
+msgid "right image"
+msgstr "تصویر راست"
+
+msgid "Add-ons For Majestic Support"
+msgstr "افزودنی‌های Majestic Support"
+
+msgid "Get trusted WordPress add-ons. Guaranteed to work fast, safe to use, beautifully coded, packed with features, and are easy to use."
+msgstr "افزودنی‌های معتبر WordPress را دریافت کنید؛ سریع، امن، خوش‌کدنویسی‌شده، پرامکانات و آسان برای استفاده."
+
+msgid "Save big today with an exclusive membership plan!"
+msgstr "امروز با یک طرح عضویت ویژه، صرفه‌جویی زیادی داشته باشید!"
+
+msgid "show bundle pack"
+msgstr "نمایش بسته باندل"
+
+msgid "Add agents and assign roles and permissions to provide assistance and support for customer support tickets."
+msgstr "کارشناسان را اضافه کنید و برای رسیدگی به تیکت‌های پشتیبانی مشتری، نقش‌ها و مجوزها را اختصاص دهید."
+
+msgid "buy now"
+msgstr "اکنون خرید کنید"
+
+msgid "Installed"
+msgstr "نصب‌شده"
+
+msgid "Create multiple custom ticket forms with different custom fields for each request type that you support."
+msgstr "برای هر نوع درخواست پشتیبانی، چند فرم تیکت سفارشی با فیلدهای سفارشی متفاوت ایجاد کنید."
+
+msgid "Email piping is the process of automatically turning incoming emails into support tickets without manual data entry."
+msgstr "تبدیل ایمیل به تیکت فرایندی است که ایمیل‌های ورودی را بدون ورود دستی داده، به‌صورت خودکار به تیکت پشتیبانی تبدیل می‌کند."
+
+msgid "Make the ticket assignment process automatic and assign the most qualified agent to your tickets with conditions."
+msgstr "فرایند اختصاص تیکت را خودکار کنید و با شرایط مشخص، مناسب‌ترین کارشناس را به تیکت‌ها اختصاص دهید."
+
+msgid "Add private notes to a ticket and share crucial information internally with your agents, this private note is not visible to the customer."
+msgstr "یادداشت‌های خصوصی به تیکت اضافه کنید و اطلاعات مهم را به‌صورت داخلی با کارشناسان به اشتراک بگذارید؛ این یادداشت برای مشتری قابل مشاهده نیست."
+
+msgid "Merge one or more tickets into another if you receive two support requests from the same end user about the same issue."
+msgstr "اگر دو درخواست پشتیبانی از یک کاربر درباره یک مشکل دریافت کردید، یک یا چند تیکت را در تیکت دیگر ادغام کنید."
+
+msgid "The user can search for and choose the topic for which they need help using help topics"
+msgstr "کاربر می‌تواند با استفاده از موضوعات راهنما، موضوعی را که برای آن نیاز به کمک دارد جستجو و انتخاب کند"
+
+msgid "Manage abandoned tickets, and set rules for tickets over time, and those tickets will be closed automatically after a certain period."
+msgstr "تیکت‌های رهاشده را مدیریت کنید، برای گذشت زمان قوانین تعیین کنید و این تیکت‌ها پس از دوره‌ای مشخص به‌صورت خودکار بسته شوند."
+
+msgid "Stop wasting time on repetitive inquiries, build your knowledge base, and organize your solutions into categories for users."
+msgstr "زمان را برای پرسش‌های تکراری هدر ندهید؛ پایگاه دانش بسازید و راهکارها را برای کاربران در دسته‌بندی‌ها سازمان‌دهی کنید."
+
+msgid "Define rules or set a specific time interval for making tickets automatically overdue."
+msgstr "قوانین تعریف کنید یا بازه زمانی مشخصی تعیین کنید تا تیکت‌ها به‌صورت خودکار دیرکرددار شوند."
+
+msgid "Track the amount of time spent on each customer support ticket without losing focus and enhance team productivity."
+msgstr "زمان صرف‌شده روی هر تیکت پشتیبانی مشتری را بدون از دست دادن تمرکز پیگیری کنید و بهره‌وری تیم را افزایش دهید."
+
+msgid "Show the whole history of the ticket, including its status and any action taken in response to it."
+msgstr "کل تاریخچه تیکت، شامل وضعیت و همه اقدام‌های انجام‌شده در پاسخ به آن را نمایش دهید."
+
+msgid "The simplest approach to effectively manage payments for premium help is through paid support."
+msgstr "ساده‌ترین راه برای مدیریت مؤثر پرداخت‌های پشتیبانی ویژه، استفاده از پشتیبانی پولی است."
+
+msgid "Customers will enter sensitive information on tickets, and this add-on is designed to help you keep that information secure."
+msgstr "مشتریان ممکن است اطلاعات حساس را در تیکت‌ها وارد کنند و این افزودنی برای کمک به حفظ امنیت آن اطلاعات طراحی شده است."
+
+msgid "Empowers users to provide clear and concise explanations for why customer service tickets are being closed."
+msgstr "به کاربران امکان می‌دهد دلیل بسته‌شدن تیکت‌های خدمات مشتری را روشن و کوتاه توضیح دهند."
+
+msgid "Get AI-powered, context-based suggestions to effortlessly create clear, relevant, and helpful replies."
+msgstr "با پیشنهادهای مبتنی بر AI و زمینه، به‌راحتی پاسخ‌های روشن، مرتبط و مفید ایجاد کنید."
+
+msgid "Make ready-made responses to the most common questions in the tickets to swiftly address client issues."
+msgstr "برای رایج‌ترین پرسش‌های تیکت‌ها پاسخ‌های آماده بسازید تا مشکلات مشتریان سریع‌تر رسیدگی شوند."
+
+msgid "max ticket"
+msgstr "حداکثر تیکت"
+
+msgid "Admins can limit the number of tickets that users can create as well as the number of tickets that agents can open individually."
+msgstr "مدیران می‌توانند تعداد تیکت‌هایی را که کاربران می‌توانند ایجاد کنند و همچنین تعداد تیکت‌هایی را که هر کارشناس می‌تواند باز کند محدود کنند."
+
+msgid "To enhance the quality of your services, ask your customers to complete a survey when a ticket is closed."
+msgstr "برای بهبود کیفیت خدمات، هنگام بسته‌شدن تیکت از مشتریان بخواهید یک نظرسنجی را تکمیل کنند."
+
+msgid "Ticket action options allow you to execute additional actions on tickets."
+msgstr "گزینه‌های اقدام تیکت به شما اجازه می‌دهد اقدام‌های اضافی روی تیکت‌ها اجرا کنید."
+
+msgid "Easily export ticket data and performance report data from your majestic support to an Excel spreadsheet with our efficient and user-friendly solution."
+msgstr "با راهکار کارآمد و آسان ما، داده‌های تیکت و گزارش‌های عملکرد را به‌راحتی از Majestic Support به صفحه‌گسترده Excel برون‌بری کنید."
+
+msgid "Send the exact copy of the email to the provided email address with Email CC or BCC."
+msgstr "یک نسخه دقیق از ایمیل را با CC یا BCC به آدرس ایمیل ارائه‌شده ارسال کنید."
+
+msgid "User options enable you to define roles for new users when they are registered."
+msgstr "گزینه‌های کاربر به شما امکان می‌دهد هنگام ثبت‌نام کاربران جدید، نقش آن‌ها را تعیین کنید."
+
+msgid "SMTP enables you to add  custom mail protocols to send and receive emails with the support ticket system."
+msgstr "SMTP به شما امکان می‌دهد پروتکل‌های ایمیل سفارشی را برای ارسال و دریافت ایمیل در سیستم تیکت پشتیبانی اضافه کنید."
+
+msgid "Multi Language Email Templates"
+msgstr "قالب‌های ایمیل چندزبانه"
+
+msgid "Create multi-language email templates for all default email templates to send customers emails in the language that they prefer."
+msgstr "برای همه قالب‌های ایمیل پیش‌فرض، قالب‌های چندزبانه ایجاد کنید تا ایمیل‌های مشتریان به زبان دلخواه آن‌ها ارسال شود."
+
+msgid "Downloads can be very helpful for users who are looking to obtain the necessary information to resolve issues."
+msgstr "دانلودها برای کاربرانی که به‌دنبال دریافت اطلاعات لازم برای حل مشکلات هستند بسیار مفیدند."
+
+msgid "Make an unlimited number of announcements related to the support system to encourage customer interaction."
+msgstr "برای افزایش تعامل مشتریان، تعداد نامحدودی اعلان مرتبط با سیستم پشتیبانی ایجاد کنید."
+
+msgid "With Ban Email, you can limit a users ability to create new tickets by blocking their email address."
+msgstr "با مسدودسازی ایمیل، می‌توانید توانایی کاربر برای ایجاد تیکت‌های جدید را با مسدود کردن آدرس ایمیل او محدود کنید."
+
+msgid "Provide answers to common user questions with the FAQ extension before they become tickets."
+msgstr "پیش از اینکه پرسش‌های رایج کاربران به تیکت تبدیل شوند، با افزودنی FAQ به آن‌ها پاسخ دهید."
+
+msgid "Get immediate data on your support operations as soon as you log into your WordPress administration area."
+msgstr "به‌محض ورود به بخش مدیریت WordPress، داده‌های فوری عملیات پشتیبانی خود را ببینید."
+
+msgid "desktop notifications"
+msgstr "اعلان‌های دسکتاپ"
+
+msgid "You will be informed of anything that occurs on your support system by the desktop notifications."
+msgstr "با اعلان‌های دسکتاپ از هر رویدادی که در سیستم پشتیبانی رخ دهد مطلع خواهید شد."
+
+msgid "The integration of the support ticket system for WooCommerce with your e-shop makes your support better and more professional."
+msgstr "یکپارچه‌سازی سیستم تیکت پشتیبانی WooCommerce با فروشگاه آنلاین شما، پشتیبانی را بهتر و حرفه‌ای‌تر می‌کند."
+
+msgid "Manage your email marketing campaigns directly from your majestic support by adding new user accounts to your Mailchimp email list."
+msgstr "با افزودن حساب‌های کاربری جدید به فهرست ایمیل Mailchimp، کمپین‌های بازاریابی ایمیلی خود را مستقیماً از Majestic Support مدیریت کنید."
+
+msgid "Send messages internally about support tickets and other issues between agents with internal mail."
+msgstr "با ایمیل داخلی، پیام‌های مربوط به تیکت‌های پشتیبانی و سایر موضوعات را بین کارشناسان ارسال کنید."
+
+msgid "frontend widget"
+msgstr "ابزارک فرانت‌اند"
+
+msgid "Frontend Widgets include several widgets that can be used to enhance the plugin's functionality in various areas of the website."
+msgstr "ابزارک‌های بخش کاربری شامل چند ابزارک هستند که می‌توانند قابلیت‌های افزونه را در بخش‌های مختلف سایت تقویت کنند."
+
+msgid "envato"
+msgstr "Envato"
+
+msgid "Envato"
+msgstr "Envato"
+
+msgid "Clients won't be able to open a new ticket using the Envato Validation plugin if they don't have a valid Envato license."
+msgstr "اگر مشتریان مجوز معتبر Envato نداشته باشند، با افزونه اعتبارسنجی Envato نمی‌توانند تیکت جدید باز کنند."
+
+msgid "easy digital download"
+msgstr "Easy Digital Download"
+
+msgid "Learn about a customer's purchase directly from the support dashboard by integrating Majestic Support with your EDD store."
+msgstr "با یکپارچه‌سازی Majestic Support با فروشگاه EDD، اطلاعات خرید مشتری را مستقیماً از داشبورد پشتیبانی مشاهده کنید."
+
+msgid "Majestic Support Add-ons Bundle Pack"
+msgstr "بسته باندل افزودنی‌های Majestic Support"
+
+msgid "Basic"
+msgstr "پایه"
+
+msgid "Unlimited Agents"
+msgstr "کارشناسان نامحدود"
+
+msgid "Show all"
+msgstr "نمایش همه"
+
+msgid "Standard"
+msgstr "استاندارد"
+
+msgid "Everything in basic included and "
+msgstr "همه امکانات طرح پایه به‌علاوه "
+
+msgid "Professional"
+msgstr "حرفه‌ای"
+
+msgid "Everything in standard included and"
+msgstr "همه امکانات طرح استاندارد به‌علاوه"
+
+msgid "All Future Addons"
+msgstr "همه افزودنی‌های آینده"
+
+msgid "Auto Update Add-Ons"
+msgstr "به‌روزرسانی خودکار افزودنی‌ها"
+
+msgid "Auto Update"
+msgstr "به‌روزرسانی خودکار"
+
+msgid "Addon will automatically update to the newest version"
+msgstr "افزودنی به‌صورت خودکار به جدیدترین نسخه به‌روزرسانی می‌شود"
+
+msgid "On"
+msgstr "در"
+
+msgid "Off"
+msgstr "خاموش"
+
+msgid "Add-Ons"
+msgstr "افزودنی‌ها"
+
+msgid "addon in no longer active"
+msgstr "افزودنی دیگر فعال نیست"
+
+msgid "Please Insert Your Activation Key"
+msgstr "لطفاً کلید فعال‌سازی خود را وارد کنید"
+
+msgid "XXXX-XXXX-XXXXX-XXXXX"
+msgstr "XXXX-XXXX-XXXXX-XXXXX"
+
+msgid "Proceed"
+msgstr "ادامه"
+
+msgid "Majestic Support Addon Installer"
+msgstr "نصب‌کننده افزودنی Majestic Support"
+
+msgid "Select All Addons"
+msgstr "انتخاب همه افزودنی‌ها"
+
+msgid "All allowed add ons are already installed"
+msgstr "همه افزودنی‌های مجاز قبلاً نصب شده‌اند"
+
+msgid "You are not allowed to install any add on"
+msgstr "شما مجاز به نصب هیچ افزودنی نیستید"
+
+msgid "Addons Installed Successfully"
+msgstr "افزودنی‌ها با موفقیت نصب شدند"
+
+msgid "Open Dashboard"
+msgstr "باز داشبورد"
+
+msgid "Open Plugins Page"
+msgstr "باز کردن صفحه افزونه‌ها"
+
+msgid "JS Helpdesk Activation Key"
+msgstr "کلید فعال‌سازی JS Helpdesk"
+
+msgid "XXXXX-XXXXX-XXXXX-XXXXX"
+msgstr "XXXXX-XXXXX-XXXXX-XXXXX"
+
+msgid "The highlighted addons are not included in your current license. Please adjust your selection accordingly."
+msgstr "افزودنی‌های مشخص‌شده در مجوز فعلی شما وجود ندارند. لطفاً انتخاب خود را مطابق آن تنظیم کنید."
+
+msgid "Select Addons to Update with New Activation Key"
+msgstr "افزودنی‌هایی را که باید با کلید فعال‌سازی جدید به‌روزرسانی شوند انتخاب کنید"
+
+msgid "No Addon Installed!"
+msgstr "هیچ افزودنی نصب نشده است!"
+
+msgid "This will replace the old key with the new one."
+msgstr "این کار کلید قدیمی را با کلید جدید جایگزین می‌کند."
+
+msgid "Page Not Found !!"
+msgstr "صفحه پیدا نشد!!"
+
+msgid "Priority Title Already Exist"
+msgstr "عنوان اولویت از قبل وجود دارد"
+
+msgid "Priority has been stored"
+msgstr "اولویت ذخیره شد"
+
+msgid "Priority has not been stored"
+msgstr "اولویت ذخیره نشد"
+
+msgid "Priority has been deleted"
+msgstr "اولویت حذف شد"
+
+msgid "Priority has not been deleted"
+msgstr "اولویت حذف نشد"
+
+msgid "Default priority cannot delete"
+msgstr "اولویت پیش‌فرض قابل حذف نیست"
+
+msgid "Priority has been make default"
+msgstr "اولویت به‌عنوان پیش‌فرض تنظیم شد"
+
+msgid "Priority has not been make default"
+msgstr "اولویت به‌عنوان پیش‌فرض تنظیم نشد"
+
+msgid "Color"
+msgstr "رنگ"
+
+msgid "Ticket Overdue Interval Type"
+msgstr "نوع بازه دیرکرد تیکت"
+
+msgid "Save Priority"
+msgstr "ذخیره اولویت"
+
+msgid "Date Interval"
+msgstr "بازه تاریخ"
+
+msgid "Product Title Already Exist"
+msgstr "عنوان محصول از قبل وجود دارد"
+
+msgid "Product has been stored"
+msgstr "محصول ذخیره شد"
+
+msgid "Product has not been stored"
+msgstr "محصول ذخیره نشد"
+
+msgid "Product has been deleted"
+msgstr "محصول حذف شد"
+
+msgid "Product has not been deleted"
+msgstr "محصول حذف نشد"
+
+msgid "Save Product"
+msgstr "ذخیره محصول"
+
+msgid "Reply posted"
+msgstr "پاسخ ارسال شد"
+
+msgid "Reply posted on ticket"
+msgstr "پاسخ روی تیکت ارسال شد"
+
+msgid "Guest"
+msgstr "مهمان"
+
+msgid "Ticket is replied by"
+msgstr "تیکت توسط این شخص پاسخ داده شد"
+
+msgid "Reply Has been Posted"
+msgstr "پاسخ ارسال شد"
+
+msgid "Reply Has Not been Posted"
+msgstr "پاسخ ارسال نشد"
+
+msgid "Ticket ID is required."
+msgstr "شناسه تیکت الزامی است."
+
+msgid "Database error occurred."
+msgstr "خطای پایگاه داده رخ داد."
+
+msgid "Dates"
+msgstr "تاریخ‌ها"
+
+msgid "Department Statistics"
+msgstr "دپارتمان آمار"
+
+msgid "Open Ticket"
+msgstr "باز تیکت"
+
+msgid "pending tickets"
+msgstr "تیکت‌های در انتظار"
+
+msgid "Time Taken"
+msgstr "زمان صرف‌شده"
+
+msgid "Out of"
+msgstr "از مجموع"
+
+msgid "Overall Report"
+msgstr "گزارش کلی"
+
+msgid "Ticket by departments"
+msgstr "تیکت by دپارتمان‌ها"
+
+msgid "Agent Tickets"
+msgstr "کارشناس پشتیبانی تیکت‌ها"
+
+msgid "Tickets By Statuses And Priorities"
+msgstr "تیکت‌ها بر اساس وضعیت‌ها و اولویت‌ها"
+
+msgid "Tickets By Agents"
+msgstr "تیکت‌ها بر اساس کارشناسان پشتیبانی"
+
+msgid "Based on"
+msgstr "بر اساس"
+
+msgid "Customer Satisfaction"
+msgstr "مشتری رضایت"
+
+msgid "satisfaction image"
+msgstr "تصویر رضایت"
+
+msgid "Excellent"
+msgstr "عالی"
+
+msgid "Normal"
+msgstr "معمولی"
+
+msgid "bad"
+msgstr "بد"
+
+msgid "Sad"
+msgstr "ناراحت"
+
+msgid "Angry"
+msgstr "عصبانی"
+
+msgid "Agent Statistics"
+msgstr "کارشناس پشتیبانی آمار"
+
+msgid "Tickets not assigned to the agent"
+msgstr "تیکت‌هایی که به کارشناس اختصاص نیافته‌اند"
+
+msgid "Minutes"
+msgstr "دقیقه"
+
+msgid "User Statistics"
+msgstr "کاربر آمار"
+
+msgid "Users"
+msgstr "کاربران"
+
+msgid "Tickets by departments"
+msgstr "تیکت‌ها by دپارتمان‌ها"
+
+msgid "Track and analyze performance metrics for each support department to optimize team efficiency."
+msgstr "شاخص‌های عملکرد هر دپارتمان پشتیبانی را برای بهینه‌سازی کارایی تیم پیگیری و تحلیل کنید."
+
+msgid "Ticket Status By Departments"
+msgstr "تیکت وضعیت توسط دپارتمان‌ها"
+
+msgid "Agent Report"
+msgstr "گزارش کارشناس پشتیبانی"
+
+msgid "Monitor agent productivity with comprehensive reports on tickets handled, response times, and resolutions."
+msgstr "با گزارش‌های جامع درباره تیکت‌های رسیدگی‌شده، زمان‌های پاسخ و موارد حل‌شده، بهره‌وری کارشناسان را پایش کنید."
+
+msgid "Reports Statistics"
+msgstr "گزارش‌ها آمار"
+
+msgid "Slugs/Slug has been stored"
+msgstr "نامک‌ها/نامک ذخیره شد"
+
+msgid "Prefix has not been stored"
+msgstr "پیشوند ذخیره نشد"
+
+msgid "Prefix has been stored"
+msgstr "پیشوند ذخیره شد"
+
+msgid "Home Slug"
+msgstr "نامک صفحه اصلی"
+
+msgid "Prefix"
+msgstr "پیشوند"
+
+msgid "This prefix will be added to the slug in case of homepage links."
+msgstr "در صورت وجود لینک‌های صفحه اصلی، این پیشوند به نامک اضافه می‌شود."
+
+msgid "This prefix will be added to the slug in case of conflict."
+msgstr "در صورت تداخل، این پیشوند به نامک اضافه می‌شود."
+
+msgid "Search By Slug"
+msgstr "جستجو بر اساس نامک"
+
+msgid "Slug List"
+msgstr "نامک فهرست"
+
+msgid "edit"
+msgstr "ویرایش"
+
+msgid "This button will only save slugs on the current page"
+msgstr "این دکمه فقط نامک‌های صفحه فعلی را ذخیره می‌کند"
+
+msgid "Smart Reply Title Already Exist"
+msgstr "عنوان پاسخ هوشمند از قبل وجود دارد"
+
+msgid "Smart Reply has been stored"
+msgstr "پاسخ هوشمند ذخیره شد"
+
+msgid "Smart Reply has not been stored"
+msgstr "پاسخ هوشمند ذخیره نشد"
+
+msgid "Smart Reply has been deleted"
+msgstr "پاسخ هوشمند حذف شد"
+
+msgid "Smart Reply has not been deleted"
+msgstr "پاسخ هوشمند حذف نشد"
+
+msgid "Reply ID is required."
+msgstr "شناسه پاسخ الزامی است."
+
+msgid "Enter Ticket Subject"
+msgstr "موضوع تیکت را وارد کنید"
+
+msgid "Save Smart Reply"
+msgstr "ذخیره پاسخ هوشمند"
+
+msgid "Define and manage predefined responses used for quick and consistent ticket replies."
+msgstr "پاسخ‌های از پیش تعریف‌شده را برای پاسخ‌دهی سریع و یکدست به تیکت‌ها تعریف و مدیریت کنید."
+
+msgid "Status Title Already Exist"
+msgstr "عنوان وضعیت از قبل وجود دارد"
+
+msgid "Status has been stored"
+msgstr "وضعیت ذخیره شد"
+
+msgid "Status has not been stored"
+msgstr "وضعیت ذخیره نشد"
+
+msgid "Status has been deleted"
+msgstr "وضعیت حذف شد"
+
+msgid "Status has not been deleted"
+msgstr "وضعیت حذف نشد"
+
+msgid "Text Color"
+msgstr "رنگ متن"
+
+msgid "Background Color"
+msgstr "رنگ پس‌زمینه"
+
+msgid "Save Status"
+msgstr "ذخیره وضعیت"
+
+msgid "System error has been deleted"
+msgstr "خطای سیستم حذف شد"
+
+msgid "System error has not been deleted"
+msgstr "خطای سیستم حذف نشد"
+
+msgid "The new theme has been applied"
+msgstr "قالب جدید اعمال شد"
+
+msgid "Error applying the new theme"
+msgstr "خطا در اعمال قالب جدید"
+
+msgid "Color Chooser"
+msgstr "انتخابگر رنگ"
+
+msgid "Preset Theme"
+msgstr "پوسته آماده"
+
+msgid "Color 1"
+msgstr "رنگ 1"
+
+msgid "Primary Color"
+msgstr "رنگ اصلی"
+
+msgid "Button Color"
+msgstr "رنگ دکمه"
+
+msgid "Color 2"
+msgstr "رنگ 2"
+
+msgid "Secondary Color"
+msgstr "رنگ ثانویه"
+
+msgid "Heading Text"
+msgstr "متن سربرگ"
+
+msgid "Color 3"
+msgstr "رنگ 3"
+
+msgid "Content Background Color"
+msgstr "رنگ پس‌زمینه محتوا"
+
+msgid "Color 4"
+msgstr "رنگ 4"
+
+msgid "Body Text Color"
+msgstr "رنگ متن بدنه"
+
+msgid "Color 5"
+msgstr "رنگ 5"
+
+msgid "Body Text Second Color"
+msgstr "رنگ دوم متن بدنه"
+
+msgid "Color 6"
+msgstr "رنگ 6"
+
+msgid "Border Color"
+msgstr "رنگ حاشیه"
+
+msgid "Color 7"
+msgstr "رنگ 7"
+
+msgid "Top Header Text Color"
+msgstr "رنگ متن سربرگ بالا"
+
+msgid " Tickets background color"
+msgstr " رنگ پس‌زمینه تیکت‌ها"
+
+msgid "Color 8"
+msgstr "رنگ 8"
+
+msgid "Button Gradient Color"
+msgstr "رنگ گرادیان دکمه"
+
+msgid "Save Colors"
+msgstr "ذخیره رنگ‌ها"
+
+msgid "Blue Jeans"
+msgstr "آبی جین"
+
+msgid "Red"
+msgstr "قرمز"
+
+msgid "Mint"
+msgstr "نعنایی"
+
+msgid "Lavender"
+msgstr "اسطوخودوسی"
+
+msgid "Orange"
+msgstr "نارنجی"
+
+msgid "Grass"
+msgstr "سبز چمنی"
+
+msgid "Black"
+msgstr "مشکی"
+
+msgid "Color Effect Preview"
+msgstr "پیش‌نمایش افکت رنگ"
+
+msgid "Open Tickets "
+msgstr "باز تیکت‌ها"
+
+msgid "Action Required "
+msgstr "عملیات الزامی"
+
+msgid "Waiting Response"
+msgstr "در انتظار پاسخ"
+
+msgid " Phone "
+msgstr "تلفن"
+
+msgid "Answered "
+msgstr "پاسخ داده‌شده"
+
+msgid "Replied "
+msgstr "پاسخ داده شد "
+
+msgid "API Webhook Integration Timeout Issue"
+msgstr "مشکل مهلت زمانی ادغام وبهوک API"
+
+msgid "Our webhooks are failing to deliver to your endpoints since the update last night. We are seeing constant 504 Gateway Timeouts in our server logs."
+msgstr "از زمان به‌روزرسانی دیشب، وب‌هوک‌های ما نمی‌توانند به endpointهای شما تحویل داده شوند. در گزارش‌های سرور، خطاهای مداوم 504 Gateway Timeout می‌بینیم."
+
+msgid "Technical Support"
+msgstr "پشتیبانی فنی"
+
+msgid "Assign To"
+msgstr "اختصاص به"
+
+msgid "New "
+msgstr "جدید"
+
+msgid "Low"
+msgstr "کم"
+
+msgid "Request to change account email address"
+msgstr "درخواست تغییر آدرس ایمیل حساب"
+
+msgid "I no longer have access to my old email address and would like to update it to a new one. Please guide me through the process or update it from your side if possible. "
+msgstr "دیگر به آدرس ایمیل قدیمی خود دسترسی ندارم و می‌خواهم آن را به آدرس جدید تغییر دهم. لطفاً مراحل را راهنمایی کنید یا اگر ممکن است از سمت خودتان آن را به‌روزرسانی کنید. "
+
+msgid "Account Management"
+msgstr "مدیریت حساب"
+
+msgid "Assign To "
+msgstr "اختصاص به"
+
+msgid "High"
+msgstr "زیاد"
+
+msgid "Cannot access billing portal to download invoice "
+msgstr "عدم دسترسی به پرتال صورتحساب برای دانلود فاکتور "
+
+msgid "Hi, I'm trying to download my latest invoice for accounting, but the portal keeps throwing a 500 internal server error. Can someone look into this immediately?"
+msgstr "سلام، می‌خواهم آخرین فاکتورم را برای حسابداری دانلود کنم، اما پرتال مدام خطای داخلی سرور 500 نشان می‌دهد. ممکن است کسی فوراً این موضوع را بررسی کند؟"
+
+msgid "Billing"
+msgstr "صورتحساب"
+
+msgid "Note"
+msgstr "یادداشت"
+
+msgid "If the colors have been saved but the user-side colors are still the same, it is advised to clear the cache."
+msgstr "اگر رنگ‌ها ذخیره شده‌اند اما رنگ‌های سمت کاربر همچنان همان قبلی هستند، توصیه می‌شود کش را پاک کنید."
+
+msgid "Assign Ticket To Agent"
+msgstr "اختصاص تیکت به کارشناس پشتیبانی"
+
+msgid "Ticket is assigned to agent by"
+msgstr "تیکت توسط این شخص به کارشناس اختصاص داده شد"
+
+msgid "Ticket status change"
+msgstr "تغییر وضعیت تیکت"
+
+msgid "The status is changed by"
+msgstr "وضعیت توسط این شخص تغییر کرد"
+
+msgid "Change Priority"
+msgstr "تغییر اولویت"
+
+msgid "The department is transferred by"
+msgstr "دپارتمان توسط این شخص منتقل شد"
+
+msgid "REPLIED_TICKET"
+msgstr "تیکت پاسخ‌داده‌شده"
+
+msgid "by"
+msgstr "توسط"
+
+msgid "Plugin not installed"
+msgstr "افزونه نصب نشده است"
+
+msgid "Plugin Installed"
+msgstr "افزونه نصب شد"
+
+msgid "Start Import"
+msgstr "شروع درون‌ریزی"
+
+msgid "Fetch Data"
+msgstr "دریافت داده‌ها"
+
+msgid "found"
+msgstr "یافت شد"
+
+msgid "Private Credentials Addon missing, ticket private credentials data will not be imported!"
+msgstr "افزودنی اطلاعات محرمانه خصوصی موجود نیست؛ داده‌های اطلاعات محرمانه خصوصی تیکت درون‌ریزی نخواهد شد!"
+
+msgid "Ticket History Addon missing, full ticket history will not be imported!"
+msgstr "افزودنی تاریخچه تیکت موجود نیست؛ تاریخچه کامل تیکت درون‌ریزی نخواهد شد!"
+
+msgid "Time Tracking Addon missing, ticket time tracking data will not be imported!"
+msgstr "افزودنی پیگیری زمان موجود نیست؛ داده‌های پیگیری زمان تیکت درون‌ریزی نخواهد شد!"
+
+msgid "Note Addon missing, ticket internal note  data will not be imported!"
+msgstr "افزودنی یادداشت موجود نیست؛ داده‌های یادداشت داخلی تیکت درون‌ریزی نخواهد شد!"
+
+msgid "icon"
+msgstr "آیکن"
+
+msgid "Addon not installed please install addon first."
+msgstr "افزودنی نصب نشده است؛ لطفاً ابتدا افزودنی را نصب کنید."
+
+msgid "No Data Found!"
+msgstr "داده‌ای پیدا نشد!"
+
+msgid "Entity"
+msgstr "موجودیت"
+
+msgid "Imported"
+msgstr "درون‌ریزی‌شده"
+
+msgid "Similar Found"
+msgstr "مورد مشابه پیدا شد"
+
+msgid "Not Imported"
+msgstr "درون‌ریزی نشده"
+
+msgid "Skipped"
+msgstr "رد شد"
+
+msgid "Failed"
+msgstr "ناموفق"
+
+msgid "Fields are only available in the default form."
+msgstr "فیلدها فقط در فرم پیش‌فرض در دسترس هستند."
+
+msgid "Support for this Envato license has expired"
+msgstr "پشتیبانی این مجوز Envato منقضی شده است"
+
+msgid "Record not found"
+msgstr "رکورد پیدا نشد"
+
+msgid "Banned email cannot create ticket"
+msgstr "ایمیل مسدودشده نمی‌تواند تیکت ایجاد کند"
+
+msgid "Incorrect Captcha Code"
+msgstr "کد کپچا نادرست است"
+
+msgid "Please select paid support item"
+msgstr "لطفاً مورد پشتیبانی پولی را انتخاب کنید"
+
+msgid "No purchase found with that code"
+msgstr "هیچ خریدی با آن کد پیدا نشد"
+
+msgid "Provide a valid license key to create a ticket."
+msgstr "برای ایجاد تیکت، کلید مجوز معتبر ارائه کنید."
+
+msgid "Your license has expired."
+msgstr "مجوز شما منقضی شده است."
+
+msgid "Your license is not active, activate your license."
+msgstr "مجوز شما فعال نیست؛ مجوز خود را فعال کنید."
+
+msgid "Due date error is not valid"
+msgstr "خطای تاریخ سررسید معتبر نیست"
+
+msgid "Ticket has not been created"
+msgstr "تیکت ایجاد نشد"
+
+msgid "Your ticket has been submitted successfully"
+msgstr "تیکت شما با موفقیت ارسال شد"
+
+msgid "Ticket is updated by"
+msgstr "تیکت توسط این شخص به‌روزرسانی شد"
+
+msgid "Ticket is created by"
+msgstr "تیکت توسط این شخص ایجاد شد"
+
+msgid "Ticket has been deleted"
+msgstr "تیکت حذف شد"
+
+msgid "Ticket has not been deleted"
+msgstr "تیکت حذف نشد"
+
+msgid "Internal Note has been deleted"
+msgstr "یادداشت داخلی حذف شد"
+
+msgid "Internal Note has not been deleted"
+msgstr "یادداشت داخلی حذف نشد"
+
+msgid "Ticket already closed"
+msgstr "تیکت قبلاً بسته شده است"
+
+msgid "Ticket has been closed"
+msgstr "تیکت بسته شد"
+
+msgid "Ticket has not been closed"
+msgstr "تیکت بسته نشد"
+
+msgid "Ticket is closed by"
+msgstr "تیکت توسط این شخص بسته شد"
+
+msgid "due to the following reasons"
+msgstr "به دلایل زیر"
+
+msgid "Your are not allowed"
+msgstr "شما مجاز نیستید"
+
+msgid "The status has been changed"
+msgstr "وضعیت تغییر کرد"
+
+msgid "The status has not been changed"
+msgstr "وضعیت تغییر نکرد"
+
+msgid "The department has been transferred"
+msgstr "دپارتمان منتقل شد"
+
+msgid "The department has not been transferred"
+msgstr "دپارتمان منتقل نشد"
+
+msgid "Assigned to agent"
+msgstr "اختصاص‌یافته to کارشناس پشتیبانی"
+
+msgid "Not assigned to agent"
+msgstr "به کارشناس اختصاص داده نشده است"
+
+msgid "assign Ticket To Agent"
+msgstr "اختصاص تیکت به کارشناس"
+
+msgid "The ticket already has the same priority"
+msgstr "تیکت از قبل همین اولویت را دارد"
+
+msgid "Priority has been changed"
+msgstr "اولویت تغییر کرد"
+
+msgid "Priority has not been changed"
+msgstr "اولویت تغییر نکرد"
+
+msgid "Email already banned"
+msgstr "ایمیل قبلاً مسدود شده است"
+
+msgid "The email has been banned"
+msgstr "ایمیل مسدود شد"
+
+msgid "The email has not been banned"
+msgstr "ایمیل مسدود نشد"
+
+msgid "Email is banned by"
+msgstr "ایمیل توسط این شخص مسدود شد"
+
+msgid "The ticket has been reopened"
+msgstr "تیکت دوباره باز شد"
+
+msgid "The ticket has not been reopened"
+msgstr "تیکت دوباره باز نشد"
+
+msgid "The ticket is reopened by"
+msgstr "تیکت توسط این شخص دوباره باز شد"
+
+msgid "The ticket reopens time limit end"
+msgstr "مهلت بازگشایی مجدد تیکت پایان یافته است"
+
+msgid "Email has been unbanned"
+msgstr "مسدودی ایمیل رفع شد"
+
+msgid "Email has not been unbanned"
+msgstr "مسدودی ایمیل رفع نشد"
+
+msgid "Unbanned Email"
+msgstr "ایمیل رفع مسدود شده"
+
+msgid "Email is unbanned by"
+msgstr "مسدودی ایمیل توسط این شخص رفع شد"
+
+msgid "Email cannot be unbanned"
+msgstr "نمی‌توان مسدودی ایمیل را رفع کرد"
+
+msgid "Ticket already marked in progress"
+msgstr "تیکت قبلاً به‌عنوان در حال انجام علامت‌گذاری شده است"
+
+msgid "The ticket has been marked as in progress"
+msgstr "تیکت به‌عنوان در حال انجام علامت‌گذاری شد"
+
+msgid "The ticket has not been marked as in progress"
+msgstr "تیکت به‌عنوان در حال انجام علامت‌گذاری نشد"
+
+msgid "The ticket is marked as in progress by"
+msgstr "تیکت توسط این شخص به‌عنوان در حال انجام علامت‌گذاری شد"
+
+msgid "File upload limit exceeds"
+msgstr "محدودیت بارگذاری فایل رد شده است"
+
+msgid "The uploaded file extension not valid"
+msgstr "پسوند فایل بارگذاری‌شده معتبر نیست"
+
+msgid "Paid support info"
+msgstr "اطلاعات پشتیبانی پولی"
+
+msgid "Order ID"
+msgstr "سفارش ID"
+
+msgid "Product Name"
+msgstr "نام محصول"
+
+msgid "Remaining Tickets"
+msgstr "تیکت‌های باقی‌مانده"
+
+msgid "Unlimited"
+msgstr "نامحدود"
+
+msgid "You have not purchased any supported item"
+msgstr "شما هیچ مورد پشتیبانی‌شده‌ای خریداری نکرده‌اید"
+
+msgid "Go to shop"
+msgstr "رفتن به فروشگاه"
+
+msgid "No premade response found"
+msgstr "هیچ پاسخ آماده یافت نشد"
+
+msgid "Are you sure to mark this ticket non-premium?"
+msgstr "آیا مطمئن هستید می‌خواهید این تیکت را غیر ویژه علامت‌گذاری کنید؟"
+
+msgid "Failed to copy"
+msgstr "کپی ناموفق بود"
+
+msgid "Failed to copy to clipboard. Please copy manually."
+msgstr "کپی در کلیپ‌بورد ناموفق بود. لطفاً دستی کپی کنید."
+
+msgid "Reply content appended!"
+msgstr "محتوای پاسخ اضافه شد!"
+
+msgid "No ticket selected!"
+msgstr "هیچ تیکتی انتخاب نشده است!"
+
+msgid "Error fetching replies."
+msgstr "خطا در دریافت پاسخ‌ها."
+
+msgid "Failed to fetch replies. Please try again."
+msgstr "دریافت پاسخ‌ها ناموفق بود. لطفاً دوباره تلاش کنید."
+
+msgid "Error fetching matching tickets:"
+msgstr "خطا در دریافت تیکت‌های مشابه:"
+
+msgid "No matching tickets found."
+msgstr "هیچ تیکت مشابهی پیدا نشد."
+
+msgid "Smart Reply ID:"
+msgstr "هوشمند پاسخ ID:"
+
+msgid "Similar to Ticket #"
+msgstr "مشابه تیکت شماره"
+
+msgid "Replies for:"
+msgstr "پاسخ‌ها برای:"
+
+msgid "Smart Reply for:"
+msgstr "پاسخ هوشمند برای:"
+
+msgid "No replies found for this ticket."
+msgstr "هیچ پاسخی برای این تیکت پیدا نشد."
+
+msgid "Unknown"
+msgstr "نامشخص"
+
+msgid "Used By"
+msgstr "استفاده‌شده توسط"
+
+msgid "No content"
+msgstr "بدون محتوا"
+
+msgid "No date"
+msgstr "بدون تاریخ"
+
+msgid "Edit Reply"
+msgstr "ویرایش پاسخ"
+
+msgid "Edit Time"
+msgstr "ویرایش زمان"
+
+msgid "Copied"
+msgstr "کپی شد"
+
+msgid "Reason For Editing The Timer"
+msgstr "دلیل ویرایش زمان‌سنج"
+
+msgid "Reason For Editing"
+msgstr "دلیل ویرایش"
+
+msgid "Resolve Conflict"
+msgstr "حل تعارض"
+
+msgid "Total Time Taken"
+msgstr "کل زمان صرف‌شده"
+
+msgid "Reopen"
+msgstr "بازگشایی"
+
+msgid "Print Ticket"
+msgstr "چاپ تیکت"
+
+msgid "Print"
+msgstr "چاپ"
+
+msgid "Conversation"
+msgstr "گفتگو"
+
+msgid "Internal Notes"
+msgstr "یادداشت‌های داخلی"
+
+msgid "History"
+msgstr "تاریخچه"
+
+msgid "opened this ticket"
+msgstr "این تیکت را باز کرد"
+
+msgid "Viewed By"
+msgstr "مشاهده‌شده توسط"
+
+msgid "AGENT"
+msgstr "کارشناس پشتیبانی"
+
+msgid "Replied"
+msgstr "پاسخ داده شد"
+
+msgid "AI-Powered Reply Mode"
+msgstr "حالت پاسخ مبتنی بر AI"
+
+msgid "Control how this individual reply influences the AI search and response generation process for future queries."
+msgstr "کنترل کنید این پاسخ خاص چگونه بر جستجوی AI و فرایند تولید پاسخ برای پرسش‌های آینده اثر بگذارد."
+
+msgid "Default: reply included in all AI search queries."
+msgstr "پیش‌فرض: پاسخ در همه جستجوهای AI لحاظ می‌شود."
+
+msgid "Enable: reply used in AI queries only when the Enable Tickets filter is active."
+msgstr "فعال: پاسخ فقط زمانی در پرس‌وجوهای AI استفاده می‌شود که فیلتر «فعال‌سازی تیکت‌ها» فعال باشد."
+
+msgid "Enable"
+msgstr "فعال‌سازی"
+
+msgid "Disable: reply excluded from AI queries."
+msgstr "غیرفعال: پاسخ از پرس‌وجوهای AI حذف می‌شود."
+
+msgid "Disable"
+msgstr "غیرفعال‌سازی"
+
+msgid "INTERNAL"
+msgstr "داخلی"
+
+msgid "Edit Internal Note"
+msgstr "ویرایش یادداشت داخلی"
+
+msgid "Are you sure to Delete this internal note"
+msgstr "آیا مطمئن هستید که می‌خواهید این یادداشت داخلی را حذف کنید؟"
+
+msgid "Delete Internal Note"
+msgstr "حذف یادداشت داخلی"
+
+msgid "Details"
+msgstr "جزئیات"
+
+msgid "Add New Credential"
+msgstr "افزودن جدید اعتبارنامه"
+
+msgid "Public Reply"
+msgstr "عمومی پاسخ"
+
+msgid "AI Suggestions"
+msgstr "پیشنهادهای AI"
+
+msgid "Local AI Suggestions"
+msgstr "پیشنهادهای AI محلی"
+
+msgid "Live AI Suggestion"
+msgstr "پیشنهاد زنده AI"
+
+msgid "Edit Log"
+msgstr "ویرایش گزارش"
+
+msgid "Start"
+msgstr "شروع"
+
+msgid "Pause"
+msgstr "مکث"
+
+msgid "Stop"
+msgstr "توقف"
+
+msgid "AI Analysis & Suggestions"
+msgstr "تحلیل و پیشنهادهای AI"
+
+msgid "Filter"
+msgstr "فیلتر"
+
+msgid "Enable Tickets"
+msgstr "فعال‌سازی تیکت‌ها"
+
+msgid "All Replies"
+msgstr "همه پاسخ‌ها"
+
+msgid "Enable Replies"
+msgstr "فعال‌سازی پاسخ‌ها"
+
+msgid "OK"
+msgstr "باشه"
+
+msgid "Own Signature"
+msgstr "امضای اختصاصی"
+
+msgid "Add Signature"
+msgstr "افزودن امضا"
+
+msgid "Close On Reply"
+msgstr "بستن در پاسخ"
+
+msgid "Post Reply"
+msgstr "ارسال پاسخ"
+
+msgid "Type Internal Note"
+msgstr "یادداشت داخلی را وارد کنید"
+
+msgid "Lock"
+msgstr "قفل"
+
+msgid "Mark In Progress"
+msgstr "علامت‌گذاری در حال انجام"
+
+msgid "Change"
+msgstr "تغییر"
+
+msgid "Assigned To Agent"
+msgstr "اختصاص‌یافته به کارشناس پشتیبانی"
+
+msgid "Ticket Closing Reason"
+msgstr "دلیل بستن تیکت"
+
+msgid "Ticket Properties"
+msgstr "ویژگی‌های تیکت"
+
+msgid "No Last Reply"
+msgstr "بدون آخرین پاسخ"
+
+msgid "Custom Fields"
+msgstr "سفارشی فیلدها"
+
+msgid "Other Tickets"
+msgstr "سایر تیکت‌ها"
+
+msgid "view ticket"
+msgstr "مشاهده تیکت"
+
+msgid "Woocommerce Order"
+msgstr "سفارش WooCommerce"
+
+msgid "Envato License"
+msgstr "Envato مجوز"
+
+msgid "Item"
+msgstr "مورد"
+
+msgid "Buyer"
+msgstr "خریدار"
+
+msgid "License Type"
+msgstr "نوع مجوز"
+
+msgid "License"
+msgstr "مجوز"
+
+msgid "Purchase Date"
+msgstr "تاریخ خرید"
+
+msgid "Supported Until"
+msgstr "پشتیبانی تا"
+
+msgid "Paid Support Details"
+msgstr "جزئیات پشتیبانی پولی"
+
+msgid "Subscription"
+msgstr "اشتراک"
+
+msgid "Subscribed On"
+msgstr "تاریخ اشتراک"
+
+msgid "Support Expiry"
+msgstr "پایان پشتیبانی"
+
+msgid "No expiration"
+msgstr "بدون انقضا"
+
+msgid "Non-premium support"
+msgstr "پشتیبانی غیر ویژه"
+
+msgid "Check this box if this ticket should NOT apply against the paid support"
+msgstr "اگر این تیکت نباید از سهمیه پشتیبانی پولی کسر شود، این گزینه را علامت بزنید"
+
+msgid "Remaining"
+msgstr "باقی‌مانده"
+
+msgid "Link ticket to paid support"
+msgstr "اتصال تیکت به پشتیبانی پولی"
+
+msgid "Transfer"
+msgstr "انتقال"
+
+msgid "Reason For"
+msgstr "دلیل برای"
+
+msgid "Assign To Agent"
+msgstr "اختصاص به کارشناس پشتیبانی"
+
+msgid "Total Volume"
+msgstr "حجم کل"
+
+msgid "Critical Priority"
+msgstr "اولویت بحرانی"
+
+msgid "closed ticket"
+msgstr "تیکت بسته‌شده"
+
+msgid "Resolved"
+msgstr "حل‌شده"
+
+msgid "Ticket Creator"
+msgstr "ایجادکننده تیکت"
+
+msgid "From Date"
+msgstr "تاریخ از"
+
+msgid "To Date"
+msgstr "تاریخ تا"
+
+msgid "This ticket is marked as overdue"
+msgstr "این تیکت به‌عنوان دیرکرددار علامت‌گذاری شده است"
+
+msgid "Enforce Delete"
+msgstr "حذف اجباری"
+
+msgid "Are you sure you want to enforce delete?"
+msgstr "آیا مطمئن هستید می‌خواهید حذف اجباری انجام دهید؟"
+
+msgid "Tickets Selected"
+msgstr "تیکت‌های انتخاب‌شده"
+
+msgid "Please first make a selection from the list"
+msgstr "لطفاً ابتدا از فهرست انتخاب کنید"
+
+msgid "Close Tickets"
+msgstr "بستن تیکت‌ها"
+
+msgid "Reopen Tickets"
+msgstr "بازگشایی تیکت‌ها"
+
+msgid "Are you sure you want to delete this credential?"
+msgstr "آیا مطمئن هستید می‌خواهید این اطلاعات محرمانه را حذف کنید؟"
+
+msgid "spinning wheel"
+msgstr "چرخ بارگذاری"
+
+msgid "Edit Timer"
+msgstr "ویرایش زمان‌سنج"
+
+msgid "Type Note for"
+msgstr "یادداشت را وارد کنید برای"
+
+msgid "Assigning Note"
+msgstr "یادداشت اختصاص"
+
+msgid "Unban"
+msgstr "رفع مسدودی"
+
+msgid "Ban"
+msgstr "مسدود کردن"
+
+msgid "Ban Email And Close Ticket"
+msgstr "مسدودسازی ایمیل و بستن تیکت"
+
+msgid "Action not permitted."
+msgstr "این اقدام مجاز نیست."
+
+msgid "set"
+msgstr "تنظیم"
+
+msgid "Ticket assigned to"
+msgstr "تیکت اختصاص داده شد به"
+
+msgid "staff photo"
+msgstr "عکس کارمند"
+
+msgid "View all orders"
+msgstr "مشاهده همه سفارش‌ها"
+
+msgid "Check the status of your support ticket quickly and easily."
+msgstr "وضعیت تیکت پشتیبانی خود را سریع و آسان بررسی کنید."
+
+msgid "Token"
+msgstr "توکن"
+
+msgid "Check Status"
+msgstr "بررسی وضعیت"
+
+msgid "Ticket Submitted"
+msgstr "تیکت ارسال‌شده"
+
+msgid "Your support ticket has been received and logged."
+msgstr "تیکت پشتیبانی شما دریافت و ثبت شد."
+
+msgid "Ticket Submission Confirmed!"
+msgstr "ارسال تیکت تأیید شد!"
+
+msgid "Remember Your Ticket Token for Tracking (Save It!)"
+msgstr "توکن تیکت خود را برای پیگیری به خاطر بسپارید (آن را ذخیره کنید!)"
+
+msgid "You've received a token number to track your support ticket status. This is one-time code, so please save it carefully. "
+msgstr "برای پیگیری وضعیت تیکت پشتیبانی خود یک شماره توکن دریافت کرده‌اید. این کد یک‌بار مصرف است، پس لطفاً آن را با دقت ذخیره کنید. "
+
+msgid "Click button below to copy"
+msgstr "برای کپی، دکمه زیر را کلیک کنید"
+
+msgid "Copy Token"
+msgstr "کپی توکن"
+
+msgid "Ticket Department Transfer"
+msgstr "انتقال دپارتمان تیکت"
+
+msgid "Change Ticket Priority"
+msgstr "تغییر اولویت تیکت"
+
+msgid "Assign Role Permissions"
+msgstr "اختصاص نقش مجوزها"
+
+msgid "Add User"
+msgstr "افزودن کاربر"
+
+msgid "Edit User"
+msgstr "ویرایش کاربر"
+
+msgid "Assign User Permissions"
+msgstr "اختصاص کاربر مجوزها"
+
+msgid "Delete Department"
+msgstr "حذف دپارتمان"
+
+msgid "View Department"
+msgstr "مشاهده دپارتمان"
+
+msgid "Delete Role"
+msgstr "حذف نقش"
+
+msgid "Delete User"
+msgstr "حذف کاربر"
+
+msgid "Mail To Agent"
+msgstr "ایمیل به کارشناس پشتیبانی"
+
+msgid "View Category"
+msgstr "مشاهده دسته‌بندی"
+
+msgid "View Knowledge Base"
+msgstr "مشاهده پایگاه دانش"
+
+msgid "Delete Category"
+msgstr "حذف دسته‌بندی"
+
+msgid "Delete Knowledge Base"
+msgstr "حذف پایگاه دانش"
+
+msgid "View FAQ"
+msgstr "مشاهده پرسش متداول"
+
+msgid "Delete FAQ"
+msgstr "حذف پرسش متداول"
+
+msgid "View Download"
+msgstr "مشاهده دانلود"
+
+msgid "Delete Download"
+msgstr "حذف دانلود"
+
+msgid "View Announcement"
+msgstr "مشاهده اطلاعیه"
+
+msgid "Delete Announcement"
+msgstr "حذف اطلاعیه"
+
+msgid "View Role"
+msgstr "مشاهده نقش"
+
+msgid "View User"
+msgstr "مشاهده کاربر"
+
+msgid "Duedate Ticket"
+msgstr "تاریخ سررسید تیکت"
+
+msgid "View Ticket"
+msgstr "مشاهده تیکت"
+
+msgid "New Ticket Notification"
+msgstr "جدید تیکت اعلان"
+
+msgid "Allow Mail System"
+msgstr "اجازه دهید ایمیل سیستم"
+
+msgid "View Agent Reports"
+msgstr "مشاهده گزارش‌های کارشناسان پشتیبانی"
+
+msgid "View Department Reports"
+msgstr "مشاهده گزارش‌های دپارتمان"
+
+msgid "Edit Own Time"
+msgstr "ویرایش زمان خود"
+
+msgid "View Feedback"
+msgstr "مشاهده بازخورد"
+
+msgid "Ticket Merge"
+msgstr "تیکت ادغام"
+
+msgid "View Credentials"
+msgstr "مشاهده اعتبارنامه‌ها"
+
+msgid "Delete Credentials"
+msgstr "حذف اعتبارنامه‌ها"
+
+msgid "Edit Credentials"
+msgstr "ویرایش اعتبارنامه‌ها"
+
+msgid "Add Credentials"
+msgstr "افزودن اعتبارنامه‌ها"
+
+msgid "Edit Help Topic"
+msgstr "ویرایش موضوع راهنما"
+
+msgid "View Help Topic"
+msgstr "مشاهده موضوع راهنما"
+
+msgid "Delete Help Topic"
+msgstr "حذف موضوع راهنما"
+
+msgid "Edit Premade Response"
+msgstr "ویرایش پاسخ آماده"
+
+msgid "View Premade Response"
+msgstr "مشاهده پاسخ آماده"
+
+msgid "Delete Premade Response"
+msgstr "حذف پاسخ آماده"
+
+msgid "Mark Non Premium"
+msgstr "علامت‌گذاری به‌عنوان غیر ویژه"
+
+msgid "Link To Paid Support"
+msgstr "اتصال به پشتیبانی پولی"
+
+msgid "Edit Smart Reply"
+msgstr "ویرایش پاسخ هوشمند"
+
+msgid "View Smart Reply"
+msgstr "مشاهده پاسخ هوشمند"
+
+msgid "Delete Smart Reply"
+msgstr "حذف پاسخ هوشمند"
+
+msgid "Add Ban Email"
+msgstr "افزودن مسدود کردن ایمیل"
+
+msgid "Edit Ban Email"
+msgstr "ویرایش مسدود کردن ایمیل"
+
+msgid "View Ban Email"
+msgstr "مشاهده مسدود کردن ایمیل"
+
+msgid "Delete Ban Email"
+msgstr "حذف مسدود کردن ایمیل"
+
+msgid "Manage Ticket Close Reasons"
+msgstr "مدیریت دلیل بستن تیکتs"
+
+msgid "Use AI Powered Reply Feature"
+msgstr "استفاده از قابلیت پاسخ مبتنی بر AI"
+
+msgid "Set AI Reply Mode for Ticket"
+msgstr "تنظیم حالت پاسخ AI برای تیکت"
+
+msgid "Set AI Reply Mode for Reply"
+msgstr "تنظیم حالت پاسخ AI برای پاسخ"
+
+msgid "Limit AI Replies to Agent-Assigned Tickets"
+msgstr "محدودیت هوش مصنوعی پاسخ‌ها to کارشناس پشتیبانی-اختصاص‌یافته تیکت‌ها"
+
+msgid "Manager"
+msgstr "مدیر"
+
+msgid "We are offline now please come back soon.\\r\\n\\r\\nThank you"
+msgstr "ما اکنون آفلاین هستیم؛ لطفاً به‌زودی دوباره مراجعه کنید.\\r\\n\\r\\nسپاسگزاریم"
+
+msgid "Thank you for contacting us. A support ticket request has been submitted, and a representative will be contacting you shortly.\\r\\nSupport Team"
+msgstr "از تماس شما سپاسگزاریم. درخواست تیکت پشتیبانی ثبت شد و یکی از نمایندگان به‌زودی با شما تماس خواهد گرفت.\\r\\nتیم پشتیبانی"
+
+msgid "Thank you for providing your feedback. We appreciate the time you have taken and will actively use it to improve our services to you."
+msgstr "از ارائه بازخوردتان سپاسگزاریم. از زمانی که صرف کرده‌اید قدردانی می‌کنیم و از آن برای بهبود خدمات خود استفاده خواهیم کرد."
+
+msgid "Support"
+msgstr "پشتیبانی"
+
+msgid "Phone"
+msgstr "تلفن"
+
+msgid "Issue Summary"
+msgstr "خلاصه مشکل"
+
+msgid "Internal Note Title"
+msgstr "عنوان یادداشت داخلی"
+
+msgid "Remarks"
+msgstr "توضیحات"
+
+msgid "WC Order ID"
+msgstr "WC سفارش ID"
+
+msgid "WC Product"
+msgstr "WC محصول"
+
+msgid "EDD Order ID"
+msgstr "EDD سفارش ID"
+
+msgid "EDD Product"
+msgstr "EDD محصول"
+
+msgid "License Key"
+msgstr "مجوز کلید"
+
+msgid "Envato Purchase Code"
+msgstr "کد خرید Envato"
+
+msgid "terms and conditions 1"
+msgstr "شرایط و ضوابط ۱"
+
+msgid "terms and conditions 2"
+msgstr "شرایط و ضوابط ۲"
+
+msgid "terms and conditions 3"
+msgstr "شرایط و ضوابط ۳"
+
+msgid "slug for ticket page"
+msgstr "نامک صفحه تیکت"
+
+msgid "slug for agent add ticket page"
+msgstr "نامک صفحه افزودن تیکت توسط کارشناس"
+
+msgid "slug for role permission page"
+msgstr "نامک صفحه مجوزهای نقش"
+
+msgid "slug for add announcement"
+msgstr "نامک افزودن اعلان"
+
+msgid "slug for add department page"
+msgstr "نامک صفحه افزودن دپارتمان"
+
+msgid "slug for add download page"
+msgstr "نامک صفحه افزودن دانلود"
+
+msgid "slug for add faq page"
+msgstr "نامک صفحه افزودن پرسش متداول"
+
+msgid "slug for faq page"
+msgstr "نامک صفحه پرسش‌های متداول"
+
+msgid "slug for add article page"
+msgstr "نامک صفحه افزودن مقاله"
+
+msgid "slug for add category page"
+msgstr "نامک صفحه افزودن دسته‌بندی"
+
+msgid "slug for user knowledgebase articles page"
+msgstr "نامک صفحه مقالات پایگاه دانش کاربر"
+
+msgid "slug for article detail page"
+msgstr "نامک صفحه جزئیات مقاله"
+
+msgid "slug for add role page"
+msgstr "نامک صفحه افزودن نقش"
+
+msgid "slug for add agent page"
+msgstr "نامک صفحه افزودن کارشناس"
+
+msgid "slug for agent permissions page"
+msgstr "نامک صفحه مجوزهای کارشناس"
+
+msgid "slug for my tickets page"
+msgstr "نامک صفحه my تیکت‌ها"
+
+msgid "slug for agent my tickets page"
+msgstr "نامک صفحه کارشناس پشتیبانی my تیکت‌ها"
+
+msgid "slug for knowledgebase page"
+msgstr "نامک صفحه پایگاه دانش"
+
+msgid "slug for agent categories page"
+msgstr "نامک صفحه دسته‌بندی‌های کارشناس"
+
+msgid "slug for agent kb articles page"
+msgstr "نامک صفحه مقالات پایگاه دانش کارشناس"
+
+msgid "slug for agent announcements page"
+msgstr "نامک صفحه اعلان‌های کارشناس"
+
+msgid "slug for agent downloads page"
+msgstr "نامک صفحه دانلودهای کارشناس"
+
+msgid "slug for agent FAQs page"
+msgstr "نامک صفحه کارشناس پشتیبانی پرسش‌های متداول"
+
+msgid "slug for add ticket page"
+msgstr "نامک صفحه افزودن تیکت"
+
+msgid "slug for ticket status page"
+msgstr "نامک صفحه وضعیت تیکت"
+
+msgid "slug for control panel"
+msgstr "نامک پنل کنترل"
+
+msgid "slug for agent report detail page"
+msgstr "نامک صفحه جزئیات گزارش کارشناس"
+
+msgid "slug for agent reports page"
+msgstr "نامک صفحه گزارش‌های کارشناس"
+
+msgid "slug for department reports page"
+msgstr "نامک صفحه گزارش‌های دپارتمان"
+
+msgid "slug for announcement detail page"
+msgstr "نامک صفحه جزئیات اعلان"
+
+msgid "slug for feedback page"
+msgstr "نامک صفحه بازخورد"
+
+msgid "slug for agent feedback page"
+msgstr "نامک صفحه بازخورد کارشناس"
+
+msgid "slug for visitor message page"
+msgstr "نامک صفحه پیام بازدیدکننده"
+
+msgid "slug for add help topic page"
+msgstr "نامک صفحه افزودن موضوع راهنما"
+
+msgid "slug for agent help topics page"
+msgstr "نامک صفحه موضوعات راهنمای کارشناس"
+
+msgid "slug for add premade response page"
+msgstr "نامک صفحه افزودن پاسخ آماده"
+
+msgid "slug for agent Premade responses page"
+msgstr "نامک صفحه پاسخ‌های آماده کارشناس"
+
+msgid "slug for GDPR data compliance actions page"
+msgstr "نامک صفحه اقدام‌های انطباق داده GDPR"
+
+msgid "slug for print ticket page"
+msgstr "نامک صفحه چاپ تیکت"
+
+msgid "slug for my profile page"
+msgstr "نامک صفحه پروفایل من"
+
+msgid "slug for login page"
+msgstr "نامک صفحه ورود"
+
+msgid "slug for user register page"
+msgstr "نامک صفحه ثبت‌نام کاربر"
+
+msgid "slug for add message page"
+msgstr "نامک صفحه افزودن پیام"
+
+msgid "slug for message detail page"
+msgstr "نامک صفحه جزئیات پیام"
+
+msgid "slug for message inbox page"
+msgstr "نامک صفحه صندوق ورودی پیام‌ها"
+
+msgid "slug for message outbox page"
+msgstr "نامک صفحه صندوق خروجی پیام‌ها"
+
+msgid "slug for roles page"
+msgstr "نامک صفحه نقش‌ها"
+
+msgid "slug for agent page"
+msgstr "نامک صفحه کارشناس پشتیبانی"
+
+msgid "slug for departments page"
+msgstr "نامک صفحه دپارتمان‌ها"
+
+msgid "slug for announcements page"
+msgstr "نامک صفحه اعلان‌ها"
+
+msgid "slug for downloads page"
+msgstr "نامک صفحه دانلودها"
+
+msgid "slug for FAQs page"
+msgstr "نامک صفحه پرسش‌های متداول"
+
+msgid "slug for smart replies page"
+msgstr "نامک صفحه پاسخ‌های هوشمند"
+
+msgid "slug for add smart reply page"
+msgstr "نامک صفحه افزودن پاسخ هوشمند"
+
+msgid "slug for ticket close reasons page"
+msgstr "نامک صفحه دلایل بستن تیکت"
+
+msgid "slug for add ticket close reason page"
+msgstr "نامک صفحه افزودن دلیل بستن تیکت"
+
+msgid "slug for export page"
+msgstr "نامک صفحه برون‌بری"
+
+msgid "slug for ban emails page"
+msgstr "نامک صفحه ایمیل‌های مسدودشده"
+
+msgid "slug for add banemail page"
+msgstr "نامک صفحه افزودن ایمیل مسدودشده"
+
+msgid "Close Due To Merge"
+msgstr "بستن به دلیل ادغام"
+
+msgid "Select All"
+msgstr "انتخاب همه"
+
+msgid "Buy Now"
+msgstr "اکنون خرید کنید"
+
+msgid "By Email & ID"
+msgstr "بر اساس ایمیل و شناسه"
+
+msgid "By Token"
+msgstr "بر اساس توکن"
+
+msgid "Close due to merge"
+msgstr "بستن به دلیل ادغام"
+
+msgid "Recommended Add-ons"
+msgstr "افزودنی‌های پیشنهادی"
+
+msgid "You have all add-ons active! You are a power user."
+msgstr "همه افزودنی‌ها برای شما فعال هستند! شما یک کاربر حرفه‌ای هستید."
+
+msgid "There is no ticket"
+msgstr "هیچ تیکتی وجود ندارد"
+
+msgid "Useful Links"
+msgstr "لینک‌های مفید"
+
+msgid "Select Premade Response"
+msgstr "انتخاب پاسخ آماده"
+
+msgid "ADMIN"
+msgstr "مدیر"
+
+msgid "Ticket ID Or Email Address Or Subject"
+msgstr "شناسه تیکت یا آدرس ایمیل یا موضوع"
+
+msgid "Activity & Premade Responses"
+msgstr "فعالیت و پاسخ‌های آماده"

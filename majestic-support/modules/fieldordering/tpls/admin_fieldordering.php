@@ -45,7 +45,7 @@ $majesticsupport_js ="
 ";
 wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
 wp_enqueue_script('jquery-ui-sortable');
-wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
+wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css', array(), '1.0.0');
 
 MJTC_message::MJTC_getMessage(); ?>
 <?php
@@ -70,21 +70,21 @@ $type = array(
                 <table id="majestic-support-table">
                     <thead>
                     <tr class="majestic-support-table-heading">
-                        <th><?php echo esc_html(__('Ordering', 'majestic-support')); ?></th>
-                        <th><?php echo esc_html(__('S.No', 'majestic-support')); ?></th>
-                        <th class="left"><?php echo esc_html(__('Field Title', 'majestic-support')); ?></th>
-                        <th><?php echo esc_html(__('User Publish', 'majestic-support')); ?></th>
-                        <th><?php echo esc_html(__('Visitor Publish', 'majestic-support')); ?></th>
-                        <th><?php echo esc_html(__('Required', 'majestic-support')); ?></th>
-                        <th><?php echo esc_html(__('Action', 'majestic-support')); ?></th>
+                        <th class="majestic-support-table-ordering"><?php echo esc_html(__('Ordering', 'majestic-support')); ?></th>
+                        <th class="majestic-support-table-ordering"><?php echo esc_html(__('S.No', 'majestic-support')); ?></th>
+                        <th class="left majestic-support-table-title"><?php echo esc_html(__('Field Title', 'majestic-support')); ?></th>
+                        <th class="majestic-support-table-status"><?php echo esc_html(__('User Published', 'majestic-support')); ?></th>
+                        <th class="majestic-support-table-status"><?php echo esc_html(__('Visitor Published', 'majestic-support')); ?></th>
+                        <th class="majestic-support-table-status"><?php echo esc_html(__('Required', 'majestic-support')); ?></th>
+                        <th class="majestic-support-table-actions"><?php echo esc_html(__('Action', 'majestic-support')); ?></th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
-                    $i = 0;
+                    $MJTC_i = 0;
                     $MJTC_count = count(majesticsupport::$_data[0]) - 1;
-                    foreach (majesticsupport::$_data[0] AS $field) {
-                        if($field->field == 'wcorderid' || $field->field == 'wcproductid' || $field->field == 'wcitemid'){
+                    foreach (majesticsupport::$_data[0] AS $MJTC_field) {
+                        if($MJTC_field->field == 'wcorderid' || $MJTC_field->field == 'wcproductid' || $MJTC_field->field == 'wcitemid'){
                             if(!in_array('woocommerce', majesticsupport::$_active_addons)){
                                 continue;
                             }
@@ -93,7 +93,7 @@ $type = array(
                             }
                         }
 
-                        if($field->field == 'eddorderid' || $field->field == 'eddproductid'){
+                        if($MJTC_field->field == 'eddorderid' || $MJTC_field->field == 'eddproductid'){
                             if(!in_array('easydigitaldownloads', majesticsupport::$_active_addons)){
                                 continue;
                             }
@@ -102,7 +102,7 @@ $type = array(
                             }
                         }
 
-                        if($field->field == 'eddlicensekey'){
+                        if($MJTC_field->field == 'eddlicensekey'){
                             if(!in_array('easydigitaldownloads', majesticsupport::$_active_addons)){
                                 continue;
                             }
@@ -114,99 +114,132 @@ $type = array(
                             }
                         }
                         // hide status and assign and duedate to field
-                        if($field->field == 'wcitemid' || $field->field == 'status' || $field->field == 'assignto' || $field->field == 'duedate'){
+                        if($MJTC_field->field == 'wcitemid' || $MJTC_field->field == 'status' || $MJTC_field->field == 'assignto' || $MJTC_field->field == 'duedate'){
                             continue;
                         }
 
-                        if($field->field == 'envatopurchasecode'){
+                        if($MJTC_field->field == 'envatopurchasecode'){
                             if(!in_array('envatovalidation', majesticsupport::$_active_addons)){
                                 continue;
                             }
                         }
 
-                        $MJTC_alt = $field->published ? esc_html(__('Published','majestic-support')) : esc_html(__('Unpublished','majestic-support'));
-                        $MJTC_reqalt = $field->required ? esc_html(__('Required','majestic-support')) : esc_html(__('Not required','majestic-support'));
+                        $MJTC_alt = $MJTC_field->published ? esc_html(__('Published','majestic-support')) : esc_html(__('Unpublished','majestic-support'));
+                        $MJTC_reqalt = $MJTC_field->required ? esc_html(__('Required','majestic-support')) : esc_html(__('Not required','majestic-support'));
                         ?>
-                        <tr id="id_<?php echo esc_attr($field->id); ?>">
-                            <td class="mjtc-textaligncenter ms-order-grab-column">
+                        <tr id="id_<?php echo esc_attr($MJTC_field->id); ?>">
+                            <td class="mjtc-textaligncenter ms-order-grab-column majestic-support-table-ordering" >
                                 <span class="majestic-support-table-responsive-heading">
                                     <?php echo esc_html(__('Ordering', 'majestic-support')); echo esc_html(" : "); ?>
                                 </span>
-                                <img alt="<?php echo esc_html(__('grab','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/list-full.png'?>"/>
+                                <div class="ms-grab-handle" title="Drag to reorder">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg>
+                                </div>
                             </td>
 
-                            <td>
+                            <td class="majestic-support-table-ordering">
                             <span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('S.No','majestic-support')); ?>:</span>
-                            <?php echo esc_html($field->id); ?></td>
-                            <td class="left">
+                            <?php echo esc_html($MJTC_field->id); ?></td>
+                            <td class="left majestic-support-table-title">
                             <span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Field Title','majestic-support')); ?>:</span>
                                 <?php
-                                    if ($field->fieldtitle){
-                                        $MJTC_head = '<a title="'. esc_html(__('users popup','majestic-support')).'" href="?page=majesticsupport_fieldordering&mjslay=adduserfeild&majesticsupportid='.esc_attr($field->id).'&fieldfor='.majesticsupport::$_data['fieldfor'].'&formid='.esc_attr($field->multiformid).'" id="" data-id='.esc_attr($field->id).'>'.esc_html(majesticsupport::MJTC_getVarValue($field->fieldtitle)).'</a>';
+                                    if ($MJTC_field->fieldtitle){
+                                        $MJTC_head = '<a title="'. esc_html(__('users popup','majestic-support')).'" href="?page=majesticsupport_fieldordering&mjslay=adduserfeild&majesticsupportid='.esc_attr($MJTC_field->id).'&fieldfor='.majesticsupport::$_data['fieldfor'].'&formid='.esc_attr($MJTC_field->multiformid).'" id="" data-id='.esc_attr($MJTC_field->id).'>'.esc_html(majesticsupport::MJTC_getVarValue($MJTC_field->fieldtitle)).'</a>';
                                         echo wp_kses($MJTC_head, MJTC_ALLOWED_TAGS);
                                     } else {
-                                        echo esc_html(majesticsupport::MJTC_getVarValue($field->userfieldtitle));
+                                        echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_field->userfieldtitle));
                                     }
-                                    if($field->cannotunpublish == 1){
+                                    if($MJTC_field->cannotunpublish == 1){
                                         echo wp_kses('<font style="color:#1C6288;font-size:20px;margin:0px 5px;">*</font>', MJTC_ALLOWED_TAGS);
                                     }
                                 ?>
                             </td>
-                            <td>
-                            <span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('User Publish','majestic-support')); ?>:</span>
-                                <?php if ($field->cannotunpublish == 1) { ?>
-                                    <img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/good.png'; ?>" title="<?php echo esc_attr(__('Can Not Unpublished','majestic-support')); ?>" alt="<?php echo esc_html(__('good','majestic-support')); ?>" />
-                                <?php }elseif ($field->published == 1) {
-                                    $MJTC_url  = "?page=majesticsupport_fieldordering&task=changepublishstatus&action=mstask&status=unpublish&fieldorderingid=".esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid);
+                            <?php
+                            if ($MJTC_field->cannotunpublish == 1) {
+                                $MJTC_class = 'majestic-support-yes';
+                            } elseif ($MJTC_field->published == 1) {
+                                $MJTC_class = 'majestic-support-yes';
+                            } else {
+                                $MJTC_class = 'majestic-support-no';
+                            }
+                            ?>
+                            <td class="majestic-support-table-status <?php echo esc_attr($MJTC_class); ?>">
+                            <span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('User Published','majestic-support')); ?>:</span>
+                                <?php if ($MJTC_field->cannotunpublish == 1) { ?>
+                                    <span class="majestice-support-unselect-field"><span title="<?php echo esc_attr(__('Can Not Unpublished','majestic-support')); ?>" class="majestic-support-table-status-dot"></span><?php echo esc_html(__('Yes', 'majestic-support')); ?></span>
+                                <?php }elseif ($MJTC_field->published == 1) {
+                                    $MJTC_url  = "?page=majesticsupport_fieldordering&task=changepublishstatus&action=mstask&status=unpublish&fieldorderingid=".esc_attr($MJTC_field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($MJTC_field->multiformid);
                                          ?>
-                                        <a title="<?php echo esc_attr(__('good','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'change-publish-status-'.esc_attr($field->id))); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/good.png'; ?>" alt="<?php echo esc_html(__('good','majestic-support')); ?>" /></a>
+                                        <a title="<?php echo esc_attr(__('Yes','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'change-publish-status-'.esc_attr($MJTC_field->id))); ?>" ><span class="majestic-support-table-status-dot"></span><?php echo esc_html(__('Yes', 'majestic-support')); ?></a>
                                 <?php }else{
-                                    $MJTC_url  = "?page=majesticsupport_fieldordering&task=changepublishstatus&action=mstask&status=publish&fieldorderingid=".esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid);
+                                    $MJTC_url  = "?page=majesticsupport_fieldordering&task=changepublishstatus&action=mstask&status=publish&fieldorderingid=".esc_attr($MJTC_field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($MJTC_field->multiformid);
                                          ?>
-                                        <a title="<?php echo esc_attr(__('cross','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'change-publish-status-'.esc_attr($field->id))); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/close.png'; ?>" alt="<?php echo esc_attr(__('cross','majestic-support')); ?>" /></a>
+                                        <a title="<?php echo esc_attr(__('cross','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'change-publish-status-'.esc_attr($MJTC_field->id))); ?>" ><span class="majestic-support-table-status-dot"></span><?php echo esc_html(__('No', 'majestic-support')); ?></a>
                                 <?php } ?>
                             </td>
-                            <td>
-                            <span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Visitor Publish','majestic-support')); ?>:</span>
-                                <?php if ($field->cannotunpublish == 1) { ?>
-                                    <img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/good.png'; ?>" title="<?php echo esc_attr(__('Can Not Unpublished','majestic-support')); ?>" />
-                                <?php }elseif ($field->isvisitorpublished == 1) {
-                                    $MJTC_url  = "?page=majesticsupport_fieldordering&task=changevisitorpublishstatus&action=mstask&status=unpublish&fieldorderingid=".esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid);
+                            <?php
+                            if ($MJTC_field->cannotunpublish == 1) {
+                                $MJTC_class = 'majestic-support-yes';
+                            } elseif ($MJTC_field->isvisitorpublished == 1) {
+                                $MJTC_class = 'majestic-support-yes';
+                            } else {
+                                $MJTC_class = 'majestic-support-no';
+                            }
+                            ?>
+                            <td class="majestic-support-table-status <?php echo esc_attr($MJTC_class); ?>">
+                            <span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Visitor Published','majestic-support')); ?>:</span>
+                                <?php if ($MJTC_field->cannotunpublish == 1) { ?>
+                                    <span class="majestice-support-unselect-field"><span title="<?php echo esc_attr(__('Can Not Unpublished','majestic-support')); ?>" class="majestic-support-table-status-dot"></span><?php echo esc_html(__('Yes', 'majestic-support')); ?></span>
+                                <?php }elseif ($MJTC_field->isvisitorpublished == 1) {
+                                    $MJTC_url  = "?page=majesticsupport_fieldordering&task=changevisitorpublishstatus&action=mstask&status=unpublish&fieldorderingid=".esc_attr($MJTC_field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($MJTC_field->multiformid);
                                          ?>
-                                        <a title="<?php echo esc_attr(__('good','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'change-visitor-publish-status-'.esc_attr($field->id))); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/good.png'; ?>" alt="<?php echo esc_html(__('good','majestic-support')); ?>" /></a>
+                                        <a title="<?php echo esc_attr(__('Yes','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'change-visitor-publish-status-'.esc_attr($MJTC_field->id))); ?>" ><span class="majestic-support-table-status-dot"></span><?php echo esc_html(__('Yes', 'majestic-support')); ?></a>
                                 <?php }else{
-                                    $MJTC_url  = "?page=majesticsupport_fieldordering&task=changevisitorpublishstatus&action=mstask&status=publish&fieldorderingid=".esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid);
+                                    $MJTC_url  = "?page=majesticsupport_fieldordering&task=changevisitorpublishstatus&action=mstask&status=publish&fieldorderingid=".esc_attr($MJTC_field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($MJTC_field->multiformid);
                                          ?>
-                                        <a title="<?php echo esc_attr(__('cross','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'change-visitor-publish-status-'.esc_attr($field->id))); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/close.png'; ?>" alt="<?php echo esc_html(__('cross','majestic-support')); ?>" /></a>
+                                        <a title="<?php echo esc_attr(__('cross','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'change-visitor-publish-status-'.esc_attr($MJTC_field->id))); ?>" ><span class="majestic-support-table-status-dot"></span><?php echo esc_html(__('No', 'majestic-support')); ?></a>
                                 <?php } ?>
                             </td>
-                            <td>
+                            <?php
+                            if ($MJTC_field->cannotunpublish == 1 || $MJTC_field->field == 'termsandconditions1' || $MJTC_field->field == 'termsandconditions2' || $MJTC_field->field == 'termsandconditions3' || ($MJTC_field->userfieldtype == 'termsandconditions' && $MJTC_field->required == 1) ) {
+                                $MJTC_class = 'majestic-support-yes';
+                            } elseif ($MJTC_field->required == 1) {
+                                $MJTC_class = 'majestic-support-yes';
+                            } else {
+                                $MJTC_class = 'majestic-support-no';
+                            }
+                            ?>
+                            <td class="majestic-support-table-status <?php echo esc_attr($MJTC_class); ?>">
                             <span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Required','majestic-support')); ?>:</span>
-                                <?php if ($field->cannotunpublish == 1 || $field->field == 'termsandconditions1' || $field->field == 'termsandconditions2' || $field->field == 'termsandconditions3' || ($field->userfieldtype == 'termsandconditions' && $field->required == 1) ) { ?>
-                                    <img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/good.png'; ?>" alt="<?php echo esc_html(__('good','majestic-support')); ?>" title="<?php echo esc_attr(__('can not mark as not required','majestic-support')); ?>" />
-                                <?php }elseif ($field->required == 1) {
-                                    $MJTC_url  = "?page=majesticsupport_fieldordering&task=changerequiredstatus&action=mstask&status=unrequired&fieldorderingid=".esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid);
+                                <?php if ($MJTC_field->cannotunpublish == 1 || $MJTC_field->field == 'termsandconditions1' || $MJTC_field->field == 'termsandconditions2' || $MJTC_field->field == 'termsandconditions3' || ($MJTC_field->userfieldtype == 'termsandconditions' && $MJTC_field->required == 1) ) { ?>
+                                    <span class="majestice-support-unselect-field"><span title="<?php echo esc_attr(__('can not mark as not required','majestic-support')); ?>" class="majestic-support-table-status-dot"></span><?php echo esc_html(__('Yes', 'majestic-support')); ?></span>
+                                <?php }elseif ($MJTC_field->required == 1) {
+                                    $MJTC_url  = "?page=majesticsupport_fieldordering&task=changerequiredstatus&action=mstask&status=unrequired&fieldorderingid=".esc_attr($MJTC_field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($MJTC_field->multiformid);
                                          ?>
-                                        <a title="<?php echo esc_attr(__('good','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'change-required-status-'.esc_attr($field->id))); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/good.png'; ?>" alt="<?php echo esc_html(__('good','majestic-support')); ?>" /></a>
+                                        <a title="<?php echo esc_attr(__('Yes','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'change-required-status-'.esc_attr($MJTC_field->id))); ?>" ><span class="majestic-support-table-status-dot"></span><?php echo esc_html(__('Yes', 'majestic-support')); ?></a>
                                 <?php }else{
-                                    $MJTC_url  = "?page=majesticsupport_fieldordering&task=changerequiredstatus&action=mstask&status=required&fieldorderingid=".esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid);
+                                    $MJTC_url  = "?page=majesticsupport_fieldordering&task=changerequiredstatus&action=mstask&status=required&fieldorderingid=".esc_attr($MJTC_field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($MJTC_field->multiformid);
                                          ?>
-                                        <a title="<?php echo esc_attr(__('Close','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'change-required-status-'.esc_attr($field->id))); ?>" ><img height="15" width="15" src="<?php echo esc_url(MJTC_PLUGIN_URL) . 'includes/images/close.png'; ?>" title="<?php echo esc_attr(__('Close','majestic-support')); ?>" /></a>
+                                        <a title="<?php echo esc_attr(__('No','majestic-support')); ?>" href="<?php echo esc_url(wp_nonce_url($MJTC_url, 'change-required-status-'.esc_attr($MJTC_field->id))); ?>" ><span class="majestic-support-table-status-dot"></span><?php echo esc_html(__('No', 'majestic-support')); ?></a>
                                 <?php } ?>
                             </td>
-                            <td>
+                            <td class="majestic-support-table-actions">
                             <span class="majestic-support-table-responsive-heading"><?php echo esc_html(__('Action','majestic-support')); ?>:</span>
                                 <?php
-                                    echo wp_kses('<a title="'. esc_html(__('Edit','majestic-support')).'" class="action-btn" href="?page=majesticsupport_fieldordering&mjslay=adduserfeild&majesticsupportid='.esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid).'"><img alt="'. esc_html(__('Edit','majestic-support')).'" src="'.esc_url(MJTC_PLUGIN_URL).'includes/images/edit.png" /></a>&nbsp;', MJTC_ALLOWED_TAGS);
-                                    if($field->isuserfield==1){
-                                        $MJTC_fieldData = '<a title="'. esc_html(__('Delete','majestic-support')).'" class="action-btn" onclick="return confirm(\''. esc_html(__('Are you sure you want to delete it?','majestic-support')).'\');" href="'.esc_url(wp_nonce_url('?page=majesticsupport_fieldordering&task=removeuserfeild&action=mstask&majesticsupportid='.esc_attr($field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($field->multiformid),'remove-userfeild-'.esc_attr($field->id))).'"><img alt="'. esc_html(__('Delete','majestic-support')).'" src="'.esc_url(MJTC_PLUGIN_URL).'includes/images/delete.png" /></a>';
+                                    echo wp_kses('<a title="'. esc_html(__('Edit','majestic-support')).'" class="action-btn" href="?page=majesticsupport_fieldordering&mjslay=adduserfeild&majesticsupportid='.esc_attr($MJTC_field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($MJTC_field->multiformid).'">
+                                     <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
+                                    </a>&nbsp;', MJTC_ALLOWED_TAGS);
+                                    if($MJTC_field->isuserfield==1){
+                                        $MJTC_fieldData = '<a title="'. esc_html(__('Delete','majestic-support')).'" class="action-btn" onclick="return confirm(\''. esc_html(__('Are you sure you want to delete?','majestic-support')).'\');" href="'.esc_url(wp_nonce_url('?page=majesticsupport_fieldordering&task=removeuserfeild&action=mstask&majesticsupportid='.esc_attr($MJTC_field->id).'&fieldfor='.esc_attr(majesticsupport::$_data['fieldfor']).'&formid='.esc_attr($MJTC_field->multiformid),'remove-userfeild-'.esc_attr($MJTC_field->id))).'">
+                                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path></svg>
+                                        </a>';
                                         echo wp_kses($MJTC_fieldData, MJTC_ALLOWED_TAGS);
                                     }
                                 ?>
                             </td>
                         </tr>
                         <?php
-                        $i++;
+                        $MJTC_i++;
                     }
                     ?>
                  </tbody>

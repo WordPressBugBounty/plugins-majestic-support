@@ -2,6 +2,80 @@ jQuery(document).ready(function(n){
     jQuery('.specialClass').closest("div.mjtc-form-custm-flds-wrp").removeClass('visible');
     jQuery('.specialClass').closest("div.mjtc-support-from-field-wrp").removeClass('visible');
 });
+var positionToasts = function() {
+            var currentTop = 40; // Starting top position
+            var gap = 10; // Space between each toast
+            
+            jQuery('.mjtc-toast-wrapper').each(function() {
+                var $wrapper = jQuery(this);
+                var $innerMsg = $wrapper.find('.mjtc-toast-msg');
+                
+                // .outerHeight() safely grabs the height including padding/borders
+                var height = $wrapper.outerHeight() || $innerMsg.outerHeight() || 0;
+                
+                // Only adjust if we have a valid height calculated
+                if (height > 0) {
+                    $wrapper.css('top', currentTop + 'px');
+                    currentTop += height + gap;
+                }
+            });
+        };
+
+        jQuery(document).ready(function(n) {
+            // Initial positioning on ready
+            positionToasts();
+
+            // Handle all toast notifications
+            jQuery('.mjtc-toast-msg').each(function() {
+                var $toast = jQuery(this);
+                var $wrapper = $toast.closest('.mjtc-toast-wrapper');
+
+                // 1. Function to hide and remove the toast
+                var hideToast = function() {
+                    $toast.removeClass('show');
+                    // Wait for the CSS fade-out transition before removing from DOM
+                    setTimeout(function() {
+                        $wrapper.remove();
+                    }, 500);
+                };
+
+                // 2. Set the 8-second auto-hide timer
+                var autoHideTimer = setTimeout(hideToast, 8000);
+
+                // 3. Optional: Pause timer if user hovers over the notification
+                $toast.hover(
+                    function() { clearTimeout(autoHideTimer); }, // Pause
+                    function() { autoHideTimer = setTimeout(hideToast, 3000); } // Resume with grace period
+                );
+            });
+
+            // 4. Manual Close button functionality
+            // Using delegation to ensure it works even for AJAX-loaded toasts
+            jQuery(document).on('click', '.mjtc-toast-close', function() {
+                var $msg = jQuery(this).closest('.mjtc-toast-msg');
+                var $wrap = jQuery(this).closest('.mjtc-toast-wrapper');
+                
+                $msg.removeClass('show');
+                setTimeout(function() {
+                    $wrap.remove();
+                }, 500);
+            });
+        });
+
+        // 5. Fallbacks and Observers to keep positions updated
+        jQuery(window).on('load', positionToasts);
+        setTimeout(positionToasts, 50);
+        setTimeout(positionToasts, 200);
+
+        // Watch for elements being added or removed from the DOM
+        var observer = new MutationObserver(function() {
+            requestAnimationFrame(positionToasts);
+        });
+        
+        observer.observe(document.body, { 
+            childList: true, 
+            subtree: true 
+        });
 
 function MJTC_fillSpaces(string){
     string = string.replace(" ", "%20");
@@ -84,45 +158,45 @@ function MJTC_getDataForVisibleField(wpnonce, val, fieldname, conditionGroups) {
                                             ? "select#" + condition.visibleParent
                                             : "select#" + condition.visibleParent + "id";
 
-                                        $field = jQuery(selector);
+                                        $MJTC_field = jQuery(selector);
                                         // If not found, fallback to checkbox group selector
-                                        if ($field.length === 0) {
-                                            $field = jQuery("input[type='checkbox'][id^='" + condition.visibleParent + "_']");
+                                        if ($MJTC_field.length === 0) {
+                                            $MJTC_field = jQuery("input[type='checkbox'][id^='" + condition.visibleParent + "_']");
                                         }
                                         // If not found, fallback to radiobutton group selector
-                                        if ($field.length === 0) {
-                                            $field = jQuery("input[type='radio'][id^='" + condition.visibleParent + "_']");
+                                        if ($MJTC_field.length === 0) {
+                                            $MJTC_field = jQuery("input[type='radio'][id^='" + condition.visibleParent + "_']");
                                         }
                                         // If not found, fallback to multiselect group selector
-                                        if ($field.length === 0) {
-                                            $field = jQuery("select[id^='" + condition.visibleParent + "[]']");
+                                        if ($MJTC_field.length === 0) {
+                                            $MJTC_field = jQuery("select[id^='" + condition.visibleParent + "[]']");
                                         }
                                         // If not found, fallback to multiselect group selector
-                                        if ($field.length === 0) {
-                                            $field = false;
+                                        if ($MJTC_field.length === 0) {
+                                            $MJTC_field = false;
                                         }
                                         
                                         let fieldval = null;
 
-                                        if ($field. length > 0) {
-                                            var tag = $field.prop("tagName").toLowerCase();
-                                            var type = $field.attr("type");
+                                        if ($MJTC_field. length > 0) {
+                                            var tag = $MJTC_field.prop("tagName").toLowerCase();
+                                            var type = $MJTC_field.attr("type");
 
                                             if (tag === "select") {
                                                 // Handles both single and multi-select dropdowns
-                                                var isMultiSelect = $field.prop("multiple") === true;
+                                                var isMultiSelect = $MJTC_field.prop("multiple") === true;
                                                 if (isMultiSelect) {
                                                     fieldval = [];
-                                                    $field.find("option:selected").each(function () {
+                                                    $MJTC_field.find("option:selected").each(function () {
                                                         fieldval.push(this.value);
                                                     });
                                                 } else {
-                                                    fieldval = $field.val(); // jQuery returns array for multi-select
+                                                    fieldval = $MJTC_field.val(); // jQuery returns array for multi-select
                                                 }
                                             } else if (type === "checkbox") {
                                                 // Handle checkbox group (collect all checked values)
                                                 fieldval = [];
-                                                $field.filter(":checked").each(function () {
+                                                $MJTC_field.filter(":checked").each(function () {
                                                     fieldval.push(this.value);
                                                 });
                                             } else if (type === "radio") {
@@ -130,7 +204,7 @@ function MJTC_getDataForVisibleField(wpnonce, val, fieldname, conditionGroups) {
                                                 fieldval = jQuery("input[name='" + condition.visibleParent + "']:checked").val();
                                             } else {
                                                 // Fallback for other input types
-                                                fieldval = $field.val();
+                                                fieldval = $MJTC_field.val();
                                             }
                                         }
 
@@ -282,10 +356,41 @@ function MJTC_msDecodeHTML(html) {
 
 function jsReplyShowLoading(){
     jQuery('div#black_wrapper_ai_reply').show();
-    jQuery('div#mjtc_ai_reply_loading').show();
+    jQuery('div#mstran_loading').css('display', 'flex');
 }
 
 function jsReplyHideLoading(){
     jQuery('div#black_wrapper_ai_reply').hide();
-    jQuery('div#mjtc_ai_reply_loading').hide();
+    jQuery('div#mstran_loading').hide();
 }
+
+function hideBoxForOtherReason(){
+    jQuery('div.ms-popup-other-reason-box-wrp').slideUp('slow', function () {
+        jQuery('div.ms-popup-other-reason-box').hide();
+    });
+}
+
+function showBoxForOtherSingleReason(){
+    jQuery('div.ms-popup-other-reason-box-wrp').slideDown('slow', function () {
+        jQuery('div.ms-popup-other-reason-box').show();
+    });
+}
+
+function showBoxForOtherMultipleReason(){
+    jQuery('div.ms-popup-other-reason-box-wrp').slideToggle('slow', function () {
+        jQuery('div.ms-popup-other-reason-box').show();
+    });
+}
+jQuery(document).ready(function() {
+    const adminMenu = jQuery('#adminmenuwrap'); 
+    const myContainer = jQuery('#msadmin-wrapper, #mjtc-config-dashboard'); 
+    if (adminMenu.length && myContainer.length) {
+        const observer = new ResizeObserver(function(entries) {
+            for (let entry of entries) {
+                const menuHeight = entry.contentRect.height;
+                myContainer.css('height', menuHeight + 'px');
+            }
+        });
+        observer.observe(adminMenu[0]);
+    }
+});

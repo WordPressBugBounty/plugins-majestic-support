@@ -2,10 +2,10 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 $MJTC_protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 wp_enqueue_script('jquery-ui-datepicker');
-wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css');
-wp_enqueue_style('majesticsupport-status-graph', MJTC_PLUGIN_URL . 'includes/css/status_graph.css');
-wp_enqueue_script('majesticsupport-google-charts', MJTC_PLUGIN_URL . 'includes/js/google-charts.js');
-wp_register_script( 'majesticsupport-google-charts-handle', '' );
+wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css', array(), '1.0.0');
+wp_enqueue_style('majesticsupport-status-graph', MJTC_PLUGIN_URL . 'includes/css/status_graph.css', array(), '1.0.0');
+wp_enqueue_script('majesticsupport-google-charts', MJTC_PLUGIN_URL . 'includes/js/google-charts.js', array(), '1.0.0', true);
+wp_register_script( 'majesticsupport-google-charts-handle', false, array(), '1.0.0', true );
 wp_enqueue_script( 'majesticsupport-google-charts-handle' );
 $mjtc_scriptdateformat = MJTC_includer::MJTC_getModel('majesticsupport')->MJTC_getDateFormat();
 $majesticsupport_js ="
@@ -53,8 +53,8 @@ $majesticsupport_js ="
 ";
 wp_add_inline_script('majesticsupport-google-charts-handle',$majesticsupport_js);
 MJTC_message::MJTC_getMessage();
-$t_name = 'getdepartmentexport';
-$link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr($t_name).'&action=mstask&date_start='.esc_attr(majesticsupport::$_data['filter']['date_start']).'&date_end='.esc_attr(majesticsupport::$_data['filter']['date_end']));
+$MJTC_t_name = 'getdepartmentexport';
+$MJTC_link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr($MJTC_t_name).'&action=mstask&date_start='.esc_attr(majesticsupport::$_data['filter']['date_start']).'&date_end='.esc_attr(majesticsupport::$_data['filter']['date_end']));
 ?>
 <div id="msadmin-wrapper">
     <div id="msadmin-leftmenu">
@@ -65,13 +65,13 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
         <div id="msadmin-data-wrp">
         	<form class="mjtc-filter-form mjtc-report-form" name="majesticsupportform" id="majesticsupportform" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_reports&mjslay=departmentreport"),"reports")); ?>">
 			    <?php
-			        $curdate = date_i18n('Y-m-d');
-			        $enddate = date_i18n('Y-m-d', MJTC_majesticsupportphplib::MJTC_strtotime("now -1 month"));
-			        $date_start = !empty(majesticsupport::$_data['filter']['date_start']) ? majesticsupport::$_data['filter']['date_start'] : $curdate;
-			        $date_end = !empty(majesticsupport::$_data['filter']['date_end']) ? majesticsupport::$_data['filter']['date_end'] : $enddate;
-			        $uid = !empty(majesticsupport::$_data['filter']['uid']) ? majesticsupport::$_data['filter']['uid'] : '';
-			    	echo wp_kses(MJTC_formfield::MJTC_text('date_start', date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($date_start)), array('class' => 'custom_date mjtc-form-date-field','placeholder' => esc_html(__('Start Date','majestic-support')))), MJTC_ALLOWED_TAGS);
-			    	echo wp_kses(MJTC_formfield::MJTC_text('date_end', date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($date_end)), array('class' => 'custom_date mjtc-form-date-field','placeholder' => esc_html(__('End Date','majestic-support')))), MJTC_ALLOWED_TAGS);
+			        $MJTC_curdate = date_i18n('Y-m-d');
+			        $MJTC_enddate = date_i18n('Y-m-d', MJTC_majesticsupportphplib::MJTC_strtotime("now -1 month"));
+			        $MJTC_date_start = !empty(majesticsupport::$_data['filter']['date_start']) ? majesticsupport::$_data['filter']['date_start'] : $MJTC_curdate;
+			        $MJTC_date_end = !empty(majesticsupport::$_data['filter']['date_end']) ? majesticsupport::$_data['filter']['date_end'] : $MJTC_enddate;
+			        $MJTC_uid = !empty(majesticsupport::$_data['filter']['uid']) ? majesticsupport::$_data['filter']['uid'] : '';
+			    	echo wp_kses(MJTC_formfield::MJTC_text('date_start', date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_date_start)), array('class' => 'custom_date mjtc-form-date-field','placeholder' => esc_html(__('Start Date','majestic-support')))), MJTC_ALLOWED_TAGS);
+			    	echo wp_kses(MJTC_formfield::MJTC_text('date_end', date_i18n(majesticsupport::$_config['date_format'], MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_date_end)), array('class' => 'custom_date mjtc-form-date-field','placeholder' => esc_html(__('End Date','majestic-support')))), MJTC_ALLOWED_TAGS);
 			    	echo wp_kses(MJTC_formfield::MJTC_hidden('MS_form_search', 'MS_SEARCH'), MJTC_ALLOWED_TAGS);
 				?>
 			    <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('go', esc_html(__('Search', 'majestic-support')), array('class' => 'button mjtc-form-search')), MJTC_ALLOWED_TAGS); ?>
@@ -86,171 +86,111 @@ $link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_attr(
 				<div class="mjtc-admin-staff-list">
 					<?php
 					if(!empty(majesticsupport::$_data['depatments_report'])){
-						foreach(majesticsupport::$_data['depatments_report'] AS $dept){ ?>
+						foreach(majesticsupport::$_data['depatments_report'] AS $MJTC_dept){ ?>
 							<div class="mjtc-admin-staff-wrapper dept-reprt">
-								<a href="<?php echo esc_url(admin_url('admin.php?page=majesticsupport_reports&mjslay=departmentdetailreport&id='.esc_attr($dept->id).'&date_start='.esc_attr(majesticsupport::$_data['filter']['date_start']).'&date_end='.esc_attr(majesticsupport::$_data['filter']['date_end']))); ?>" class="mjtc-admin-staff-anchor-wrapper" title="<?php echo esc_attr(__('Department','majestic-support')); ?>">
+								<a href="<?php echo esc_url(admin_url('admin.php?page=majesticsupport_reports&mjslay=departmentdetailreport&id='.esc_attr($MJTC_dept->id).'&date_start='.esc_attr(majesticsupport::$_data['filter']['date_start']).'&date_end='.esc_attr(majesticsupport::$_data['filter']['date_end']))); ?>" class="mjtc-admin-staff-anchor-wrapper" title="<?php echo esc_attr(__('Department','majestic-support')); ?>">
 									<div class="mjtc-admin-staff-cnt">
 										<div class="mjtc-report-staff-cnt">
 											<div class="mjtc-report-staff-info mjtc-report-staff-name">
 												<?php
-													echo esc_html(majesticsupport::MJTC_getVarValue($dept->departmentname));
+													echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_dept->departmentname));
 												?>
 											</div>
 											<div class="mjtc-report-staff-info mjtc-report-staff-email">
 												<?php
-													echo esc_html($dept->email);
+													echo esc_html($MJTC_dept->email);
 												?>
 											</div>
 										</div>
 									</div>
 									<div class="mjtc-admin-staff-boxes">
 										<?php
-											$open_percentage = 0;
+											$MJTC_open_percentage = 0;
 											$MJTC_close_percentage = 0;
-											$answered_percentage = 0;
-											$pending_percentage = 0;
-											$overdue_percentage = 0;
-											if(isset($dept) && isset($dept->allticket) && $dept->allticket != 0){
-											    $open_percentage = round(($dept->openticket / $dept->allticket) * 100);
-											    $MJTC_close_percentage = round(($dept->closeticket / $dept->allticket) * 100);
-											    $overdue_percentage = round(($dept->overdueticket / $dept->allticket) * 100);
-											    $answered_percentage = round(($dept->answeredticket / $dept->allticket) * 100);
-											    $pending_percentage = round(($dept->pendingticket / $dept->allticket) * 100);
+											$MJTC_answered_percentage = 0;
+											$MJTC_pending_percentage = 0;
+											$MJTC_overdue_percentage = 0;
+											if(isset($MJTC_dept) && isset($MJTC_dept->allticket) && $MJTC_dept->allticket != 0){
+											    $MJTC_open_percentage = round(($MJTC_dept->openticket / $MJTC_dept->allticket) * 100);
+											    $MJTC_close_percentage = round(($MJTC_dept->closeticket / $MJTC_dept->allticket) * 100);
+											    $MJTC_overdue_percentage = round(($MJTC_dept->overdueticket / $MJTC_dept->allticket) * 100);
+											    $MJTC_answered_percentage = round(($MJTC_dept->answeredticket / $MJTC_dept->allticket) * 100);
+											    $MJTC_pending_percentage = round(($MJTC_dept->pendingticket / $MJTC_dept->allticket) * 100);
 											}
-											if(isset($dept) && isset($dept->allticket) && $dept->allticket != 0){
-											    $allticket_percentage = 100;
+											if(isset($MJTC_dept) && isset($MJTC_dept->allticket) && $MJTC_dept->allticket != 0){
+											    $MJTC_allticket_percentage = 100;
 											}
 										?>
 										<div class="mjtc-support-count">
 										    <div class="mjtc-support-link">
 										        <a class="mjtc-support-link mjtc-support-green" href="#" data-tab-number="1" title="<?php echo esc_attr(__('Open Ticket','majestic-support')); ?>">
-										            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($open_percentage); ?>" data-tab-number="1">
-										                <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($open_percentage); ?>">
-										                    <div class="circle">
-										                        <div class="mask full">
-										                             <div class="fill mjtc-support-open"></div>
-										                        </div>
-										                        <div class="mask half">
-										                            <div class="fill mjtc-support-open"></div>
-										                            <div class="fill fix"></div>
-										                        </div>
-										                        <div class="shadow"></div>
-										                    </div>
-										                    <div class="inset">
-										                    </div>
-										                </div>
-										            </div>
+										            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($MJTC_open_percentage); ?>" data-tab-number="1"></div>
 										            <div class="mjtc-support-link-text mjtc-support-green">
-										                <?php
-										                    $MJTC_data = esc_html(__('Open', 'majestic-support')).' ( '.esc_html($dept->openticket).' )';
-										                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
-										                ?>
+										            	<div class="ms-mini-val">
+										            		<?php echo esc_html($MJTC_dept->openticket); ?>
+										            	</div>
+										            	<div class="ms-mini-label">
+											                <?php echo esc_html(__('Open', 'majestic-support'));
+											                ?>
+										            	</div>
 										            </div>
 										        </a>
 										    </div>
 										    <div class="mjtc-support-link">
-										        <a class="mjtc-support-link mjtc-support-brown" href="#" data-tab-number="2" title="<?php echo esc_attr(__('answered ticket','majestic-support')); ?>">
-										            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($answered_percentage); ?>" >
-										                <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($answered_percentage); ?>">
-										                    <div class="circle">
-										                        <div class="mask full">
-										                             <div class="fill mjtc-support-answer"></div>
-										                        </div>
-										                        <div class="mask half">
-										                            <div class="fill mjtc-support-answer"></div>
-										                            <div class="fill fix"></div>
-										                        </div>
-										                        <div class="shadow"></div>
-										                    </div>
-										                    <div class="inset">
-										                    </div>
-										                </div>
-										            </div>
+										        <a class="mjtc-support-link mjtc-support-brown" href="#" data-tab-number="2" title="<?php echo esc_attr(__('Answered Tickets','majestic-support')); ?>">
+										            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($MJTC_answered_percentage); ?>" ></div>
 										            <div class="mjtc-support-link-text mjtc-support-brown">
-										                <?php
-										                    $MJTC_data = esc_html(__('Answered', 'majestic-support')).' ( '. esc_html($dept->answeredticket).' )';
-										                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
-										                ?>
+										            	<div class="ms-mini-val">
+										            		<?php echo esc_html($MJTC_dept->answeredticket); ?>
+										            	</div>
+										            	<div class="ms-mini-label">
+											                <?php echo esc_html(__('Answered', 'majestic-support'));
+											                ?>
+										            	</div>
 										            </div>
 										        </a>
 										    </div>
 										    <div class="mjtc-support-link">
-							                    <a class="mjtc-support-link mjtc-support-yellow" href="#" data-tab-number="3" title="<?php echo esc_attr(__('pending ticket','majestic-support')); ?>">
-							                        <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($pending_percentage); ?>">
-							                            <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($pending_percentage); ?>">
-							                                <div class="circle">
-							                                    <div class="mask full">
-							                                         <div class="fill mjtc-support-pending"></div>
-							                                    </div>
-							                                    <div class="mask half">
-							                                        <div class="fill mjtc-support-pending"></div>
-							                                        <div class="fill fix"></div>
-							                                    </div>
-							                                    <div class="shadow"></div>
-							                                </div>
-							                                <div class="inset">
-							                                </div>
-							                            </div>
-							                        </div>
+							                    <a class="mjtc-support-link mjtc-support-yellow" href="#" data-tab-number="3" title="<?php echo esc_attr(__('pending tickets','majestic-support')); ?>">
+							                        <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($MJTC_pending_percentage); ?>"></div>
 							                        <div class="mjtc-support-link-text mjtc-support-yellow">
-							                            <?php
-							                                $MJTC_data = esc_html(__('Pending', 'majestic-support')).' ( '. esc_html($dept->pendingticket).' )';
-							                                echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
-							                            ?>
+							                        	<div class="ms-mini-val">
+										            		<?php echo esc_html($MJTC_dept->pendingticket); ?>
+										            	</div>
+										            	<div class="ms-mini-label">
+											                <?php echo esc_html(__('Pending', 'majestic-support'));
+											                ?>
+										            	</div>
 							                        </div>
 							                    </a>
 							                </div>
 							                <?php if(in_array('overdue', majesticsupport::$_active_addons)){ ?>
 											    <div class="mjtc-support-link">
-											        <a class="mjtc-support-link mjtc-support-orange" href="#" data-tab-number="4" title="<?php echo esc_attr(__('overdue ticket','majestic-support')); ?>">
-											            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($overdue_percentage); ?>" >
-											                <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($overdue_percentage); ?>">
-											                    <div class="circle">
-											                        <div class="mask full">
-											                             <div class="fill mjtc-support-overdue"></div>
-											                        </div>
-											                        <div class="mask half">
-											                            <div class="fill mjtc-support-overdue"></div>
-											                            <div class="fill fix"></div>
-											                        </div>
-											                        <div class="shadow"></div>
-											                    </div>
-											                    <div class="inset">
-											                    </div>
-											                </div>
-											            </div>
+											        <a class="mjtc-support-link mjtc-support-orange" href="#" data-tab-number="4" title="<?php echo esc_attr(__('Overdue Tickets','majestic-support')); ?>">
+											            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($MJTC_overdue_percentage); ?>" ></div>
 											            <div class="mjtc-support-link-text mjtc-support-orange">
-											                <?php
-											                    $MJTC_data = esc_html(__('Overdue', 'majestic-support')).' ( '. esc_html($dept->overdueticket).' )';
-											                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
-											                ?>
+											            	<div class="ms-mini-val">
+											            		<?php echo esc_html($MJTC_dept->overdueticket); ?>
+											            	</div>
+											            	<div class="ms-mini-label">
+												                <?php echo esc_html(__('Overdue', 'majestic-support'));
+												                ?>
+											            	</div>
 											            </div>
 											        </a>
 											    </div>
 										    <?php } ?>
 										    <div class="mjtc-support-link">
 										        <a class="mjtc-support-link mjtc-support-red" href="#" data-tab-number="5" title="<?php echo esc_attr(__('Close Ticket','majestic-support')); ?>">
-										            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($MJTC_close_percentage); ?>" >
-										                <div class="mjtc-mr-rp" data-progress="<?php echo esc_attr($MJTC_close_percentage); ?>">
-										                    <div class="circle">
-										                        <div class="mask full">
-										                             <div class="fill mjtc-support-close"></div>
-										                        </div>
-										                        <div class="mask half">
-										                            <div class="fill mjtc-support-close"></div>
-										                            <div class="fill fix"></div>
-										                        </div>
-										                        <div class="shadow"></div>
-										                    </div>
-										                    <div class="inset">
-										                    </div>
-										                </div>
-										            </div>
+										            <div class="mjtc-support-cricle-wrp" data-per="<?php echo esc_attr($MJTC_close_percentage); ?>" ></div>
 										            <div class="mjtc-support-link-text mjtc-support-red">
-										                <?php
-										                    $MJTC_data = esc_html(__('Closed', 'majestic-support')).' ( '. esc_html($dept->closeticket).' )';
-										                    echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
-										                ?>
+										            	<div class="ms-mini-val">
+										            		<?php echo esc_html($MJTC_dept->closeticket); ?>
+										            	</div>
+										            	<div class="ms-mini-label">
+											                <?php echo esc_html(__('Closed', 'majestic-support'));
+											                ?>
+										            	</div>
 										            </div>
 										        </a>
 										    </div>

@@ -5,91 +5,91 @@ if (!defined('ABSPATH'))
 
 class MJTC_replyModel {
 
-    function getReplies($id) {
-        if (!is_numeric($id))
+    function getReplies($MJTC_id) {
+        if (!is_numeric($MJTC_id))
             return false;
         // Data
 
-        do_action('reset_ms_aadon_query');
-        do_action('ms_aadon_getreplies');// to prepare any addon based query (action is defined in two addons)
-        $ordering = majesticsupport::$_config['ticket_replies_ordering'];
-        $ordering = strtoupper(trim($ordering)); // Normalize input
+        do_action('MJTC_reset_addon_query');
+        do_action('MJTC_aadon_getreplies');// to prepare any addon based query (action is defined in two addons)
+        $MJTC_ordering = majesticsupport::$_config['ticket_replies_ordering'];
+        $MJTC_ordering = strtoupper(trim($MJTC_ordering)); // Normalize input
 
         // Allow only ASC or DESC
-        if (!in_array($ordering, ['ASC', 'DESC'])) {
-            $ordering = 'ASC'; // default fallback
+        if (!in_array($MJTC_ordering, ['ASC', 'DESC'])) {
+            $MJTC_ordering = 'ASC'; // default fallback
         }
-        $query = "SELECT replies.*,replies.id AS replyid,user.user_email AS useremail,viewer.display_name AS viewername,tickets.id,tickets.uid AS ticketsuid ".majesticsupport::$_addon_query['select']."
+        $MJTC_query = "SELECT replies.*,replies.id AS replyid,user.user_email AS useremail,viewer.display_name AS viewername,tickets.id,tickets.uid AS ticketsuid ".majesticsupport::$_addon_query['select']."
                     FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS replies
                     JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS tickets ON  replies.ticketid = tickets.id
                     LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user ON  replies.uid = user.id
                     LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS viewer ON  replies.viewed_by = viewer.id
                     ".majesticsupport::$_addon_query['join']."
-                    WHERE tickets.id = " . esc_sql($id) . " ORDER By replies.id ".esc_sql($ordering);
-        majesticsupport::$_data[4] = majesticsupport::$_db->get_results($query);
-        do_action('reset_ms_aadon_query');
+                    WHERE tickets.id = " . esc_sql($MJTC_id) . " ORDER By replies.id ".esc_sql($MJTC_ordering);
+        majesticsupport::$_data[4] = majesticsupport::$_db->get_results($MJTC_query);
+        do_action('MJTC_reset_addon_query');
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
-        $attachmentmodel = MJTC_includer::MJTC_getModel('attachment');
-        foreach (majesticsupport::$_data[4] AS $reply) {
-            $reply->attachments = $attachmentmodel->getAttachmentForReply($reply->id, $reply->replyid);
-            $current_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
-            $viewed_by = isset($current_user) ? $current_user : -1; //-1 for handle visitor case
-            $update_required = false; // Flag to determine if the update is needed
+        $MJTC_attachmentmodel = MJTC_includer::MJTC_getModel('attachment');
+        foreach (majesticsupport::$_data[4] AS $MJTC_reply) {
+            $MJTC_reply->attachments = $MJTC_attachmentmodel->getAttachmentForReply($MJTC_reply->id, $MJTC_reply->replyid);
+            $MJTC_current_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
+            $MJTC_viewed_by = isset($MJTC_current_user) ? $MJTC_current_user : -1; //-1 for handle visitor case
+            $MJTC_update_required = false; // Flag to determine if the update is needed
 
             // Check if the reply has not been viewed
-            if (empty($reply->viewed_by) && empty($reply->mergemessage)) {
+            if (empty($MJTC_reply->viewed_by) && empty($MJTC_reply->mergemessage)) {
 
                 // If the current user is an admin
                 if (is_admin()) {
                     // Admin viewing someone else's reply and it's not staff
-                    if ($reply->uid != $current_user && empty($reply->staffid)) {
-                        $update_required = true; // Mark update as required
+                    if ($MJTC_reply->uid != $MJTC_current_user && empty($MJTC_reply->staffid)) {
+                        $MJTC_update_required = true; // Mark update as required
                     }
                 } else { // If the current user is not an admin
 
                     // Check if the 'agent' addon is active and the user is staff
                     if (in_array('agent', majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
                         // Check if the ticket owner is the reply owner
-                        if ($reply->ticketsuid == $reply->uid) {
-                            $update_required = true; // Mark update as required
+                        if ($MJTC_reply->ticketsuid == $MJTC_reply->uid) {
+                            $MJTC_update_required = true; // Mark update as required
                         }
                     } else { // If the user is not staff or the agent addon is inactive
                         // Check if the ticket owner is not the reply owner
-                        if ($reply->ticketsuid != $reply->uid) {
-                            $update_required = true; // Mark update as required
+                        if ($MJTC_reply->ticketsuid != $MJTC_reply->uid) {
+                            $MJTC_update_required = true; // Mark update as required
                         }
                     }
                 }
             }
             // Execute the query if an update is required
-            if ($update_required) {
-                $query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_replies` SET viewed_by = " . esc_sql($viewed_by) . ", viewed_on = '" . esc_sql(date_i18n('Y-m-d H:i:s')) . "' WHERE id = " . esc_sql($reply->replyid);
-                majesticsupport::$_db->query($query);
+            if ($MJTC_update_required) {
+                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_replies` SET viewed_by = " . esc_sql($MJTC_viewed_by) . ", viewed_on = '" . esc_sql(date_i18n('Y-m-d H:i:s')) . "' WHERE id = " . esc_sql($MJTC_reply->replyid);
+                majesticsupport::$_db->query($MJTC_query);
             }
         }
         return;
     }
 
     function getTicketNameForReplies() {
-        $query = "SELECT id, ticketid AS text FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets`";
-        $list = majesticsupport::$_db->get_results($query);
+        $MJTC_query = "SELECT id, ticketid AS text FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets`";
+        $MJTC_list = majesticsupport::$_db->get_results($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
-        return $list;
+        return $MJTC_list;
     }
 
-    function getRepliesForForm($id) {
-        if ($id) {
-            if (!is_numeric($id))
+    function getRepliesForForm($MJTC_id) {
+        if ($MJTC_id) {
+            if (!is_numeric($MJTC_id))
                 return false;
-            $query = "SELECT replies.*,tickets.id
+            $MJTC_query = "SELECT replies.*,tickets.id
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS replies
                         JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS tickets ON  replies.ticketid = tickets.id
-                        WHERE replies.id = " . esc_sql($id);
-            majesticsupport::$_data[0] = majesticsupport::$_db->get_row($query);
+                        WHERE replies.id = " . esc_sql($MJTC_id);
+            majesticsupport::$_data[0] = majesticsupport::$_db->get_row($MJTC_query);
             if (majesticsupport::$_db->last_error != null) {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
             }
@@ -99,22 +99,22 @@ class MJTC_replyModel {
 
     function storeReplies($MJTC_data) {
         $MJTC_nonce_id = $MJTC_data['ticketid'];
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'save-reply-'.$MJTC_nonce_id) ) {
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'save-reply-'.$MJTC_nonce_id) ) {
             die( 'Security check Failed' );
         }
-        $checkduplicatereplies = $this->checkIsReplyDuplicate($MJTC_data);
-        if(!$checkduplicatereplies){
+        $MJTC_checkduplicatereplies = $this->checkIsReplyDuplicate($MJTC_data);
+        if(!$MJTC_checkduplicatereplies){
             return false;
         }
         //validate reply for break down
         $MJTC_ticketid   = $MJTC_data['ticketrandomid'];
-        $internalid   = $MJTC_data['internalid'];
-        $hash       = $MJTC_data['hash'];
-        $query = "SELECT id FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE ticketid='".esc_sql($MJTC_ticketid)."'
-        AND IF(`hash` is NULL,true,`hash`='".esc_sql($hash)."') ";
-        $id = majesticsupport::$_db->get_var($query);
-        if($id != $MJTC_data['ticketid']){
+        $MJTC_internalid   = $MJTC_data['internalid'];
+        $MJTC_hash       = $MJTC_data['hash'];
+        $MJTC_query = "SELECT id FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE ticketid='".esc_sql($MJTC_ticketid)."'
+        AND IF(`hash` is NULL,true,`hash`='".esc_sql($MJTC_hash)."') ";
+        $MJTC_id = majesticsupport::$_db->get_var($MJTC_query);
+        if($MJTC_id != $MJTC_data['ticketid']){
             return;
         }//end
 
@@ -125,20 +125,20 @@ class MJTC_replyModel {
             unset($MJTC_data['staffid']);
         }
         if ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
-            $allowed = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Reply Ticket');
-            if ($allowed != true) {
+            $MJTC_allowed = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Reply Ticket');
+            if ($MJTC_allowed != true) {
                 MJTC_message::MJTC_setMessage(esc_html(__('You are not allowed', 'majestic-support')), 'error');
                 return;
             }
-        } else if (!MJTC_includer::MJTC_getModel('ticket')->validateTicketAction($id, $internalid)) {
+        } else if (!MJTC_includer::MJTC_getModel('ticket')->validateTicketAction($MJTC_id, $MJTC_internalid)) {
             MJTC_message::MJTC_setMessage(esc_html(__('You are not allowed','majestic-support')), 'error');
             return false;
         }
         // check whether ticket is closed or not incase of ticket viw email
         if(isset($MJTC_data['ticketviaemail']) && $MJTC_data['ticketviaemail'] == 1){
             if(majesticsupport::$_config['reply_to_closed_ticket'] != 1){
-                $closed = MJTC_includer::MJTC_getModel('ticket')->checkActionStatusSame($MJTC_data['ticketid'],array('action' => 'closeticket'));
-                if($closed == false){
+                $MJTC_closed = MJTC_includer::MJTC_getModel('ticket')->checkActionStatusSame($MJTC_data['ticketid'],array('action' => 'closeticket'));
+                if($MJTC_closed == false){
                     MJTC_includer::MJTC_getModel('email')->sendMail(1, 14, $MJTC_data['ticketid']); // Mailfor, Reply Ticket
                     return;
                 }
@@ -149,30 +149,30 @@ class MJTC_replyModel {
                 }
             }
         }
-        $sendEmail = true;
-        $staffid = 0;
+        $MJTC_sendEmail = true;
+        $MJTC_staffid = 0;
         if (!MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()) {
-            //$current_user = get_userdata(MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid());
-            $currentUserName = MJTC_includer::MJTC_getObjectClass('user')->MJTC_fullname();
+            //$MJTC_current_user = get_userdata(MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid());
+            $MJTC_currentUserName = MJTC_includer::MJTC_getObjectClass('user')->MJTC_fullname();
             if( in_array('agent',majesticsupport::$_active_addons) ){
-                //$staffid = MJTC_includer::MJTC_getModel('agent')->getStaffId($current_user->ID);
-				$staffid = MJTC_includer::MJTC_getModel('agent')->getStaffId(MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid());
+                //$MJTC_staffid = MJTC_includer::MJTC_getModel('agent')->getStaffId($MJTC_current_user->ID);
+				$MJTC_staffid = MJTC_includer::MJTC_getModel('agent')->getStaffId(MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid());
             }
         } else {
-            $currentUserName = '';
+            $MJTC_currentUserName = '';
         }
 
-        if($staffid == 0 && $MJTC_ticketviaemailstaffid != 0){
-            $staffid = $MJTC_ticketviaemailstaffid;
+        if($MJTC_staffid == 0 && $MJTC_ticketviaemailstaffid != 0){
+            $MJTC_staffid = $MJTC_ticketviaemailstaffid;
         }
 
         //check the assign to me on reply
         if (isset($MJTC_data['assigntome']) && $MJTC_data['assigntome'] == 1) {
-            MJTC_includer::MJTC_getModel('ticket')->ticketAssignToMe($MJTC_data['ticketid'], $staffid);
+            MJTC_includer::MJTC_getModel('ticket')->ticketAssignToMe($MJTC_data['ticketid'], $MJTC_staffid);
         }
         if(isset($MJTC_data['ticketviaemail'])){
             if($MJTC_data['ticketviaemail'] == 1)
-                $currentUserName = $MJTC_data['name'];
+                $MJTC_currentUserName = $MJTC_data['name'];
         }
         $MJTC_data['id'] = isset($MJTC_data['id']) ? $MJTC_data['id'] : '';
         $MJTC_data['status'] = isset($MJTC_data['status']) ? $MJTC_data['status'] : '';
@@ -204,46 +204,46 @@ class MJTC_replyModel {
         }
 
         $MJTC_data['created'] = date_i18n('Y-m-d H:i:s');
-        $MJTC_data['name'] = $currentUserName;
-        $MJTC_data['staffid'] = $staffid;
+        $MJTC_data['name'] = $MJTC_currentUserName;
+        $MJTC_data['staffid'] = $MJTC_staffid;
 
-        $row = MJTC_includer::MJTC_getTable('replies');
+        $MJTC_row = MJTC_includer::MJTC_getTable('replies');
 
         $MJTC_data = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($MJTC_data);// remove slashes with quotes.
-        $error = 0;
-        if (!$row->bind($MJTC_data)) {
-            $error = 1;
+        $MJTC_error = 0;
+        if (!$MJTC_row->bind($MJTC_data)) {
+            $MJTC_error = 1;
         }
-        if (!$row->store()) {
-            $error = 1;
+        if (!$MJTC_row->store()) {
+            $MJTC_error = 1;
         }
 
-        if ($error == 0) {
-            $replyid = $row->id;
+        if ($MJTC_error == 0) {
+            $MJTC_replyid = $MJTC_row->id;
             // smart reply store
             if (isset($MJTC_data['add_smartreply']) && $MJTC_data['add_smartreply'] == 1) {
-                $samrtreplyTitle = MJTC_includer::MJTC_getModel('ticket')->getTicketSubjectById($MJTC_data['ticketid']);
-                $samrtreply['id'] = '';
-                $samrtreply['title'] = $samrtreplyTitle;
-                $samrtreply['ticketsubjects'][0] = $samrtreplyTitle;
-                $samrtreply['reply'] = $MJTC_data['message'];
-                MJTC_includer::MJTC_getModel('smartreply')->storeSmartReply($samrtreply);
+                $MJTC_samrtreplyTitle = MJTC_includer::MJTC_getModel('ticket')->getTicketSubjectById($MJTC_data['ticketid']);
+                $MJTC_samrtreply['id'] = '';
+                $MJTC_samrtreply['title'] = $MJTC_samrtreplyTitle;
+                $MJTC_samrtreply['ticketsubjects'][0] = $MJTC_samrtreplyTitle;
+                $MJTC_samrtreply['reply'] = $MJTC_data['message'];
+                MJTC_includer::MJTC_getModel('smartreply')->storeSmartReply($MJTC_samrtreply);
             }
             //tickets attachments store
-            $MJTC_data['replyattachmentid'] = $replyid;
+            $MJTC_data['replyattachmentid'] = $MJTC_replyid;
             MJTC_includer::MJTC_getModel('attachment')->storeAttachments($MJTC_data);
             //reply stored change action
             if (is_admin()){
                 MJTC_includer::MJTC_getModel('ticket')->setStatus(4, $MJTC_data['ticketid']); // 4 -> waiting for customer reply
                 if(in_array('timetracking', majesticsupport::$_active_addons)){
-                    MJTC_includer::MJTC_getModel('timetracking')->storeTimeTaken($MJTC_data,$replyid,1);// to store time for reply 1 is to identfy that current record is reply
+                    MJTC_includer::MJTC_getModel('timetracking')->storeTimeTaken($MJTC_data,$MJTC_replyid,1);// to store time for reply 1 is to identfy that current record is reply
                 }
             }else {
                 if ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()){
                     MJTC_includer::MJTC_getModel('ticket')->setStatus(4, $MJTC_data['ticketid']); // 4 -> waiting for customer reply
-                    $MJTC_data['staffid'] = $staffid;
+                    $MJTC_data['staffid'] = $MJTC_staffid;
                     if(in_array('timetracking', majesticsupport::$_active_addons)){
-                        MJTC_includer::MJTC_getModel('timetracking')->storeTimeTaken($MJTC_data,$replyid,1);// to store time for reply 1 is to identfy that current record is reply
+                        MJTC_includer::MJTC_getModel('timetracking')->storeTimeTaken($MJTC_data,$MJTC_replyid,1);// to store time for reply 1 is to identfy that current record is reply
                     }
 
                 }else{
@@ -252,7 +252,7 @@ class MJTC_replyModel {
             }
             MJTC_includer::MJTC_getModel('ticket')->updateLastReply($MJTC_data['ticketid']);
             MJTC_message::MJTC_setMessage(esc_html(__('Reply posted', 'majestic-support')), 'updated');
-            $messagetype = esc_html(__('Successfully', 'majestic-support'));
+            $MJTC_messagetype = esc_html(__('Successfully', 'majestic-support'));
 
             // Reply notification
             if(in_array('notification', majesticsupport::$_active_addons)){
@@ -266,61 +266,61 @@ class MJTC_replyModel {
                 $MJTC_dataarray['body'] =  MJTC_includer::MJTC_getModel('ticket')->getTicketSubjectById($MJTC_data['ticketid']);
 
                 // To admin
-                $devicetoken = MJTC_includer::MJTC_getModel('notification')->checkSubscriptionForAdmin();
-                if($devicetoken){
+                $MJTC_devicetoken = MJTC_includer::MJTC_getModel('notification')->checkSubscriptionForAdmin();
+                if($MJTC_devicetoken){
                     $MJTC_dataarray['link'] = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=".esc_attr($MJTC_data['ticketid']));
-                    $MJTC_dataarray['devicetoken'] = $devicetoken;
+                    $MJTC_dataarray['devicetoken'] = $MJTC_devicetoken;
                     $MJTC_value = majesticsupport::$_config[MJTC_majesticsupportphplib::MJTC_md5(MSTN)];
                     if($MJTC_value != ''){
-                      do_action('send_push_notification',$MJTC_dataarray);
+                      do_action('MJTC_send_push_notification',$MJTC_dataarray);
                     }else{
-                      do_action('resetnotificationvalues');
+                      do_action('MJTC_resetnotificationvalues');
                     }
                 }
 
                 $MJTC_dataarray['link'] = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketdetail', "majesticsupportid"=>$MJTC_data['ticketid'],'mspageid'=>majesticsupport::getPageid()));
                 if($MJTC_ticketuid != 0 && ($MJTC_ticketuid != MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid())){
-                    $devicetoken = MJTC_includer::MJTC_getModel('notification')->getUserDeviceToken($MJTC_ticketuid);
-                    $MJTC_dataarray['devicetoken'] = $devicetoken;
-                    if($devicetoken != '' && !empty($devicetoken)){
+                    $MJTC_devicetoken = MJTC_includer::MJTC_getModel('notification')->getUserDeviceToken($MJTC_ticketuid);
+                    $MJTC_dataarray['devicetoken'] = $MJTC_devicetoken;
+                    if($MJTC_devicetoken != '' && !empty($MJTC_devicetoken)){
                         $MJTC_value = majesticsupport::$_config[MJTC_majesticsupportphplib::MJTC_md5(MSTN)];
                         if($MJTC_value != ''){
-                          do_action('send_push_notification',$MJTC_dataarray);
+                          do_action('MJTC_send_push_notification',$MJTC_dataarray);
                         }else{
-                          do_action('resetnotificationvalues');
+                          do_action('MJTC_resetnotificationvalues');
                         }
                     }
                 }
 
-                if($MJTC_ticketstaffid != 0 && ($MJTC_ticketuid != $staffid)){
-                    $devicetoken = MJTC_includer::MJTC_getModel('notification')->getUserDeviceToken($MJTC_ticketstaffid);
-                    $MJTC_dataarray['devicetoken'] = $devicetoken;
-                    if($devicetoken != '' && !empty($devicetoken)){
+                if($MJTC_ticketstaffid != 0 && ($MJTC_ticketuid != $MJTC_staffid)){
+                    $MJTC_devicetoken = MJTC_includer::MJTC_getModel('notification')->getUserDeviceToken($MJTC_ticketstaffid);
+                    $MJTC_dataarray['devicetoken'] = $MJTC_devicetoken;
+                    if($MJTC_devicetoken != '' && !empty($MJTC_devicetoken)){
                         $MJTC_value = majesticsupport::$_config[MJTC_majesticsupportphplib::MJTC_md5(MSTN)];
                         if($MJTC_value != ''){
-                          do_action('send_push_notification',$MJTC_dataarray);
+                          do_action('MJTC_send_push_notification',$MJTC_dataarray);
                         }else{
-                          do_action('resetnotificationvalues');
+                          do_action('MJTC_resetnotificationvalues');
                         }
                     }
                 }
                 if($MJTC_ticketuid == 0){ // for visitor
-                    $tokenarray['emailaddress'] = MJTC_includer::MJTC_getModel('ticket')->getTicketEmailById($MJTC_data['ticketid']);
-                    $tokenarray['trackingid'] = MJTC_includer::MJTC_getModel('ticket')->getTrackingIdById($MJTC_data['ticketid']);
-                    $tokenarray['sitelink']=MJTC_includer::MJTC_getModel('majesticsupport')->getEncriptedSiteLink();
-                    $token = wp_json_encode($tokenarray);
+                    $MJTC_tokenarray['emailaddress'] = MJTC_includer::MJTC_getModel('ticket')->getTicketEmailById($MJTC_data['ticketid']);
+                    $MJTC_tokenarray['trackingid'] = MJTC_includer::MJTC_getModel('ticket')->getTrackingIdById($MJTC_data['ticketid']);
+                    $MJTC_tokenarray['sitelink']=MJTC_includer::MJTC_getModel('majesticsupport')->getEncriptedSiteLink();
+                    $MJTC_token = wp_json_encode($MJTC_tokenarray);
                     include_once MJTC_PLUGIN_PATH . 'includes/encoder.php';
-                    $encoder = new MJTC_encoder();
-                    $encryptedtext = $encoder->MJTC_encrypt($token);
-                    $MJTC_dataarray['link'] = majesticsupport::makeUrl(array('mjsmod'=>'ticket' ,'task'=>'showticketstatus','action'=>'mstask','token'=>$encryptedtext,'mspageid'=>majesticsupport::getPageid()));
-                    $notificationid = MJTC_includer::MJTC_getModel('ticket')->getNotificationIdById($MJTC_data['ticketid']);
-                    $devicetoken = MJTC_includer::MJTC_getModel('notification')->getUserDeviceToken($notificationid,0);
-                    if($devicetoken != '' && !empty($devicetoken)){
+                    $MJTC_encoder = new MJTC_encoder();
+                    $MJTC_encryptedtext = $MJTC_encoder->MJTC_encrypt($MJTC_token);
+                    $MJTC_dataarray['link'] = majesticsupport::makeUrl(array('mjsmod'=>'ticket' ,'task'=>'showticketstatus','action'=>'mstask','token'=>$MJTC_encryptedtext,'mspageid'=>majesticsupport::getPageid()));
+                    $MJTC_notificationid = MJTC_includer::MJTC_getModel('ticket')->getNotificationIdById($MJTC_data['ticketid']);
+                    $MJTC_devicetoken = MJTC_includer::MJTC_getModel('notification')->getUserDeviceToken($MJTC_notificationid,0);
+                    if($MJTC_devicetoken != '' && !empty($MJTC_devicetoken)){
                         $MJTC_value = majesticsupport::$_config[MJTC_majesticsupportphplib::MJTC_md5(MSTN)];
                         if($MJTC_value != ''){
-                          do_action('send_push_notification',$MJTC_dataarray);
+                          do_action('MJTC_send_push_notification',$MJTC_dataarray);
                         }else{
-                          do_action('resetnotificationvalues');
+                          do_action('MJTC_resetnotificationvalues');
                         }
                     }
                 }
@@ -329,33 +329,33 @@ class MJTC_replyModel {
         }else {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
             MJTC_message::MJTC_setMessage(esc_html(__('Reply posted', 'majestic-support')), 'error');
-            $messagetype = esc_html(__('Error', 'majestic-support'));
-            $sendEmail = false;
+            $MJTC_messagetype = esc_html(__('Error', 'majestic-support'));
+            $MJTC_sendEmail = false;
         }
 
         /* for activity log */
         $MJTC_ticketid = $MJTC_data['ticketid']; // get the ticket id
-        $current_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_getMSCurrentUser(); // to get current user name
-        $currentUserName = isset($current_user->display_name) ? $current_user->display_name : esc_html(__('Guest', 'majestic-support'));
-        $eventtype = 'REPLIED_TICKET';
-        $message = esc_html(__('Ticket is replied by', 'majestic-support')) . " ( " . esc_html($currentUserName) . " ) ";
+        $MJTC_current_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_getMSCurrentUser(); // to get current user name
+        $MJTC_currentUserName = isset($MJTC_current_user->display_name) ? $MJTC_current_user->display_name : esc_html(__('Guest', 'majestic-support'));
+        $MJTC_eventtype = 'REPLIED_TICKET';
+        $MJTC_message = esc_html(__('Ticket is replied by', 'majestic-support')) . " ( " . esc_html($MJTC_currentUserName) . " ) ";
         if(in_array('tickethistory', majesticsupport::$_active_addons)){
-            MJTC_includer::MJTC_getModel('tickethistory')->addActivityLog($MJTC_ticketid, 1, $eventtype, $message, $messagetype);
+            MJTC_includer::MJTC_getModel('tickethistory')->addActivityLog($MJTC_ticketid, 1, $MJTC_eventtype, $MJTC_message, $MJTC_messagetype);
         }
 
         // Send Emails
-        if ($sendEmail == true) {
+        if ($MJTC_sendEmail == true) {
             if (is_admin()) {
                 MJTC_includer::MJTC_getModel('email')->sendMail(1, 4, $MJTC_ticketid); // Mailfor, Reply Ticket
             } else {
                 MJTC_includer::MJTC_getModel('email')->sendMail(1, 5, $MJTC_ticketid); // Mailfor, Reply Ticket
             }
-            $MJTC_ticketreplyobject = majesticsupport::$_db->get_row("SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE id = " . esc_sql($replyid));
-            do_action('ms-ticketreply', $MJTC_ticketreplyobject);
+            $MJTC_ticketreplyobject = majesticsupport::$_db->get_row("SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE id = " . esc_sql($MJTC_replyid));
+            do_action('MJTC_ticketreply', $MJTC_ticketreplyobject);
         }
         // if Close on reply is cheked
         if ($MJTC_data['closeonreply'] == 1) {
-            MJTC_includer::MJTC_getModel('ticket')->closeTicket($MJTC_ticketid, $internalid);
+            MJTC_includer::MJTC_getModel('ticket')->closeTicket($MJTC_ticketid, $MJTC_internalid);
         }
 
         return;
@@ -364,17 +364,17 @@ class MJTC_replyModel {
     function checkIsReplyDuplicate($MJTC_data){
         if(empty($MJTC_data)) return false;
         
-        $curdate = date_i18n('Y-m-d H:i:s');
-        $inquery = '';
+        $MJTC_curdate = date_i18n('Y-m-d H:i:s');
+        $MJTC_inquery = '';
         if (isset($MJTC_data['ticketviaemail']) && $MJTC_data['ticketviaemail'] == 1) {
-            $inquery .= " AND ticketviaemail = 1";
+            $MJTC_inquery .= " AND ticketviaemail = 1";
         }
-        $query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid = '" . esc_sql($MJTC_data['ticketid']) . "' AND uid = '" . esc_sql($MJTC_data['uid']) . "' ORDER BY created DESC LIMIT 1";
-        $query .= $inquery;
-        $datetime = majesticsupport::$_db->get_var($query);
-        if($datetime){
-            $diff = MJTC_majesticsupportphplib::MJTC_strtotime($curdate) - MJTC_majesticsupportphplib::MJTC_strtotime($datetime);
-            if($diff <= 7){
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid = '" . esc_sql($MJTC_data['ticketid']) . "' AND uid = '" . esc_sql($MJTC_data['uid']) . "' ORDER BY created DESC LIMIT 1";
+        $MJTC_query .= $MJTC_inquery;
+        $MJTC_datetime = majesticsupport::$_db->get_var($MJTC_query);
+        if($MJTC_datetime){
+            $MJTC_diff = MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_curdate) - MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_datetime);
+            if($MJTC_diff <= 7){
                 return false;
             }
         }
@@ -384,12 +384,12 @@ class MJTC_replyModel {
     function getLastReply($MJTC_ticketid) {
         if (!is_numeric($MJTC_ticketid))
             return false;
-        $query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid =  " . esc_sql($MJTC_ticketid) . " ORDER BY created desc";
-        $lastreply = majesticsupport::$_db->get_var($query);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid =  " . esc_sql($MJTC_ticketid) . " ORDER BY created desc";
+        $MJTC_lastreply = majesticsupport::$_db->get_var($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
         }
-        return $lastreply;
+        return $MJTC_lastreply;
     }
 
     function removeTicketReplies($MJTC_ticketid) {
@@ -399,192 +399,215 @@ class MJTC_replyModel {
     }
 
     function getReplyDataByID() {
-        $replyid = MJTC_request::MJTC_getVar('val');
-        $nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $nonce, 'get-reply-data-by-id-'.$replyid) ) {
+        $MJTC_replyid = MJTC_request::MJTC_getVar('val');
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'get-reply-data-by-id-'.$MJTC_replyid) ) {
             die( 'Security check Failed' );
         }
-        if(!is_numeric($replyid)) return false;
-        $query = "SELECT reply.id AS replyid, reply.message AS message
+        if(!is_numeric($MJTC_replyid)) return false;
+        $MJTC_query = "SELECT reply.id AS replyid, reply.message AS message
                     FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS reply
-                    WHERE reply.id =  " . esc_sql($replyid) ;
-        $lastreply = majesticsupport::$_db->get_row($query);
-        $lastreply->message = MJTC_majesticsupportphplib::MJTC_htmlentities(($lastreply->message));
+                    WHERE reply.id =  " . esc_sql($MJTC_replyid) ;
+        $MJTC_lastreply = majesticsupport::$_db->get_row($MJTC_query);
+        $MJTC_lastreply->message = MJTC_majesticsupportphplib::MJTC_htmlentities(($MJTC_lastreply->message));
 
-        return wp_json_encode($lastreply);
+        return wp_json_encode($MJTC_lastreply);
     }
 
-    function getAttachmentByReplyId($id ,$internalid = ''){
-        if(!is_numeric($id)) return false;
-        $inquery = '';
+    function getAttachmentByReplyId($MJTC_id ,$MJTC_internalid = ''){
+        if(!is_numeric($MJTC_id)) return false;
+        $MJTC_inquery = '';
         //if not admin and agent
         if(!current_user_can('manage_options') && !(in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff())){
-            $inquery = " AND ticket.internalid = '".esc_sql($internalid)."'";
+            $MJTC_inquery = " AND ticket.internalid = '".esc_sql($MJTC_internalid)."'";
             
         }
-        $query = "SELECT attachment.filename , ticket.attachmentdir
+        $MJTC_query = "SELECT attachment.filename , ticket.attachmentdir
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_attachments` AS attachment
-            JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket ON ticket.id = attachment.ticketid WHERE attachment.replyattachmentid = ".esc_sql($id) ;
-        $query .= $inquery;
-        $replyattachments = majesticsupport::$_db->get_results($query);
-        return $replyattachments;
+            JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket ON ticket.id = attachment.ticketid WHERE attachment.replyattachmentid = ".esc_sql($MJTC_id) ;
+        $MJTC_query .= $MJTC_inquery;
+        $MJTC_replyattachments = majesticsupport::$_db->get_results($MJTC_query);
+        return $MJTC_replyattachments;
     }
 
     function editReply($MJTC_data) {
         if (empty($MJTC_data))
             return false;
-        $desc = wpautop(wptexturize(MJTC_majesticsupportphplib::MJTC_stripslashes($MJTC_data['mjsupport_replytext']))); // use mjsupport_message to avoid conflict
+        $MJTC_desc = wpautop(wptexturize(MJTC_majesticsupportphplib::MJTC_stripslashes($MJTC_data['mjsupport_replytext']))); // use mjsupport_message to avoid conflict
 
-        $row = MJTC_includer::MJTC_getTable('replies');
-        if (!$row->update(array('id' => $MJTC_data['reply-replyid'], 'message' => $desc))) {
+        $MJTC_row = MJTC_includer::MJTC_getTable('replies');
+        if (!$MJTC_row->update(array('id' => $MJTC_data['reply-replyid'], 'message' => $MJTC_desc))) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
         return;
     }
 
-    function storeMergeTicketReplies($reply,$MJTC_ticketid){
-        if(!is_string($reply))
+    function storeMergeTicketReplies($MJTC_reply,$MJTC_ticketid){
+        if(!is_string($MJTC_reply))
             return false;
-        $id          = $MJTC_ticketid;
-        $user_id        = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
-        $username       = MJTC_includer::MJTC_getModel('majesticsupport')->getUserNameById($user_id);
-        $query_array    = array(
-            'uid'       => $user_id,
-            'ticketid'  => $id,
-            'name'      => $username,
-            'message'   => $reply,
+        $MJTC_id          = $MJTC_ticketid;
+        $MJTC_user_id        = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
+        $MJTC_username       = MJTC_includer::MJTC_getModel('majesticsupport')->getUserNameById($MJTC_user_id);
+        $MJTC_query_array    = array(
+            'uid'       => $MJTC_user_id,
+            'ticketid'  => $MJTC_id,
+            'name'      => $MJTC_username,
+            'message'   => $MJTC_reply,
             'status'    => 1,
             'created'   => date_i18n('Y-m-d H:i:s'),
             'mergemessage'   => 1,
         );
-        majesticsupport::$_db->replace(majesticsupport::$_db->prefix . 'mjtc_support_replies', $query_array);
+        majesticsupport::$_db->replace(majesticsupport::$_db->prefix . 'mjtc_support_replies', $MJTC_query_array);
         if (majesticsupport::$_db->last_error == null) {
             MJTC_message::MJTC_setMessage(esc_html(__('Reply Has been Posted', 'majestic-support')), 'updated');
-            $messagetype = esc_html(__('Successfully', 'majestic-support'));
+            $MJTC_messagetype = esc_html(__('Successfully', 'majestic-support'));
         }else {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
             MJTC_message::MJTC_setMessage(esc_html(__('Reply Has Not been Posted', 'majestic-support')), 'error');
-            $messagetype = esc_html(__('Error', 'majestic-support'));
+            $MJTC_messagetype = esc_html(__('Error', 'majestic-support'));
         }
     }
 
     function getTicketLastReplyById($MJTC_ticketid) {
         if (!is_numeric($MJTC_ticketid))
             return false;
-        $query = "SELECT message FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid =  " . esc_sql($MJTC_ticketid) . " ORDER BY created desc LIMIT 1";
-        $lastreply = majesticsupport::$_db->get_var($query);
+        $MJTC_query = "SELECT message FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid =  " . esc_sql($MJTC_ticketid) . " ORDER BY created desc LIMIT 1";
+        $MJTC_lastreply = majesticsupport::$_db->get_var($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
         }
-        return $lastreply;
+        return $MJTC_lastreply;
     }
-    function getUserNameFromReplyById($replyid) { // name field value is empty in some old tickets
-        if (!is_numeric($replyid))
+    function getUserNameFromReplyById($MJTC_replyid) { // name field value is empty in some old tickets
+        if (!is_numeric($MJTC_replyid))
             return false;
-		$name = "";
-        $query = "SELECT user.* 
+		$MJTC_name = "";
+        $MJTC_query = "SELECT user.* 
 			FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS reply
 			JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user ON reply.uid = user.id
-			WHERE reply.id =  " . esc_sql($replyid);
-        $replyuser = majesticsupport::$_db->get_row($query);
+			WHERE reply.id =  " . esc_sql($MJTC_replyid);
+        $MJTC_replyuser = majesticsupport::$_db->get_row($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
         }
-		if(isset($replyuser)){
-            $name = $replyuser->name;
-			if($name == ""){
-				$name = $replyuser->display_name;
+		if(isset($MJTC_replyuser)){
+            $MJTC_name = $MJTC_replyuser->name;
+			if($MJTC_name == ""){
+				$MJTC_name = $MJTC_replyuser->display_name;
 			}
-			if($name == ""){
-				$name = $replyuser->user_nicename;
+			if($MJTC_name == ""){
+				$MJTC_name = $MJTC_replyuser->user_nicename;
 			}
 		}
-		return $name;
+		return $MJTC_name;
     }
 
     function markedAsAiPoweredReply() {
-        $nonce  = MJTC_request::MJTC_getVar('_wpnonce');
+        $MJTC_nonce  = MJTC_request::MJTC_getVar('_wpnonce');
 
-        if (!wp_verify_nonce($nonce, 'ai-powered-reply')) {
+        if (!wp_verify_nonce($MJTC_nonce, 'ai-powered-reply')) {
             wp_die('Security check failed');
         }
-        $status = MJTC_request::MJTC_getVar('status');
+        $MJTC_status = (int) MJTC_request::MJTC_getVar('status');
         $type   = MJTC_request::MJTC_getVar('type');
-        $id     = intval(MJTC_request::MJTC_getVar('id'));
+        $MJTC_id     = intval(MJTC_request::MJTC_getVar('id'));
 
-        if ($id <= 0 || !in_array($type, ['ticket', 'reply'])) {
+        if ($MJTC_id <= 0 || !in_array($type, ['ticket', 'reply'])) {
             return false;
         }
 
         $table = ($type === 'ticket') ? 'mjtc_support_tickets' : 'mjtc_support_replies';
-        $query = "UPDATE `" . majesticsupport::$_db->prefix . "$table` SET aireplymode = " . esc_sql($status) . " WHERE id = " . esc_sql($id);
+        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "$table` SET aireplymode = " . esc_sql($MJTC_status) . " WHERE id = " . esc_sql($MJTC_id);
 
-        $result = majesticsupport::$_db->query($query);
+        $MJTC_result = majesticsupport::$_db->query($MJTC_query);
 
-        return ($result !== false);
+        return ($MJTC_result !== false);
     }
 
     function getFilteredReplies() {
         // Verify nonce
         check_ajax_referer('get-filtered-replies', '_wpnonce');
 
-        $MJTC_ticket_id = intval(MJTC_request::MJTC_getVar('ticket_id'));
+        $MJTC_ticket_id = MJTC_request::MJTC_getVar('ticket_id', null, 0, 'int');
 
         if (!$MJTC_ticket_id) {
             wp_send_json_error(['message' => __('Ticket ID is required.', 'majestic-support')]);
         }
 
-        $uids = $this->get_allowed_support_user_ids();
-        if (empty($uids)) {
+        // 
+        // 1. Check if the user is a Agent
+        $is_staff = (in_array('agent', majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff());
+
+        // 2. If they are staff, check if they LACK the specific AI permission
+        if ($is_staff) {
+            $has_ai_permission = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Use AI Powered Reply Feature');
+            if (!$has_ai_permission) { // Note the "!" (NOT)
+                wp_send_json_error(['message' => __('You do not have permission to use AI features.', 'majestic-support')]);
+            }
+        } 
+        // 3. If they are NOT staff, check if they are an Administrator
+        else if (!current_user_can('manage_options')) {
+            // If they aren't staff and aren't an admin, they are a normal user or guest
+            wp_send_json_error(['message' => __('Access denied.', 'majestic-support')]);
+        }
+
+        // If it reaches here, the user is either:
+        // - Staff WITH AI permissions
+        // - An Administrator
+        // 
+        // 
+
+        $MJTC_uids = $this->get_allowed_support_user_ids();
+        if (empty($MJTC_uids)) {
             wp_send_json_success(['replies' => [], 'count' => 0]);
         }
 
-        $uids_str = implode(',', array_map('intval', $uids)); // Ensure integers
+        $MJTC_uids_str = implode(',', array_map('absint', $MJTC_uids)); // Ensure integers
 
-        $query = "
+        $MJTC_query = "
         SELECT r.*
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS r
             WHERE r.ticketid = " . esc_sql($MJTC_ticket_id) . "
-            AND r.uid IN ($uids_str)";
+            AND r.uid IN ($MJTC_uids_str)";
 
-        $query .= " ORDER BY r.created ASC LIMIT 50";
-        $replies = majesticsupport::$_db->get_results($query);
+        $MJTC_query .= " ORDER BY r.created ASC LIMIT 50";
+        $MJTC_replies = majesticsupport::$_db->get_results($MJTC_query);
 
         if (majesticsupport::$_db->last_error) {
             wp_send_json_error(['message' => __('Database error occurred.', 'majestic-support')]);
         }
 
-        $formatted_replies = [];
-        foreach ($replies as $reply) {
-            $name = '';
-            $anon_setting = majesticsupport::$_config['anonymous_name_on_ticket_reply'];
+        $MJTC_formatted_replies = [];
+        foreach ($MJTC_replies as $MJTC_reply) {
+            $MJTC_name = '';
+            $MJTC_anon_setting = majesticsupport::$_config['anonymous_name_on_ticket_reply'];
 
-            if ($anon_setting == 1) {
-                $name = majesticsupport::$_config['title'];
-            } elseif ($anon_setting == 2) {
-                $name = MJTC_includer::MJTC_getModel('reply')->getUserNameFromReplyById($reply->id);
+            if ($MJTC_anon_setting == 1) {
+                $MJTC_name = majesticsupport::$_config['title'];
+            } elseif ($MJTC_anon_setting == 2) {
+                $MJTC_name = MJTC_includer::MJTC_getModel('reply')->getUserNameFromReplyById($MJTC_reply->id);
             }
 
-            $formatted_replies[] = [
-                'id'        => $reply->id,
-                'text'      => $reply->message,
-                'name'      => $name,
-                'timestamp' => $reply->created,
-                'isMarked'  => (bool) $reply->aireplymode
+            $MJTC_formatted_replies[] = [
+                'id'        => $MJTC_reply->id,
+                'text'      => $MJTC_reply->message,
+                'name'      => $MJTC_name,
+                'timestamp' => $MJTC_reply->created,
+                'isMarked'  => (bool) $MJTC_reply->aireplymode
             ];
         }
 
         wp_send_json_success([
-            'replies' => $formatted_replies,
-            'count'   => count($formatted_replies)
+            'replies' => $MJTC_formatted_replies,
+            'count'   => count($MJTC_formatted_replies)
         ]);
     }
 
     function get_allowed_support_user_ids() {
-        $allowed_uids = [];
+        $MJTC_allowed_uids = [];
 
         // Get WordPress administrator user IDs
-        $admin_wp_ids = majesticsupport::$_db->get_col(
+        $MJTC_admin_wp_ids = majesticsupport::$_db->get_col(
             "SELECT user_id
             FROM `" . majesticsupport::$_db->prefix . "usermeta`
             WHERE meta_key = '" . majesticsupport::$_db->prefix . "capabilities'
@@ -592,31 +615,31 @@ class MJTC_replyModel {
         );
 
         // Convert WP user IDs to Majestic Support user IDs
-        if (!empty($admin_wp_ids)) {
-            foreach ($admin_wp_ids as $wp_id) {
-                $mjtc_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_getmajesticsupportuidbyuserid($wp_id);
+        if (!empty($MJTC_admin_wp_ids)) {
+            foreach ($MJTC_admin_wp_ids as $MJTC_wp_id) {
+                $mjtc_user = MJTC_includer::MJTC_getObjectClass('user')->MJTC_getmajesticsupportuidbyuserid($MJTC_wp_id);
                 if (!empty($mjtc_user) && isset($mjtc_user[0]->id)) {
-                    $allowed_uids[] = (int)$mjtc_user[0]->id;
+                    $MJTC_allowed_uids[] = (int)$mjtc_user[0]->id;
                 }
             }
         }
 
         // Add agent user IDs if the 'agent' addon is active
         if (in_array('agent', majesticsupport::$_active_addons)) {
-            $agent_ids = majesticsupport::$_db->get_col(
+            $MJTC_agent_ids = majesticsupport::$_db->get_col(
                 "SELECT uid
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff`"
             );
-            foreach ($agent_ids as $id) {
-                $allowed_uids[] = (int)$id;
+            foreach ($MJTC_agent_ids as $MJTC_id) {
+                $MJTC_allowed_uids[] = (int)$MJTC_id;
             }
         }
 
         // Deduplicate and ensure all values are positive integers
-        $allowed_uids = array_unique(array_filter(array_map('intval', $allowed_uids)));
+        $MJTC_allowed_uids = array_unique(array_filter(array_map('intval', $MJTC_allowed_uids)));
 
         // Avoid empty IN() errors
-        return !empty($allowed_uids) ? $allowed_uids : [0];
+        return !empty($MJTC_allowed_uids) ? $MJTC_allowed_uids : [0];
     }
 }
 

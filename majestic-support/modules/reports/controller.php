@@ -10,10 +10,10 @@ class MJTC_reportsController {
     }
 
     function handleRequest() {
-        $layout = MJTC_request::MJTC_getLayout('mjslay', null, 'reports');
+        $MJTC_layout = MJTC_request::MJTC_getLayout('mjslay', null, 'reports');
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
-        if (self::canaddfile($layout)) {
-            switch ($layout) {
+        if (self::canaddfile($MJTC_layout)) {
+            switch ($MJTC_layout) {
                 case 'admin_reports':
                 break;
                 case 'admin_staffreport':
@@ -31,14 +31,14 @@ class MJTC_reportsController {
                 case 'staffdetailreport':
                     if(in_array('agent',majesticsupport::$_active_addons)){
                         if(is_admin()){
-                            $id = MJTC_request::MJTC_getVar('id');
-                            MJTC_includer::MJTC_getModel('reports')->getStaffDetailReportByStaffId($id);
+                            $MJTC_id = MJTC_request::MJTC_getVar('id');
+                            MJTC_includer::MJTC_getModel('reports')->getStaffDetailReportByStaffId($MJTC_id);
                         }else{
                             majesticsupport::$_data['permission_granted'] = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('View Agent Reports');
                             if (majesticsupport::$_data['permission_granted']) {
-                                $id = MJTC_request::MJTC_getVar('ms-id');
-                                $return = MJTC_includer::MJTC_getModel('reports')->getStaffDetailReportByStaffId($id);
-                                if(isset($return) AND $return === false)
+                                $MJTC_id = MJTC_request::MJTC_getVar('ms-id');
+                                $MJTC_return = MJTC_includer::MJTC_getModel('reports')->getStaffDetailReportByStaffId($MJTC_id);
+                                if(isset($MJTC_return) AND $MJTC_return === false)
                                     majesticsupport::$_data['permission_granted'] = false;
 
                             }
@@ -46,19 +46,19 @@ class MJTC_reportsController {
                     }
                 break;
                 case 'admin_departmentdetailreport':
-                        $id = MJTC_request::MJTC_getVar('id');
-                        MJTC_includer::MJTC_getModel('reports')->getDepartmentDetailReportByDepartmentId($id);
+                        $MJTC_id = MJTC_request::MJTC_getVar('id');
+                        MJTC_includer::MJTC_getModel('reports')->getDepartmentDetailReportByDepartmentId($MJTC_id);
                 break;
                 case 'admin_stafftimereport':
                     if(in_array('agent',majesticsupport::$_active_addons) && in_array('timetracking',majesticsupport::$_active_addons)){
 
-                        $id = MJTC_request::MJTC_getVar('id');
-                        MJTC_includer::MJTC_getModel('reports')->getStaffTimingReportById($id);
+                        $MJTC_id = MJTC_request::MJTC_getVar('id');
+                        MJTC_includer::MJTC_getModel('reports')->getStaffTimingReportById($MJTC_id);
                     }
                 break;
                 case 'admin_userdetailreport':
-                    $id = MJTC_request::MJTC_getVar('id');
-                    MJTC_includer::MJTC_getModel('reports')->getStaffDetailReportByUserId($id);
+                    $MJTC_id = MJTC_request::MJTC_getVar('id');
+                    MJTC_includer::MJTC_getModel('reports')->getStaffDetailReportByUserId($MJTC_id);
                 break;
                 case 'admin_overallreport':
                     MJTC_includer::MJTC_getModel('reports')->getOverallReportData();
@@ -86,22 +86,22 @@ class MJTC_reportsController {
                 default:
                     exit;
             }
-            $module = (is_admin()) ? 'page' : 'mjsmod';
-            $module = MJTC_request::MJTC_getVar($module, null, 'reports');
-            $module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $module);
-            MJTC_includer::MJTC_include_file($layout, $module);
+            $MJTC_module = (is_admin()) ? 'page' : 'mjsmod';
+            $MJTC_module = MJTC_request::MJTC_getVar($MJTC_module, null, 'reports');
+            $MJTC_module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $MJTC_module);
+            MJTC_includer::MJTC_include_file($MJTC_layout, $MJTC_module);
         }
     }
 
-    function canaddfile($layout) {
-        $nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
-        if ( wp_verify_nonce( $nonce_value, 'MJTC_nonce') ) {
+    function canaddfile($MJTC_layout) {
+        $MJTC_nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
+        if ( wp_verify_nonce( $MJTC_nonce_value, 'MJTC_nonce') ) {
             if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
             } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
                 return false;
             } else {
-                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($layout, 'admin_') === 0){
+                if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($MJTC_layout, 'admin_') === 0){
                     return false;
                 }
                 return true;
@@ -111,5 +111,5 @@ class MJTC_reportsController {
 
 }
 
-$reportsController = new MJTC_reportsController();
+$MJTC_reportsController = new MJTC_reportsController();
 ?>

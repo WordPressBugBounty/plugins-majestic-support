@@ -71,7 +71,7 @@ VALUES (1, 'New', '#FFFFFF', '#5bb12f', 1, 1),
   (3, 'In Progress', '#FFFFFF', '#69d2e7', 1, 3),
   (4, 'Replied', '#FFFFFF', '#FFB613', 1, 4),
   (5, 'Closed', '#FFFFFF', '#ed1c24', 1, 5),
-  (6, 'Close due to merge', '#FFFFFF', '#ed1c24', 1, 6);
+  (6, 'Close Due To Merge', '#FFFFFF', '#ed1c24', 1, 6);
 
 
 UPDATE `#__mjtc_support_tickets` SET status = 6 WHERE status = 5;
