@@ -16,10 +16,6 @@ class MJTC_ticketController {
             $MJTC_defaultlayout = "myticket";
         $MJTC_layout = MJTC_request::MJTC_getLayout('mjslay', null, $MJTC_defaultlayout);
         majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
-        // remove this in the version 1.1.3
-        include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-        MJTC_updates::MJTC_checkUpdates('112');
-        // remove this in the version 1.1.3
         if (self::canaddfile($MJTC_layout)) {
             switch ($MJTC_layout) {
                 case 'admin_tickets':

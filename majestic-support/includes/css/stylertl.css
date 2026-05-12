@@ -55,6 +55,9 @@ div.ms-main-up-wrapper .mjtc-departmentlist .departmentname{padding-left: 0;padd
 div.ms-main-up-wrapper .mjtc-departmentlist .departmentname::before{left: auto;right: 0;}
 div.ms-main-up-wrapper .mjtc-support-feedbacks-search-form-btn-overall-wrp{margin-left: 0;margin-right: auto;}
 div.ms-main-up-wrapper .mjtc-support-search-form-btn-wrp{margin-left: 0;margin-right: auto;}
+.mjtc-fixes-ai-status { flex-direction: row-reverse; }
+.mjtc-fix-card-body {text-align: right;}
+.mjtc-fix-card-footer svg { transform: scaleX(-1); }
 /* ticket detail */
 div.ms-main-up-wrapper .mjtc-sprt-det-cnt{border-left:0;border-right: 1px solid var(--mjtc-color-6);}
 div.ms-main-up-wrapper .mjtc-support-staff-img-wrapper{left: auto;right: 0;}

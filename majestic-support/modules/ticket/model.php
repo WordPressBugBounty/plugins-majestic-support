@@ -3547,5 +3547,211 @@ class MJTC_ticketModel {
         $MJTC_html = MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_html);
         return wp_json_encode($MJTC_html);
     }
+
+    public function getInstantFixes() {
+        // 1. Security Check: Nonce Verification
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (!wp_verify_nonce($MJTC_nonce, 'get-instant-fixes')) {
+            die('Security check Failed');
+        }
+
+        // 2. Global Enable/Disable Check
+        // If the setting is not '1', stop immediately and return an empty response
+        $MJTC_enabled = majesticsupport::$_config['enable_instant_fixes'] ?? '1';
+        if ($MJTC_enabled !== '1') {
+            return wp_json_encode('');
+        }
+
+        // 3. Get search parameters
+        $MJTC_subject = MJTC_request::MJTC_getVar('subject');
+        $MJTC_message = MJTC_request::MJTC_getVar('message');
+        $MJTC_uid = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
+        
+        // Combine input for comprehensive NLP analysis
+        $MJTC_search_context = sanitize_text_field($MJTC_subject . ' ' . $MJTC_message);
+        
+        // Cast to float. If empty or invalid, fallback to 0.5 to prevent dropping the HAVING clause threshold.
+        $MJTC_min_relevance = (float) majesticsupport::$_config['instant_fixes_min_score'];
+
+        // Cast to integer. If empty or 0, fallback to 2 to prevent a SQL syntax error with LIMIT 0.
+        $MJTC_limit = (int) majesticsupport::$_config['instant_fixes_limit'];
+        $MJTC_limit = ($MJTC_limit > 0) ? $MJTC_limit : 1;
+
+        $MJTC_results = [];
+
+        if (strlen($MJTC_search_context) < 10) {
+            return wp_json_encode('');
+        }
+
+        /** 1. NLP Search for Articles (Knowledge Base) **/
+        if( in_array('knowledgebase', majesticsupport::$_active_addons) ){
+            $MJTC_query_articles = "
+                SELECT id, subject, content, visible, 
+                MATCH (subject, content) AGAINST ('" . esc_sql($MJTC_search_context) . "' IN NATURAL LANGUAGE MODE) AS relevance
+                FROM `" . majesticsupport::$_db->prefix . "mjtc_support_articles`
+                WHERE MATCH (subject, content) AGAINST ('" . esc_sql($MJTC_search_context) . "' IN NATURAL LANGUAGE MODE)
+                AND status = 1
+                HAVING relevance > " . esc_sql($MJTC_min_relevance) . "
+                ORDER BY relevance DESC LIMIT ". $MJTC_limit;
+
+            $MJTC_articles = majesticsupport::$_db->get_results($MJTC_query_articles);
+            if (!empty($MJTC_articles)) {
+                foreach ($MJTC_articles as $MJTC_a) {
+                    $MJTC_results[] = [
+                        'title' => $MJTC_a->subject,
+                        'desc'  => ($MJTC_uid == 0 && $MJTC_a->visible == 2) ? '' : wp_trim_words($MJTC_a->content, 12),
+                        'type' => esc_html(__('KNOWLEDGE BASE', 'majestic-support')),
+                        'link' => majesticsupport::makeUrl(array('mjsmod'=>'knowledgebase', 'mjslay'=>'articledetails', 'majesticsupportid'=>$MJTC_a->id, 'mspageid'=>majesticsupport::getPageid())),
+                        'icon' => '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>',
+                        'score' => $MJTC_a->relevance
+                    ];
+                }
+            }
+        }
+
+        /** 2. NLP Search for FAQs **/
+        if( in_array('faq', majesticsupport::$_active_addons) ){
+            $MJTC_query_faqs = "
+                SELECT id, subject, content, visible, 
+                MATCH (subject, content) AGAINST ('" . esc_sql($MJTC_search_context) . "' IN NATURAL LANGUAGE MODE) AS relevance
+                FROM `" . majesticsupport::$_db->prefix . "mjtc_support_faqs`
+                WHERE MATCH (subject, content) AGAINST ('" . esc_sql($MJTC_search_context) . "' IN NATURAL LANGUAGE MODE)
+                AND status = 1
+                HAVING relevance > " . esc_sql($MJTC_min_relevance) . "
+                ORDER BY relevance DESC LIMIT ". $MJTC_limit;
+
+            $MJTC_faqs = majesticsupport::$_db->get_results($MJTC_query_faqs);
+            if (!empty($MJTC_faqs)) {
+                foreach ($MJTC_faqs as $MJTC_f) {
+                    $MJTC_results[] = [
+                        'title' => $MJTC_f->subject,
+                        'desc'  => ($MJTC_uid == 0 && $MJTC_f->visible == 2) ? '' : wp_trim_words($MJTC_f->content, 12),
+                        'type' => esc_html(__('FAQ', 'majestic-support')),
+                        'link' => majesticsupport::makeUrl(array('mjsmod'=>'faq', 'mjslay'=>'faqdetails', 'majesticsupportid'=>$MJTC_f->id, 'mspageid'=>majesticsupport::getPageid())),
+                        'icon' => '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>',
+                        'score' => $MJTC_f->relevance
+                    ];
+                }
+            }
+        }
+
+        /** 3. Dynamic Video Scoring (Pseudo-NLP) **/
+        $MJTC_videos = [
+            ['title' => 'How to setup', 'url' => 'https://www.youtube.com/watch?v=lHAacpG-O0M', 'keywords' => 'how to setup install installation initial'],
+        ];
+        $MJTC_videos = [];
+
+        if (!empty($MJTC_videos)) {
+            // Clean up the search context for PHP processing
+            $MJTC_clean_search = strtolower(sanitize_text_field($MJTC_search_context));
+            
+            // Define NLP Stop Words to ignore (words that carry no specific meaning)
+            $MJTC_stop_words = ['how', 'to', 'use', 'the', 'a', 'an', 'and', 'or', 'in', 'on', 'with', 'for', 'is', 'are', 'i', 'my', 'need', 'help', 'please'];
+            
+            // Create an array of meaningful search words
+            $MJTC_raw_search_words = explode(' ', $MJTC_clean_search);
+            $MJTC_search_words = array_diff($MJTC_raw_search_words, $MJTC_stop_words);
+            $MJTC_search_words = array_filter($MJTC_search_words, function($v) { return strlen($v) > 2; }); // Ignore 1-2 letter words
+
+            foreach ($MJTC_videos as $MJTC_v) {
+                $MJTC_v_score = 0;
+                // $MJTC_video_text = strtolower($MJTC_v['title'] . ' ' . $MJTC_v['keywords']);
+                $MJTC_video_text = strtolower($MJTC_v['keywords']);
+                
+                // NLP Rule 1: Exact Phrase Match (Highest Weight)
+                // If they type exactly "setup custom fields", boost the score heavily.
+                $MJTC_clean_subject = strtolower(sanitize_text_field($MJTC_subject));
+                if (!empty($MJTC_clean_subject) && strpos($MJTC_video_text, $MJTC_clean_subject) !== false) {
+                    $MJTC_v_score += 10.0;
+                }
+
+                // NLP Rule 2: Word-by-Word Scoring
+                foreach ($MJTC_search_words as $MJTC_word) {
+                    // A. Exact Word Match (High Weight)
+                    if (preg_match('/\b' . preg_quote($MJTC_word, '/') . '\b/', $MJTC_video_text)) {
+                        $MJTC_v_score += 3.0;
+                    } 
+                    // B. Partial Word / Stem Match (Medium Weight)
+                    // Example: User types "config", matches "configuration"
+                    elseif (strpos($MJTC_video_text, $MJTC_word) !== false) {
+                        $MJTC_v_score += 1.0;
+                    }
+                }
+
+                // Apply a threshold so we don't show irrelevant videos
+                if ($MJTC_v_score >= 2.0) {
+                    // To ensure videos mix well with SQL relevance scores (which are usually decimals like 1.5, 2.3), 
+                    // we normalize the video score slightly.
+                    $MJTC_normalized_score = $MJTC_v_score * 0.5; 
+
+                    $MJTC_results[] = [
+                        'title' => esc_html($MJTC_v['title']),
+                        'desc' => esc_html(__('Watch our step-by-step video guidance.', 'majestic-support')),
+                        'type' => esc_html(__('Video', 'majestic-support')),
+                        'link' => esc_url($MJTC_v['url']),
+                        'icon' => '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>',
+                        'score' => $MJTC_normalized_score
+                    ];
+                }
+            }
+        }
+
+        if (empty($MJTC_results)) {
+            return wp_json_encode('');
+        }
+
+        // Sort combined results by score/relevance DESC
+        usort($MJTC_results, function($a, $b) {
+            return $b['score'] <=> $a['score'];
+        });
+
+        // Take top 3 most relevant items
+        // $MJTC_results = array_slice($MJTC_results, 0, 3);
+
+        // Build the UI (Same as previous treatment but with NLP results)
+        $MJTC_html = "
+        <div class='mjtc-instant-fixes-inner'>
+            <div class='mjtc-fixes-header'>
+                <div class='mjtc-ai-pulse-icon'>
+                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'></path></svg>
+                </div>
+                <div class='mjtc-fixes-title-group'>
+                    <h3>". esc_html(__('Instant Fixes Found', 'majestic-support')) ."</h3>
+                    <p>". esc_html(__('Our AI found these high-relevance matches. Try these before submitting your ticket!', 'majestic-support')) ."</p>
+                </div>
+            </div>
+            <div class='mjtc-fixes-grid'>";
+                foreach ($MJTC_results as $MJTC_res) {
+                    $MJTC_html .= "
+                    <a href='". esc_url($MJTC_res['link']) ."' target='_blank' class='mjtc-fix-card'>
+                        <div class='mjtc-fix-card-top'>
+                            <span class='mjtc-fix-badge'>". esc_html($MJTC_res['type']) ."</span>
+                            <div class='mjtc-fix-icon-wrp'>". $MJTC_res['icon'] ."</div>
+                        </div>
+                        <div class='mjtc-fix-card-body'>
+                            <h4>". esc_html($MJTC_res['title']) ."</h4>
+                            <p>". esc_html($MJTC_res['desc']) ."</p>
+                        </div>
+                        <div class='mjtc-fix-card-footer'>
+                            <span>". esc_html(__('View Solution', 'majestic-support')) ."</span>
+                            <svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3'><polyline points='9 18 15 12 9 6'></polyline></svg>
+                        </div>
+                    </a>";
+                }
+            $MJTC_html .= "</div>
+            <div class='mjtc-fixes-action-footer'>
+                <div class='mjtc-footer-info'>
+                    <div class='mjtc-check-icon'><svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3'><polyline points='20 6 9 17 4 12'></polyline></svg></div>
+                    <span>". esc_html(__('Did one of these solve your problem?', 'majestic-support')) ."</span>
+                </div>
+                <a href=". majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport', 'mjslay'=>'controlpanel', 'mspageid'=>majesticsupport::getPageid())) ." type='button' onclick='mjtc_mark_as_solved()' class='mjtc-fixes-solve-btn'>
+                    ". esc_html(__('YES, MY ISSUE IS FIXED!', 'majestic-support')) ."
+                </a>
+            </div>
+        </div>";
+
+        $MJTC_html = MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_html);
+        return wp_json_encode($MJTC_html);
+    }
 }
 ?>

@@ -613,7 +613,7 @@ $majesticsupport_js ='
                 <span class="ms_active"></span>
             </a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
-                <li class="<?php if($MJTC_c == 'premiumplugin' && ($MJTC_layout == 'step1') || ($MJTC_layout == 'step2') || ($MJTC_layout == 'step3')) echo esc_attr('active'); ?>">
+                <li class="<?php if($MJTC_c == 'premiumplugin' && ($MJTC_layout == 'step1') || ($MJTC_layout == 'step2') || ($MJTC_layout == 'step3') || ($MJTC_layout == '')) echo esc_attr('active'); ?>">
                     <a class="mjtc-admin-submenu-link" href="?page=majesticsupport_premiumplugin&mjslay=step1" title="<?php echo esc_attr(__('Install Add-ons', 'majestic-support')); ?>">
                         <?php echo esc_html(__('Install Add-ons', 'majestic-support')); ?>
                     </a>    

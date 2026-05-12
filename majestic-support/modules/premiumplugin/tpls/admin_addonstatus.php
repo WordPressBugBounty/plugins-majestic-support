@@ -132,7 +132,7 @@ function mjtc_printAddoneStatus($MJTC_name, $title, $MJTC_img, $MJTC_version, $M
         $msg = '';
     }
     $MJTC_html = '
-    <div class="'.esc_attr($MJTC_wrpclass).'" id="'.esc_attr($MJTC_name).'">
+    <div class="'.esc_attr($MJTC_wrpclass).' '. esc_attr($MJTC_addoneinfo["actionMainClass"]) .'" id="'.esc_attr($MJTC_name).'">
         <div class="ms-addon-status-image-wrp">
             <img alt="Addone image" src="'.esc_url(MJTC_PLUGIN_URL).'includes/images/admincp/addon/'.esc_attr($MJTC_img).'" />
         </div>

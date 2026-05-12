@@ -261,6 +261,7 @@ class MJTC_premiumpluginModel {
             if(is_plugin_active($MJTC_slug)){
                 $MJTC_status = esc_html(__("Activated",'majestic-support'));
                 $MJTC_action = esc_html(__("Deactivate",'majestic-support'));
+                $MJTC_actionMainClass = 'ms-admin-addon-status-Deactive';
                 $MJTC_actionClass = 'ms-admin-adons-status-Deactive';
                 $MJTC_url = "plugins.php?s=".$MJTC_name."&plugin_status=active";
                 $MJTC_disabled = "disabled";
@@ -270,6 +271,7 @@ class MJTC_premiumpluginModel {
             } else {
                 $MJTC_status = esc_html(__("Deactivated",'majestic-support'));
                 $MJTC_action = esc_html(__("Activate",'majestic-support'));
+                $MJTC_actionMainClass = 'ms-admin-addon-status-Active';
                 $MJTC_actionClass = 'ms-admin-adons-status-Active';
                 $MJTC_url = "plugins.php?s=".$MJTC_name."&plugin_status=inactive";
                 $MJTC_disabled = "";
@@ -280,6 +282,7 @@ class MJTC_premiumpluginModel {
         } else {
             $MJTC_status = esc_html(__("Not Installed",'majestic-support'));
             $MJTC_action = esc_html(__("Install Now",'majestic-support'));
+            $MJTC_actionMainClass = 'ms-admin-addon-status-Install';
             $MJTC_actionClass = 'ms-admin-adons-status-Install';
             $MJTC_url = admin_url("admin.php?page=majesticsupport_premiumplugin&mjslay=step1");
             $MJTC_disabled = "";
@@ -287,7 +290,7 @@ class MJTC_premiumpluginModel {
             $MJTC_availability = "0";
             $MJTC_version = "---";
         }
-        return array("status" => $MJTC_status, "action" => $MJTC_action, "url" => $MJTC_url, "disabled" => $MJTC_disabled, "class" => $MJTC_class, "availability" => $MJTC_availability, "actionClass" => $MJTC_actionClass, "version" => $MJTC_version);
+        return array("status" => $MJTC_status, "action" => $MJTC_action, "url" => $MJTC_url, "disabled" => $MJTC_disabled, "class" => $MJTC_class, "availability" => $MJTC_availability, "actionMainClass" => $MJTC_actionMainClass, "actionClass" => $MJTC_actionClass, "version" => $MJTC_version);
     }
 
     function downloadandinstalladdonfromAjax(){

@@ -713,7 +713,7 @@ MJTC_message::MJTC_getMessage();
                                                         <span class="mjtc-support-data-val mjtc-support-ticketid">
                                                             <span class="mjtc-support-ticketiddot">•</span>
                                                             G2qRQLPDH </span>
-                                                        <span class="mjtc-support-status" style="background-color:#d6eef4;color:#186e83;">
+                                                        <span class="mjtc-support-status" style="background-color:#7ed7fb;color:#186e83;">
                                                             <?php echo esc_html(__('Replied ','majestic-support'));?></span>
                                                         <span class="mjtc-support-wrapper-textcolor" style="background:#d35454;">
                                                              <?php echo esc_html(__('Urgent','majestic-support'));?></span></span>
@@ -944,7 +944,7 @@ MJTC_message::MJTC_getMessage();
                                                         <span class="mjtc-support-data-val mjtc-support-ticketid">
                                                             <span class="mjtc-support-ticketiddot">•</span>
                                                             dB23PCQKr </span>
-                                                        <span class="mjtc-support-status" style="background-color: #186e83;color: #d6eef4;">
+                                                        <span class="mjtc-support-status" style="background-color: #186e83;color: #7ed7fb;">
                                                              <?php echo esc_html(__('Waiting Reply','majestic-support'));?></span>
                                                         <span class="mjtc-support-wrapper-textcolor" style="background:#bd6403;">
                                                              <?php echo esc_html(__('High','majestic-support'));?></span>

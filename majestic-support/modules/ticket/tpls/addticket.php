@@ -43,6 +43,54 @@ if (majesticsupport::$_config['offline'] == 2) {
                     }
                 });
                 $.validate();
+
+                /** NEW: INSTANT FIXES TRIGGER LOGIC **/
+                var mjtc_last_search = '';
+                function mjtc_get_instant_fixes() {
+                    // Check if feature is enabled via your PHP config
+                    var isEnabled = '". majesticsupport::$_config['enable_instant_fixes'] ."';
+                    if(isEnabled !== '1') return;
+                    var subject = $('#subject').val();
+                    var message = '';
+                    if (typeof tinyMCE !== 'undefined' && tinyMCE.get('mjsupport_message')) {
+                        message = tinyMCE.get('mjsupport_message').getContent({format: 'text'});
+                    } else {
+                        message = $('#mjsupport_message').val();
+                    }
+
+                    var combined = (subject + ' ' + message).trim();
+                    // if(combined.length < 10 || combined === mjtc_last_search) return;
+
+                    mjtc_last_search = combined;
+                    // $('#mjtc-instant-fixes-container').slideDown().html('<div class=\"mjtc-fix-loader\"><span></span><span></span><span></span></div>');
+
+                    jQuery.post(ajaxurl, {
+                        action: 'mjsupport_ajax',
+                        mjsmod: 'ticket',
+                        task: 'getInstantFixes',
+                        subject: subject,
+                        message: message,
+                        '_wpnonce': '".esc_attr(wp_create_nonce('get-instant-fixes'))."'
+                    }, function(response) {
+                        response=jQuery.parseJSON(response);
+                        if(response) {
+                            $('#mjtc-instant-fixes-container').slideDown().html(MJTC_msDecodeHTML(response));
+                        } else {
+                            $('#mjtc-instant-fixes-container').slideUp();
+                        }
+                    });
+                }
+
+                $(document).on('blur', '#subject', function() { mjtc_get_instant_fixes(); });
+                
+                // For TinyMCE blur detection
+                setTimeout(function() {
+                    if (typeof tinyMCE !== 'undefined' && tinyMCE.get('mjsupport_message')) {
+                        tinyMCE.get('mjsupport_message').on('blur', function() {
+                            mjtc_get_instant_fixes();
+                        });
+                    }
+                }, 2000);
             });
             // to get premade and append to isssue summery
             function getHelpTopicByDepartment(val) {
@@ -648,9 +696,6 @@ if (majesticsupport::$_config['offline'] == 2) {
                                                 $MJTC_message = is_string( $MJTC_message ) ? $MJTC_message : '';
                                                 wp_editor($MJTC_message, 'mjsupport_message', array('media_buttons' => false));
                                             }
-                                            /*
-                                            * Use following settings for minimal editor as all are offering
-                                            */
                                         ?>
                                     </div>
                                     <?php if(!empty($MJTC_field->description)): ?>
@@ -659,6 +704,12 @@ if (majesticsupport::$_config['offline'] == 2) {
                                         </div>
                                     <?php endif; ?>
                                 </div>
+                                
+                                <!-- NEW: INSTANT FIXES INLINE BENTO SECTION -->
+                                <div id="mjtc-instant-fixes-container" class="mjtc-instant-fixes-wrapper" style="display:none;">
+                                    <!-- Populated via AJAX -->
+                                </div>
+
                                 <?php
                                 break;
                             case 'attachments':

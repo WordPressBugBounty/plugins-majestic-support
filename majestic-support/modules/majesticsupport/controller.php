@@ -22,7 +22,7 @@ class MJTC_majesticsupportController {
                 case 'controlpanel':
                     MJTC_includer::MJTC_getModel('majesticsupport')->getControlPanelData();
                     include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-                    MJTC_updates::MJTC_checkUpdates('110');
+                    MJTC_updates::MJTC_checkUpdates('115');
                     MJTC_includer::MJTC_getModel('majesticsupport')->updateColorFile();
                     break;
                 case 'admin_shortcodes':

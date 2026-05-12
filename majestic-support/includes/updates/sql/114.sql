@@ -26,4 +26,4 @@ UPDATE `#__options` SET `option_value` = '{"color1":"#291abc","color2":"#0f172a"
 UPDATE `#__mjtc_support_statuses` SET `statuscolour` = '#047857', `statusbgcolour` = '#a7f3d0' WHERE `id` = 1;
 UPDATE `#__mjtc_support_statuses` SET `statuscolour` = '#b45309', `statusbgcolour` = '#fde68a' WHERE `id` = 2;
 UPDATE `#__mjtc_support_statuses` SET `statuscolour` = '#3b82f6', `statusbgcolour` = '#edf2fd' WHERE `id` = 3;
-UPDATE `#__mjtc_support_statuses` SET `statusbgcolour` = '#d6eef4' WHERE `id` = 4;
+UPDATE `#__mjtc_support_statuses` SET `statusbgcolour` = '#7ed7fb' WHERE `id` = 4;

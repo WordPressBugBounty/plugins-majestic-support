@@ -2006,7 +2006,6 @@ class MJTC_emailModel {
     }
 
     function sendEmail($MJTC_recevierEmail, $MJTC_subject, $MJTC_body, $MJTC_senderEmail, $MJTC_senderName, $MJTC_attachments, $MJTC_action, $MJTC_actionfor='') {
-        $this->emailTest($MJTC_senderName,$MJTC_senderEmail,$MJTC_recevierEmail,$MJTC_body,$MJTC_subject,$MJTC_actionfor);
         if( (is_array($MJTC_recevierEmail) && empty($MJTC_recevierEmail)) || (!is_array($MJTC_recevierEmail) && MJTC_majesticsupportphplib::MJTC_trim($MJTC_recevierEmail) == '') ){ // avoid the case of trying to send email to empty email.
             return;
         }
@@ -2442,22 +2441,6 @@ class MJTC_emailModel {
             
         }
         return $MJTC_html;
-    }
-
-    // remove this after testing
-
-    function emailTest($sendername,$senderemail,$recemail,$message,$sub,$mailfor){
-        $myfile = fopen("emailtesting.html", "a") or die("Unable to open file!");
-        $txt  = "<hr>\n</br>";
-        $txt .= $mailfor."\n</br></br>";
-        $txt .= "Sender name => ". $sendername."\n</br>";
-        $txt .= "Sender Email => ". $senderemail."\n</br>";
-        $txt .= "Recepient Email => ". $recemail."\n\n</br></br>";
-        $txt .= "Message => \n</br>". $message."\n\n</br></br>";
-        $txt .= "Subject => ". $sub."\n</br>";
-        $txt .= "<hr>\n</br></br></br></br>";
-        fwrite($myfile, $txt);
-        fclose($myfile);
     }
 }
 

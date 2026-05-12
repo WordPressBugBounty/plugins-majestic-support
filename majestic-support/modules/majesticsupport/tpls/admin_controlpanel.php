@@ -336,7 +336,7 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                     <div style="position: relative; z-index: 10;">
                                         <h2 style="font-size: 1.5rem; font-weight: 800; margin: 0;">🚀 <?php echo esc_html(__("Addone update is Live!",'majestic-support')); ?></h2>
                                         <p style="opacity: 0.8; margin: 0.75rem 0 2rem; font-weight: 500;"><?php echo esc_html(__("Experience AI-powered responses and smoother analytics.",'majestic-support')); ?></p>
-                                        <button class="mjtc-admin-btn mjtc-admin-btn-primary"><?php echo esc_html(__("View Addone Status",'majestic-support')); ?></button>
+                                        <a href="?page=majesticsupport_premiumplugin&mjslay=addonstatus" class="mjtc-admin-btn mjtc-admin-btn-primary"><?php echo esc_html(__("View Addone Status",'majestic-support')); ?></a>
                                     </div>
                                     <div style="position: relative; z-index: 10; text-align: right;">
                                         <div style="font-size: 4rem; font-weight: 900; color: var(--mjtc-admin-primary); opacity: 0.1;"><?php echo esc_html(__("plugin",'majestic-support')).' v '.esc_html(majesticsupport::$_config['versioncode']); ?></div>
@@ -361,12 +361,12 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                     <div class="mjtc-tkt-row-left">
                                                         <div style="width: 40px; height: 40px; background: #ffe4e6; color: #be123c; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">!</div>
                                                         <div>
-                                                            <div class="mjtc-tkt-subject">
+                                                            <a class="mjtc-tkt-subject" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_overdue_ticket->id); ?>">
                                                                 <?php
                                                                 if (isset($MJTC_field_array['subject'])) {
                                                                     echo esc_html($MJTC_overdue_ticket->subject);
                                                                 } ?>
-                                                            </div>
+                                                            </a>
                                                             <div class="mjtc-tkt-sub">
                                                                 <?php echo esc_html(__("Ticket",'majestic-support')).' '.esc_html(majesticsupport::MJTC_getVarValue($MJTC_overdue_ticket->ticketid)); ?>
                                                                 <?php
@@ -386,7 +386,7 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                         <span class="mjtc-tkt-meta-bold">
                                                             <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_overdue_ticket->priority)); ?>
                                                         </span>
-                                                        <a class="mjtc-admin-btn mjtc-admin-btn-light mjtc-admin-btn-sm" title="<?php echo esc_attr(__('Subject','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_overdue_ticket->id); ?>">
+                                                        <a class="mjtc-admin-btn mjtc-admin-btn-light mjtc-admin-btn-sm" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_overdue_ticket->id); ?>">
                                                             <?php echo esc_html(__("View Details",'majestic-support')); ?>
                                                         </a>
                                                     </div>
@@ -421,18 +421,18 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                             } ?>
                                         </h3>
                                     </div>
-                                    <?php if( in_array('multiform', majesticsupport::$_active_addons) ){ ?>
+                                    <?php if( in_array('agent', majesticsupport::$_active_addons) ){ ?>
                                         <div>
                                             <?php if(count(majesticsupport::$_data['unassigned_tickets']) > 0){
                                                 foreach (majesticsupport::$_data['unassigned_tickets'] AS $MJTC_unassigned_ticket) { ?>
                                                     <div class="mjtc-cp-tkt-list">
                                                         <div>
-                                                            <div class="mjtc-tkt-subject">
+                                                            <a class="mjtc-tkt-subject" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_unassigned_ticket->id); ?>">
                                                                 <?php
                                                                 if (isset($MJTC_field_array['subject'])) {
                                                                     echo esc_html($MJTC_unassigned_ticket->subject);
                                                                 } ?>
-                                                            </div>
+                                                            </a>
                                                             <div class="mjtc-tkt-meta-bold" style="color: <?php echo esc_attr($MJTC_unassigned_ticket->prioritycolour); ?>">
                                                                 <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_unassigned_ticket->priority)); ?>
                                                             </div>
@@ -444,8 +444,27 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                     <?php
                                                 }
                                             } else { ?>
-                                                <div class="ms_no_record">
-                                                    <?php echo esc_html(__("No Record Found",'majestic-support')); ?>
+                                                <div class="mjtc-cp-add-smart-reply">
+                                                    <div class="mjtc-cp-add-smart-header">
+                                                        <div class="mjtc-addon-icon">
+                                                            <svg viewBox="0 0 24 24" fill="none">
+                                                              <rect x="3" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="14" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="3" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="14" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mjtc-cp-add-smart-body">
+                                                        <p>
+                                                            <?php echo esc_html(__("The best support plugin for the majestic support has everything you need.",'majestic-support')); ?>
+                                                        </p>
+                                                    </div>
+                                                    <div class="mjtc-cp-add-smart-footer">
+                                                        <a href="<?php echo esc_url($MJTC_href); ?>" class="mjtc-admin-menu-link" <?php echo esc_attr($MJTC_id); ?>>
+                                                            <?php echo esc_html(__("Add Ticket",'majestic-support')); ?>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                                 <?php
                                             } ?>
@@ -560,13 +579,13 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                 <div class="mjtc-tkt-row-left">
                                                     <?php echo wp_kses(MJTC_get_avatar($MJTC_ticket->uid, 'mjtc-admin-avatar'), MJTC_ALLOWED_TAGS); ?>
                                                     <div>
-                                                        <div class="mjtc-tkt-subject">
+                                                        <a class="mjtc-tkt-subject" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_ticket->id); ?>">
                                                             <?php
                                                             if (isset($MJTC_field_array['subject'])) { ?>
                                                                 <?php echo esc_html($MJTC_ticket->subject); ?>
                                                                 <?php
                                                             } ?>
-                                                        </div>
+                                                        </a>
                                                         <div class="mjtc-tkt-sub">
                                                             <?php echo esc_html(__("Ticket",'majestic-support')).' '.esc_html($MJTC_ticket->ticketid); ?>
                                                             <?php
@@ -598,8 +617,27 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                             <?php
                                         }
                                     } else { ?>
-                                        <div class="ms_no_record">
-                                            <?php echo esc_html(__("No Record Found",'majestic-support')); ?>
+                                        <div class="mjtc-cp-add-smart-reply">
+                                            <div class="mjtc-cp-add-smart-header">
+                                                <div class="mjtc-addon-icon">
+                                                    <svg viewBox="0 0 24 24" fill="none">
+                                                      <rect x="3" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                      <rect x="14" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                      <rect x="3" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                      <rect x="14" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="mjtc-cp-add-smart-body">
+                                                <p>
+                                                    <?php echo esc_html(__("The best support plugin for the majestic support has everything you need.",'majestic-support')); ?>
+                                                </p>
+                                            </div>
+                                            <div class="mjtc-cp-add-smart-footer">
+                                                <a href="<?php echo esc_url($MJTC_href); ?>" class="mjtc-admin-menu-link" <?php echo esc_attr($MJTC_id); ?>>
+                                                    <?php echo esc_html(__("Add Ticket",'majestic-support')); ?>
+                                                </a>
+                                            </div>
                                         </div>
                                         <?php
                                     } ?>
@@ -614,13 +652,13 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                 <div class="mjtc-tkt-row-left">
                                                     <?php echo wp_kses(MJTC_get_avatar($MJTC_ticket->uid, 'mjtc-admin-avatar'), MJTC_ALLOWED_TAGS); ?>
                                                     <div>
-                                                        <div class="mjtc-tkt-subject">
+                                                        <a class="mjtc-tkt-subject" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_ticket->id); ?>">
                                                             <?php
                                                             if (isset($MJTC_field_array['subject'])) { ?>
                                                                 <?php echo esc_html($MJTC_ticket->subject); ?>
                                                                 <?php
                                                             } ?>
-                                                        </div>
+                                                        </a>
                                                         <div class="mjtc-tkt-sub">
                                                             <?php echo esc_html(__("Ticket",'majestic-support')).' '.esc_html($MJTC_ticket->ticketid); ?>
                                                             <?php
@@ -668,13 +706,13 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                 <div class="mjtc-tkt-row-left">
                                                     <?php echo wp_kses(MJTC_get_avatar($MJTC_ticket->uid, 'mjtc-admin-avatar'), MJTC_ALLOWED_TAGS); ?>
                                                     <div>
-                                                        <div class="mjtc-tkt-subject">
+                                                        <a class="mjtc-tkt-subject" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_ticket->id); ?>">
                                                             <?php
                                                             if (isset($MJTC_field_array['subject'])) { ?>
                                                                 <?php echo esc_html($MJTC_ticket->subject); ?>
                                                                 <?php
                                                             } ?>
-                                                        </div>
+                                                        </a>
                                                         <div class="mjtc-tkt-sub">
                                                             <?php echo esc_html(__("Ticket",'majestic-support')).' '.esc_html($MJTC_ticket->ticketid); ?>
                                                             <?php
@@ -722,13 +760,13 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                 <div class="mjtc-tkt-row-left">
                                                     <?php echo wp_kses(MJTC_get_avatar($MJTC_ticket->uid, 'mjtc-admin-avatar'), MJTC_ALLOWED_TAGS); ?>
                                                     <div>
-                                                        <div class="mjtc-tkt-subject">
+                                                        <a class="mjtc-tkt-subject" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_ticket->id); ?>">
                                                             <?php
                                                             if (isset($MJTC_field_array['subject'])) { ?>
                                                                 <?php echo esc_html($MJTC_ticket->subject); ?>
                                                                 <?php
                                                             } ?>
-                                                        </div>
+                                                        </a>
                                                         <div class="mjtc-tkt-sub">
                                                             <?php echo esc_html(__("Ticket",'majestic-support')).' '.esc_html($MJTC_ticket->ticketid); ?>
                                                             <?php
@@ -776,13 +814,13 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                 <div class="mjtc-tkt-row-left">
                                                     <?php echo wp_kses(MJTC_get_avatar($MJTC_ticket->uid, 'mjtc-admin-avatar'), MJTC_ALLOWED_TAGS); ?>
                                                     <div>
-                                                        <div class="mjtc-tkt-subject">
+                                                        <a class="mjtc-tkt-subject" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_ticket->id); ?>">
                                                             <?php
                                                             if (isset($MJTC_field_array['subject'])) { ?>
                                                                 <?php echo esc_html($MJTC_ticket->subject); ?>
                                                                 <?php
                                                             } ?>
-                                                        </div>
+                                                        </a>
                                                         <div class="mjtc-tkt-sub">
                                                             <?php echo esc_html(__("Ticket",'majestic-support')).' '.esc_html($MJTC_ticket->ticketid); ?>
                                                             <?php
@@ -979,34 +1017,33 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                         <h3 class="mjtc-cp-cnt-title-txt"><?php echo esc_html__("By Departments", 'majestic-support'); ?></h3>
                                     </div>
                                     <div class="mjtc-dept-chart-wrapper">
-                                        <div style="display: flex; align-items: flex-end; gap: 1rem; height: 150px; border-bottom: 1px dashed #e5e7eb; padding-bottom: 5px;">
-                                            <?php 
-                                            $MJTC_dept_stats = majesticsupport::$_data['dept_stats'];
-                                            $MJTC_colors = ['#60a5fa', 'var(--mjtc-admin-primary)', '#a78bfa']; // Sales Blue, Support Primary, Tech Purple
-                                            
-                                            if (!empty($MJTC_dept_stats)) :
-                                                foreach ($MJTC_dept_stats as $MJTC_index => $MJTC_dept) : 
+                                        <?php 
+                                        $MJTC_dept_stats = majesticsupport::$_data['dept_stats'];
+                                        $MJTC_colors = ['#60a5fa', 'var(--mjtc-admin-primary)', '#a78bfa']; // Sales Blue, Support Primary, Tech Purple
+                                        if (!empty($MJTC_dept_stats)) { ?>
+                                            <div style="display: flex; align-items: flex-end; gap: 1rem; height: 150px; border-bottom: 1px dashed #e5e7eb; padding-bottom: 5px;">
+                                                <?php
+                                                foreach ($MJTC_dept_stats as $MJTC_index => $MJTC_dept) {
                                                     // Use index to cycle through colors
                                                     $MJTC_bg_color = isset($MJTC_colors[$MJTC_index]) ? $MJTC_colors[$MJTC_index] : $MJTC_colors[0];
                                                     // Ensure a minimum height of 5% for visibility
-                                                    $MJTC_display_height = max($MJTC_dept['perc'], 5);
-                                            ?>
-                                                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
-                                                    <div style="width: 100%; background: <?php echo esc_attr($MJTC_bg_color); ?>; height: <?php echo (int)$MJTC_display_height; ?>%; border-radius: 8px 8px 0 0; position: relative;">
-                                                        <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: bold; color: var(--mjtc-admin-text-secondary);">
-                                                            <?php echo (int)$MJTC_dept['perc']; ?>%
-                                                        </span>
+                                                    $MJTC_display_height = max($MJTC_dept['perc'], 5); ?>
+                                                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
+                                                        <div style="width: 100%; background: <?php echo esc_attr($MJTC_bg_color); ?>; height: <?php echo (int)$MJTC_display_height; ?>%; border-radius: 8px 8px 0 0; position: relative;">
+                                                            <span style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: bold; color: var(--mjtc-admin-text-secondary);">
+                                                                <?php echo (int)$MJTC_dept['perc']; ?>%
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                    <?php 
+                                                } ?>
+                                            </div>
                                             <?php 
-                                                endforeach; 
-                                            else :
-                                                // Empty state fallback
-                                                echo '<p style="width:100%; text-align:center; color:#94a3b8; font-size:0.8rem;">'.esc_html__("No department data", "majestic-support").'</p>';
-                                            endif;
-                                            ?>
-                                        </div>
-                                        
+                                        } else {
+                                            // Empty state fallback
+                                            echo '<p style="width:100%; text-align:center; color:#94a3b8; font-size:0.8rem;">'.esc_html__("No department data", "majestic-support").'</p>';
+                                        }
+                                        ?>
                                         <div class="mjtc-dept-labels-row">
                                             <?php foreach ($MJTC_dept_stats as $MJTC_dept) : ?>
                                                 <span class="mjtc-dept-label">
@@ -1068,12 +1105,19 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                 foreach (majesticsupport::$_data['tickethistory'] AS $MJTC_history) { ?>
                                                     <div class="mjtc-activity-log-inner-wrp" style="position: relative; padding-left: 24px; margin-bottom: 24px;">
                                                         <div style="background-color: <?php echo esc_attr($MJTC_history->prioritycolour); ?>;position: absolute; left: -4px; top: 4px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 1px #e5e7eb;"></div>
-                                                        <div class="mjtc-log-text">
+                                                        <a class="mjtc-log-text" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_history->id); ?>">
                                                             <strong><?php echo esc_html(__("Ticket",'majestic-support')).' #'.esc_html(majesticsupport::MJTC_getVarValue($MJTC_history->ticketid)); ?></strong>
-                                                             <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_history->message)); ?>
-                                                        </div>
+                                                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_history->message)); ?>
+                                                        </a>
                                                         <div class="mjtc-log-meta">
-                                                            Sarah • 
+                                                            <?php 
+                                                            $MJTC_userName = MJTC_includer::MJTC_getObjectClass('user')->MJTC_getUserNameByUid($MJTC_history->uid);
+                                                            if (!empty($MJTC_userName->display_name)) {
+                                                                echo esc_html($MJTC_userName->display_name).' • ';
+                                                            } elseif (!empty($MJTC_userName->user_nicename)) {
+                                                                echo esc_html($MJTC_userName->user_nicename).' • ';
+                                                            }
+                                                            ?>
                                                             <span title="<?php echo esc_attr(date_i18n("d F, Y, H:i:s A", MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_history->message))); ?>">
                                                                 <?php echo esc_html(human_time_diff(MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_history->datetime),MJTC_majesticsupportphplib::MJTC_strtotime(date_i18n("Y-m-d H:i:s")))).' '. esc_html(__('ago', 'majestic-support')); ?>
                                                             </span>
@@ -1084,12 +1128,21 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                             } else { ?>
                                                 <div class="mjtc-cp-add-smart-reply">
                                                     <div class="mjtc-cp-add-smart-header">
-                                                        <?php echo esc_html(__("Ticket History",'majestic-support')); ?>
+                                                        <div class="mjtc-addon-icon">
+                                                            <svg viewBox="0 0 24 24" fill="none">
+                                                              <rect x="3" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="14" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="3" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="14" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                            </svg>
+                                                        </div>
                                                     </div>
                                                     <div class="mjtc-cp-add-smart-body">
                                                         <p>
                                                             <?php echo esc_html(__("The best support plugin for the majestic support has everything you need.",'majestic-support')); ?>
                                                         </p>
+                                                    </div>
+                                                    <div class="mjtc-cp-add-smart-footer">
                                                     </div>
                                                 </div>
                                                 <?php
@@ -1139,9 +1192,9 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                 foreach (majesticsupport::$_data['cannedresponses'] AS $MJTC_cannedresponse) { ?>
                                                     <div class="mjtc-cp-tkt-list">
                                                         <div>
-                                                            <div class="mjtc-tkt-subject">
+                                                            <a class="mjtc-tkt-subject" href="?page=majesticsupport_cannedresponses&mjslay=addpremademessage&majesticsupportid=<?php echo esc_attr($MJTC_cannedresponse->id); ?>">
                                                                 <?php echo esc_html($MJTC_cannedresponse->title); ?>
-                                                            </div>
+                                                            </a>
                                                             <div class="mjtc-tkt-meta-bold">
                                                                 <?php echo esc_html(wp_strip_all_tags($MJTC_cannedresponse->answer)); ?>
                                                             </div>
@@ -1155,12 +1208,24 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                             } else { ?>
                                                 <div class="mjtc-cp-add-smart-reply">
                                                     <div class="mjtc-cp-add-smart-header">
-                                                        <?php echo esc_html(__("Premade Responses",'majestic-support')); ?>
+                                                        <div class="mjtc-addon-icon">
+                                                            <svg viewBox="0 0 24 24" fill="none">
+                                                              <rect x="3" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="14" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="3" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="14" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                            </svg>
+                                                        </div>
                                                     </div>
                                                     <div class="mjtc-cp-add-smart-body">
                                                         <p>
                                                             <?php echo esc_html(__("The best support plugin for the majestic support has everything you need.",'majestic-support')); ?>
                                                         </p>
+                                                    </div>
+                                                    <div class="mjtc-cp-add-smart-footer">
+                                                        <a href="?page=majesticsupport_cannedresponses&mjslay=addpremademessage" class="mjtc-admin-menu-link" <?php echo esc_attr($MJTC_id); ?>>
+                                                            <?php echo esc_html(__("Add Premade Response",'majestic-support')); ?>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             <?php } ?>
@@ -1206,36 +1271,61 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                     </div>
                                     <div>
                                         <?php 
-                                        $MJTC_vip_tickets = majesticsupport::$_data['vip_tickets'];
-                                        if (!empty($MJTC_vip_tickets)) :
-                                            foreach ($MJTC_vip_tickets as $MJTC_vip) : 
-                                        ?>
-                                            <div class="mjtc-cp-tkt-list">
-                                                <div class="mjtc-vip-row">
-                                                    <div class="mjtc-admin-avatar">
-                                                        <?php echo wp_kses(MJTC_get_avatar($MJTC_ticket->uid, 'mjtc-admin-avatar'), MJTC_ALLOWED_TAGS); ?>
+                                        if(in_array('woocommerce', majesticsupport::$_active_addons)) {
+                                            $MJTC_vip_tickets = majesticsupport::$_data['vip_tickets'];
+                                            if (!empty($MJTC_vip_tickets)) :
+                                                foreach ($MJTC_vip_tickets as $MJTC_vip) : 
+                                            ?>
+                                                <div class="mjtc-cp-tkt-list">
+                                                    <div class="mjtc-vip-row">
+                                                        <div class="mjtc-admin-avatar">
+                                                            <?php echo wp_kses(MJTC_get_avatar($MJTC_ticket->uid, 'mjtc-admin-avatar'), MJTC_ALLOWED_TAGS); ?>
+                                                        </div>
+                                                        <div>
+                                                            <a class="mjtc-tkt-subject" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo (int)$MJTC_vip->id; ?>">
+                                                                <?php echo esc_html($MJTC_vip->name); ?>
+                                                            </a>
+                                                            <div class="mjtc-tkt-sub">
+                                                                <?php echo esc_html__( 'Order', 'majestic-support' ).' #' . esc_html( $MJTC_vip->wcorderid ); ?> • 
+                                                                <?php echo esc_html($MJTC_vip->subject); ?>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <div class="mjtc-tkt-subject">
-                                                            <?php echo esc_html($MJTC_vip->name); ?>
-                                                        </div>
-                                                        <div class="mjtc-tkt-sub">
-                                                            <?php echo esc_html__( 'Order', 'majestic-support' ).' #' . esc_html( $MJTC_vip->wcorderid ); ?> • 
-                                                            <?php echo esc_html($MJTC_vip->subject); ?>
-                                                        </div>
+                                                    <a href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo (int)$MJTC_vip->id; ?>" class="mjtc-admin-btn mjtc-admin-btn-light mjtc-admin-btn-sm">
+                                                        <?php echo esc_html__("View", "majestic-support"); ?>
+                                                    </a>
+                                                </div>
+                                            <?php 
+                                                endforeach; 
+                                            else : ?>
+                                                <p style="text-align: center; color: #94a3b8; padding: 20px 0;">
+                                                    <?php echo esc_html__("No active VIP tickets found.", 'majestic-support'); ?>
+                                                </p>
+                                            <?php endif; ?>
+                                        <?php } else { ?>
+                                            <div class="mjtc-cp-add-smart-reply">
+                                                <div class="mjtc-cp-add-smart-header">
+                                                    <div class="mjtc-addon-icon">
+                                                        <svg viewBox="0 0 24 24" fill="none">
+                                                          <rect x="3" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                          <rect x="14" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                          <rect x="3" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                          <rect x="14" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                        </svg>
                                                     </div>
                                                 </div>
-                                                <a href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo (int)$MJTC_vip->id; ?>" class="mjtc-admin-btn mjtc-admin-btn-light mjtc-admin-btn-sm">
-                                                    <?php echo esc_html__("View", "majestic-support"); ?>
-                                                </a>
+                                                <div class="mjtc-cp-add-smart-body">
+                                                    <p>
+                                                        <?php echo esc_html(__("The best support plugin for the majestic support has everything you need.",'majestic-support')); ?>
+                                                    </p>
+                                                </div>
+                                                <div class="mjtc-cp-add-smart-footer">
+                                                    <a title="<?php echo esc_attr(__('Install Add-on','majestic-support')); ?>" class="mjtc-admin-menu-link" href="https://majesticsupport.com/product/woocommerce/">
+                                                        <?php echo esc_html(__("Install Add-on",'majestic-support')); ?>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        <?php 
-                                            endforeach; 
-                                        else : ?>
-                                            <p style="text-align: center; color: #94a3b8; padding: 20px 0;">
-                                                <?php echo esc_html__("No active VIP tickets found.", 'majestic-support'); ?>
-                                            </p>
-                                        <?php endif; ?>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="mjtc-admin-col-6 mjtc-cp-cnt-sec">
@@ -1274,12 +1364,21 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                             }else{ ?>
                                                 <div class="mjtc-cp-add-smart-reply">
                                                     <div class="mjtc-cp-add-smart-header">
-                                                        <?php echo esc_html(__("Ticket History",'majestic-support')); ?>
+                                                        <div class="mjtc-addon-icon">
+                                                            <svg viewBox="0 0 24 24" fill="none">
+                                                              <rect x="3" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="14" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="3" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="14" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                            </svg>
+                                                        </div>
                                                     </div>
                                                     <div class="mjtc-cp-add-smart-body">
                                                         <p>
                                                             <?php echo esc_html(__("The best support plugin for the majestic support has everything you need.",'majestic-support')); ?>
                                                         </p>
+                                                    </div>
+                                                    <div class="mjtc-cp-add-smart-footer">
                                                     </div>
                                                 </div>
                                             <?php } ?>
@@ -1330,14 +1429,13 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                         <div style="width: 36px; height: 36px; background: #e0e7ff; color: #4338ca; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">
                                                             <?php echo wp_kses(MJTC_get_avatar($MJTC_agent->staffuid, 'mjtc-admin-avatar'), MJTC_ALLOWED_TAGS); ?>
                                                         </div>
-                                                        <span class="mjtc-tkt-subject">
+                                                        <a class="mjtc-tkt-subject" title="<?php echo esc_attr(__('View','majestic-support')); ?>" href="?page=majesticsupport_agent&mjslay=addstaff&majesticsupportid=<?php echo esc_attr($MJTC_agent->staffid); ?>">
                                                             <?php echo esc_html($MJTC_agent->staffname); ?>
-                                                        </span>
+                                                        </a>
                                                     </div>
                                                     <div class="mjtc-agent-stats-row">
                                                         <span><?php echo esc_html($MJTC_agent->total_assigned).' '.esc_html(__('Assigned', 'majestic-support')); ?></span>
                                                         <span style="color:#10b981;"><?php echo esc_html($MJTC_agent->total_resolved).' '.esc_html(__('Solved', 'majestic-support')); ?></span>
-                                                        <span style="color:#f59e0b;">★★★★☆</span>
                                                     </div>
                                                 </div>
                                                 <?php
@@ -1399,12 +1497,12 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                 $MJTC_shadow_color  = ($MJTC_index === 0) ? 'rgba(16,185,129,0.4)' : 'rgba(96,165,250,0.4)'; ?>
                                             <div class="mjtc-timer-row <?php echo ($MJTC_index === 0) ? 'mb-6 pb-6' : ''; ?>" style="<?php echo esc_attr($MJTC_border_style); ?> ; margin-bottom: 1.5rem; padding-bottom: 1.5rem;">
                                                 <div>
-                                                    <div class="mjtc-admin-font-bold">
+                                                    <a class="mjtc-admin-font-bold" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_timer['ticket_id']); ?>">
                                                         <?php if($MJTC_timer['ticket_id'] > 0): ?>
                                                             #<?php echo esc_html($MJTC_timer['ticket_id']); ?> 
                                                         <?php endif; ?>
                                                         <?php echo esc_html($MJTC_timer['subject']); ?>
-                                                    </div>
+                                                    </a>
                                                     <div class="mjtc-tkt-sub mjtc-tkt-btm-sect" style="opacity: 1;">
                                                         <?php
                                                         echo esc_html__( 'Logged ', 'majestic-support' ) .
@@ -1669,7 +1767,7 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                             <?php echo esc_html(__("Top Knowledge Base Articles",'majestic-support')); ?>
                                         </h3>
                                         <?php if(in_array('knowledgebase', majesticsupport::$_active_addons)){ ?>
-                                            <a class="01 mjtc-admin-btn mjtc-admin-btn-light mjtc-admin-btn-sm" href="admin.php?page=majesticsupport_knowledgebase&mjslay=listarticles" title="<?php echo esc_attr(__('Knowledge Base' , 'majestic-support')); ?>">
+                                            <a class="mjtc-admin-btn mjtc-admin-btn-light mjtc-admin-btn-sm" href="admin.php?page=majesticsupport_knowledgebase&mjslay=listarticles" title="<?php echo esc_attr(__('Knowledge Base' , 'majestic-support')); ?>">
                                                 <?php echo esc_html(__("View All",'majestic-support')); ?>
                                             </a>
                                         <?php } ?>
@@ -1680,9 +1778,9 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                 foreach (majesticsupport::$_data['knowledgebase'] AS $MJTC_knowledgebase) { ?>
                                                     <div class="mjtc-cp-tkt-list">
                                                         <div>
-                                                            <div class="mjtc-tkt-subject">
+                                                            <a class="mjtc-tkt-subject" href="?page=majesticsupport_knowledgebase&mjslay=addarticle&majesticsupportid=<?php echo esc_attr($MJTC_knowledgebase->id); ?>">
                                                                 <?php echo esc_html($MJTC_knowledgebase->subject); ?>
-                                                            </div>
+                                                            </a>
                                                             <div class="mjtc-tkt-meta-bold"><?php echo esc_html($MJTC_knowledgebase->categoryname); ?></div>
                                                         </div>
                                                         <div class="mjtc-kb-row-meta">
@@ -1697,12 +1795,24 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                             }else{ ?>
                                                 <div class="mjtc-cp-add-smart-reply">
                                                     <div class="mjtc-cp-add-smart-header">
-                                                        <?php echo esc_html(__("Ticket History",'majestic-support')); ?>
+                                                        <div class="mjtc-addon-icon">
+                                                            <svg viewBox="0 0 24 24" fill="none">
+                                                              <rect x="3" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="14" y="3" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="3" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                              <rect x="14" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                                                            </svg>
+                                                        </div>
                                                     </div>
                                                     <div class="mjtc-cp-add-smart-body">
                                                         <p>
                                                             <?php echo esc_html(__("The best support plugin for the majestic support has everything you need.",'majestic-support')); ?>
                                                         </p>
+                                                    </div>
+                                                    <div class="mjtc-cp-add-smart-footer">
+                                                        <a href="?page=majesticsupport_knowledgebase&mjslay=addarticle" class="mjtc-admin-menu-link" <?php echo esc_attr($MJTC_id); ?>>
+                                                            <?php echo esc_html(__("Add Knowledge Base",'majestic-support')); ?>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             <?php } ?>
@@ -1741,7 +1851,7 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                         </h3>
                                     </div>
                                     <div>
-                                        <div class="mjtc-cp-tkt-list">
+                                        <a class="mjtc-cp-tkt-list" target="_blank" href="https://www.youtube.com/watch?v=lHAacpG-O0M&t=16s&ab_channel=MajesticSupport">
                                             <div class="mjtc-help-row">
                                                 <div class="mjtc-admin-addon-icon-box" style="width: 36px; height: 36px; display:flex; align-items:center; justify-content:center; color: var(--mjtc-admin-primary);">
                                                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
@@ -1751,11 +1861,11 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                     <div class="mjtc-tkt-sub"><?php echo esc_html(__("Installation & Setup",'majestic-support')); ?></div>
                                                 </div>
                                             </div>
-                                            <a class="mjtc-admin-btn mjtc-admin-btn-light mjtc-admin-btn-sm" target="_blank" href="https://www.youtube.com/watch?v=lHAacpG-O0M&t=16s&ab_channel=MajesticSupport">
+                                            <span class="mjtc-admin-btn mjtc-admin-btn-light mjtc-admin-btn-sm" target="_blank" href="https://www.youtube.com/watch?v=lHAacpG-O0M&t=16s&ab_channel=MajesticSupport">
                                                 <?php echo esc_html(__("Watch",'majestic-support')); ?>
-                                            </a>
-                                        </div>
-                                        <div class="mjtc-cp-tkt-list">
+                                            </span>
+                                        </a>
+                                        <a class="mjtc-cp-tkt-list" target="_blank" href="https://www.youtube.com/watch?v=8dIMdKuTLx4&t=6s&ab_channel=MajesticSupport">
                                             <div class="mjtc-help-row">
                                                 <div class="mjtc-admin-addon-icon-box" style="width: 36px; height: 36px; display:flex; align-items:center; justify-content:center; color: var(--mjtc-admin-accent-mint);">
                                                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
@@ -1765,12 +1875,12 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                     <div class="mjtc-tkt-sub"><?php echo esc_html(__("Fields Manager",'majestic-support')); ?></div>
                                                 </div>
                                             </div>
-                                            <a target="_blank" href="https://www.youtube.com/watch?v=8dIMdKuTLx4&t=6s&ab_channel=MajesticSupport" class="mjtc-admin-btn mjtc-admin-btn-light mjtc-admin-btn-sm">
+                                            <span class="mjtc-admin-btn mjtc-admin-btn-light mjtc-admin-btn-sm" target="_blank" href="https://www.youtube.com/watch?v=8dIMdKuTLx4&t=6s&ab_channel=MajesticSupport">
                                                 <?php echo esc_html(__("Watch",'majestic-support')); ?>
-                                            </a>
-                                        </div>
+                                            </span>
+                                        </a>
                                         <!-- Added Missing Quick Help Item -->
-                                        <div class="mjtc-cp-tkt-list">
+                                        <a class="mjtc-cp-tkt-list" target="_blank" href="https://www.youtube.com/watch?v=JrdZLoGiHsA&ab_channel=MajesticSupport">
                                             <div class="mjtc-help-row">
                                                 <div class="mjtc-admin-addon-icon-box" style="width: 36px; height: 36px; display:flex; align-items:center; justify-content:center; color: var(--mjtc-admin-accent-coral);">
                                                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
@@ -1780,10 +1890,10 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                     <div class="mjtc-tkt-sub"><?php echo esc_html(__("Setup System Emails",'majestic-support')); ?></div>
                                                 </div>
                                             </div>
-                                            <a class="mjtc-admin-btn mjtc-admin-btn-light mjtc-admin-btn-sm" target="_blank" href="https://www.youtube.com/watch?v=JrdZLoGiHsA&ab_channel=MajesticSupport">
+                                            <span class="mjtc-admin-btn mjtc-admin-btn-light mjtc-admin-btn-sm" target="_blank" href="https://www.youtube.com/watch?v=JrdZLoGiHsA&ab_channel=MajesticSupport">
                                                 <?php echo esc_html(__("Watch",'majestic-support')); ?>
-                                            </a>
-                                        </div>
+                                            </span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

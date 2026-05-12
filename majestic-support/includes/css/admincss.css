@@ -71,7 +71,7 @@ input#dateend, input#datestart, input#date_end, input#date_start{background-imag
 /* new dashboard +  left menu */
 .mjtc-cp-add-smart-reply {border: 1px solid #e5e7eb;border-radius: 16px;padding: 16px;background: #ffffff;display: flex;flex-direction: column;gap: 12px;transition: all 0.2s ease;}
 .mjtc-cp-add-smart-reply:hover {box-shadow: 0 8px 20px rgba(0,0,0,0.05);transform: translateY(-2px);}
-.mjtc-cp-add-smart-header {display: flex;align-items: center;justify-content: center;}
+.mjtc-cp-add-smart-header {display: flex;align-items: center;justify-content: center;font-weight: 600;}
 .mjtc-addon-icon {width: 56px;height: 56px;border-radius: 12px;background: #f1f5f9;display: flex;align-items: center;justify-content: center;}
 .mjtc-addon-icon svg {width: 28px;height: 28px;color: var(--mjtc-admin-primary);}
 .mjtc-cp-add-smart-body p {font-size: 14px;color: #475569;text-align: center;margin: 0;}
@@ -184,7 +184,7 @@ div#msadmin-wrapper .mjtc-dept-chart-wrapper { display: flex; flex-direction: co
 div#msadmin-wrapper .mjtc-dept-labels-row { display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; color: var(--mjtc-admin-text-secondary); margin-top: 0.75rem; text-align: center; }
 div#msadmin-wrapper .mjtc-dept-label { width: 100%; }
 div#msadmin-wrapper .mjtc-prod-chart-wrapper { display: flex; flex-direction: column; justify-content: center; height: 100%; }
-div#msadmin-wrapper .mjtc-prod-text-muted { color: var(--mjtc-admin-text-secondary); }
+div#msadmin-wrapper .mjtc-prod-text-muted { color: #94a3b8; }
 div#msadmin-wrapper .mjtc-prod-text-main { color: var(--mjtc-admin-text-main); }
 div#msadmin-wrapper .mjtc-live-badge { font-size: 0.75rem; display: flex; align-items: center; gap: 0.25rem; font-weight: 700; background: #ecfdf5; color: #10b981; padding: 2px 8px; border-radius: 99px; }
 div#msadmin-wrapper .mjtc-log-text { font-size: 0.875rem; }
@@ -311,7 +311,7 @@ div#msadmin-wrapper .mjtc-admin-col-3:nth-child(3) .mjtc-admin-stat-icon-box { b
 div#msadmin-wrapper .mjtc-admin-col-3:nth-child(4) .mjtc-admin-stat-icon-box { background: linear-gradient(135deg, #ffe4e6 0%, #fecdd3 100%); color: #9f1239; }
 div#msadmin-wrapper .mjtc-support-stats-count { font-size: 2rem; font-weight: 800; color: var(--mjtc-admin-text-main); line-height: 1; margin-bottom: 0.25rem; }
 div#msadmin-wrapper .mjtc-support-stats-title { font-size: 0.9rem; color: var(--mjtc-admin-text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
-div#msadmin-wrapper .mjtc-admin-welcome-banner {background: linear-gradient(120deg, #ffffff 0%, #f3f4f6 100%);border-radius: var(--mjtc-admin-radius-lg);padding: 3rem; color: var(--mjtc-admin-text-main);position: relative; overflow: hidden;margin-bottom: 2rem;box-shadow: var(--mjtc-admin-shadow-soft);display: flex; align-items: center; justify-content: space-between;border: 1px solid white;}
+div#msadmin-wrapper .mjtc-admin-welcome-banner {background: linear-gradient(120deg, #ffffff 0%, #f3f4f6 100%);border-radius: var(--mjtc-admin-radius-lg);padding: 3rem; color: var(--mjtc-admin-text-main);position: relative; overflow: hidden;margin-bottom: 2rem;box-shadow: var(--mjtc-admin-shadow-soft);display: flex; align-items: center; justify-content: space-between;border: 1px solid white;width: 100%;}
 div#msadmin-wrapper .mjtc-admin-welcome-banner::before {content: ''; position: absolute; right: -50px; top: -50px; width: 200px; height: 200px;border-radius: 50%; background: rgba(79, 70, 229, 0.1); backdrop-filter: blur(40px);}
 div#msadmin-wrapper .mjtc-admin-welcome-banner::after {content: ''; position: absolute; right: 100px; bottom: -80px; width: 150px; height: 150px;border-radius: 50%; background: rgba(16, 185, 129, 0.1); backdrop-filter: blur(30px);}
 div#msadmin-wrapper .mjtc-admin-banner-close-btn {position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.2); border: none;color: var(--mjtc-admin-text-main); width: 32px; height: 32px; border-radius: 50%;cursor: pointer; display: flex; align-items: center; justify-content: center;transition: background 0.2s; z-index: 20;}
@@ -328,6 +328,7 @@ div#msadmin-wrapper .mjtc-admin-h-bar-fill { height: 100%; border-radius: 10px; 
 div#msadmin-wrapper .mjtc-admin-addon-card-item {border: none;background: #f9fafb;box-shadow: none;border-radius: var(--mjtc-admin-radius-md);}
 div#msadmin-wrapper .mjtc-admin-addon-card-item:hover { background: #fff; box-shadow: var(--mjtc-admin-shadow-soft); }
 div#msadmin-wrapper .mjtc-admin-addon-icon-box { background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.mjtc-timer-row a.mjtc-admin-font-bold:hover {color: #FFFFFF}
 /* new */
 div#msadmin-wrapper .mjtc-admin-btn-primary { background: var(--mjtc-admin-text-main); color: white; box-shadow: 0 4px 10px rgba(17, 24, 39, 0.15);}
 div#msadmin-wrapper .mjtc-admin-btn-primary:hover { background: #1f2937; transform: translateY(-1px);}
@@ -982,13 +983,13 @@ div#msadmin-data-wrp #majesticsupport-content{width: 100%;}
 #msadmin-wrapper .ms-admin-addon-status:hover {transform: translateY(-4px);box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);border-color: #cbd5e1;}
 #msadmin-wrapper .ms-addon-status-image-wrp {width: 54px;height: 54px;border-radius: 12px;background: #f8fafc;border: 1px solid #e2e8f0;display: flex;align-items: center;justify-content: center;margin-bottom: 0.25rem;}
 #msadmin-wrapper .ms-addon-status-image-wrp img {max-width: 42px;max-height: 42px;border-radius: 10px;}
-#msadmin-wrapper .ms-admin-addon-status-title-wrp {display: flex;justify-content: space-between;align-items: flex-start;gap: 10px;}
+#msadmin-wrapper .ms-admin-addon-status-title-wrp {display: flex;flex-wrap:wrap; justify-content: space-between;align-items: flex-start;gap: 10px;}
 #msadmin-wrapper .ms-admin-addon-status-title-wrp h2 {font-size: 1.15rem;font-weight: 800;margin: 0;color: var(--mjtc-admin-text-main);line-height: 1.3;}
 #msadmin-wrapper .ms-admin-addon-status-title-wrp > a {padding: 4px 10px;border-radius: 6px;font-size: 0.75rem;font-weight: 800;text-transform: uppercase;letter-spacing: 0.05em;flex-shrink: 0;}
-#msadmin-wrapper .ms-admin-addon-status-title-wrp a.ms-admin-adons-status-Deactive {background: #fee2e2; color: #ef4444; }
-#msadmin-wrapper .ms-admin-addon-status-title-wrp a.ms-admin-adons-status-Deactive:hover { background: #fecaca; }
-#msadmin-wrapper .ms-admin-addon-status-title-wrp a.ms-admin-adons-status-Active {background: #d1fae5; color: #059669;}
-#msadmin-wrapper .ms-admin-addon-status-title-wrp a.ms-admin-adons-status-Active:hover { background: #bbf7d0; }
+#msadmin-wrapper .ms-admin-addon-status-title-wrp a.ms-admin-adons-status-Deactive {color: var(--mjtc-admin-text-secondary);background: #f3f4f6;border: 1px solid #e5e7eb; }
+#msadmin-wrapper .ms-admin-addon-status-title-wrp a.ms-admin-adons-status-Deactive:hover { background: #000000;color: #ffffff; }
+#msadmin-wrapper .ms-admin-addon-status-title-wrp a.ms-admin-adons-status-Active {background: #4f46e51a; color: var(--mjtc-admin-primary);}
+#msadmin-wrapper .ms-admin-addon-status-title-wrp a.ms-admin-adons-status-Active:hover { background: #000000;color: #ffffff; }
 #msadmin-wrapper .ms-admin-addon-status-title-wrp a.ms-admin-adons-status-Install {background: var(--mjtc-admin-primary-fade); color: var(--mjtc-admin-primary);}
 #msadmin-wrapper .ms-admin-addon-status-title-wrp a.ms-admin-adons-status-Install:hover { background: #e0e7ff; }
 #msadmin-wrapper .ms-admin-addon-status-addonstatus-wrp,
@@ -998,9 +999,14 @@ div#msadmin-data-wrp #majesticsupport-content{width: 100%;}
 #msadmin-wrapper .ms-admin-addon-status-addonsversion-wrp span > span {font-weight: 800;color: var(--mjtc-admin-text-main);}
 #msadmin-wrapper .msadmin-addon-status-addonstatusbtn-wrp {margin-top: auto;padding-top: 1rem;}
 #msadmin-wrapper .msadmin-addon-status-addonstatusbtn-wrp a {display: block;width: 100%;text-align: center;padding: 0.75rem;border-radius: 8px;font-weight: 800;font-size: 0.9rem;}
-#msadmin-wrapper .msadmin-addon-status-addonstatusbtn-wrp a:not(.ms-admin-addons-buy-btn) {background: #f8fafc;color: #94a3b8;border: 1px dashed #cbd5e1;cursor: default;}
+#msadmin-wrapper .msadmin-addon-status-addonstatusbtn-wrp a:not(.ms-admin-addons-buy-btn) {background: #f8fafc;color: var(--mjtc-admin-text-tertiary);border: 1px dashed #cbd5e1;cursor: default;}
 #msadmin-wrapper .msadmin-addon-status-addonstatusbtn-wrp a.ms-admin-addons-buy-btn {background: var(--mjtc-admin-text-main);color: white;border: none;}
 #msadmin-wrapper .msadmin-addon-status-addonstatusbtn-wrp a.ms-admin-addons-buy-btn:hover {background: var(--mjtc-admin-primary);transform: translateY(-2px);box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
+#msadmin-wrapper #ms-admin-addon-status-cdnversion{display: inline-flex;flex-wrap:wrap;align-items: center;gap: 4px;font-size: 0.75rem;font-weight: 700;color: #b45309;background: #fffbeb;padding: 6px 10px;border-radius: 6px;margin-top: 0.5rem;border: 1px dashed #fcd34d;line-height: 1.4;width:100%;}
+#msadmin-wrapper div.msadmin-addons-list-wrp div.ms-admin-addon-status div.msadmin-addon-status-addonstatusbtn-wrp .ms-admin-addons-update-btn{background-color: #0f7d4b;border:1px solid #0f7d4b; color: white;cursor: pointer;}
+#msadmin-wrapper div.msadmin-addons-list-wrp div.ms-admin-addon-status div.msadmin-addon-status-addonstatusbtn-wrp .ms-admin-addons-update-btn:hover{background-color: var(--mjtc-admin-primary);border:1px solid var(--mjtc-admin-primary);color: white;}
+#msadmin-wrapper .ms-admin-addon-status-Deactive .ms-admin-addon-status-addonstatus-wrp span.ms-admin-adons-status-Active{background: #d1fae5;color: #059669;padding: 4px 10px;border-radius: 6px;font-size: 0.75rem;font-weight: 800;text-transform: uppercase;letter-spacing: 0.05em;flex-shrink: 0;}
+#msadmin-wrapper .ms-admin-addon-status-Active .ms-admin-addon-status-addonstatus-wrp span.ms-admin-adons-status-Active{background: #fce1e1;color: #ef4444;padding: 4px 10px;border-radius: 6px;font-size: 0.75rem;font-weight: 800;text-transform: uppercase;letter-spacing: 0.05em;flex-shrink: 0;}
 /* Success / Error Messages */
 #msadmin-wrapper .msadmin-addon-status-msg {display: none; /* Hidden by default */align-items: center;gap: 8px;padding: 0.75rem;border-radius: 8px;font-size: 0.85rem;font-weight: 700;margin-top: 1rem;}
 #msadmin-wrapper .msadmin-addon-status-msg.msadmin_success { background: #d1fae5; color: #065f46; }
@@ -3054,6 +3060,47 @@ div#mjtc-group-ticket_operations_emails .upgrade-overlay { right: auto; left: 0;
 #ms-main-wrapper .ms-help-links { display: flex; gap: 1rem; }
 #ms-main-wrapper .ms-help-link {font-size: 0.9rem; font-weight: 700; color: var(--mjtc-admin-text-secondary);background: white; padding: 8px 16px; border-radius: 8px; border: 1px solid var(--mjtc-admin-border);transition: 0.2s;}
 #ms-main-wrapper .ms-help-link:hover { color: var(--mjtc-admin-primary); border-color: var(--mjtc-admin-primary-fade); }
+/* ticket widgets */
+#majesticsupport_addon_dashboard_widget *{box-sizing: border-box;}
+#majesticsupport_addon_dashboard_widget.postbox {background: #ffffff;border-radius: 24px;padding: 1rem;box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);border: 1px solid rgba(255, 255, 255, 0.5);display: flex; flex-direction: column;width: 100%;margin-bottom: 2rem;box-sizing: border-box;}
+#majesticsupport_addon_dashboard_widget .postbox-header {display: flex; justify-content: space-between; align-items: center;margin-bottom: 1.5rem;}
+#majesticsupport_addon_dashboard_widget .postbox-header h2 {font-size: 1.1rem; font-weight: 800; color: #111827; margin: 0;letter-spacing: -0.02em;font-family: system-ui, -apple-system, sans-serif;}
+#majesticsupport_addon_dashboard_widget .handle-actions { display: none; }
+#majesticsupport_addon_dashboard_widget .mjtc-admin-title { display: none; }
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-head {display: flex; align-items: center;padding: 0 1rem 0.75rem 1rem;font-size: 0.75rem; font-weight: 800; text-transform: uppercase;color: #6b7280;border-bottom: 1px dashed #e5e7eb;margin-bottom: 0.75rem;font-family: system-ui, -apple-system, sans-serif;}
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data {display: flex; align-items: center;padding: 0.85rem 1rem;margin-bottom: 0.5rem;background: #f9fafb;border-radius: 12px;transition: all 0.2s ease;border: 1px solid transparent;font-family: system-ui, -apple-system, sans-serif;}
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data:hover {background: #ffffff;border-color: #e0e7ff;box-shadow: 0 4px 12px rgba(79, 70, 229, 0.05);transform: translateX(4px);}
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-head > div, 
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data > div { flex: 1;}
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-head .mjtc-col-md-7,
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data .mjtc-col-md-7 { flex: 0 0 55%; max-width: 55%; }
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data .mjtc-col-md-7 {white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 1rem;}
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-head .mjtc-col-md-3,
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data .mjtc-col-md-3 { flex: 0 0 25%; max-width: 25%; }
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data .mjtc-col-md-3 {color: #6b7280; font-size: 0.85rem;}
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-head .mjtc-col-md-2 { flex: 0 0 20%; max-width: 20%; text-align: center; }
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data .mjtc-col-md-2 { flex: 0 0 20%; max-width: 20%; display: flex; justify-content: center; align-items: center;border-radius: 20px; padding: 4px 12px !important; /* Overrides WP inline padding */font-size: 0.75rem; font-weight: 700; text-transform: capitalize; margin-left: auto;}
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-showhide { display: none; }
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data a {color: #111827; font-weight: 700; text-decoration: none; transition: color 0.2s;}
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data a:hover { color: #4f46e5; }
+/* stat widget */
+#majesticsupport_addon_totalstats_dashboard_widget *{box-sizing: border-box;}
+#majesticsupport_addon_totalstats_dashboard_widget.postbox {background: #ffffff;border-radius: 24px;padding: 1rem;box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);border: 1px solid rgba(255, 255, 255, 0.5);display: flex; flex-direction: column;width: 100%;margin-bottom: 2rem;box-sizing: border-box;}
+#majesticsupport_addon_totalstats_dashboard_widget .postbox-header {display: flex; justify-content: space-between; align-items: center;margin-bottom: 1.5rem;}
+#majesticsupport_addon_totalstats_dashboard_widget .postbox-header h2 {font-size: 1.1rem; font-weight: 800; color: #111827; margin: 0;letter-spacing: -0.02em;font-family: system-ui, -apple-system, sans-serif;}
+#majesticsupport_addon_totalstats_dashboard_widget .handle-actions { display: none; }
+#majesticsupport_addon_totalstats_dashboard_widget .mjtc-admin-title { display: none; }
+#majesticsupport_addon_totalstats_dashboard_widget #mjtc-total-count-cp-dashbordapi {display: grid;grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));gap: 1.25rem;margin-top: 0.5rem;}
+#majesticsupport_addon_totalstats_dashboard_widget .mjtc-total-count-dashbordapi {background: #f9fafb;border-radius: 16px;padding: 1.5rem 1rem;display: flex;flex-direction: column;align-items: center;justify-content: center;text-align: center;text-decoration: none;border: 1px solid transparent;transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);font-family: system-ui, -apple-system, sans-serif;}
+#majesticsupport_addon_totalstats_dashboard_widget .mjtc-total-count-dashbordapi:hover {background: #ffffff;border-color: #e0e7ff;box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.1);transform: translateY(-4px);}
+#majesticsupport_addon_totalstats_dashboard_widget .mjtc-total-count-dashbordapi .img,
+#majesticsupport_addon_totalstats_dashboard_widget .mjtc-total-count-dashbordapi .img-svg {width: 48px;height: 48px;margin-bottom: 1rem;object-fit: contain;transition: transform 0.3s ease;}
+#majesticsupport_addon_totalstats_dashboard_widget .mjtc-total-count-dashbordapi:hover .img,
+#majesticsupport_addon_totalstats_dashboard_widget .mjtc-total-count-dashbordapi:hover .img-svg {transform: scale(1.1);}
+#majesticsupport_addon_totalstats_dashboard_widget .data-dashbordapi {display: flex;flex-direction: column;align-items: center;gap: 0.25rem;}
+#majesticsupport_addon_totalstats_dashboard_widget .mstotal-dashbordapi {font-size: 1.875rem;font-weight: 800;color: #111827;line-height: 1;min-height: 1.875rem;}
+#majesticsupport_addon_totalstats_dashboard_widget .msatus-dashbordapi {font-size: 0.75rem;font-weight: 700;color: #6b7280;text-transform: uppercase;letter-spacing: 0.05em;}
+#majesticsupport_addon_totalstats_dashboard_widget .wpdberror {background: #fef2f2;color: #991b1b;border: 1px solid #f87171;padding: 0.75rem 1rem;border-radius: 8px;font-size: 0.85rem;margin-bottom: 1rem;font-family: monospace;overflow-x: auto;}
 /* Responsive */
 @media (max-width: 992px) {
     #msadmin-wrapper #msadmin-data-wrp { grid-template-columns: 1fr; }
@@ -3363,6 +3410,13 @@ div#ticketclosereason .ms-formfield-radio-button-wrap input[type="radio"]:checke
 #msadmin-wrapper .mjtc-support-select-wrapper input[type="checkbox"]:checked::before{margin-left: -4px;margin-top: -4px;width: 11px;height: 10px;}
 #msadmin-wrapper .mjtc-filter-form{padding-left: 10px;padding-right: 10px;}
 #msadmin-wrapper input.msadmin-update-key-checkbox[type="checkbox"]:checked::after{margin-left: -14px;}
+/* ticket widget */
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-head { display: none; }
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data .mjtc-col-md-7,#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data .mjtc-col-md-3,#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data .mjtc-col-md-2 { max-width: 100%; flex: 0 0 100%; padding-right: 0; }
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-showhide { display: inline-block; font-weight: 700; margin-right: 6px; }
+#majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data .mjtc-col-md-2 { margin-left: 0; display: inline-flex; width: auto; flex: unset; }
+
 }
 
 
@@ -3411,4 +3465,5 @@ div#ticketclosereason .ms-formfield-radio-button-wrap input[type="radio"]:checke
     div#mergeticketselection .mjtc-support-cont-main-wrapper.mjtc-support-merge-ticket-wrapper, div#mergeticketselection .mjtc-popup-search, div#mergeticketselection .mjtc-view-tickets{padding: 0 10px !important;}
     #msadmin-wrapper .mjtc-support-ticket-body{padding-left: 20px;}
     #msadmin-wrapper .mjtc-support-form-specific-templates-section{padding-left: 10px;padding-right:10px;}
+    #mjtc-total-count-cp-dashbordapi {grid-template-columns: repeat(2, 1fr);gap: 1rem;}
 }

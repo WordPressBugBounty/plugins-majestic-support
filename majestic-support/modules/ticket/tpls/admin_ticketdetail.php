@@ -703,27 +703,27 @@ $majesticsupport_js ="
                 jQuery('div#internal-note-popup-record-data #ticketid').val(data.ticketid);
                 jQuery('div#internal-note-popup-record-data #id').val(data.id);
 
-var container = jQuery('#internal-note-popup-record-data');
+		var container = jQuery('#internal-note-popup-record-data');
 
-// Find textarea inside this container
-var textarea = container.find('#internalnote');
+		// Find textarea inside this container
+		var textarea = container.find('#internalnote');
 
-if (typeof tinymce !== 'undefined') {
-    var editor = tinymce.get(textarea.attr('id'));
+		if (typeof tinymce !== 'undefined') {
+		    var editor = tinymce.get(textarea.attr('id'));
 
-    if (
-        editor &&
-        editor.getContainer &&
-        editor.getContainer() &&
-        jQuery(editor.getContainer()).closest('#internal-note-popup-record-data').length
-    ) {
-        editor.setContent(data.note);
-    } else {
-        textarea.val(data.note);
-    }
-} else {
-    textarea.val(data.note);
-}
+		    if (
+			editor &&
+			editor.getContainer &&
+			editor.getContainer() &&
+			jQuery(editor.getContainer()).closest('#internal-note-popup-record-data').length
+		    ) {
+			editor.setContent(data.note);
+		    } else {
+			textarea.val(data.note);
+		    }
+		} else {
+		    textarea.val(data.note);
+		}
 
                 jQuery('div#internal-note-popup-record-data #_wpnonce').val(data.wpnonce);
                 jQuery('div#internal-note-popup-record-data #internal_note_file_name').text(data.filename);

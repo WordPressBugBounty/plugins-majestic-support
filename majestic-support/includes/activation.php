@@ -183,8 +183,8 @@ class MJTC_activation {
                     ('tplink_tickets_user', '1', 'tplink', NULL),
                     ('show_breadcrumbs', '1', 'default', NULL),
                     ('productcode', 'mjsupport', 'default', NULL),
-                    ('versioncode', '1.1.4', 'default', NULL),
-                    ('productversion', '114', 'default', NULL),
+                    ('versioncode', '1.1.5', 'default', NULL),
+                    ('productversion', '115', 'default', NULL),
                     ('producttype', 'free', 'default', NULL),
                     ('tve_enabled', '2', 'default', NULL),
                     ('tve_mailreadtype', '3', 'default', NULL),
@@ -315,7 +315,10 @@ class MJTC_activation {
                     ('cplink_latestkb_staff', '1', 'cplink', 'knowledgebase'),
                     ('cplink_latestfaqs_staff', '1', 'cplink', 'faq'),
                     ('mjtc_addons_auto_update', '1', 'default', NULL),
-                    ('ticket_close_reason_type', '1', 'ticket', 'ticketclosereason');";
+                    ('ticket_close_reason_type', '1', 'ticket', 'ticketclosereason'),
+                    ('enable_instant_fixes', '1', 'default', NULL),
+                    ('instant_fixes_min_score', '0.5', 'default', NULL),
+                    ('instant_fixes_limit', '2', 'default', NULL);";
             majesticsupport::$_db->query($MJTC_query);
 
             $MJTC_query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_departments` (
@@ -452,7 +455,7 @@ class MJTC_activation {
                 VALUES (1, 'New', '#047857', '#a7f3d0', 1, 1),
                     (2, 'Waiting Reply', '#b45309', '#fde68a', 1, 2),
                     (3, 'In Progress', '#3b82f6', '#edf2fd', 1, 3),
-                    (4, 'Replied', '#186e83', '#d6eef4', 1, 4),
+                    (4, 'Replied', '#186e83', '#7ed7fb', 1, 4),
                     (5, 'Closed', '#FFFFFF', '#ed1c24', 1, 5),
                     (6, 'Close Due To Merge', '#FFFFFF', '#ed1c24', 1, 6);";
             majesticsupport::$_db->query($MJTC_query);
