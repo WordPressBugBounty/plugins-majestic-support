@@ -24,6 +24,7 @@ class MJTC_deactivation {
         $tables = array(
            $wpdb->prefix."mjtc_support_fieldsordering",
            $wpdb->prefix."mjtc_support_faqs",
+           $wpdb->prefix."mjtc_support_instantfix",
            $wpdb->prefix."mjtc_support_departments",
            $wpdb->prefix."mjtc_support_attachments",
            $wpdb->prefix."mjtc_support_config",

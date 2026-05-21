@@ -5,7 +5,7 @@ Donate link: https://majesticsupport.com
 Tags:  customer support, helpdesk, support desk, support plugin, ticket system
 Requires at least: 5.5
 Tested up to: 6.9
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -250,6 +250,14 @@ If you activate certain features in this plugin, the user's personal data, inclu
 * google fcm ([Google](https://policies.google.com/?hl=en))
 
 == Changelog ==
+= 1.1.6 =
+* Add Instant Fix Addon — Convert websites and YouTube videos into instant support answers.
+* Deep Web Crawling — Extract documentation up to 3 link levels deep.
+* Auto-Syncing — Automatically refresh your knowledge base in the background.
+
+
+* New: "Instant Fixes" — proactively suggests relevant articles and FAQs while users are typing a ticket to provide immediate answers.
+
 = 1.1.5 =
 * Proactively suggests relevant articles and FAQs while users are typing a ticket to provide immediate answers.
 

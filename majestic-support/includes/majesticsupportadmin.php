@@ -290,6 +290,18 @@ class MJTC_majesticsupportadmin {
                     array($this, 'MJTC_showAdminPage') // function name
             );
 
+           if(in_array('instantfix', majesticsupport::$_active_addons)){
+                add_submenu_page('majesticsupport_hide', // parent slug
+                        esc_html(__("Instantfix", 'majestic-support')), // Page title
+                        esc_html(__("Instantfix", 'majestic-support')), // menu title
+                        'ms_support_ticket', // capability
+                        'majesticsupport_instantfix', //menu slug
+                        array($this, 'MJTC_showAdminPage') // function name
+                );
+            }else{
+                $this->MJTC_addMissingAddonPage('instantfix');
+            }
+
            if(in_array('faq', majesticsupport::$_active_addons)){
                 add_submenu_page('majesticsupport_hide', // parent slug
                         esc_html(__("FAQs", 'majestic-support')), // Page title

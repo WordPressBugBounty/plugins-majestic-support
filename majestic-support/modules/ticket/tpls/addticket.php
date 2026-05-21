@@ -354,13 +354,14 @@ if (majesticsupport::$_config['offline'] == 2) {
                     <?php $MJTC_nonce_id = isset(majesticsupport::$_data[0]->id) ? majesticsupport::$_data[0]->id : ''; ?>
                     <form class="mjtc-support-form1 majestic-support-form" method="post" action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'task'=>'saveticket')),"save-ticket-".$MJTC_nonce_id)); ?>" id="adminTicketform" enctype="multipart/form-data">
                     <?php
-                    $MJTC_i = '';
-                    $MJTC_fieldcounter = 0;
-                    $MJTC_eddorderid = '';
+                        $MJTC_i = '';
+                        $MJTC_fieldcounter = 0;
+                        $MJTC_eddorderid = '';
                         $MJTC_requiredTxt = '&nbsp;<span style="color:red">*</span>';
                         $MJTC_openingTag = '<div class="mjtc-support-add-form-wrapper">';
                         $MJTC_closingTag = '</div>';
                         apply_filters('mjtc_support_ticket_frontend_ticket_form_start',1);
+                        $mjtc_suggestion_target = in_array('issuesummary', array_column(majesticsupport::$_data['fieldordering'], 'field')) ? 'issuesummary' : 'subject';
                         foreach (majesticsupport::$_data['fieldordering'] AS $MJTC_field):
                             $MJTC_readonlyclass = $MJTC_field->readonly ? " mjtc-form-ticket-readonly " : "";
                         $MJTC_visibleclass = "";
@@ -704,12 +705,6 @@ if (majesticsupport::$_config['offline'] == 2) {
                                         </div>
                                     <?php endif; ?>
                                 </div>
-                                
-                                <!-- NEW: INSTANT FIXES INLINE BENTO SECTION -->
-                                <div id="mjtc-instant-fixes-container" class="mjtc-instant-fixes-wrapper" style="display:none;">
-                                    <!-- Populated via AJAX -->
-                                </div>
-
                                 <?php
                                 break;
                             case 'attachments':
@@ -1037,6 +1032,13 @@ if (majesticsupport::$_config['offline'] == 2) {
                                     }
                                 }
                                 break;
+                        }
+                        // Inject the Instant Fixes container right after the calculated target field
+                        if ($MJTC_field->field === $mjtc_suggestion_target) {
+                            ?>
+                            <div id="mjtc-instant-fixes-container" class="mjtc-instant-fixes-wrapper mjtc-support-from-field-wrp-full-width" style="display:none; width: 100%; margin-top: 15px;">
+                                </div>
+                            <?php
                         }
 
                     endforeach;

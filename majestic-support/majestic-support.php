@@ -3,14 +3,14 @@
 /**
  * @package Majestic Support
  * @author Majestic Support
- * @version 1.1.5
+ * @version 1.1.6
  */
 /*
   Plugin Name: Majestic Support - The Leading-Edge Help Desk & Customer Support Plugin
   Plugin URI: https://www.majesticsupport.com
   Description: Majestic Support is a trusted open source ticket system. Majestic Support is a simple, easy to use, web-based customer support system. User can create ticket from front-end. Majestic Support comes packed with lot features than most of the expensive(and complex) support ticket system on market. Majestic Support provide you best industry Majestic Support system.
   Author: Majestic Support
-  Version: 1.1.5
+  Version: 1.1.6
   License: GPLv3
   Text Domain: majestic-support
   
@@ -66,7 +66,7 @@ class majesticsupport {
         self::$_data = array();
         self::$_search = array();
         self::$_captcha = array();
-        self::$_currentversion = '115';
+        self::$_currentversion = '116';
         self::$_addon_query = array('select'=>'','join'=>'','where'=>'');
         self::$_mjtcsession = MJTC_includer::MJTC_getObjectClass('wphdsession');
         global $wpdb;
@@ -664,7 +664,7 @@ class majesticsupport {
 
     function ms_auto_update_addons() {
         MJTC_includer::MJTC_getModel('majesticsupport')->mjtc_check_license_status();
-		MJTC_includer::MJTC_getModel('premiumplugin')->MSAddonsAutoUpdate();
+        MJTC_includer::MJTC_getModel('premiumplugin')->MSAddonsAutoUpdate();
     }
 
     /*
@@ -1248,63 +1248,43 @@ class majesticsupport {
     }
 
     function majesticsupport_load_wp_plugin_file() {
-        $MJTC_wp_admin_url = admin_url('includes/plugin.php');
-        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
-        require_once($MJTC_wp_admin_path);
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
     }
 
     function majesticsupport_load_wp_admin_file() {
-        $MJTC_wp_admin_url = admin_url('includes/admin.php');
-        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
-        require_once($MJTC_wp_admin_path);
+        require_once ABSPATH . 'wp-admin/includes/admin.php';
     }
 
     function majesticsupport_load_wp_file() {
-        $MJTC_wp_admin_url = admin_url('includes/file.php');
-        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
-        require_once($MJTC_wp_admin_path);
+        require_once ABSPATH . 'wp-admin/includes/file.php';
     }
 
     function majesticsupport_load_wp_pcl_zip() {
-        $MJTC_wp_admin_url = admin_url('includes/class-pclzip.php');
-        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
-        require_once($MJTC_wp_admin_path);
+        require_once ABSPATH . 'wp-admin/includes/class-pclzip.php';
     }
 
     function majesticsupport_load_wp_ajax_upgrader_skin() {
-        $MJTC_wp_admin_url = admin_url('includes/class-wp-ajax-upgrader-skin.php');
-        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
-        require_once($MJTC_wp_admin_path);
+        require_once ABSPATH . 'wp-admin/includes/class-wp-ajax-upgrader-skin.php';
     }
 
     function majesticsupport_load_wp_upgrader() {
-        $MJTC_wp_admin_url = admin_url('includes/class-wp-upgrader.php');
-        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
-        require_once($MJTC_wp_admin_path);
+        require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
     }
 
     function majesticsupport_load_wp_plugin_upgrader() {
-        $MJTC_wp_admin_url = admin_url('includes/class-plugin-upgrader.php');
-        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
-        require_once($MJTC_wp_admin_path);
+        require_once ABSPATH . 'wp-admin/includes/class-plugin-upgrader.php';
     }
 
     function majesticsupport_load_wp_translation_install() {
-        $MJTC_wp_admin_url = admin_url('includes/translation-install.php');
-        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
-        require_once($MJTC_wp_admin_path);
+        require_once ABSPATH . 'wp-admin/includes/translation-install.php';
     }
 
     function majesticsupport_load_wp_plugin_install() {
-        $MJTC_wp_admin_url = admin_url('includes/plugin-install.php');
-        $MJTC_wp_admin_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_admin_url);
-        require_once($MJTC_wp_admin_path);
+        require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
     }
 
     function majesticsupport_load_phpass() {
-        $MJTC_wp_site_url = site_url('wp-includes/class-phpass.php');
-        $MJTC_wp_site_path = MJTC_majesticsupportphplib::MJTC_str_replace(site_url('/'), ABSPATH, $MJTC_wp_site_url);
-        require_once($MJTC_wp_site_path);
+        require_once ABSPATH . 'wp-includes/class-phpass.php';
     }
 
     function ticketviaemail() {// this funtion also handles ticket overdue bcz of hours confiuration
@@ -1449,10 +1429,10 @@ function majesticsupport_upgrade_completed( $MJTC_upgrader_object, $MJTC_options
             if( $MJTC_plugin == $MJTC_our_plugin ) {
                 update_option('ms_currentversion', majesticsupport::$_currentversion);
                 include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-                MJTC_updates::MJTC_checkUpdates('115');
+                MJTC_updates::MJTC_checkUpdates('116');
                 MJTC_includer::MJTC_getModel('majesticsupport')->updateColorFile();
                 MJTC_includer::MJTC_getModel('majesticsupport')->mjtc_check_license_status();
-                MJTC_includer::MJTC_getModel('majesticsupport')->MSAddonsAutoUpdate();
+                MJTC_includer::MJTC_getModel('premiumplugin')->MSAddonsAutoUpdate();
                 // MJTC_includer::MJTC_getModel('majesticsupport')->MJTCAddonsAutoUpdate();
             }
         }

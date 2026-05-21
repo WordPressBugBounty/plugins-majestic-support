@@ -576,61 +576,13 @@ div#msadmin-wrapper .mjtc-support-message-thread-data a{font-weight:bold;color:v
 .userpopup-close:hover {color: #ffffff;background: var(--mjtc-admin-accent-coral);transform: rotate(90deg); /* Beautiful spinning interaction */}
 .userpopup-close svg {width: 16px;height: 16px;}
 .mjtc-admin-popup-cnt {padding: 2rem;overflow-y: auto;}
-.mjtc-admin-popup-cnt .mjtc-support-edit-form-wrp{display: flex;
-  font-size: 0.8rem;
-  margin-bottom: 0.75rem;
-  flex-direction: column;
-  border-bottom: 1px dashed var(--mjtc-admin-border);
-  padding-bottom: 0.5rem;width:100%;}
- .mjtc-admin-popup-cnt .mjtc-support-edit-form-row{display: flex;
-  flex-direction: column;
-  gap: 8px;width: 100%;margin-bottom: 1.5rem;}
-   .mjtc-admin-popup-cnt .mjtc-support-edit-field-title{display: flex;
-  align-items: center;
-  gap: 5px;font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--mjtc-admin-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  margin-left: 4px;}
-   .mjtc-admin-popup-cnt .mjtc-support-edit-field-wrp{position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  min-height: 55px;margin-bottom: 0;}
-   .mjtc-admin-popup-cnt .mjtc-support-edit-field-wrp input, .mjtc-admin-popup-cnt .mjtc-support-edit-field-wrp textarea, .mjtc-admin-popup-cnt .mjtc-support-edit-field-wrp select{width: 100%;
-  padding: 0 1.2rem;
-  border: 1px solid transparent;
-  border-radius: var(--mjtc-admin-radius-sm);
-  font-size: 0.95rem;
-  font-weight: 500;
-  background-color: #f3f4f6;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: var(--mjtc-admin-text-main);
-  min-height: unset;
-  height: 55px;
-  display: flex;
-  align-items: center;max-width: 100%;}
-   .mjtc-form-wrapper-popup .mjtc-form-field-popup input, .mjtc-form-wrapper-popup .mjtc-form-field-popup select, .mjtc-form-wrapper-popup .mjtc-form-field-popup textarea{width: 100%;
-  padding: 0 1.2rem;
-  border: 1px solid transparent;
-  border-radius: var(--mjtc-admin-radius-sm);
-  font-size: 0.95rem;
-  font-weight: 500;
-  background-color: #f3f4f6;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: var(--mjtc-admin-text-main);
-  min-height: unset;
-  height: 55px;
-  display: flex;
-  align-items: center;
-  max-width: 100%;}
-  .mjtc-form-wrapper-popup{display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-  margin-bottom: 1.5rem;}
-   .mjtc-admin-popup-cnt {}
+.mjtc-admin-popup-cnt .mjtc-support-edit-form-wrp{display: flex;font-size: 0.8rem;margin-bottom: 0.75rem;flex-direction: column;border-bottom: 1px dashed var(--mjtc-admin-border);padding-bottom: 0.5rem;width:100%;}
+.mjtc-admin-popup-cnt .mjtc-support-edit-form-row{display: flex;flex-direction: column;gap: 8px;width: 100%;margin-bottom: 1.5rem;}
+.mjtc-admin-popup-cnt .mjtc-support-edit-field-title{display: flex;align-items: center;gap: 5px;font-size: 0.8rem;font-weight: 700;color: var(--mjtc-admin-text-secondary);text-transform: uppercase;letter-spacing: 0.03em;margin-left: 4px;}
+.mjtc-admin-popup-cnt .mjtc-support-edit-field-wrp{position: relative;display: flex;flex-wrap: wrap;gap: 15px;min-height: 55px;margin-bottom: 0;}
+.mjtc-admin-popup-cnt .mjtc-support-edit-field-wrp input, .mjtc-admin-popup-cnt .mjtc-support-edit-field-wrp textarea, .mjtc-admin-popup-cnt .mjtc-support-edit-field-wrp select{width: 100%;padding: 0 1.2rem;border: 1px solid transparent;border-radius: var(--mjtc-admin-radius-sm);font-size: 0.95rem;font-weight: 500;background-color: #f3f4f6;transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);color: var(--mjtc-admin-text-main);min-height: unset;height: 55px;display: flex;align-items: center;max-width: 100%;}
+.mjtc-form-wrapper-popup .mjtc-form-field-popup input, .mjtc-form-wrapper-popup .mjtc-form-field-popup select, .mjtc-form-wrapper-popup .mjtc-form-field-popup textarea{width: 100%;padding: 0 1.2rem;border: 1px solid transparent;border-radius: var(--mjtc-admin-radius-sm);font-size: 0.95rem;font-weight: 500;background-color: #f3f4f6;transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);color: var(--mjtc-admin-text-main);min-height: unset;height: 55px;display: flex;align-items: center;max-width: 100%;}
+.mjtc-form-wrapper-popup{display: flex;flex-direction: column;gap: 8px;width: 100%;margin-bottom: 1.5rem;}
 .mjtc-form-wrapper {display: flex;flex-direction: column;gap: 8px;margin-bottom: 1.5rem;}
 .mjtc-form-title {font-size: 0.9rem;font-weight: 700;color: var(--mjtc-admin-text-main);}
 .mjtc-admin-popup-select-field {width: 100%;padding: 0.9rem 1.2rem;border: 1px solid transparent;border-radius: var(--mjtc-admin-radius-sm);font-size: 0.95rem;font-weight: 500;background: #f3f4f6;transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);color: var(--mjtc-admin-text-main);box-sizing: border-box;cursor: pointer;font-family: inherit;}
@@ -645,6 +597,43 @@ div#msadmin-wrapper .wp-editor-area:focus {outline: none;}
 .mjtc-admin-pop-btn-block {display: flex;justify-content: center;align-items: center;width: 100%;padding: 1rem;font-size: 1rem;font-weight: 700;border-radius: var(--mjtc-admin-radius-md);background: linear-gradient(135deg, var(--mjtc-admin-primary) 0%, #6366f1 100%);color: white;border: none;cursor: pointer;transition: all 0.2s;box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);font-family: inherit;}
 .mjtc-admin-pop-btn-block:hover {transform: translateY(-2px);box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);}
 #mjtc_ai_reply_loading{display: none;}
+/* instant fix */
+#msadmin-wrapper .mjtc-bento-admin-grid svg {fill: #FFF;}
+.mjtc-bento-admin-grid { display: grid; grid-template-columns: 1fr;gap: 24px; padding: 20px 20px;width:100%; }
+.mjtc-bento-item { background: #fff; border-radius: 28px; padding: 30px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; position: relative;overflow: hidden;min-width: 0;word-wrap: break-word;}
+.mjtc-bento-item:hover { transform: translateY(-4px);border-color: #6366f1; box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.1); }
+.mjtc-item-paused { opacity: 0.75; background: #f8fafc; border-style: dashed; }
+.mjtc-item-paused .mjtc-bento-title { color: #64748b; }
+.mjtc-source-icon-badge {position: absolute;top: 20px;right: 20px;color: rgba(99, 102, 241, 0.03);z-index: 0;pointer-events: none;}
+.mjtc-bento-badge { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 12px; font-size: 10px; font-weight: 800; text-transform: uppercase; margin-bottom: 20px; width: max-content; background: #f5f3ff; color: #6366f1;position: relative;z-index: 1;}
+.mjtc-badge-paused { background: #fef2f2; color: #ef4444; }
+.mjtc-badge-error { background: #fff7ed; color: #d97706; }
+.mjtc-bento-title { font-size: 20px; font-weight: 800; color: #0f172a; margin: 0 0 8px 0; line-height: 1.3; position: relative;z-index: 1;}
+.mjtc-bento-url { font-size: 14px; color: #64748b; margin-bottom: 20px; display: block; text-decoration: none;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;position: relative;z-index: 1;}
+.mjtc-bento-url:hover { color: #4f46e5; text-decoration: underline; }
+.mjtc-cron-data {background: #f8fafc; border-radius: 16px; padding: 16px 20px; margin-bottom: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));gap: 16px; font-size: 11px; color: #64748b; font-weight: 600; border: 1px solid #f1f5f9; position: relative; z-index: 1;}
+.mjtc-cron-data span { display: block; font-size: 13px; color: #0f172a; font-weight: 800; margin-top: 4px; }
+.mjtc-quick-edit { display: none; padding: 16px; background: #f1f5f9; border-radius: 18px; margin-bottom: 20px; position: relative;z-index: 1;}
+.mjtc-quick-edit label { font-size: 10px; font-weight: 800; color: #64748b; margin-bottom: 8px; display: block; text-transform: uppercase; }
+.mjtc-quick-edit select { width: 100%; border: 1px solid #cbd5e1; border-radius: 10px; padding: 10px; font-size: 13px; outline: none; background: #fff; }
+.mjtc-bento-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid #f1f5f9;position: relative;z-index: 1;}
+.mjtc-bento-actions { display: flex; gap: 8px; margin-left: auto;}    
+.mjtc-btn-round { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid #e2e8f0; color: #64748b; background: #fff; transition: all 0.2s; cursor: pointer; text-decoration: none;padding: 0;}
+.mjtc-btn-round:hover { background: #f8fafc; color: #0f172a; border-color: #cbd5e1; transform: scale(1.05); }
+.mjtc-btn-round.active-toggle { color: #6366f1; border-color: #c7d2fe; background: #f5f3ff; }
+.mjtc-btn-round.active-toggle:hover { background: #e0e7ff; }
+.mjtc-btn-round.danger:hover { background: #fef2f2; color: #ef4444; border-color: #fecaca; }
+.mjtc-modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15,23,42,0.6); backdrop-filter: blur(4px); z-index: 99999; display: none; align-items: center; justify-content: center; }
+.mjtc-modal-content { background: #fff; border-radius: 28px; width: 90%; max-width: 800px; max-height: 85vh; display: flex; flex-direction: column; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); overflow: hidden; }
+.mjtc-modal-header { padding: 24px 32px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; background: #fff; }
+.mjtc-modal-header h3 { margin: 0; font-size: 20px; font-weight: 800; color: #0f172a; }
+.mjtc-modal-body { padding: 32px; overflow-y: auto; background: #f8fafc; flex: 1; }
+.mjtc-fragment-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 20px; margin-bottom: 16px; display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; }
+.mjtc-fragment-text { font-size: 13px; color: #475569; line-height: 1.6; margin: 0; flex: 1; }
+.mjtc-fragment-delete { color: #ef4444; background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; padding: 8px 14px; cursor: pointer; font-weight: 700; font-size: 12px; transition: 0.2s; }
+.mjtc-fragment-delete:hover { background: #fee2e2; }
+@keyframes mjtc-spin { 100% { transform: rotate(360deg); } }
+.mjtc-syncing svg { animation: mjtc-spin 1s linear infinite; }
 /* smart replies */
 #msadmin-wrapper .msadmin-form {display: flex;flex-wrap:wrap ;gap: 1.5rem; /* Space between listing cards */align-items: stretch; /* Make all cards the same height */width: 100%;}
 #msadmin-wrapper .ms-smart-reply-listing-wrp {background: var(--mjtc-admin-bg-surface);border-radius: var(--mjtc-admin-radius-sm);box-shadow: 0 4px 12px rgba(0,0,0,0.05);border: 1px solid var(--mjtc-admin-border);margin-bottom: 0; /* Removed margin in favor of gap */overflow: hidden;transition: transform 0.2s, box-shadow 0.2s;flex: 1 1 100%;max-width: 100%; /* Two cards per row with gap */}
@@ -1392,8 +1381,8 @@ ul.msadmin-sidebar-menu li ul.msadmin-sidebar-submenu { display: none; } /* Hidd
 #msadmin-wrapper .ms-addon-installer-right-addon-section-select_all_div label {display: flex;align-items: center;gap: 12px;font-size: 1.05rem;font-weight: 800;color: var(--mjtc-admin-text-main);cursor: pointer;user-select: none;}
 #msadmin-wrapper .ms-addon-installer-right-addon-checkall-checkbox,
 #msadmin-wrapper .ms-addon-installer-right-addon-single-checkbox {width: 20px;height: 20px;cursor: pointer;accent-color: var(--mjtc-admin-primary);}
-#msadmin-wrapper .ms-addon-installer-right-addon-single {background: var(--mjtc-admin-bg-surface);border: 2px solid var(--mjtc-admin-bg-body);border-radius: var(--mjtc-admin-radius-sm);padding: 2rem 1.5rem;display: flex;flex-direction: column;align-items: center;justify-content: center;gap: 1.5rem;transition: all 0.25s ease;box-shadow: var(--mjtc-admin-shadow-inner);cursor: pointer;}
-#msadmin-wrapper .ms-addon-installer-right-addon-single:hover {border-color: var(--mjtc-admin-primary-light);box-shadow: var(--mjtc-admin-shadow-soft);transform: translateY(-4px); /* Lift off the page */}
+#msadmin-wrapper .ms-addon-installer-right-addon-single {background: var(--mjtc-admin-bg-surface);border: 2px solid var(--mjtc-admin-primary-light);border-radius: var(--mjtc-admin-radius-sm);padding: 2rem 1.5rem;display: flex;flex-direction: column;align-items: center;justify-content: center;gap: 1.5rem;transition: all 0.25s ease;box-shadow: var(--mjtc-admin-shadow-inner);cursor: pointer;}
+#msadmin-wrapper .ms-addon-installer-right-addon-single:hover {box-shadow: var(--mjtc-admin-shadow-soft);transform: translateY(-4px); /* Lift off the page */}
 #msadmin-wrapper .ms-addon-installer-right-addon-image {width: 100%;height: auto;object-fit: contain;/* Fallback styling for broken dev URLs */background-color: var(--mjtc-admin-bg-body);border-radius: 12px;padding: 10px;}
 #msadmin-wrapper .ms-addon-installer-right-addon-name {display: flex;align-items: center;justify-content: center;gap: 10px;font-size: 1.05rem;font-weight: 700;color: var(--mjtc-admin-text-main);text-align: center;width: 100%;}
 #msadmin-wrapper .ms-addon-installer-right-addon-bottom {grid-column: 1 / -1;margin: 1rem 0 0 0;}
@@ -1773,7 +1762,8 @@ div#msadmin-wrapper .mjtc-col-span-8{width: calc(70% - 1.5rem);}
 /* email templates page */
 #msadmin-wrapper .mjtc-support-existing-custom-templates {grid-column: 1 / -1;width: 100%;background: #ffffff;border: 1px solid var(--mjtc-admin-border);border-radius: var(--mjtc-admin-radius-md);padding: 1.5rem;margin-top: 1rem;box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);}
 #msadmin-wrapper .mjtc-support-existing-custom-templates-title {font-size: 1.1rem;font-weight: 800;color: var(--mjtc-admin-text-main);margin-bottom: 1rem;padding-bottom: 0.75rem;border-bottom: 1px solid #f1f5f9;}
-#msadmin-wrapper .mjtc-support-custom-templates-table {width: 100%;border-collapse: collapse;text-align: left;}
+#msadmin-wrapper .mjtc-support-cust
+om-templates-table {width: 100%;border-collapse: collapse;text-align: left;}
 #msadmin-wrapper .mjtc-support-custom-templates-table th {padding: 12px 16px;font-size: 0.75rem;font-weight: 700;color: var(--mjtc-admin-text-secondary);text-transform: uppercase;letter-spacing: 0.05em;border-bottom: 2px solid #e2e8f0;background: #f8fafc;}
 #msadmin-wrapper .mjtc-support-custom-templates-table td {padding: 16px;font-size: 0.9rem;font-weight: 500;color: var(--mjtc-admin-text-main);border-bottom: 1px solid #f1f5f9;vertical-align: middle;}
 #msadmin-wrapper .mjtc-support-custom-templates-table tbody tr {transition: background-color 0.2s ease;}

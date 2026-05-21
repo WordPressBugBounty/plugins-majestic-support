@@ -576,6 +576,7 @@ class MJTC_premiumpluginModel {
             'majestic-support-actions' => array('title' => esc_html(__('Ticket Actions','majestic-support')), 'price' => 0, 'status' => 1),
             'majestic-support-agent' => array('title' => esc_html(__('Agents','majestic-support')), 'price' => 0, 'status' => 1),
             'majestic-support-aipoweredreply' => array('title' => esc_html(__('AI Powered Reply','majestic-support')), 'price' => 0, 'status' => 1),
+            'majestic-support-instantfix' => array('title' => esc_html(__('Instant Fix','majestic-support')), 'price' => 0, 'status' => 1),
             'majestic-support-autoclose' => array('title' => esc_html(__('Ticket Auto Close','majestic-support')), 'price' => 0, 'status' => 1),
             'majestic-support-faq' => array('title' => esc_html(__('FAQs','majestic-support')), 'price' => 0, 'status' => 1),
             'majestic-support-helptopic' => array('title' => esc_html(__('Help Topic','majestic-support')), 'price' => 0, 'status' => 1),

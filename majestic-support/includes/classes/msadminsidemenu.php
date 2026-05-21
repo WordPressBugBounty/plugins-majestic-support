@@ -486,6 +486,45 @@ $majesticsupport_js ='
                 </li>
             </ul>
         </li>
+        <?php if(in_array('instantfix', majesticsupport::$_active_addons)){ ?>
+            <li class="treeview mjtc-admin-nav-group accordion <?php if($MJTC_c == 'instantfix') echo esc_attr('active'); ?>">
+                <a class="mjtc-admin-nav-item mjtc-admin-nav-has-submenu" href="admin.php?page=majesticsupport_instantfix" title="<?php echo esc_attr(__('Instant Fix' , 'majestic-support')); ?>">
+                    <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    <span class="ms_text"><?php echo esc_html(__('Instant Fix' , 'majestic-support')); ?></span>
+                    <svg class="mjtc-admin-chevron-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>
+                    <span class="ms_active"></span>
+                </a>
+                <ul class="msadmin-sidebar-submenu treeview-menu">
+                    <li class="<?php if($MJTC_c == 'instantfix' && ($MJTC_layout == '')) echo esc_attr('active'); ?>">
+                        <a class="mjtc-admin-submenu-link" href="?page=majesticsupport_instantfix" title="<?php echo esc_attr(__("Instantfix" , 'majestic-support')); ?>">
+                            <?php echo esc_html(__("Instantfix", 'majestic-support')); ?>
+                        </a>
+                    </li>
+                    <li class="<?php if($MJTC_c == 'instantfix' && ($MJTC_layout == 'addinstantfix')) echo esc_attr('active'); ?>">
+                        <a class="mjtc-admin-submenu-link" href="?page=majesticsupport_instantfix&mjslay=addinstantfix" <?php echo esc_html(__('Add Instantfix' , 'majestic-support')); ?>>
+                            <?php echo esc_html(__( 'Add Instantfix', 'majestic-support')); ?>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        <?php } else { ?>
+            <?php $MJTC_plugininfo = mjtc_checkPluginInfo('majestic-support-instantfix/majestic-support-instantfix.php');
+                if($MJTC_plugininfo['availability'] == "1"){
+                    $MJTC_text = $MJTC_plugininfo['text'];
+                    $MJTC_url = "plugins.php?s=majestic-support-instantfix&plugin_status=inactive";
+                }elseif($MJTC_plugininfo['availability'] == "0"){
+                    $MJTC_text = $MJTC_plugininfo['text'];
+                    $MJTC_url = "https://majesticsupport.com/product/instantfix/";
+                }
+            ?>
+            <a href="<?php echo esc_url($MJTC_url); ?>" class="mjtc-admin-nav-group" title="<?php echo esc_attr($MJTC_text); ?>">
+                <div class="mjtc-admin-nav-item mjtc-locked has-submenu">
+                    <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    <span class="ms_text"><?php echo esc_html(__('Instant Fix' , 'majestic-support')); ?></span>
+                    <svg class="mjtc-lock-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"></path></svg>
+                </div>
+            </a>
+        <?php } ?>
         <?php if(in_array('cannedresponses', majesticsupport::$_active_addons)){ ?>
             <li class="treeview mjtc-admin-nav-group accordion <?php if($MJTC_c == 'cannedresponses') echo esc_attr('active'); ?>">
                 <a class="mjtc-admin-nav-item mjtc-admin-nav-has-submenu" href="admin.php?page=majesticsupport_cannedresponses" title="<?php echo esc_attr(__('Premade Responses' , 'majestic-support')); ?>">
@@ -613,7 +652,7 @@ $majesticsupport_js ='
                 <span class="ms_active"></span>
             </a>
             <ul class="msadmin-sidebar-submenu treeview-menu">
-                <li class="<?php if($MJTC_c == 'premiumplugin' && ($MJTC_layout == 'step1') || ($MJTC_layout == 'step2') || ($MJTC_layout == 'step3') || ($MJTC_layout == '')) echo esc_attr('active'); ?>">
+                <li class="<?php if($MJTC_c == 'premiumplugin' && (($MJTC_layout == 'step1') || ($MJTC_layout == 'step2') || ($MJTC_layout == 'step3') || ($MJTC_layout == ''))) echo esc_attr('active'); ?>">
                     <a class="mjtc-admin-submenu-link" href="?page=majesticsupport_premiumplugin&mjslay=step1" title="<?php echo esc_attr(__('Install Add-ons', 'majestic-support')); ?>">
                         <?php echo esc_html(__('Install Add-ons', 'majestic-support')); ?>
                     </a>    

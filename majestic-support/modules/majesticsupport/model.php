@@ -2613,6 +2613,15 @@ class MJTC_majesticsupportModel {
                 $title = __("FAQs", 'majestic-support');
                 $description = __("Organize and manage quick answers to the most common customer questions.", 'majestic-support');
                 break;
+            case 'addinstantfix':
+                $title = __("Add AI Data Source", 'majestic-support');
+                $description = __("Add a new webpage or YouTube video for the AI to crawl, index, and use for instant ticket fix.", 'majestic-support');
+                break;
+            case 'instantfixs':
+                $MJTC_actionButton = "<a title=\"". esc_html(__('Add','majestic-support')) ."\" class=\"mjtc-admin-btn mjtc-admin-btn-primary\" href=\"?page=majesticsupport_instantfix&mjslay=addinstantfix\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"white\"><path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"></path></svg>". esc_html(__('Add Data Source', 'majestic-support')) ."</a>";
+                $title = __("AI Data Sources", 'majestic-support');
+                $description = __("Manage synced URLs and extracted support data.", 'majestic-support');
+                break;
             case 'addannouncement':
                 $title = __("Add Announcement", 'majestic-support');
                 $description = __("Post a new news update or system alert for your users to see.", 'majestic-support');

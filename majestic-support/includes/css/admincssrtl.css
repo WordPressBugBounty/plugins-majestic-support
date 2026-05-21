@@ -59,6 +59,10 @@ div#ms-main-wrapper .mjtc-btn-primary:hover .btn-icon{transform: scaleX(-1);}
 #mjtc-config-dashboard #mjtc-sidebar #mjtc-settings-nav a.active{border-left: 0px !important;border-right: 3px solid var(--mjtc-admin-primary);}
 #mjtc-config-dashboard .mjtc-tooltip-wrapper .mjtc-tooltip-icon{margin-left: 0;margin-right: 8px;}
 #majesticsupport_addon_dashboard_widget .mjtc-support-admin-cp-data .mjtc-col-md-7{padding-right: 0;padding-left: 1rem;}
+.mjtc-bento-actions {margin-left: unset;margin-right: auto;}
+.mjtc-bento-item { text-align: right; }
+.mjtc-source-icon-badge { right: auto; left: 20px; }
+.mjtc-bento-badge svg { margin-right: 0; margin-left: 6px; }
 @media (max-width: 1024px) {
   #msadmin-wrapper #msadmin-leftmenu{left: auto;right: 0;}
   div#msadmin-wrapper #msadmin-leftmenu.collapsed{left: auto;right: -100%;}

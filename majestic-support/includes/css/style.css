@@ -747,7 +747,6 @@ div.ms-main-up-wrapper .mjtc-support-multiform-row .mjtc-support-table-body-col.
 .mjtc-fix-card-top {display: flex;justify-content: space-between;align-items: center;margin-bottom: 20px;}
 .mjtc-fix-badge {font-size: 9px;font-weight: 900;text-transform: uppercase;background: #ffffff;color: #94a3b8;padding: 5px 12px;border-radius: 10px;border: 1px solid #e2e8f0;}
 .mjtc-fix-icon-wrp {font-size: 20px;}
-.mjtc-fix-card-body {display: flex;width: 100%;flex-wrap: wrap;}
 .mjtc-fix-card h4 {font-size: 16px !important;font-weight: 800 !important;color: #1e293b !important;margin-bottom: 8px !important;}
 .mjtc-fix-card-footer {margin-top: 20px;display: flex;align-items: center;gap: 5px;font-size: 11px;font-weight: 900;color: #6366f1;text-transform: uppercase;}
 .mjtc-fixes-action-footer {margin-top: 35px;padding-top: 25px;border-top: 1px solid #f1f5f9;display: flex;align-items: center;justify-content: space-between;flex-wrap: wrap;gap: 20px;}

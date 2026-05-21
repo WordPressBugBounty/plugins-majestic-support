@@ -13,7 +13,7 @@ div.ms-main-up-wrapper .mjtc-support-cp-ticket-table th{text-align: start;}
 div.ms-main-up-wrapper .mjtc-support-cp-progress-header span span:first-child{margin-right: 0 !important;margin-left: 8px;}
 div.ms-main-up-wrapper .mjtc-support-cp-card #tab-kb a svg{transform: scaleX(-1);}
 div.ms-main-up-wrapper .mjtc-support-cp-announcement-item{border-left: 0;border-right:3px solid var(--mjtc-color-1);}
-/* may tickets */
+/* my tickets */
 div.ms-main-up-wrapper .mjtc-support-cont-main-wrapper .mjtc-filter-form-fields-wrp svg{left: auto;right: 10px;margin-right: 0;margin-left: 8px;}
 div.ms-main-up-wrapper .mjtc-support-cont-main-wrapper .mjtc-filter-field-wrp .mjtc-filter-inputfield-wrp svg{left: auto;right: 10px;margin-right: 0;margin-left: 8px;}
 div.ms-main-up-wrapper select{background-position: left 0.5em center;}

@@ -3548,6 +3548,49 @@ class MJTC_ticketModel {
         return wp_json_encode($MJTC_html);
     }
 
+    // Add this helper function to your ticket tasks class (e.g. module/ticket/tasks.php)
+    public function recordInstantFixDeflection() {
+        $current = (int) get_option('ms_instantfix_deflections', 0);
+        update_option('ms_instantfix_deflections', $current + 1);
+        wp_send_json_success();
+    }
+
+    /**
+     * ANALYTICS: Records an individual "Click" metric on a specific parent AI data source 
+     * when the user clicks a card to view its solution.
+     */
+    public function recordInstantFixClick() {
+        check_ajax_referer('record-instant-fix-click'); // Use the same nonce you used for searching
+        $id = (int) MJTC_request::MJTC_getVar('fix_id');
+        
+        if ($id > 0) {
+            $table_name = majesticsupport::$_db->prefix . "mjtc_support_instant_fixes";
+
+            // 1. Increment the clicked record
+            majesticsupport::$_db->query(
+                "UPDATE `" . $table_name . "` 
+                 SET clicks_count = clicks_count + 1 
+                 WHERE id = $id"
+            );
+
+            // 2. Fetch the parent ID to see if this clicked record is a sub-page
+            $parent_id = (int) majesticsupport::$_db->get_var(
+                "SELECT parent_id FROM `" . $table_name . "` WHERE id = $id"
+            );
+
+            // 3. Bubble up: If it has a parent, increment the parent's count too
+            if ($parent_id > 0) {
+                majesticsupport::$_db->query(
+                    "UPDATE `" . $table_name . "` 
+                     SET clicks_count = clicks_count + 1 
+                     WHERE id = $parent_id"
+                );
+            }
+        }
+        
+        wp_send_json_success();
+    }
+
     public function getInstantFixes() {
         // 1. Security Check: Nonce Verification
         $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
@@ -3584,7 +3627,7 @@ class MJTC_ticketModel {
         }
 
         /** 1. NLP Search for Articles (Knowledge Base) **/
-        if( in_array('knowledgebase', majesticsupport::$_active_addons) ){
+        if (in_array('knowledgebase', majesticsupport::$_active_addons)) {
             $MJTC_query_articles = "
                 SELECT id, subject, content, visible, 
                 MATCH (subject, content) AGAINST ('" . esc_sql($MJTC_search_context) . "' IN NATURAL LANGUAGE MODE) AS relevance
@@ -3600,9 +3643,9 @@ class MJTC_ticketModel {
                     $MJTC_results[] = [
                         'title' => $MJTC_a->subject,
                         'desc'  => ($MJTC_uid == 0 && $MJTC_a->visible == 2) ? '' : wp_trim_words($MJTC_a->content, 12),
-                        'type' => esc_html(__('KNOWLEDGE BASE', 'majestic-support')),
-                        'link' => majesticsupport::makeUrl(array('mjsmod'=>'knowledgebase', 'mjslay'=>'articledetails', 'majesticsupportid'=>$MJTC_a->id, 'mspageid'=>majesticsupport::getPageid())),
-                        'icon' => '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>',
+                        'type'  => esc_html(__('KNOWLEDGE BASE', 'majestic-support')),
+                        'link'  => majesticsupport::makeUrl(array('mjsmod'=>'knowledgebase', 'mjslay'=>'articledetails', 'majesticsupportid'=>$MJTC_a->id, 'mspageid'=>majesticsupport::getPageid())),
+                        'icon'  => '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>',
                         'score' => $MJTC_a->relevance
                     ];
                 }
@@ -3610,7 +3653,7 @@ class MJTC_ticketModel {
         }
 
         /** 2. NLP Search for FAQs **/
-        if( in_array('faq', majesticsupport::$_active_addons) ){
+        if (in_array('faq', majesticsupport::$_active_addons)) {
             $MJTC_query_faqs = "
                 SELECT id, subject, content, visible, 
                 MATCH (subject, content) AGAINST ('" . esc_sql($MJTC_search_context) . "' IN NATURAL LANGUAGE MODE) AS relevance
@@ -3626,72 +3669,134 @@ class MJTC_ticketModel {
                     $MJTC_results[] = [
                         'title' => $MJTC_f->subject,
                         'desc'  => ($MJTC_uid == 0 && $MJTC_f->visible == 2) ? '' : wp_trim_words($MJTC_f->content, 12),
-                        'type' => esc_html(__('FAQ', 'majestic-support')),
-                        'link' => majesticsupport::makeUrl(array('mjsmod'=>'faq', 'mjslay'=>'faqdetails', 'majesticsupportid'=>$MJTC_f->id, 'mspageid'=>majesticsupport::getPageid())),
-                        'icon' => '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>',
+                        'type'  => esc_html(__('FAQ', 'majestic-support')),
+                        'link'  => majesticsupport::makeUrl(array('mjsmod'=>'faq', 'mjslay'=>'faqdetails', 'majesticsupportid'=>$MJTC_f->id, 'mspageid'=>majesticsupport::getPageid())),
+                        'icon'  => '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>',
                         'score' => $MJTC_f->relevance
                     ];
                 }
             }
         }
 
-        /** 3. Dynamic Video Scoring (Pseudo-NLP) **/
-        $MJTC_videos = [
-            ['title' => 'How to setup', 'url' => 'https://www.youtube.com/watch?v=lHAacpG-O0M', 'keywords' => 'how to setup install installation initial'],
-        ];
-        $MJTC_videos = [];
-
-        if (!empty($MJTC_videos)) {
-            // Clean up the search context for PHP processing
-            $MJTC_clean_search = strtolower(sanitize_text_field($MJTC_search_context));
-            
-            // Define NLP Stop Words to ignore (words that carry no specific meaning)
-            $MJTC_stop_words = ['how', 'to', 'use', 'the', 'a', 'an', 'and', 'or', 'in', 'on', 'with', 'for', 'is', 'are', 'i', 'my', 'need', 'help', 'please'];
-            
-            // Create an array of meaningful search words
-            $MJTC_raw_search_words = explode(' ', $MJTC_clean_search);
-            $MJTC_search_words = array_diff($MJTC_raw_search_words, $MJTC_stop_words);
-            $MJTC_search_words = array_filter($MJTC_search_words, function($v) { return strlen($v) > 2; }); // Ignore 1-2 letter words
-
-            foreach ($MJTC_videos as $MJTC_v) {
-                $MJTC_v_score = 0;
-                // $MJTC_video_text = strtolower($MJTC_v['title'] . ' ' . $MJTC_v['keywords']);
-                $MJTC_video_text = strtolower($MJTC_v['keywords']);
+        /** 3. NLP Search for Premium Scraped Data (Instant Fixes Addon) **/
+        if (in_array('instantfix', majesticsupport::$_active_addons)) {
+            $MJTC_query_instant = "
+                SELECT id, parent_id, subject, content, type, source_url, status, 
+                MATCH (subject, content) AGAINST ('" . esc_sql($MJTC_search_context) . "' IN NATURAL LANGUAGE MODE) AS relevance
+                FROM `" . majesticsupport::$_db->prefix . "mjtc_support_instant_fixes`
+                WHERE MATCH (subject, content) AGAINST ('" . esc_sql($MJTC_search_context) . "' IN NATURAL LANGUAGE MODE)
+                AND status = 1
+                AND (parent_id = 0 OR parent_id IN (SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_instant_fixes` WHERE status = 1))
+                HAVING relevance > " . esc_sql($MJTC_min_relevance) . "
+                ORDER BY relevance DESC LIMIT " . (int)$MJTC_limit;
                 
-                // NLP Rule 1: Exact Phrase Match (Highest Weight)
-                // If they type exactly "setup custom fields", boost the score heavily.
-                $MJTC_clean_subject = strtolower(sanitize_text_field($MJTC_subject));
-                if (!empty($MJTC_clean_subject) && strpos($MJTC_video_text, $MJTC_clean_subject) !== false) {
-                    $MJTC_v_score += 10.0;
-                }
+            // Suppress errors briefly in case the addon isn't active/table missing
+            majesticsupport::$_db->suppress_errors();
+            $MJTC_instant_fixes = majesticsupport::$_db->get_results($MJTC_query_instant);
+            majesticsupport::$_db->suppress_errors(false);
+            
+            if (!empty($MJTC_instant_fixes)) {                
+                // Extract keywords for the snippet highlighting
+                $MJTC_clean_search = strtolower($MJTC_search_context);
+                $MJTC_stop_words = ['how', 'to', 'use', 'the', 'a', 'an', 'and', 'or', 'in', 'on', 'with', 'for', 'is', 'are', 'i', 'my', 'need', 'help', 'please'];
+                $MJTC_raw_search_words = explode(' ', $MJTC_clean_search);
+                $MJTC_search_words = array_diff($MJTC_raw_search_words, $MJTC_stop_words);
+                $MJTC_search_words = array_filter($MJTC_search_words, function($v) { return strlen($v) > 2; });
 
-                // NLP Rule 2: Word-by-Word Scoring
-                foreach ($MJTC_search_words as $MJTC_word) {
-                    // A. Exact Word Match (High Weight)
-                    if (preg_match('/\b' . preg_quote($MJTC_word, '/') . '\b/', $MJTC_video_text)) {
-                        $MJTC_v_score += 3.0;
-                    } 
-                    // B. Partial Word / Stem Match (Medium Weight)
-                    // Example: User types "config", matches "configuration"
-                    elseif (strpos($MJTC_video_text, $MJTC_word) !== false) {
-                        $MJTC_v_score += 1.0;
+                $shown_parent_ids = [];
+
+                foreach ($MJTC_instant_fixes as $MJTC_fix) {
+                    
+                    // Retrieve BOTH the formatted HTML and the Text Fragment for the URL
+                    $desc = '';
+                    $fragment_url = '';
+                    
+                    $snippet_data = MJTC_includer::MJTC_getModel('instantfix')->getSmartSnippet($MJTC_fix->content, $MJTC_search_words);
+                    
+                    // SAFE CHECK: Ensure we handle both string (old) and array (new) returns safely
+                    if (is_array($snippet_data)) {
+                        $desc = $snippet_data['html'];
+                        
+                        // FIX: Stop blindly grabbing words! 
+                        // Grab the exact user search phrase. If it's not there, grab the single longest matched keyword.
+                        // This guarantees we never accidentally cross a <br> or <p> tag that breaks the browser scroll.
+                        $raw_text = wp_strip_all_tags($desc);
+                        $raw_text = html_entity_decode($raw_text, ENT_QUOTES, 'UTF-8');
+                        $raw_text = trim(str_replace('...', '', $raw_text));
+                        $raw_text = preg_replace('/\s+/u', ' ', $raw_text);
+                        
+                        $fragment_phrase = '';
+                        
+                        // 1. Try to match the exact user search phrase first
+                        $full_search_phrase = trim(preg_replace('/\s+/', ' ', $MJTC_search_context));
+                        if (!empty($full_search_phrase) && mb_stripos($raw_text, $full_search_phrase) !== false) {
+                            $pos = mb_stripos($raw_text, $full_search_phrase);
+                            $fragment_phrase = mb_substr($raw_text, $pos, mb_strlen($full_search_phrase));
+                        } else {
+                            // 2. Find the longest individual keyword that matches
+                            $longest_word = '';
+                            foreach ($MJTC_search_words as $word) {
+                                if (mb_strlen($word) > mb_strlen($longest_word) && mb_stripos($raw_text, $word) !== false) {
+                                    $longest_word = $word;
+                                }
+                            }
+                            
+                            if (!empty($longest_word)) {
+                                // Only grab the exact word, avoiding cross-tag merging
+                                $pos = mb_stripos($raw_text, $longest_word);
+                                $fragment_phrase = mb_substr($raw_text, $pos, mb_strlen($longest_word));
+                            }
+                        }
+                        
+                        // Fallback
+                        if (empty($fragment_phrase)) {
+                            $words = preg_split('/\s+/', $raw_text);
+                            $fragment_phrase = implode(' ', array_slice($words, 0, 2));
+                        }
+                        
+                        if (!empty($fragment_phrase)) {
+                            // Properly encode it so commas, periods, and spaces are browser-safe
+                            $fragment_url = '#:~:text=' . rawurlencode($fragment_phrase);
+                        }
+                    } else {
+                        $desc = $snippet_data;
                     }
-                }
 
-                // Apply a threshold so we don't show irrelevant videos
-                if ($MJTC_v_score >= 2.0) {
-                    // To ensure videos mix well with SQL relevance scores (which are usually decimals like 1.5, 2.3), 
-                    // we normalize the video score slightly.
-                    $MJTC_normalized_score = $MJTC_v_score * 0.5; 
+                    $link = !empty($MJTC_fix->source_url) ? $MJTC_fix->source_url : '#';
+                    
+                    // Append the exact sentence match to the end of the URL to auto-scroll the browser
+                    if ($link !== '#' && !empty($fragment_url) && strpos($link, '#') === false) {
+                        $link .= $fragment_url;
+                    }
 
+                    $icon = ($MJTC_fix->type === 'video' || strpos($link, 'youtube') !== false) 
+                        ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>'
+                        : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>';
+                    
+                    // Route analytics metric targeting to the parent container record
+                    $parent_id = isset($MJTC_fix->parent_id) && $MJTC_fix->parent_id > 0 ? (int)$MJTC_fix->parent_id : (int)$MJTC_fix->id;
+                    $shown_parent_ids[] = $parent_id;
+                        
                     $MJTC_results[] = [
-                        'title' => esc_html($MJTC_v['title']),
-                        'desc' => esc_html(__('Watch our step-by-step video guidance.', 'majestic-support')),
-                        'type' => esc_html(__('Video', 'majestic-support')),
-                        'link' => esc_url($MJTC_v['url']),
-                        'icon' => '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>',
-                        'score' => $MJTC_normalized_score
+                        'title'     => $MJTC_fix->subject,
+                        'desc'      => $desc, 
+                        'type'      => esc_html(strtoupper($MJTC_fix->type)),
+                        'link'      => $link,
+                        'icon'      => $icon,
+                        'score'     => $MJTC_fix->relevance,
+                        'parent_id' => $parent_id
                     ];
+                }
+                
+                // ANALYTICS: Increment parent "Views" count on database during presentation
+                if (!empty($shown_parent_ids)) {
+                    $unique_parents = array_unique($shown_parent_ids);
+                    $ids_string = implode(',', $unique_parents);
+                    majesticsupport::$_db->query(
+                        "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_instant_fixes` 
+                         SET views_count = views_count + 1 
+                         WHERE id IN ($ids_string)"
+                    );
                 }
             }
         }
@@ -3705,10 +3810,7 @@ class MJTC_ticketModel {
             return $b['score'] <=> $a['score'];
         });
 
-        // Take top 3 most relevant items
-        // $MJTC_results = array_slice($MJTC_results, 0, 3);
-
-        // Build the UI (Same as previous treatment but with NLP results)
+        // Build the UI
         $MJTC_html = "
         <div class='mjtc-instant-fixes-inner'>
             <div class='mjtc-fixes-header'>
@@ -3722,15 +3824,17 @@ class MJTC_ticketModel {
             </div>
             <div class='mjtc-fixes-grid'>";
                 foreach ($MJTC_results as $MJTC_res) {
+                    $click_action = isset($MJTC_res['parent_id']) ? "onclick='mjtc_record_click(".$MJTC_res['parent_id'].")'" : "";
+                    
                     $MJTC_html .= "
-                    <a href='". esc_url($MJTC_res['link']) ."' target='_blank' class='mjtc-fix-card'>
+                    <a href='". esc_url($MJTC_res['link']) ."' target='_blank' class='mjtc-fix-card' $click_action>
                         <div class='mjtc-fix-card-top'>
                             <span class='mjtc-fix-badge'>". esc_html($MJTC_res['type']) ."</span>
                             <div class='mjtc-fix-icon-wrp'>". $MJTC_res['icon'] ."</div>
                         </div>
                         <div class='mjtc-fix-card-body'>
                             <h4>". esc_html($MJTC_res['title']) ."</h4>
-                            <p>". esc_html($MJTC_res['desc']) ."</p>
+                            <p>". wp_kses_post($MJTC_res['desc']) ."</p>
                         </div>
                         <div class='mjtc-fix-card-footer'>
                             <span>". esc_html(__('View Solution', 'majestic-support')) ."</span>
@@ -3744,11 +3848,40 @@ class MJTC_ticketModel {
                     <div class='mjtc-check-icon'><svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3'><polyline points='20 6 9 17 4 12'></polyline></svg></div>
                     <span>". esc_html(__('Did one of these solve your problem?', 'majestic-support')) ."</span>
                 </div>
-                <a href=". majesticsupport::makeUrl(array('mjsmod'=>'majesticsupport', 'mjslay'=>'controlpanel', 'mspageid'=>majesticsupport::getPageid())) ." type='button' onclick='mjtc_mark_as_solved()' class='mjtc-fixes-solve-btn'>
+                <a href='javascript:void(0);' type='button' onclick='mjtc_mark_as_solved()' class='mjtc-fixes-solve-btn'>
                     ". esc_html(__('YES, MY ISSUE IS FIXED!', 'majestic-support')) ."
                 </a>
             </div>
         </div>";
+
+        // Analytics Tracking Javascript appended seamlessly
+        $MJTC_html .= "
+        <script>
+            function mjtc_record_click(fix_id) {
+                jQuery.post(ajaxurl, {
+                    action: 'mjsupport_ajax',
+                    mjsmod: 'ticket',
+                    task: 'recordInstantFixClick',
+                    fix_id: fix_id,
+                    '_wpnonce': '". esc_js(wp_create_nonce("record-instant-fix-click")) ."'
+                });
+            }
+            
+            function mjtc_mark_as_solved() {
+                // UI Update: Morph the widget to display success
+                jQuery('.mjtc-instant-fixes-inner').html('<div style=\"text-align:center; padding: 40px;\"><div style=\"width: 72px; height: 72px; background: #d1fae5; color: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto;\"><svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"></polyline></svg></div><h3 style=\"color: #064e3b; font-size: 24px; font-weight: 900; margin-bottom: 8px;\">Awesome!</h3><p style=\"color: #047857; font-weight: 500;\">Glad we could help you instantly. You can close this page.</p></div>');
+                
+                // Analytics Ping: Trigger the backend function we just created to record deflection
+                jQuery.post(ajaxurl, {
+                    action: 'mjsupport_ajax',
+                    mjsmod: 'ticket',
+                    task: 'recordInstantFixDeflection'
+                });
+                
+                // Force disable the ticket submit button so they can't submit it anyway
+                jQuery('.mjtc-support-save-button').prop('disabled', true).css('opacity', '0.4');
+            }
+        </script>";
 
         $MJTC_html = MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_html);
         return wp_json_encode($MJTC_html);
