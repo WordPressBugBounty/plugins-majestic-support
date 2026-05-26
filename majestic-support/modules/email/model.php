@@ -2107,7 +2107,7 @@ class MJTC_emailModel {
 
         // If multiformid is provided
         if (!empty($MJTC_multiformid)) {
-            $MJTC_query .= " AND multiformid = " . esc_sql($MJTC_multiformid);
+            $MJTC_query .= " AND multiformid = " . intval($MJTC_multiformid);
             $template = majesticsupport::$_db->get_row($MJTC_query);
 
             // If no form-specific template is found, fallback to default

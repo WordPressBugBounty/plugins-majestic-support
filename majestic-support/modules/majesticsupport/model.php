@@ -672,7 +672,7 @@ class MJTC_majesticsupportModel {
         if(in_array('timetracking', majesticsupport::$_active_addons)){
             $MJTC_query = "SELECT 
                     SUM(time.usertime) AS total_usertime, 
-                    ticket.ticketid, 
+                    ticket.ticketid, ticket.id, 
                     MAX(time.created) AS last_logged,
                     ticket.subject 
                   FROM `".majesticsupport::$_db->prefix."mjtc_support_staff_time` AS time
@@ -693,6 +693,7 @@ class MJTC_majesticsupportModel {
                     
                     $MJTC_timers[] = [
                         'subject'      => !empty($MJTC_row->subject) ? $MJTC_row->subject : __('Manual Entry', 'majestic-support'),
+                        'id'    => $MJTC_row->id,
                         'ticket_id'    => $MJTC_row->ticketid,
                         'display_time' => esc_html(sprintf('%02d:%02d:%02d', $MJTC_h, $m, $MJTC_s)),
                         'relative'     => human_time_diff(strtotime($MJTC_row->last_logged), current_time('timestamp'))
@@ -837,7 +838,7 @@ class MJTC_majesticsupportModel {
 
         //Ticket Hisotry
         if(in_array('tickethistory', majesticsupport::$_active_addons)){
-            $MJTC_query = "SELECT al.id,al.message,al.datetime,al.uid,al.eventtype,pr.priority,pr.prioritycolour,dp.departmentname,status.status AS statustitle, status.statuscolour, status.statuscolour,tic.ticketid
+            $MJTC_query = "SELECT al.id,al.message,al.datetime,al.uid,al.eventtype,al.referenceid,pr.priority,pr.prioritycolour,dp.departmentname,status.status AS statustitle, status.statuscolour, status.statuscolour,tic.ticketid
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_activity_log`  AS al
             JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS tic ON al.referenceid=tic.id
             LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS pr ON pr.id = tic.priorityid
@@ -2297,7 +2298,7 @@ class MJTC_majesticsupportModel {
                 $description = __("Add a new custom field to capture specific information.", 'majestic-support');
                 break;
             case 'admin_slug':
-                $MJTC_actionButton = "<a class=\"mjtc-admin-btn mjtc-admin-btn-primary\" title=\"". esc_html(__('Reset','majestic-support')) ."\" href=\"". esc_url(admin_url("admin.php?page=majesticsupport_slug&task=resetallslugs&action=mstask")) ."\">
+                $MJTC_actionButton = "<a class=\"mjtc-admin-btn mjtc-admin-btn-primary\" title=\"". esc_html(__('Reset','majestic-support')) ."\" href=\"". esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_slug&task=resetallslugs&action=mstask"),"reset-all-slugs")) ."\">
                     ". esc_html(__('Reset All','majestic-support')) ."
                 </a>";
                 $title = __("Slugs", 'majestic-support');

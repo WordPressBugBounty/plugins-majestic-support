@@ -22,7 +22,7 @@ class MJTC_request {
                 if(is_array($_GET[$MJTC_variable_name])){
                     $MJTC_value = majesticsupport::MJTC_sanitizeData($_GET[$MJTC_variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
                 }else{
-                    $MJTC_value = majesticsupport::MJTC_sanitizeData($_GET[$MJTC_variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
+                    $MJTC_value = majesticsupport::MJTC_sanitizeData(wp_unslash($_GET[$MJTC_variable_name]));// MJTC_sanitizeData() function uses wordpress santize functions
                 }
             } elseif (isset($_POST[$MJTC_variable_name])) {
                 if(is_array($_POST[$MJTC_variable_name])){
@@ -51,7 +51,7 @@ class MJTC_request {
                         if (is_array($_GET[$MJTC_variable_name])) {
                             $MJTC_value = majesticsupport::MJTC_sanitizeData($_GET[$MJTC_variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
                         }else{
-                            $MJTC_value = majesticsupport::MJTC_sanitizeData($_GET[$MJTC_variable_name]);// MJTC_sanitizeData() function uses wordpress santize functions
+                            $MJTC_value = majesticsupport::MJTC_sanitizeData(wp_unslash($_GET[$MJTC_variable_name]));// MJTC_sanitizeData() function uses wordpress santize functions
                         }
                     break;
             }

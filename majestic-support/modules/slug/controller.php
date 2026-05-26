@@ -93,8 +93,37 @@ class MJTC_slugController {
     }
 
     function resetallslugs() {
-        $MJTC_data = MJTC_request::get('post');
-        $MJTC_result = MJTC_includer::MJTC_getModel('slug')->resetAllSlugs();
+        // Retrieve and sanitize the nonce
+        $MJTC_nonce = sanitize_text_field( wp_unslash( MJTC_request::MJTC_getVar( '_wpnonce' ) ) );
+
+        /*
+         * Require capability to perform this action.
+         */
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_die( 
+                esc_html__( 'You do not have permission to reset slugs.', 'majestic-support' ), 
+                esc_html__( 'Access Denied', 'majestic-support' ), 
+                array( 'response' => 403 ) 
+            );
+        }
+
+        /*
+         * Verify nonce to protect against Cross-Site Request Forgery (CSRF).
+         */
+        if ( ! wp_verify_nonce( $MJTC_nonce, 'reset-all-slugs' ) ) {
+            wp_die( 
+                esc_html__( 'Security check failed.', 'majestic-support' ), 
+                esc_html__( 'Security Error', 'majestic-support' ), 
+                array( 'response' => 403 ) 
+            );
+        }
+
+        // $MJTC_data = MJTC_request::get('post'); // Unused variable removed
+        
+        // Execute the model logic
+        MJTC_includer::MJTC_getModel('slug')->resetAllSlugs();
+        
+        // Redirect securely
         $MJTC_url = admin_url("admin.php?page=majesticsupport_slug");
         wp_safe_redirect($MJTC_url);
         exit;

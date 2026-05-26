@@ -57,23 +57,71 @@ class MJTC_attachmentController {
     }
 
     static function deleteattachment() {
-        $MJTC_id = MJTC_request::MJTC_getVar('id');
-        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
-        if (! wp_verify_nonce( $MJTC_nonce, 'delete-attachement-'.$MJTC_id)  && !is_admin()) {
-            die( 'Security check Failed' );
+
+        $MJTC_id        = absint( MJTC_request::MJTC_getVar( 'id' ) );
+        $MJTC_ticket_id = absint( MJTC_request::MJTC_getVar( 'ticketid' ) );
+        $MJTC_nonce     = sanitize_text_field( wp_unslash( MJTC_request::MJTC_getVar( '_wpnonce' ) ) );
+
+        /*
+         * Only authenticated users should be allowed
+         * to perform attachment deletion.
+         */
+        if ( ! is_user_logged_in() ) {
+            wp_die(
+                esc_html__( 'You are not allowed to perform this action.', 'majestic-support' ),
+                esc_html__( 'Access Denied', 'majestic-support' ),
+                array( 'response' => 403 )
+            );
         }
-        $MJTC_call_from = MJTC_request::MJTC_getVar('call_from','',1);
-        MJTC_includer::MJTC_getModel('attachment')->removeAttachment($MJTC_id);
-        if (is_admin()) {
-            $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=addticket&majesticsupportid=" . MJTC_request::MJTC_getVar('ticketid'));
+
+        /*
+         * Verify nonce.
+         * Note: The !is_admin() bypass has been removed to ensure strict verification.
+         */
+        if ( ! wp_verify_nonce( $MJTC_nonce, 'delete-attachement-' . $MJTC_id ) ) {
+            wp_die(
+                esc_html__( 'Security check failed.', 'majestic-support' ),
+                esc_html__( 'Security Error', 'majestic-support' ),
+                array( 'response' => 403 )
+            );
+        }
+
+        $MJTC_call_from = absint( MJTC_request::MJTC_getVar( 'call_from', '', 1 ) );
+
+        // Proceed to remove the attachment
+        MJTC_includer::MJTC_getModel( 'attachment' )->removeAttachment( $MJTC_id );
+
+        // Determine redirect URL
+        if ( is_admin() ) {
+
+            $MJTC_url = admin_url(
+                'admin.php?page=majesticsupport_ticket&mjslay=addticket&majesticsupportid=' . $MJTC_ticket_id
+            );
+
         } else {
-            if($MJTC_call_from == 2){
-                $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'agent', 'mjslay'=>'staffaddticket','majesticsupportid'=>MJTC_request::MJTC_getVar('ticketid')));
-            }else{
-                $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'replies', 'mjslay'=>'replies'));
+
+            if ( 2 === $MJTC_call_from ) {
+
+                $MJTC_url = majesticsupport::makeUrl(
+                    array(
+                        'mjsmod'             => 'agent',
+                        'mjslay'             => 'staffaddticket',
+                        'majesticsupportid'  => $MJTC_ticket_id,
+                    )
+                );
+
+            } else {
+
+                $MJTC_url = majesticsupport::makeUrl(
+                    array(
+                        'mjsmod' => 'replies',
+                        'mjslay' => 'replies',
+                    )
+                );
             }
         }
-        wp_safe_redirect($MJTC_url);
+
+        wp_safe_redirect( $MJTC_url );
         exit;
     }
 

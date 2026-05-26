@@ -228,6 +228,18 @@ $MJTC_delay_type = array(
     (object) array('id' => '1', 'text' => esc_html(__('Days', 'majestic-support'))),
     (object) array('id' => '2', 'text' => esc_html(__('Hours', 'majestic-support')))
 );
+// Define the options for the dropdown
+$MJTC_delete_intervals = array(
+    (object) array('id' => '0',  'text' => esc_html(__('Never (Default)', 'majestic-support'))),
+    (object) array('id' => '1',  'text' => esc_html(__('1 Month', 'majestic-support'))),
+    (object) array('id' => '2',  'text' => esc_html(__('2 Months', 'majestic-support'))),
+    (object) array('id' => '3',  'text' => esc_html(__('3 Months', 'majestic-support'))),
+    (object) array('id' => '6',  'text' => esc_html(__('6 Months', 'majestic-support'))),
+    (object) array('id' => '12', 'text' => esc_html(__('1 Year', 'majestic-support'))),
+    (object) array('id' => '36', 'text' => esc_html(__('3 Years', 'majestic-support'))),
+    (object) array('id' => '60', 'text' => esc_html(__('5 Years', 'majestic-support'))),
+    (object) array('id' => '120', 'text' => esc_html(__('10 Years', 'majestic-support')))
+);
 // wp roles combo for new user
 global $wp_roles;
 $MJTC_roles = $wp_roles->get_names();
@@ -340,6 +352,7 @@ $majesticsupport_settings_config = [
                     ['id' => 'enable_instant_fixes', 'label' => __('Enable Instant Fixes', 'majestic-support'), 'type' => 'toggle', 'value' => majesticsupport::$_data[0]['enable_instant_fixes'] ?? '1', 'tooltip' => __('Enable or disable the instant fix suggestions on the ticket submission page.', 'majestic-support')],
                     ['id' => 'instant_fixes_min_score', 'label' => __('Instant Fixes Minimum Score', 'majestic-support'), 'type' => 'text', 'value' => majesticsupport::$_data[0]['instant_fixes_min_score'], 'tooltip' => __('Set the minimum NLP relevance score required to show an Instant Fix. Default is 0.5. Lower numbers show more results; higher numbers demand stricter matches.', 'majestic-support')],
                     ['id' => 'instant_fixes_limit', 'label' => __('Instant Fixes Record Limit', 'majestic-support'), 'type' => 'text', 'value' => majesticsupport::$_data[0]['instant_fixes_limit'], 'tooltip' => __('Set the maximum number of matches to pull from each source (Knowledge Base, FAQs, etc.) for the Instant Fixes section.', 'majestic-support')],
+                    ['id' => 'auto_delete_attachments_interval', 'label'   => __('Auto-Delete Old Attachments', 'majestic-support'), 'type'    => 'select', 'value'   => isset(majesticsupport::$_data[0]['auto_delete_attachments_interval']) ? majesticsupport::$_data[0]['auto_delete_attachments_interval'] : '0', 'tooltip' => __('Automatically delete physical attachment files from tickets that have been closed longer than this period to save server disk space.', 'majestic-support'), 'options' => $MJTC_delete_intervals],
                     ['id' => 'new_ticket_message', 'label' => __('New ticket message', 'majestic-support'), 'type' => 'wp_editor', 'value' => majesticsupport::$_data[0]['new_ticket_message'], 'tooltip' => __('This message will show on the new ticket', 'majestic-support')],
                 ]
             ],

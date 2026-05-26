@@ -12,7 +12,7 @@ class MJTC_deactivation {
         $MJTC_timestamp = wp_next_scheduled( 'ms_delete_expire_session_data' );
         wp_unschedule_event( $MJTC_timestamp, 'ms_delete_expire_session_data' );
         $MJTC_id = majesticsupport::getPageid();
-        majesticsupport::$_db->get_var("UPDATE `" . majesticsupport::$_db->prefix . "posts` SET post_status = 'draft' WHERE ID = ".esc_sql($MJTC_id));
+        majesticsupport::$_db->get_var("UPDATE `" . majesticsupport::$_db->prefix . "posts` SET post_status = 'draft' WHERE ID = ".intval($MJTC_id));
 
         //Delete capabilities
         $MJTC_role = get_role( 'administrator' );

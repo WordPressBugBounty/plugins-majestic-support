@@ -70,7 +70,7 @@ class MJTC_emailtemplateModel {
             $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = '" . esc_sql($tempatefor) . "'";
         }
         if (!empty($MJTC_formid)) {
-            $MJTC_query .= " AND multiformid = " . esc_sql($MJTC_formid);
+            $MJTC_query .= " AND multiformid = " . intval($MJTC_formid);
         } else {
             $MJTC_query .= " AND (multiformid IS NULL OR multiformid = '')";
         }

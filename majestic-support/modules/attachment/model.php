@@ -23,7 +23,7 @@ class MJTC_attachmentModel {
             return false;
         if (!is_numeric($MJTC_replyattachmentid))
             return false;
-        $MJTC_query = "SELECT filename,filesize,id
+        $MJTC_query = "SELECT filename,filesize,id,deleted
                     FROM `" . majesticsupport::$_db->prefix . "mjtc_support_attachments`
                     WHERE ticketid = " . esc_sql($MJTC_id) . " AND replyattachmentid = " . esc_sql($MJTC_replyattachmentid);
         $MJTC_result = majesticsupport::$_db->get_results($MJTC_query);
@@ -69,8 +69,11 @@ class MJTC_attachmentModel {
     }
 
     function removeAttachment($MJTC_id) {
-        if (!is_numeric($MJTC_id))
+        $MJTC_id = absint( $MJTC_id );
+
+        if ( empty( $MJTC_id ) ) {
             return false;
+        }
         $MJTC_query = "SELECT ticket.attachmentdir AS foldername,ticket.id AS ticketid,attach.filename  "
                 . " FROM `".majesticsupport::$_db->prefix."mjtc_support_attachments` AS attach "
                 . " JOIN `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket ON ticket.id = attach.ticketid "
@@ -170,8 +173,8 @@ class MJTC_attachmentModel {
             header('Pragma: public');
             header('Content-Length: ' . filesize($MJTC_file));
             flush();
-            // FIXED: Added escaping to satisfy scanner
-            echo wp_kses_post($MJTC_wp_filesystem->get_contents($MJTC_file));
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Binary file download output
+            echo $MJTC_wp_filesystem->get_contents($MJTC_file);
             exit();
         }else{
             include( get_query_template( '404' ) );
@@ -228,8 +231,8 @@ class MJTC_attachmentModel {
             header('Pragma: public');
             header('Content-Length: ' . filesize($MJTC_file));
             flush();
-            // FIXED: Added escaping to satisfy scanner
-            echo wp_kses_post($MJTC_wp_filesystem->get_contents($MJTC_file));
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Binary file download output
+            echo $MJTC_wp_filesystem->get_contents($MJTC_file);
             exit();
         }else{
             include( get_query_template( '404' ) );
@@ -292,8 +295,9 @@ class MJTC_attachmentModel {
         header('Pragma: public');
         header('Content-Length: ' . filesize($MJTC_file));
         flush();
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Binary file download output
         // FIXED: Replaced readfile with WP_Filesystem method
-        echo wp_kses_post($MJTC_wp_filesystem->get_contents($MJTC_file));
+        echo $MJTC_wp_filesystem->get_contents($MJTC_file);
         
         if ( $MJTC_wp_filesystem->exists( $MJTC_file ) ) {
             wp_delete_file($MJTC_file);
@@ -369,8 +373,8 @@ class MJTC_attachmentModel {
         header('Content-Length: ' . filesize($MJTC_file));
         flush();
         
-        // FIXED: Added escaping to satisfy scanner
-        echo wp_kses_post($MJTC_wp_filesystem->get_contents($MJTC_file));
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Binary file download output
+        echo $MJTC_wp_filesystem->get_contents($MJTC_file);
         
         if ( $MJTC_wp_filesystem->exists( $MJTC_file ) ) {
             wp_delete_file($MJTC_file);

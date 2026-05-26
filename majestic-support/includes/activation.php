@@ -183,8 +183,8 @@ class MJTC_activation {
                     ('tplink_tickets_user', '1', 'tplink', NULL),
                     ('show_breadcrumbs', '1', 'default', NULL),
                     ('productcode', 'mjsupport', 'default', NULL),
-                    ('versioncode', '1.1.6', 'default', NULL),
-                    ('productversion', '116', 'default', NULL),
+                    ('versioncode', '1.1.7', 'default', NULL),
+                    ('productversion', '117', 'default', NULL),
                     ('producttype', 'free', 'default', NULL),
                     ('tve_enabled', '2', 'default', NULL),
                     ('tve_mailreadtype', '3', 'default', NULL),
@@ -318,7 +318,8 @@ class MJTC_activation {
                     ('ticket_close_reason_type', '1', 'ticket', 'ticketclosereason'),
                     ('enable_instant_fixes', '1', 'default', NULL),
                     ('instant_fixes_min_score', '0.5', 'default', NULL),
-                    ('instant_fixes_limit', '2', 'default', NULL);";
+                    ('instant_fixes_limit', '2', 'default', NULL),
+                    ('auto_delete_attachments_interval', '0', 'default', NULL);";
             majesticsupport::$_db->query($MJTC_query);
 
             $MJTC_query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_departments` (

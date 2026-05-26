@@ -373,8 +373,31 @@ class MJTC_ticketController {
     }
 
     static function changepriority() {
-        $MJTC_id = MJTC_request::MJTC_getVar('ticketid');
-        $MJTC_priorityid = MJTC_request::MJTC_getVar('priority');
+        $MJTC_id         = absint(MJTC_request::MJTC_getVar('ticketid'));
+        $MJTC_priorityid = absint(MJTC_request::MJTC_getVar('priority'));
+        $MJTC_nonce      = MJTC_request::MJTC_getVar('_wpnonce');
+
+        if (in_array('agent', majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) { //staff
+            $MJTC_allow = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Change Ticket Priority');
+            if ($MJTC_allow == 0) {
+                wp_die( esc_html__( 'You are not allowed', 'majestic-support' ) );
+            }
+        }
+
+        if ( ! is_user_logged_in() ) {
+            wp_die( esc_html__( 'You must be logged in.', 'majestic-support' ), esc_html__( 'Access Denied', 'majestic-support' ), array( 'response' => 403 ) );
+        }
+
+        if ( ! wp_verify_nonce( $MJTC_nonce, 'action-ticket-') ) {
+            wp_die( esc_html__( 'Security check failed.', 'majestic-support' ), esc_html__( 'Security Error', 'majestic-support' ), array( 'response' => 403 ) );
+        }
+        if (!is_numeric($MJTC_id)){
+            wp_die( esc_html__( 'You are not allowed', 'majestic-support' ) );
+        }
+        if (!is_numeric($MJTC_priorityid)){
+            wp_die( esc_html__( 'You are not allowed', 'majestic-support' ) );
+        }
+
         MJTC_includer::MJTC_getModel('ticket')->changeTicketPriority($MJTC_id, $MJTC_priorityid);
         if (is_admin()) {
             $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_id));
@@ -604,16 +627,26 @@ class MJTC_ticketController {
     }
 
     static function downloadall() {
-        $MJTC_id = MJTC_request::MJTC_getVar('id');
+        $MJTC_id         = absint( MJTC_request::MJTC_getVar('id') );
+        $MJTC_downloadid = absint( MJTC_request::MJTC_getVar('downloadid') );
+        $MJTC_nonce      = MJTC_request::MJTC_getVar('_wpnonce');
+
+        if (! wp_verify_nonce( $MJTC_nonce, 'download-all-'.$MJTC_downloadid) ) {
+            die( 'Security check Failed' );
+        }
+
         MJTC_includer::MJTC_getModel('attachment')->getAllDownloads();
+
         if (is_admin()) {
             $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail");
         } else {
-            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'ticketdetail','majesticsupportid'=>'$MJTC_id','mspageid'=>majesticsupport::getPageid()));
+            $MJTC_url = majesticsupport::makeUrl(array('mjsmod'=>'ticket','mjslay'=>'ticketdetail','majesticsupportid'=>$MJTC_id,'mspageid'=>majesticsupport::getPageid()));
         }
+
         wp_safe_redirect($MJTC_url);
         exit;
     }
+
     static function downloadallforreply() {
         $MJTC_downloadid = MJTC_request::MJTC_getVar('downloadid');
         $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');

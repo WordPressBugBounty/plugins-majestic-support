@@ -4,8 +4,8 @@ Contributors: ahmadmj
 Donate link: https://majesticsupport.com
 Tags:  customer support, helpdesk, support desk, support plugin, ticket system
 Requires at least: 5.5
-Tested up to: 6.9
-Stable tag: 1.1.6
+Tested up to: 7.0
+Stable tag: 1.1.7
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -250,6 +250,13 @@ If you activate certain features in this plugin, the user's personal data, inclu
 * google fcm ([Google](https://policies.google.com/?hl=en))
 
 == Changelog ==
+= 1.1.7 =
+* Auto-Delete Old Attachments — Added a configurable dedicated background task to automatically purge closed ticket and note attachments, saving server storage space (supports multiple time periods).
+* Security: Enhanced Nonce Verification — Implemented strict nonce checks across all delete and reset actions to prevent CSRF vulnerabilities.
+* Security: Admin Capability Enforcement — Added capability checks (manage_options) to ensure only authorized users can perform sensitive administrative tasks.
+* Security: Strict Input Sanitization — Integrated robust sanitization for all request parameters, including ticket IDs and module keys, to prevent injection attacks.
+* Bug Fix: Fixed attachment corruption issue during "Download All" operations.
+
 = 1.1.6 =
 * Add Instant Fix Addon — Convert websites and YouTube videos into instant support answers.
 * Deep Web Crawling — Extract documentation up to 3 link levels deep.

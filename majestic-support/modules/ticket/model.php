@@ -71,15 +71,15 @@ class MJTC_ticketModel {
         if ($MJTC_email != null)
             $MJTC_inquery .= " AND ticket.email LIKE '%".esc_sql($MJTC_email)."%'";
         if ($MJTC_priority != null && is_numeric($MJTC_priority))
-            $MJTC_inquery .= " AND ticket.priorityid = ".esc_sql($MJTC_priority);
+            $MJTC_inquery .= " AND ticket.priorityid = ".intval($MJTC_priority);
         if ($MJTC_departmentid != null && is_numeric($MJTC_departmentid))
             $MJTC_inquery .= " AND ticket.departmentid = ".esc_sql($MJTC_departmentid);
         if ($MJTC_helptopicid != null && is_numeric($MJTC_helptopicid))
-            $MJTC_inquery .= " AND ticket.helptopicid = ".esc_sql($MJTC_helptopicid);
+            $MJTC_inquery .= " AND ticket.helptopicid = ".intval($MJTC_helptopicid);
         if ($MJTC_productid != null && is_numeric($MJTC_productid))
-            $MJTC_inquery .= " AND ticket.productid = ".esc_sql($MJTC_productid);
+            $MJTC_inquery .= " AND ticket.productid = ".intval($MJTC_productid);
         if ($MJTC_staffid != null && is_numeric($MJTC_staffid))
-            $MJTC_inquery .= " AND ticket.staffid = ".esc_sql($MJTC_staffid);
+            $MJTC_inquery .= " AND ticket.staffid = ".intval($MJTC_staffid);
 
         if ($MJTC_orderid != null && is_numeric($MJTC_orderid))
             $MJTC_inquery .= " AND ticket.wcorderid = ".esc_sql($MJTC_orderid);
@@ -172,7 +172,7 @@ class MJTC_ticketModel {
             $MJTC_uid = MJTC_majesticsupportphplib::MJTC_trim($MJTC_uid);
         }
         if($MJTC_uid != null && is_numeric($MJTC_uid)){
-            $MJTC_userquery = ' AND ticket.uid = '.esc_sql($MJTC_uid);
+            $MJTC_userquery = ' AND ticket.uid = '.intval($MJTC_uid);
         }
 
         // Pagination
@@ -338,24 +338,24 @@ class MJTC_ticketModel {
                 majesticsupport::$_data['filter']['email'] = $MJTC_email;
             }
             if ($MJTC_departmentid != null && is_numeric($MJTC_departmentid)) {
-                $MJTC_inquery .= " AND ticket.departmentid = '".esc_sql($MJTC_departmentid)."'";
+                $MJTC_inquery .= " AND ticket.departmentid = '".intval($MJTC_departmentid)."'";
                 majesticsupport::$_data['filter']['departmentid'] = $MJTC_departmentid;
             }
             if ($MJTC_helptopicid != null && is_numeric($MJTC_helptopicid)) {
-                $MJTC_inquery .= " AND ticket.helptopicid = '".esc_sql($MJTC_helptopicid)."'";
+                $MJTC_inquery .= " AND ticket.helptopicid = '".intval($MJTC_helptopicid)."'";
                 majesticsupport::$_data['filter']['helptopicid'] = $MJTC_helptopicid;
             }
             if ($MJTC_productid != null && is_numeric($MJTC_productid)) {
-                $MJTC_inquery .= " AND ticket.productid = '".esc_sql($MJTC_productid)."'";
+                $MJTC_inquery .= " AND ticket.productid = '".intval($MJTC_productid)."'";
                 majesticsupport::$_data['filter']['productid'] = $MJTC_productid;
             }
             if ($MJTC_priorityid != null && is_numeric($MJTC_priorityid)) {
-                $MJTC_inquery .= " AND ticket.priorityid = '".esc_sql($MJTC_priorityid)."'";
+                $MJTC_inquery .= " AND ticket.priorityid = '".intval($MJTC_priorityid)."'";
                 majesticsupport::$_data['filter']['priorityid'] = $MJTC_priorityid;
             }
             if(in_array('agent', majesticsupport::$_active_addons)){
                 if ($MJTC_staffid != null && is_numeric($MJTC_staffid)) {
-                    $MJTC_inquery .= " AND ticket.staffid = '".esc_sql($MJTC_staffid)."'";
+                    $MJTC_inquery .= " AND ticket.staffid = '".intval($MJTC_staffid)."'";
                     majesticsupport::$_data['filter']['staffid'] = $MJTC_staffid;
                 }
             }
@@ -388,7 +388,7 @@ class MJTC_ticketModel {
                     $MJTC_uid = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
                     $MJTC_stfid = MJTC_includer::MJTC_getModel('agent')->getStaffId($MJTC_uid);
                     if(is_numeric($MJTC_stfid)){
-                        $MJTC_inquery .= " AND ticket.staffid = '".esc_sql($MJTC_stfid)."'";
+                        $MJTC_inquery .= " AND ticket.staffid = '".intval($MJTC_stfid)."'";
                         majesticsupport::$_data['filter']['assignedtome'] = $MJTC_assignedtome;
                     }
                 }
@@ -509,7 +509,7 @@ class MJTC_ticketModel {
                         LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON ticket.departmentid = department.id
                         LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON ticket.priorityid = priority.id
                         JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS status ON ticket.status = status.id
-                        WHERE ticket.uid = ".esc_sql($MJTC_uid);
+                        WHERE ticket.uid = ".intval($MJTC_uid);
             $MJTC_query .= $MJTC_inquery;
             $total = majesticsupport::$_db->get_var($MJTC_query);
             majesticsupport::$_data[1] = MJTC_pagination::MJTC_getPagination($total,'myticket');
@@ -526,7 +526,7 @@ class MJTC_ticketModel {
                         LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_products` AS product ON ticket.productid = product.id
                         LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS replies 
                         ON ticket.id = replies.ticketid";
-            $MJTC_query .= " WHERE ticket.uid = ". esc_sql($MJTC_uid) . $MJTC_inquery;
+            $MJTC_query .= " WHERE ticket.uid = ". intval($MJTC_uid) . $MJTC_inquery;
             $MJTC_query .= " GROUP BY ticket.id ORDER BY " . majesticsupport::$_ordering . " LIMIT " . MJTC_pagination::MJTC_getOffset() . ", " . MJTC_pagination::MJTC_getLimit();
             majesticsupport::$_data[0] = majesticsupport::$_db->get_results($MJTC_query);
             do_action('MJTC_reset_addon_query');
@@ -538,28 +538,28 @@ class MJTC_ticketModel {
                         . "FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket "
                         . "LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON ticket.departmentid = department.id "
                         . "LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON ticket.priorityid = priority.id "
-                        . "WHERE ticket.uid = ".esc_sql($MJTC_uid)." AND (ticket.status != 5 AND ticket.status != 6)";
+                        . "WHERE ticket.uid = ".intval($MJTC_uid)." AND (ticket.status != 5 AND ticket.status != 6)";
                 majesticsupport::$_data['count']['openticket'] = majesticsupport::$_db->get_var($MJTC_query);
 
                 $MJTC_query = "SELECT COUNT(ticket.id) "
                         . "FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket "
                         . "LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON ticket.departmentid = department.id "
                         . "LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON ticket.priorityid = priority.id "
-                        . "WHERE ticket.uid = ". esc_sql($MJTC_uid) ." AND ticket.status = 4 ";
+                        . "WHERE ticket.uid = ". intval($MJTC_uid) ." AND ticket.status = 4 ";
                 majesticsupport::$_data['count']['answeredticket'] = majesticsupport::$_db->get_var($MJTC_query);
 
                 $MJTC_query = "SELECT COUNT(ticket.id) "
                         . "FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket "
                         . "LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON ticket.departmentid = department.id "
                         . "LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON ticket.priorityid = priority.id "
-                        . "WHERE ticket.uid = ". esc_sql($MJTC_uid) ." AND (ticket.status = 5 OR ticket.status = 6)";
+                        . "WHERE ticket.uid = ". intval($MJTC_uid) ." AND (ticket.status = 5 OR ticket.status = 6)";
                 majesticsupport::$_data['count']['closedticket'] = majesticsupport::$_db->get_var($MJTC_query);
 
                 $MJTC_query = "SELECT COUNT(ticket.id) "
                         . "FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket "
                         . "LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON ticket.departmentid = department.id "
                         . "LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON ticket.priorityid = priority.id "
-                        . "WHERE ticket.uid = ". esc_sql($MJTC_uid);
+                        . "WHERE ticket.uid = ". intval($MJTC_uid);
                 majesticsupport::$_data['count']['allticket'] = majesticsupport::$_db->get_var($MJTC_query);
             // }
         }
@@ -617,7 +617,7 @@ class MJTC_ticketModel {
             $MJTC_agent_conditions = "1 = 1";
         }else{
             if(is_numeric($MJTC_staffid)) {
-                $MJTC_agent_conditions = "ticket.staffid = ".esc_sql($MJTC_staffid)." OR ticket.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = " .esc_sql($MJTC_staffid).")";
+                $MJTC_agent_conditions = "ticket.staffid = ".intval($MJTC_staffid)." OR ticket.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = " .intval($MJTC_staffid).")";
             } else {
                 return false;
             }
@@ -626,7 +626,7 @@ class MJTC_ticketModel {
         $MJTC_userquery = "";
         $MJTC_uid = MJTC_request::MJTC_getVar('uid');
         if(is_numeric($MJTC_uid) && $MJTC_uid > 0){
-            $MJTC_userquery .= " AND ticket.uid = ".esc_sql($MJTC_uid);
+            $MJTC_userquery .= " AND ticket.uid = ".intval($MJTC_uid);
         }
         // Pagination
         $MJTC_query = "SELECT COUNT(ticket.id)
@@ -712,7 +712,7 @@ class MJTC_ticketModel {
                         LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON ticket.priorityid = priority.id
                         LEFT JOIN `".majesticsupport::$_wpprefixforuser."mjtc_support_users` AS user ON user.id = ticket.uid
                         LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_products` AS product ON ticket.productid = product.id
-                        WHERE ticket.id = " . esc_sql($MJTC_id);
+                        WHERE ticket.id = " . intval($MJTC_id);
             majesticsupport::$_data[0] = majesticsupport::$_db->get_row($MJTC_query);
             if (majesticsupport::$_db->last_error != null) {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
@@ -721,7 +721,7 @@ class MJTC_ticketModel {
                     //to store hash value of id against old tickets
                     if( majesticsupport::$_data[0]->hash == null ){
                         $MJTC_hash = $this->generateHash($MJTC_id);
-                        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='".esc_sql($MJTC_hash)."' WHERE id=".esc_sql($MJTC_id);
+                        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='".esc_sql($MJTC_hash)."' WHERE id=".intval($MJTC_id);
                         majesticsupport::$_db->query($MJTC_query);
                     } //end
                 }
@@ -787,7 +787,7 @@ class MJTC_ticketModel {
             LEFT JOIN `" . majesticsupport::$_db->prefix . "users` AS wp_user
                 ON wp_user.ID = ms_user.wpuid
             ".majesticsupport::$_addon_query['join']."
-            WHERE ticket.id = " . esc_sql($MJTC_id);
+            WHERE ticket.id = " . intval($MJTC_id);
         majesticsupport::$_data[0] = majesticsupport::$_db->get_row($MJTC_query);
 
         do_action('MJTC_reset_addon_query');
@@ -819,13 +819,13 @@ class MJTC_ticketModel {
             majesticsupport::$_data['activeticket'] = majesticsupport::$_db->get_var($MJTC_query);
 
             //get user tickets for right widget
-            $MJTC_inquery = " WHERE ticket.id != " . esc_sql($MJTC_id) . " AND ticket.uid = " . esc_sql(majesticsupport::$_data[0]->uid);
+            $MJTC_inquery = " WHERE ticket.id != " . intval($MJTC_id) . " AND ticket.uid = " . esc_sql(majesticsupport::$_data[0]->uid);
             if(!is_admin() && in_array('agent', majesticsupport::$_active_addons) && majesticsupport::$_data['user_staff']){
                 $MJTC_allowed = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('All Tickets');
                 if($MJTC_allowed != true){
                     $MJTC_staffid = MJTC_includer::MJTC_getModel('agent')->getStaffId(MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid());
                     if(is_numeric($MJTC_staffid)) {
-                        $MJTC_inquery .= " AND (ticket.staffid = ".esc_sql($MJTC_staffid)." OR ticket.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = ".esc_sql($MJTC_staffid)."))";
+                        $MJTC_inquery .= " AND (ticket.staffid = ".intval($MJTC_staffid)." OR ticket.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = ".intval($MJTC_staffid)."))";
                     }
                 }
             }
@@ -934,7 +934,7 @@ class MJTC_ticketModel {
 			if($MJTC_prefix) $MJTC_ticketid = $MJTC_prefix . $MJTC_ticketid;
 			if($MJTC_suffix) $MJTC_ticketid = $MJTC_ticketid . $MJTC_suffix;
 			
-            $MJTC_query = "SELECT count(ticketid) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE ticketid = '".esc_sql($MJTC_ticketid) ."'";
+            $MJTC_query = "SELECT count(ticketid) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE ticketid = '".intval($MJTC_ticketid) ."'";
             $MJTC_row = majesticsupport::$_db->get_var($MJTC_query);
             if($MJTC_row > 0)
                 $match = 'Y';
@@ -998,7 +998,7 @@ class MJTC_ticketModel {
 
     function countTicket($MJTC_emailorid) {
         if (is_numeric($MJTC_emailorid)) { // its UserID
-            $MJTC_counts = majesticsupport::$_db->get_var("SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE uid = " . esc_sql($MJTC_emailorid));
+            $MJTC_counts = majesticsupport::$_db->get_var("SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE uid = " . intval($MJTC_emailorid));
         } else { // its EmailAddress
             $MJTC_counts = majesticsupport::$_db->get_var("SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE email = '" . esc_sql($MJTC_emailorid) . "'");
         }
@@ -1012,7 +1012,7 @@ class MJTC_ticketModel {
 
     function countOpenTicket($MJTC_emailorid) {
         if (is_numeric($MJTC_emailorid)) { // its UserID
-            $MJTC_counts = majesticsupport::$_db->get_var("SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE uid = " . esc_sql($MJTC_emailorid) . " AND status != 5");
+            $MJTC_counts = majesticsupport::$_db->get_var("SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE uid = " . intval($MJTC_emailorid) . " AND status != 5");
         } else { // its EmailAddress
             $MJTC_counts = majesticsupport::$_db->get_var("SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE email = '" . esc_sql($MJTC_emailorid) . "' AND status != 5");
         }
@@ -1204,7 +1204,7 @@ class MJTC_ticketModel {
                 if (date_i18n('Y-m-d',MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_data['duedate'])) > date_i18n('Y-m-d',MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_curdate))){
                     $MJTC_data['isoverdue'] = 0;
                 }else{
-                    $MJTC_query = "SELECT ticket.duedate FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket WHERE ticket.id = ".esc_sql($MJTC_data['id']);
+                    $MJTC_query = "SELECT ticket.duedate FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket WHERE ticket.id = ".intval($MJTC_data['id']);
                     $MJTC_duedate = majesticsupport::$_db->get_var($MJTC_query);
                     if(date_i18n('Y-m-d',MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_data['duedate'])) != date_i18n('Y-m-d',MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_duedate))){
                         MJTC_ticketModel::MJTC_setMessage(esc_html(__('Due date error is not valid','majestic-support')),'error');
@@ -1299,7 +1299,7 @@ class MJTC_ticketModel {
         }
         if($MJTC_data['id'] != ''){
             if(is_numeric($MJTC_data['id'])){
-                $MJTC_query = "SELECT params FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE id = " . esc_sql($MJTC_data['id']);
+                $MJTC_query = "SELECT params FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE id = " . intval($MJTC_data['id']);
                 $MJTC_oParams = majesticsupport::$_db->get_var($MJTC_query);
 
                 if(!empty($MJTC_oParams)){
@@ -1354,7 +1354,7 @@ class MJTC_ticketModel {
 
             //update hash value against ticket
             $MJTC_hash = $this->generateHash($MJTC_ticketid);
-            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='".esc_sql($MJTC_hash)."' WHERE id=".esc_sql($MJTC_ticketid);
+            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='".esc_sql($MJTC_hash)."' WHERE id=".intval($MJTC_ticketid);
             majesticsupport::$_db->query($MJTC_query);
 
             // Storing Attachments
@@ -1481,7 +1481,7 @@ class MJTC_ticketModel {
         if ($MJTC_sendEmail == true) {
             MJTC_includer::MJTC_getModel('email')->sendMail(1, 1, $MJTC_ticketid); // Mailfor, Create Ticket, Ticketid
             //For Hook
-            $MJTC_ticketobject = majesticsupport::$_db->get_row("SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE id = " . esc_sql($MJTC_ticketid));
+            $MJTC_ticketobject = majesticsupport::$_db->get_row("SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE id = " . intval($MJTC_ticketid));
             do_action('MJTC_ticketcreate', $MJTC_ticketobject);
         }
         /* to store internal notes */
@@ -2165,6 +2165,10 @@ class MJTC_ticketModel {
     }
 
     function changeTicketPriority($MJTC_id, $MJTC_priorityid) {
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'action-ticket-') ) {
+            die( 'Security check Failed' );
+        }
         if (!is_numeric($MJTC_id))
             return false;
         if (!is_numeric($MJTC_priorityid))
@@ -2827,13 +2831,16 @@ class MJTC_ticketModel {
         $MJTC_curdate = date_i18n('Y-m-d');
         $MJTC_fromdate = date_i18n('Y-m-d', MJTC_majesticsupportphplib::MJTC_strtotime("now -1 month"));
 
-        $MJTC_query = "SELECT COUNT(id) FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00' OR lastreply = '') AND date(created) >= '".esc_sql($MJTC_fromdate)."'AND date(created) <= '".esc_sql($MJTC_curdate)."'";
+        $MJTC_query = "SELECT COUNT(id) FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00' OR lastreply IS NULL) AND date(created) >= '".esc_sql($MJTC_fromdate)."' AND date(created) <= '".esc_sql($MJTC_curdate)."'";
         $MJTC_result['open'] = majesticsupport::$_db->get_var($MJTC_query);
+        
         $MJTC_query = "SELECT COUNT(id) FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '".esc_sql($MJTC_fromdate)."' AND date(created) <= '".esc_sql($MJTC_curdate)."'";
         $MJTC_result['answered'] = majesticsupport::$_db->get_var($MJTC_query);
+        
         $MJTC_query = "SELECT COUNT(id) FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '".esc_sql($MJTC_fromdate)."' AND date(created) <= '".esc_sql($MJTC_curdate)."'";
         $MJTC_result['overdue'] = majesticsupport::$_db->get_var($MJTC_query);
-        $MJTC_query = "SELECT COUNT(id) FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00' AND lastreply != '') AND date(created) >= '".esc_sql($MJTC_fromdate)."' AND date(created) <= '".esc_sql($MJTC_curdate)."'";
+        
+        $MJTC_query = "SELECT COUNT(id) FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00' AND lastreply IS NOT NULL) AND date(created) >= '".esc_sql($MJTC_fromdate)."' AND date(created) <= '".esc_sql($MJTC_curdate)."'";
         $MJTC_result['pending'] = majesticsupport::$_db->get_var($MJTC_query);
 
         return $MJTC_result;
@@ -3885,6 +3892,99 @@ class MJTC_ticketModel {
 
         $MJTC_html = MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_html);
         return wp_json_encode($MJTC_html);
+    }
+    
+    function autoDeleteOldAttachmentsCron() {
+        // 1. Get the configured interval (in months)
+        $MJTC_interval = isset(majesticsupport::$_config['auto_delete_attachments_interval']) ? (int) majesticsupport::$_config['auto_delete_attachments_interval'] : 0;
+        
+        // If set to 0 (Never) or empty, exit the cron job
+        if ( $MJTC_interval === 0 ) {
+            return;
+        }
+
+        // 2. Calculate the cutoff date based on the interval
+        $MJTC_cutoff_date = date_i18n('Y-m-d H:i:s', MJTC_majesticsupportphplib::MJTC_strtotime("now -{$MJTC_interval} months"));
+
+        // FIXED: Initialize Filesystem at the top so it is available everywhere
+        global $wp_filesystem;
+        if ( empty( $wp_filesystem ) ) {
+            require_once( ABSPATH . '/wp-admin/includes/file.php' );
+            WP_Filesystem();
+        }
+
+        // 3. Query main attachments
+        $MJTC_query = "
+            SELECT a.id, a.filename, t.attachmentdir 
+            FROM `" . majesticsupport::$_db->prefix . "mjtc_support_attachments` AS a
+            INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS t 
+                ON a.ticketid = t.id
+            WHERE t.status IN (5, 6) 
+              AND t.closed <= '" . esc_sql($MJTC_cutoff_date) . "' 
+              AND (a.deleted = 0 OR a.deleted IS NULL)
+        ";
+
+        $MJTC_attachments = majesticsupport::$_db->get_results($MJTC_query);
+
+        if ( majesticsupport::$_db->last_error != null ) {
+            MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
+            return;
+        }
+
+        if ( !empty($MJTC_attachments) ) {
+            $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
+            $MJTC_maindir = wp_upload_dir();
+            $MJTC_base_path = $MJTC_maindir['basedir'] . '/' . $MJTC_datadirectory . '/attachmentdata/ticket/';
+
+            // 5. Loop through and delete
+            foreach ( $MJTC_attachments as $MJTC_attachment ) {
+                $MJTC_file_path = $MJTC_base_path . $MJTC_attachment->attachmentdir . '/' . $MJTC_attachment->filename;
+
+                // Delete physical file if it exists
+                if ( $wp_filesystem->exists( $MJTC_file_path ) ) {
+                    $wp_filesystem->delete( $MJTC_file_path );
+                }
+
+                // Update database: Mark as deleted (We keep the row and filename so we can display the message)
+                $MJTC_update_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_attachments` SET deleted = 1 WHERE id = " . (int) esc_sql($MJTC_attachment->id);
+                majesticsupport::$_db->query($MJTC_update_query);
+            }
+        }
+
+        // --- NEW ADDON LOGIC ---
+        if(in_array('note', majesticsupport::$_active_addons)) {
+            
+            $MJTC_note_query = "
+                SELECT n.id, n.filename, t.attachmentdir 
+                FROM `" . majesticsupport::$_db->prefix . "mjtc_support_notes` AS n
+                INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS t 
+                    ON n.ticketid = t.id
+                WHERE t.status IN (5, 6) 
+                  AND t.closed <= '" . esc_sql($MJTC_cutoff_date) . "' 
+                  AND n.filename != ''
+                  AND (n.filedeleted = 0 OR n.filedeleted IS NULL)
+            ";
+
+            $MJTC_note_attachments = majesticsupport::$_db->get_results($MJTC_note_query);
+
+            if ( !empty($MJTC_note_attachments) ) {
+                $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
+                $MJTC_maindir = wp_upload_dir();
+                $MJTC_note_base_path = $MJTC_maindir['basedir'] . '/' . $MJTC_datadirectory . '/attachmentdata/ticket/';
+
+                foreach ( $MJTC_note_attachments as $MJTC_note_att ) {
+                    $MJTC_file_path = $MJTC_note_base_path . $MJTC_note_att->attachmentdir . '/' . $MJTC_note_att->filename;
+
+                    // Use the WP_Filesystem object directly to delete
+                    if ( $wp_filesystem->exists( $MJTC_file_path ) ) {
+                        $wp_filesystem->delete( $MJTC_file_path );
+                    }
+
+                    $MJTC_update_note = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_notes` SET filedeleted = 1 WHERE id = " . (int) esc_sql($MJTC_note_att->id);
+                    majesticsupport::$_db->query($MJTC_update_note);
+                }
+            }
+        }
     }
 }
 ?>

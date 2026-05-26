@@ -600,8 +600,12 @@ class MJTC_customfields {
         }
         if($MJTC_field->userfieldtype=='file'){
 
-           if($MJTC_fvalue !=null){
-                $MJTC_path = admin_url("?page=majesticsupport_ticket&action=mstask&task=downloadbyname&id=".esc_attr(majesticsupport::$_data['custom']['ticketid'])."&name=".esc_attr($MJTC_fvalue));
+            if($MJTC_fvalue !=null){
+                if (is_admin()) {
+                    $MJTC_path = admin_url("?page=majesticsupport_ticket&action=mstask&task=downloadbyname&id=".esc_attr(majesticsupport::$_data['custom']['ticketid'])."&name=".esc_attr($MJTC_fvalue));
+                } else {
+                    $MJTC_path = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'downloadbyname','id'=> majesticsupport::$_data['custom']['ticketid'] ,'name'=>$MJTC_fvalue ,'mspageid'=>get_the_ID()));
+                }
                 $MJTC_html = '
                     <div class="mjtc_supportattachment">
                         ' .  wp_kses($MJTC_fvalue, MJTC_ALLOWED_TAGS) . '
@@ -675,7 +679,7 @@ class MJTC_customfields {
         $MJTC_formFilter = '';
         if(!in_array('multiform', majesticsupport::$_active_addons)){
             $MJTC_formid = MJTC_includer::MJTC_getModel('ticket')->getDefaultMultiFormId();
-            $MJTC_formFilter = " AND multiformid = " . esc_sql($MJTC_formid);
+            $MJTC_formFilter = " AND multiformid = " . intval($MJTC_formid);
         }
 
         $MJTC_query = "SELECT `rows`,`cols`,required,field,fieldtitle,isuserfield,userfieldtype,userfieldparams,depandant_field  FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE isuserfield = 1 AND published = 1 AND search_admin =1 AND fieldfor =" . esc_sql($MJTC_fieldfor);

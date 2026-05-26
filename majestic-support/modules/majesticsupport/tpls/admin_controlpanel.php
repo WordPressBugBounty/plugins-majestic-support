@@ -1105,7 +1105,7 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                 foreach (majesticsupport::$_data['tickethistory'] AS $MJTC_history) { ?>
                                                     <div class="mjtc-activity-log-inner-wrp" style="position: relative; padding-left: 24px; margin-bottom: 24px;">
                                                         <div style="background-color: <?php echo esc_attr($MJTC_history->prioritycolour); ?>;position: absolute; left: -4px; top: 4px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 1px #e5e7eb;"></div>
-                                                        <a class="mjtc-log-text" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_history->id); ?>">
+                                                        <a class="mjtc-log-text" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_history->referenceid); ?>">
                                                             <strong><?php echo esc_html(__("Ticket",'majestic-support')).' #'.esc_html(majesticsupport::MJTC_getVarValue($MJTC_history->ticketid)); ?></strong>
                                                             <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_history->message)); ?>
                                                         </a>
@@ -1497,7 +1497,7 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                                 $MJTC_shadow_color  = ($MJTC_index === 0) ? 'rgba(16,185,129,0.4)' : 'rgba(96,165,250,0.4)'; ?>
                                             <div class="mjtc-timer-row <?php echo ($MJTC_index === 0) ? 'mb-6 pb-6' : ''; ?>" style="<?php echo esc_attr($MJTC_border_style); ?> ; margin-bottom: 1.5rem; padding-bottom: 1.5rem;">
                                                 <div>
-                                                    <a class="mjtc-admin-font-bold" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_timer['ticket_id']); ?>">
+                                                    <a class="mjtc-admin-font-bold" title="<?php echo esc_attr(__('View Details','majestic-support')); ?>" href="?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=<?php echo esc_attr($MJTC_timer['id']); ?>">
                                                         <?php if($MJTC_timer['ticket_id'] > 0): ?>
                                                             #<?php echo esc_html($MJTC_timer['ticket_id']); ?> 
                                                         <?php endif; ?>

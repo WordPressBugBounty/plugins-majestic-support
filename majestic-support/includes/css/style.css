@@ -736,6 +736,9 @@ div.ms-main-up-wrapper .mjtc-support-multiform-row .mjtc-support-table-body-col.
 .mjtc-support-info-icon[data-tooltip] {position: relative;}
 .mjtc-support-info-icon:hover::after {content: attr(data-tooltip);position: absolute;bottom: 125%;left: 50%;transform: translateX(-50%);background: #0f172a;color: #fff;padding: 8px 12px;border-radius: 6px;font-size: 12px;white-space: normal;width: 170px;z-index: 100;box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);}
 /* AI Smart Reply End */
+.mjtc-attachment-purged {display: flex;align-items: center;background: #f8f9fa;border: 1px dashed #adb5bd;border-radius: 4px;padding: 6px 12px;color: #6c757d;font-size: 13px;margin: 4px 0.75rem;cursor: default;user-select: none;}
+.mjtc-attachment-purged .mjtc-purged-icon {margin-right: 8px;flex-shrink: 0;opacity: 0.8;}
+.mjtc-attachment-purged .mjtc-purged-filename {text-decoration: line-through;margin-right: 4px;color: #495057;font-weight: 600;}
 .mjtc-fixes-grid {display: flex;flex-wrap: wrap;gap: 20px;}
 .mjtc-instant-fixes-wrapper {width: 100%;background: #ffffff;border: 2px solid #6366f1;border-radius: 48px;padding: 35px;margin: 30px 0;box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.15);}
 .mjtc-fixes-ai-status {display: flex;align-items: center;gap: 20px;margin-bottom: 30px;}
@@ -853,6 +856,7 @@ div.ms-main-up-wrapper .mjtc-support-thread-data-header-leftwrp strong { color: 
 div.ms-main-up-wrapper .mjtc-support-staff-badge { font-size: 0.8em; background: var(--mjtc-color-1); color: white; padding: 2px 8px; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;}
 div.ms-main-up-wrapper .mjtc-support-thread-data.note-msg { padding: 1.5em 50px 1.5em 1.5em; font-size: 0.95em; line-height: 1.6; color: var(--mjtc-color-2); }
 div.ms-main-up-wrapper .mjtc-support-thread-cnt.agent-bubble .mjtc-support-thread-data.note-msg { padding: 1.5em;justify-content: flex-start;gap:1em;flex-direction: column;align-items: flex-start;}
+div.ms-main-up-wrapper .mjtc-support-thread-cnt .mjtc-support-thread-data.note-msg .mjtc-support-message-thread-data {width: 100%;display: flex;align-items: center;flex-wrap: wrap;flex: 1 1 auto;justify-content: space-between;position: relative;padding: 0 0.5em;font-size: 0.95em;line-height: 1.6;color: var(--mjtc-color-2);}
 div.ms-main-up-wrapper .mjtc-support-thread-cnt.agent-bubble .mjtc-support-thread-data.note-msg .mjtc-support-message-thread-data a{font-weight:bold;color:var(--mjtc-color-1);}
 div.ms-main-up-wrapper .mjtc-support-thread-time-stamp { font-size: 0.75em; color: #94a3b8; font-weight: 500;}
 div.ms-main-up-wrapper .mjtc-support-attachments-wrp { margin-top: 1.5em; border-top: 1px dashed var(--mjtc-color-6); padding-top: 1em;width: 100%;}
@@ -1194,6 +1198,11 @@ div.ms-main-up-wrapper .mjtc-placeholder-icon {width: 48px;height: 48px;margin-b
 /* merge ticket */
 div.ms-main-up-wrapper .ms-merge-popup-wrapper{max-width: 1280px;width: 100%;max-height: 85%;overflow: auto;}
 /* assign to agent popup */
+div.ms-main-up-wrapper #popupforinternalnote {background: var(--mjtc-color-7);width: 100%;border-radius: 16px;overflow: hidden;display: flex;z-index: 1000;flex-direction: column;margin: 0 auto;max-height: 90vh;border: 1px solid var(--mjtc-color-6);position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);border-radius: 12px;max-width: 1080px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);max-height: 80%;overflow-y: auto;}
+div.ms-main-up-wrapper #popupforinternalnote form{padding: 1.5em 2.5em 2.5em 2.5em;overflow-y: auto;background: #fff;}
+div.ms-main-up-wrapper .internalnote-popup-header-close-img svg {width: 20px;height: 20px;stroke: currentColor;}
+div.ms-main-up-wrapper .internalnote-popup-header-close-img{cursor: pointer;width: 36px;height: 36px;border-radius: 12px;display: flex;align-items: center;justify-content: center;transition: all 0.2s ease;color: var(--mjtc-color-5);}
+div.ms-main-up-wrapper .internalnote-popup-header-close-img:hover{background: #fee2e2;color: #ef4444;transform: rotate(90deg);}
 div.ms-main-up-wrapper #popupforagenttransfer {background: var(--mjtc-color-7);width: 100%;border-radius: 16px;overflow: hidden;display: flex;z-index: 1000;flex-direction: column;margin: 0 auto;max-height: 90vh;border: 1px solid var(--mjtc-color-6);position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);border-radius: 12px;max-width: 1080px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);max-height: 80%;overflow-y: auto;}
 div.ms-main-up-wrapper #popupforagenttransfer form, div.ms-main-up-wrapper #popupfordepartmenttransfer form{padding: 1.5em 2.5em 2.5em 2.5em;overflow-y: auto;background: #fff;}
 div.ms-main-up-wrapper #popupforagenttransfer form.mjtc-support-asiignagent-form{gap: 1.5rem;display: flex;flex-direction: column;}

@@ -159,7 +159,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		                        <p><?php echo esc_html(__('This release focuses on strengthening security while introducing powerful new features and flexibility across the system. We’ve added configuration-based reply ordering in ticket details and significantly enhanced field ordering with new options such as placeholders, descriptions, admin-only controls, default values, and multiple visibility conditions. Product selection and custom status support have also been introduced, along with a token-based option for checking ticket status.
                                 On the usability side, we’ve improved the priority form with a color preview option and updated minimum required fields for better validation. User experience has been enhanced by adding GDPR fields to the registration form and introducing configuration-based user avatars.
                                 A major highlight of this release is the introduction of AI-powered reply suggestions, helping agents respond more efficiently. Additionally, we’ve added SupportCandy import functionality to simplify migration from other systems. Overall, this update delivers better security, smarter automation, and more control for administrators.', 'majestic-support')); ?></p>
-		                        <span class="ms-changelog-date"><?php echo esc_html(__('Released on', 'majestic-support')).' '.date_i18n( 'F j, Y', strtotime( '2025-01-03' ) ); ?></span>
+		                        <span class="ms-changelog-date"><?php echo esc_html(__('Released on', 'majestic-support')).' '.esc_html(date_i18n( 'F j, Y', strtotime( '2025-01-03' ) )); ?></span>
 		                    </div>
 		                </div>
 		                <div class="ms-changelog-item">
@@ -167,7 +167,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		                    <div class="ms-changelog-content">
 		                        <h4><?php echo esc_html(__('Security Update', 'majestic-support')); ?></h4>
 		                        <p><?php echo esc_html(__('This release fixes security issues reported during the WordPress review process and improves the overall security of the plugin. Users are strongly encouraged to update to the latest version.', 'majestic-support')); ?></p>
-		                        <span class="ms-changelog-date"><?php echo esc_html(__('Released on', 'majestic-support')).' '.date_i18n( 'F j, Y', strtotime( '2025-12-28' ) ); ?></span>
+		                        <span class="ms-changelog-date"><?php echo esc_html(__('Released on', 'majestic-support')).' '.esc_html(date_i18n( 'F j, Y', strtotime( '2025-12-28' ) )); ?></span>
 		                    </div>
 		                </div>
 		                <div class="ms-changelog-item">
@@ -175,7 +175,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		                    <div class="ms-changelog-content">
 		                        <h4><?php echo esc_html(__('Security & Bug Fix Update', 'majestic-support')); ?></h4>
 		                        <p><?php echo esc_html(__('This release includes important security fixes along with general bug fixes. Issues identified during the WordPress plugin review process have been resolved, and overall stability and performance have been improved.', 'majestic-support')); ?></p>
-		                        <span class="ms-changelog-date"><?php echo esc_html(__('Released on', 'majestic-support')).' '.date_i18n( 'F j, Y', strtotime( '2025-08-10' ) ); ?></span>
+		                        <span class="ms-changelog-date"><?php echo esc_html(__('Released on', 'majestic-support')).' '.esc_html(date_i18n( 'F j, Y', strtotime( '2025-08-10' ) )); ?></span>
 		                    </div>
 		                </div>
 		            </div>

@@ -254,7 +254,7 @@ class MJTC_fieldorderingModel {
                 // new start
 
                 if (!empty($MJTC_data['id'])) {
-                    $MJTC_query = "SELECT id, visible_field FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE visible_field LIKE '%" . esc_sql($MJTC_fieldname) . "%' AND multiformid = ".esc_sql($MJTC_data['multiformid']);
+                    $MJTC_query = "SELECT id, visible_field FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE visible_field LIKE '%" . esc_sql($MJTC_fieldname) . "%' AND multiformid = ".intval($MJTC_data['multiformid']);
                     $MJTC_query_results = majesticsupport::$_db->get_results($MJTC_query);
                     
                     if (!empty($MJTC_query_results)) {
@@ -262,7 +262,7 @@ class MJTC_fieldorderingModel {
                             $MJTC_query_fieldname = $MJTC_query_result->visible_field;
                             $MJTC_query_fieldname = MJTC_majesticsupportphplib::MJTC_str_replace(',' . $MJTC_fieldname, '', $MJTC_query_fieldname);
                             $MJTC_query_fieldname = MJTC_majesticsupportphplib::MJTC_str_replace($MJTC_fieldname, '', $MJTC_query_fieldname);
-                            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET visible_field = '" . esc_sql($MJTC_query_fieldname) . "' WHERE id = " . esc_sql($MJTC_query_result->id) . " AND multiformid = ".esc_sql($MJTC_data['multiformid']);
+                            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET visible_field = '" . esc_sql($MJTC_query_fieldname) . "' WHERE id = " . esc_sql($MJTC_query_result->id) . " AND multiformid = ".intval($MJTC_data['multiformid']);
                             majesticsupport::$_db->query($MJTC_query);
                         }
                     }
@@ -308,7 +308,7 @@ class MJTC_fieldorderingModel {
                         }
 
                         // --- your database update code ---
-                        $MJTC_query = "SELECT visible_field FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE field = '" . esc_sql($MJTC_visibleParents[$MJTC_index]) . "' AND multiformid = ".esc_sql($MJTC_data['multiformid']);
+                        $MJTC_query = "SELECT visible_field FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE field = '" . esc_sql($MJTC_visibleParents[$MJTC_index]) . "' AND multiformid = ".intval($MJTC_data['multiformid']);
                         $MJTC_old_fieldname = majesticsupport::$_db->get_var($MJTC_query);
                         $MJTC_new_fieldname = $MJTC_fieldname;
 
@@ -321,7 +321,7 @@ class MJTC_fieldorderingModel {
                             $MJTC_new_fieldname = $MJTC_old_fieldname . ',' . $MJTC_new_fieldname;
                         }
 
-                        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET visible_field = '" . esc_sql($MJTC_new_fieldname) . "' WHERE field = '" . esc_sql($MJTC_visibleParents[$MJTC_index]) . "' AND multiformid = ".esc_sql($MJTC_data['multiformid']);
+                        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET visible_field = '" . esc_sql($MJTC_new_fieldname) . "' WHERE field = '" . esc_sql($MJTC_visibleParents[$MJTC_index]) . "' AND multiformid = ".intval($MJTC_data['multiformid']);
                         majesticsupport::$_db->query($MJTC_query);
 
                         if (majesticsupport::$_db->last_error != null) {
@@ -342,7 +342,7 @@ class MJTC_fieldorderingModel {
                 if ($MJTC_data['fieldfor'] != 3) {
                     $MJTC_data['visibleparams'] = '';
                     // If editing old field
-                    $MJTC_query = "SELECT id, visible_field FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE visible_field LIKE '%" . esc_sql($MJTC_fieldname) . "%' AND multiformid = ".esc_sql($MJTC_data['multiformid']);
+                    $MJTC_query = "SELECT id, visible_field FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE visible_field LIKE '%" . esc_sql($MJTC_fieldname) . "%' AND multiformid = ".intval($MJTC_data['multiformid']);
                     $MJTC_query_results = majesticsupport::$_db->get_results($MJTC_query);
                     if (!empty($MJTC_query_results)) {
                         foreach ($MJTC_query_results as $MJTC_query_result) {
@@ -616,13 +616,13 @@ class MJTC_fieldorderingModel {
             FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering 
             WHERE (
                 fieldfor = " . esc_sql($MJTC_fieldfor) . " 
-                AND multiformid = '" . esc_sql($MJTC_multiformid) . "' 
+                AND multiformid = '" . intval($MJTC_multiformid) . "' 
                 AND field IN ($MJTC_builtin_fields_sql) 
                 $MJTC_wherequeryforedit $MJTC_wherequery
             ) 
             OR (
                 fieldfor = " . esc_sql($MJTC_fieldfor) . " 
-                AND multiformid = '" . esc_sql($MJTC_multiformid) . "' 
+                AND multiformid = '" . intval($MJTC_multiformid) . "' 
                 AND userfieldtype IN ('combo', 'text', 'checkbox', 'date', 'email', 'radio', 'multiple') 
                 $MJTC_wherequeryforedit $MJTC_wherequery
             )";
@@ -947,20 +947,31 @@ class MJTC_fieldorderingModel {
             return true;
     }
 
-    function getUserfieldsfor($MJTC_fieldfor,$MJTC_multiformid='') {
-        if (!is_numeric($MJTC_fieldfor))
+    function getUserfieldsfor($MJTC_fieldfor, $MJTC_multiformid = '') {
+        // 1. Strict numeric check for $MJTC_fieldfor (Cast to integer for safety)
+        if (!is_numeric($MJTC_fieldfor)){
             return false;
+        }
+        $MJTC_fieldfor = esc_sql($MJTC_fieldfor);
+
+        // 2. Determine visibility criteria
         if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()) {
             $MJTC_published = ' isvisitorpublished = 1 ';
         } else {
             $MJTC_published = ' published = 1 ';
         }
+
+        // 3. Securely handle the optional multiformid via integer casting
         $MJTC_inquery = '';
-        if (isset($MJTC_multiformid) && $MJTC_multiformid != '') {
-            $MJTC_inquery = " AND multiformid = ".esc_sql($MJTC_multiformid);
+        if (isset($MJTC_multiformid) && $MJTC_multiformid !== '') {
+            $MJTC_inquery = " AND multiformid = " . intval($MJTC_multiformid);
         }
-        $MJTC_query = "SELECT field,userfieldparams,userfieldtype,fieldtitle FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE fieldfor = " . esc_sql($MJTC_fieldfor) . " AND isuserfield = 1 AND " . $MJTC_published;
-        $MJTC_query .= $MJTC_inquery." ORDER BY field ";
+
+        // 4. Construct the query using the safe, casted integers
+        $MJTC_query = "SELECT field, userfieldparams, userfieldtype, fieldtitle FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE fieldfor = " . esc_sql($MJTC_fieldfor) . " AND isuserfield = 1 AND " . $MJTC_published;
+        $MJTC_query .= $MJTC_inquery . " ORDER BY field ";
+        
+        // 5. Execute query
         $MJTC_fields = majesticsupport::$_db->get_results($MJTC_query);
         return $MJTC_fields;
     }
@@ -991,9 +1002,9 @@ class MJTC_fieldorderingModel {
         $MJTC_inquery = '';
         if (isset($MJTC_formid) && $MJTC_formid == 0) {
             $MJTC_defaultformid = MJTC_includer::MJTC_getModel('ticket')->getDefaultMultiFormId();
-            $MJTC_inquery = " AND multiformid = ".esc_sql($MJTC_defaultformid);
+            $MJTC_inquery = " AND multiformid = ".intval($MJTC_defaultformid);
         } elseif (isset($MJTC_formid) && $MJTC_formid != '') {
-            $MJTC_inquery = " AND multiformid = ".esc_sql($MJTC_formid);
+            $MJTC_inquery = " AND multiformid = ".intval($MJTC_formid);
         }
         $MJTC_query = "SELECT field,fieldtitle FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE fieldfor = " . esc_sql($MJTC_fieldfor) . $MJTC_published;
         $MJTC_query .= $MJTC_inquery;
@@ -1031,7 +1042,7 @@ class MJTC_fieldorderingModel {
         $MJTC_inquery = '';
         if (isset($MJTC_formid) && $MJTC_formid == 0) {
             $MJTC_defaultformid = MJTC_includer::MJTC_getModel('ticket')->getDefaultMultiFormId();
-            $MJTC_inquery = " AND multiformid = ".esc_sql($MJTC_defaultformid);
+            $MJTC_inquery = " AND multiformid = ".intval($MJTC_defaultformid);
         } elseif (isset($MJTC_formid) && $MJTC_formid != '') {
             $MJTC_inquery = " AND multiformid = ".intval($MJTC_formid);
         }

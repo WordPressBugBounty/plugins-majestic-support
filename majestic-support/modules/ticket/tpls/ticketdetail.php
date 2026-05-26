@@ -1440,7 +1440,7 @@ if (majesticsupport::$_config['offline'] == 2) {
             </div>
         </div>
 
-        <form id="ms-reply-form" style="display:none" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_reply&task=saveeditedreply&action=mstask"),"save-edited-reply-".majesticsupport::$_data[0]->id)); ?>">
+        <form id="ms-reply-form" style="display:none" method="post" action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'reply','task'=>'saveeditedreply')),"save-edited-reply-".majesticsupport::$_data[0]->id)); ?>">
             <div class="mjtc-support-edit-form-wrp">
                 <div class="mjtc-support-form-field-wrp">
                     <?php wp_editor('', 'mjsupport_replytext', array('media_buttons' => false,'editor_height' => 200, 'textarea_rows' => 20,)); ?>
@@ -1450,13 +1450,16 @@ if (majesticsupport::$_config['offline'] == 2) {
                 <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('ppok', esc_html(__('Save', 'majestic-support')), array('class' => 'mjtc-support-priorty-save', 'onclick' => "return checktinymcebyid('mjsupport_replytext');")), MJTC_ALLOWED_TAGS); ?>
                 <?php echo wp_kses(MJTC_formfield::MJTC_button('canceleeeee', esc_html(__('Cancel', 'majestic-support')), array('class' => 'mjtc-support-priorty-cancel','onclick'=>'closePopup();')), MJTC_ALLOWED_TAGS); ?>
             </div>
+            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('action', 'reply_saveeditedreply'), MJTC_ALLOWED_TAGS); ?>
+            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('form_request', 'majesticsupport'), MJTC_ALLOWED_TAGS); ?>
+            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('mspageid', get_the_ID()), MJTC_ALLOWED_TAGS); ?>
             <?php echo wp_kses(MJTC_formfield::MJTC_hidden('reply-replyid', ''), MJTC_ALLOWED_TAGS); ?>
             <?php echo wp_kses(MJTC_formfield::MJTC_hidden('reply-tikcetid',majesticsupport::$_data[0]->id), MJTC_ALLOWED_TAGS); ?>
         </form>
         <?php if(in_array('timetracking', majesticsupport::$_active_addons)){ ?>
 
         <form id="ms-time-edit-form" style="display:none" method="post"
-            action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_reply&task=saveeditedtime&action=mstask"),"save-edited-time-reply-".majesticsupport::$_data[0]->id)); ?>">
+            action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'reply','task'=>'saveeditedtime')),"save-edited-time-reply-".majesticsupport::$_data[0]->id)); ?>">
             <div class="mjtc-support-edit-form-wrp">
                 <div class="mjtc-support-edit-field-title">
                     <?php echo esc_html(__('Time', 'majestic-support')); ?>&nbsp;<span style="color: red">*</span>
@@ -1488,12 +1491,16 @@ if (majesticsupport::$_config['offline'] == 2) {
                     <?php echo wp_kses(MJTC_formfield::MJTC_button('canceleeeeee', esc_html(__('Cancel', 'majestic-support')), array('class' => 'mjtc-support-priorty-cancel','onclick'=>'closePopup();')), MJTC_ALLOWED_TAGS); ?>
                 </div>
             </div>
+            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('action', 'reply_saveeditedtime'), MJTC_ALLOWED_TAGS); ?>
+            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('form_request', 'majesticsupport'), MJTC_ALLOWED_TAGS); ?>
+            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('mspageid', get_the_ID()), MJTC_ALLOWED_TAGS); ?>
+
             <?php echo wp_kses(MJTC_formfield::MJTC_hidden('reply-replyid', ''), MJTC_ALLOWED_TAGS); ?>
             <?php echo wp_kses(MJTC_formfield::MJTC_hidden('reply-tikcetid',majesticsupport::$_data[0]->id), MJTC_ALLOWED_TAGS); ?>
             <?php echo wp_kses(MJTC_formfield::MJTC_hidden('time-confilct',''), MJTC_ALLOWED_TAGS); ?>
         </form>
 
-        <form id="ms-note-edit-form" style="display:none" method="post" action="<?php echo esc_url(wp_nonce_url(admin_url("admin.php?page=majesticsupport_note&task=saveeditedtime&action=mstask"),"save-edited-time-note-".majesticsupport::$_data[0]->id)); ?>">
+        <form id="ms-note-edit-form" style="display:none" method="post" action="<?php echo esc_url(wp_nonce_url(majesticsupport::makeUrl(array('mjsmod'=>'note','task'=>'saveeditedtime')),"save-edited-time-note-".majesticsupport::$_data[0]->id)); ?>">
             <div class="mjtc-col-md-12 mjtc-form-wrapper">
                 <div class="mjtc-col-md-12 mjtc-form-title"><?php echo esc_html(__('Time', 'majestic-support')); ?>
                 </div>
@@ -1528,6 +1535,9 @@ if (majesticsupport::$_config['offline'] == 2) {
                 <?php echo wp_kses(MJTC_formfield::MJTC_submitbutton('ppppok', esc_html(__('Save', 'majestic-support')), array('class' => 'button')),MJTC_ALLOWED_TAGS); ?>
                 <?php echo wp_kses(MJTC_formfield::MJTC_button('cancele', esc_html(__('Cancel', 'majestic-support')), array('class' => 'button', 'onclick'=>'closePopup();')), MJTC_ALLOWED_TAGS); ?>
             </div>
+            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('action', 'reply_saveeditedtime'), MJTC_ALLOWED_TAGS); ?>
+            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('form_request', 'majesticsupport'), MJTC_ALLOWED_TAGS); ?>
+            <?php echo wp_kses(MJTC_formfield::MJTC_hidden('mspageid', get_the_ID()), MJTC_ALLOWED_TAGS); ?>
             <?php echo wp_kses(MJTC_formfield::MJTC_hidden('note-noteid', ''), MJTC_ALLOWED_TAGS); ?>
             <?php echo wp_kses(MJTC_formfield::MJTC_hidden('note-tikcetid',majesticsupport::$_data[0]->id), MJTC_ALLOWED_TAGS); ?>
             <?php echo wp_kses(MJTC_formfield::MJTC_hidden('time-confilct',''), MJTC_ALLOWED_TAGS); ?>
@@ -2007,30 +2017,62 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 if (!empty(majesticsupport::$_data['ticket_attachment'])) { ?>
                                     <div class="mjtc-support-attachments-wrp">
                                         <?php
+                                        $MJTC_ticketdata = '';
+                                        $MJTC_active_count = 0; // Counter for active attachments
+
                                         foreach (majesticsupport::$_data['ticket_attachment'] AS $MJTC_attachment) {
-                                            $MJTC_path = majesticsupport::makeUrl(array('mjsmod'=>'ticket','task'=>'downloadbyid','action'=>'mstask','id'=> $MJTC_attachment->id ,'mspageid'=>get_the_ID()));
-                                            $MJTC_data = wp_check_filetype($MJTC_attachment->filename);
-                                            $type = $MJTC_data['type'];
-                                            $MJTC_ticketdata = '
-                                            <div class="mjtc_supportattachment">
-                                                <span class="mjtc_supportattachment_fname">
-                                                    ' . esc_html($MJTC_attachment->filename) . '
-                                                </span>
-                                                <a class="mjtc-download-button" target="_blank" href="' . esc_url($MJTC_path) . '">
-                                                    <svg class="mjtc-support-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                                </a>';
-                                                echo wp_kses($MJTC_ticketdata, MJTC_ALLOWED_TAGS);
-                                                if(MJTC_majesticsupportphplib::MJTC_strpos($type, "image") !== false) {
-                                                    $MJTC_ticketdata = '
-                                                    <a data-gall="gallery-ticket-thread" class="mjtc-download-button venobox" data-vbtype="image" title="'.esc_html(__('View','majestic-support')).'" href="'. esc_url(MJTC_includer::MJTC_getModel('attachment')->getAttachmentImage($MJTC_attachment->id)) .'"  target="_blank">
-                                                        <svg class="mjtc-support-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                            
+                                            // Check if the attachment was purged by the cron job
+                                            if ( $MJTC_attachment->deleted == 1 ) {
+                                                
+                                                $MJTC_ticketdata .= '<div class="mjtc-attachment-purged">';
+                                                $MJTC_ticketdata .= '<svg class="mjtc-purged-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">';
+                                                $MJTC_ticketdata .= '<path d="M6.854 7.146a.5.5 0 1 0-.708.708L7.293 9l-1.147 1.146a.5.5 0 0 0 .708.708L8 9.707l1.146 1.147a.5.5 0 0 0 .708-.708L8.707 9l1.147-1.146a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146z"/>';
+                                                $MJTC_ticketdata .= '<path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>';
+                                                $MJTC_ticketdata .= '</svg>';
+                                                $MJTC_ticketdata .= '<span>';
+                                                $MJTC_ticketdata .= '<span class="mjtc-purged-filename">' . esc_html( $MJTC_attachment->filename ) . '</span>';
+                                                $MJTC_ticketdata .= ' ' . esc_html__( '(Removed automatically to save space)', 'majestic-support' );
+                                                $MJTC_ticketdata .= '</span>';
+                                                $MJTC_ticketdata .= '</div>';
+                                                
+                                            } else {
+                                                
+                                                $MJTC_active_count++; // Increment the active counter
+
+                                                $MJTC_path = majesticsupport::makeUrl(array('mjsmod'=>'ticket','task'=>'downloadbyid','action'=>'mstask','id'=> $MJTC_attachment->id ,'mspageid'=>get_the_ID()));
+                                                $MJTC_data = wp_check_filetype($MJTC_attachment->filename);
+                                                $type = $MJTC_data['type'];
+                                                
+                                                $MJTC_ticketdata .= '
+                                                <div class="mjtc_supportattachment">
+                                                    <span class="mjtc_supportattachment_fname">
+                                                        ' . esc_html($MJTC_attachment->filename) . '
+                                                    </span>
+                                                    <a class="mjtc-download-button" target="_blank" href="' . esc_url($MJTC_path) . '">
+                                                        <svg class="mjtc-support-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                                                     </a>';
-                                                    echo wp_kses($MJTC_ticketdata, MJTC_ALLOWED_TAGS);
-                                                }
-                                            echo wp_kses('</div>', MJTC_ALLOWED_TAGS);
+                                                    
+                                                    if(MJTC_majesticsupportphplib::MJTC_strpos($type, "image") !== false) {
+                                                        $MJTC_ticketdata .= '
+                                                        <a data-gall="gallery-ticket-thread" class="mjtc-download-button venobox" data-vbtype="image" title="'.esc_html(__('View','majestic-support')).'" href="'. esc_url(MJTC_includer::MJTC_getModel('attachment')->getAttachmentImage($MJTC_attachment->id)) .'"  target="_blank">
+                                                            <svg class="mjtc-support-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                                        </a>';
+                                                    }
+                                                    
+                                                $MJTC_ticketdata .= '</div>';
+                                            }
                                         }
-                                        $MJTC_ticketdata = '<a class="mjtc-all-download-button" target="_blank" href="' . esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'task'=>'downloadall', 'internalid'=> majesticsupport::$_data[0]->internalid, 'action'=>'mstask', 'downloadid'=>majesticsupport::$_data[0]->id , 'mspageid'=>get_the_ID()))) . '" >'. esc_html(__('Download All', 'majestic-support')) . '</a>';
-                                        echo wp_kses($MJTC_ticketdata, MJTC_ALLOWED_TAGS); ?>
+                                        
+                                        // Only show "Download All" if there is at least one active file
+                                        if ( $MJTC_active_count > 0 ) {
+                                            $MJTC_nonce = wp_create_nonce("download-all-".majesticsupport::$_data[0]->id);
+                                            $MJTC_ticketdata .= '<a class="mjtc-all-download-button" target="_blank" href="' . esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'task'=>'downloadall', 'internalid'=> majesticsupport::$_data[0]->internalid, '_wpnonce'=>$MJTC_nonce, 'action'=>'mstask', 'downloadid'=>majesticsupport::$_data[0]->id , 'mspageid'=>get_the_ID()))) . '" >'. esc_html(__('Download All', 'majestic-support')) . '</a>';
+                                        }
+
+                                        // Echo the entire sanitized string at the end
+                                        echo wp_kses($MJTC_ticketdata, MJTC_ALLOWED_TAGS); 
+                                        ?>
                                     </div>
                                     <?php
                                 } ?>
@@ -2170,40 +2212,64 @@ if (majesticsupport::$_config['offline'] == 2) {
                                             <?php echo ($MJTC_reply->ticketviaemail == 1) ? esc_html(__('Created via Email', 'majestic-support')) : ''; ?>
                                         </div>
                                         <div class="mjtc-support-message-thread-data">
-                                        <?php echo wp_kses_post(html_entity_decode($MJTC_reply->message)); ?>
+                                            <?php echo wp_kses_post(html_entity_decode($MJTC_reply->message)); ?>
                                             <?php if (!empty($MJTC_reply->attachments)) { ?>
                                                 <div class="mjtc-support-attachments-wrp">
                                                     <?php
                                                     $MJTC_attachmentdata = '';
+                                                    $MJTC_active_count = 0; // Initialize a counter for active files
+
                                                     foreach ($MJTC_reply->attachments AS $MJTC_attachment) {
-                                                        $MJTC_path = majesticsupport::makeUrl(array('mjsmod'=>'ticket','task'=>'downloadbyid','action'=>'mstask','id'=> $MJTC_attachment->id ,'mspageid'=>get_the_ID()));
-                                                        $MJTC_data = wp_check_filetype($MJTC_attachment->filename);
-                                                        $type = $MJTC_data['type'];
-                                                        $MJTC_attachmentdata .= '
-                                                        <div class="mjtc_supportattachment">
-                                                            <span class="mjtc-support-download-file-title">
-                                                                ' . esc_html($MJTC_attachment->filename) . ' ( ' . esc_html(round($MJTC_attachment->filesize,2)) . ' kb) ' . '
-                                                            </span>
-                                                            <a class="mjtc-download-button" target="_blank" href="' . esc_url($MJTC_path) . '">
-                                                                <svg class="mjtc-support-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                                            </a>';
-                                                            if(MJTC_majesticsupportphplib::MJTC_strpos($type, "image") !== false) {
-                                                                $MJTC_path = MJTC_includer::MJTC_getModel('attachment')->getAttachmentImage($MJTC_attachment->id);
-                                                                $MJTC_attachmentdata .= '<a data-gall="gallery-'. esc_attr($MJTC_reply->replyid) .'" class="mjtc-download-button venobox" data-vbtype="image" title="'. esc_attr(__('View','majestic-support')) .'" href="'. esc_attr($MJTC_path) .'"  target="_blank">
-                                                                <svg class="mjtc-support-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                                                    </a>';
-                                                            }
+                                                        // Check if the attachment was purged by the cron job
+                                                        if ( $MJTC_attachment->deleted == 1 ) {
+                                                            $MJTC_attachmentdata .= '<div class="mjtc-attachment-purged">';
+                                                            $MJTC_attachmentdata .= '<svg class="mjtc-purged-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">';
+                                                            $MJTC_attachmentdata .= '<path d="M6.854 7.146a.5.5 0 1 0-.708.708L7.293 9l-1.147 1.146a.5.5 0 0 0 .708.708L8 9.707l1.146 1.147a.5.5 0 0 0 .708-.708L8.707 9l1.147-1.146a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146z"/>';
+                                                            $MJTC_attachmentdata .= '<path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>';
+                                                            $MJTC_attachmentdata .= '</svg>';
+                                                            $MJTC_attachmentdata .= '<span>';
+                                                            $MJTC_attachmentdata .= '<span class="mjtc-purged-filename">' . esc_html( $MJTC_attachment->filename ) . '</span>';
+                                                            $MJTC_attachmentdata .= ' ' . esc_html__( '(Removed automatically to save space)', 'majestic-support' );
+                                                            $MJTC_attachmentdata .= '</span>';
+                                                            $MJTC_attachmentdata .= '</div>';
+                                                        } else {
+                                                            
+                                                            $MJTC_active_count++; // Increment our counter because this file is available
+
+                                                            $MJTC_path = majesticsupport::makeUrl(array('mjsmod'=>'ticket','task'=>'downloadbyid','action'=>'mstask','id'=> $MJTC_attachment->id ,'mspageid'=>get_the_ID()));
+                                                            $MJTC_data = wp_check_filetype($MJTC_attachment->filename);
+                                                            $type = $MJTC_data['type'];
                                                             $MJTC_attachmentdata .= '
-                                                        </div>';
+                                                            <div class="mjtc_supportattachment">
+                                                                <span class="mjtc-support-download-file-title">
+                                                                    ' . esc_html($MJTC_attachment->filename) . ' ( ' . esc_html(round($MJTC_attachment->filesize,2)) . ' kb) ' . '
+                                                                </span>
+                                                                <a class="mjtc-download-button" target="_blank" href="' . esc_url($MJTC_path) . '">
+                                                                    <svg class="mjtc-support-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                                                </a>';
+                                                                if(MJTC_majesticsupportphplib::MJTC_strpos($type, "image") !== false) {
+                                                                    $MJTC_path = MJTC_includer::MJTC_getModel('attachment')->getAttachmentImage($MJTC_attachment->id);
+                                                                    $MJTC_attachmentdata .= '<a data-gall="gallery-'. esc_attr($MJTC_reply->replyid) .'" class="mjtc-download-button venobox" data-vbtype="image" title="'. esc_attr(__('View','majestic-support')) .'" href="'. esc_attr($MJTC_path) .'"  target="_blank">
+                                                                    <svg class="mjtc-support-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                                                    </a>';
+                                                                }
+                                                            $MJTC_attachmentdata .= '
+                                                            </div>';
+                                                        }
                                                     }
-                                                    $MJTC_nonce = wp_create_nonce("download-all-for-reply-".$MJTC_reply->replyid);
-                                                    $MJTC_attachmentdata .= '<a class="mjtc-all-download-button" target="_blank" href="' . esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'task'=>'downloadallforreply', 'action'=>'mstask', 'downloadid'=>$MJTC_reply->replyid, 'internalid'=> majesticsupport::$_data[0]->internalid , 'mspageid'=>get_the_ID(), '_wpnonce'=> $MJTC_nonce))) . '" onclick="" target="_blank">'. esc_html(__('Download All', 'majestic-support')) . '</a>';
+                                                    
+                                                    // Add the check here: Only show the "Download All" button if active attachments exist
+                                                    if ( $MJTC_active_count > 0 ) {
+                                                        $MJTC_nonce = wp_create_nonce("download-all-for-reply-".$MJTC_reply->replyid);
+                                                        $MJTC_attachmentdata .= '<a class="mjtc-all-download-button" target="_blank" href="' . esc_url(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'task'=>'downloadallforreply', 'action'=>'mstask', 'downloadid'=>$MJTC_reply->replyid, 'internalid'=> majesticsupport::$_data[0]->internalid , 'mspageid'=>get_the_ID(), '_wpnonce'=> $MJTC_nonce))) . '" target="_blank">'. esc_html(__('Download All', 'majestic-support')) . '</a>';
+                                                    }
+                                                    
                                                     echo wp_kses($MJTC_attachmentdata, MJTC_ALLOWED_TAGS);
                                                     ?>
                                                 </div>
                                             <?php } ?>
-                                            </div>
-                                            <?php
+                                        </div>
+                                        <?php
                                         if (in_array('agent',majesticsupport::$_active_addons) &&  majesticsupport::$_data['user_staff']) { ?>
                                             <div class="mjtc-support-thread-cnt-btm">
                                                 <div class="mjtc-support-thread-actions">
@@ -2329,18 +2395,33 @@ if (majesticsupport::$_config['offline'] == 2) {
                                     <?php
                                     if($MJTC_note->filesize > 0 && !empty($MJTC_note->filename)){ ?>
                                         <div class="mjtc-support-attachments-wrp">
-                                            <div class="mjtc_supportattachment">
-                                                <span class="mjtc-support-download-file-title">
-                                                    <?php
-                                                        $MJTC_data =  esc_html(majesticsupport::MJTC_getVarValue($MJTC_note->filename)).'(' . esc_html(majesticsupport::MJTC_getVarValue($MJTC_note->filesize / 1024)) . ')';
-                                                        echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
-                                                    ?>
-                                                </span>
-                                                <a class="mjtc-download-button" target="_blank"
-                                                    href="<?php echo esc_url(admin_url('?page=majesticsupport_note&action=mstask&task=downloadbyid&id='.esc_attr($MJTC_note->id))); ?>">
-                                                        <svg class="mjtc-support-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                                </a>
-                                            </div>
+                                            <?php 
+                                            if ( $MJTC_note->filedeleted == 1 ) { ?>
+                                                <div class="mjtc-attachment-purged">
+                                                    <svg class="mjtc-purged-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                                        <path d="M6.854 7.146a.5.5 0 1 0-.708.708L7.293 9l-1.147 1.146a.5.5 0 0 0 .708.708L8 9.707l1.146 1.147a.5.5 0 0 0 .708-.708L8.707 9l1.147-1.146a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146z"/>
+                                                        <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                                                    </svg>
+                                                    <span>
+                                                        <span class="mjtc-purged-filename"><?php echo esc_html( $MJTC_note->filename ); ?></span>
+                                                        <?php echo esc_html__( '(Removed automatically to save space)', 'majestic-support' )?>
+                                                    </span>
+                                                </div>
+                                                <?php 
+                                            } else { ?>
+                                                <div class="mjtc_supportattachment">
+                                                    <span class="mjtc-support-download-file-title">
+                                                        <?php
+                                                            $MJTC_data =  esc_html(majesticsupport::MJTC_getVarValue($MJTC_note->filename)).'(' . esc_html(majesticsupport::MJTC_getVarValue($MJTC_note->filesize / 1024)) . ')';
+                                                            echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
+                                                        ?>
+                                                    </span>
+                                                    <a class="mjtc-download-button" target="_blank"
+                                                        href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'note','task'=>'downloadbyid','action'=>'mstask','id'=> $MJTC_note->id ,'mspageid'=>get_the_ID()))); ?>">
+                                                            <svg class="mjtc-support-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                                    </a>
+                                                </div>
+                                            <?php } ?>
                                         </div>
                                     <?php } ?>
                                     <!-- Action Buttons Group -->

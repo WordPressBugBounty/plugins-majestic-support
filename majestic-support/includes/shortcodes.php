@@ -39,8 +39,8 @@ class MJTC_shortcodes {
         ob_start();
         $MJTC_pageid = get_the_ID();
         majesticsupport::setPageID($MJTC_pageid);
-        $MJTC_module = MJTC_Request::MJTC_getVar('mjsmod', '', 'ticket');
-        $MJTC_layout = MJTC_Request::MJTC_getVar('mjslay', '', 'addticket');
+        $MJTC_module = MJTC_request::MJTC_getVar('mjsmod', '', 'ticket');
+        $MJTC_layout = MJTC_request::MJTC_getVar('mjslay', '', 'addticket');
         if ($MJTC_layout != 'addticket' && $MJTC_layout != 'staffaddticket') {
             $MJTC_module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $MJTC_module);
             MJTC_includer::MJTC_include_file($MJTC_module);
@@ -80,8 +80,8 @@ class MJTC_shortcodes {
         ob_start();
         $MJTC_pageid = get_the_ID();
         majesticsupport::setPageID($MJTC_pageid);
-        $MJTC_module = MJTC_Request::MJTC_getVar('mjsmod', '', 'ticket');
-        $MJTC_layout = MJTC_Request::MJTC_getVar('mjslay', '', 'addticket');
+        $MJTC_module = MJTC_request::MJTC_getVar('mjsmod', '', 'ticket');
+        $MJTC_layout = MJTC_request::MJTC_getVar('mjslay', '', 'addticket');
         if ($MJTC_layout != 'addticket' && $MJTC_layout != 'staffaddticket') {
             $MJTC_module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $MJTC_module);
             MJTC_includer::MJTC_include_file($MJTC_module);
@@ -120,8 +120,8 @@ class MJTC_shortcodes {
         ob_start();
         $MJTC_pageid = get_the_ID();
         majesticsupport::setPageID($MJTC_pageid);
-        $MJTC_module = MJTC_Request::MJTC_getVar('mjsmod', '', 'ticket');
-        $MJTC_layout = MJTC_Request::MJTC_getVar('mjslay', '', 'myticket');
+        $MJTC_module = MJTC_request::MJTC_getVar('mjsmod', '', 'ticket');
+        $MJTC_layout = MJTC_request::MJTC_getVar('mjslay', '', 'myticket');
         if ($MJTC_layout != 'myticket' && $MJTC_layout != 'staffmyticket') {
             $MJTC_module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $MJTC_module);
             MJTC_includer::MJTC_include_file($MJTC_module);
