@@ -3209,13 +3209,36 @@ class MJTC_ticketModel {
             die('Security check Failed');
         }
 
+        // --- SECURITY CHECK: STRICT ACCESS CONTROL ---
+        // 1. Check if user is Admin
+        $is_admin = current_user_can('manage_options'); 
+        
+        // 2. Check if user is an Agent
+        $is_agent = (in_array('agent', majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff());
+
+        if ($is_admin) {
+            // Admins pass automatically (No permission check needed)
+        } elseif ($is_agent) {
+            // Agents must have the specific AI permission granted
+            if (!MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Use AI Powered Reply Feature')) {
+                die(json_encode(['error' => 'Permission denied. Agent lacks AI Reply privilege.']));
+            }
+        } else {
+            // Standard users/Subscribers (like the attacker in the WP report) are blocked completely
+            die(json_encode(['error' => 'Permission denied. Only staff can access this feature.']));
+        }
+        // -------------------------------------------------
+
         $MJTC_id = absint(MJTC_request::MJTC_getVar('ticketId'));
         $MJTC_subject = sanitize_text_field(MJTC_request::MJTC_getVar('ticketSubject'));
         // Set a limit for smart replies, similar to how you had it in your separate query
         $MJTC_limit = 5; // You can adjust this limit as needed
 
         $MJTC_agentquery = "";
-        if (in_array('agent', majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
+        
+        // We already know the user is either Admin or Agent if they reached here.
+        // If they are an Agent, apply the assignment limitations if configured.
+        if ($is_agent && !$is_admin) {
             $MJTC_allowed = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Limit AI Replies to Agent-Assigned Tickets');
             if ($MJTC_allowed) {
                 $MJTC_staffid = absint(MJTC_includer::MJTC_getModel('agent')->getStaffId(MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid()));
