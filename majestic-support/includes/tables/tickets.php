@@ -56,6 +56,8 @@ class MJTC_ticketsTable extends MJTC_table {
 	public $customticketno = '';
 	public $productid = '';
 	public $aireplymode = '';
+	public $sentiment = '';
+	public $upsell_opportunity = '';
 
 	function __construct() {
 		parent::__construct('tickets', 'id'); // tablename, primarykey

@@ -10,122 +10,83 @@ class MJTC_formhandler {
         add_action('init', array($this, 'MJTC_checkDeleteRequest'));
     }
 
-    /*
-     * Handle Form request
-     */
+    private function MJTC_dispatch_controller($MJTC_module, $MJTC_task) {
+        $MJTC_module = is_string($MJTC_module) ? sanitize_key(MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $MJTC_module)) : '';
+        $MJTC_task = is_string($MJTC_task) ? trim($MJTC_task) : '';
 
-    function MJTC_checkFormRequest() {
-        majesticsupport::$_data['sanitized_args']['_wpnonce'] = wp_create_nonce("VERIFY-MAJESTIC-SUPPORT-INTERNAL-NONCE");
-        $MJTC_formrequest = MJTC_request::MJTC_getVar('form_request', 'post');
-        if ($MJTC_formrequest == 'majesticsupport') {
-            //handle the request
-            $MJTC_page_id = MJTC_request::MJTC_getVar('page_id', 'GET');
-            majesticsupport::setPageID($MJTC_page_id);
-            $MJTC_modulename = (is_admin()) ? 'page' : 'mjsmod';
-            $MJTC_module = MJTC_request::MJTC_getVar($MJTC_modulename);
-            $MJTC_module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $MJTC_module);
-            MJTC_includer::MJTC_include_file($MJTC_module);
-            $MJTC_class = 'MJTC_' . $MJTC_module . "Controller";
-            $MJTC_task = MJTC_request::MJTC_getVar('task');
-            $MJTC_obj = new $MJTC_class;
-            $MJTC_obj->$MJTC_task();
-        }
-    }
-
-    /*
-     * Handle Form request
-     */
-
-    function MJTC_checkDeleteRequest() {
-        majesticsupport::$_data['sanitized_args']['_wpnonce'] = wp_create_nonce("VERIFY-MAJESTIC-SUPPORT-INTERNAL-NONCE");
-        
-        $majesticsupport_action = MJTC_request::MJTC_getVar('action', 'get');
-        
-        // Early return if action does not match
-        if ( 'mstask' !== $majesticsupport_action ) {
-            return;
-        }
-        
-        // Handle the request and sanitize page_id
-        $MJTC_page_id = absint(
-            MJTC_request::MJTC_getVar('page_id', 'GET')
-        );
-
-        majesticsupport::setPageID($MJTC_page_id);
-
-        $MJTC_modulename_key = (is_admin()) ? 'page' : 'mjsmod';
-        
-        // Retrieve, replace string, and sanitize module
-        $raw_module = MJTC_request::MJTC_getVar($MJTC_modulename_key, '', '');
-        $raw_module = MJTC_majesticsupportphplib::MJTC_str_replace('majesticsupport_', '', $raw_module);
-        $MJTC_module = sanitize_key( $raw_module );
-        
-        // Retrieve and sanitize action
-        $MJTC_action = sanitize_key(
-            MJTC_request::MJTC_getVar('task')
-        );
-        
-        if ( empty( $MJTC_module ) || empty( $MJTC_action ) ) {
-            // Kept your original error logging for empty cases
-            error_log( print_r( $_REQUEST, true ) ); 
-            return;
+        if (empty($MJTC_module) || empty($MJTC_task)) {
+            return false;
         }
 
-        /*
-         * Prevent invalid class/method names.
-         */
-        if (
-            preg_match( '/[^a-zA-Z0-9_]/', $MJTC_module ) ||
-            preg_match( '/[^a-zA-Z0-9_]/', $MJTC_action )
-        ) {
-            return;
+        if (!preg_match('/^[A-Za-z0-9_]+$/', $MJTC_module) || !preg_match('/^[A-Za-z0-9_]+$/', $MJTC_task)) {
+            return false;
+        }
+
+        if (0 === strpos($MJTC_task, '__') || 0 === strpos($MJTC_task, '_')) {
+            return false;
         }
 
         MJTC_includer::MJTC_include_file($MJTC_module);
-
         $MJTC_class = 'MJTC_' . $MJTC_module . 'Controller';
 
-        /*
-         * Ensure controller exists.
-         */
-        if ( ! class_exists( $MJTC_class ) ) {
-            return;
+        if (!class_exists($MJTC_class)) {
+            return false;
         }
 
         $MJTC_obj = new $MJTC_class;
-
-        /*
-         * Block magic methods and private-style methods.
-         */
-        if (
-            0 === strpos( $MJTC_action, '__' ) ||
-            0 === strpos( $MJTC_action, '_' )
-        ) {
-            return;
+        if (!is_callable(array($MJTC_obj, $MJTC_task))) {
+            return false;
         }
 
-        /*
-         * Ensure method is callable.
-         */
-        if ( ! is_callable( array( $MJTC_obj, $MJTC_action ) ) ) {
-            return;
-        }
-
-        /*
-         * Require capability for admin requests.
-         */
-        if ( is_admin() && ! current_user_can( 'manage_options' ) ) {
+        if (is_admin() && !current_user_can('ms_support_ticket') && !current_user_can('manage_options')) {
             wp_die(
-                esc_html__( 'You are not allowed to access this resource.', 'majestic-support' ),
-                esc_html__( 'Access Denied', 'majestic-support' ),
-                array( 'response' => 403 )
+                esc_html__('You are not allowed to access this resource.', 'majestic-support'),
+                esc_html__('Access Denied', 'majestic-support'),
+                array('response' => 403)
             );
         }
 
-        // Call the method safely
-        call_user_func( array( $MJTC_obj, $MJTC_action ) );
+        call_user_func(array($MJTC_obj, $MJTC_task));
+        return true;
     }
 
+    /*
+     * Handle POST form requests.
+     */
+    function MJTC_checkFormRequest() {
+        $MJTC_formrequest = MJTC_request::MJTC_getVar('form_request', 'post');
+        if ($MJTC_formrequest !== 'majesticsupport') {
+            return;
+        }
+
+        $MJTC_page_id = absint(MJTC_request::MJTC_getVar('page_id', 'get'));
+        majesticsupport::setPageID($MJTC_page_id);
+
+        $MJTC_modulename = (is_admin()) ? 'page' : 'mjsmod';
+        $MJTC_module = MJTC_request::MJTC_getVar($MJTC_modulename);
+        $MJTC_task = MJTC_request::MJTC_getVar('task');
+
+        $this->MJTC_dispatch_controller($MJTC_module, $MJTC_task);
+    }
+
+    /*
+     * Handle GET task requests.
+     */
+    function MJTC_checkDeleteRequest() {
+        $majesticsupport_action = MJTC_request::MJTC_getVar('action', 'get');
+        if ('mstask' !== $majesticsupport_action) {
+            return;
+        }
+
+        $MJTC_page_id = absint(MJTC_request::MJTC_getVar('page_id', 'get'));
+        majesticsupport::setPageID($MJTC_page_id);
+
+        $MJTC_modulename_key = (is_admin()) ? 'page' : 'mjsmod';
+        $MJTC_module = MJTC_request::MJTC_getVar($MJTC_modulename_key, '', '');
+        $MJTC_task = MJTC_request::MJTC_getVar('task');
+
+        $this->MJTC_dispatch_controller($MJTC_module, $MJTC_task);
+    }
 }
 
 $MJTC_formhandler = new MJTC_formhandler();

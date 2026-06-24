@@ -105,12 +105,12 @@ $majesticsupport_js ="
         jQuery('form#adminTicketform').submit();
     }
 
-    function showTicketCloseReasons(id){
+    function showTicketCloseReasons(id, internalid){
         jQuery('div.ms-popup-other-reason-box').hide();
         var selectedIds = jQuery('.ticket-checkbox:checked').map(function() {
             return jQuery(this).attr('data-id');
         }).get();
-        jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'ticketclosereason', task: 'getTicketCloseReasonsForPopup', selectedIds:selectedIds,isadmin:1,id:id, '_wpnonce':'". esc_attr(wp_create_nonce("get-ticket-close-reasons-for-popup"))."'}, function (data) {
+        jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'ticketclosereason', task: 'getTicketCloseReasonsForPopup', selectedIds:selectedIds,isadmin:1,id:id,internalid:internalid,redirect:4, '_wpnonce':'". esc_attr(wp_create_nonce("get-ticket-close-reasons-for-popup"))."'}, function (data) {
             if(data){
                 data=jQuery.parseJSON(data);
                 jQuery('div#popup-record-data1').html('');
@@ -119,10 +119,10 @@ $majesticsupport_js ="
         });
     }
 
-    function closeReasonPopup(saveReason, closeTicket){
+    function closeReasonPopup(saveReason, closeTicket, ticketid, ticketinterno){
         var close = 1;
-        if (saveReason == 0 && closeTicket == 1) {
-            actionticket(2);
+        if (saveReason == 0 && closeTicket == 1 && ticketid !== null && ticketinterno !== null) {
+            actionticket(2, ticketid, ticketinterno);
         }
         if (saveReason == 1 && closeTicket == 1) {
             if (jQuery('.reason_rb').is(':checked')) {
@@ -745,10 +745,46 @@ MJTC_message::MJTC_getMessage();
                                                     <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_ticket->statustitle)); ?>
                                                 </span>
                                                 <?php
-                                                if (!empty($MJTC_show_on_listing_array['priority'])) { ?>
+                                                if (!empty($MJTC_show_on_listing_array['priority']) && !empty($MJTC_ticket->priority)) { ?>
                                                     <span class="priority-badge" style="background:<?php echo esc_attr($MJTC_ticket->prioritycolour); ?>;"><?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_ticket->priority)); ?></span>
                                                     <?php
                                                 } ?>
+                                                <?php /* --- Zywrap AI Badges --- */ ?>
+                                                <div class="mjtc-ai-badge-group">
+                                                    <?php if (!empty($MJTC_ticket->sentiment)) : 
+                                                        $sentiment_safe = strtolower(esc_attr($MJTC_ticket->sentiment));
+                                                        $sentiment_icon = 'dashicons-smiley'; // Default Happy
+                                                        if (in_array($sentiment_safe, array('angry', 'frustrated', 'negative'))) {
+                                                            $sentiment_icon = 'dashicons-warning';
+                                                        } elseif (in_array($sentiment_safe, array('neutral'))) {
+                                                            $sentiment_icon = 'dashicons-minus';
+                                                        } ?>
+                                                        <span class="mjtc-ai-badge mjtc-ai-sentiment-<?php echo $sentiment_safe; ?>" title="<?php echo esc_attr(__('AI Sentiment Analysis', 'majestic-support')); ?>">
+                                                            <span class="dashicons <?php echo esc_attr($sentiment_icon); ?>"></span>
+                                                            <?php echo esc_html(ucfirst($MJTC_ticket->sentiment)); ?>
+                                                        </span>
+                                                    <?php endif; ?>
+
+                                                    <?php if (isset($MJTC_ticket->upsell_opportunity) && $MJTC_ticket->upsell_opportunity == 1) : ?>
+                                                        <span class="mjtc-ai-badge mjtc-ai-upsell" title="<?php echo esc_attr(__('AI identified a potential sales opportunity', 'majestic-support')); ?>">
+                                                            <span class="dashicons dashicons-cart"></span>
+                                                            <?php echo esc_html(__('Sales Opportunity', 'majestic-support')); ?>
+                                                        </span>
+                                                    <?php endif; ?>
+                                                    <?php 
+                                                    /* --- AI Follow-up Draft Tag --- */
+                                                    if (!empty($MJTC_ticket->ai_draft_id)) : ?>
+                                                        <span class="mjtc-ai-badge mjtc-ai-action-tag" data-ticketid="<?php echo esc_attr($MJTC_ticket->id); ?>" data-draftid="<?php echo esc_attr($MJTC_ticket->ai_draft_id); ?>" title="<?php echo esc_attr(__('Review AI Follow-up', 'majestic-support')); ?>">
+                                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                                                <path d="M12 7v6"></path>
+                                                                <circle cx="12" cy="16" r="1"></circle>
+                                                            </svg>
+                                                            <?php echo esc_html(__('Draft Ready', 'majestic-support')); ?>
+                                                        </span>
+                                                    <?php endif; ?>
+                                                </div>
+                                                <?php /* --- End Zywrap AI Badges --- */ ?>
                                             </div>
                                                 <!-- here here -->
                                             <div class="mjtc-support-ticket-subject mjtc-support-det-link">
@@ -960,7 +996,7 @@ MJTC_message::MJTC_getMessage();
                                     if ($MJTC_ticket->status != 6) {
                                         if ($MJTC_ticket->status != 5) {
                                             if (in_array('ticketclosereason',majesticsupport::$_active_addons)) {
-                                                $MJTC_js = 'showTicketCloseReasons('.$MJTC_ticket->id.')';
+                                                $MJTC_js = 'showTicketCloseReasons('.$MJTC_ticket->id.', "'.$MJTC_ticket->internalid.'")';
                                             } else {
                                                 $MJTC_js = 'actionticket(2,"'.$MJTC_ticket->id.'","'.$MJTC_ticket->internalid.'");';
                                             } ?>

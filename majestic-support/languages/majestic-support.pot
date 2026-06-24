@@ -7831,3 +7831,1065 @@ msgstr "Ticket ID Or Email Address Or Subject"
 msgid "Activity & Premade Responses"
 msgstr "Activity & Premade Responses"
 
+msgid "Merged"
+msgstr "Merged"
+
+msgid "Language files for %s successfully downloaded."
+msgstr "Language files for %s successfully downloaded."
+
+msgid "Alternate language file downloaded. We tried to find %1$s, but downloaded %2$s as a fallback."
+msgstr "Alternate language file downloaded. We tried to find %1$s, but downloaded %2$s as a fallback."
+
+msgid "Zywrap AI"
+msgstr "Zywrap AI"
+
+msgid "Instantfix"
+msgstr "Instantfix"
+
+msgid "You are not allowed to access this resource."
+msgstr "You are not allowed to access this resource."
+
+msgid "Instant Fix"
+msgstr "Instant Fix"
+
+msgid "Add Instantfix"
+msgstr "Add Instantfix"
+
+msgid "Zywrap Co-Pilot"
+msgstr "Zywrap Co-Pilot"
+
+msgid "Global Settings"
+msgstr "Global Settings"
+
+msgid "AI Playground"
+msgstr "AI Playground"
+
+msgid "API Audit Logs"
+msgstr "API Audit Logs"
+
+msgid "System Exceptions"
+msgstr "System Exceptions"
+
+msgid "You do not have permission to reset slugs."
+msgstr "You do not have permission to reset slugs."
+
+msgid "Security check failed."
+msgstr "Security check failed."
+
+msgid "Security Error"
+msgstr "Security Error"
+
+msgid "KNOWLEDGE BASE"
+msgstr "KNOWLEDGE BASE"
+
+msgid "Instant Fixes Found"
+msgstr "Instant Fixes Found"
+
+msgid "Our AI found these high-relevance matches. Try these before submitting your ticket!"
+msgstr "Our AI found these high-relevance matches. Try these before submitting your ticket!"
+
+msgid "View Solution"
+msgstr "View Solution"
+
+msgid "Did one of these solve your problem?"
+msgstr "Did one of these solve your problem?"
+
+msgid "YES, MY ISSUE IS FIXED!"
+msgstr "YES, MY ISSUE IS FIXED!"
+
+msgid "You must be logged in."
+msgstr "You must be logged in."
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "AI Sentiment Analysis"
+msgstr "AI Sentiment Analysis"
+
+msgid "AI identified a potential sales opportunity"
+msgstr "AI identified a potential sales opportunity"
+
+msgid "Sales Opportunity"
+msgstr "Sales Opportunity"
+
+msgid "Reply with Co-Pilot"
+msgstr "Reply with Co-Pilot"
+
+msgid "Ask for Info"
+msgstr "Ask for Info"
+
+msgid "Summarize"
+msgstr "Summarize"
+
+msgid "Extract Details"
+msgstr "Extract Details"
+
+msgid "Translate to"
+msgstr "Translate to"
+
+msgid "(Removed automatically to save space)"
+msgstr "(Removed automatically to save space)"
+
+msgid "AI Co-Pilot (Draft)"
+msgstr "AI Co-Pilot (Draft)"
+
+msgid "Pending Review"
+msgstr "Pending Review"
+
+msgid "Discard Draft"
+msgstr "Discard Draft"
+
+msgid "Use Follow-up"
+msgstr "Use Follow-up"
+
+msgid "Control how this ticket and its replies influence AI search and response generation for future queries."
+msgstr "Control how this ticket and its replies influence AI search and response generation for future queries."
+
+msgid "Default: ticket and replies included in all AI queries."
+msgstr "Default: ticket and replies included in all AI queries."
+
+msgid "Enable: ticket and replies used only when the “Enable Tickets” filter is active."
+msgstr "Enable: ticket and replies used only when the “Enable Tickets” filter is active."
+
+msgid "Disable: ticket and replies excluded from AI queries."
+msgstr "Disable: ticket and replies excluded from AI queries."
+
+msgid "Checking Policy..."
+msgstr "Checking Policy..."
+
+msgid "Policy Violation Detected:"
+msgstr "Policy Violation Detected:"
+
+msgid "Do you want to proceed and send this reply anyway?"
+msgstr "Do you want to proceed and send this reply anyway?"
+
+msgid "Draft moved to editor – Please review."
+msgstr "Draft moved to editor – Please review."
+
+msgid "Are you sure you want to permanently discard this draft?"
+msgstr "Are you sure you want to permanently discard this draft?"
+
+msgid "Discarding..."
+msgstr "Discarding..."
+
+msgid "Failed to discard draft. Please try again."
+msgstr "Failed to discard draft. Please try again."
+
+msgid "Review AI Follow-up"
+msgstr "Review AI Follow-up"
+
+msgid "Draft Ready"
+msgstr "Draft Ready"
+
+msgid "Real-time AI interaction logs and automation stream."
+msgstr "Real-time AI interaction logs and automation stream."
+
+msgid "Configure API authentication, synchronization, and default engine parameters."
+msgstr "Configure API authentication, synchronization, and default engine parameters."
+
+msgid "Safely test wrappers, simulate scenarios, and calibrate AI schemas before deployment."
+msgstr "Safely test wrappers, simulate scenarios, and calibrate AI schemas before deployment."
+
+msgid "Monitor all successful AI engine requests, trace IDs, and token usage."
+msgstr "Monitor all successful AI engine requests, trace IDs, and token usage."
+
+msgid "Review and manage trapped errors from the AI engine."
+msgstr "Review and manage trapped errors from the AI engine."
+
+msgid "Add AI Data Source"
+msgstr "Add AI Data Source"
+
+msgid "Add a new webpage or YouTube video for the AI to crawl, index, and use for instant ticket fix."
+msgstr "Add a new webpage or YouTube video for the AI to crawl, index, and use for instant ticket fix."
+
+msgid "Add Data Source"
+msgstr "Add Data Source"
+
+msgid "AI Data Sources"
+msgstr "AI Data Sources"
+
+msgid "Manage synced URLs and extracted support data."
+msgstr "Manage synced URLs and extracted support data."
+
+msgid "AI-powered proactive issue resolution"
+msgstr "AI-powered proactive issue resolution"
+
+msgid "You do not have permission to use AI features."
+msgstr "You do not have permission to use AI features."
+
+msgid "Access denied."
+msgstr "Access denied."
+
+msgid "Never (Default)"
+msgstr "Never (Default)"
+
+msgid "1 Month"
+msgstr "1 Month"
+
+msgid "2 Months"
+msgstr "2 Months"
+
+msgid "3 Months"
+msgstr "3 Months"
+
+msgid "6 Months"
+msgstr "6 Months"
+
+msgid "1 Year"
+msgstr "1 Year"
+
+msgid "3 Years"
+msgstr "3 Years"
+
+msgid "5 Years"
+msgstr "5 Years"
+
+msgid "10 Years"
+msgstr "10 Years"
+
+msgid "Enable Instant Fixes"
+msgstr "Enable Instant Fixes"
+
+msgid "Enable or disable the instant fix suggestions on the ticket submission page."
+msgstr "Enable or disable the instant fix suggestions on the ticket submission page."
+
+msgid "Instant Fixes Minimum Score"
+msgstr "Instant Fixes Minimum Score"
+
+msgid "Set the minimum NLP relevance score required to show an Instant Fix. Default is 0.5. Lower numbers show more results; higher numbers demand stricter matches."
+msgstr "Set the minimum NLP relevance score required to show an Instant Fix. Default is 0.5. Lower numbers show more results; higher numbers demand stricter matches."
+
+msgid "Instant Fixes Record Limit"
+msgstr "Instant Fixes Record Limit"
+
+msgid "Set the maximum number of matches to pull from each source (Knowledge Base, FAQs, etc.) for the Instant Fixes section."
+msgstr "Set the maximum number of matches to pull from each source (Knowledge Base, FAQs, etc.) for the Instant Fixes section."
+
+msgid "Auto-Delete Old Attachments"
+msgstr "Auto-Delete Old Attachments"
+
+msgid "Automatically delete physical attachment files from tickets that have been closed longer than this period to save server disk space."
+msgstr "Automatically delete physical attachment files from tickets that have been closed longer than this period to save server disk space."
+
+msgid "Zywrap AI Co-Pilot"
+msgstr "Zywrap AI Co-Pilot"
+
+msgid "Incoming Ticket Analyzer"
+msgstr "Incoming Ticket Analyzer"
+
+msgid "Configure zero-prompt automation for auto-triage, routing, and sentiment analysis on new tickets."
+msgstr "Configure zero-prompt automation for auto-triage, routing, and sentiment analysis on new tickets."
+
+msgid "Sentiment Analysis"
+msgstr "Sentiment Analysis"
+
+msgid "Detect customer emotions (Angry, Frustrated, Happy, Neutral)"
+msgstr "Detect customer emotions (Angry, Frustrated, Happy, Neutral)"
+
+msgid "Auto-Routing (Department)"
+msgstr "Auto-Routing (Department)"
+
+msgid "Automatically assign tickets to the correct department based on context"
+msgstr "Automatically assign tickets to the correct department based on context"
+
+msgid "Auto-Prioritization"
+msgstr "Auto-Prioritization"
+
+msgid "Automatically set ticket priority (e.g., flagging angry customers as High Priority)"
+msgstr "Automatically set ticket priority (e.g., flagging angry customers as High Priority)"
+
+msgid "Sales Leak & Upsell Detection"
+msgstr "Sales Leak & Upsell Detection"
+
+msgid "Flag tickets that contain potential sales inquiries or upsell opportunities"
+msgstr "Flag tickets that contain potential sales inquiries or upsell opportunities"
+
+msgid "Frontend Ticket Deflection"
+msgstr "Frontend Ticket Deflection"
+
+msgid "Configure how the AI automatically suggests solutions to users before they submit a ticket."
+msgstr "Configure how the AI automatically suggests solutions to users before they submit a ticket."
+
+msgid "Enable AI Frontend Deflection"
+msgstr "Enable AI Frontend Deflection"
+
+msgid "Automatically generate an AI answer based on local search results before the user submits a ticket."
+msgstr "Automatically generate an AI answer based on local search results before the user submits a ticket."
+
+msgid "Max Sources to Analyze"
+msgstr "Max Sources to Analyze"
+
+msgid "How many of the top local search results should the AI read to generate its answer? (Recommended: 2 or 3)"
+msgstr "How many of the top local search results should the AI read to generate its answer? (Recommended: 2 or 3)"
+
+msgid "AI Response Tone"
+msgstr "AI Response Tone"
+
+msgid "Professional & Concise"
+msgstr "Professional & Concise"
+
+msgid "Friendly & Direct"
+msgstr "Friendly & Direct"
+
+msgid "Highly Technical"
+msgstr "Highly Technical"
+
+msgid "Casual & Helpful"
+msgstr "Casual & Helpful"
+
+msgid "Select the personality the AI should use when writing the suggested fix."
+msgstr "Select the personality the AI should use when writing the suggested fix."
+
+msgid "Data Strictness"
+msgstr "Data Strictness"
+
+msgid "Strict: Only use local articles"
+msgstr "Strict: Only use local articles"
+
+msgid "Relaxed: Use general knowledge if local fails"
+msgstr "Relaxed: Use general knowledge if local fails"
+
+msgid "Strict mode prevents hallucinations by forcing the AI to only answer if the solution exists in your KB/FAQs."
+msgstr "Strict mode prevents hallucinations by forcing the AI to only answer if the solution exists in your KB/FAQs."
+
+msgid "Agent Copilot (Policy & Tone)"
+msgstr "Agent Copilot (Policy & Tone)"
+
+msgid "Real-time checks in the ticket editor to ensure all agent replies meet company policy and tone guidelines."
+msgstr "Real-time checks in the ticket editor to ensure all agent replies meet company policy and tone guidelines."
+
+msgid "Enable Tone & Policy Checker"
+msgstr "Enable Tone & Policy Checker"
+
+msgid "Checks agent replies before sending."
+msgstr "Checks agent replies before sending."
+
+msgid "Company Policy URL"
+msgstr "Company Policy URL"
+
+msgid "Live link to your Privacy/Company Policy. The AI will read this dynamically."
+msgstr "Live link to your Privacy/Company Policy. The AI will read this dynamically."
+
+msgid "Proactive Support Automation"
+msgstr "Proactive Support Automation"
+
+msgid "Advanced AI workflows to maintain ticket momentum and reduce manual follow-up time."
+msgstr "Advanced AI workflows to maintain ticket momentum and reduce manual follow-up time."
+
+msgid "Auto-Draft Follow-ups"
+msgstr "Auto-Draft Follow-ups"
+
+msgid "System will automatically draft polite follow-ups for tickets with no response after 48 hours."
+msgstr "System will automatically draft polite follow-ups for tickets with no response after 48 hours."
+
+msgid "Please enter the site key for Google reCAPTCHA from"
+msgstr "Please enter the site key for Google reCAPTCHA from"
+
+msgid "Please enter the secret key for Google reCAPTCHA from"
+msgstr "Please enter the secret key for Google reCAPTCHA from"
+
+msgid "Zywrap API Key Missing"
+msgstr "Zywrap API Key Missing"
+
+msgid "Unlock zero-prompt automation, sentiment analysis, and auto-routing by connecting your API key."
+msgstr "Unlock zero-prompt automation, sentiment analysis, and auto-routing by connecting your API key."
+
+msgid "Add API Key"
+msgstr "Add API Key"
+
+msgid "Merged and closed"
+msgstr "Merged and closed"
+
+msgid "Error Details"
+msgstr "Error Details"
+
+msgid "Unknown Error"
+msgstr "Unknown Error"
+
+msgid "View Query & Trace"
+msgstr "View Query & Trace"
+
+msgid "Path Execution Trace"
+msgstr "Path Execution Trace"
+
+msgid "Database Query"
+msgstr "Database Query"
+
+msgid "Legacy Log"
+msgstr "Legacy Log"
+
+msgid "No error metadata tracking data recorded."
+msgstr "No error metadata tracking data recorded."
+
+msgid "Are you sure you want to delete this log entry?"
+msgstr "Are you sure you want to delete this log entry?"
+
+msgid "You are not allowed to perform this action."
+msgstr "You are not allowed to perform this action."
+
+msgid "Security check Failed"
+msgstr "Security check Failed"
+
+msgid "Security Error: Unauthorized access. Administrators only."
+msgstr "Security Error: Unauthorized access. Administrators only."
+
+msgid "API Key cannot be empty"
+msgstr "API Key cannot be empty"
+
+msgid "API Key saved successfully."
+msgstr "API Key saved successfully."
+
+msgid "Preferences saved successfully."
+msgstr "Preferences saved successfully."
+
+msgid "Please save your API key first."
+msgstr "Please save your API key first."
+
+msgid "Sync failed"
+msgstr "Sync failed"
+
+msgid "API Error: Invalid response code "
+msgstr "API Error: Invalid response code "
+
+msgid "Failed to parse Sync JSON data."
+msgstr "Failed to parse Sync JSON data."
+
+msgid "Download failed: "
+msgstr "Download failed: "
+
+msgid "Download rejected. HTTP Code:"
+msgstr "Download rejected. HTTP Code:"
+
+msgid "Unzip failed:"
+msgstr "Unzip failed:"
+
+msgid "zywrap-data.json not found in bundle."
+msgstr "zywrap-data.json not found in bundle."
+
+msgid "Failed to parse bundle JSON data."
+msgstr "Failed to parse bundle JSON data."
+
+msgid "Unknown Sync Mode."
+msgstr "Unknown Sync Mode."
+
+msgid "AI Data Synced Successfully!"
+msgstr "AI Data Synced Successfully!"
+
+msgid "Mode"
+msgstr "Mode"
+
+msgid "API Key is missing."
+msgstr "API Key is missing."
+
+msgid "Please select an AI action."
+msgstr "Please select an AI action."
+
+msgid "Connection Error: "
+msgstr "Connection Error: "
+
+msgid "Unknown API Error"
+msgstr "Unknown API Error"
+
+msgid "Parse Error:"
+msgstr "Parse Error:"
+
+msgid "Global AI Settings saved successfully."
+msgstr "Global AI Settings saved successfully."
+
+msgid "Log deleted successfully."
+msgstr "Log deleted successfully."
+
+msgid "Failed to delete log."
+msgstr "Failed to delete log."
+
+msgid "API Key is not configured."
+msgstr "API Key is not configured."
+
+msgid "Server Connection Error: "
+msgstr "Server Connection Error: "
+
+msgid "API Error (HTTP "
+msgstr "API Error (HTTP "
+
+msgid "Zywrap API connection error"
+msgstr "Zywrap API connection error"
+
+msgid "Zywrap Engine API Error: %s"
+msgstr "Zywrap Engine API Error: %s"
+
+msgid "Unauthorized access."
+msgstr "Unauthorized access."
+
+msgid "No AI interactions have been recorded yet."
+msgstr "No AI interactions have been recorded yet."
+
+msgid "Action / Wrapper"
+msgstr "Action / Wrapper"
+
+msgid "Model"
+msgstr "Model"
+
+msgid "Tokens"
+msgstr "Tokens"
+
+msgid "Latency"
+msgstr "Latency"
+
+msgid "Auto-Model"
+msgstr "Auto-Model"
+
+msgid "View Complete History"
+msgstr "View Complete History"
+
+msgid "ENGINE STATUS"
+msgstr "ENGINE STATUS"
+
+msgid "ONLINE"
+msgstr "ONLINE"
+
+msgid "OFFLINE"
+msgstr "OFFLINE"
+
+msgid "Requests Processed"
+msgstr "Requests Processed"
+
+msgid "Tokens Consumed"
+msgstr "Tokens Consumed"
+
+msgid "Logged Exceptions"
+msgstr "Logged Exceptions"
+
+msgid "Control Hub"
+msgstr "Control Hub"
+
+msgid "Connect API Key"
+msgstr "Connect API Key"
+
+msgid "Execute Database Sync"
+msgstr "Execute Database Sync"
+
+msgid "Last synchronization:"
+msgstr "Last synchronization:"
+
+msgid "Never"
+msgstr "Never"
+
+msgid "Search Trace ID"
+msgstr "Search Trace ID"
+
+msgid "Trace ID"
+msgstr "Trace ID"
+
+msgid "Auto-Select"
+msgstr "Auto-Select"
+
+msgid "Success"
+msgstr "Success"
+
+msgid "No Logs Found"
+msgstr "No Logs Found"
+
+msgid "No successful API interactions have been recorded yet."
+msgstr "No successful API interactions have been recorded yet."
+
+msgid "Audit Engine"
+msgstr "Audit Engine"
+
+msgid "TRACKING"
+msgstr "TRACKING"
+
+msgid "System Navigation"
+msgstr "System Navigation"
+
+msgid "Date Recorded"
+msgstr "Date Recorded"
+
+msgid "Agent ID"
+msgstr "Agent ID"
+
+msgid "Agent UID:"
+msgstr "Agent UID:"
+
+msgid "Delete Log"
+msgstr "Delete Log"
+
+msgid "Are you sure you want to delete this error log?"
+msgstr "Are you sure you want to delete this error log?"
+
+msgid "System is Healthy"
+msgstr "System is Healthy"
+
+msgid "No API errors logged! The engine is running perfectly without any recorded exceptions."
+msgstr "No API errors logged! The engine is running perfectly without any recorded exceptions."
+
+msgid "Error Tracking"
+msgstr "Error Tracking"
+
+msgid "MONITORING"
+msgstr "MONITORING"
+
+msgid "All Activity Logs"
+msgstr "All Activity Logs"
+
+msgid "Core Targeting"
+msgstr "Core Targeting"
+
+msgid "1. Category"
+msgstr "1. Category"
+
+msgid "Loading..."
+msgstr "Loading..."
+
+msgid "2. AI Solution"
+msgstr "2. AI Solution"
+
+msgid "Select Category First"
+msgstr "Select Category First"
+
+msgid "3. Configuration Style"
+msgstr "3. Configuration Style"
+
+msgid "Select Solution First"
+msgstr "Select Solution First"
+
+msgid "Dynamic Context Payload"
+msgstr "Dynamic Context Payload"
+
+msgid "Free-form Instructions / Final Prompt"
+msgstr "Free-form Instructions / Final Prompt"
+
+msgid "Type explicit instructions or inject raw testing data here..."
+msgstr "Type explicit instructions or inject raw testing data here..."
+
+msgid "Advanced Engine Overrides"
+msgstr "Advanced Engine Overrides"
+
+msgid "Tone"
+msgstr "Tone"
+
+msgid "Style"
+msgstr "Style"
+
+msgid "Formatting"
+msgstr "Formatting"
+
+msgid "Complexity"
+msgstr "Complexity"
+
+msgid "Length"
+msgstr "Length"
+
+msgid "Audience"
+msgstr "Audience"
+
+msgid "Goal"
+msgstr "Goal"
+
+msgid "Output Type"
+msgstr "Output Type"
+
+msgid "Execution Parameters"
+msgstr "Execution Parameters"
+
+msgid "AI Model"
+msgstr "AI Model"
+
+msgid "Execute Request"
+msgstr "Execute Request"
+
+msgid "bash: zywrap --output"
+msgstr "bash: zywrap --output"
+
+msgid "Awaiting execution parameters..."
+msgstr "Awaiting execution parameters..."
+
+msgid "Default Model (Auto)"
+msgstr "Default Model (Auto)"
+
+msgid "English (Default)"
+msgstr "English (Default)"
+
+msgid "Select a Solution"
+msgstr "Select a Solution"
+
+msgid "Select a Style"
+msgstr "Select a Style"
+
+msgid "Base Template"
+msgstr "Base Template"
+
+msgid "Variation"
+msgstr "Variation"
+
+msgid "Prompt / Additional Context"
+msgstr "Prompt / Additional Context"
+
+msgid "Additional Free-form Instructions"
+msgstr "Additional Free-form Instructions"
+
+msgid "Core Inputs"
+msgstr "Core Inputs"
+
+msgid "Additional Context"
+msgstr "Additional Context"
+
+msgid "Please select a wrapper."
+msgstr "Please select a wrapper."
+
+msgid "Executing..."
+msgstr "Executing..."
+
+msgid "Generating..."
+msgstr "Generating..."
+
+msgid "Error:"
+msgstr "Error:"
+
+msgid "System Error. Check Console."
+msgstr "System Error. Check Console."
+
+msgid "API Authentication"
+msgstr "API Authentication"
+
+msgid "Secure API Key"
+msgstr "Secure API Key"
+
+msgid "Save Key"
+msgstr "Save Key"
+
+msgid "Database Synchronization"
+msgstr "Database Synchronization"
+
+msgid "To use the Co-Pilot, you must sync your local database with the Cloud. This downloads the latest Prompts and Scenarios."
+msgstr "To use the Co-Pilot, you must sync your local database with the Cloud. This downloads the latest Prompts and Scenarios."
+
+msgid "Important:"
+msgstr "Important:"
+
+msgid "The initial sync may take 3 to 5 minutes. Please do not close or refresh this page."
+msgstr "The initial sync may take 3 to 5 minutes. Please do not close or refresh this page."
+
+msgid "Download & Sync Data"
+msgstr "Download & Sync Data"
+
+msgid "Initializing sync..."
+msgstr "Initializing sync..."
+
+msgid "Save API Key to enable sync."
+msgstr "Save API Key to enable sync."
+
+msgid "Global Preferences"
+msgstr "Global Preferences"
+
+msgid "Default AI Model"
+msgstr "Default AI Model"
+
+msgid "Platform Auto-Select"
+msgstr "Platform Auto-Select"
+
+msgid "Used automatically unless overridden."
+msgstr "Used automatically unless overridden."
+
+msgid "Translation Target Language"
+msgstr "Translation Target Language"
+
+msgid "English"
+msgstr "English"
+
+msgid "1-click ticket translation target."
+msgstr "1-click ticket translation target."
+
+msgid "Save Preferences"
+msgstr "Save Preferences"
+
+msgid "Connection Status"
+msgstr "Connection Status"
+
+msgid "AUTHENTICATED"
+msgstr "AUTHENTICATED"
+
+msgid "UNAUTHORIZED"
+msgstr "UNAUTHORIZED"
+
+msgid "System Readiness"
+msgstr "System Readiness"
+
+msgid "Wrappers Synced"
+msgstr "Wrappers Synced"
+
+msgid "Last Synced"
+msgstr "Last Synced"
+
+msgid "Setup Instructions"
+msgstr "Setup Instructions"
+
+msgid "Create a free account at"
+msgstr "Create a free account at"
+
+msgid "Receive 10,000 Free Credits instantly."
+msgstr "Receive 10,000 Free Credits instantly."
+
+msgid "Navigate to API Keys in your dashboard to generate a secret key."
+msgstr "Navigate to API Keys in your dashboard to generate a secret key."
+
+msgid "Syncing Engine..."
+msgstr "Syncing Engine..."
+
+msgid "Connecting to Zywrap Cloud..."
+msgstr "Connecting to Zywrap Cloud..."
+
+msgid "Extracting schemas..."
+msgstr "Extracting schemas..."
+
+msgid "Optimizing database..."
+msgstr "Optimizing database..."
+
+msgid "Sync Complete!"
+msgstr "Sync Complete!"
+
+msgid "Synced"
+msgstr "Synced"
+
+msgid "Sync Failed"
+msgstr "Sync Failed"
+
+msgid "Try Again"
+msgstr "Try Again"
+
+msgid "A system error occurred."
+msgstr "A system error occurred."
+
+msgid "Server timeout."
+msgstr "Server timeout."
+
+msgid "Call AI by Code. Zero Prompt Engineering."
+msgstr "Call AI by Code. Zero Prompt Engineering."
+
+msgid "Support Intent"
+msgstr "Support Intent"
+
+msgid "Ask Info"
+msgstr "Ask Info"
+
+msgid "Escalate"
+msgstr "Escalate"
+
+msgid "Library"
+msgstr "Library"
+
+msgid "Ticket Thread Reply Composer"
+msgstr "Ticket Thread Reply Composer"
+
+msgid "Reads the thread and drafts the best response."
+msgstr "Reads the thread and drafts the best response."
+
+msgid "Search full library..."
+msgstr "Search full library..."
+
+msgid "Model: Default (Auto)"
+msgstr "Model: Default (Auto)"
+
+msgid "Tone: Default"
+msgstr "Tone: Default"
+
+msgid "Select a Support Intent from the left menu to load variables."
+msgstr "Select a Support Intent from the left menu to load variables."
+
+msgid "Key Points to Include"
+msgstr "Key Points to Include"
+
+msgid "(Optional)"
+msgstr "(Optional)"
+
+msgid "Add any specific facts, business decisions, or links the AI should mention."
+msgstr "Add any specific facts, business decisions, or links the AI should mention."
+
+msgid "e.g., Approve the refund, offer a 20% discount, or let them know this will be fixed in v4.0..."
+msgstr "e.g., Approve the refund, offer a 20% discount, or let them know this will be fixed in v4.0..."
+
+msgid "AI Generated Draft"
+msgstr "AI Generated Draft"
+
+msgid "AI generated response will appear here..."
+msgstr "AI generated response will appear here..."
+
+msgid "Generate Draft"
+msgstr "Generate Draft"
+
+msgid "Insert into Editor"
+msgstr "Insert into Editor"
+
+msgid "No specific entities found."
+msgstr "No specific entities found."
+
+msgid "Zywrap AI Co-Pilot is not configured! Please navigate to Zywrap AI Settings to connect your API key and unlock AI Auto-Replies."
+msgstr "Zywrap AI Co-Pilot is not configured! Please navigate to Zywrap AI Settings to connect your API key and unlock AI Auto-Replies."
+
+msgid "Loading context securely from database..."
+msgstr "Loading context securely from database..."
+
+msgid "No wrapper variations found. Please sync data."
+msgstr "No wrapper variations found. Please sync data."
+
+msgid "No extra context variables required. Ready to generate."
+msgstr "No extra context variables required. Ready to generate."
+
+msgid "Drafting response..."
+msgstr "Drafting response..."
+
+msgid "System Error parsing response. Check console."
+msgstr "System Error parsing response. Check console."
+
+msgid "Unlock AI Features"
+msgstr "Unlock AI Features"
+
+msgid "Connect your Zywrap API key in settings to unlock 1-click summaries, translations, and data extraction."
+msgstr "Connect your Zywrap API key in settings to unlock 1-click summaries, translations, and data extraction."
+
+msgid "Configure Zywrap AI →"
+msgstr "Configure Zywrap AI →"
+
+msgid "AI is executing:"
+msgstr "AI is executing:"
+
+msgid "AI Insight:"
+msgstr "AI Insight:"
+
+msgid "Ticket not found."
+msgstr "Ticket not found."
+
+msgid "Restricted Access"
+msgstr "Restricted Access"
+
+msgid "Scraped Resource"
+msgstr "Scraped Resource"
+
+msgid "Website returned HTTP Error: "
+msgstr "Website returned HTTP Error: "
+
+msgid "No pages found under this source."
+msgstr "No pages found under this source."
+
+msgid "Manual Sync Only"
+msgstr "Manual Sync Only"
+
+msgid "Security check failed"
+msgstr "Security check failed"
+
+msgid "AI Learning Complete: Source URL has been fragmented and indexed."
+msgstr "AI Learning Complete: Source URL has been fragmented and indexed."
+
+msgid "AI Learning Failed: Could not access the URL."
+msgstr "AI Learning Failed: Could not access the URL."
+
+msgid "Source URL"
+msgstr "Source URL"
+
+msgid "https://..."
+msgstr "https://..."
+
+msgid "Deep Scraping (Level Depth)"
+msgstr "Deep Scraping (Level Depth)"
+
+msgid "Set recursion depth (Max 3 levels). The system will strictly scrape a maximum of 500 pages per source to protect server performance. External links are ignored."
+msgstr "Set recursion depth (Max 3 levels). The system will strictly scrape a maximum of 500 pages per source to protect server performance. External links are ignored."
+
+msgid "Auto-Sync Interval"
+msgstr "Auto-Sync Interval"
+
+msgid "How often should AI re-read this page?"
+msgstr "How often should AI re-read this page?"
+
+msgid "Source Type"
+msgstr "Source Type"
+
+msgid "Webpage / Article"
+msgstr "Webpage / Article"
+
+msgid "YouTube Video"
+msgstr "YouTube Video"
+
+msgid "Update & Rescrape"
+msgstr "Update & Rescrape"
+
+msgid "Analyze & Import"
+msgstr "Analyze & Import"
+
+msgid "Tickets Deflected"
+msgstr "Tickets Deflected"
+
+msgid "AI Instant Fixes have successfully resolved this many issues before they became support tickets."
+msgstr "AI Instant Fixes have successfully resolved this many issues before they became support tickets."
+
+msgid "Sync Error"
+msgstr "Sync Error"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Webpage"
+msgstr "Webpage"
+
+msgid "Enable AI Search"
+msgstr "Enable AI Search"
+
+msgid "Disable AI Search"
+msgstr "Disable AI Search"
+
+msgid "Interval"
+msgstr "Interval"
+
+msgid "Last Run"
+msgstr "Last Run"
+
+msgid "Next Run"
+msgstr "Next Run"
+
+msgid "%s (In %s)"
+msgstr "%s (In %s)"
+
+msgid "Running shortly..."
+msgstr "Running shortly..."
+
+msgid "Not Scheduled"
+msgstr "Not Scheduled"
+
+msgid "Depth Setting"
+msgstr "Depth Setting"
+
+msgid "%d Levels Deep"
+msgstr "%d Levels Deep"
+
+msgid "Browsed"
+msgstr "Browsed"
+
+msgid "Picked"
+msgstr "Picked"
+
+msgid "Change Sync Schedule"
+msgstr "Change Sync Schedule"
+
+msgid "View Scraped Sub-Pages"
+msgstr "View Scraped Sub-Pages"
+
+msgid "Edit Full Settings"
+msgstr "Edit Full Settings"
+
+msgid "Force Run Now"
+msgstr "Force Run Now"
+
+msgid "Delete Data Source"
+msgstr "Delete Data Source"
+
+msgid "Delete source and all associated sub-pages? This cannot be undone."
+msgstr "Delete source and all associated sub-pages? This cannot be undone."
+
+msgid "Scraped Pages"
+msgstr "Scraped Pages"
+
+msgid "Failed to load pages."
+msgstr "Failed to load pages."
+
+msgid "Are you sure you want to delete this specific page from the source?"
+msgstr "Are you sure you want to delete this specific page from the source?"
+

@@ -244,7 +244,7 @@ $majesticsupport_js ='
                             $MJTC_url = "plugins.php?s=majestic-support-multiform&plugin_status=inactive";
                         }elseif($MJTC_plugininfo['availability'] == "0"){
                             $MJTC_text = $MJTC_plugininfo['text'];
-                            $MJTC_url = "https://majesticsupport.com/product/multiform/";
+                            $MJTC_url = "https://majesticsupport.com/product/multiple-ticket-forms/";
                         }
                     ?>
                     <li>
@@ -269,7 +269,7 @@ $majesticsupport_js ='
                             $MJTC_url = "plugins.php?s=majestic-support-ticketclosereason&plugin_status=inactive";
                         }elseif($MJTC_plugininfo['availability'] == "0"){
                             $MJTC_text = $MJTC_plugininfo['text'];
-                            $MJTC_url = "https://majesticsupport.com/product/ticketclosereason/";
+                            $MJTC_url = "https://majesticsupport.com/product/ticket-closing-reasons/";
                         }
                     ?>
                     <li>
@@ -497,12 +497,12 @@ $majesticsupport_js ='
                 <ul class="msadmin-sidebar-submenu treeview-menu">
                     <li class="<?php if($MJTC_c == 'instantfix' && ($MJTC_layout == '')) echo esc_attr('active'); ?>">
                         <a class="mjtc-admin-submenu-link" href="?page=majesticsupport_instantfix" title="<?php echo esc_attr(__("Instantfix" , 'majestic-support')); ?>">
-                            <?php echo esc_html(__("Instantfix", 'majestic-support')); ?>
+                            <?php echo esc_html(__("Instant Fix", 'majestic-support')); ?>
                         </a>
                     </li>
                     <li class="<?php if($MJTC_c == 'instantfix' && ($MJTC_layout == 'addinstantfix')) echo esc_attr('active'); ?>">
                         <a class="mjtc-admin-submenu-link" href="?page=majesticsupport_instantfix&mjslay=addinstantfix" <?php echo esc_html(__('Add Instantfix' , 'majestic-support')); ?>>
-                            <?php echo esc_html(__( 'Add Instantfix', 'majestic-support')); ?>
+                            <?php echo esc_html(__( 'Add Instant Fix', 'majestic-support')); ?>
                         </a>
                     </li>
                 </ul>
@@ -585,6 +585,42 @@ $majesticsupport_js ='
                 <li class="<?php if($MJTC_c == 'configuration' && $MJTC_layout == 'cronjoburl') echo esc_attr('active'); ?>">
                     <a class="mjtc-admin-submenu-link" href="?page=majesticsupport_configuration&mjslay=cronjoburl" title="<?php echo esc_attr(__('Cron Job URLs' , 'majestic-support')); ?>">
                         <?php echo esc_html(__('Cron Job URLs', 'majestic-support')); ?>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="treeview mjtc-admin-nav-group accordion <?php if($MJTC_c == 'zywrap') echo esc_attr('active'); ?>">
+            <a class="mjtc-admin-nav-item mjtc-admin-nav-has-submenu" href="?page=majesticsupport_configuration&msconfigid=general" title="<?php echo esc_attr(__('Zywrap AI' , 'majestic-support')); ?>">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09l2.846.813-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>
+                <span class="ms_text"><?php echo esc_html(__('Zywrap AI' , 'majestic-support')); ?></span>
+                <svg class="mjtc-admin-chevron-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>
+                <span class="ms_active"></span>
+            </a>
+            <ul class="msadmin-sidebar-submenu treeview-menu">
+                <li class="<?php if($MJTC_c == 'zywrap' && $MJTC_layout == '') echo esc_attr('active'); ?>">
+                    <a class="mjtc-admin-submenu-link" href="?page=majesticsupport_zywrap" title="<?php echo esc_attr(__('Zywrap Co-Pilot' , 'majestic-support')); ?>">
+                        <?php echo esc_html(__('Zywrap Co-Pilot', 'majestic-support')); ?>
+                    </a>
+                </li>
+                <li class="<?php if($MJTC_c == 'zywrap' && $MJTC_layout == 'zywrap_settings') echo esc_attr('active'); ?>">
+                    <a class="mjtc-admin-submenu-link" href="?page=majesticsupport_zywrap&mjslay=zywrap_settings" title="<?php echo esc_attr(__('Global Settings' , 'majestic-support')); ?>">
+                        <?php echo esc_html(__('Global Settings', 'majestic-support')); ?>
+                    </a>
+                </li>
+                <li class="<?php if($MJTC_c == 'zywrap' && $MJTC_layout == 'zywrap_playground') echo esc_attr('active'); ?>">
+                    <a class="mjtc-admin-submenu-link" href="?page=majesticsupport_zywrap&mjslay=zywrap_playground" title="<?php echo esc_attr(__('AI Playground' , 'majestic-support')); ?>">
+                        <?php echo esc_html(__('AI Playground', 'majestic-support')); ?>
+                    </a>
+                </li>
+                <li class="<?php if($MJTC_c == 'zywrap' && $MJTC_layout == 'zywrap_logs') echo esc_attr('active'); ?>">
+                    <a class="mjtc-admin-submenu-link" href="?page=majesticsupport_zywrap&mjslay=zywrap_logs" title="<?php echo esc_attr(__('API Audit Logs' , 'majestic-support')); ?>">
+                        <?php echo esc_html(__('API Audit Logs', 'majestic-support')); ?>
+                    </a>
+                </li>
+                <li class="<?php if($MJTC_c == 'zywrap' && $MJTC_layout == 'zywrap_errors') echo esc_attr('active'); ?>">
+                    <a class="mjtc-admin-submenu-link" href="?page=majesticsupport_zywrap&mjslay=zywrap_errors" title="<?php echo esc_attr(__('System Exceptions' , 'majestic-support')); ?>">
+                        <?php echo esc_html(__('System Exceptions', 'majestic-support')); ?>
                     </a>
                 </li>
             </ul>

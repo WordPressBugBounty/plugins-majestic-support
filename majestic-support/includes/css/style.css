@@ -4,6 +4,7 @@
 @import url('majestic_support_variables.css');
 
 /* General Styles  */
+.ms-main-up-wrapper .visible{display: none;}
 #pie3d_chart1 svg {overflow: visible !important;}
 #mjtc-private-note-wrp.visible-mjtc-private-note-wrp {display: flex;}
 div.ms-main-up-wrapper {width: 100% !important;max-width: 1280px !important;margin: 0 auto;position:relative;border: 1px solid var(--mjtc-color-6);border-radius: 20px;--tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);color: var(--mjtc-color-4);background-color: var(--mjtc-color-7);--tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);box-sizing: border-box;position: relative;overflow: hidden;background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1));font-size: 16px;}
@@ -257,6 +258,20 @@ div.ms-main-up-wrapper .mjtc-support-cp-footer-val {font-weight: 700; font-size:
 div.ms-main-up-wrapper .mjtc-support-cp-footer-label {font-size: .7em; opacity: 0.7;}
 div.ms-main-up-wrapper .mjtc-support-cp-footer-sep {width: 1px; background: rgba(255,255,255,0.15);}
 /* my ticket */
+/* Zywrap AI: My Ticket Badges */
+div.ms-main-up-wrapper .mjtc-ai-badge-group {display: flex;align-items: center;gap: 8px;flex-wrap: wrap;}
+div.ms-main-up-wrapper .mjtc-ai-badge {display: inline-flex;align-items: center;gap: 4px;padding: 5px 8px;border-radius: 4px;font-size: 0.75rem;font-weight: 700;line-height: 1;text-transform: uppercase;letter-spacing: 0.05em;}
+div.ms-main-up-wrapper .mjtc-ai-badge .dashicons {font-size: 14px;width: 14px;height: 14px;display: flex;align-items: center;justify-content: center;}
+div.ms-main-up-wrapper .mjtc-ai-sentiment-happy,
+div.ms-main-up-wrapper .mjtc-ai-sentiment-positive { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+div.ms-main-up-wrapper .mjtc-ai-sentiment-neutral { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+div.ms-main-up-wrapper .mjtc-ai-sentiment-angry,
+div.ms-main-up-wrapper .mjtc-ai-sentiment-frustrated,
+div.ms-main-up-wrapper .mjtc-ai-sentiment-negative { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+div.ms-main-up-wrapper .mjtc-ai-upsell { background: #fef08a; color: #854d0e; border: 1px solid #fde047; }
+div.ms-main-up-wrapper .mjtc-ai-badge.mjtc-ai-action-tag {background-color: #caf0de;color: #065f46;border: 1px solid #95eece;cursor: pointer;transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);padding: 6px 8px}
+div.ms-main-up-wrapper .mjtc-ai-badge.mjtc-ai-action-tag:active {transform: translateY(0);}
+div.ms-main-up-wrapper .mjtc-ai-badge.mjtc-ai-action-tag svg {width: 14px;height: 14px;vertical-align: middle;margin-inline-end: 4px;margin-block-start: -2px;}
 div.ms-main-up-wrapper .mjtc-support-cont-main-wrapper {padding:15px 2em 2em;align-items: flex-start;}
 div.ms-main-up-wrapper .mjtc-support-cont-main-wrapper {display: flex; justify-content: center;position:relative;width: 100%;}
 div.ms-main-up-wrapper .mjtc-support-cont-main-wrapper .mjtc-myticket-link .mjtc-support-card-bgsvg{position: absolute;right: -20px;bottom: -20px;width: 110px;height: 110px;opacity: 0.06;transform: rotate(-15deg);pointer-events: none;z-index: 0;transition: all 0.4s ease;}
@@ -736,6 +751,22 @@ div.ms-main-up-wrapper .mjtc-support-multiform-row .mjtc-support-table-body-col.
 .mjtc-support-info-icon[data-tooltip] {position: relative;}
 .mjtc-support-info-icon:hover::after {content: attr(data-tooltip);position: absolute;bottom: 125%;left: 50%;transform: translateX(-50%);background: #0f172a;color: #fff;padding: 8px 12px;border-radius: 6px;font-size: 12px;white-space: normal;width: 170px;z-index: 100;box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);}
 /* AI Smart Reply End */
+/* Zywrap Start */
+div.ms-main-up-wrapper .mjtc-zywrap-draft-container { display: flex; flex-direction: column; flex: 1; }
+div.ms-main-up-wrapper .mjtc-support-thread-cnt.mjtc-ai-draft-bubble {background-color: #f8fafc;border: 2px dashed #a7f3d0;box-shadow: none;}
+div.ms-main-up-wrapper .mjtc-support-thread-cnt.mjtc-ai-draft-bubble::before {border-right-color: #a7f3d0;}
+div.ms-main-up-wrapper .mjtc-support-thread-cnt.mjtc-ai-draft-bubble::after {border-right-color: #f8fafc;}
+div.ms-main-up-wrapper .mjtc-triage-discard-btn,
+div.ms-main-up-wrapper .mjtc-triage-send-btn {display: inline-flex;align-items: center;justify-content: center;font-size: 13px;font-weight: 600;padding: 6px 16px;border-radius: 6px;transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);cursor: pointer;line-height: 1.4;width: auto;}
+div.ms-main-up-wrapper .mjtc-triage-send-btn .dashicons {line-height: normal;}
+div.ms-main-up-wrapper .mjtc-triage-discard-btn {color: #ef4444;background-color: #fef2f2;border: 1px solid #fecaca;}
+div.ms-main-up-wrapper .mjtc-triage-discard-btn:hover,
+div.ms-main-up-wrapper .mjtc-triage-discard-btn:focus {background-color: #fee2e2;border-color: #f87171;color: #b91c1c;}
+div.ms-main-up-wrapper .mjtc-triage-send-btn {color: #ffffff;background: #10b981;border: 1px solid #10b981;box-shadow: 0 1px 2px rgba(16, 185, 129, 0.2);}
+div.ms-main-up-wrapper .mjtc-triage-send-btn:hover,
+div.ms-main-up-wrapper .mjtc-triage-send-btn:focus {background-color: #059669;border-color: #047857;box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);transform: translateY(-1px);}
+div.ms-main-up-wrapper .mjtc-triage-send-btn:active {transform: translateY(0);}
+/* Zywrap End */
 .mjtc-attachment-purged {display: flex;align-items: center;background: #f8f9fa;border: 1px dashed #adb5bd;border-radius: 4px;padding: 6px 12px;color: #6c757d;font-size: 13px;margin: 4px 0.75rem;cursor: default;user-select: none;}
 .mjtc-attachment-purged .mjtc-purged-icon {margin-right: 8px;flex-shrink: 0;opacity: 0.8;}
 .mjtc-attachment-purged .mjtc-purged-filename {text-decoration: line-through;margin-right: 4px;color: #495057;font-weight: 600;}
@@ -856,7 +887,7 @@ div.ms-main-up-wrapper .mjtc-support-thread-data-header-leftwrp strong { color: 
 div.ms-main-up-wrapper .mjtc-support-staff-badge { font-size: 0.8em; background: var(--mjtc-color-1); color: white; padding: 2px 8px; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;}
 div.ms-main-up-wrapper .mjtc-support-thread-data.note-msg { padding: 1.5em 50px 1.5em 1.5em; font-size: 0.95em; line-height: 1.6; color: var(--mjtc-color-2); }
 div.ms-main-up-wrapper .mjtc-support-thread-cnt.agent-bubble .mjtc-support-thread-data.note-msg { padding: 1.5em;justify-content: flex-start;gap:1em;flex-direction: column;align-items: flex-start;}
-div.ms-main-up-wrapper .mjtc-support-thread-cnt .mjtc-support-thread-data.note-msg .mjtc-support-message-thread-data {width: 100%;display: flex;align-items: center;flex-wrap: wrap;flex: 1 1 auto;justify-content: space-between;position: relative;padding: 0 0.5em;font-size: 0.95em;line-height: 1.6;color: var(--mjtc-color-2);}
+div.ms-main-up-wrapper .mjtc-support-thread-cnt .mjtc-support-thread-data.note-msg .mjtc-support-message-thread-data {width: 100%;display: flex;flex-wrap: wrap;flex: 1 1 auto;justify-content: space-between;position: relative;padding: 0 0.5em;font-size: 0.95em;line-height: 1.6;color: var(--mjtc-color-2);flex-direction: column;gap: 5px;}
 div.ms-main-up-wrapper .mjtc-support-thread-cnt.agent-bubble .mjtc-support-thread-data.note-msg .mjtc-support-message-thread-data a{font-weight:bold;color:var(--mjtc-color-1);}
 div.ms-main-up-wrapper .mjtc-support-thread-time-stamp { font-size: 0.75em; color: #94a3b8; font-weight: 500;}
 div.ms-main-up-wrapper .mjtc-support-attachments-wrp { margin-top: 1.5em; border-top: 1px dashed var(--mjtc-color-6); padding-top: 1em;width: 100%;}

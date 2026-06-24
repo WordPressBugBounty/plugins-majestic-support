@@ -122,14 +122,16 @@ class MJTC_attachmentModel {
 
 
     function getDownloadAttachmentById($MJTC_id){
-        if(!is_numeric($MJTC_id)) return false;
+        $MJTC_id = absint($MJTC_id);
+        if(!$MJTC_id) return false;
+
         $MJTC_query = "SELECT ticket.attachmentdir AS foldername,ticket.id AS ticketid,attach.filename  "
                 . " FROM `".majesticsupport::$_db->prefix."mjtc_support_attachments` AS attach "
                 . " JOIN `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket ON ticket.id = attach.ticketid "
                 . " WHERE attach.id = " . esc_sql($MJTC_id);
         $MJTC_object = majesticsupport::$_db->get_row($MJTC_query);
         $MJTC_foldername = $MJTC_object->foldername;
-        $MJTC_ticketid = $MJTC_object->ticketid;
+        $MJTC_ticketid = absint($MJTC_object->ticketid);
         $MJTC_filename = $MJTC_object->filename;
         $MJTC_download = false;
         if(!MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()){
@@ -183,7 +185,8 @@ class MJTC_attachmentModel {
     }
 
     function getDownloadAttachmentByName($MJTC_file_name,$MJTC_id){
-        if(empty($MJTC_file_name) || !is_numeric($MJTC_id)) return false;
+        $MJTC_id = absint($MJTC_id);
+        if(empty($MJTC_file_name) || !$MJTC_id) return false;
 
         $MJTC_download = false;
         if(!MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()){
@@ -212,7 +215,7 @@ class MJTC_attachmentModel {
             }
             $MJTC_wp_filesystem = $wp_filesystem;
 
-            $MJTC_filename = MJTC_majesticsupportphplib::MJTC_str_replace(' ', '_',$MJTC_file_name);
+            $MJTC_filename = sanitize_file_name(MJTC_majesticsupportphplib::MJTC_str_replace(' ', '_',$MJTC_file_name));
             $MJTC_filename = MJTC_majesticsupportphplib::MJTC_clean_file_path($MJTC_filename);
             $MJTC_query = "SELECT attachmentdir FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE id = ".esc_sql($MJTC_id);
             $MJTC_foldername = majesticsupport::$_db->get_var($MJTC_query);

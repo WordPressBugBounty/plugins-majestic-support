@@ -349,12 +349,36 @@ $majesticsupport_settings_config = [
                     ['id' => 'show_ticket_delete_button', 'label' => __('Show ticket delete button', 'majestic-support'), 'type' => 'select', 'value' => majesticsupport::$_data[0]['show_ticket_delete_button'], 'tooltip' => __('Select whether users can see the ticket delete button', 'majestic-support'), 'options' => $MJTC_yesno],
                     ['id' => 'ticket_close_reason_type', 'label' => __('Ticket close reason Type', 'majestic-support'), 'type' => 'select', 'value' => majesticsupport::$_data[0]['ticket_close_reason_type'], 'tooltip' => __('Select whether users can save single or multiple reasons', 'majestic-support'), 'options' => $MJTC_reasontype, 'pro' => ['slug' => 'ticketclosereason', 'name' => __('Ticket Close Reason', 'majestic-support')]],
                     ['id' => 'maximum_record_for_smart_reply', 'label' => __('Maximum Record For Smart Reply', 'majestic-support'), 'type' => 'select', 'value' => majesticsupport::$_data[0]['maximum_record_for_smart_reply'], 'tooltip' => __('Set the number of replies to show', 'majestic-support'), 'options' => $MJTC_smartreply],
-                    ['id' => 'enable_instant_fixes', 'label' => __('Enable Instant Fixes', 'majestic-support'), 'type' => 'toggle', 'value' => majesticsupport::$_data[0]['enable_instant_fixes'] ?? '1', 'tooltip' => __('Enable or disable the instant fix suggestions on the ticket submission page.', 'majestic-support')],
-                    ['id' => 'instant_fixes_min_score', 'label' => __('Instant Fixes Minimum Score', 'majestic-support'), 'type' => 'text', 'value' => majesticsupport::$_data[0]['instant_fixes_min_score'], 'tooltip' => __('Set the minimum NLP relevance score required to show an Instant Fix. Default is 0.5. Lower numbers show more results; higher numbers demand stricter matches.', 'majestic-support')],
-                    ['id' => 'instant_fixes_limit', 'label' => __('Instant Fixes Record Limit', 'majestic-support'), 'type' => 'text', 'value' => majesticsupport::$_data[0]['instant_fixes_limit'], 'tooltip' => __('Set the maximum number of matches to pull from each source (Knowledge Base, FAQs, etc.) for the Instant Fixes section.', 'majestic-support')],
-                    ['id' => 'auto_delete_attachments_interval', 'label'   => __('Auto-Delete Old Attachments', 'majestic-support'), 'type'    => 'select', 'value'   => isset(majesticsupport::$_data[0]['auto_delete_attachments_interval']) ? majesticsupport::$_data[0]['auto_delete_attachments_interval'] : '0', 'tooltip' => __('Automatically delete physical attachment files from tickets that have been closed longer than this period to save server disk space.', 'majestic-support'), 'options' => $MJTC_delete_intervals],
                     ['id' => 'new_ticket_message', 'label' => __('New ticket message', 'majestic-support'), 'type' => 'wp_editor', 'value' => majesticsupport::$_data[0]['new_ticket_message'], 'tooltip' => __('This message will show on the new ticket', 'majestic-support')],
                 ]
+            ],
+            'instant_fixes_setting' => [
+                'title'       => __('Instant Fixes (NLP)', 'majestic-support'),
+                'description' => __('Configure automated knowledge base and FAQ suggestions during ticket submission', 'majestic-support'),
+                'fields'      => [
+                    [
+                        'id'      => 'enable_instant_fixes', 
+                        'label'   => __('Enable Instant Fixes', 'majestic-support'), 
+                        'type'    => 'toggle', 
+                        'value'   => majesticsupport::$_data[0]['enable_instant_fixes'] ?? '1', 
+                        'tooltip' => __('Enable or disable the instant fix suggestions on the ticket submission page.', 'majestic-support')
+                    ],
+                    [
+                        'id'      => 'instant_fixes_min_score', 
+                        'label'   => __('Instant Fixes Minimum Score', 'majestic-support'), 
+                        'type'    => 'text', 
+                        'value'   => majesticsupport::$_data[0]['instant_fixes_min_score'], 
+                        'tooltip' => __('Set the minimum NLP relevance score required to show an Instant Fix. Default is 0.5. Lower numbers show more results; higher numbers demand stricter matches.', 'majestic-support')
+                    ],
+                    [
+                        'id'      => 'instant_fixes_limit', 
+                        'label'   => __('Instant Fixes Record Limit', 'majestic-support'), 
+                        'type'    => 'text', 
+                        'value'   => majesticsupport::$_data[0]['instant_fixes_limit'], 
+                        'tooltip' => __('Set the maximum number of matches to pull from each source (Knowledge Base, FAQs, etc.) for the Instant Fixes section.', 'majestic-support')
+                    ],
+                ],
+                'pro' => ['slug' => 'instantfix', 'name' => __('Instant Fixes', 'majestic-support')]
             ],
             'ticket_listing' => [
                 'title'       => __('Ticket Listing', 'majestic-support'),
@@ -376,6 +400,88 @@ $majesticsupport_settings_config = [
                 'fields'      => [
                     ['id' => 'visitor_can_create_ticket', 'label' => __('Visitors can create tickets', 'majestic-support'), 'type' => 'select', 'value' => majesticsupport::$_data[0]['visitor_can_create_ticket'], 'tooltip' => __('Allow visitors to create tickets or not', 'majestic-support'), 'options' => $MJTC_yesno, 'video' => '9NvBOu_ojMo'],
                     ['id' => 'visitor_message', 'label' => __('Visitor ticket creation message', 'majestic-support'), 'type' => 'wp_editor', 'value' => majesticsupport::$_data[0]['visitor_message'], 'tooltip' => __('This text will appear whenever a visitor creates a ticket', 'majestic-support')],
+                ]
+            ],
+        ]
+    ],
+    'zywrap_ai' => [
+        'label'  => __('Zywrap AI Co-Pilot', 'majestic-support'),
+        'icon'   => 'cpu', // Uses a tech/AI style icon
+        'groups' => [
+            'ai_analyzer' => [
+                'title'       => __('Incoming Ticket Analyzer', 'majestic-support'),
+                'description' => __('Configure zero-prompt automation for auto-triage, routing, and sentiment analysis on new tickets.', 'majestic-support'),
+                'fields'      => [
+                    ['id' => 'zywrap_enable_sentiment', 'label' => __('Sentiment Analysis', 'majestic-support'), 'type' => 'toggle', 'value' => majesticsupport::$_data[0]['zywrap_enable_sentiment'] ?? '0', 'tooltip' => __('Detect customer emotions (Angry, Frustrated, Happy, Neutral)', 'majestic-support'), 'options' => $MJTC_showhide],
+                    ['id' => 'zywrap_auto_route', 'label' => __('Auto-Routing (Department)', 'majestic-support'), 'type' => 'toggle', 'value' => majesticsupport::$_data[0]['zywrap_auto_route'] ?? '0', 'tooltip' => __('Automatically assign tickets to the correct department based on context', 'majestic-support'), 'options' => $MJTC_showhide],
+                    ['id' => 'zywrap_auto_priority', 'label' => __('Auto-Prioritization', 'majestic-support'), 'type' => 'toggle', 'value' => majesticsupport::$_data[0]['zywrap_auto_priority'] ?? '0', 'tooltip' => __('Automatically set ticket priority (e.g., flagging angry customers as High Priority)', 'majestic-support'), 'options' => $MJTC_showhide],
+                    ['id' => 'zywrap_detect_sales', 'label' => __('Sales Leak & Upsell Detection', 'majestic-support'), 'type' => 'toggle', 'value' => majesticsupport::$_data[0]['zywrap_detect_sales'] ?? '0', 'tooltip' => __('Flag tickets that contain potential sales inquiries or upsell opportunities', 'majestic-support'), 'options' => $MJTC_showhide],
+                ]
+            ],
+            'ai_deflection_group' => [
+                'title'       => __('Frontend Ticket Deflection', 'majestic-support'),
+                'description' => __('Configure how the AI automatically suggests solutions to users before they submit a ticket.', 'majestic-support'),
+                'fields'      => [
+                    [
+                        'id'      => 'zywrap_enable_deflection', 
+                        'label'   => __('Enable AI Frontend Deflection', 'majestic-support'), 
+                        'type'    => 'toggle', 
+                        'value'   => majesticsupport::$_config['zywrap_enable_deflection'] ?? '1',
+                        'tooltip' => __('Automatically generate an AI answer based on local search results before the user submits a ticket.', 'majestic-support')
+                    ],
+                    [
+                        'id'      => 'zywrap_deflection_sources', 
+                        'label'   => __('Max Sources to Analyze', 'majestic-support'), 
+                        'type'    => 'number', 
+                        'value'   => majesticsupport::$_config['zywrap_deflection_sources'] ?? '2',
+                        'tooltip' => __('How many of the top local search results should the AI read to generate its answer? (Recommended: 2 or 3)', 'majestic-support')
+                    ],
+                    [
+                        'id'      => 'zywrap_deflection_tone', 
+                        'label'   => __('AI Response Tone', 'majestic-support'), 
+                        'type'    => 'select', 
+                        'options' => [
+                            'professional and concise' => __('Professional & Concise', 'majestic-support'),
+                            'friendly and direct'      => __('Friendly & Direct', 'majestic-support'),
+                            'highly technical'         => __('Highly Technical', 'majestic-support'),
+                            'casual and helpful'       => __('Casual & Helpful', 'majestic-support')
+                        ],
+                        'value'   => majesticsupport::$_config['zywrap_deflection_tone'] ?? 'friendly and direct',
+                        'tooltip' => __('Select the personality the AI should use when writing the suggested fix.', 'majestic-support')
+                    ],
+                    [
+                        'id'      => 'zywrap_deflection_strictness', 
+                        'label'   => __('Data Strictness', 'majestic-support'), 
+                        'type'    => 'select', 
+                        'options' => [
+                            'strict'  => __('Strict: Only use local articles', 'majestic-support'),
+                            'relaxed' => __('Relaxed: Use general knowledge if local fails', 'majestic-support')
+                        ],
+                        'value'   => majesticsupport::$_config['zywrap_deflection_strictness'] ?? 'strict',
+                        'tooltip' => __('Strict mode prevents hallucinations by forcing the AI to only answer if the solution exists in your KB/FAQs.', 'majestic-support')
+                    ]
+                ]
+            ],
+            'ai_copilot' => [
+                'title'       => __('Agent Copilot (Policy & Tone)', 'majestic-support'),
+                'description' => __('Real-time checks in the ticket editor to ensure all agent replies meet company policy and tone guidelines.', 'majestic-support'),
+                'fields'      => [
+                    ['id' => 'zywrap_enable_policy', 'label' => __('Enable Tone & Policy Checker', 'majestic-support'), 'type' => 'toggle', 'value' => majesticsupport::$_data[0]['zywrap_enable_policy'] ?? '0', 'tooltip' => __('Checks agent replies before sending.', 'majestic-support'), 'options' => $MJTC_showhide],
+                    ['id' => 'zywrap_policy_url', 'label' => __('Company Policy URL', 'majestic-support'), 'type' => 'text', 'value' => majesticsupport::$_data[0]['zywrap_policy_url'] ?? '', 'tooltip' => __('Live link to your Privacy/Company Policy. The AI will read this dynamically.', 'majestic-support')],
+                ]
+            ],
+            'ai_outage_monitor' => [
+                'title'       => __('Proactive Support Automation', 'majestic-support'),
+                'description' => __('Advanced AI workflows to maintain ticket momentum and reduce manual follow-up time.'),
+                'fields'      => [
+                    [
+                        'id'      => 'zywrap_enable_followup', 
+                        'label'   => __('Auto-Draft Follow-ups', 'majestic-support'), 
+                        'type'    => 'toggle', 
+                        'value'   => majesticsupport::$_config['zywrap_enable_followup'] ?? '1',
+                        'tooltip' => __('System will automatically draft polite follow-ups for tickets with no response after 48 hours.', 'majestic-support'),
+                        'options' => $MJTC_showhide
+                    ],
                 ]
             ],
         ]
@@ -953,6 +1059,22 @@ $majesticsupport_settings_config = [
             ],
         ]
     ],
+    'auto_cleanup' => [
+        'label'  => __('Auto Cleanup', 'majestic-support'),
+        'icon'   => 'trash', 
+        'groups' => [
+            'cleanup_settings' => [
+                'title'       => __('Auto Cleanup Settings', 'majestic-support'),
+                'description' => __('Configure retention periods to automatically delete old attachments and tickets to optimize server storage.', 'majestic-support'),
+                'pro'         => ['slug' => 'autocleanup', 'name' => __('Auto Cleanup', 'majestic-support')],
+                'fields'      => [
+                    ['id' => 'autocleanup_attachment_interval', 'label' => __('Delete Old Attachments', 'majestic-support'), 'type' => 'select', 'value' => majesticsupport::$_data[0]['autocleanup_attachment_interval'] ?? '0', 'tooltip' => __('Automatically delete attachments from closed tickets to save storage space.', 'majestic-support'), 'options' => $MJTC_delete_intervals],
+                    ['id' => 'autocleanup_ticket_interval', 'label' => __('Delete Old Tickets', 'majestic-support'), 'type' => 'select', 'value' => majesticsupport::$_data[0]['autocleanup_ticket_interval'] ?? '0', 'tooltip' => __('Permanently delete closed tickets and all their associated data after this time period.', 'majestic-support'), 'options' => [ (object)['id' => '0', 'text' => __('Never', 'majestic-support')], (object)['id' => '12', 'text' => __('1 Year', 'majestic-support')], (object)['id' => '24', 'text' => __('2 Years', 'majestic-support')], (object)['id' => '36', 'text' => __('3 Years', 'majestic-support')] ]],
+                    ['id' => 'autocleanup_cron_frequency', 'label' => __('Cron Frequency', 'majestic-support'), 'type' => 'select', 'value' => majesticsupport::$_data[0]['autocleanup_cron_frequency'] ?? 'daily', 'tooltip' => __('How often the background cleanup task should execute.', 'majestic-support'), 'options' => [ (object)['id' => 'daily', 'text' => __('Daily', 'majestic-support')], (object)['id' => 'weekly', 'text' => __('Weekly', 'majestic-support')], (object)['id' => 'monthly', 'text' => __('Monthly', 'majestic-support')] ]],
+                ]
+            ],
+        ]
+    ],
 ];
 
 // Mock pages for select fields.
@@ -1267,6 +1389,28 @@ $MJTC_plugin_array = get_option('active_plugins');
                                     $majesticsupport_installed_addons = majesticsupport::$_active_addons;
                                     foreach ($majesticsupport_settings_config as $majesticsupport_category_key => $majesticsupport_category) : ?>
                                         <div class="mjtc-category-container" data-category-key="<?php echo esc_attr($majesticsupport_category_key); ?>">
+                                            <?php 
+                                            // Display Missing API Key Warning for Zywrap AI
+                                            if ($majesticsupport_category_key === 'zywrap_ai') {
+                                                $zywrap_api_key = get_option('mjtc_zywrap_api_key', '');
+                                                if (empty($zywrap_api_key)) { ?>
+                                                    <div class="mjtc-zywrap-alert-banner">
+                                                        <div class="mjtc-zywrap-alert-icon">
+                                                            <span class="dashicons dashicons-warning"></span>
+                                                        </div>
+                                                        <div class="mjtc-zywrap-alert-content">
+                                                            <h4><?php echo esc_html(__('Zywrap API Key Missing', 'majestic-support')); ?></h4>
+                                                            <p><?php echo esc_html(__('Unlock zero-prompt automation, sentiment analysis, and auto-routing by connecting your API key.', 'majestic-support')); ?></p>
+                                                        </div>
+                                                        <div class="mjtc-zywrap-alert-action">
+                                                            <!-- Update this URL to point to wherever your API Key input lives -->
+                                                            <a href="<?php echo esc_url(admin_url('admin.php?page=majesticsupport_zywrap&mjslay=zywrap_settings')); ?>" class="mjtc-btn mjtc-btn-primary">
+                                                                <?php echo esc_html(__('Add API Key', 'majestic-support')); ?> &rarr;
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                <?php }
+                                            } ?>
                                             <?php foreach ($majesticsupport_category['groups'] as $majesticsupport_group_key => $majesticsupport_group) :
                                                 $majesticsupport_is_group_pro = isset($majesticsupport_group['pro']);
                                                 $majesticsupport_is_group_locked = $majesticsupport_is_group_pro && !in_array($majesticsupport_group['pro']['slug'], $majesticsupport_installed_addons);
@@ -1296,7 +1440,7 @@ $MJTC_plugin_array = get_option('active_plugins');
                                                                 <h3><?php echo esc_html__('Unlock', 'majestic-support') .' ' . esc_html(majesticsupport::MJTC_getVarValue($majesticsupport_group['title'])); ?></h3>
                                                                 <p><?php echo esc_html__('This and other powerful features are available in the', 'majestic-support') .' ' . '<strong>' . esc_html(majesticsupport::MJTC_getVarValue($majesticsupport_group['pro']['name'])) . '</strong>'; ?></p>
                                                              </div>
-                                                             <a href="#" class="mjtc-btn mjtc-btn-primary"><?php esc_html_e('Upgrade Now', 'majestic-support'); ?></a>
+                                                             <a href="#" class="mjtc-btn mjtc-btn-success"><?php esc_html_e('Upgrade Now', 'majestic-support'); ?></a>
                                                         </div>
                                                     <?php endif; ?>
                                                     <div class="mjtc-fields-container">

@@ -5,7 +5,7 @@ Donate link: https://majesticsupport.com
 Tags:  customer support, helpdesk, support desk, support plugin, ticket system
 Requires at least: 5.5
 Tested up to: 7.0
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -250,6 +250,19 @@ If you activate certain features in this plugin, the user's personal data, inclu
 * google fcm ([Google](https://policies.google.com/?hl=en))
 
 == Changelog ==
+= 1.1.9 =
+
+* AI Ticket Sentiment Analysis — Automatically analyzes new tickets and assigns a sentiment (Positive, Neutral, Negative) to gauge customer mood.
+* AI Department Recommendation — Suggests the most appropriate department for newly created tickets to streamline routing.
+* AI Priority Detection — Automatically evaluates ticket content and determines the appropriate priority level.
+* AI Upsell Opportunity Detection — Scans and identifies tickets that present potential sales or upsell opportunities for your team.
+* AI Tone Checker — Reviews draft agent replies and suggests tone improvements before sending.
+* AI Policy Compliance Checker — Validates outgoing agent responses against your support policies and guidelines for quality assurance.
+* AI Follow-up Reply Generator — Automatically generates follow-up reply drafts for stale or inactive tickets.
+* AI Ticket Deflection — Suggests relevant knowledge base articles to customers before ticket submission to reduce incoming volume.
+* Auto Cleanup Addon — Configures retention periods to automatically delete old attachments (ranging from 1 month to 10 years) and stale tickets (ranging from 1 to 3 years) to optimize server storage, running on a customizable automated Cron frequency (Daily, Weekly, or Monthly).
+* Security & Stability Updates — Includes routine input sanitization, capability checks, and bug fixes to keep your ticketing operations secure and running smoothly.
+
 = 1.1.8 =
 * Security update.
 

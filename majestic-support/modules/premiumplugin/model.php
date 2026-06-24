@@ -294,7 +294,7 @@ class MJTC_premiumpluginModel {
     }
 
     function downloadandinstalladdonfromAjax(){
-        if(!current_user_can('manage_options')){
+        if(!current_user_can('install_plugins')){
             return false;
         }
         $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
@@ -382,6 +382,11 @@ class MJTC_premiumpluginModel {
 
     function install_plugin( $MJTC_plugin_zip ) {
 
+        if (!current_user_can('install_plugins')) {
+            $MJTC_result['error'] = esc_html(__('You do not have permission to install plugins.', 'majestic-support'));
+            return wp_json_encode($MJTC_result);
+        }
+
         do_action('majesticsupport_load_wp_admin_file');
         WP_Filesystem();
         $tmpfile = download_url( $MJTC_plugin_zip);
@@ -410,7 +415,7 @@ class MJTC_premiumpluginModel {
                 return true;
             }
         }else{
-            $MJTC_error_string = $tmpfile->get_error_message();
+            $MJTC_error_string = is_wp_error($tmpfile) ? $tmpfile->get_error_message() : esc_html__('Unknown download error', 'majestic-support');
             $MJTC_result['error'] = esc_html(__('Addon Installation Failed, File download error','majestic-support')).'! '.esc_attr($MJTC_error_string);
             $MJTC_result = wp_json_encode($MJTC_result);
             return $MJTC_result;
@@ -611,6 +616,7 @@ class MJTC_premiumpluginModel {
             'majestic-support-easydigitaldownloads' => array('title' => esc_html(__('Easy Digital Downloads','majestic-support')), 'price' => 0, 'status' => 1),
             'majestic-support-multilanguageemailtemplates'  => array('title' => esc_html(__('Multi-Language Emails','majestic-support')), 'price' => 0, 'status' => 1),
             'majestic-support-ticketclosereason' => array('title' => esc_html(__('Ticket Closed Reason','majestic-support')), 'price' => 0, 'status' => 1),
+            'majestic-support-autocleanup' => array('title' => esc_html(__('Auto Cleanup','majestic-support')), 'price' => 0, 'status' => 1),
         );
     }
 

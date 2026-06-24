@@ -499,7 +499,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                                                 ";
                                                 wp_add_inline_script('majestic-support-cmain-js', $majesticsupport_js);
                                             }
-                                            echo wp_kses(MJTC_formfield::MJTC_select('priorityid', MJTC_includer::MJTC_getModel('priority')->getPriorityForCombobox(), $MJTC_priorityid, esc_html(__('Select', 'majestic-support')).' '.esc_html($MJTC_field->fieldtitle), array('class' => 'inputbox mjtc-form-select-field' . esc_attr($MJTC_readonlyclass), 'data-validation' => 'required', 'onchange' => $MJTC_VisibleFunction) + ($MJTC_field->readonly ? ['tabindex' => '-1'] : [])), MJTC_ALLOWED_TAGS);
+                                            echo wp_kses(MJTC_formfield::MJTC_select('priorityid', MJTC_includer::MJTC_getModel('priority')->getPriorityForCombobox(), $MJTC_priorityid, esc_html(__('Select', 'majestic-support')).' '.esc_html($MJTC_field->fieldtitle), array('class' => 'inputbox mjtc-form-select-field' . esc_attr($MJTC_readonlyclass), 'data-validation' => ($MJTC_field->required) ? 'required':'', 'onchange' => $MJTC_VisibleFunction) + ($MJTC_field->readonly ? ['tabindex' => '-1'] : [])), MJTC_ALLOWED_TAGS);
                                         ?>
                                     </div>
                                     <?php if(!empty($MJTC_field->description)): ?>

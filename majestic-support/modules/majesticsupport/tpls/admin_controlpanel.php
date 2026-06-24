@@ -1604,6 +1604,7 @@ $MJTC_field_array = MJTC_includer::MJTC_getModel('fieldordering')->getFieldTitle
                                     ['multiform', __('Multi Forms', 'majestic-support'), __('Create multiple custom ticket forms', 'majestic-support'), 'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm3-4H7v-2h8v2zm0-4H7V7h8v2z', '--mjtc-admin-accent-mint'],
                                     ['agentautoassign', __('Agent Auto Assign', 'majestic-support'), __('Round-robin ticket assignment', 'majestic-support'), 'M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 10c2.7 0 5.8 1.29 6 2H6c.23-.71 3.31-2 6-2m0-12C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z', '--mjtc-admin-primary'],
                                     ['ticketclosereason', __('Close Reasons', 'majestic-support'), __('Ask why a ticket is being closed', 'majestic-support'), 'M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z', '--mjtc-admin-accent-coral'],
+                                    ['autocleanup', __('Auto Cleanup', 'majestic-support'), __('Automatically deletes old attachments and tickets to optimize server storage', 'majestic-support'), 'M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z', '--mjtc-admin-primary'],
                                 ];
 
                                 $MJTC_show_count = 0; // The threshold counter

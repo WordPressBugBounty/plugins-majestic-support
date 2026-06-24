@@ -9,13 +9,6 @@ class MJTC_request {
      */
 
     static function MJTC_getVar($MJTC_variable_name, $method = null, $MJTC_defaultvalue = null, $typecast = null) {
-        // nonce varification start
-        // $MJTC_nonce = majesticsupport::$_data['sanitized_args']['_wpnonce'];
-        // if (! wp_verify_nonce( $MJTC_nonce, 'VERIFY-MAJESTIC-SUPPORT-INTERNAL-NONCE') ) {
-        //     die( 'Security check Failed' );
-        // }
-        // nonce varification end
-
         $MJTC_value = null;
         if ($method == null) {
             if (isset($_GET[$MJTC_variable_name])) {
@@ -83,13 +76,6 @@ class MJTC_request {
      */
 
     static function get($method = null) {
-        // nonce varification start
-        $MJTC_nonce = majesticsupport::$_data['sanitized_args']['_wpnonce'];
-        if (! wp_verify_nonce( $MJTC_nonce, 'VERIFY-MAJESTIC-SUPPORT-INTERNAL-NONCE') ) {
-            die( 'Security check Failed' );
-        }
-        // nonce varification end
-
         $MJTC_array = null;
         if ($method != null) {
             $method = MJTC_majesticsupportphplib::MJTC_strtolower($method);
@@ -98,7 +84,7 @@ class MJTC_request {
                     $MJTC_array = majesticsupport::MJTC_sanitizeData($_POST);// MJTC_sanitizeData() function uses wordpress santize functions
                     break;
                 case 'get':
-                    $MJTC_array = majesticsupport::MJTC_sanitizeDatay($_GET);// MJTC_sanitizeData() function uses wordpress santize functions
+                    $MJTC_array = majesticsupport::MJTC_sanitizeData($_GET);// MJTC_sanitizeData() function uses wordpress santize functions
                     break;
             }
             foreach($MJTC_array as $MJTC_key=>$MJTC_value){
@@ -115,13 +101,6 @@ class MJTC_request {
      */
 
     static function MJTC_getLayout($MJTC_layout, $method, $MJTC_defaultvalue) {
-        // nonce varification start
-        $MJTC_nonce = majesticsupport::$_data['sanitized_args']['_wpnonce'];
-        if (! wp_verify_nonce( $MJTC_nonce, 'VERIFY-MAJESTIC-SUPPORT-INTERNAL-NONCE') ) {
-            die( 'Security check Failed' );
-        }
-        // nonce varification end
-
         $MJTC_layoutname = null;
         if ($method != null) {
             $method = MJTC_majesticsupportphplib::MJTC_strtolower($method);

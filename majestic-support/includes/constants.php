@@ -409,6 +409,17 @@ if (!defined('MJTC_ALLOWED_TAGS')) {
             'stroke-width'    => array(),
         ),
     ));
+    define(
+        'MJTC_DEFAULT_LANGUAGES',
+            array(
+                'ar',
+                'de_DE',
+                'es_ES',
+                'fr_FR',
+                'it_IT',
+                'pt_BR',
+            )
+    );
 }
 define('MJTC_PLUGIN_PATH', plugin_dir_path( __DIR__ ));
 define('MJTC_PLUGIN_URL', plugin_dir_url( __DIR__ ));

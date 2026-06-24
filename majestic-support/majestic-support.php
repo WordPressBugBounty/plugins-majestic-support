@@ -5,7 +5,7 @@
   Plugin URI: https://www.majesticsupport.com
   Description: Majestic Support is a trusted open source ticket system. Majestic Support is a simple, easy to use, web-based customer support system. User can create ticket from front-end. Majestic Support comes packed with lot features than most of the expensive(and complex) support ticket system on market. Majestic Support provide you best industry Majestic Support system.
   Author: Majestic Support
-  Version: 1.1.8
+  Version: 1.1.9
   License: GPLv3
   Text Domain: majestic-support
   Domain Path: /languages
@@ -62,7 +62,7 @@ class majesticsupport {
         self::$_data = array();
         self::$_search = array();
         self::$_captcha = array();
-        self::$_currentversion = '118';
+        self::$_currentversion = '119';
         self::$_addon_query = array('select'=>'','join'=>'','where'=>'');
         self::$_mjtcsession = MJTC_includer::MJTC_getObjectClass('wphdsession');
         global $wpdb;
@@ -125,11 +125,13 @@ class majesticsupport {
         }
         add_action('admin_notices', array($this , 'mjtc_show_expiry_error_notice') );
 
-        add_action( 'majesticsupport_daily_attachment_cleanup', array($this , 'ms_auto_delete_old_attachments_cron' ) );
-        if ( ! wp_next_scheduled( 'majesticsupport_daily_attachment_cleanup' ) ) {
-            // Schedule the event to run daily, starting right now
-            wp_schedule_event( time(), 'daily', 'majesticsupport_daily_attachment_cleanup' );
+        // Feature moved to add-on
+
+        // Register the Cron on activation
+        if (!wp_next_scheduled('zywrap_daily_followup')) {
+            wp_schedule_event(time(), 'daily', 'zywrap_daily_followup');
         }
+        add_action('zywrap_daily_followup', array($this , 'scheduledFollowUpJob' ) );
     }
 
     function majesticsupport_customschedules($MJTC_schedules){
@@ -197,8 +199,26 @@ class majesticsupport {
     }
 
     function ms_handle_public_cronjob(){
-        $MJTC_action = MJTC_request::MJTC_getVar('mscron','get',null);
+        $MJTC_action = sanitize_key(MJTC_request::MJTC_getVar('mscron','get',null));
         if ($MJTC_action) {
+            $MJTC_allowed_actions = array('ticketviaemail', 'updateticketstatus', 'checkforaddonsupdate');
+            if (!in_array($MJTC_action, $MJTC_allowed_actions, true)) {
+                status_header(400);
+                exit();
+            }
+
+            $MJTC_stored_key = get_option('majesticsupport_public_cron_key');
+            if (empty($MJTC_stored_key)) {
+                $MJTC_stored_key = wp_generate_password(32, false, false);
+                update_option('majesticsupport_public_cron_key', $MJTC_stored_key, false);
+            }
+
+            $MJTC_request_key = MJTC_request::MJTC_getVar('key', 'get', '');
+            if (empty($MJTC_request_key) || !hash_equals((string) $MJTC_stored_key, (string) $MJTC_request_key)) {
+                status_header(403);
+                exit();
+            }
+
             switch ($MJTC_action) {
                 case 'ticketviaemail':
                     do_action('majesticsupport_ticketviaemail');
@@ -669,8 +689,9 @@ class majesticsupport {
         MJTC_includer::MJTC_getModel('premiumplugin')->MSAddonsAutoUpdate();
     }
 
-    function ms_auto_delete_old_attachments_cron(){
-        MJTC_includer::MJTC_getModel('ticket')->autoDeleteOldAttachmentsCron();
+    public function scheduledFollowUpJob() {
+        if (majesticsupport::$_config['zywrap_enable_followup'] != '1') return;
+        MJTC_includer::MJTC_getModel('zywrap')->processStaleTicketsTask();
     }
 
     /*
@@ -1435,7 +1456,7 @@ function majesticsupport_upgrade_completed( $MJTC_upgrader_object, $MJTC_options
             if( $MJTC_plugin == $MJTC_our_plugin ) {
                 update_option('ms_currentversion', majesticsupport::$_currentversion);
                 include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-                MJTC_updates::MJTC_checkUpdates('118');
+                MJTC_updates::MJTC_checkUpdates('119');
                 MJTC_includer::MJTC_getModel('majesticsupport')->updateColorFile();
                 MJTC_includer::MJTC_getModel('majesticsupport')->mjtc_check_license_status();
                 MJTC_includer::MJTC_getModel('premiumplugin')->MSAddonsAutoUpdate();

@@ -227,17 +227,18 @@ add_action('personal_options_update', 'MJTC_save_admin_signature_field');
 add_action('edit_user_profile_update', 'MJTC_save_admin_signature_field');
 function MJTC_save_admin_signature_field($MJTC_uid)
 {
-    $MJTC_nonce = majesticsupport::$_data['sanitized_args']['_wpnonce'];
-    if (! wp_verify_nonce( $MJTC_nonce, 'VERIFY-MAJESTIC-SUPPORT-INTERNAL-NONCE') ) {
-        die( 'Security check Failed' );
-    }
-    if (!is_numeric($MJTC_uid) || !current_user_can('manage_options')) {
+    $MJTC_uid = absint($MJTC_uid);
+    if (!$MJTC_uid || !current_user_can('edit_user', $MJTC_uid)) {
         return;
     }
-    $ms_signature_auto_append = $_POST['ms_signature_auto_append'];
+
+    check_admin_referer('update-user_' . $MJTC_uid);
+
+    $ms_signature_auto_append = isset($_POST['ms_signature_auto_append']) ? absint($_POST['ms_signature_auto_append']) : 0;
     update_user_meta($MJTC_uid, 'ms_signature_auto_append', $ms_signature_auto_append);
 
-    $MJTC_signature = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['ms_signature']);
+    $MJTC_raw_signature = isset($_POST['ms_signature']) ? wp_unslash($_POST['ms_signature']) : '';
+    $MJTC_signature = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($MJTC_raw_signature);
     update_user_meta($MJTC_uid, 'ms_signature', $MJTC_signature);
 }
 
@@ -266,13 +267,13 @@ add_action('personal_options_update', 'MJTC_update_user_profile');
 
 function MJTC_update_user_profile($MJTC_user_id)
 {
-    if(!is_numeric($MJTC_user_id)){
+    $MJTC_user_id = absint($MJTC_user_id);
+    if(!$MJTC_user_id || !current_user_can('edit_user', $MJTC_user_id)){
         return false;
     }
-    $MJTC_nonce = majesticsupport::$_data['sanitized_args']['_wpnonce'];
-    if (! wp_verify_nonce( $MJTC_nonce, 'VERIFY-MAJESTIC-SUPPORT-INTERNAL-NONCE') ) {
-        die( 'Security check Failed' );
-    }
+
+    check_admin_referer('update-user_' . $MJTC_user_id);
+
     $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "users` WHERE id = " . esc_sql($MJTC_user_id);
     $MJTC_user = majesticsupport::$_db->get_row($MJTC_query);
 
@@ -315,5 +316,193 @@ function MJTC_update_user_profile($MJTC_user_id)
 add_action('edit_user_profile_update', 'MJTC_update_user_profile');
 add_action('user_register', 'MJTC_update_user_profile'); // creating a new user
 
+// Language Related Hooks
 
+add_action('plugins_loaded', 'MJTC_check_and_download_languages');
+
+function MJTC_check_and_download_languages() {
+
+    if (!current_user_can('manage_options') && !wp_doing_cron()) {
+        return; // Skip download attempt for non-privileged contexts
+    }
+
+    $locale = determine_locale();
+    if ($locale === 'en_US') return;
+
+    $status = get_option('majesticsupport_translation_status_' . $locale);
+    if ($status === 'verified' || $status === 'failed') {
+        return;
+    }
+
+    $textdomain   = 'majestic-support';
+    $default_list = MJTC_DEFAULT_LANGUAGES;
+    $target_dir   = MJTC_PLUGIN_PATH . 'languages/';
+    $extensions   = in_array($locale, $default_list) ? array('po') : array('mo', 'po');
+
+    $all_exist = true;
+    foreach ($extensions as $ext) {
+        if (!file_exists($target_dir . "{$textdomain}-{$locale}.{$ext}")) {
+            $all_exist = false;
+            break;
+        }
+    }
+
+    if ($all_exist) {
+        update_option('majesticsupport_translation_status_' . $locale, 'verified');
+        return;
+    }
+
+    MJTC_execute_download_process_for_languagefiles($locale, $extensions);
+}
+
+function MJTC_execute_download_process_for_languagefiles($locale, $extensions) {
+    global $wp_filesystem;
+
+    // Initialize WP_Filesystem safely
+    if (empty($wp_filesystem)) {
+        require_once(ABSPATH . 'wp-admin/includes/file.php');
+        if ( ! WP_Filesystem() ) {
+            return; // Exit if Filesystem credentials are required but unavailable
+        }
+    }
+
+    $textdomain = 'majestic-support';
+    $cdn_base   = 'https://d2m0o2vxgtttki.cloudfront.net/'; // Retaining your secure CloudFront endpoint
+
+    $target_dir = MJTC_PLUGIN_PATH . 'languages/';
+
+    $locales_to_try = array($locale);
+    $fallback_locale = MJTC_get_fallback_locale($locale);
+
+    if ($fallback_locale) {
+        $locales_to_try[] = $fallback_locale;
+    }
+
+    $download_successful = false;
+    $downloaded_locale = '';
+
+    foreach ($locales_to_try as $attempt_locale) {
+        $all_extensions_downloaded = true;
+
+        foreach ($extensions as $ext) {
+            $remote_filename = "{$textdomain}-{$attempt_locale}.{$ext}";
+            $local_filename  = "{$textdomain}-{$locale}.{$ext}";
+
+            // Safe remote call wrapper with fallback timeouts
+            $response = wp_remote_get($cdn_base . $remote_filename, array(
+                'timeout' => 15
+            ));
+
+            if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
+                if (!$wp_filesystem->is_dir($target_dir)) {
+                    $wp_filesystem->mkdir($target_dir, FS_CHMOD_DIR);
+                }
+                $saved = $wp_filesystem->put_contents($target_dir . $local_filename, wp_remote_retrieve_body($response));
+                if (!$saved) {
+                    $all_extensions_downloaded = false;
+                    break;
+                }
+            } else {
+                $all_extensions_downloaded = false;
+                break;
+            }
+        }
+
+        if ($all_extensions_downloaded) {
+            $download_successful = true;
+            $downloaded_locale = $attempt_locale;
+            break;
+        }
+    }
+
+    // Determine notice type and save to transient
+    if ($download_successful) {
+        update_option('majesticsupport_translation_status_' . $locale, 'verified');
+
+        $notice_type = ($downloaded_locale === $locale) ? 'exact_success' : 'fallback_success';
+        set_transient('majesticsupport_lang_notice', array(
+            'type'     => $notice_type,
+            'original' => $locale,
+            'fallback' => $downloaded_locale
+        ), 60);
+
+    } else {
+        update_option('majesticsupport_translation_status_' . $locale, 'failed');
+
+        set_transient('majesticsupport_lang_notice', array(
+            'type'     => 'failed',
+            'original' => $locale,
+        ), 300);
+    }
+}
+
+function MJTC_get_fallback_locale($locale) {
+    $base_lang = substr($locale, 0, 2);
+
+    // Comprehensive fallback map based on standard WordPress locales
+    $fallbacks = array(
+        'ar' => 'ar',          // Arabic
+        'cs' => 'cs_CZ',       // Czech
+        'de' => 'de_DE',       // German
+        'el' => 'el',          // Greek
+        'en' => 'en_US',       // English
+        'es' => 'es_ES',       // Spanish
+        'fa' => 'fa_IR',       // Persian
+        'fr' => 'fr_FR',       // French
+        'hu' => 'hu_HU',       // Hungarian
+        'id' => 'id_ID',       // Indonesian
+        'it' => 'it_IT',       // Italian
+        'ja' => 'ja_JP',       // Japanese
+        'ko' => 'ko_KR',       // Korean
+        'ms' => 'ms_MY',       // Malay
+        'nl' => 'nl_NL',       // Dutch
+        'pl' => 'pl_PL',       // Polish
+        'pt' => 'pt_BR',       // Brazil
+        'ro' => 'ro_RO',       // Romanian
+        'ru' => 'ru_RU',       // Russian
+        'sv' => 'sv',          // Swedish
+        'th' => 'th_TH',       // Thai
+        'tl' => 'tl_PH',       // Filipino
+        'tr' => 'tr_TR',       // Turkish
+        'zh' => 'zh_CN'        // Chinese (Simplified)
+    );
+
+    if (isset($fallbacks[$base_lang]) && $fallbacks[$base_lang] !== $locale) {
+        return $fallbacks[$base_lang];
+    }
+
+    return false;
+}
+
+add_action('admin_notices', 'MJTC_display_language_download_notice');
+
+function MJTC_display_language_download_notice() {
+    // Only show to users who can manage the site
+    if (!current_user_can('manage_options')) {
+        return;
+    }
+
+    $notice = get_transient('majesticsupport_lang_notice');
+    if (!$notice) {
+        return;
+    }
+
+    // Clear the transient immediately so it only shows once
+    delete_transient('majesticsupport_lang_notice');
+
+    $type     = $notice['type'];
+    $original = esc_html($notice['original']);
+
+    if ($type === 'exact_success') {
+        echo '<div class="notice notice-success is-dismissible">';
+        echo '<p><strong>' . esc_html(__('Majestic Support', 'majestic-support')) . ':</strong> ' . sprintf(esc_html(__('Language files for %s successfully downloaded.', 'majestic-support')), '<code>' . $original . '</code>') . '</p>';
+        echo '</div>';
+    }
+    elseif ($type === 'fallback_success') {
+        $fallback = esc_html($notice['fallback']);
+        echo '<div class="notice notice-warning is-dismissible">';
+        echo '<p><strong>' . esc_html(__('Majestic Support', 'majestic-support')) . ':</strong> ' . sprintf(esc_html(__('Alternate language file downloaded. We tried to find %1$s, but downloaded %2$s as a fallback.', 'majestic-support')), '<code>' . $original . '</code>', '<code>' . $fallback . '</code>') . '</p>';
+        echo '</div>';
+    }
+}
 ?>

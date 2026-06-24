@@ -28,7 +28,15 @@ class MJTC_customfields {
             $MJTC_visibleclass = "visible";
         }
         $MJTC_html = '';
-        $MJTC_div1 =  ($MJTC_field->size == 100 || $MJTC_field->userfieldtype == 'termsandconditions') ? ' mjtc-support-from-field-wrp-full-width mjtc-support-from-field-wrp '.esc_attr($MJTC_visibleclass) : 'mjtc-support-from-field-wrp '.esc_attr($MJTC_visibleclass);
+        $MJTC_div1 = 'mjtc-support-from-field-wrp ' . esc_attr($MJTC_visibleclass);
+
+        if ($MJTC_field->size == 100 || $MJTC_field->userfieldtype === 'termsandconditions') {
+            $MJTC_div1 .= ' mjtc-support-from-field-wrp-full-width';
+        }
+
+        if ($MJTC_field->userfieldtype === 'termsandconditions') {
+            $MJTC_div1 .= ' mjtc-support-system-terms-and-condition-box';
+        }
         $MJTC_div2 = 'mjtc-support-from-field-title';
         $MJTC_div3 = 'mjtc-support-from-field';
         $MJTC_div4 = 'mjtc-support-from-field-description';
@@ -329,7 +337,7 @@ class MJTC_customfields {
                         $MJTC_c_field_required = 'required';
                     }
                     // ticket terms and conditonions are required.
-                    if($MJTC_field->fieldfor == 1){
+                    if($MJTC_field->fieldfor == 1 && empty($MJTC_field->isuserfield)){
                         if (empty(trim($MJTC_field->visibleparams))) {
                             $MJTC_c_field_required = 'required';
                         } else {
@@ -337,7 +345,7 @@ class MJTC_customfields {
                         }
                     }
 
-                    $MJTC_html .= '<div class="mjtc-support-custom-terms-and-condition-box ms-formfield-radio-button-wrap">';
+                    $MJTC_html .= '<div class="mjtc-support-custom-terms-and-condition-box ">';
                     $MJTC_html .= '<input type="checkbox" class="radiobutton mjtc-support-append-radio-btn '.esc_attr($MJTC_specialClass).'" value="1" id="' . esc_attr($MJTC_field->field) . '" name="' . esc_attr($MJTC_field->field) . '" data-validation="'.esc_attr($MJTC_c_field_required).'">';
                     $MJTC_html .= '<label for="' . esc_attr($MJTC_field->field) . '" id="foruf_checkbox1">' . wp_kses($MJTC_label_string, MJTC_ALLOWED_TAGS) . '</label>';
                     $MJTC_html .= '</div>';
@@ -604,7 +612,7 @@ class MJTC_customfields {
                 if (is_admin()) {
                     $MJTC_path = admin_url("?page=majesticsupport_ticket&action=mstask&task=downloadbyname&id=".esc_attr(majesticsupport::$_data['custom']['ticketid'])."&name=".esc_attr($MJTC_fvalue));
                 } else {
-                    $MJTC_path = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'downloadbyname','id'=> majesticsupport::$_data['custom']['ticketid'] ,'name'=>$MJTC_fvalue ,'mspageid'=>get_the_ID()));
+                    $MJTC_path = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'task'=>'downloadbyname','action'=>'mstask','id'=> majesticsupport::$_data['custom']['ticketid'] ,'name'=>$MJTC_fvalue ,'mspageid'=>get_the_ID()));
                 }
                 $MJTC_html = '
                     <div class="mjtc_supportattachment">

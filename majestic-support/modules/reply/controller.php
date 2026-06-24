@@ -45,6 +45,7 @@ class MJTC_replyController {
         }
         $MJTC_data = MJTC_request::get('post');
         MJTC_includer::MJTC_getModel('reply')->storeReplies($MJTC_data);
+        MJTC_includer::MJTC_getModel('zywrap')->flushDraftsForTicket($MJTC_ticketid);
         if (is_admin()) {
             $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . $MJTC_ticketid);
         } else {

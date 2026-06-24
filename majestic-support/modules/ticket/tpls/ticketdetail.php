@@ -1751,6 +1751,26 @@ if (majesticsupport::$_config['offline'] == 2) {
                         <div class="mjtc-sprt-det-status" style="background-color:<?php echo esc_attr($MJTC_bgcolor);?>;color :<?php echo esc_attr($MJTC_color);?>;">
                             <?php echo esc_html($MJTC_ticketmessage); ?>
                         </div>
+                        <?php 
+                        if ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
+                            /* --- Zywrap AI Badges for 
+                            Detail Page --- */
+                            if (!empty(majesticsupport::$_data[0]->sentiment)) : 
+                                $sentiment_safe = strtolower(esc_attr(majesticsupport::$_data[0]->sentiment)); ?>
+                                <span class="mjtc-sprt-det-status mjtc-ai-sentiment-<?php echo $sentiment_safe; ?>" title="<?php echo esc_attr(__('AI Sentiment Analysis', 'majestic-support')); ?>">
+                                    <?php echo esc_html(ucfirst(majesticsupport::$_data[0]->sentiment)); ?>
+                                </span>
+                                <?php 
+                            endif;
+
+                            if (isset(majesticsupport::$_data[0]->upsell_opportunity) && majesticsupport::$_data[0]->upsell_opportunity == 1) : ?>
+                                <span class="mjtc-sprt-det-status mjtc-ai-upsell" title="<?php echo esc_attr(__('AI identified a potential sales opportunity', 'majestic-support')); ?>">
+                                    <?php echo esc_html(__('Sales Opportunity', 'majestic-support')); ?>
+                                </span>
+                                <?php 
+                            endif;
+                            /* --- End Zywrap AI Badges --- */
+                        } ?>
                         <span class="mjtc-support-ticket-id mjtc-sprt-det-copy-id">
                             <?php echo esc_html(majesticsupport::$_data[0]->ticketid); ?>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path d="M20 2H10c-1.1 0-2 .9-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6z"></path></svg>
@@ -1923,22 +1943,28 @@ if (majesticsupport::$_config['offline'] == 2) {
                 <div class="mjtc-support-header-tabs">
                     <button class="mjtc-support-tab-btn active" data-tab="conversation">
                         <?php echo esc_html(__('Conversation', 'majestic-support')); ?>
-                        <span class="mjtc-support-count-badge">(
                             <?php 
                             $MJTC_conversation_count = count(majesticsupport::$_data[4]);
                             if (!empty(majesticsupport::$_data[0]->message)) {
                                 $MJTC_conversation_count++;
                             }
-                            echo esc_html($MJTC_conversation_count); ?>
-                            )
-                        </span>
+                            if ($MJTC_conversation_count > 0) { ?>
+                                <span class="mjtc-support-count-badge">
+                                    <?php echo '('.esc_html($MJTC_conversation_count).')'; ?>
+                                </span>
+                                <?php 
+                            } ?>
                     </button>
                     <?php
                     if (in_array('agent',majesticsupport::$_active_addons) && majesticsupport::$_data['user_staff']) {
                         if (in_array('note', majesticsupport::$_active_addons)) { ?>
                             <button class="mjtc-support-tab-btn" data-tab="saved-notes">
-                                <?php echo esc_html(__('Internal Notes', 'majestic-support')); ?>
-                                <span class="mjtc-support-count-badge">( <?php echo esc_html(count(majesticsupport::$_data[6])); ?> )</span>
+                                <?php 
+                                echo esc_html(__('Internal Notes', 'majestic-support'));
+                                if (count(majesticsupport::$_data[6]) > 0) { ?>
+                                    <span class="mjtc-support-count-badge">( <?php echo esc_html(count(majesticsupport::$_data[6])); ?> )</span>
+                                    <?php 
+                                } ?>
                             </button>
                             <?php
                         }
@@ -1957,14 +1983,16 @@ if (majesticsupport::$_config['offline'] == 2) {
                     if ($MJTC_flagPrivateCredentials) {
                         $MJTC_nonce = wp_create_nonce('get-private-credentials-'.majesticsupport::$_data[0]->id); ?>
                         <button class="mjtc-support-tab-btn" data-tab="credentials" onclick="getCredentails(<?php echo esc_js(majesticsupport::$_data[0]->id); ?>, '<?php echo esc_js(majesticsupport::$_data[0]->internalid); ?>', '<?php echo esc_js($MJTC_nonce); ?>')">
-                            <?php echo esc_html(__('Private Credentials', 'majestic-support')); ?>
-                            <span class="mjtc-support-count-badge">( 
-                                <?php 
-                                $MJTC_query = "SELECT count(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_privatecredentials` WHERE status = 1 AND ticketid = ".esc_sql(majesticsupport::$_data[0]->id);
-                                $MJTC_cred_count = majesticsupport::$_db->get_var($MJTC_query);
-                                echo esc_html($MJTC_cred_count); ?>
-                                 )
-                            </span>
+                            <?php 
+                            echo esc_html(__('Private Credentials', 'majestic-support'));
+                            $MJTC_query = "SELECT count(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_privatecredentials` WHERE status = 1 AND ticketid = ".esc_sql(majesticsupport::$_data[0]->id);
+                            $MJTC_cred_count = majesticsupport::$_db->get_var($MJTC_query);
+                            if ($MJTC_cred_count > 0) { ?>
+                                <span class="mjtc-support-count-badge">
+                                    <?php echo '('.esc_html($MJTC_cred_count).')'; ?>
+                                </span>
+                                <?php
+                            } ?>
                         </button>
                         <?php
                     }
@@ -1972,7 +2000,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                         <button class="mjtc-support-tab-btn" data-tab="history">
                             <?php
                             echo esc_html(__('History', 'majestic-support'));
-                            if (!empty(majesticsupport::$_data[5])) { ?>
+                            if (!empty(majesticsupport::$_data[5]) && count(majesticsupport::$_data[5]) > 0) { ?>
                                 <span class="mjtc-support-count-badge">( <?php echo esc_html(count(majesticsupport::$_data[5])); ?> )</span>
                                 <?php
                             } ?>
@@ -2085,6 +2113,8 @@ if (majesticsupport::$_config['offline'] == 2) {
                 $MJTC_cur_uid = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
                 if (!empty(majesticsupport::$_data[4])) {
                     foreach (majesticsupport::$_data[4] AS $MJTC_reply) {
+                        // --- Check if this reply is an AI Draft ---
+                        $is_draft = (isset($MJTC_reply->is_ai_draft) && $MJTC_reply->is_ai_draft == 1);
                         if (majesticsupport::$_data[0]->uid  != $MJTC_reply->uid) {
                             $MJTC_class_1 = 'agent';
                             $MJTC_class_2 = 'agent-bubble';
@@ -2103,13 +2133,26 @@ if (majesticsupport::$_config['offline'] == 2) {
                                     <div class="mjtc-support-thread-data-header">
                                         <div class="mjtc-support-thread-data-header-leftwrp">
                                             <?php
-                                            if(!empty($MJTC_field_array['fullname'])) { ?>
-                                                <strong>
-                                                    <?php
-                                                    if (majesticsupport::$_config['anonymous_name_on_ticket_reply'] == 1) {
-                                                        if(majesticsupport::$_data[0]->uid  != $MJTC_reply->uid){ //reply by staff, need anonymous
-                                                            echo esc_html(majesticsupport::$_config['title']);
-                                                        } else { // reply by user  
+                                            // Change name to AI Bot if it's a draft
+                                            if ($is_draft) {
+                                                echo '🤖 ' . esc_html__('AI Co-Pilot (Draft)', 'majestic-support');
+                                            } else {
+                                                if(!empty($MJTC_field_array['fullname'])) { ?>
+                                                    <strong>
+                                                        <?php
+                                                        if (majesticsupport::$_config['anonymous_name_on_ticket_reply'] == 1) {
+                                                            if(majesticsupport::$_data[0]->uid  != $MJTC_reply->uid){ //reply by staff, need anonymous
+                                                                echo esc_html(majesticsupport::$_config['title']);
+                                                            } else { // reply by user  
+                                                                if($MJTC_reply->name == ""){
+                                                                    // name field value is empty in some old tickets
+                                                                    $MJTC_replyname = MJTC_includer::MJTC_getModel('reply')->getUserNameFromReplyById($MJTC_reply->replyid);
+                                                                    echo esc_html($MJTC_replyname); 
+                                                                } else {
+                                                                    echo esc_html($MJTC_reply->name); 
+                                                                }
+                                                            }
+                                                        } elseif(majesticsupport::$_config['anonymous_name_on_ticket_reply'] == 2) {
                                                             if($MJTC_reply->name == ""){
                                                                 // name field value is empty in some old tickets
                                                                 $MJTC_replyname = MJTC_includer::MJTC_getModel('reply')->getUserNameFromReplyById($MJTC_reply->replyid);
@@ -2118,35 +2161,30 @@ if (majesticsupport::$_config['offline'] == 2) {
                                                                 echo esc_html($MJTC_reply->name); 
                                                             }
                                                         }
-                                                    } elseif(majesticsupport::$_config['anonymous_name_on_ticket_reply'] == 2) {
-                                                        if($MJTC_reply->name == ""){
-                                                            // name field value is empty in some old tickets
-                                                            $MJTC_replyname = MJTC_includer::MJTC_getModel('reply')->getUserNameFromReplyById($MJTC_reply->replyid);
-                                                            echo esc_html($MJTC_replyname); 
-                                                        } else {
-                                                            echo esc_html($MJTC_reply->name); 
-                                                        }
+                                                        ?>
+                                                    </strong>
+                                                    <?php 
+                                                }
+                                                if (majesticsupport::$_config['show_email_on_ticket_reply'] == 1 && !empty($MJTC_field_array['email'])) {
+                                                    if(isset($MJTC_reply->staffemail)){ ?>
+                                                        <span class="mjtc-support-staff-email-badge" style="color: #64748b;">
+                                                            (<?php echo esc_html($MJTC_reply->staffemail); ?>)
+                                                        </span>
+                                                        <?php
+                                                    } elseif(isset($MJTC_reply->useremail)) { ?>
+                                                        <span class="mjtc-support-user-email-badge" style="color: #64748b;">
+                                                            (<?php echo esc_html($MJTC_reply->useremail); ?>)
+                                                        </span>
+                                                        <?php
                                                     }
-                                                    ?>
-                                                </strong>
-                                                <?php 
-                                            } ?>
-                                            <?php
-                                            if (majesticsupport::$_config['show_email_on_ticket_reply'] == 1 && !empty($MJTC_field_array['email'])) {
-                                                if(isset($MJTC_reply->staffemail)){ ?>
-                                                    <span class="mjtc-support-staff-email-badge" style="color: #64748b;">
-                                                        (<?php echo esc_html($MJTC_reply->staffemail); ?>)
-                                                    </span>
-                                                    <?php
-                                                } elseif(isset($MJTC_reply->useremail)) { ?>
-                                                    <span class="mjtc-support-user-email-badge" style="color: #64748b;">
-                                                        (<?php echo esc_html($MJTC_reply->useremail); ?>)
-                                                    </span>
-                                                    <?php
                                                 }
                                             } ?>
                                             <?php
-                                            if (majesticsupport::$_data[0]->uid  != $MJTC_reply->uid) {
+                                            if ($is_draft) { ?>
+                                                <span class="mjtc-support-staff-badge" style="color: #065f46; background: #d1fae5; border: 1px solid #34d399;">
+                                                    <?php echo esc_html(__('Pending Review', 'majestic-support')); ?>
+                                                </span>
+                                            <?php } else if (majesticsupport::$_data[0]->uid  != $MJTC_reply->uid) {
                                                 if (!empty($MJTC_reply->staffid)) { ?>
                                                     <span class="mjtc-support-staff-badge"><?php echo esc_html(__('AGENT', 'majestic-support')); ?></span>
                                                 <?php } else if (is_super_admin($MJTC_reply->uid)) { ?>
@@ -2270,64 +2308,80 @@ if (majesticsupport::$_config['offline'] == 2) {
                                             <?php } ?>
                                         </div>
                                         <?php
-                                        if (in_array('agent',majesticsupport::$_active_addons) &&  majesticsupport::$_data['user_staff']) { ?>
-                                            <div class="mjtc-support-thread-cnt-btm">
-                                                <div class="mjtc-support-thread-actions">
-                                                    <?php
-                                                    if(MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Edit Reply') && majesticsupport::$_data[0]->status != 6){
-                                                        $MJTC_nonce = wp_create_nonce('get-reply-data-by-id-'.$MJTC_reply->replyid); ?>
-                                                        <a class="mjtc-support-thread-actn-btn ticket-edit-reply-button" href="#"
-                                                            onclick="return showPopupAndFillValues(<?php echo esc_js($MJTC_reply->replyid);?>,1, '<?php echo esc_js($MJTC_nonce);?>')">
-                                                            <svg class="mjtc-sprt-icon" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                                                            <?php echo esc_html(__('Edit Reply','majestic-support'));?>
-                                                        </a>
+                                        // --- Inject Discard/Send Buttons for Drafts OR standard edit actions for normal replies ---
+                                        if ($is_draft) { ?>
+                                            <div class="mjtc-support-thread-cnt-btm" style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #cbd5e1;">
+                                                <div style="display:flex; justify-content:flex-end; gap: 10px; width: 100%;">
+                                                    <button type="button" id="mjtc-triage-discard-btn" class="button mjtc-triage-discard-btn" data-replyid="<?php echo esc_attr($MJTC_reply->replyid); ?>">
+                                                        <?php echo esc_html__('Discard Draft', 'majestic-support'); ?>
+                                                    </button>
+
+                                                    <button type="button" class="button mjtc-triage-send-btn" data-ticketid="<?php echo esc_attr($MJTC_reply->ticketid); ?>" data-replyid="<?php echo esc_attr($MJTC_reply->replyid); ?>">
+                                                        <?php echo esc_html__('Use Follow-up', 'majestic-support'); ?>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        <?php } else {
+                                            // Standard existing actions
+                                            if (in_array('agent',majesticsupport::$_active_addons) &&  majesticsupport::$_data['user_staff']) { ?>
+                                                <div class="mjtc-support-thread-cnt-btm">
+                                                    <div class="mjtc-support-thread-actions">
                                                         <?php
-                                                    }
-                                                    if(in_array('timetracking', majesticsupport::$_active_addons)){
-                                                        if(MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Edit Time') && majesticsupport::$_data[0]->status != 6){
-                                                            $MJTC_nonce = wp_create_nonce('get-time-by-reply-id-'.$MJTC_reply->replyid); ?>
-                                                            <a class="mjtc-support-thread-actn-btn ticket-edit-time-button" href="#" onclick="return showPopupAndFillValues(<?php echo esc_js($MJTC_reply->replyid);?>,2, '<?php echo esc_js($MJTC_nonce);?>')" >
+                                                        if(MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Edit Reply') && majesticsupport::$_data[0]->status != 6){
+                                                            $MJTC_nonce = wp_create_nonce('get-reply-data-by-id-'.$MJTC_reply->replyid); ?>
+                                                            <a class="mjtc-support-thread-actn-btn ticket-edit-reply-button" href="#"
+                                                                onclick="return showPopupAndFillValues(<?php echo esc_js($MJTC_reply->replyid);?>,1, '<?php echo esc_js($MJTC_nonce);?>')">
                                                                 <svg class="mjtc-sprt-icon" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                                                                <?php echo esc_html(__('Edit Time','majestic-support'));?>
+                                                                <?php echo esc_html(__('Edit Reply','majestic-support'));?>
                                                             </a>
                                                             <?php
                                                         }
-                                                    } ?>
-                                                </div>
-                                            </div>
-                                            <?php
-                                            if (
-                                                MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Set AI Reply Mode for Reply') &&
-                                                in_array('aipoweredreply', majesticsupport::$_active_addons) && 
-                                                majesticsupport::$_data[0]->uid != $MJTC_reply->uid && 
-                                                $MJTC_reply->uid != 0) { ?>
-                                                <div class="mjtc-support-thread-cnt-btm">
-                                                    <!-- This section contains the AI Reply Feature -->
-                                                    <div class="mjtc-support-ai-reply-status-wrapper">
-                                                        <label for="mjtc-support-ai-reply-status-control">
-                                                            <?php echo esc_html__('AI-Powered Reply Mode', 'majestic-support').':'; ?>
-                                                        </label>
-                                                        <div class="mjtc-support-info-icon-wrapper">
-                                                            <span class="mjtc-support-info-icon" data-tooltip="<?php echo esc_attr(__("Control how this individual reply influences the AI search and response generation process for future queries.",'majestic-support')); ?>">
-                                                                <img alt="<?php echo esc_attr(__('Info','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/info-icon.png" />
-                                                            </span>
-                                                        </div>
-                                                        <div id="mjtc-support-ai-reply-status-control" class="mjtc-support-segmented-control">
-                                                            <button type="button" class="mjtc-support-segmented-control-option mjtc-support-default <?php echo ($MJTC_reply->aireplymode == 0) ? 'active' : ''; ?>" data-value="0" data-type="reply" data-id="<?php echo esc_attr($MJTC_reply->replyid);?>" title="<?php echo esc_attr(__("Default: reply included in all AI search queries.", "majestic-support")); ?>">
-                                                                <?php echo esc_html__('Default', 'majestic-support'); ?>
-                                                            </button>
-                                                            <button type="button" class="mjtc-support-segmented-control-option mjtc-support-enable <?php echo ($MJTC_reply->aireplymode == 1) ? 'active' : ''; ?>" data-value="1" data-type="reply" data-id="<?php echo esc_attr($MJTC_reply->replyid);?>" title="<?php echo esc_attr(__("Enable: reply used in AI queries only when the Enable Tickets filter is active.", "majestic-support")); ?>">
-                                                                <?php echo esc_html__('Enable', 'majestic-support'); ?>
-                                                            </button>
-                                                            <button type="button" class="mjtc-support-segmented-control-option mjtc-support-disable <?php echo ($MJTC_reply->aireplymode == 2) ? 'active' : ''; ?>" data-value="2" data-type="reply" data-id="<?php echo esc_attr($MJTC_reply->replyid); ?>">
-                                                                <?php echo esc_html__('Disable', 'majestic-support'); ?>
-                                                            </button>
-                                                        </div>
+                                                        if(in_array('timetracking', majesticsupport::$_active_addons)){
+                                                            if(MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Edit Time') && majesticsupport::$_data[0]->status != 6){
+                                                                $MJTC_nonce = wp_create_nonce('get-time-by-reply-id-'.$MJTC_reply->replyid); ?>
+                                                                <a class="mjtc-support-thread-actn-btn ticket-edit-time-button" href="#" onclick="return showPopupAndFillValues(<?php echo esc_js($MJTC_reply->replyid);?>,2, '<?php echo esc_js($MJTC_nonce);?>')" >
+                                                                    <svg class="mjtc-sprt-icon" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                                                                    <?php echo esc_html(__('Edit Time','majestic-support'));?>
+                                                                </a>
+                                                                <?php
+                                                            }
+                                                        } ?>
                                                     </div>
                                                 </div>
                                                 <?php
-                                            } ?>
-                                            <?php
+                                                if (
+                                                    MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Set AI Reply Mode for Reply') &&
+                                                    in_array('aipoweredreply', majesticsupport::$_active_addons) && 
+                                                    majesticsupport::$_data[0]->uid != $MJTC_reply->uid && 
+                                                    $MJTC_reply->uid != 0) { ?>
+                                                    <div class="mjtc-support-thread-cnt-btm">
+                                                        <!-- This section contains the AI Reply Feature -->
+                                                        <div class="mjtc-support-ai-reply-status-wrapper">
+                                                            <label for="mjtc-support-ai-reply-status-control">
+                                                                <?php echo esc_html__('AI-Powered Reply Mode', 'majestic-support').':'; ?>
+                                                            </label>
+                                                            <div class="mjtc-support-info-icon-wrapper">
+                                                                <span class="mjtc-support-info-icon" data-tooltip="<?php echo esc_attr(__("Control how this individual reply influences the AI search and response generation process for future queries.",'majestic-support')); ?>">
+                                                                    <img alt="<?php echo esc_attr(__('Info','majestic-support')); ?>" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/ticket-detail/info-icon.png" />
+                                                                </span>
+                                                            </div>
+                                                            <div id="mjtc-support-ai-reply-status-control" class="mjtc-support-segmented-control">
+                                                                <button type="button" class="mjtc-support-segmented-control-option mjtc-support-default <?php echo ($MJTC_reply->aireplymode == 0) ? 'active' : ''; ?>" data-value="0" data-type="reply" data-id="<?php echo esc_attr($MJTC_reply->replyid);?>" title="<?php echo esc_attr(__("Default: reply included in all AI search queries.", "majestic-support")); ?>">
+                                                                    <?php echo esc_html__('Default', 'majestic-support'); ?>
+                                                                </button>
+                                                                <button type="button" class="mjtc-support-segmented-control-option mjtc-support-enable <?php echo ($MJTC_reply->aireplymode == 1) ? 'active' : ''; ?>" data-value="1" data-type="reply" data-id="<?php echo esc_attr($MJTC_reply->replyid);?>" title="<?php echo esc_attr(__("Enable: reply used in AI queries only when the Enable Tickets filter is active.", "majestic-support")); ?>">
+                                                                    <?php echo esc_html__('Enable', 'majestic-support'); ?>
+                                                                </button>
+                                                                <button type="button" class="mjtc-support-segmented-control-option mjtc-support-disable <?php echo ($MJTC_reply->aireplymode == 2) ? 'active' : ''; ?>" data-value="2" data-type="reply" data-id="<?php echo esc_attr($MJTC_reply->replyid); ?>">
+                                                                    <?php echo esc_html__('Disable', 'majestic-support'); ?>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                } ?>
+                                                <?php
+                                            }
                                         } ?>
                                     </div>
                                 </div>
@@ -3519,25 +3573,28 @@ if (majesticsupport::$_config['offline'] == 2) {
                 <?php
                 $MJTC_departmentflag = in_array('actions', majesticsupport::$_active_addons) && $MJTC_printflag == false && majesticsupport::$_data[0]->status != 5 && majesticsupport::$_data[0]->status != 6 && isset($MJTC_field_array['department']); ?>
                 <div class="mjtc-support-ticket-props-wrp">
-                    <div class="mjtc-support-ticket-props-edit-notice">
-                        <span class="mjtc-support-ticket-props-edit-notice-txt">
-                            <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_field_array['department'])).': '; ?>
-                        </span>
-                        <span class="mjtc-support-ticket-props-edit-notice-val">
-                            <?php echo esc_html(majesticsupport::MJTC_getVarValue(majesticsupport::$_data[0]->departmentname));
-                            if($MJTC_departmentflag){
-                                if(majesticsupport::$_data['user_staff']){ 
-                                    if(MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Ticket Department Transfer')){ ?>
-                                        <a title="<?php echo esc_attr(__('Change','majestic-support')); ?>" href="#" class="mjtc-sprt-det-hdg-btn" id="departmenttransfer">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="m15 5 4 4"></path></svg>
-                                        </a>
-                                        <?php
-                                    }
-                                }
-                            } ?>
-                        </span>
-                    </div>
                     <?php
+                    if(isset($MJTC_field_array['department'])) { ?>
+                        <div class="mjtc-support-ticket-props-edit-notice">
+                            <span class="mjtc-support-ticket-props-edit-notice-txt">
+                                <?php echo esc_html(majesticsupport::MJTC_getVarValue($MJTC_field_array['department'])).': '; ?>
+                            </span>
+                            <span class="mjtc-support-ticket-props-edit-notice-val">
+                                <?php echo esc_html(majesticsupport::MJTC_getVarValue(majesticsupport::$_data[0]->departmentname));
+                                if($MJTC_departmentflag){
+                                    if(majesticsupport::$_data['user_staff']){ 
+                                        if(MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Ticket Department Transfer')){ ?>
+                                            <a title="<?php echo esc_attr(__('Change','majestic-support')); ?>" href="#" class="mjtc-sprt-det-hdg-btn" id="departmenttransfer">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="m15 5 4 4"></path></svg>
+                                            </a>
+                                            <?php
+                                        }
+                                    }
+                                } ?>
+                            </span>
+                        </div>
+                        <?php
+                    }
                     if(isset($MJTC_field_array['product'])) { ?>
                         <div class="mjtc-support-ticket-props-edit-notice">
                             <span class="mjtc-support-ticket-props-edit-notice-txt">
@@ -4171,6 +4228,80 @@ $majesticsupport_js = "
         // Simple Focus Effect removal on input
         jQuery('#reply-box').on('focus', function() {
             jQuery(this).css('box-shadow', ''); 
+        });
+    });
+
+    // --- 1. APPLY DRAFT TO EDITOR LOGIC ---
+    jQuery(document).on('click', '.mjtc-triage-send-btn', function(e) {
+        e.preventDefault();
+        var btn = jQuery(this);
+        var draftBubble = btn.closest('.mjtc-support-thread-cnt');
+        
+        // Grab the exact HTML from the draft bubble
+        var messageHtml = draftBubble.find('.mjtc-support-message-thread-data').html();
+
+        // 1. Inject into the Editor
+        if (typeof tinymce !== 'undefined' && tinymce.get('mjsupport_message') !== null) {
+            // If TinyMCE is active, set the content
+            tinymce.get('mjsupport_message').setContent(jQuery.trim(messageHtml));
+        } else {
+            // Fallback for standard textarea
+            jQuery('#mjsupport_message').val(jQuery.trim(messageHtml));
+        }
+
+        // 2. SUCCESS FEEDBACK: Change button appearance
+        btn.addClass('btn-applied-success').html('<span class=\"dashicons dashicons-yes\"></span> ". esc_js(__('Draft moved to editor – Please review.', 'majestic-support')) ."');
+        
+        // Disable temporarily so they don't click it 5 times
+        btn.prop('disabled', true);// 3. Revert back to normal after 2 seconds
+        setTimeout(function() {
+            btn.removeClass('btn-applied-success').html(originalText);
+            btn.prop('disabled', false);
+        }, 2000);
+
+        // 4. Scroll Logic (with the fix from before)
+        var replyForm = jQuery('#mjsupport_message').closest('.mjtc-support-text-editor-wrp');
+        if (replyForm.length) {
+            jQuery('html, body').animate({
+                scrollTop: replyForm.offset().top - 100
+            }, 500);
+        }
+
+        // Optional: Switch to Public Reply tab
+        jQuery('.mjtc-support-reply-tab-btn[data-mode=\"public\"]').trigger('click');
+    });
+
+    jQuery(document).on('click', '.mjtc-triage-discard-btn', function(e) {
+        e.preventDefault();
+        var btn = jQuery(this);
+        var replyId = btn.data('replyid');
+        var fullThreadItem = btn.closest('.mjtc-support-thread-item'); // Get the whole reply block
+
+        if (!confirm('". esc_js(__('Are you sure you want to permanently discard this draft?', 'majestic-support')) ."')) {
+            return;
+        }
+
+        btn.text('". esc_js(__('Discarding...', 'majestic-support')) ."').prop('disabled', true);
+
+        jQuery.post(ajaxurl, {
+            action: 'mjsupport_ajax',
+            mjsmod: 'zywrap',
+            task: 'discardDraftTask',
+            reply_id: replyId,
+            _wpnonce: '". wp_create_nonce("zywrap_triage_nonce") ."'
+        }, function(response) {
+            if (response.success) {
+                // UI MAGIC: Erase the entire draft reply from the screen smoothly
+                fullThreadItem.slideUp(400, function() {
+                    jQuery(this).remove();
+                });
+            } else {
+                alert('". esc_js(__('Failed to discard draft. Please try again.', 'majestic-support')) ."');
+                btn.text('". esc_js(__('Discard Draft', 'majestic-support'))."').prop('disabled', false);
+            }
+        }).fail(function() {
+            alert('". esc_js(__('Failed to discard draft. Please try again.', 'majestic-support')) ."');
+            btn.text('". esc_js(__('Discard Draft', 'majestic-support'))."').prop('disabled', false);
         });
     });
 ";

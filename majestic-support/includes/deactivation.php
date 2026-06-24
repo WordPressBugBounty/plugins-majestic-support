@@ -42,6 +42,14 @@ class MJTC_deactivation {
            $wpdb->prefix."mjtc_support_slug",
            $wpdb->prefix."mjtc_support_mjtcsessiondata",
            $wpdb->prefix."mjtc_support_smartreplies",
+           $wpdb->prefix."mjtc_support_zywrap_categories",
+           $wpdb->prefix."mjtc_support_zywrap_ai_models",
+           $wpdb->prefix."mjtc_support_zywrap_languages",
+           $wpdb->prefix."mjtc_support_zywrap_use_cases",
+           $wpdb->prefix."mjtc_support_zywrap_wrappers",
+           $wpdb->prefix."mjtc_support_zywrap_block_templates",
+           $wpdb->prefix."mjtc_support_zywrap_settings",
+           $wpdb->prefix."mjtc_support_zywrap_usage_logs",
         );
         return $tables;
     }

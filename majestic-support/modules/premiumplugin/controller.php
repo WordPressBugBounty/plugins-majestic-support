@@ -55,12 +55,18 @@ class MJTC_premiumpluginController {
                 if(!is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($MJTC_layout, 'admin_') === 0){
                     return false;
                 }
+                if(is_admin() && MJTC_majesticsupportphplib::MJTC_strpos($MJTC_layout, 'admin_') === 0 && !current_user_can('manage_options')){
+                    return false;
+                }
                 return true;
             }
         }
     }
 
     function verifytransactionkey(){
+        if (!current_user_can('manage_options')) {
+            wp_die(esc_html__('You are not allowed to access this resource.', 'majestic-support'), esc_html__('Access Denied', 'majestic-support'), array('response' => 403));
+        }
         $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
         if (! wp_verify_nonce( $MJTC_nonce, 'verify-transaction-key') ) {
             die( 'Security check Failed' );
@@ -75,7 +81,7 @@ class MJTC_premiumpluginController {
 
             $MJTC_url = 'https://majesticsupport.com/setup/index.php';
 
-            $MJTC_response = wp_remote_post( $MJTC_url, array('body' => $MJTC_post_data,'timeout'=>7,'sslverify'=>false));
+            $MJTC_response = wp_remote_post( $MJTC_url, array('body' => $MJTC_post_data,'timeout'=>7,'sslverify'=>true));
             if( !is_wp_error($MJTC_response) && $MJTC_response['response']['code'] == 200 && isset($MJTC_response['body']) ){
                 $MJTC_result = $MJTC_response['body'];
                 $MJTC_result = json_decode($MJTC_result,true);
@@ -122,6 +128,9 @@ class MJTC_premiumpluginController {
     }
 
     function updatetransactionkey(){
+        if (!current_user_can('manage_options')) {
+            wp_die(esc_html__('You are not allowed to access this resource.', 'majestic-support'), esc_html__('Access Denied', 'majestic-support'), array('response' => 403));
+        }
         $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
         if (! wp_verify_nonce( $MJTC_nonce, 'update-transaction-key') ) {
             die( 'Security check Failed' );
@@ -156,7 +165,7 @@ class MJTC_premiumpluginController {
 
             $MJTC_url = 'https://majesticsupport.com/setup/index.php';
 
-            $MJTC_response = wp_remote_post( $MJTC_url, array('body' => $MJTC_post_data,'timeout'=>7,'sslverify'=>false));
+            $MJTC_response = wp_remote_post( $MJTC_url, array('body' => $MJTC_post_data,'timeout'=>7,'sslverify'=>true));
             if( !is_wp_error($MJTC_response) && $MJTC_response['response']['code'] == 200 && isset($MJTC_response['body']) ){
                 $MJTC_result = $MJTC_response['body'];
                 $MJTC_result = json_decode($MJTC_result,true);
@@ -236,6 +245,9 @@ class MJTC_premiumpluginController {
     }
 
     function downloadandinstalladdons(){
+        if (!current_user_can('install_plugins')) {
+            wp_die(esc_html__('You are not allowed to install plugins.', 'majestic-support'), esc_html__('Access Denied', 'majestic-support'), array('response' => 403));
+        }
         $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
         if (! wp_verify_nonce( $MJTC_nonce, 'download-and-install-addons') ) {
             die( 'Security check Failed' );

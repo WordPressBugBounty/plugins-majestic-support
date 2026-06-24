@@ -71,11 +71,18 @@ class MJTC_majesticsupportadmin {
             }else{
                 $this->MJTC_addMissingAddonPage('agent');
             }
-              add_submenu_page('majesticsupport', // parent slug
+            add_submenu_page('majesticsupport', // parent slug
                     esc_html(__('Settings', 'majestic-support')), // Page title
                     esc_html(__('Settings', 'majestic-support')), // menu title
                     'ms_support_ticket', // capability
                     'majesticsupport_configuration', //menu slug
+                    array($this, 'MJTC_showAdminPage') // function name
+            );
+            add_submenu_page('majesticsupport', // parent slug
+                    esc_html(__('Zywrap AI', 'majestic-support')), // Page title
+                    esc_html(__('Zywrap AI', 'majestic-support')), // menu title
+                    'ms_support_ticket', // capability
+                    'majesticsupport_zywrap', //menu slug
                     array($this, 'MJTC_showAdminPage') // function name
             );
             add_submenu_page('majesticsupport', // parent slug
@@ -378,7 +385,7 @@ class MJTC_majesticsupportadmin {
             add_submenu_page('majesticsupport', // parent slug
                     esc_html(__('Install Add-ons', 'majestic-support')), // Page title
                     esc_html(__('Install Add-ons', 'majestic-support')), // menu title
-                    'ms_support_ticket', // capability
+                    'install_plugins', // capability
                     'majesticsupport_premiumplugin', //menu slug
                     array($this, 'MJTC_showAdminPage') // function name
             );

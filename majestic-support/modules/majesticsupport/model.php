@@ -1262,7 +1262,7 @@ class MJTC_majesticsupportModel {
                 $MJTC_post_data['JVERSION'] = get_bloginfo('version');
                 $MJTC_post_data['method'] = 'getTranslations';
 
-                $MJTC_response = wp_remote_post( $MJTC_url, array('body' => $MJTC_post_data,'timeout'=>45,'sslverify'=>false));
+                $MJTC_response = wp_remote_post( $MJTC_url, array('body' => $MJTC_post_data,'timeout'=>45,'sslverify'=>true));
                 if( !is_wp_error($MJTC_response) && $MJTC_response['response']['code'] == 200 && isset($MJTC_response['body']) ){
                     $MJTC_call_result = $MJTC_response['body'];
                 }else{
@@ -1438,7 +1438,7 @@ class MJTC_majesticsupportModel {
                 $MJTC_post_data['translationcode'] = $MJTC_lang_name;
                 $MJTC_post_data['method'] = 'getTranslationFile';
 
-                $MJTC_response = wp_remote_post( $MJTC_url, array('body' => $MJTC_post_data,'timeout'=>7,'sslverify'=>false));
+                $MJTC_response = wp_remote_post( $MJTC_url, array('body' => $MJTC_post_data,'timeout'=>7,'sslverify'=>true));
                 if( !is_wp_error($MJTC_response) && $MJTC_response['response']['code'] == 200 && isset($MJTC_response['body']) ){
                     $MJTC_result_body = $MJTC_response['body'];
                 }else{
@@ -2037,7 +2037,7 @@ class MJTC_majesticsupportModel {
                 $MJTC_post_data['translationcode'] = $MJTC_activated_lang;
                 $MJTC_post_data['method'] = 'getTranslationFile';
 
-                $MJTC_response = wp_remote_post( $MJTC_url, array('body' => $MJTC_post_data,'timeout'=>7,'sslverify'=>false));
+                $MJTC_response = wp_remote_post( $MJTC_url, array('body' => $MJTC_post_data,'timeout'=>7,'sslverify'=>true));
                 if( !is_wp_error($MJTC_response) && $MJTC_response['response']['code'] == 200 && isset($MJTC_response['body']) ){
                     $MJTC_result = $MJTC_response['body'];
                 }else{
@@ -2393,6 +2393,26 @@ class MJTC_majesticsupportModel {
             case 'cronjob':
                 $title = __("Cron Job URLs", 'majestic-support');
                 $description = __("The exact trigger links required to keep your email fetching, notifications, and cleanups running on time.", 'majestic-support');
+                break;
+            case 'zywrap':
+                $title = __("Zywrap Co-Pilot", 'majestic-support');
+                $description = __("Real-time AI interaction logs and automation stream.", 'majestic-support');
+                break;
+            case 'zywrap_settings':
+                $title = __("Global Settings", 'majestic-support');
+                $description = __("Configure API authentication, synchronization, and default engine parameters.", 'majestic-support');
+                break;
+            case 'zywrap_playground':
+                $title = __("AI Playground", 'majestic-support');
+                $description = __("Safely test wrappers, simulate scenarios, and calibrate AI schemas before deployment.", 'majestic-support');
+                break;
+            case 'zywrap_logs':
+                $title = __("API Audit Logs", 'majestic-support');
+                $description = __("Monitor all successful AI engine requests, trace IDs, and token usage.", 'majestic-support');
+                break;
+            case 'zywrap_errors':
+                $title = __("System Exceptions", 'majestic-support');
+                $description = __("Review and manage trapped errors from the AI engine.", 'majestic-support');
                 break;
             case 'shortcodes':
                 $MJTC_videoButton = "<a target=\"blank\" href=\"https://www.youtube.com/watch?v=PV-shw5Nr8Q\" class=\"msadmin-video-link mjtc-cp-video-popup\" title=\"". esc_html(__('How to add Shortcode', 'majestic-support')) ."\">

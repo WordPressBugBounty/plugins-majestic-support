@@ -434,6 +434,17 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                                 <?php } ?>
                             </div>
 
+                            <div class="add-on-item autocleanup">
+                                <img class="add-on-img" src="<?php echo esc_url(MJTC_PLUGIN_URL); ?>includes/images/add-on-list/autocleanup.png" alt="<?php echo esc_attr(__('Auto Cleanup','majestic-support')); ?>" />
+                                <div class="add-on-name"><?php echo esc_html(__('Auto Cleanup','majestic-support')); ?></div>
+                                <div class="add-on-txt"><?php echo esc_html(__("Automatically deletes old attachments and permanently removes closed tickets based on your configured retention periods to optimize server storage.",'majestic-support')); ?></div>
+                                <?php if(in_array('autocleanup', majesticsupport::$_active_addons)){ ?>
+                                    <a title="<?php echo esc_attr(__('buy now','majestic-support')); ?>" class="add-on-btn"><?php echo esc_html(__('Installed','majestic-support')); ?></a>
+                                <?php } else { ?>
+                                    <a title="<?php echo esc_attr(__('buy now','majestic-support')); ?>" href="https://majesticsupport.com/product/autocleanup/" class="add-on-btn"><?php echo esc_html(__('buy now','majestic-support')); ?></a>
+                                <?php } ?>
+                            </div>
+
                         </div>
                     </div>
                     <div class="add-on-sec-header">

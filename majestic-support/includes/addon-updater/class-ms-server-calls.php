@@ -38,7 +38,7 @@ class MJTC_SupportTicketServerCalls extends MJTC_SUPPORTTICKETUpdater{
 
 	public static function MJTC_PluginUpdateCheckFromCDN() {
 
-		$MJTC_url = "http://d2k6fm08zy0hmd.cloudfront.net/addonslatestversions.txt";
+		$MJTC_url = "https://d2k6fm08zy0hmd.cloudfront.net/addonslatestversions.txt";
 		$MJTC_request = wp_remote_get($MJTC_url);
 
 		if ( is_wp_error( $MJTC_request ) || wp_remote_retrieve_response_code( $MJTC_request ) != 200 ) {

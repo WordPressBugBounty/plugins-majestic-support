@@ -12,6 +12,26 @@ class MJTC_uploads {
     private $MJTC_staffid;
     private $MJTC_uploadfor;
 
+    private function MJTC_is_extension_allowed($MJTC_configured_extensions, $MJTC_extension) {
+        $MJTC_extension = strtolower(ltrim((string) $MJTC_extension, '.'));
+        if ($MJTC_extension === '') {
+            return false;
+        }
+
+        $MJTC_configured_extensions = strtolower((string) $MJTC_configured_extensions);
+        $MJTC_allowed_extensions = preg_split('/[\s,|]+/', $MJTC_configured_extensions, -1, PREG_SPLIT_NO_EMPTY);
+        $MJTC_allowed_extensions = array_map(function($MJTC_ext) {
+            return ltrim(trim($MJTC_ext), '.');
+        }, $MJTC_allowed_extensions);
+
+        return in_array($MJTC_extension, $MJTC_allowed_extensions, true);
+    }
+
+    private function MJTC_safe_folder_name($MJTC_foldername) {
+        return sanitize_file_name(wp_basename((string) $MJTC_foldername));
+    }
+
+
     function MJTC_upload_dir( $MJTC_dir ) {
         $MJTC_form_request = MJTC_request::MJTC_getVar('form_request');
         if($MJTC_form_request == 'majesticsupport' OR $this->MJTC_uploadfor == 'agent'){
@@ -24,15 +44,15 @@ class MJTC_uploads {
                 if(!is_numeric($this->MJTC_ticketid)) return false;
                 $MJTC_path = $MJTC_path . '/ticket';
                 $MJTC_query = "SELECT attachmentdir FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE id = ".esc_sql($this->MJTC_ticketid);
-                $MJTC_foldername = majesticsupport::$_db->get_var($MJTC_query);
+                $MJTC_foldername = $this->MJTC_safe_folder_name(majesticsupport::$_db->get_var($MJTC_query));
             }elseif($this->MJTC_uploadfor == 'article'){
-                $MJTC_path = $MJTC_path . '/articles/article_'.$this->MJTC_articleid;
+                $MJTC_path = $MJTC_path . '/articles/article_'.absint($this->MJTC_articleid);
             }elseif($this->MJTC_uploadfor == 'download'){
-                $MJTC_path = $MJTC_path . '/downloads/download_'.$this->MJTC_downloadid;
+                $MJTC_path = $MJTC_path . '/downloads/download_'.absint($this->MJTC_downloadid);
             }elseif($this->MJTC_uploadfor == 'category'){
-                $MJTC_path = $MJTC_datadirectory . '/knowledgebasedata/categories/category_'.$this->MJTC_categoryid;
+                $MJTC_path = $MJTC_datadirectory . '/knowledgebasedata/categories/category_'.absint($this->MJTC_categoryid);
             }elseif($this->MJTC_uploadfor == 'agent'){
-                $MJTC_path = $MJTC_datadirectory . '/staffdata/staff_'.$this->MJTC_staffid;
+                $MJTC_path = $MJTC_datadirectory . '/staffdata/staff_'.absint($this->MJTC_staffid);
             }
 
             $MJTC_userpath = $MJTC_path . '/' . $MJTC_foldername;
@@ -90,7 +110,7 @@ class MJTC_uploads {
                 $MJTC_filetyperesult = wp_check_filetype(sanitize_file_name($_FILES['filename']['name'][$MJTC_key]));
                 if(!empty($MJTC_filetyperesult['ext']) && !empty($MJTC_filetyperesult['type'])){
                     $MJTC_document_file_types = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('file_extension');
-                    if(MJTC_majesticsupportphplib::MJTC_stristr($MJTC_document_file_types, $MJTC_filetyperesult['ext'])){
+                    if($this->MJTC_is_extension_allowed($MJTC_document_file_types, $MJTC_filetyperesult['ext'])){
 
                         $MJTC_result = wp_handle_upload($MJTC_file, array('test_form' => false));
                         if ( $MJTC_result && ! isset( $MJTC_result['error'] ) ) {
@@ -139,15 +159,32 @@ class MJTC_uploads {
             MJTC_includer::MJTC_getModel('majesticsupport')->makeDir($MJTC_path);
         }
         $MJTC_query = "SELECT attachmentdir FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE id = ".esc_sql($MJTC_idsarray[0]);
-        $MJTC_foldername = majesticsupport::$_db->get_var($MJTC_query);
+        $MJTC_foldername = $this->MJTC_safe_folder_name(majesticsupport::$_db->get_var($MJTC_query));
 
         $MJTC_path = $MJTC_path . '/' . $MJTC_foldername;
         if (!file_exists($MJTC_path)) { // create user directory
             MJTC_includer::MJTC_getModel('majesticsupport')->makeDir($MJTC_path);
         }
 
-        file_put_contents($MJTC_path . '/' . $MJTC_key, $MJTC_value); // save the file
-        return true;
+        $MJTC_filename = sanitize_file_name(wp_basename((string) $MJTC_key));
+        if ($MJTC_filename === '') {
+            return false;
+        }
+
+        $MJTC_filetyperesult = wp_check_filetype($MJTC_filename);
+        $MJTC_allowed_file_types = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('file_extension');
+        if (empty($MJTC_filetyperesult['ext']) || empty($MJTC_filetyperesult['type']) || !$this->MJTC_is_extension_allowed($MJTC_allowed_file_types, $MJTC_filetyperesult['ext'])) {
+            return false;
+        }
+
+        $MJTC_target = trailingslashit($MJTC_path) . $MJTC_filename;
+        $MJTC_real_base = realpath($MJTC_path);
+        $MJTC_real_target_dir = realpath(dirname($MJTC_target));
+        if (!$MJTC_real_base || !$MJTC_real_target_dir || strpos($MJTC_real_target_dir, $MJTC_real_base) !== 0) {
+            return false;
+        }
+
+        return false !== file_put_contents($MJTC_target, $MJTC_value); // save the file
     }
 
     function MJTC_storeArticleAttachment($MJTC_data, $MJTC_caller){
@@ -188,7 +225,7 @@ class MJTC_uploads {
                 $MJTC_filetyperesult = wp_check_filetype(sanitize_file_name($_FILES['filename']['name'][$MJTC_key]));
                 if(!empty($MJTC_filetyperesult['ext']) && !empty($MJTC_filetyperesult['type'])){
                     $MJTC_document_file_types = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('file_extension');
-                    if(MJTC_majesticsupportphplib::MJTC_stristr($MJTC_document_file_types, $MJTC_filetyperesult['ext'])){
+                    if($this->MJTC_is_extension_allowed($MJTC_document_file_types, $MJTC_filetyperesult['ext'])){
 
                         $MJTC_result = wp_handle_upload($MJTC_file, array('test_form' => false));
                         if ( $MJTC_result && ! isset( $MJTC_result['error'] ) ) {
@@ -253,7 +290,7 @@ class MJTC_uploads {
                 $MJTC_filetyperesult = wp_check_filetype(sanitize_file_name($_FILES['filename']['name'][$MJTC_key]));
                 if(!empty($MJTC_filetyperesult['ext']) && !empty($MJTC_filetyperesult['type'])){
                     $MJTC_document_file_types = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('file_extension');
-                    if(MJTC_majesticsupportphplib::MJTC_stristr($MJTC_document_file_types, $MJTC_filetyperesult['ext'])){
+                    if($this->MJTC_is_extension_allowed($MJTC_document_file_types, $MJTC_filetyperesult['ext'])){
                         $MJTC_result = wp_handle_upload($MJTC_file, array('test_form' => false));
                         if ( $MJTC_result && ! isset( $MJTC_result['error'] ) ) {
                             // Get the folder where the file was uploaded
@@ -311,7 +348,7 @@ class MJTC_uploads {
         if(!empty($MJTC_filetyperesult['ext']) && !empty($MJTC_filetyperesult['type'])){
             $MJTC_image_file_types = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('file_extension');
 
-            if(MJTC_majesticsupportphplib::MJTC_stristr($MJTC_image_file_types, $MJTC_filetyperesult['ext'])){
+            if($this->MJTC_is_extension_allowed($MJTC_image_file_types, $MJTC_filetyperesult['ext'])){
 
                 $MJTC_result = wp_handle_upload($MJTC_file, array('test_form' => false));
                 if ( $MJTC_result && ! isset( $MJTC_result['error'] ) ) {
@@ -363,7 +400,7 @@ class MJTC_uploads {
         $MJTC_filetyperesult = wp_check_filetype(sanitize_file_name($_FILES['filename']['name']));
         if(!empty($MJTC_filetyperesult['ext']) && !empty($MJTC_filetyperesult['type'])){
             $MJTC_image_file_types = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('file_extension');
-            if(MJTC_majesticsupportphplib::MJTC_stristr($MJTC_image_file_types, $MJTC_filetyperesult['ext'])){
+            if($this->MJTC_is_extension_allowed($MJTC_image_file_types, $MJTC_filetyperesult['ext'])){
 
                 $MJTC_result = wp_handle_upload($MJTC_file, array('test_form' => false));
                 if ( $MJTC_result && ! isset( $MJTC_result['error'] ) ) {
@@ -417,7 +454,7 @@ class MJTC_uploads {
         $MJTC_filetyperesult = wp_check_filetype(sanitize_file_name($_FILES[$MJTC_field]['name']));
         if(!empty($MJTC_filetyperesult['ext']) && !empty($MJTC_filetyperesult['type'])){
             $MJTC_image_file_types = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('file_extension');
-            if(MJTC_majesticsupportphplib::MJTC_strstr($MJTC_image_file_types, $MJTC_filetyperesult['ext'])){
+            if($this->MJTC_is_extension_allowed($MJTC_image_file_types, $MJTC_filetyperesult['ext'])){
 
                 $MJTC_result = wp_handle_upload($MJTC_file, array('test_form' => false));
                 if (isset( $MJTC_result['error'] ) ) {
@@ -474,7 +511,7 @@ class MJTC_uploads {
         $MJTC_filetyperesult = wp_check_filetype(sanitize_file_name($_FILES[$MJTC_field]['name']));
         if(!empty($MJTC_filetyperesult['ext']) && !empty($MJTC_filetyperesult['type'])){
             $MJTC_image_file_types = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('file_extension');
-            if(MJTC_majesticsupportphplib::MJTC_strstr($MJTC_image_file_types, $MJTC_filetyperesult['ext'])){
+            if($this->MJTC_is_extension_allowed($MJTC_image_file_types, $MJTC_filetyperesult['ext'])){
 
                 $MJTC_result = wp_handle_upload($MJTC_file, array('test_form' => false));
                 if (isset( $MJTC_result['error'] ) ) {
@@ -528,7 +565,7 @@ class MJTC_uploads {
         $MJTC_filetyperesult = wp_check_filetype(sanitize_file_name($_FILES['logo_for_desktop_notfication']['name']));
         if(!empty($MJTC_filetyperesult['ext']) && !empty($MJTC_filetyperesult['type'])){
             $MJTC_image_file_types = MJTC_includer::MJTC_getModel('configuration')->getConfigValue('file_extension');
-            if(MJTC_majesticsupportphplib::MJTC_stristr($MJTC_image_file_types, $MJTC_filetyperesult['ext'])){
+            if($this->MJTC_is_extension_allowed($MJTC_image_file_types, $MJTC_filetyperesult['ext'])){
                 $MJTC_result = wp_handle_upload($MJTC_file, array('test_form' => false));
                 if ( $MJTC_result && ! isset( $MJTC_result['error'] ) ) {
                     // Get the folder where the file was uploaded

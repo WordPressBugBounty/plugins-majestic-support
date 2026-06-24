@@ -6,6 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 <?php
 wp_enqueue_style('status-graph', MJTC_PLUGIN_URL . 'includes/css/status_graph.css', array(), '1.0.0');
 if (majesticsupport::$_config['offline'] == 2) {
+    if(in_array('multiform', majesticsupport::$_active_addons)){
+        include_once(MJTC_PLUGIN_PATH . 'includes/multiformpopup.php');
+    }
     if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid() != 0) {
         wp_enqueue_script('jquery-ui-datepicker');
         wp_enqueue_style('majesticsupport-jquery-ui-css', MJTC_PLUGIN_URL . 'includes/css/jquery-ui-smoothness.css', array(), '1.0.0');

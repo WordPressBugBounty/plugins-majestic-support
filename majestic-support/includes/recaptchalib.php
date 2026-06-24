@@ -13,7 +13,7 @@ if (!defined('ABSPATH'))
             $MJTC_post_data['response'] = $MJTC_grresponse;
             $MJTC_post_data['remoteip'] = $MJTC_ip;
 
-            $MJTC_response = wp_remote_post( $MJTC_google_url, array('body' => $MJTC_post_data,'timeout'=>7,'sslverify'=>false));
+            $MJTC_response = wp_remote_post( $MJTC_google_url, array('body' => $MJTC_post_data,'timeout'=>7,'sslverify'=>true));
             if( !is_wp_error($MJTC_response) && $MJTC_response['response']['code'] == 200 && isset($MJTC_response['body']) ){
                 $MJTC_result = $MJTC_response['body'];
             }else{

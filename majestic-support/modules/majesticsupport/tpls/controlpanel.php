@@ -1304,7 +1304,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                                                 <?php
                                                 if (!empty($MJTC_data['latest-articles'])) {
                                                     foreach($MJTC_data['latest-articles'] as $MJTC_article): ?>
-                                                        <div class="mjtc-support-cp-article-item">
+                                                        <a href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'knowledgebase', 'mjslay'=>'articledetails', 'majesticsupportid'=>$MJTC_article->articleid))); ?>" class="mjtc-support-cp-article-item">
                                                             <div class="mjtc-support-cp-article-icon">
                                                                 <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
                                                             </div>
@@ -1318,10 +1318,10 @@ if (majesticsupport::$_config['offline'] == 2) {
                                                                     ?>
                                                                 </div>
                                                             </div>
-                                                           <a href="<?php echo esc_url(majesticsupport::makeUrl(array('mjsmod'=>'knowledgebase', 'mjslay'=>'articledetails', 'majesticsupportid'=>$MJTC_article->articleid))); ?>" style="font-size:.8em; color:var(--mjtc-color-1);">
-                                                               <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                                           </a>
-                                                        </div>
+                                                            <span style="font-size:.8em; color:var(--mjtc-color-1);">
+                                                                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                                            </span>
+                                                        </a>
                                                         <?php
                                                     endforeach;
                                                 } else { ?>
@@ -1717,31 +1717,8 @@ if (majesticsupport::$_config['offline'] == 2) {
         echo  wp_kses($MJTC_html, MJTC_ALLOWED_TAGS);
         return;
     }
-    if(in_array('multiform', majesticsupport::$_active_addons)){ ?>
-        <div id="multiformpopupblack" style="display:none;"></div>
-        <div id="multiformpopup" class="" style="display:none;">
-            <!-- Select User Popup -->
-            <div class="ms-multiformpopup-header">
-                <div class="multiformpopup-header-text">
-                    <?php echo esc_html(__('Select Form','majestic-support')); ?>
-                </div>
-                <div class="multiformpopup-header-close-img">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 18 18"></path></svg>
-                </div>
-            </div>
-            <div id="records">
-                <div id="records-inner">
-                    <div class="mjtc-staff-searc-desc">
-                        <?php echo esc_html(__('No Record Found','majestic-support')); ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <!-- add loading for multiform -->
-        <div id="mstran_loading">
-            <div class="ms-css-spinner"></div>
-        </div>
-        <?php
+    if(in_array('multiform', majesticsupport::$_active_addons)){
+        include_once(MJTC_PLUGIN_PATH . 'includes/multiformpopup.php');
     }
     $majesticsupport_js ="
         jQuery(document).ready(function ($) {
@@ -1782,59 +1759,9 @@ if (majesticsupport::$_config['offline'] == 2) {
                 var item = jQuery(this).parent();
                 item.toggleClass('open');
             });
-
-            jQuery('a#multiformpopup').click(function (e) {
-                e.preventDefault();
-                var url = jQuery('a#multiformpopup').prop('href');
-                jQuery('div#multiformpopupblack').show();
-                var ajaxurl = '". esc_url(admin_url('admin-ajax.php'))."';
-                jsShowLoading();
-                jQuery.post(ajaxurl, {action: 'mjsupport_ajax', mjsmod: 'multiform', task: 'getmultiformlistajax', url: url, '_wpnonce':'". esc_attr(wp_create_nonce("get-multi-form-list-ajax"))."'}, function(data) {
-                    if (data) {
-                        jsHideLoading();
-                        jQuery('div#records').html('');
-                        jQuery('div#records').html(data);
-                        jQuery('div#multiformpopup').slideDown('slow');
-                    }
-                });
-            });
-
-            jQuery('div#multiformpopupblack , div.multiformpopup-header-close-img').click(function(e) {
-                jQuery('div#multiformpopup').slideUp('slow', function() {
-                    jQuery('div#multiformpopupblack').hide();
-                });
-            });
         });
-
-        function MJTC_makeFormSelected(divelement) {
-            jQuery('div.mjtc-support-multiform-row').removeClass('selected');
-            jQuery(divelement).addClass('selected');
-        }
-
-        function MJTC_makeMultiFormUrl(id) {
-            var oldUrl = jQuery('a.mjtc-multiformpopup-link').attr('id'); // Get current url
-            var opt = '?';
-            var found = oldUrl.search('&');
-            if (found > 0) {
-                opt = '&';
-            }
-            var found = oldUrl.search('[\?\]');
-            if (found > 0) {
-                opt = '&';
-            }
-            var newUrl = oldUrl + opt + 'formid=' + id; // Create new url
-            window.location.href = newUrl;
-        }
-
-        function jsShowLoading(){
-            jQuery('div#mstran_loading').css('display', 'flex');
-        }
-
-        function jsHideLoading(){
-            jQuery('div#mstran_loading').hide();
-        }
-
     ";
+    // Moved this code to a dedicated file to prevent errors when the header is hidden.
     wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
     ?>
 </div>

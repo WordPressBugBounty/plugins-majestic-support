@@ -196,7 +196,9 @@ class MJTC_ticketModel {
         majesticsupport::$_data['list'] = $MJTC_list; // assign for reference
         // Data
         do_action('MJTC_addon_staff_admin_tickets');
-        $MJTC_query = "SELECT ticket.*,department.departmentname AS departmentname ,priority.priority AS priority,priority.prioritycolour AS prioritycolour,status.status AS statustitle,status.statuscolour,status.statusbgcolour, product.product AS producttitle, COUNT(replies.id) AS reply_count ".majesticsupport::$_addon_query['select']."
+        $MJTC_query = "SELECT ticket.*,department.departmentname AS departmentname ,priority.priority AS priority,priority.prioritycolour AS prioritycolour,status.status AS statustitle,status.statuscolour,status.statusbgcolour, product.product AS producttitle, COUNT(replies.id) AS reply_count,
+                        (SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid = ticket.id AND is_ai_draft = 1 ORDER BY created DESC LIMIT 1) AS ai_draft_id
+                     ".majesticsupport::$_addon_query['select']."
                     FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket
                     LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON ticket.departmentid = department.id
                     LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON ticket.priorityid = priority.id
@@ -642,7 +644,8 @@ class MJTC_ticketModel {
 
         // Data
         do_action('MJTC_addon_staff_my_tickets');
-        $MJTC_query = "SELECT DISTINCT ticket.*,department.departmentname AS departmentname ,priority.priority AS priority,priority.prioritycolour AS prioritycolour,assignstaff.photo AS staffphoto,assignstaff.id AS staffid,assignstaff.uid AS staffuid, assignstaff.firstname AS staffname, status.status AS statustitle, status.statusbgcolour, status.statuscolour, product.product AS producttitle, COUNT(replies.id) AS reply_count ".majesticsupport::$_addon_query['select']."
+        $MJTC_query = "SELECT DISTINCT ticket.*,department.departmentname AS departmentname ,priority.priority AS priority,priority.prioritycolour AS prioritycolour,assignstaff.photo AS staffphoto,assignstaff.id AS staffid,assignstaff.uid AS staffuid, assignstaff.firstname AS staffname, status.status AS statustitle, status.statusbgcolour, status.statuscolour, product.product AS producttitle, COUNT(replies.id) AS reply_count,
+                    (SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid = ticket.id AND is_ai_draft = 1 ORDER BY created DESC LIMIT 1) AS ai_draft_id ".majesticsupport::$_addon_query['select']."
                     FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket
                     LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON ticket.departmentid = department.id
                     LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON ticket.priorityid = priority.id
@@ -1112,15 +1115,15 @@ class MJTC_ticketModel {
 
     function storeTickets($MJTC_data) {
         $MJTC_nonce_id = isset($MJTC_data['id']) ? $MJTC_data['id'] : '';
-		$MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
         if (! wp_verify_nonce( $MJTC_nonce, 'save-ticket-'.$MJTC_nonce_id) ) {
             die( 'Security check Failed' );
         }
         if (isset($MJTC_data['email'])) {
             $MJTC_checkduplicatetk = $this->checkIsTicketDuplicate($MJTC_data['subject'],$MJTC_data['email']);
-    		if(!$MJTC_checkduplicatetk){
-    			return false;
-    		}
+            if(!$MJTC_checkduplicatetk){
+                return false;
+            }
         }
         if(isset($MJTC_data['departmentid']) && $MJTC_data['departmentid'] == ''){
             // auto assign
@@ -1195,7 +1198,10 @@ class MJTC_ticketModel {
         }
 
         $MJTC_sendEmail = true;
+        $MJTC_isedit = false;
+        $MJTC_existing_attachmentdir = '';
         if (isset($MJTC_data['id']) && is_numeric($MJTC_data['id'])) {
+            $MJTC_isedit = true;
             $MJTC_sendEmail = false;
             $MJTC_updated = date_i18n('Y-m-d H:i:s');
             $MJTC_created = $MJTC_data['created'];
@@ -1212,10 +1218,18 @@ class MJTC_ticketModel {
                     }
                 }
             }
-            //to check hash
-            $MJTC_query = "SELECT hash,uid FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE ticketid='".esc_sql($MJTC_data['ticketid'])."'";
+            //to check hash and keep server-side attachment folder for edit case
+            $MJTC_query = "SELECT hash,uid,attachmentdir FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE id=".intval($MJTC_data['id']);
             $MJTC_row = majesticsupport::$_db->get_row($MJTC_query);
+            if(empty($MJTC_row)){
+                return false;
+            }
             $MJTC_edituid = $MJTC_row->uid;
+            $MJTC_existing_attachmentdir = isset($MJTC_row->attachmentdir) ? $MJTC_row->attachmentdir : '';
+            if($MJTC_existing_attachmentdir == '' || preg_match('/^[A-Za-z]{7}$/', $MJTC_existing_attachmentdir) !== 1){
+                MJTC_message::MJTC_setMessage(esc_html(__('Invalid attachment folder', 'majestic-support')), 'error');
+                return false;
+            }
             if( $MJTC_row->hash != $this->generateHash($MJTC_data['id']) ){
                 return false;
             }//end
@@ -1226,10 +1240,17 @@ class MJTC_ticketModel {
             $MJTC_data['customticketno'] = $MJTC_idresult['customticketno'];
             $MJTC_data['internalid'] = $this->getInternalTicketId();
 
-            $MJTC_data['attachmentdir'] = $this->getRandomFolderName();
             $MJTC_created = date_i18n('Y-m-d H:i:s');
             $MJTC_updated = '';
         }
+
+        // Do not trust attachmentdir from POST. It is a filesystem folder name and must stay server-controlled.
+        if($MJTC_isedit == true){
+            $MJTC_data['attachmentdir'] = $MJTC_existing_attachmentdir;
+        }else{
+            $MJTC_data['attachmentdir'] = $this->getRandomFolderName();
+        }
+
         if(isset($MJTC_data['assigntome']) && $MJTC_data['assigntome'] == 1){
             if (in_array('agent',majesticsupport::$_active_addons)) {
                 $MJTC_uid = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
@@ -1250,7 +1271,7 @@ class MJTC_ticketModel {
         $MJTC_data['lastreply'] = isset($MJTC_data['lastreply']) ? $MJTC_data['lastreply'] : '';
         if (isset($MJTC_data['mjsupport_message'])) {
             $MJTC_data['message'] = MJTC_includer::MJTC_getModel('majesticsupport')->getSanitizedEditorData($_POST['mjsupport_message']); // use mjsupport_message to avoid conflict
-    		$mjsupport_message = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($MJTC_data['message']);
+            $mjsupport_message = MJTC_includer::MJTC_getModel('majesticsupport')->msremovetags($MJTC_data['message']);
             $mjsupport_message = MJTC_includer::MJTC_getModel('majesticsupport')->stripslashesFull($mjsupport_message);
         }
         //check if message field is set as required or not
@@ -1260,6 +1281,60 @@ class MJTC_ticketModel {
             return false;
         }
         $MJTC_data = majesticsupport::MJTC_sanitizeData($MJTC_data); // MJTC_sanitizeData() function uses wordpress santize functions
+        // =============================================
+        // Zywrap AI: Incoming Ticket Analyzer (Auto-Triage & Routing)
+        // =============================================
+        
+            
+        // 1. Check if AI Key is available (Assuming your engine model handles this)
+        $api_key = get_option('mjtc_zywrap_api_key', '');
+        // Clean the subject and message for validation
+        $clean_subject = trim(wp_strip_all_tags($MJTC_data['subject'] ?? ''));
+        $clean_message = trim(wp_strip_all_tags($MJTC_data['message'] ?? ''));
+
+        // Only proceed if API key exists AND at least one of these fields has content
+        if (!empty($api_key) && (!empty($clean_subject) || !empty($clean_message))) {
+
+            // Prepare content for the AI
+            $ticket_content = "Subject: " . $MJTC_data['subject'] . "\nMessage: " . $MJTC_data['message'];
+            $user_provided_dept = !empty($MJTC_data['departmentid']);
+            $user_provided_priority = !empty($MJTC_data['priorityid']);    
+            // Call Zywrap Model, passing the flags so it knows what to exclude from the API request
+            $ai_response = MJTC_includer::MJTC_getModel('zywrap')->analyzeIncomingTicket($ticket_content, $user_provided_dept, $user_provided_priority, $MJTC_data['multiformid']);
+            
+                
+            if ($ai_response && is_array($ai_response)) {
+                
+                // A. Sentiment Analysis
+                if (!empty($ai_response['sentiment'])) {
+                    $MJTC_data['sentiment'] = sanitize_text_field($ai_response['sentiment']);
+                }
+                
+                // B. Support-to-Sales (Upsell Flag)
+                if (isset(majesticsupport::$_config['zywrap_detect_sales']) && majesticsupport::$_config['zywrap_detect_sales'] == 1) {
+                    if (isset($ai_response['upsell_opportunity'])) {
+                        $MJTC_data['upsell_opportunity'] = intval($ai_response['upsell_opportunity']);
+                    }
+                }
+                
+                // C. Auto-Routing (Department)
+                if (isset(majesticsupport::$_config['zywrap_auto_route']) && majesticsupport::$_config['zywrap_auto_route'] == 1) {
+                    if (!$user_provided_dept && !empty($ai_response['departmentid'])) {
+                        $MJTC_data['departmentid'] = intval($ai_response['departmentid']);
+                    }
+                }
+                
+                // D. Auto-Prioritization (Priority)
+                if (isset(majesticsupport::$_config['zywrap_auto_priority']) && majesticsupport::$_config['zywrap_auto_priority'] == 1) {
+                    if (!$user_provided_priority && !empty($ai_response['priorityid'])) {
+                        $MJTC_data['priorityid'] = intval($ai_response['priorityid']);
+                    }
+                }
+            }
+        }
+        // ======================================
+        // END Zywrap AI Analyzer
+        // ======================================
         if(isset($MJTC_envatoData)){
             $MJTC_data['envatodata'] = $MJTC_envatoData;
         }
@@ -1280,7 +1355,7 @@ class MJTC_ticketModel {
                 $MJTC_customflagforadd=true;
                 $MJTC_custom_field_namesforadd[]=$MJTC_ufobj->field;
             }else if($MJTC_ufobj->userfieldtype == 'date'){
-		//gmdate makes error
+        //gmdate makes error
                 $MJTC_vardata = isset($MJTC_data[$MJTC_ufobj->field]) ? gmdate("Y-m-d", MJTC_majesticsupportphplib::MJTC_strtotime($MJTC_data[$MJTC_ufobj->field])) : '';
             }else{
                 $MJTC_vardata = isset($MJTC_data[$MJTC_ufobj->field]) ? $MJTC_data[$MJTC_ufobj->field] : '';
@@ -1317,7 +1392,7 @@ class MJTC_ticketModel {
         $MJTC_data['params'] = $MJTC_params;
         //custom field code end
 
-	    if (!empty($mjsupport_message)) {
+        if (!empty($mjsupport_message)) {
             $MJTC_data['message'] = $mjsupport_message;
         }
         $MJTC_data['created'] = $MJTC_created;
@@ -1333,7 +1408,7 @@ class MJTC_ticketModel {
         }
         $MJTC_sendnotification = false;
         $MJTC_row = MJTC_includer::MJTC_getTable('tickets');
-		// this line make problem with custom field data (latin words)
+        // this line make problem with custom field data (latin words)
         $MJTC_error = 0;
         if (!$MJTC_row->bind($MJTC_data)) {
             $MJTC_error = 1;
@@ -1358,24 +1433,24 @@ class MJTC_ticketModel {
             majesticsupport::$_db->query($MJTC_query);
 
             // Storing Attachments
-			$MJTC_data['ticketid'] = $MJTC_ticketid;
-			if($MJTC_data['ticketviaemail'] != 1){ // since ticket via emial attacments are handled saprately
-			   MJTC_includer::MJTC_getModel('attachment')->storeAttachments($MJTC_data);
-			   MJTC_message::MJTC_setMessage(esc_html(__('Your ticket has been submitted successfully', 'majestic-support')), 'updated');
+            $MJTC_data['ticketid'] = $MJTC_ticketid;
+            if($MJTC_data['ticketviaemail'] != 1){ // since ticket via emial attacments are handled saprately
+               MJTC_includer::MJTC_getModel('attachment')->storeAttachments($MJTC_data);
+               MJTC_message::MJTC_setMessage(esc_html(__('Your ticket has been submitted successfully', 'majestic-support')), 'updated');
 
-			   //removing custom field attachments
+               //removing custom field attachments
                 if($MJTC_customflagfordelete == true){
-				    foreach ($MJTC_custom_field_namesfordelete as $MJTC_key) {
-					   $MJTC_res = $this->removeFileCustom($MJTC_ticketid,$MJTC_key);
-				    }
-	            }
+                    foreach ($MJTC_custom_field_namesfordelete as $MJTC_key) {
+                       $MJTC_res = $this->removeFileCustom($MJTC_ticketid,$MJTC_key);
+                    }
+                }
                 //storing custom field attachments
                 if($MJTC_customflagforadd == true){
-			        foreach ($MJTC_custom_field_namesforadd as $MJTC_key) {
+                    foreach ($MJTC_custom_field_namesforadd as $MJTC_key) {
                         if ($_FILES[$MJTC_key]['size'] > 0) { // logo
-	                       $MJTC_res = $this->uploadFileCustom($MJTC_ticketid,$MJTC_key);
-				        }
-				    }
+                           $MJTC_res = $this->uploadFileCustom($MJTC_ticketid,$MJTC_key);
+                        }
+                    }
                 }
 
                 //update paid support item tickets
@@ -1390,7 +1465,7 @@ class MJTC_ticketModel {
                     }
                 }
 
-			}
+            }
         }
         do_action('MJTC_after_ticket_create',$MJTC_data,$MJTC_ticketid);
         
@@ -1868,6 +1943,7 @@ class MJTC_ticketModel {
 
             MJTC_message::MJTC_setMessage(esc_html(__('Ticket has been closed', 'majestic-support')), 'updated');
             $MJTC_messagetype = esc_html(__('Successfully', 'majestic-support'));
+            MJTC_includer::MJTC_getModel('zywrap')->flushDraftsForTicket($MJTC_id);
         } else {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
             MJTC_message::MJTC_setMessage(esc_html(__('Ticket has not been closed', 'majestic-support')), 'error');
@@ -3580,6 +3656,7 @@ class MJTC_ticketModel {
 
     // Add this helper function to your ticket tasks class (e.g. module/ticket/tasks.php)
     public function recordInstantFixDeflection() {
+        check_ajax_referer('record-instant-fix-deflection');
         $current = (int) get_option('ms_instantfix_deflections', 0);
         update_option('ms_instantfix_deflections', $current + 1);
         wp_send_json_success();
@@ -3840,6 +3917,79 @@ class MJTC_ticketModel {
             return $b['score'] <=> $a['score'];
         });
 
+        // Limit the final combined results to the admin setting
+        if (count($MJTC_results) > $MJTC_limit) {
+            $MJTC_results = array_slice($MJTC_results, 0, $MJTC_limit);
+        }
+
+        /* =========================================================
+           NEW: ZYWRAP AI RAG (Retrieval-Augmented Generation)
+        ========================================================= */
+        $ai_answer_html = '';
+        $zywrap_api_key = get_option('mjtc_zywrap_api_key');
+        
+        // 1. Trigger ONLY if API key exists and we have local results to use as context
+        if (!empty($zywrap_api_key) && !empty($MJTC_results)) {
+            
+            // 2. Check if the admin actually enabled Frontend AI Deflection
+            if ((majesticsupport::$_config['zywrap_enable_deflection'] ?? '1') == '1') {
+                
+                // 3. Build the Knowledge Context (Controlled by Admin Settings)
+                $knowledge_context = '';
+                $source_limit = (int) (majesticsupport::$_config['zywrap_deflection_sources'] ?? 2);
+                $limit = min($source_limit, count($MJTC_results));
+                
+                for ($i = 0; $i < $limit; $i++) {
+                    // Strip tags to keep context clean and reduce token usage
+                    $knowledge_context .= wp_strip_all_tags($MJTC_results[$i]['desc']) . "\n\n"; 
+                }
+
+                // 4. Prepare the prompt using the Admin's preferred tone and strictness
+                $ai_tone = majesticsupport::$_config['zywrap_deflection_tone'] ?? 'friendly and direct';
+                $ai_strictness = majesticsupport::$_config['zywrap_deflection_strictness'] ?? 'strict';
+
+                $ai_prompt = "You are a helpful support bot. The user is asking: '" . $MJTC_search_context . "'.\n";
+
+                if ($ai_strictness === 'strict') {
+                    // Strict Mode: Do not invent answers
+                    $ai_prompt .= "Based ONLY on the official documentation provided below, write a short, " . $ai_tone . " solution. If the provided documentation does not clearly answer the user's question, you MUST reply only with exactly: 'I could not find a specific answer in our documentation. Please submit your ticket below so our team can assist you.' Do not invent information.\n\n";
+                } else {
+                    // Relaxed Mode: Allow general internet knowledge
+                    $ai_prompt .= "Use the official documentation provided below to write a short, " . $ai_tone . " solution. If the documentation does not contain the answer, you may use your general knowledge to safely assist the user, but prioritize the documentation first.\n\n";
+                }
+
+                $ai_prompt .= "Official Documentation Context:\n" . $knowledge_context;
+
+                // 5. Call the AI Engine (Zero-Prompt execution)
+                $zywrap_model = MJTC_includer::MJTC_getModel('zywrap');
+                $ai_response = $zywrap_model->callZywrapEngine($zywrap_api_key, [
+                    'wrapper_code' => 'csr_instant_knowledge_answer_base',
+                    'prompt' => $ai_prompt
+                ]);
+
+                // 6. Build the AI Answer UI Box
+                if (!empty($ai_response)) {
+                    // Attempt to decode JSON and extract the 'answer' parameter
+                    $display_text = $ai_response;
+                    $decoded_response = is_string($ai_response) ? json_decode($ai_response, true) : $ai_response;
+
+                    if (is_array($decoded_response) && isset($decoded_response['answer'])) {
+                        $display_text = $decoded_response['answer'];
+                    }
+
+                    $ai_answer_html = "
+                    <div class='mjtc-ai-deflection-box' style='background: #f0fdf4; border: 1px solid #6ee7b7; border-radius: 8px; padding: 15px; margin-bottom: 20px;'>
+                        <div style='display: flex; align-items: center; gap: 8px; margin-bottom: 10px; color: #047857;'>
+                            <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83'></path></svg>
+                            <strong style='font-family: \"Plus Jakarta Sans\", sans-serif;'>". esc_html(__('AI Suggested Fix', 'majestic-support')) ."</strong>
+                        </div>
+                        <p style='color: #064e3b; font-size: 14px; margin: 0; line-height: 1.5;'>" . wp_kses_post($display_text) . "</p>
+                    </div>";
+                }
+            }
+        }
+        /* ====================================== */
+
         // Build the UI
         $MJTC_html = "
         <div class='mjtc-instant-fixes-inner'>
@@ -3852,6 +4002,7 @@ class MJTC_ticketModel {
                     <p>". esc_html(__('Our AI found these high-relevance matches. Try these before submitting your ticket!', 'majestic-support')) ."</p>
                 </div>
             </div>
+            " . $ai_answer_html . "
             <div class='mjtc-fixes-grid'>";
                 foreach ($MJTC_results as $MJTC_res) {
                     $click_action = isset($MJTC_res['parent_id']) ? "onclick='mjtc_record_click(".$MJTC_res['parent_id'].")'" : "";
@@ -3905,7 +4056,8 @@ class MJTC_ticketModel {
                 jQuery.post(ajaxurl, {
                     action: 'mjsupport_ajax',
                     mjsmod: 'ticket',
-                    task: 'recordInstantFixDeflection'
+                    task: 'recordInstantFixDeflection',
+                    '_wpnonce': '". esc_js(wp_create_nonce("record-instant-fix-deflection")) ."'
                 });
                 
                 // Force disable the ticket submit button so they can't submit it anyway
@@ -3916,98 +4068,6 @@ class MJTC_ticketModel {
         $MJTC_html = MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_html);
         return wp_json_encode($MJTC_html);
     }
-    
-    function autoDeleteOldAttachmentsCron() {
-        // 1. Get the configured interval (in months)
-        $MJTC_interval = isset(majesticsupport::$_config['auto_delete_attachments_interval']) ? (int) majesticsupport::$_config['auto_delete_attachments_interval'] : 0;
-        
-        // If set to 0 (Never) or empty, exit the cron job
-        if ( $MJTC_interval === 0 ) {
-            return;
-        }
-
-        // 2. Calculate the cutoff date based on the interval
-        $MJTC_cutoff_date = date_i18n('Y-m-d H:i:s', MJTC_majesticsupportphplib::MJTC_strtotime("now -{$MJTC_interval} months"));
-
-        // FIXED: Initialize Filesystem at the top so it is available everywhere
-        global $wp_filesystem;
-        if ( empty( $wp_filesystem ) ) {
-            require_once( ABSPATH . '/wp-admin/includes/file.php' );
-            WP_Filesystem();
-        }
-
-        // 3. Query main attachments
-        $MJTC_query = "
-            SELECT a.id, a.filename, t.attachmentdir 
-            FROM `" . majesticsupport::$_db->prefix . "mjtc_support_attachments` AS a
-            INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS t 
-                ON a.ticketid = t.id
-            WHERE t.status IN (5, 6) 
-              AND t.closed <= '" . esc_sql($MJTC_cutoff_date) . "' 
-              AND (a.deleted = 0 OR a.deleted IS NULL)
-        ";
-
-        $MJTC_attachments = majesticsupport::$_db->get_results($MJTC_query);
-
-        if ( majesticsupport::$_db->last_error != null ) {
-            MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
-            return;
-        }
-
-        if ( !empty($MJTC_attachments) ) {
-            $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-            $MJTC_maindir = wp_upload_dir();
-            $MJTC_base_path = $MJTC_maindir['basedir'] . '/' . $MJTC_datadirectory . '/attachmentdata/ticket/';
-
-            // 5. Loop through and delete
-            foreach ( $MJTC_attachments as $MJTC_attachment ) {
-                $MJTC_file_path = $MJTC_base_path . $MJTC_attachment->attachmentdir . '/' . $MJTC_attachment->filename;
-
-                // Delete physical file if it exists
-                if ( $wp_filesystem->exists( $MJTC_file_path ) ) {
-                    $wp_filesystem->delete( $MJTC_file_path );
-                }
-
-                // Update database: Mark as deleted (We keep the row and filename so we can display the message)
-                $MJTC_update_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_attachments` SET deleted = 1 WHERE id = " . (int) esc_sql($MJTC_attachment->id);
-                majesticsupport::$_db->query($MJTC_update_query);
-            }
-        }
-
-        // --- NEW ADDON LOGIC ---
-        if(in_array('note', majesticsupport::$_active_addons)) {
-            
-            $MJTC_note_query = "
-                SELECT n.id, n.filename, t.attachmentdir 
-                FROM `" . majesticsupport::$_db->prefix . "mjtc_support_notes` AS n
-                INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS t 
-                    ON n.ticketid = t.id
-                WHERE t.status IN (5, 6) 
-                  AND t.closed <= '" . esc_sql($MJTC_cutoff_date) . "' 
-                  AND n.filename != ''
-                  AND (n.filedeleted = 0 OR n.filedeleted IS NULL)
-            ";
-
-            $MJTC_note_attachments = majesticsupport::$_db->get_results($MJTC_note_query);
-
-            if ( !empty($MJTC_note_attachments) ) {
-                $MJTC_datadirectory = majesticsupport::$_config['data_directory'];
-                $MJTC_maindir = wp_upload_dir();
-                $MJTC_note_base_path = $MJTC_maindir['basedir'] . '/' . $MJTC_datadirectory . '/attachmentdata/ticket/';
-
-                foreach ( $MJTC_note_attachments as $MJTC_note_att ) {
-                    $MJTC_file_path = $MJTC_note_base_path . $MJTC_note_att->attachmentdir . '/' . $MJTC_note_att->filename;
-
-                    // Use the WP_Filesystem object directly to delete
-                    if ( $wp_filesystem->exists( $MJTC_file_path ) ) {
-                        $wp_filesystem->delete( $MJTC_file_path );
-                    }
-
-                    $MJTC_update_note = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_notes` SET filedeleted = 1 WHERE id = " . (int) esc_sql($MJTC_note_att->id);
-                    majesticsupport::$_db->query($MJTC_update_note);
-                }
-            }
-        }
-    }
+    // Feature moved to addon
 }
 ?>

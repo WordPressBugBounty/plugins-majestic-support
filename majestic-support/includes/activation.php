@@ -183,8 +183,8 @@ class MJTC_activation {
                     ('tplink_tickets_user', '1', 'tplink', NULL),
                     ('show_breadcrumbs', '1', 'default', NULL),
                     ('productcode', 'mjsupport', 'default', NULL),
-                    ('versioncode', '1.1.8', 'default', NULL),
-                    ('productversion', '118', 'default', NULL),
+                    ('versioncode', '1.1.9', 'default', NULL),
+                    ('productversion', '119', 'default', NULL),
                     ('producttype', 'free', 'default', NULL),
                     ('tve_enabled', '2', 'default', NULL),
                     ('tve_mailreadtype', '3', 'default', NULL),
@@ -316,10 +316,120 @@ class MJTC_activation {
                     ('cplink_latestfaqs_staff', '1', 'cplink', 'faq'),
                     ('mjtc_addons_auto_update', '1', 'default', NULL),
                     ('ticket_close_reason_type', '1', 'ticket', 'ticketclosereason'),
-                    ('enable_instant_fixes', '1', 'default', NULL),
-                    ('instant_fixes_min_score', '0.5', 'default', NULL),
-                    ('instant_fixes_limit', '2', 'default', NULL),
-                    ('auto_delete_attachments_interval', '0', 'default', NULL);";
+                    ('enable_instant_fixes', '1', 'instantfix', 'instantfix'),
+                    ('instant_fixes_min_score', '0.5', 'instantfix', 'instantfix'),
+                    ('instant_fixes_limit', '2', 'instantfix', 'instantfix'),
+                    ('zywrap_enable_sentiment', '1', 'default', NULL),
+                    ('zywrap_auto_route', '1', 'default', NULL),
+                    ('zywrap_auto_priority', '1', 'default', NULL),
+                    ('zywrap_detect_sales', '1', 'default', NULL),
+                    ('zywrap_enable_policy', '1', 'default', NULL),
+                    ('zywrap_policy_url', '', 'default', NULL),
+                    ('zywrap_enable_followup', '1', 'default', NULL),
+                    ('zywrap_enable_deflection', '1', 'default', NULL),
+                    ('zywrap_deflection_sources', '2', 'default', NULL),
+                    ('zywrap_deflection_tone', 'friendly and direct', 'default', NULL),
+                    ('zywrap_deflection_strictness', 'strict', 'default', NULL),
+                    ('autocleanup_attachment_interval', '0', 'autocleanup', 'autocleanup'),
+                    ('autocleanup_ticket_interval', '0', 'autocleanup', 'autocleanup'),
+                    ('autocleanup_cron_frequency', 'daily', 'autocleanup', 'autocleanup');";
+            majesticsupport::$_db->query($MJTC_query);
+
+            // 1. Categories Table
+            $MJTC_query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_categories` (
+                `code` varchar(255) NOT NULL,
+                `name` varchar(255) NOT NULL,
+                `status` tinyint(1) DEFAULT '1',
+                `ordering` int(11) DEFAULT NULL,
+                PRIMARY KEY (`code`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+            majesticsupport::$_db->query($MJTC_query);
+
+            // 2. AI Models Table
+            $MJTC_query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_ai_models` (
+                `code` varchar(255) NOT NULL,
+                `name` varchar(255) NOT NULL,
+                `status` tinyint(1) DEFAULT '1',
+                `ordering` int(11) DEFAULT NULL,
+                PRIMARY KEY (`code`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+            majesticsupport::$_db->query($MJTC_query);
+
+            // 3. Languages Table
+            $MJTC_query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_languages` (
+                `code` varchar(10) NOT NULL,
+                `name` varchar(255) NOT NULL,
+                `status` tinyint(1) DEFAULT '1',
+                `ordering` int(11) DEFAULT NULL,
+                PRIMARY KEY (`code`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+            majesticsupport::$_db->query($MJTC_query);
+
+            // 4. Use Cases Table
+            $MJTC_query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_use_cases` (
+                `code` varchar(255) NOT NULL,
+                `name` varchar(255) NOT NULL,
+                `description` text,
+                `category_code` varchar(255) DEFAULT NULL,
+                `schema_data` longtext,
+                `status` tinyint(1) DEFAULT '1',
+                `ordering` bigint(20) DEFAULT NULL,
+                PRIMARY KEY (`code`),
+                KEY `category_code` (`category_code`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+            majesticsupport::$_db->query($MJTC_query);
+
+            // 5. Wrappers Table
+            $MJTC_query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_wrappers` (
+                `code` varchar(255) NOT NULL,
+                `name` varchar(255) NOT NULL,
+                `description` text,
+                `use_case_code` varchar(255) DEFAULT NULL,
+                `featured` tinyint(1) DEFAULT '0',
+                `base` tinyint(1) DEFAULT '0',
+                `status` tinyint(1) DEFAULT '1',
+                `ordering` bigint(20) DEFAULT NULL,
+                PRIMARY KEY (`code`),
+                KEY `use_case_code` (`use_case_code`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+            majesticsupport::$_db->query($MJTC_query);
+
+            // 6. Block Templates
+            $MJTC_query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_block_templates` (
+                `type` varchar(50) NOT NULL,
+                `code` varchar(255) NOT NULL,
+                `name` varchar(255) NOT NULL,
+                `status` tinyint(1) DEFAULT '1',
+                PRIMARY KEY (`type`,`code`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+            majesticsupport::$_db->query($MJTC_query);
+
+            // 7. Internal Settings
+            $MJTC_query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_settings` (
+                `setting_key` varchar(255) NOT NULL,
+                `setting_value` text,
+                PRIMARY KEY (`setting_key`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+            majesticsupport::$_db->query($MJTC_query);
+
+            // 8. Usage Logs
+            $MJTC_query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_usage_logs` (
+                `id` bigint(20) NOT NULL AUTO_INCREMENT,
+                `trace_id` varchar(255) DEFAULT NULL,
+                `wrapper_code` varchar(255) DEFAULT NULL,
+                `model_code` varchar(255) DEFAULT NULL,
+                `prompt_tokens` int(11) DEFAULT '0',
+                `completion_tokens` int(11) DEFAULT '0',
+                `total_tokens` int(11) DEFAULT '0',
+                `credits_used` bigint(20) DEFAULT '0',
+                `latency_ms` int(11) DEFAULT '0',
+                `status` varchar(50) DEFAULT 'success',
+                `error_message` text,
+                `created_at` datetime DEFAULT NULL,
+                PRIMARY KEY (`id`),
+                KEY `wrapper_idx` (`wrapper_code`),
+                KEY `model_idx` (`model_code`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;";
             majesticsupport::$_db->query($MJTC_query);
 
             $MJTC_query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_departments` (
@@ -484,6 +594,7 @@ class MJTC_activation {
                                 `viewed_by` int(11) DEFAULT NULL,
                                 `viewed_on` datetime DEFAULT NULL,
                                 `aireplymode` tinyint(4) DEFAULT 0,
+                                `is_ai_draft` tinyint(1) DEFAULT 0,
                                 PRIMARY KEY (`id`),
                                 FULLTEXT KEY `message` (`message`)
                                 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;";
@@ -560,6 +671,8 @@ class MJTC_activation {
                                 `customticketno` INT NOT NULL DEFAULT '1',
                                 `productid` INT NULL,
                                 `aireplymode` tinyint(4) DEFAULT 0,
+                                `sentiment` varchar(50) DEFAULT NULL,
+                                `upsell_opportunity` tinyint(1) NOT NULL DEFAULT '0',
                                 PRIMARY KEY (`id`),
                                 FULLTEXT KEY `subject` (`subject`),
                                 FULLTEXT KEY `message` (`message`)
