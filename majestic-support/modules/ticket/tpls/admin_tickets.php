@@ -99,10 +99,12 @@ $majesticsupport_js ="
         }).get();
         var total = selectedIds.length;
         if (total > 0) {
-            jQuery('#selectedTicketIds').val(selectedIds.join(','));
+            jQuery('input#actionTask').val('close');
+            jQuery('#adminTicketMultiActionsform #selectedTicketIds').val(selectedIds.join(','));
+            jQuery('form#adminTicketMultiActionsform').submit();
+        } else {
+            jQuery('form#adminTicketform').submit();
         }
-
-        jQuery('form#adminTicketform').submit();
     }
 
     function showTicketCloseReasons(id, internalid){
@@ -123,6 +125,8 @@ $majesticsupport_js ="
         var close = 1;
         if (saveReason == 0 && closeTicket == 1 && ticketid !== null && ticketinterno !== null) {
             actionticket(2, ticketid, ticketinterno);
+        } else if (saveReason == 0 && closeTicket == 1) {
+            actionticket(2);
         }
         if (saveReason == 1 && closeTicket == 1) {
             if (jQuery('.reason_rb').is(':checked')) {
@@ -759,7 +763,7 @@ MJTC_message::MJTC_getMessage();
                                                         } elseif (in_array($sentiment_safe, array('neutral'))) {
                                                             $sentiment_icon = 'dashicons-minus';
                                                         } ?>
-                                                        <span class="mjtc-ai-badge mjtc-ai-sentiment-<?php echo $sentiment_safe; ?>" title="<?php echo esc_attr(__('AI Sentiment Analysis', 'majestic-support')); ?>">
+                                                        <span class="mjtc-ai-badge mjtc-ai-sentiment-<?php echo esc_attr($sentiment_safe); ?>" title="<?php echo esc_attr(__('AI Sentiment Analysis', 'majestic-support')); ?>">
                                                             <span class="dashicons <?php echo esc_attr($sentiment_icon); ?>"></span>
                                                             <?php echo esc_html(ucfirst($MJTC_ticket->sentiment)); ?>
                                                         </span>
@@ -1051,11 +1055,14 @@ MJTC_message::MJTC_getMessage();
                 </div>
                 
                 <div class="mjtc-support-bulk-buttons no-scrollbar">
-                    <button class="asgn-staff mjtc-support-multioperation01 mjtc-support-btn-bulk btn-bulk-default" message="<?php echo esc_attr(__('Please first make a selection from the list', 'majestic-support')); ?>" data-for="reopen">
-                        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                        <?php echo esc_html(__('Assign To', 'majestic-support')); ?>
-                    </button>
                     <?php
+                    if (in_array('agent',majesticsupport::$_active_addons)) { ?>
+                        <button class="asgn-staff mjtc-support-multioperation mjtc-support-btn-bulk btn-bulk-default" message="<?php echo esc_attr(__('Please first make a selection from the list', 'majestic-support')); ?>" data-for="reopen">
+                            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                            <?php echo esc_html(__('Assign To', 'majestic-support')); ?>
+                        </button>
+                        <?php
+                    }
                     if (in_array('ticketclosereason',majesticsupport::$_active_addons)) { ?>
                         <a onclick="showTicketCloseReasons()" class="mjtc-support-btn-bulk btn-bulk-success" message="<?php echo esc_attr(__('Please first make a selection from the list', 'majestic-support')); ?>" data-for="close">
                             <svg viewBox="0 0 24 24" width="16" height="16"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>

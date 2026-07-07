@@ -399,7 +399,7 @@ $majesticsupport_settings_config = [
                 'description' => __('Guest access and messaging configuration', 'majestic-support'),
                 'fields'      => [
                     ['id' => 'visitor_can_create_ticket', 'label' => __('Visitors can create tickets', 'majestic-support'), 'type' => 'select', 'value' => majesticsupport::$_data[0]['visitor_can_create_ticket'], 'tooltip' => __('Allow visitors to create tickets or not', 'majestic-support'), 'options' => $MJTC_yesno, 'video' => '9NvBOu_ojMo'],
-                    ['id' => 'visitor_message', 'label' => __('Visitor ticket creation message', 'majestic-support'), 'type' => 'wp_editor', 'value' => majesticsupport::$_data[0]['visitor_message'], 'tooltip' => __('This text will appear whenever a visitor creates a ticket', 'majestic-support')],
+                    ['id' => 'visitor_message', 'label' => __('Visitor ticket creation message', 'majestic-support'), 'type' => 'wp_editor', 'value' => majesticsupport::$_data[0]['visitor_message'], 'tooltip' => __('This text will appear whenever a visitor creates a ticket', 'majestic-support'), 'pro' => ['slug' => 'actions', 'name' => __('Actions', 'majestic-support')]],
                 ]
             ],
         ]
@@ -472,7 +472,7 @@ $majesticsupport_settings_config = [
             ],
             'ai_outage_monitor' => [
                 'title'       => __('Proactive Support Automation', 'majestic-support'),
-                'description' => __('Advanced AI workflows to maintain ticket momentum and reduce manual follow-up time.'),
+                'description' => __('Advanced AI workflows to maintain ticket momentum and reduce manual follow-up time.', 'majestic-support'),
                 'fields'      => [
                     [
                         'id'      => 'zywrap_enable_followup', 

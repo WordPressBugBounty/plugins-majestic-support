@@ -183,8 +183,8 @@ class MJTC_activation {
                     ('tplink_tickets_user', '1', 'tplink', NULL),
                     ('show_breadcrumbs', '1', 'default', NULL),
                     ('productcode', 'mjsupport', 'default', NULL),
-                    ('versioncode', '1.1.9', 'default', NULL),
-                    ('productversion', '119', 'default', NULL),
+                    ('versioncode', '1.2.0', 'default', NULL),
+                    ('productversion', '120', 'default', NULL),
                     ('producttype', 'free', 'default', NULL),
                     ('tve_enabled', '2', 'default', NULL),
                     ('tve_mailreadtype', '3', 'default', NULL),
@@ -319,11 +319,11 @@ class MJTC_activation {
                     ('enable_instant_fixes', '1', 'instantfix', 'instantfix'),
                     ('instant_fixes_min_score', '0.5', 'instantfix', 'instantfix'),
                     ('instant_fixes_limit', '2', 'instantfix', 'instantfix'),
-                    ('zywrap_enable_sentiment', '1', 'default', NULL),
-                    ('zywrap_auto_route', '1', 'default', NULL),
-                    ('zywrap_auto_priority', '1', 'default', NULL),
-                    ('zywrap_detect_sales', '1', 'default', NULL),
-                    ('zywrap_enable_policy', '1', 'default', NULL),
+                    ('zywrap_enable_sentiment', '0', 'default', NULL),
+                    ('zywrap_auto_route', '0', 'default', NULL),
+                    ('zywrap_auto_priority', '0', 'default', NULL),
+                    ('zywrap_detect_sales', '0', 'default', NULL),
+                    ('zywrap_enable_policy', '0', 'default', NULL),
                     ('zywrap_policy_url', '', 'default', NULL),
                     ('zywrap_enable_followup', '1', 'default', NULL),
                     ('zywrap_enable_deflection', '1', 'default', NULL),
@@ -548,7 +548,7 @@ class MJTC_activation {
                                 PRIMARY KEY (`id`)
                                 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5;";
             majesticsupport::$_db->query($MJTC_query);
-            $MJTC_query = "INSERT INTO `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` (`id`, `priority`, `prioritycolour`, `priorityurgency`, `ispublic`, `overdueinterval`, `overduetypeid`, `ordering`, `isdefault`, `status`) VALUES (1, 'Low', '#049fc1', 0, 1, 3, '1', 1, 1, 0),(2, 'High', '#bd6403', 0, 1, 1, '1', 3, 0, 1),(3, 'Normal', '#188f28', 0, 1, 2, '1', 2, 0, 1),(4, 'Urgent', '#c90000', 0, 1, 1, '1', 4, 0, 0);";
+            $MJTC_query = "INSERT INTO `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` (`id`, `priority`, `prioritycolour`, `priorityurgency`, `ispublic`, `overdueinterval`, `overduetypeid`, `ordering`, `isdefault`, `status`) VALUES (1, 'Low', '#049fc1', 0, 1, 3, '1', 1, 1, 1),(2, 'High', '#bd6403', 0, 1, 1, '1', 3, 0, 1),(3, 'Normal', '#188f28', 0, 1, 2, '1', 2, 0, 1),(4, 'Urgent', '#c90000', 0, 1, 1, '1', 4, 0, 1);";
             majesticsupport::$_db->query($MJTC_query);
 
             $MJTC_query = "CREATE TABLE IF NOT EXISTS `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` (

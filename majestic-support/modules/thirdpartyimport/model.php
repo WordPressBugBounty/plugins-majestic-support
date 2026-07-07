@@ -459,7 +459,7 @@ class MJTC_thirdpartyimportModel {
 
                 $ms_ticketid = $MJTC_row->id;
                 $MJTC_hash = MJTC_includer::MJTC_getModel('ticket')->generateHash($ms_ticketid);
-                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='" . esc_sql($MJTC_hash) . "' WHERE id=" . esc_sql($ms_ticketid);
+                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_hash) . "' WHERE id=" . absint($ms_ticketid);
                 majesticsupport::$_db->query($MJTC_query);
 
                 if(in_array('note', majesticsupport::$_active_addons)){
@@ -942,7 +942,7 @@ class MJTC_thirdpartyimportModel {
             FROM `" . majesticsupport::$_db->prefix . "psmsc_customers` AS customer
             INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user
                 ON user.wpuid = customer.user
-            WHERE customer.id = " . esc_sql($MJTC_customerId) . "
+            WHERE customer.id = " . absint($MJTC_customerId) . "
             LIMIT 1
         ";
 
@@ -968,7 +968,7 @@ class MJTC_thirdpartyimportModel {
                 ON user.wpuid = sc_agent.user
             INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS agent
                 ON agent.uid = user.id
-            WHERE sc_agent.id = " . esc_sql($MJTC_sc_agent_id) . "
+            WHERE sc_agent.id = " . absint($MJTC_sc_agent_id) . "
             LIMIT 1
         ";
 
@@ -1014,7 +1014,7 @@ class MJTC_thirdpartyimportModel {
 
         // Match department by name (case-insensitive)
         $MJTC_query = "
-            SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` WHERE LOWER(departmentname) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_category_name)))."'";
+            SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` WHERE LOWER(departmentname) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(sanitize_text_field($MJTC_category_name)))."'";
         $ms_department_id = majesticsupport::$_db->get_var($MJTC_query);
 
         return $ms_department_id ? (int)$ms_department_id : null;
@@ -1033,7 +1033,7 @@ class MJTC_thirdpartyimportModel {
         if (empty($MJTC_status_name)) return null;
 
         // Find matching status in destination table
-        $MJTC_query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` WHERE LOWER(status) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_status_name)))."'";
+        $MJTC_query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` WHERE LOWER(status) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_status_name)))."'";
         $ms_status_id = majesticsupport::$_db->get_var($MJTC_query);
 
         return $ms_status_id ? (int)$ms_status_id : null;
@@ -1056,7 +1056,7 @@ class MJTC_thirdpartyimportModel {
         // Find corresponding priority in destination table
         $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` 
-                WHERE LOWER(priority) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_priority_name)))."'";
+                WHERE LOWER(priority) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(sanitize_text_field($MJTC_priority_name)))."'";
             $ms_priority_id = majesticsupport::$_db->get_var($MJTC_query);
 
         return $ms_priority_id ? (int)$ms_priority_id : null;
@@ -1073,7 +1073,7 @@ class MJTC_thirdpartyimportModel {
             // Prepare and execute safe SQL query
             $MJTC_query = "SELECT id
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_roles` 
-                WHERE LOWER(name) = '" . MJTC_majesticsupportphplib::MJTC_strtolower(esc_sql($MJTC_role_label)) . "'";
+                WHERE LOWER(name) = '" . MJTC_majesticsupportphplib::MJTC_strtolower(sanitize_text_field($MJTC_role_label)) . "'";
             $ms_roleid = majesticsupport::$_db->get_var($MJTC_query);
 
             return $ms_roleid ? (int)$ms_roleid : null;
@@ -1169,7 +1169,7 @@ class MJTC_thirdpartyimportModel {
         $this->sc_ticket_custom_fields_custom = [];
 
         foreach ($MJTC_custom_fields as $MJTC_custom_field) {
-            $MJTC_slug = esc_sql($MJTC_custom_field->slug);
+            $MJTC_slug = sanitize_text_field($MJTC_custom_field->slug);
 
             // Map field types
             switch ($MJTC_custom_field->type) {
@@ -1236,7 +1236,7 @@ class MJTC_thirdpartyimportModel {
                     $MJTC_fieldtype = "text"; break;
             }
 
-            $MJTC_query = "SELECT id,field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE isuserfield = 1 AND LOWER(fieldtitle) ='".esc_sql(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_custom_field->name))."' AND userfieldtype ='".esc_sql($MJTC_fieldtype)."' AND fieldfor = 1";
+            $MJTC_query = "SELECT id,field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE isuserfield = 1 AND LOWER(fieldtitle) ='".MJTC_majesticsupportphplib::MJTC_sql_string(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_custom_field->name))."' AND userfieldtype ='".MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fieldtype)."' AND fieldfor = 1";
             $MJTC_field_record = majesticsupport::$_db->get_row($MJTC_query);
 
             if(!empty($MJTC_field_record)){ // this will make sure
@@ -1375,7 +1375,7 @@ class MJTC_thirdpartyimportModel {
             if (!empty($MJTC_ticket_field_options[$MJTC_slug]['visibility'])) {
                 $MJTC_visibility_conditions = json_decode($MJTC_ticket_field_options[$MJTC_slug]['visibility']);
                 $MJTC_field = $this->getTicketCustomFieldId($MJTC_custom_field->name);
-                $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = '".esc_sql($MJTC_field)."' LIMIT 1";
+                $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = '".MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_field)."' LIMIT 1";
                 $ms_field = majesticsupport::$_db->get_row($MJTC_query);
                 if (empty($ms_field)) {
                     continue;
@@ -1662,7 +1662,7 @@ class MJTC_thirdpartyimportModel {
         $MJTC_permissionIds = [];
         foreach ($MJTC_permissionMap as $MJTC_label => $_) {
             if (in_array('agent', majesticsupport::$_active_addons) ) {
-                $MJTC_escapedLabel = esc_sql($MJTC_label);
+                $MJTC_escapedLabel = sanitize_text_field($MJTC_label);
                 $MJTC_sql = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_permissions` WHERE permission = '{$MJTC_escapedLabel}' LIMIT 1";
                 $MJTC_permissionIds[$MJTC_label] = (int) majesticsupport::$_db->get_var($MJTC_sql);
             }
@@ -1680,7 +1680,7 @@ class MJTC_thirdpartyimportModel {
                 continue;
             }
             $MJTC_query = "SELECT count(id)
-                    FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_roles` WHERE name ='".esc_sql($MJTC_role['label'])."'";
+                    FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_roles` WHERE name ='".sanitize_text_field($MJTC_role['label'])."'";
             $MJTC_agent_role = majesticsupport::$_db->get_var($MJTC_query);
 
             if($MJTC_agent_role == 0){
@@ -1758,7 +1758,7 @@ class MJTC_thirdpartyimportModel {
             $MJTC_check_query = "
                 SELECT department.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department
-                WHERE LOWER(department.departmentname) = '".esc_sql($MJTC_name)."'
+                WHERE LOWER(department.departmentname) = '".sanitize_text_field($MJTC_name)."'
             ";
             $MJTC_existing = majesticsupport::$_db->get_row($MJTC_check_query);
 
@@ -1831,7 +1831,7 @@ class MJTC_thirdpartyimportModel {
             $MJTC_check_query = "
                 SELECT priority.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority
-                WHERE LOWER(priority.priority) = '" . esc_sql($MJTC_name) . "'
+                WHERE LOWER(priority.priority) = '" . sanitize_text_field($MJTC_name) . "'
                 LIMIT 1
             ";
             $ms_priority = majesticsupport::$_db->get_row($MJTC_check_query);
@@ -1904,7 +1904,7 @@ class MJTC_thirdpartyimportModel {
             $MJTC_check_query = "
                 SELECT premade.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_department_message_premade` AS premade
-                WHERE LOWER(premade.title) = '" . esc_sql($title) . "'
+                WHERE LOWER(premade.title) = '" . sanitize_text_field($title) . "'
                 LIMIT 1
             ";
             $ms_canned_reply = majesticsupport::$_db->get_row($MJTC_check_query);
@@ -1918,7 +1918,7 @@ class MJTC_thirdpartyimportModel {
                     $MJTC_category_query = "
                         SELECT category.name
                         FROM `" . majesticsupport::$_db->prefix . "psmsc_categories` AS category
-                        WHERE category.id = " . esc_sql($MJTC_canned_reply->categories) . "
+                        WHERE category.id = " . absint($MJTC_canned_reply->categories) . "
                     ";
                     $MJTC_category = majesticsupport::$_db->get_row($MJTC_category_query);
 
@@ -1926,7 +1926,7 @@ class MJTC_thirdpartyimportModel {
                         $MJTC_department_query = "
                             SELECT department.id
                             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department
-                            WHERE LOWER(department.departmentname) = '" . MJTC_majesticsupportphplib::MJTC_strtolower(esc_sql($MJTC_category->name)) . "'
+                            WHERE LOWER(department.departmentname) = '" . MJTC_majesticsupportphplib::MJTC_strtolower(sanitize_text_field($MJTC_category->name)) . "'
                             LIMIT 1
                         ";
                         $MJTC_department = majesticsupport::$_db->get_row($MJTC_department_query);
@@ -2475,7 +2475,7 @@ class MJTC_thirdpartyimportModel {
         if (empty($missingUsers)) return;
 
         foreach ($missingUsers as $missingUser) {
-            $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "users` WHERE id = " . esc_sql($missingUser);
+            $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "users` WHERE id = " . absint($missingUser);
             $MJTC_customer = majesticsupport::$_db->get_row($MJTC_query);
 
             $MJTC_customer_id = intval($MJTC_customer->ID);
@@ -2562,7 +2562,7 @@ class MJTC_thirdpartyimportModel {
             $MJTC_check_query = "
                 SELECT department.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department
-                WHERE LOWER(department.departmentname) = '". esc_sql($MJTC_name) ."'";
+                WHERE LOWER(department.departmentname) = '". sanitize_text_field($MJTC_name) ."'";
             $MJTC_existing = majesticsupport::$_db->get_row($MJTC_check_query);
 
             if (!$MJTC_existing) { // not exists
@@ -2644,7 +2644,7 @@ class MJTC_thirdpartyimportModel {
             $MJTC_check_query = "
                 SELECT priority.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority
-                WHERE LOWER(priority.priority) = '" . esc_sql($MJTC_name) . "'
+                WHERE LOWER(priority.priority) = '" . sanitize_text_field($MJTC_name) . "'
                 LIMIT 1
             ";
             $ms_priority = majesticsupport::$_db->get_row($MJTC_check_query);
@@ -2823,7 +2823,7 @@ class MJTC_thirdpartyimportModel {
             $MJTC_check_query = "
                 SELECT premade.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_department_message_premade` AS premade
-                WHERE LOWER(premade.title) = '" . esc_sql($title) . "'
+                WHERE LOWER(premade.title) = '" . sanitize_text_field($title) . "'
                 LIMIT 1
             ";
             $ms_canned_reply = majesticsupport::$_db->get_row($MJTC_check_query);
@@ -2901,7 +2901,7 @@ class MJTC_thirdpartyimportModel {
             $MJTC_check_query = "
                 SELECT product.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_products` AS product
-                WHERE LOWER(product.product) = '".esc_sql($MJTC_name) ."'
+                WHERE LOWER(product.product) = '".sanitize_text_field($MJTC_name) ."'
                 LIMIT 1
             ";
             $ms_product = majesticsupport::$_db->get_row($MJTC_check_query);
@@ -3138,7 +3138,7 @@ class MJTC_thirdpartyimportModel {
 
                 //update hash value against ticket
                 $MJTC_hash = MJTC_includer::MJTC_getModel('ticket')->generateHash($ms_ticketid);
-                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='" . esc_sql($MJTC_hash) . "' WHERE id=" . esc_sql($ms_ticketid);
+                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_hash) . "' WHERE id=" . absint($ms_ticketid);
                 majesticsupport::$_db->query($MJTC_query);
                 
                 $this->getAwesomeSupportTicketReplies($ms_ticketid, $MJTC_ticket->ID, $MJTC_attachmentdir);
@@ -3451,7 +3451,7 @@ class MJTC_thirdpartyimportModel {
         $MJTC_query = "
             SELECT customer.name, customer.user_email, customer.id AS ms_uid
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS customer
-            WHERE customer.wpuid = ". esc_sql($MJTC_customerId) ."
+            WHERE customer.wpuid = ". absint($MJTC_customerId) ."
             LIMIT 1
         ";
         $MJTC_data = majesticsupport::$_db->get_row($MJTC_query);
@@ -3683,7 +3683,7 @@ class MJTC_thirdpartyimportModel {
         
         $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments`
-                WHERE LOWER(departmentname) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_name)))."'";
+                WHERE LOWER(departmentname) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(sanitize_text_field($MJTC_name)))."'";
         $ms_department_id = majesticsupport::$_db->get_var($MJTC_query);
         
         return $ms_department_id ? (int)$ms_department_id : null;
@@ -3704,7 +3704,7 @@ class MJTC_thirdpartyimportModel {
         $MJTC_name = $MJTC_priority_term[0]->name;
         $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities`
-                WHERE LOWER(priority) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_name)))."'";;
+                WHERE LOWER(priority) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(sanitize_text_field($MJTC_name)))."'";;
         $ms_priority_id = majesticsupport::$_db->get_var($MJTC_query);
         
         return $ms_priority_id ? (int)$ms_priority_id : null;
@@ -3717,7 +3717,7 @@ class MJTC_thirdpartyimportModel {
         if (empty($MJTC_custom_status[$MJTC_ticket_status])) return null;
 
         // Find matching status in destination table
-        $MJTC_query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` WHERE LOWER(status) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_custom_status[$MJTC_ticket_status])))."'";
+        $MJTC_query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` WHERE LOWER(status) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_custom_status[$MJTC_ticket_status])))."'";
         $ms_status_id = majesticsupport::$_db->get_var($MJTC_query);
 
         return $ms_status_id ? (int)$ms_status_id : null;
@@ -3762,7 +3762,7 @@ class MJTC_thirdpartyimportModel {
         $MJTC_name = $MJTC_product_term[0]->name;
         $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_products`
-                WHERE LOWER(product) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_name)))."'";
+                WHERE LOWER(product) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(sanitize_text_field($MJTC_name)))."'";
         $ms_product_id = majesticsupport::$_db->get_var($MJTC_query);
         
         return $ms_product_id ? (int)$ms_product_id : null;
@@ -3869,7 +3869,7 @@ class MJTC_thirdpartyimportModel {
     private function getFaqCategoryIdByAwesomeSupport($MJTC_name){
         $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_categories`
-                WHERE LOWER(name) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_name)))."'";
+                WHERE LOWER(name) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(sanitize_text_field($MJTC_name)))."'";
         $ms_category_id = majesticsupport::$_db->get_var($MJTC_query);
         if (empty($ms_category_id)) {
 
@@ -4137,7 +4137,7 @@ class MJTC_thirdpartyimportModel {
 
                 $ms_ticketid = $MJTC_row->id;
                 $MJTC_hash = MJTC_includer::MJTC_getModel('ticket')->generateHash($ms_ticketid);
-                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='" . esc_sql($MJTC_hash) . "' WHERE id=" . esc_sql($ms_ticketid);
+                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` SET `hash`='" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_hash) . "' WHERE id=" . absint($ms_ticketid);
                 majesticsupport::$_db->query($MJTC_query);
 
                 if(in_array('note', majesticsupport::$_active_addons)){
@@ -4197,7 +4197,7 @@ class MJTC_thirdpartyimportModel {
                     $MJTC_fieldtype = "text"; break;
             }
 
-            $MJTC_query = "SELECT id,field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE isuserfield = 1 AND LOWER(fieldtitle) ='".esc_sql(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_custom_field['label']))."' AND userfieldtype ='".esc_sql($MJTC_fieldtype)."' AND fieldfor = 1";
+            $MJTC_query = "SELECT id,field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE isuserfield = 1 AND LOWER(fieldtitle) ='".MJTC_majesticsupportphplib::MJTC_sql_string(MJTC_majesticsupportphplib::MJTC_strtolower($MJTC_custom_field['label']))."' AND userfieldtype ='".MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fieldtype)."' AND fieldfor = 1";
             $MJTC_field_record = majesticsupport::$_db->get_row($MJTC_query);
 
             if(!empty($MJTC_field_record)){ // this will make sure
@@ -4292,7 +4292,7 @@ class MJTC_thirdpartyimportModel {
 
         foreach ($MJTC_custom_fields as $MJTC_custom_field) {
             $MJTC_field = $this->getTicketCustomFieldId($MJTC_custom_field['label']);
-            $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = '".esc_sql($MJTC_field)."' LIMIT 1";
+            $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = '".MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_field)."' LIMIT 1";
             $ms_field = majesticsupport::$_db->get_row($MJTC_query);
             if (empty($ms_field)) {
                 continue;
@@ -4414,7 +4414,7 @@ class MJTC_thirdpartyimportModel {
         
         $MJTC_query = "
             SELECT userfieldtype FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering`
-                WHERE LOWER(field) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_field)))."'";
+                WHERE LOWER(field) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(sanitize_text_field($MJTC_field)))."'";
         $MJTC_userfieldtype = majesticsupport::$_db->get_var($MJTC_query);
         
         return $MJTC_userfieldtype ? $MJTC_userfieldtype : null;
@@ -4424,7 +4424,7 @@ class MJTC_thirdpartyimportModel {
         
         $MJTC_query = "
             SELECT field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering`
-                WHERE LOWER(fieldtitle) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_fieldtitle)))."'";
+                WHERE LOWER(fieldtitle) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(sanitize_text_field($MJTC_fieldtitle)))."'";
         $ms_field_id = majesticsupport::$_db->get_var($MJTC_query);
         
         return $ms_field_id ? $ms_field_id : null;
@@ -4848,7 +4848,7 @@ class MJTC_thirdpartyimportModel {
                 ON user.wpuid = fs_agent.user_id
             INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS agent
                 ON agent.uid = user.id
-            WHERE fs_agent.person_type = 'agent' AND fs_agent.id = " . esc_sql($MJTC_fs_agent_id) . "
+            WHERE fs_agent.person_type = 'agent' AND fs_agent.id = " . absint($MJTC_fs_agent_id) . "
             LIMIT 1
         ";
 
@@ -4874,7 +4874,7 @@ class MJTC_thirdpartyimportModel {
             FROM `" . majesticsupport::$_db->prefix . "fs_persons` AS customer
             INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user
                 ON user.wpuid = customer.user_id
-            WHERE customer.id = " . esc_sql($MJTC_customerId) . "
+            WHERE customer.id = " . absint($MJTC_customerId) . "
             AND customer.person_type = 'customer'
             LIMIT 1
         ";
@@ -4902,7 +4902,7 @@ class MJTC_thirdpartyimportModel {
                 ON user.wpuid = person.user_id
             INNER JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS agent
                 ON agent.uid = user.id
-                    WHERE person.id = " . esc_sql($MJTC_customerId) . "
+                    WHERE person.id = " . absint($MJTC_customerId) . "
                     AND person.person_type = 'agent';";
         $ms_agent = majesticsupport::$_db->get_var($MJTC_query);
 
@@ -4928,7 +4928,7 @@ class MJTC_thirdpartyimportModel {
         $MJTC_name = $MJTC_product_name;
         $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_products`
-                WHERE LOWER(product) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_name)))."'";;
+                WHERE LOWER(product) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(sanitize_text_field($MJTC_name)))."'";;
         $ms_product_id = majesticsupport::$_db->get_var($MJTC_query);
         
         return $ms_product_id ? (int)$ms_product_id : null;
@@ -4939,7 +4939,7 @@ class MJTC_thirdpartyimportModel {
         // Find corresponding priority in destination table
         $MJTC_query = "
             SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` 
-                WHERE LOWER(priority) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(esc_sql($MJTC_prioritName)))."'";
+                WHERE LOWER(priority) = '".MJTC_majesticsupportphplib::MJTC_strtolower(MJTC_majesticsupportphplib::MJTC_trim(sanitize_text_field($MJTC_prioritName)))."'";
         $ms_priority_id = majesticsupport::$_db->get_var($MJTC_query);
 
         return $ms_priority_id ? (int)$ms_priority_id : null;
@@ -4965,7 +4965,7 @@ class MJTC_thirdpartyimportModel {
             }else{
                 $MJTC_query = "SELECT user.ID
                     FROM `" . majesticsupport::$_db->prefix . "users` AS user
-                    WHERE user.user_email = '".esc_sql($MJTC_customer->email)."'";
+                    WHERE user.user_email = '".sanitize_text_field($MJTC_customer->email)."'";
                 $MJTC_user = majesticsupport::$_db->get_row($MJTC_query);
                 if($MJTC_user) $MJTC_wpuid = intval($MJTC_user->ID);
             }
@@ -5208,7 +5208,7 @@ class MJTC_thirdpartyimportModel {
         MJTC_includer::MJTC_getModel('role')->storeRole($MJTC_data);
 
         // Retrieve role ID
-        $MJTC_query = 'SELECT id FROM `' . majesticsupport::$_db->prefix . 'mjtc_support_acl_roles` WHERE name = "' . esc_sql($MJTC_name) . '"';
+        $MJTC_query = 'SELECT id FROM `' . majesticsupport::$_db->prefix . 'mjtc_support_acl_roles` WHERE name = "' . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_name) . '"';
         $MJTC_id = majesticsupport::$_db->get_var($MJTC_query);
         return $MJTC_id;
     }
@@ -5246,7 +5246,7 @@ class MJTC_thirdpartyimportModel {
             $MJTC_check_query = "
                 SELECT product.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_products` AS product
-                WHERE LOWER(product.product) = '".esc_sql($MJTC_name) ."'
+                WHERE LOWER(product.product) = '".sanitize_text_field($MJTC_name) ."'
                 LIMIT 1
             ";
             $ms_product = majesticsupport::$_db->get_row($MJTC_check_query);
@@ -5312,7 +5312,7 @@ class MJTC_thirdpartyimportModel {
             $MJTC_check_query = "
                 SELECT priority.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority
-                WHERE LOWER(priority.priority) = '" . esc_sql($MJTC_name) . "'
+                WHERE LOWER(priority.priority) = '" . sanitize_text_field($MJTC_name) . "'
                 LIMIT 1
             ";
             $ms_priority = majesticsupport::$_db->get_row($MJTC_check_query);
@@ -5390,7 +5390,7 @@ class MJTC_thirdpartyimportModel {
             $MJTC_check_query = "
                 SELECT premade.*
                 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_department_message_premade` AS premade
-                WHERE LOWER(premade.title) = '" . esc_sql($title) . "'
+                WHERE LOWER(premade.title) = '" . sanitize_text_field($title) . "'
                 LIMIT 1
             ";
             $ms_canned_reply = majesticsupport::$_db->get_row($MJTC_check_query);

@@ -495,13 +495,28 @@ function MJTC_display_language_download_notice() {
 
     if ($type === 'exact_success') {
         echo '<div class="notice notice-success is-dismissible">';
-        echo '<p><strong>' . esc_html(__('Majestic Support', 'majestic-support')) . ':</strong> ' . sprintf(esc_html(__('Language files for %s successfully downloaded.', 'majestic-support')), '<code>' . $original . '</code>') . '</p>';
+        $message = sprintf(
+            /* translators: %s: Original language code. */
+            esc_html__( 'Language files for %s successfully downloaded.', 'majestic-support' ),
+            esc_html( $original )
+        );
+
+        echo '<p><strong>' . esc_html__( 'Majestic Support', 'majestic-support' ) . ':</strong> ' . esc_html($message) . '</p>';
         echo '</div>';
     }
     elseif ($type === 'fallback_success') {
         $fallback = esc_html($notice['fallback']);
         echo '<div class="notice notice-warning is-dismissible">';
-        echo '<p><strong>' . esc_html(__('Majestic Support', 'majestic-support')) . ':</strong> ' . sprintf(esc_html(__('Alternate language file downloaded. We tried to find %1$s, but downloaded %2$s as a fallback.', 'majestic-support')), '<code>' . $original . '</code>', '<code>' . $fallback . '</code>') . '</p>';
+        printf(
+            '<p><strong>%1$s:</strong> %2$s</p>',
+            esc_html__( 'Majestic Support', 'majestic-support' ),
+            sprintf(
+                /* translators: 1: Original language code, 2: Fallback language code. */
+                esc_html__( 'Alternate language file downloaded. We tried to find %1$s, but downloaded %2$s as a fallback.', 'majestic-support' ),
+                '<code>' . esc_html( $original ) . '</code>',
+                '<code>' . esc_html( $fallback ) . '</code>'
+            )
+        );
         echo '</div>';
     }
 }

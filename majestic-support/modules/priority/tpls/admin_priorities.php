@@ -52,7 +52,7 @@ MJTC_message::MJTC_getMessage(); ?>
                             <?php } ?>
                             <th class="majestic-support-table-public"><?php echo esc_html(__('Public', 'majestic-support')); ?></th>
                             <th class="majestic-support-table-default"><?php echo esc_html(__('Default', 'majestic-support')); ?></th>
-                            <th class="majestic-support-table-color"><?php echo esc_html(__('Order', 'majestic-support')); ?></th>
+                            <th class="majestic-support-table-color"><?php echo esc_html(__('COLOR', 'majestic-support')); ?></th>
                             <th class="majestic-support-table-actions"><?php echo esc_html(__('Action', 'majestic-support')); ?></th>
                         </tr>
                         </thead>
@@ -64,8 +64,8 @@ MJTC_message::MJTC_getMessage(); ?>
                         $MJTC_pagenum = MJTC_request::MJTC_getVar('pagenum', 'get', 1);
                         $MJTC_islastordershow = MJTC_pagination::MJTC_isLastOrdering(majesticsupport::$_data['total'], $MJTC_pagenum);
                         foreach (majesticsupport::$_data[0] AS $MJTC_priority) {
-                            $MJTC_isdefault = ($MJTC_priority->status == 1) ? __('Yes', 'majestic-support') : __('No', 'majestic-support');
-                            $MJTC_defaultclass = ($MJTC_priority->status == 1) ? 'majestic-support-yes' : 'majestic-support-no';
+                            $MJTC_isdefault = ($MJTC_priority->isdefault == 1) ? __('Yes', 'majestic-support') : __('No', 'majestic-support');
+                            $MJTC_defaultclass = ($MJTC_priority->isdefault == 1) ? 'majestic-support-yes' : 'majestic-support-no';
                             $MJTC_ispublic = ($MJTC_priority->ispublic == 1) ? __('Yes', 'majestic-support') : __('No', 'majestic-support');
                             $MJTC_publicclass = ($MJTC_priority->ispublic == 1) ? 'majestic-support-yes' : 'majestic-support-no';
                             $MJTC_ticketoverduetype = ($MJTC_priority->overduetypeid == 1) ? 'Days' : 'Hours';

@@ -12,7 +12,7 @@ class MJTC_priorityModel {
         $MJTC_inquery = '';
 
         if ($MJTC_prioritytitle != null){
-            $MJTC_inquery .= " WHERE priority.priority LIKE '%".esc_sql($MJTC_prioritytitle)."%'";
+            $MJTC_inquery .= majesticsupport::$_db->prepare(" WHERE priority.priority LIKE %s", '%' . majesticsupport::$_db->esc_like($MJTC_prioritytitle) . '%');
         }
 
         majesticsupport::$_data['filter']['title'] = $MJTC_prioritytitle;
@@ -73,9 +73,9 @@ class MJTC_priorityModel {
         if ($MJTC_id) {
             if (!is_numeric($MJTC_id))
                 return false;
-            $MJTC_query = "SELECT priority.*
+            $MJTC_query = majesticsupport::$_db->prepare("SELECT priority.*
 						FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority
-						WHERE priority.id = " . esc_sql($MJTC_id);
+						WHERE priority.id = %d", absint($MJTC_id));
             $MJTC_result = majesticsupport::$_db->get_row($MJTC_query);
             if (majesticsupport::$_db->last_error != null) {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
@@ -126,14 +126,14 @@ class MJTC_priorityModel {
         if ($MJTC_id) {
             if (!is_numeric($MJTC_id))
                 return false;
-            $MJTC_query = "SELECT priority FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` WHERE id = " . esc_sql($MJTC_id);
+            $MJTC_query = majesticsupport::$_db->prepare("SELECT priority FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` WHERE id = %d", absint($MJTC_id));
             $MJTC_result = majesticsupport::$_db->get_var($MJTC_query);
             if ($MJTC_result == $MJTC_priority) {
                 return true;
             }
         }
 
-        $MJTC_query = 'SELECT COUNT(id) FROM `' . majesticsupport::$_db->prefix . 'mjtc_support_priorities` WHERE priority = "' . esc_sql($MJTC_priority) . '"';
+        $MJTC_query = majesticsupport::$_db->prepare('SELECT COUNT(id) FROM `' . majesticsupport::$_db->prefix . 'mjtc_support_priorities` WHERE priority = %s', $MJTC_priority);
         $MJTC_result = majesticsupport::$_db->get_var($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -158,7 +158,7 @@ class MJTC_priorityModel {
             return false;
         $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` SET isdefault = 2";
         majesticsupport::$_db->query($MJTC_query);
-        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` SET isdefault = 1 WHERE id = " . esc_sql($MJTC_id);
+        $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` SET isdefault = 1 WHERE id = %d", absint($MJTC_id));
         majesticsupport::$_db->query($MJTC_query);
         return;
     }
@@ -190,7 +190,7 @@ class MJTC_priorityModel {
         $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . 'mjtc_support_priorities` SET isdefault = 0';
         majesticsupport::$_db->query($MJTC_query);
         //Make the selected priority as default
-        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . 'mjtc_support_priorities` SET isdefault = 1 WHERE id = ' . esc_sql($MJTC_id);
+        $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` SET isdefault = 1 WHERE id = %d", absint($MJTC_id));
         majesticsupport::$_db->query($MJTC_query);
         if (majesticsupport::$_db->last_error == null) {
             MJTC_message::MJTC_setMessage(esc_html(__('Priority has been make default', 'majestic-support')), 'updated');
@@ -212,11 +212,11 @@ class MJTC_priorityModel {
             $MJTC_order = "<";
             $MJTC_direction = "DESC";
         }
-        $MJTC_query = "SELECT t.ordering,t.id,t2.ordering AS ordering2 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS t,`" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS t2 WHERE t.ordering $MJTC_order t2.ordering AND t2.id = ".esc_sql($MJTC_id)." ORDER BY t.ordering $MJTC_direction LIMIT 1";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT t.ordering,t.id,t2.ordering AS ordering2 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS t,`" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS t2 WHERE t.ordering $MJTC_order t2.ordering AND t2.id = %d ORDER BY t.ordering $MJTC_direction LIMIT 1", absint($MJTC_id));
         $MJTC_result = majesticsupport::$_db->get_row($MJTC_query);
-        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` SET ordering = " . esc_sql($MJTC_result->ordering) . " WHERE id = " . esc_sql($MJTC_id);
+        $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` SET ordering = %d WHERE id = %d", absint($MJTC_result->ordering), absint($MJTC_id));
         majesticsupport::$_db->query($MJTC_query);
-        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` SET ordering = " . esc_sql($MJTC_result->ordering2) . " WHERE id = " . esc_sql($MJTC_result->id);
+        $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` SET ordering = %d WHERE id = %d", absint($MJTC_result->ordering2), absint($MJTC_result->id));
         majesticsupport::$_db->query($MJTC_query);
 
         $MJTC_row = MJTC_includer::MJTC_getTable('priorities');
@@ -232,15 +232,15 @@ class MJTC_priorityModel {
     private function canRemovePriority($MJTC_id) {
         if (!is_numeric($MJTC_id))
             return false;
-        $MJTC_query = "SELECT (
-					(SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE priorityid = " . esc_sql($MJTC_id) . ")
-					) AS total";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT (
+					(SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE priorityid = %d)
+					) AS total", absint($MJTC_id));
         $MJTC_result = majesticsupport::$_db->get_var($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
         if ($MJTC_result == 0) {
-            $MJTC_query = "SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` WHERE isdefault = 1 AND id = " . esc_sql($MJTC_id);
+            $MJTC_query = majesticsupport::$_db->prepare("SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` WHERE isdefault = 1 AND id = %d", absint($MJTC_id));
             $MJTC_result = majesticsupport::$_db->get_var($MJTC_query);
             if (majesticsupport::$_db->last_error != null) {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -256,7 +256,7 @@ class MJTC_priorityModel {
     function getPriorityById($MJTC_id) {
         if (!is_numeric($MJTC_id))
             return false;
-        $MJTC_query = "SELECT priority FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` WHERE id = " . esc_sql($MJTC_id);
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT priority FROM `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` WHERE id = %d", absint($MJTC_id));
         $MJTC_priority = majesticsupport::$_db->get_var($MJTC_query);
         return $MJTC_priority;
     }

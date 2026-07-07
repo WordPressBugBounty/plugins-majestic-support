@@ -110,7 +110,7 @@ class MJTC_emailModel {
                                     FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket
                                     LEFT JOIN `".majesticsupport::$_db->prefix."mjtc_support_departments` AS dept ON dept.id = ticket.departmentid
                                     LEFT JOIN `".majesticsupport::$_db->prefix."mjtc_support_email` AS email ON email.id = dept.emailid
-                                    WHERE ticket.id = ".esc_sql($MJTC_id);
+                                    WHERE ticket.id = " . absint($MJTC_id);
                         $MJTC_dept_result = majesticsupport::$_db->get_row($MJTC_query);
                         if($MJTC_dept_result){
                             if(isset($MJTC_dept_result->sendmail) && $MJTC_dept_result->sendmail == 1){
@@ -1946,19 +1946,19 @@ class MJTC_emailModel {
             $MJTC_query = "SELECT mail.subject,mail.message,CONCAT(staff.firstname,' ',staff.lastname) AS sendername, staff.uid as staffuid
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff_mail` AS mail
                         JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff ON staff.id = mail.fromid
-                        WHERE mail.id = " . esc_sql($MJTC_id);
+                        WHERE mail.id = " . absint($MJTC_id);
         } else {
             $MJTC_query = "SELECT mail.subject,reply.message,CONCAT(staff.firstname,' ',staff.lastname) AS sendername, staff.uid as staffuid
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff_mail` AS reply
                         JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_staff_mail` AS mail ON mail.id = reply.replytoid
                         JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff ON staff.id = reply.fromid
-                        WHERE reply.id = " . esc_sql($MJTC_id);
+                        WHERE reply.id = " . absint($MJTC_id);
         }
         $MJTC_result = majesticsupport::$_db->get_row($MJTC_query);
             $MJTC_query = "SELECT staff.email
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff_mail` AS mail
                         JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff ON staff.id = mail.toid
-                        WHERE mail.id = " . esc_sql($MJTC_id);
+                        WHERE mail.id = " . absint($MJTC_id);
         $MJTC_email = majesticsupport::$_db->get_var($MJTC_query);
         if (isset($MJTC_email)) {
             $MJTC_result->receveremail = $MJTC_email;
@@ -1971,7 +1971,7 @@ class MJTC_emailModel {
             return false;
         $MJTC_query = "SELECT staff.email
                     FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff
-                    WHERE staff.id = " . esc_sql($MJTC_id);
+                    WHERE staff.id = " . absint($MJTC_id);
         $MJTC_emailaddress = majesticsupport::$_db->get_var($MJTC_query);
         return $MJTC_emailaddress;
     }
@@ -1981,7 +1981,7 @@ class MJTC_emailModel {
             return false;
         $MJTC_query = "SELECT staff.uid
                     FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff` AS staff
-                    WHERE staff.id = " . esc_sql($MJTC_id);
+                    WHERE staff.id = " . absint($MJTC_id);
         $MJTC_emailaddress = majesticsupport::$_db->get_var($MJTC_query);
         return $MJTC_emailaddress;
     }
@@ -1989,7 +1989,7 @@ class MJTC_emailModel {
     private function getLatestReplyByTicketId($MJTC_id) {
         if (!is_numeric($MJTC_id))
             return false;
-        $MJTC_query = "SELECT reply.message FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS reply WHERE reply.ticketid = " . esc_sql($MJTC_id) . " ORDER BY reply.created DESC LIMIT 1";
+        $MJTC_query = "SELECT reply.message FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS reply WHERE reply.ticketid = " . absint($MJTC_id) . " ORDER BY reply.created DESC LIMIT 1";
         $MJTC_message = majesticsupport::$_db->get_var($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -2079,7 +2079,7 @@ class MJTC_emailModel {
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket
                         JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON department.id = ticket.departmentid
                         JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_email` AS email ON email.id = department.emailid
-                        WHERE ticket.id = " . esc_sql($MJTC_id);
+                        WHERE ticket.id = " . absint($MJTC_id);
             $MJTC_email = majesticsupport::$_db->get_row($MJTC_query);
             if (majesticsupport::$_db->last_error != null) {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -2096,34 +2096,36 @@ class MJTC_emailModel {
     private function getDefaultSenderEmailAndName() {
         $MJTC_emailid = majesticsupport::$_config['default_alert_email'];
         if(!is_numeric($MJTC_emailid)) return false;
-        $MJTC_query = "SELECT email,name FROM `" . majesticsupport::$_db->prefix . "mjtc_support_email` WHERE id = " . esc_sql($MJTC_emailid);
+        $MJTC_query = "SELECT email,name FROM `" . majesticsupport::$_db->prefix . "mjtc_support_email` WHERE id = " . absint($MJTC_emailid);
         $MJTC_email = majesticsupport::$_db->get_row($MJTC_query);
         return $MJTC_email;
     }
 
     private function getTemplateForEmail($templatefor, $MJTC_multiformid = '') {
-        $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` 
-                  WHERE templatefor = '" . esc_sql($templatefor) . "'";
-
-        // If multiformid is provided
+        $templatefor = sanitize_key($templatefor);
         if (!empty($MJTC_multiformid)) {
-            $MJTC_query .= " AND multiformid = " . intval($MJTC_multiformid);
+            $MJTC_query = majesticsupport::$_db->prepare(
+                "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = %s AND multiformid = %d",
+                $templatefor,
+                absint($MJTC_multiformid)
+            );
             $template = majesticsupport::$_db->get_row($MJTC_query);
 
-            // If no form-specific template is found, fallback to default
             if (empty($template)) {
-                $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` 
-                          WHERE templatefor = '" . esc_sql($templatefor) . "'
-                          AND (multiformid IS NULL OR multiformid = '')";
+                $MJTC_query = majesticsupport::$_db->prepare(
+                    "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = %s AND (multiformid IS NULL OR multiformid = '')",
+                    $templatefor
+                );
                 $template = majesticsupport::$_db->get_row($MJTC_query);
             }
         } else {
-            // No multiformid passed — get default template
-            $MJTC_query .= " AND (multiformid IS NULL OR multiformid = '')";
+            $MJTC_query = majesticsupport::$_db->prepare(
+                "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = %s AND (multiformid IS NULL OR multiformid = '')",
+                $templatefor
+            );
             $template = majesticsupport::$_db->get_row($MJTC_query);
         }
 
-        // Handle DB error
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
@@ -2134,19 +2136,24 @@ class MJTC_emailModel {
     private function getRecordByTablenameAndId($MJTC_tablename, $MJTC_id) {
         if (!is_numeric($MJTC_id))
             return false;
+        $MJTC_id = absint($MJTC_id);
         switch($MJTC_tablename){
             case 'mjtc_support_tickets':
                 do_action('MJTC_get_mail_table_record_query');// to prepare any addon based query
                 $MJTC_query = "SELECT ticket.*,department.departmentname,priority.priority ".majesticsupport::$_addon_query['select']
-                    . " FROM `" . majesticsupport::$_db->prefix . $MJTC_tablename . "` AS ticket "
+                    . " FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket "
                     . " LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON department.id = ticket.departmentid "
                     . majesticsupport::$_addon_query['join']
                     . " LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_priorities` AS priority ON priority.id = ticket.priorityid "
-                    . " WHERE ticket.id = " . esc_sql($MJTC_id);
+                    . " WHERE ticket.id = " . $MJTC_id;
                 do_action('MJTC_reset_addon_query');
             break;
             default:
-                $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . $MJTC_tablename . "` WHERE id = " . esc_sql($MJTC_id);
+                $MJTC_allowed_tables = array('mjtc_support_staff_mail', 'mjtc_support_replies', 'mjtc_support_email');
+                if (!in_array($MJTC_tablename, $MJTC_allowed_tables, true)) {
+                    return false;
+                }
+                $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . $MJTC_tablename . "` WHERE id = " . $MJTC_id;
             break;
         }
         $MJTC_record = majesticsupport::$_db->get_row($MJTC_query);
@@ -2160,8 +2167,9 @@ class MJTC_emailModel {
         // Filter
         $MJTC_email = majesticsupport::$_search['email']['email'];
         $MJTC_inquery = '';
-        if ($MJTC_email != null)
-            $MJTC_inquery .= " WHERE email.email LIKE '%".esc_sql($MJTC_email)."%'";
+        if ($MJTC_email != null) {
+            $MJTC_inquery .= majesticsupport::$_db->prepare(" WHERE email.email LIKE %s", '%' . majesticsupport::$_db->esc_like($MJTC_email) . '%');
+        }
 
         majesticsupport::$_data['filter']['email'] = $MJTC_email;
 
@@ -2200,7 +2208,7 @@ class MJTC_emailModel {
                 return false;
             $MJTC_query = "SELECT email.id, email.email, email.autoresponse, email.created, email.updated,email.status,email.smtpemailauth,email.smtphosttype,email.smtphost,email.smtpauthencation,email.name,email.password,email.smtpsecure,email.mailport
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_email` AS email
-                        WHERE email.id = " . esc_sql($MJTC_id);
+                        WHERE email.id = " . absint($MJTC_id);
             majesticsupport::$_data[0] = majesticsupport::$_db->get_row($MJTC_query);
             if(isset(majesticsupport::$_data[0]->password) && majesticsupport::$_data[0]->password != ''){
                 majesticsupport::$_data[0]->password = MJTC_majesticsupportphplib::MJTC_safe_decoding(majesticsupport::$_data[0]->password);
@@ -2254,7 +2262,7 @@ class MJTC_emailModel {
     }
 
     function checkAlreadyExist($MJTC_email){
-        $MJTC_query = "SELECT COUNT(id) FROM`" . majesticsupport::$_db->prefix . "mjtc_support_email`  WHERE email = '".esc_sql($MJTC_email)."'";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_email` WHERE email = %s", $MJTC_email);
         $MJTC_result = majesticsupport::$_db->get_var($MJTC_query);
         if($MJTC_result > 0)
             return true;
@@ -2282,11 +2290,17 @@ class MJTC_emailModel {
     private function canRemoveEmail($MJTC_id) {
         if (!is_numeric($MJTC_id))
             return false;
-        $MJTC_query = "SELECT (
-                        (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` WHERE emailid = " . esc_sql($MJTC_id) . ")
-                        + (SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configname = 'default_alert_email' AND configvalue = " . esc_sql($MJTC_id) . ")
-                        + (SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configname = 'default_admin_email' AND configvalue = " . esc_sql($MJTC_id) . ")
-                        ) AS total";
+        $MJTC_id = absint($MJTC_id);
+        $MJTC_query = majesticsupport::$_db->prepare(
+            "SELECT (
+                (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_departments` WHERE emailid = %d)
+                + (SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configname = 'default_alert_email' AND configvalue = %d)
+                + (SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configname = 'default_admin_email' AND configvalue = %d)
+            ) AS total",
+            $MJTC_id,
+            $MJTC_id,
+            $MJTC_id
+        );
         $MJTC_result = majesticsupport::$_db->get_var($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -2309,7 +2323,7 @@ class MJTC_emailModel {
     function getEmailById($MJTC_id) {
         if (!is_numeric($MJTC_id))
             return false;
-        $MJTC_query = "SELECT email  FROM `" . majesticsupport::$_db->prefix . "mjtc_support_email` WHERE id = " . esc_sql($MJTC_id);
+        $MJTC_query = "SELECT email  FROM `" . majesticsupport::$_db->prefix . "mjtc_support_email` WHERE id = " . absint($MJTC_id);
         $MJTC_email = majesticsupport::$_db->get_var($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -2323,7 +2337,7 @@ class MJTC_emailModel {
         }
         if(!is_string($MJTC_senderemail))
             return false;
-        $MJTC_query = "SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_email` WHERE email = '".esc_sql($MJTC_senderemail). "' AND smtpemailauth = 1"; // 1 For smtp 0 for default
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_email` WHERE email = %s AND smtpemailauth = 1", $MJTC_senderemail); // 1 For smtp 0 for default
         $total = majesticsupport::$_db->get_var($MJTC_query);
         if($total > 0){
             return true;
@@ -2333,7 +2347,7 @@ class MJTC_emailModel {
     }
 
     function getSMTPEmailConfig($MJTC_senderemail){
-        $MJTC_query = "SELECT * FROM  `" . majesticsupport::$_db->prefix . "mjtc_support_email` WHERE email = '".esc_sql($MJTC_senderemail)."'";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_email` WHERE email = %s", $MJTC_senderemail);
         $MJTC_emailconfig = majesticsupport::$_db->get_row($MJTC_query);
         return $MJTC_emailconfig;
     }
@@ -2414,7 +2428,7 @@ class MJTC_emailModel {
             $MJTC_query = "SELECT replies.*,replies.id AS replyid,tickets.id 
                     FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS replies
                     JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS tickets ON  replies.ticketid = tickets.id
-                    WHERE tickets.id = " . esc_sql($MJTC_id) . " ORDER By replies.id DESC";
+                    WHERE tickets.id = " . absint($MJTC_id) . " ORDER By replies.id DESC";
             $MJTC_replies = majesticsupport::$_db->get_results($MJTC_query);
             foreach ($MJTC_replies as $MJTC_key => $MJTC_reply) {
                 if ($MJTC_key == 0) {

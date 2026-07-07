@@ -259,10 +259,12 @@ class MJTC_SUPPORTTICKETUpdater {
 
 	// does changes according to admin triggers.
 	private function MJTC_checkTriggers() {
-		// $MJTC_nonce = $_POST['_wpnonce'];
-        // if (! wp_verify_nonce( $MJTC_nonce, 'update-plugins') ) {
-        //     die( 'Security check Failed' );
-        // }
+		if (isset($_POST['ms_addon_array_for_token']) && !empty($_POST['ms_addon_array_for_token'])) {
+            $MJTC_nonce = isset($_POST['_wpnonce']) ? sanitize_text_field(wp_unslash($_POST['_wpnonce'])) : '';
+            if (!wp_verify_nonce($MJTC_nonce, 'update-plugins')) {
+                return;
+            }
+        }
 		if ( isset($_POST['ms_addon_array_for_token']) && ! empty( $_POST[ 'ms_addon_array_for_token' ])){
 			$transaction_key = '';
 			$MJTC_addon_name = '';

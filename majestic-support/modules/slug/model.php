@@ -17,7 +17,7 @@ class MJTC_slugModel {
 
         $MJTC_inquery = '';
         if ($MJTC_slug != null){
-            $MJTC_inquery .= " AND slug.slug LIKE '%".esc_sql($MJTC_slug)."%'";
+            $MJTC_inquery .= majesticsupport::$_db->prepare(" AND slug.slug LIKE %s", '%' . majesticsupport::$_db->esc_like($MJTC_slug) . '%');
         }
         majesticsupport::$_data['slug'] = $MJTC_slug;
 
@@ -52,8 +52,8 @@ class MJTC_slugModel {
             if($MJTC_id != '' && is_numeric($MJTC_id)){
                 $MJTC_slug = sanitize_title($MJTC_slug);
                 if($MJTC_slug != ''){
-                    $MJTC_query = "SELECT COUNT(id) FROM " . majesticsupport::$_db->prefix . "mjtc_support_slug
-                            WHERE slug = '" . esc_sql($MJTC_slug)."' ";
+                    $MJTC_query = majesticsupport::$_db->prepare("SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_slug`
+                            WHERE slug = %s", $MJTC_slug);
                     $MJTC_slug_flag = majesticsupport::$_db->get_var($MJTC_query);
                     if($MJTC_slug_flag > 0){
                         continue;
@@ -77,9 +77,9 @@ class MJTC_slugModel {
             MJTC_message::MJTC_setMessage(esc_html(__('Prefix has not been stored', 'majestic-support')), 'error');
             return;
         }
-        $MJTC_query = "UPDATE " . majesticsupport::$_db->prefix . "mjtc_support_config
-                    SET configvalue = '".esc_sql($MJTC_data['prefix'])."'
-                    WHERE configname = 'slug_prefix'";
+        $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_config`
+                    SET configvalue = %s
+                    WHERE configname = 'slug_prefix'", sanitize_title($MJTC_data['prefix']));
         if(majesticsupport::$_db->query($MJTC_query)){
             update_option('rewrite_rules', '');
             MJTC_message::MJTC_setMessage(esc_html(__('Prefix has been stored', 'majestic-support')), 'updated');
@@ -100,9 +100,9 @@ class MJTC_slugModel {
             MJTC_message::MJTC_setMessage(esc_html(__('Prefix has not been stored', 'majestic-support')), 'error');
             return;
         }
-        $MJTC_query = "UPDATE " . majesticsupport::$_db->prefix . "mjtc_support_config
-                    SET configvalue = '".esc_sql($MJTC_data['prefix'])."'
-                    WHERE configname = 'home_slug_prefix'";
+        $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_config`
+                    SET configvalue = %s
+                    WHERE configname = 'home_slug_prefix'", sanitize_title($MJTC_data['prefix']));
         if(majesticsupport::$_db->query($MJTC_query)){
             update_option('rewrite_rules', '');
             MJTC_message::MJTC_setMessage(esc_html(__('Prefix has been stored', 'majestic-support')), 'updated');
@@ -154,13 +154,13 @@ class MJTC_slugModel {
     }
 
     function getDefaultSlugFromSlug($MJTC_layout) {
-        $MJTC_query = "SELECT  defaultslug FROM `".majesticsupport::$_db->prefix."mjtc_support_slug` WHERE defaultslug = '".esc_sql($MJTC_layout)."'";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT defaultslug FROM `".majesticsupport::$_db->prefix."mjtc_support_slug` WHERE defaultslug = %s", $MJTC_layout);
         $MJTC_val = majesticsupport::$_db->get_var($MJTC_query);
         return sanitize_title($MJTC_val);
     }
 
     function getSlugFromFileName($MJTC_layout,$MJTC_module) {
-        $MJTC_query = "SELECT slug FROM `".majesticsupport::$_db->prefix."mjtc_support_slug` WHERE filename = '".esc_sql($MJTC_layout)."'";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT slug FROM `".majesticsupport::$_db->prefix."mjtc_support_slug` WHERE filename = %s", $MJTC_layout);
         $MJTC_val = majesticsupport::$_db->get_var($MJTC_query);
         return $MJTC_val;
     }

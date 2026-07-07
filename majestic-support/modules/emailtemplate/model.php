@@ -65,9 +65,9 @@ class MJTC_emailtemplateModel {
                 break;
         }
         if (!empty($MJTC_langcode)) {
-            $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_multilanguageemailtemplates` WHERE templatefor = '" . esc_sql($tempatefor) . "' AND language_id = '" . esc_sql($MJTC_langcode) . "'";
+            $MJTC_query = majesticsupport::$_db->prepare("SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_multilanguageemailtemplates` WHERE templatefor = %s AND language_id = %s", $tempatefor, $MJTC_langcode);
         } else {
-            $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = '" . esc_sql($tempatefor) . "'";
+            $MJTC_query = majesticsupport::$_db->prepare("SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = %s", $tempatefor);
         }
         if (!empty($MJTC_formid)) {
             $MJTC_query .= " AND multiformid = " . intval($MJTC_formid);
@@ -77,8 +77,8 @@ class MJTC_emailtemplateModel {
         majesticsupport::$_data[0] = majesticsupport::$_db->get_row(($MJTC_query));
         $MJTC_multiformname = '';
         if(in_array('multiform', majesticsupport::$_active_addons) && !empty(majesticsupport::$_data[0]->multiformid)){
-            $MJTC_query = "SELECT title
-                FROM `" . majesticsupport::$_db->prefix . "mjtc_support_multiform` WHERE id = ".esc_sql(majesticsupport::$_data[0]->multiformid);
+            $MJTC_query = majesticsupport::$_db->prepare("SELECT title
+                FROM `" . majesticsupport::$_db->prefix . "mjtc_support_multiform` WHERE id = %d", absint(majesticsupport::$_data[0]->multiformid));
             $MJTC_multiformname = majesticsupport::$_db->get_var($MJTC_query);
         }
         majesticsupport::$_data[0]->multiformname = $MJTC_multiformname;
@@ -96,6 +96,7 @@ class MJTC_emailtemplateModel {
         if (in_array('multiform', majesticsupport::$_active_addons) || in_array('multilanguageemailtemplates', majesticsupport::$_active_addons)) {
             
             $MJTC_query = '';
+            $MJTC_templatefor_sql = majesticsupport::$_db->prepare('%s', $tempatefor);
             if(in_array('multiform', majesticsupport::$_active_addons)){
                 $MJTC_query = "
                     (
@@ -111,7 +112,7 @@ class MJTC_emailtemplateModel {
                             ON tmpl.multiformid = form.id
                         LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department
                             ON form.departmentid = department.id
-                        WHERE tmpl.templatefor = '" . esc_sql($tempatefor) . "'
+                        WHERE tmpl.templatefor = " . $MJTC_templatefor_sql . "
                     )
                 ";
             }
@@ -135,7 +136,7 @@ class MJTC_emailtemplateModel {
                                 ON ltmpl.multiformid = form.id
                             LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department
                                 ON form.departmentid = department.id
-                            WHERE ltmpl.templatefor = '" . esc_sql($tempatefor) . "'
+                            WHERE ltmpl.templatefor = " . $MJTC_templatefor_sql . "
                         )
                     ";
                 } else {
@@ -147,7 +148,7 @@ class MJTC_emailtemplateModel {
                                 ltmpl.language_id AS language,
                                 'multi' AS source
                             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_multilanguageemailtemplates` AS ltmpl
-                            WHERE ltmpl.templatefor = '" . esc_sql($tempatefor) . "'
+                            WHERE ltmpl.templatefor = " . $MJTC_templatefor_sql . "
                         )
                     ";
                 }
@@ -234,7 +235,7 @@ class MJTC_emailtemplateModel {
             die( 'Security check Failed' );
         }
         $templatefor = MJTC_request::MJTC_getVar('templatefor');
-        $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = '" . esc_sql($templatefor) . "'";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_emailtemplates` WHERE templatefor = %s", $templatefor);
         $MJTC_result = majesticsupport::$_db->get_row($MJTC_query);
         $MJTC_data =  array('defaultsubject'=>MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_result->subject),'defaultbody'=>MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_result->body) , 'defaultid'=>MJTC_majesticsupportphplib::MJTC_htmlentities($MJTC_result->id));
         return wp_json_encode($MJTC_data);

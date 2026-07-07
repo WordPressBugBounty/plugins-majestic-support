@@ -103,7 +103,8 @@ if (majesticsupport::$_config['offline'] == 2) {
                     }
                     MJTC_includer::MJTC_getModel('fieldordering')->getFieldsOrderingforForm(3);
                     foreach (majesticsupport::$_data['fieldordering'] as $MJTC_field) {
-                        wp_kses(MJTC_includer::MJTC_getObjectClass('customfields')->MJTC_formCustomFields($MJTC_field), MJTC_ALLOWED_TAGS);
+                        // Added (string) to prevent null passing
+                        wp_kses((string) MJTC_includer::MJTC_getObjectClass('customfields')->MJTC_formCustomFields($MJTC_field), MJTC_ALLOWED_TAGS);
                     }
                     $MJTC_google_recaptcha_3 = false;
                     if (majesticsupport::$_config['captcha_on_registration'] == 1) { ?>
@@ -116,7 +117,8 @@ if (majesticsupport::$_config['offline'] == 2) {
                                 if (majesticsupport::$_config['captcha_selection'] == 1) { // Google recaptcha
                                     $MJTC_error = null;
                                     if (majesticsupport::$_config['recaptcha_version'] == 1) {
-                                        $MJTC_data = '<div class="g-recaptcha" data-sitekey="'.wp_kses_post(majesticsupport::$_config['recaptcha_publickey']).'"></div>';
+                                        // Added (string) before the config array
+                                        $MJTC_data = '<div class="g-recaptcha" data-sitekey="'.wp_kses_post((string) majesticsupport::$_config['recaptcha_publickey']).'"></div>';
                                         echo wp_kses($MJTC_data, MJTC_ALLOWED_TAGS);
                                     } else {
                                         $MJTC_google_recaptcha_3 = true;

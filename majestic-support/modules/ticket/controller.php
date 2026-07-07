@@ -145,7 +145,14 @@ class MJTC_ticketController {
     }
 
     function lockticket() {
-        $MJTC_id = MJTC_request::MJTC_getVar('ticketid');
+        $MJTC_id = absint(MJTC_request::MJTC_getVar('ticketid'));
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (!$MJTC_id || !wp_verify_nonce($MJTC_nonce, 'lock-ticket-' . $MJTC_id)) {
+            wp_die(esc_html__('Security check failed.', 'majestic-support'), esc_html__('Security Error', 'majestic-support'), array('response' => 403));
+        }
+        if (!current_user_can('manage_options') && !current_user_can('ms_support_ticket')) {
+            wp_die(esc_html__('You are not allowed', 'majestic-support'), esc_html__('Access Denied', 'majestic-support'), array('response' => 403));
+        }
         MJTC_includer::MJTC_getModel('ticket')->lockTicket($MJTC_id);
         if (is_admin()) {
             $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_id));
@@ -157,7 +164,14 @@ class MJTC_ticketController {
     }
 
     function unlockticket() {
-        $MJTC_id = MJTC_request::MJTC_getVar('ticketid');
+        $MJTC_id = absint(MJTC_request::MJTC_getVar('ticketid'));
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (!$MJTC_id || !wp_verify_nonce($MJTC_nonce, 'unlock-ticket-' . $MJTC_id)) {
+            wp_die(esc_html__('Security check failed.', 'majestic-support'), esc_html__('Security Error', 'majestic-support'), array('response' => 403));
+        }
+        if (!current_user_can('manage_options') && !current_user_can('ms_support_ticket')) {
+            wp_die(esc_html__('You are not allowed', 'majestic-support'), esc_html__('Access Denied', 'majestic-support'), array('response' => 403));
+        }
         MJTC_includer::MJTC_getModel('ticket')->unLockTicket($MJTC_id);
         if (is_admin()) {
             $MJTC_url = admin_url("admin.php?page=majesticsupport_ticket&mjslay=ticketdetail&majesticsupportid=" . esc_attr($MJTC_id));

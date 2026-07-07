@@ -1757,7 +1757,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                             Detail Page --- */
                             if (!empty(majesticsupport::$_data[0]->sentiment)) : 
                                 $sentiment_safe = strtolower(esc_attr(majesticsupport::$_data[0]->sentiment)); ?>
-                                <span class="mjtc-sprt-det-status mjtc-ai-sentiment-<?php echo $sentiment_safe; ?>" title="<?php echo esc_attr(__('AI Sentiment Analysis', 'majestic-support')); ?>">
+                                <span class="mjtc-sprt-det-status mjtc-ai-sentiment-<?php echo esc_attr($sentiment_safe); ?>" title="<?php echo esc_attr(__('AI Sentiment Analysis', 'majestic-support')); ?>">
                                     <?php echo esc_html(ucfirst(majesticsupport::$_data[0]->sentiment)); ?>
                                 </span>
                                 <?php 

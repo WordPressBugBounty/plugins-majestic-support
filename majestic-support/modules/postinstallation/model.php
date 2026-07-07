@@ -34,7 +34,7 @@ class MJTC_PostinstallationModel {
         }
 
         foreach ($MJTC_data as $MJTC_key => $MJTC_value) {
-            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_config` SET `configvalue` = '" . esc_sql($MJTC_value) . "' WHERE `configname`= '" . esc_sql($MJTC_key) . "'";
+            $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_config` SET `configvalue` = %s WHERE `configname`= %s", $MJTC_value, $MJTC_key);
             majesticsupport::$_db->query($MJTC_query);
 
             // Track status for error handling

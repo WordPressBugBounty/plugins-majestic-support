@@ -2454,16 +2454,16 @@ div.ms-popup-wrapper .mjtc-support-priorty-btn-wrp input#cancel{font-size: 0.9re
 .mjtc-zywrap-modal-workspace textarea.mjtc-zywrap-textarea-small {min-height: 100px;resize: vertical;}
 .mjtc-zywrap-modal-workspace textarea.mjtc-zywrap-textarea-draft {height: 100%;min-height: 250px;resize: none;}
 /* 6. Footer Actions (Refined Premium SaaS) */
-.mjtc-zywrap-modal-footer {padding: 16px 32px; background: #09090b; color: #ffffff;display: flex; justify-content: space-between; align-items: center; flex: 0 0 auto;border-top: 1px solid #27272a;z-index: 10;border-radius: 10px;margin-top: 15px;}
+.mjtc-zywrap-modal-footer {padding: 14px 32px; background: #ffffff; color: #0f172a;display: flex; justify-content: space-between; align-items: center; flex: 0 0 auto;border-top: 1px solid #e2e8f0;z-index: 10;border-radius: 0 0 10px 10px;margin-top: 15px;box-shadow: 0 -6px 18px rgba(15, 23, 42, 0.04);}
 .mjtc-zywrap-modal-footer .mjtc-zywrap-btn-gen,
 .mjtc-zywrap-modal-footer .mjtc-zywrap-btn-insert {display: inline-flex; align-items: center; justify-content: center;gap: 8px;padding: 10px 20px;border-radius: 8px;font-size: 0.9rem;font-weight: 600; cursor: pointer; transition: all 0.2s ease;line-height: 1;}
 .mjtc-zywrap-modal-footer button .dashicons {font-size: 16px;width: 16px;height: 16px;line-height: 1;display: flex;align-items: center;justify-content: center;}
-.mjtc-zywrap-modal-footer .mjtc-zywrap-btn-gen { background: #1e293b; color: #e2e8f0; border: 1px solid #334155; }
-.mjtc-zywrap-modal-footer .mjtc-zywrap-btn-gen:hover:not(:disabled) { background: #334155;color: #ffffff;border-color: #475569;}
+.mjtc-zywrap-modal-footer .mjtc-zywrap-btn-gen { background: #2563eb; color: #ffffff; border: 1px solid #1d4ed8; box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2); }
+.mjtc-zywrap-modal-footer .mjtc-zywrap-btn-gen:hover:not(:disabled) { background: #1d4ed8;color: #ffffff;border-color: #1e40af;}
 .mjtc-zywrap-modal-footer .mjtc-zywrap-btn-gen:disabled { opacity: 0.5; cursor: not-allowed; }
-.mjtc-zywrap-modal-footer .mjtc-zywrap-btn-insert { background: #3b82f6;color: #ffffff; border: 1px solid #2563eb; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);}
-.mjtc-zywrap-modal-footer .mjtc-zywrap-btn-insert:hover:not(:disabled) { background: #2563eb;border-color: #1d4ed8;transform: translateY(-1px); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35); }
-.mjtc-zywrap-modal-footer .mjtc-zywrap-btn-insert:disabled { background: #93c5fd; border-color: #93c5fd;box-shadow: none; cursor: not-allowed; }
+.mjtc-zywrap-modal-footer .mjtc-zywrap-btn-insert { background: #ffffff;color: #1e293b; border: 1px solid #cbd5e1; box-shadow: none;}
+.mjtc-zywrap-modal-footer .mjtc-zywrap-btn-insert:hover:not(:disabled) { background: #f8fafc;border-color: #94a3b8;transform: translateY(-1px); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08); }
+.mjtc-zywrap-modal-footer .mjtc-zywrap-btn-insert:disabled { background: #f1f5f9; color:#94a3b8; border-color: #e2e8f0;box-shadow: none; cursor: not-allowed; }
 .mjtc-zywrap-modal-footer .mjtc-zywrap-flex-gap-12 {display: flex;align-items: center;gap: 12px; }
 #zywrap-spinner {margin: 0;float: none;}
 .mjtc-zywrap-flex-align { display: flex; align-items: center; gap: 12px; }
@@ -2665,6 +2665,7 @@ div#msadmin-data .mjtc-support-thread-data-header-leftwrp {display: flex;align-i
 div#msadmin-data .mjtc-support-thread-data-header-leftwrp strong {color: var(--mjtc-admin-text-main);font-weight: 600;}
 div#msadmin-data .mjtc-support-staff-badge {font-size: 0.8rem;background: var(--mjtc-admin-primary);color: white;padding: 2px 8px;border-radius: 4px;font-weight: 700;text-transform: uppercase;letter-spacing: 0.05rem;}
 div#msadmin-data .mjtc-support-thread-data.note-msg {padding: 1.5em 50px 1.5em 1.5rem;font-size: 0.95rem;line-height: 1.6;color: var(--mjtc-admin-text-main);}
+div#msadmin-data .mjtc-support-thread-data.note-msg ul{list-style: inherit;}
 div#msadmin-data .mjtc-support-thread-cnt.agent-bubble .mjtc-support-thread-data.note-msg {padding: 1.5rem;}
 div#msadmin-data .mjtc-support-thread-time-stamp {font-size: 0.75rem;color: #94a3b8;font-weight: 500;}
 div#msadmin-data .mjtc-support-attachments-wrp {margin-top: 1.5rem;border-top: 1px dashed var(--mjtc-admin-border);padding-top: 1rem;width: 100%;}

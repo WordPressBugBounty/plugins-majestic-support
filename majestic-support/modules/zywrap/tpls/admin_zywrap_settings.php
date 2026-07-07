@@ -8,6 +8,7 @@ $mjtc_support_default_lang  = get_option('mjtc_zywrap_default_lang', 'English');
 $mjtc_support_last_sync     = get_option('mjtc_zywrap_last_sync');
 $mjtc_support_sync_display  = $mjtc_support_last_sync ? wp_date('M j, Y - g:i A', $mjtc_support_last_sync) : __('Never', 'majestic-support');
 $mjtc_support_is_connected  = !empty($mjtc_support_api_key);
+MJTC_includer::MJTC_getModel('zywrap')->ensureOfflineWorkflowPack();
 
 // 2. Database verification
 $mjtc_support_db_prefix = majesticsupport::$_db->prefix . "mjtc_support_";
@@ -57,24 +58,24 @@ MJTC_message::MJTC_getMessage();
 
                     <div class="mjtc-config-card <?php echo $mjtc_support_is_connected ? '' : 'dimmed'; ?>">
                         <h2 class="mjtc-card-title">
-                            <span class="mjtc-step-badge">2</span> <?php echo esc_html__('Database Synchronization', 'majestic-support'); ?>
+                            <span class="mjtc-step-badge">2</span> <?php echo esc_html__('AI Workflow Data', 'majestic-support'); ?>
                         </h2>
                         
                         <p style="color: #71717a; margin-bottom: 20px;">
-                            <?php echo esc_html__('To use the Co-Pilot, you must sync your local database with the Cloud. This downloads the latest Prompts and Scenarios.', 'majestic-support'); ?>
+                            <?php echo esc_html__('Majestic Support includes built-in support AI workflows for ticket tools. Enterprise users can still sync the full Zywrap catalog for the Playground; normal API users will use built-in workflows plus runtime model sync.', 'majestic-support'); ?>
                         </p>
                         
                         <div class="mjtc-warning-box">
                             <span class="dashicons dashicons-warning" style="margin-top: 2px;"></span>
                             <div>
                                 <strong><?php echo esc_html__('Important:', 'majestic-support'); ?></strong> 
-                                <?php echo esc_html__('The initial sync may take 3 to 5 minutes. Please do not close or refresh this page.', 'majestic-support'); ?>
+                                <?php echo esc_html__('For Enterprise keys, this may download the full catalog. For normal API keys, this installs built-in support workflows and syncs the current AI model list.', 'majestic-support'); ?>
                             </div>
                         </div>
 
                         <div>
                             <button type="button" id="zywrap_sync_bundle" class="mjtc-btn-primary mjtc-btn-sync" <?php echo empty($mjtc_support_api_key) ? 'disabled' : ''; ?>>
-                                <span class="dashicons dashicons-download"></span> <?php echo esc_html__('Download & Sync Data', 'majestic-support'); ?>
+                                <span class="dashicons dashicons-download"></span> <?php echo esc_html__('Sync AI Data', 'majestic-support'); ?>
                             </button>
                             
                             <div id="zywrap_progress_container" class="mjtc-progress-wrap">
@@ -246,7 +247,7 @@ $majesticsupport_js = "
             var statusText = \$('#zywrap_sync_status');
             var percentText = \$('#zywrap_progress_text');
             
-            btn.prop('disabled', true).html('<span class=\"spinner is-active\" style=\"float:none; margin:0 5px 0 0;\"></span> " . esc_js(__("Syncing Engine...", "majestic-support")) . "');
+            btn.prop('disabled', true).html('<span class=\"spinner is-active\" style=\"float:none; margin:0 5px 0 0;\"></span> " . esc_js(__("Syncing AI Data...", "majestic-support")) . "');
             quickStatus.text('');
             statusContainer.show();
             progressFill.css({'width': '0%', 'background': '#3b82f6'});
@@ -263,10 +264,10 @@ $majesticsupport_js = "
                     statusText.text('" . esc_js(__("Connecting to Zywrap Cloud...", "majestic-support")) . "'); 
                 } 
                 else if (width >= 40 && width < 70) { 
-                    statusText.text('" . esc_js(__("Extracting schemas...", "majestic-support")) . "'); 
+                    statusText.text('" . esc_js(__("Preparing support workflows...", "majestic-support")) . "'); 
                 } 
                 else if (width >= 70) { 
-                    statusText.text('" . esc_js(__("Optimizing database...", "majestic-support")) . "'); 
+                    statusText.text('" . esc_js(__("Syncing runtime models...", "majestic-support")) . "'); 
                 }
             }, 2000); 
 

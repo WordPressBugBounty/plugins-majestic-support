@@ -28,7 +28,7 @@ class MJTC_configurationModel {
 
     function getConfigurationByFor($MJTC_for) {
 		if($MJTC_for == 'ticketviaemail'){
-			$MJTC_query = "SELECT COUNT(configname) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = '".esc_sql($MJTC_for)."'";
+			$MJTC_query = majesticsupport::$_db->prepare("SELECT COUNT(configname) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = %s", $MJTC_for);
 			$MJTC_count = majesticsupport::$_db->get_var($MJTC_query);
 			if($MJTC_count < 5){
 				$MJTC_query = "SELECT configname,configvalue
@@ -46,8 +46,8 @@ class MJTC_configurationModel {
                 return;
 			}
 		}
-        $MJTC_query = "SELECT configname,configvalue
-					FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = '".esc_sql($MJTC_for)."'";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT configname,configvalue
+					FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = %s", $MJTC_for);
         $MJTC_data = majesticsupport::$_db->get_results($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -62,11 +62,11 @@ class MJTC_configurationModel {
     }
     function getCountByConfigFor($MJTC_for) {
         if (( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff())) {
-            $MJTC_query = "SELECT COUNT(configvalue)
-                    FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = '".esc_sql($MJTC_for). "' AND configname LIKE '%staff' AND configvalue = 1 " ;
+            $MJTC_query = majesticsupport::$_db->prepare("SELECT COUNT(configvalue)
+                    FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = %s AND configname LIKE %s AND configvalue = 1", $MJTC_for, '%staff');
         }else{
-            $MJTC_query = "SELECT COUNT(configvalue)
-                    FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = '".esc_sql($MJTC_for) . "' AND configname LIKE '%user' AND configvalue = 1 " ;
+            $MJTC_query = majesticsupport::$_db->prepare("SELECT COUNT(configvalue)
+                    FROM `" . majesticsupport::$_db->prefix . "mjtc_support_config` WHERE configfor = %s AND configname LIKE %s AND configvalue = 1", $MJTC_for, '%user');
         }
         $MJTC_data = majesticsupport::$_db->get_var($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
@@ -76,7 +76,13 @@ class MJTC_configurationModel {
     }
 
     function storeDesktopNotificationLogo($MJTC_filename) {
-        majesticsupport::$_db->query("UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_config` SET configvalue = '" . esc_sql($MJTC_filename) . "' WHERE configname = 'logo_for_desktop_notfication_url' ");
+        majesticsupport::$_db->update(
+            majesticsupport::$_db->prefix . 'mjtc_support_config',
+            array('configvalue' => sanitize_file_name($MJTC_filename)),
+            array('configname' => 'logo_for_desktop_notfication_url'),
+            array('%s'),
+            array('%s')
+        );
     }
 
     function deleteDesktopNotificationsLogo() {
@@ -209,7 +215,7 @@ class MJTC_configurationModel {
                 if($MJTC_value != ''){
                     $MJTC_value = MJTC_majesticsupportphplib::MJTC_str_replace(' ', '-', $MJTC_value);
                 }
-                $MJTC_query = 'SELECT COUNT(ID) FROM `'.majesticsupport::$_db->prefix.'posts` WHERE post_name = "'.esc_sql($MJTC_value).'"';
+                $MJTC_query = majesticsupport::$_db->prepare('SELECT COUNT(ID) FROM `'.majesticsupport::$_db->prefix.'posts` WHERE post_name = %s', $MJTC_value);
                 $MJTC_countslug = majesticsupport::$_db->get_var($MJTC_query);
                 if($MJTC_countslug >= 1){
                     MJTC_message::MJTC_setMessage(esc_html(__('System slug is conflicted with post or page slug.', 'majestic-support')), 'error');
@@ -323,6 +329,10 @@ class MJTC_configurationModel {
 
     function deleteSupportCustomImage() {
 
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error(array('message' => __('You are not allowed to access this resource.', 'majestic-support')), 403);
+        }
+
         $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
         if (!wp_verify_nonce($MJTC_nonce, 'delete-support-customimage')) {
             die('Security check Failed');
@@ -388,8 +398,13 @@ class MJTC_configurationModel {
 
     function genearateCronKey() {
         $MJTC_key = MJTC_majesticsupportphplib::MJTC_md5(gmdate('Y-m-d'));
-        $MJTC_query = "UPDATE `".majesticsupport::$_db->prefix."mjtc_support_config` SET configvalue = '".esc_sql($MJTC_key)."' WHERE configname = 'ck'" ;
-        majesticsupport::$_db->query($MJTC_query);
+        majesticsupport::$_db->update(
+            majesticsupport::$_db->prefix . 'mjtc_support_config',
+            array('configvalue' => $MJTC_key),
+            array('configname' => 'ck'),
+            array('%s'),
+            array('%s')
+        );
         return true;
     }
 
@@ -404,7 +419,7 @@ class MJTC_configurationModel {
     }
 
     function getConfigValue($MJTC_configname){
-        $MJTC_query = "SELECT configvalue FROM `".majesticsupport::$_db->prefix."mjtc_support_config` WHERE configname = '".esc_sql($MJTC_configname)."'";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT configvalue FROM `".majesticsupport::$_db->prefix."mjtc_support_config` WHERE configname = %s", $MJTC_configname);
         $MJTC_configvalue = majesticsupport::$_db->get_var($MJTC_query);
         return $MJTC_configvalue;
     }
@@ -445,8 +460,8 @@ class MJTC_configurationModel {
     }
 
     function getConfigurationByConfigName($MJTC_configname) {
-        $MJTC_query = "SELECT configvalue
-                  FROM  `".majesticsupport::$_db->prefix."mjtc_support_config` WHERE configname ='" . esc_sql($MJTC_configname) . "'";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT configvalue
+                  FROM  `".majesticsupport::$_db->prefix."mjtc_support_config` WHERE configname = %s", $MJTC_configname);
         $MJTC_result = majesticsupport::$_db->get_var($MJTC_query);
         return $MJTC_result;
     }
@@ -470,7 +485,7 @@ class MJTC_configurationModel {
         }
 
         $MJTC_error = false;
-        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_config` SET `configvalue` = ".esc_sql($MJTC_configvalue)." WHERE `configname`= 'mjtc_addons_auto_update'";
+        $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_config` SET `configvalue` = %d WHERE `configname`= 'mjtc_addons_auto_update'", absint($MJTC_configvalue));
         if (false === majesticsupport::$_db->query($MJTC_query)) {
             $MJTC_error = true;
         }

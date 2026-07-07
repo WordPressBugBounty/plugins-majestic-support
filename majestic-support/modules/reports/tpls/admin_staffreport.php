@@ -410,9 +410,9 @@ $MJTC_link_export = admin_url('admin.php?page=majesticsupport_export&task='.esc_
 
 									    $time = isset( $MJTC_agent->time[0] ) ? (int) $MJTC_agent->time[0] : 0;
 
-									    $MJTC_hours = (int) floor( $time / 3600 );
-									    $MJTC_mins  = (int) floor( ( $time / 60 ) % 60 );
-									    $MJTC_secs  = (int) ( $time % 60 );
+									    $MJTC_hours = intdiv( $time, 3600 );
+									    $MJTC_mins  = intdiv( $time % 3600, 60 );
+									    $MJTC_secs  = $time % 60;
 
 									    $MJTC_avgtime = esc_html( sprintf( '%02d:%02d:%02d', $MJTC_hours, $MJTC_mins, $MJTC_secs ) );
 									}

@@ -18,7 +18,7 @@ class MJTC_fieldorderingModel {
     	}
 
         // Data
-        $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE fieldfor = ".esc_sql($MJTC_fieldfor);
+        $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE fieldfor = ".absint($MJTC_fieldfor);
         $MJTC_query .= $MJTC_inquery." ORDER BY ordering ";
 
         majesticsupport::$_data[0] = majesticsupport::$_db->get_results($MJTC_query);
@@ -32,14 +32,14 @@ class MJTC_fieldorderingModel {
         if (!is_numeric($MJTC_id))
             return false;
         if ($MJTC_status == 'publish') {
-            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET published = 1 WHERE id = " . esc_sql($MJTC_id) . " AND cannotunpublish = 0";
+            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET published = 1 WHERE id = " . absint($MJTC_id) . " AND cannotunpublish = 0";
             majesticsupport::$_db->query($MJTC_query);
             if (majesticsupport::$_db->last_error != null) {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
             }
             MJTC_message::MJTC_setMessage(esc_html(__('Field mark as published', 'majestic-support')),'updated');
         } elseif ($MJTC_status == 'unpublish') {
-            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET published = 0 WHERE id = " . esc_sql($MJTC_id) . " AND cannotunpublish = 0";
+            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET published = 0 WHERE id = " . absint($MJTC_id) . " AND cannotunpublish = 0";
             majesticsupport::$_db->query($MJTC_query);
             if (majesticsupport::$_db->last_error != null) {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -53,12 +53,12 @@ class MJTC_fieldorderingModel {
         if (!is_numeric($MJTC_id))
             return false;
         if ($MJTC_status == 'publish') {
-            $MJTC_query = "SELECT adminonly FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE id = " . esc_sql($MJTC_id);
+            $MJTC_query = "SELECT adminonly FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE id = " . absint($MJTC_id);
             $MJTC_adminonly = majesticsupport::$_db->get_var($MJTC_query);
             if(!empty($MJTC_adminonly)){
                 MJTC_message::MJTC_setMessage(esc_html(__('Field cannot be mark as published', 'majestic-support')),'error');
             }else{
-                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET isvisitorpublished = 1 WHERE id = " . esc_sql($MJTC_id) . " AND cannotunpublish = 0";
+                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET isvisitorpublished = 1 WHERE id = " . absint($MJTC_id) . " AND cannotunpublish = 0";
                 majesticsupport::$_db->query($MJTC_query);
                 if (majesticsupport::$_db->last_error != null) {
                     MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -66,7 +66,7 @@ class MJTC_fieldorderingModel {
                 MJTC_message::MJTC_setMessage(esc_html(__('Field mark as published', 'majestic-support')),'updated');
             }
         } elseif ($MJTC_status == 'unpublish') {
-            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET isvisitorpublished = 0 WHERE id = " . esc_sql($MJTC_id) . " AND cannotunpublish = 0";
+            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET isvisitorpublished = 0 WHERE id = " . absint($MJTC_id) . " AND cannotunpublish = 0";
             majesticsupport::$_db->query($MJTC_query);
             if (majesticsupport::$_db->last_error != null) {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -81,14 +81,14 @@ class MJTC_fieldorderingModel {
             return false;
 
         if ($MJTC_status == 'required') {
-            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET required = 1 WHERE id = " . esc_sql($MJTC_id) . " AND cannotunpublish = 0";
+            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET required = 1 WHERE id = " . absint($MJTC_id) . " AND cannotunpublish = 0";
             majesticsupport::$_db->query($MJTC_query);
             if (majesticsupport::$_db->last_error != null) {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
             }
             MJTC_message::MJTC_setMessage(esc_html(__('Field mark as required', 'majestic-support')),'updated');
         } elseif ($MJTC_status == 'unrequired') {
-            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET required = 0 WHERE id = " . esc_sql($MJTC_id) . " AND cannotunpublish = 0";
+            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET required = 0 WHERE id = " . absint($MJTC_id) . " AND cannotunpublish = 0";
             majesticsupport::$_db->query($MJTC_query);
             if (majesticsupport::$_db->last_error != null) {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -104,16 +104,16 @@ class MJTC_fieldorderingModel {
         if ($MJTC_action == 'down') {
             $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` AS f1, `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` AS f2
                         SET f1.ordering = f1.ordering - 1 WHERE f1.ordering = f2.ordering + 1 AND f1.fieldfor = f2.fieldfor
-                        AND f2.id = " . esc_sql($MJTC_id);
+                        AND f2.id = " . absint($MJTC_id);
             majesticsupport::$_db->query($MJTC_query);
-            $MJTC_query = " UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET ordering = ordering + 1 WHERE id = " . esc_sql($MJTC_id);
+            $MJTC_query = " UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET ordering = ordering + 1 WHERE id = " . absint($MJTC_id);
             majesticsupport::$_db->query($MJTC_query);
             MJTC_message::MJTC_setMessage(esc_html(__('Field ordering down', 'majestic-support')),'updated');
         } elseif ($MJTC_action == 'up') {
             $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` AS f1, `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` AS f2 SET f1.ordering = f1.ordering + 1
-                        WHERE f1.ordering = f2.ordering - 1 AND f1.fieldfor = f2.fieldfor AND f2.id = " . esc_sql($MJTC_id);
+                        WHERE f1.ordering = f2.ordering - 1 AND f1.fieldfor = f2.fieldfor AND f2.id = " . absint($MJTC_id);
             majesticsupport::$_db->query($MJTC_query);
-            $MJTC_query = " UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET ordering = ordering - 1 WHERE id = " . esc_sql($MJTC_id);
+            $MJTC_query = " UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET ordering = ordering - 1 WHERE id = " . absint($MJTC_id);
             majesticsupport::$_db->query($MJTC_query);
             MJTC_message::MJTC_setMessage(esc_html(__('Field ordering up', 'majestic-support')),'updated');
         }
@@ -144,11 +144,11 @@ class MJTC_fieldorderingModel {
                 $MJTC_adminonly = ' AND adminonly != 1 ';
             }
         }
-        $MJTC_query = "SELECT  * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE ".$MJTC_published." AND fieldfor =  " . esc_sql($MJTC_fieldfor);
+        $MJTC_query = "SELECT  * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE ".$MJTC_published." AND fieldfor =  " . absint($MJTC_fieldfor);
         if ($MJTC_fieldfor == 1) {
             $MJTC_query .= " AND multiformid =  " . intval($MJTC_formid);
         }
-        $MJTC_query .=  esc_sql($MJTC_adminonly) . " ORDER BY ordering ";
+        $MJTC_query .=  $MJTC_adminonly . " ORDER BY ordering ";
         majesticsupport::$_data['fieldordering'] = majesticsupport::$_db->get_results($MJTC_query);
         return;
     }
@@ -162,7 +162,7 @@ class MJTC_fieldorderingModel {
         } else {
             $MJTC_published = ' published = 1 ';
         }
-        $MJTC_query = "SELECT required FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE ".$MJTC_published." AND fieldfor =  1 AND  field =  '".esc_sql($MJTC_field)."' AND multiformid =  " . intval($MJTC_formid);
+        $MJTC_query = "SELECT required FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE ".$MJTC_published." AND fieldfor =  1 AND  field =  '".sanitize_key($MJTC_field)."' AND multiformid =  " . intval($MJTC_formid);
         $MJTC_required = majesticsupport::$_db->get_var($MJTC_query);
         return $MJTC_required;
     }
@@ -179,7 +179,7 @@ class MJTC_fieldorderingModel {
         if ($MJTC_data['isuserfield'] == 1) {
             // value to add as field ordering
             if ($MJTC_data['id'] == '') { // only for new
-                $MJTC_query = "SELECT max(ordering) FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE fieldfor=".esc_sql($MJTC_data['fieldfor']);
+                $MJTC_query = "SELECT max(ordering) FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE fieldfor=".absint($MJTC_data['fieldfor']);
                 $MJTC_var = majesticsupport::$_db->get_var($MJTC_query);
                 $MJTC_data['ordering'] = $MJTC_var + 1;
                 if(isset($MJTC_data['userfieldtype']) && ($MJTC_data['userfieldtype'] == 'file' || $MJTC_data['userfieldtype'] == 'termsandconditions' ) ){
@@ -254,7 +254,7 @@ class MJTC_fieldorderingModel {
                 // new start
 
                 if (!empty($MJTC_data['id'])) {
-                    $MJTC_query = "SELECT id, visible_field FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE visible_field LIKE '%" . esc_sql($MJTC_fieldname) . "%' AND multiformid = ".intval($MJTC_data['multiformid']);
+                    $MJTC_query = "SELECT id, visible_field FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE visible_field LIKE '%" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fieldname) . "%' AND multiformid = ".intval($MJTC_data['multiformid']);
                     $MJTC_query_results = majesticsupport::$_db->get_results($MJTC_query);
                     
                     if (!empty($MJTC_query_results)) {
@@ -262,7 +262,7 @@ class MJTC_fieldorderingModel {
                             $MJTC_query_fieldname = $MJTC_query_result->visible_field;
                             $MJTC_query_fieldname = MJTC_majesticsupportphplib::MJTC_str_replace(',' . $MJTC_fieldname, '', $MJTC_query_fieldname);
                             $MJTC_query_fieldname = MJTC_majesticsupportphplib::MJTC_str_replace($MJTC_fieldname, '', $MJTC_query_fieldname);
-                            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET visible_field = '" . esc_sql($MJTC_query_fieldname) . "' WHERE id = " . esc_sql($MJTC_query_result->id) . " AND multiformid = ".intval($MJTC_data['multiformid']);
+                            $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET visible_field = '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_query_fieldname) . "' WHERE id = " . absint($MJTC_query_result->id) . " AND multiformid = ".intval($MJTC_data['multiformid']);
                             majesticsupport::$_db->query($MJTC_query);
                         }
                     }
@@ -308,7 +308,7 @@ class MJTC_fieldorderingModel {
                         }
 
                         // --- your database update code ---
-                        $MJTC_query = "SELECT visible_field FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE field = '" . esc_sql($MJTC_visibleParents[$MJTC_index]) . "' AND multiformid = ".intval($MJTC_data['multiformid']);
+                        $MJTC_query = "SELECT visible_field FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE field = '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_visibleParents[$MJTC_index]) . "' AND multiformid = ".intval($MJTC_data['multiformid']);
                         $MJTC_old_fieldname = majesticsupport::$_db->get_var($MJTC_query);
                         $MJTC_new_fieldname = $MJTC_fieldname;
 
@@ -321,7 +321,7 @@ class MJTC_fieldorderingModel {
                             $MJTC_new_fieldname = $MJTC_old_fieldname . ',' . $MJTC_new_fieldname;
                         }
 
-                        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET visible_field = '" . esc_sql($MJTC_new_fieldname) . "' WHERE field = '" . esc_sql($MJTC_visibleParents[$MJTC_index]) . "' AND multiformid = ".intval($MJTC_data['multiformid']);
+                        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET visible_field = '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_new_fieldname) . "' WHERE field = '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_visibleParents[$MJTC_index]) . "' AND multiformid = ".intval($MJTC_data['multiformid']);
                         majesticsupport::$_db->query($MJTC_query);
 
                         if (majesticsupport::$_db->last_error != null) {
@@ -342,7 +342,7 @@ class MJTC_fieldorderingModel {
                 if ($MJTC_data['fieldfor'] != 3) {
                     $MJTC_data['visibleparams'] = '';
                     // If editing old field
-                    $MJTC_query = "SELECT id, visible_field FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE visible_field LIKE '%" . esc_sql($MJTC_fieldname) . "%' AND multiformid = ".intval($MJTC_data['multiformid']);
+                    $MJTC_query = "SELECT id, visible_field FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE visible_field LIKE '%" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fieldname) . "%' AND multiformid = ".intval($MJTC_data['multiformid']);
                     $MJTC_query_results = majesticsupport::$_db->get_results($MJTC_query);
                     if (!empty($MJTC_query_results)) {
                         foreach ($MJTC_query_results as $MJTC_query_result) {
@@ -350,7 +350,7 @@ class MJTC_fieldorderingModel {
                                 $MJTC_query_fieldname = $MJTC_query_result->visible_field;
                                 $MJTC_query_fieldname = MJTC_majesticsupportphplib::MJTC_str_replace(',' . $MJTC_fieldname, '', $MJTC_query_fieldname);
                                 $MJTC_query_fieldname = MJTC_majesticsupportphplib::MJTC_str_replace($MJTC_fieldname, '', $MJTC_query_fieldname);
-                                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET visible_field = '" . esc_sql($MJTC_query_fieldname) . "' WHERE id = " . esc_sql($MJTC_query_result->id);
+                                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET visible_field = '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_query_fieldname) . "' WHERE id = " . absint($MJTC_query_result->id);
                                 majesticsupport::$_db->query($MJTC_query);
                             }
                         }
@@ -409,7 +409,7 @@ class MJTC_fieldorderingModel {
         /*if (!empty($MJTC_data['depandant_field']) && $MJTC_data['depandant_field'] != null ) {
 
             $MJTC_query = "SELECT * FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering where
-            field = '". esc_sql($MJTC_data['depandant_field'])."'";
+            field = '". sanitize_text_field($MJTC_data['depandant_field'])."'";
             $MJTC_child = majesticsupport::$_db->get_row($MJTC_query);
             $MJTC_parent = $MJTC_data;
             $MJTC_flagvar = $this->updateChildField($MJTC_parent, $MJTC_child);
@@ -443,12 +443,12 @@ class MJTC_fieldorderingModel {
             if (!empty($MJTC_data['depandant_field']) && $MJTC_data['depandant_field'] != null ) {
 
                 $MJTC_query = "SELECT * FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering where
-                field = '". esc_sql($MJTC_data['depandant_field'])."'";
+                field = '". sanitize_text_field($MJTC_data['depandant_field'])."'";
                 $MJTC_child = majesticsupport::$_db->get_row($MJTC_query);
                 
                 /* get parent saved data */
                 $MJTC_query = "SELECT * FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering where
-                id = '". esc_sql($MJTC_data['id'])."'";
+                id = '". absint($MJTC_data['id'])."'";
                 $MJTC_parent = majesticsupport::$_db->get_row($MJTC_query);
                 /* get parent saved data */
                 
@@ -472,43 +472,43 @@ class MJTC_fieldorderingModel {
         $MJTC_inquery = '';
         $MJTC_clasue = '';
         if(isset($MJTC_data['fieldtitle']) && $MJTC_data['fieldtitle'] != null){
-            $MJTC_inquery .= $MJTC_clasue." fieldtitle = '". esc_sql($MJTC_data['fieldtitle']) ."'";
+            $MJTC_inquery .= $MJTC_clasue." fieldtitle = '". MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_data['fieldtitle']) ."'";
             $MJTC_clasue = ' , ';
         }
         if(isset($MJTC_data['published']) && $MJTC_data['published'] != null){
-            $MJTC_inquery .= $MJTC_clasue." published = ". esc_sql($MJTC_data['published']);
+            $MJTC_inquery .= $MJTC_clasue." published = ". absint($MJTC_data['published']);
             $MJTC_clasue = ' , ';
         }
         if(isset($MJTC_data['isvisitorpublished']) && $MJTC_data['isvisitorpublished'] != null){
-            $MJTC_inquery .= $MJTC_clasue." isvisitorpublished = ". esc_sql($MJTC_data['isvisitorpublished']);
+            $MJTC_inquery .= $MJTC_clasue." isvisitorpublished = ". absint($MJTC_data['isvisitorpublished']);
             $MJTC_clasue = ' , ';
         }
         if(isset($MJTC_data['placeholder']) && $MJTC_data['placeholder'] != null){
-            $MJTC_inquery .= $MJTC_clasue." placeholder = '". esc_sql($MJTC_data['placeholder']) ."'";
+            $MJTC_inquery .= $MJTC_clasue." placeholder = '". MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_data['placeholder']) ."'";
             $MJTC_clasue = ' , ';
         }
         if(isset($MJTC_data['description']) && $MJTC_data['description'] != null){
-            $MJTC_inquery .= $MJTC_clasue." description = '". esc_sql($MJTC_data['description']) . "'";
+            $MJTC_inquery .= $MJTC_clasue." description = '". MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_data['description']) . "'";
             $MJTC_clasue = ' , ';
         }
         if(isset($MJTC_data['required']) && $MJTC_data['required'] != null){
-            $MJTC_inquery .= $MJTC_clasue." required = ". esc_sql($MJTC_data['required']);
+            $MJTC_inquery .= $MJTC_clasue." required = ". absint($MJTC_data['required']);
             $MJTC_clasue = ' , ';
         }
         if(isset($MJTC_data['search_user']) && $MJTC_data['search_user'] != null){
-            $MJTC_inquery .= $MJTC_clasue." search_user = ". esc_sql($MJTC_data['search_user']);
+            $MJTC_inquery .= $MJTC_clasue." search_user = ". absint($MJTC_data['search_user']);
             $MJTC_clasue = ' , ';
         }
         if(isset($MJTC_data['search_admin']) && $MJTC_data['search_admin'] != null){
-            $MJTC_inquery .= $MJTC_clasue." search_admin = ". esc_sql($MJTC_data['search_admin']);
+            $MJTC_inquery .= $MJTC_clasue." search_admin = ". absint($MJTC_data['search_admin']);
             $MJTC_clasue = ' , ';
         }
         if(isset($MJTC_data['showonlisting']) && $MJTC_data['showonlisting'] != null){
-            $MJTC_inquery .= $MJTC_clasue." showonlisting = ". esc_sql($MJTC_data['showonlisting']);
+            $MJTC_inquery .= $MJTC_clasue." showonlisting = ". absint($MJTC_data['showonlisting']);
             $MJTC_clasue = ' , ';
         }
 
-        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET ".$MJTC_inquery." WHERE id = " . esc_sql($MJTC_data['id']) ;
+        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET ".$MJTC_inquery." WHERE id = " . absint($MJTC_data['id']) ;
         majesticsupport::$_db->query($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -523,7 +523,7 @@ class MJTC_fieldorderingModel {
         if(!is_numeric($MJTC_parentfield)) return false;
         if(empty($MJTC_field)) return false;
 
-        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET depandant_field = '" . esc_sql($MJTC_field) . "' WHERE id = " . esc_sql($MJTC_parentfield) . " AND fieldfor = " . esc_sql($MJTC_fieldfor);
+        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET depandant_field = '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_field) . "' WHERE id = " . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_parentfield) . " AND fieldfor = " . absint($MJTC_fieldfor);
         majesticsupport::$_db->query($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -551,7 +551,7 @@ class MJTC_fieldorderingModel {
         }
         $MJTC_childNew = wp_json_encode( $MJTC_childNew );
         $MJTC_child->userfieldparams = $MJTC_childNew;
-        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET userfieldparams = '" . esc_sql($MJTC_childNew) . "' WHERE id = " . esc_sql($MJTC_child->id);
+        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET userfieldparams = '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_childNew) . "' WHERE id = " . absint($MJTC_child->id);
         majesticsupport::$_db->query($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
 
@@ -571,14 +571,14 @@ class MJTC_fieldorderingModel {
         if(!is_numeric($MJTC_fieldfor)) return false;
         $MJTC_wherequery = '';
         if(isset($MJTC_parentfield) && $MJTC_parentfield !='' ){
-            $MJTC_query = "SELECT id FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE fieldfor = ".esc_sql($MJTC_fieldfor)." AND (userfieldtype = 'radio' OR userfieldtype = 'combo'OR userfieldtype = 'depandant_field') AND depandant_field = '" . esc_sql($MJTC_parentfield) . "' ";
+            $MJTC_query = "SELECT id FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE fieldfor = ".absint($MJTC_fieldfor)." AND (userfieldtype = 'radio' OR userfieldtype = 'combo'OR userfieldtype = 'depandant_field') AND depandant_field = '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_parentfield) . "' ";
             $MJTC_parent = majesticsupport::$_db->get_var($MJTC_query);
-            $MJTC_wherequery = ' OR id = '.esc_sql($MJTC_parent);
+            $MJTC_wherequery = ' OR id = '.absint($MJTC_parent);
         }
-        $MJTC_query = "SELECT fieldtitle AS text ,id FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE fieldfor = ".esc_sql($MJTC_fieldfor)." AND multiformid = ".intval($MJTC_formid)." AND (userfieldtype = 'radio' OR userfieldtype = 'combo' OR userfieldtype = 'depandant_field') AND (depandant_field = '' ".esc_sql($MJTC_wherequery)." ) ";
+        $MJTC_query = "SELECT fieldtitle AS text ,id FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE fieldfor = ".absint($MJTC_fieldfor)." AND multiformid = ".intval($MJTC_formid)." AND (userfieldtype = 'radio' OR userfieldtype = 'combo' OR userfieldtype = 'depandant_field') AND (depandant_field = '' ".$MJTC_wherequery." ) ";
         $MJTC_data = majesticsupport::$_db->get_results($MJTC_query);
         if(isset($MJTC_parentfield) && $MJTC_parentfield !='' ){
-            $MJTC_query = "SELECT id FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE fieldfor = ".esc_sql($MJTC_fieldfor)." AND (userfieldtype = 'radio' OR userfieldtype = 'combo'OR userfieldtype = 'depandant_field') AND depandant_field = '" . esc_sql($MJTC_parentfield) . "' ";
+            $MJTC_query = "SELECT id FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE fieldfor = ".absint($MJTC_fieldfor)." AND (userfieldtype = 'radio' OR userfieldtype = 'combo'OR userfieldtype = 'depandant_field') AND depandant_field = '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_parentfield) . "' ";
             $MJTC_parent = majesticsupport::$_db->get_var($MJTC_query);
         }
         $MJTC_nonce = wp_create_nonce("get-section-to-fill-values-".$MJTC_fieldfor);
@@ -593,35 +593,36 @@ class MJTC_fieldorderingModel {
         if(!is_numeric($MJTC_fieldfor)) return false;
         $MJTC_wherequery = '';
         if(isset($MJTC_field) && $MJTC_field !='' ){
-            $MJTC_query = "SELECT id FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE fieldfor = ".esc_sql($MJTC_fieldfor)." AND (userfieldtype IN ( 'combo', 'text', 'checkbox', 'date', 'email', 'radio', 'multiple') ) AND visible_field = '" . esc_sql($MJTC_field) . "' ";
+            $MJTC_query = "SELECT id FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE fieldfor = ".absint($MJTC_fieldfor)." AND (userfieldtype IN ( 'combo', 'text', 'checkbox', 'date', 'email', 'radio', 'multiple') ) AND visible_field = '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_field) . "' ";
             $MJTC_parent = majesticsupport::$_db->get_var($MJTC_query);
             if ($MJTC_parent) {
-                $MJTC_wherequery = ' OR id = '.esc_sql($MJTC_parent);
+                $MJTC_wherequery = ' OR id = '.absint($MJTC_parent);
             }
         }
         $MJTC_wherequeryforedit = '';
         if(isset($MJTC_cid) && $MJTC_cid !='' ){
-            $MJTC_wherequeryforedit = ' AND id != '.esc_sql($MJTC_cid);
+            $MJTC_wherequeryforedit = ' AND id != '.absint($MJTC_cid);
         }
         
         // Base fields always included
         $MJTC_builtin_fields = ['email', 'fullname', 'phone', 'subject', 'department', 'priority'];
 
         // Convert to comma-separated string for SQL IN clause
-        $MJTC_builtin_fields_sql = "'" . implode("','", array_map('esc_sql', $MJTC_builtin_fields)) . "'";
+        $MJTC_builtin_fields = array_map('sanitize_key', $MJTC_builtin_fields);
+        $MJTC_builtin_fields_sql = "'" . implode("','", $MJTC_builtin_fields) . "'";
 
         // Build the final SQL query
         $MJTC_query = "
         SELECT fieldtitle AS text, field AS id 
             FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering 
             WHERE (
-                fieldfor = " . esc_sql($MJTC_fieldfor) . " 
+                fieldfor = " . absint($MJTC_fieldfor) . " 
                 AND multiformid = '" . intval($MJTC_multiformid) . "' 
                 AND field IN ($MJTC_builtin_fields_sql) 
                 $MJTC_wherequeryforedit $MJTC_wherequery
             ) 
             OR (
-                fieldfor = " . esc_sql($MJTC_fieldfor) . " 
+                fieldfor = " . absint($MJTC_fieldfor) . " 
                 AND multiformid = '" . intval($MJTC_multiformid) . "' 
                 AND userfieldtype IN ('combo', 'text', 'checkbox', 'date', 'email', 'radio', 'multiple') 
                 $MJTC_wherequeryforedit $MJTC_wherequery
@@ -645,11 +646,11 @@ class MJTC_fieldorderingModel {
             return false;
         }
 
-        $MJTC_query = "SELECT isuserfield, userfieldtype, field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = '" . esc_sql($MJTC_perentid)."'";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT isuserfield, userfieldtype, field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = %s", sanitize_key($MJTC_perentid));
         $MJTC_fieldType = majesticsupport::$_db->get_row($MJTC_query);
         $MJTC_showComboBox = false;
         if (isset($MJTC_fieldType->isuserfield) && $MJTC_fieldType->isuserfield == 1) {
-            $MJTC_query = "SELECT userfieldparams AS params FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = '" . esc_sql($MJTC_perentid) . "'";
+            $MJTC_query = "SELECT userfieldparams AS params FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_perentid) . "'";
             $MJTC_options = majesticsupport::$_db->get_var($MJTC_query);
             $MJTC_options = json_decode($MJTC_options);
             foreach ($MJTC_options as $MJTC_key => $MJTC_option) {
@@ -701,7 +702,7 @@ class MJTC_fieldorderingModel {
         (object) array('id' => 1, 'text' => esc_html(__('Equal', 'majestic-support'))),
         (object) array('id' => 0, 'text' => esc_html(__('Not Equal', 'majestic-support'))));
 
-        $MJTC_query = "SELECT isuserfield, userfieldtype, field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = '" . esc_sql($MJTC_perentid) . "'";
+        $MJTC_query = "SELECT isuserfield, userfieldtype, field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE field = '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_perentid) . "'";
         $MJTC_fieldType = majesticsupport::$_db->get_row($MJTC_query);
         if (empty($MJTC_fieldType->isuserfield)) {
             if ($MJTC_fieldType->field == 'email' || $MJTC_fieldType->field == 'fullname' || $MJTC_fieldType->field == 'phone' || $MJTC_fieldType->field == 'subject' || $MJTC_fieldType->field == 'issuesummary') {
@@ -733,7 +734,7 @@ class MJTC_fieldorderingModel {
         if(!is_numeric($MJTC_field)){
             return false;
         }
-        $MJTC_query = "SELECT userfieldparams FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE id=".esc_sql($MJTC_field);
+        $MJTC_query = "SELECT userfieldparams FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE id=".sanitize_key($MJTC_field);
         $MJTC_data = majesticsupport::$_db->get_var($MJTC_query);
         $MJTC_datas = json_decode($MJTC_data);
         $MJTC_html = '';
@@ -804,7 +805,7 @@ class MJTC_fieldorderingModel {
             (object) array('id' => 1, 'text' => esc_html(__('Yes', 'majestic-support'))),
             (object) array('id' => 0, 'text' => esc_html(__('No', 'majestic-support'))));
 
-        $MJTC_query = "SELECT * FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE id=".esc_sql($MJTC_field);
+        $MJTC_query = "SELECT * FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE id=".sanitize_key($MJTC_field);
         $MJTC_data = majesticsupport::$_db->get_row($MJTC_query);
 
         $MJTC_html = '<div class="userpopup-top">
@@ -882,7 +883,7 @@ class MJTC_fieldorderingModel {
     function deleteUserField($MJTC_id){
         if (is_numeric($MJTC_id) == false)
            return false;
-        $MJTC_query = "SELECT field,field,fieldfor FROM `".majesticsupport::$_db->prefix."mjtc_support_fieldsordering` WHERE id = " . esc_sql($MJTC_id);
+        $MJTC_query = "SELECT field,field,fieldfor FROM `".majesticsupport::$_db->prefix."mjtc_support_fieldsordering` WHERE id = " . absint($MJTC_id);
         $MJTC_result = majesticsupport::$_db->get_row($MJTC_query);
         if ($this->userFieldCanDelete($MJTC_result) == true) {
             $MJTC_row = MJTC_includer::MJTC_getTable('fieldsordering');
@@ -890,24 +891,24 @@ class MJTC_fieldorderingModel {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
                 MJTC_message::MJTC_setMessage(esc_html(__('Field has not been deleted', 'majestic-support')),'error');
             } else {
-                $MJTC_query = "SELECT id,visible_field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE visible_field LIKE '%".esc_sql($MJTC_result->field)."%'";
+                $MJTC_query = "SELECT id,visible_field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE visible_field LIKE '%".MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_result->field)."%'";
                 $MJTC_results = majesticsupport::$_db->get_results($MJTC_query);
                 foreach ($MJTC_results as $MJTC_value) {
                     $MJTC_visible_field =  MJTC_majesticsupportphplib::MJTC_str_replace($MJTC_result->field.',', '', $MJTC_value->visible_field);
                     $MJTC_visible_field =  MJTC_majesticsupportphplib::MJTC_str_replace(','.$MJTC_result->field, '', $MJTC_visible_field);
                     $MJTC_visible_field =  MJTC_majesticsupportphplib::MJTC_str_replace($MJTC_result->field, '', $MJTC_visible_field);
 
-                    $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET visible_field = '".esc_sql($MJTC_visible_field)."' WHERE id = ".esc_sql($MJTC_value->id);
+                    $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET visible_field = '".MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_visible_field)."' WHERE id = ".absint($MJTC_value->id);
                     majesticsupport::$_db->query($MJTC_query);
                     if (majesticsupport::$_db->last_error != null) {
 
                         MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
                     }
                 }
-                $MJTC_query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE depandant_field = '".esc_sql($MJTC_result->field)."'";
+                $MJTC_query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE depandant_field = '".MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_result->field)."'";
                 $MJTC_result = majesticsupport::$_db->get_var($MJTC_query);
                 if (isset($MJTC_result)) {
-                    $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET depandant_field = '' WHERE id = ".esc_sql($MJTC_result);
+                    $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` SET depandant_field = '' WHERE id = ".absint($MJTC_result);
                     majesticsupport::$_db->query($MJTC_query);
                 }
                 MJTC_message::MJTC_setMessage(esc_html(__('Field has been deleted', 'majestic-support')),'updated');
@@ -921,7 +922,7 @@ class MJTC_fieldorderingModel {
     function enforceDeleteUserField($MJTC_id){
         if (is_numeric($MJTC_id) == false)
            return false;
-        $MJTC_query = "SELECT field,fieldfor FROM `".majesticsupport::$_db->prefix."mjtc_support_fieldsordering` WHERE id = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT field,fieldfor FROM `".majesticsupport::$_db->prefix."mjtc_support_fieldsordering` WHERE id = ".absint($MJTC_id);
         $MJTC_result = majesticsupport::$_db->get_row($MJTC_query);
         if ($this->userFieldCanDelete($MJTC_result) == true) {
             $MJTC_row = MJTC_includer::MJTC_getTable('fieldsordering');
@@ -937,7 +938,7 @@ class MJTC_fieldorderingModel {
         $table = "tickets";
         $MJTC_query = ' SELECT
                     ( SELECT COUNT(id) FROM `' . majesticsupport::$_db->prefix . 'mjtc_support_'.$table.'` WHERE
-                        params LIKE \'%"' . esc_sql($MJTC_fieldname) . '":%\'
+                        params LIKE \'%"' . sanitize_text_field($MJTC_fieldname) . '":%\'
                     )
                     AS total';
         $total = majesticsupport::$_db->get_var($MJTC_query);
@@ -952,7 +953,7 @@ class MJTC_fieldorderingModel {
         if (!is_numeric($MJTC_fieldfor)){
             return false;
         }
-        $MJTC_fieldfor = esc_sql($MJTC_fieldfor);
+        $MJTC_fieldfor = absint($MJTC_fieldfor);
 
         // 2. Determine visibility criteria
         if (MJTC_includer::MJTC_getObjectClass('user')->MJTC_isguest()) {
@@ -968,7 +969,7 @@ class MJTC_fieldorderingModel {
         }
 
         // 4. Construct the query using the safe, casted integers
-        $MJTC_query = "SELECT field, userfieldparams, userfieldtype, fieldtitle FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE fieldfor = " . esc_sql($MJTC_fieldfor) . " AND isuserfield = 1 AND " . $MJTC_published;
+        $MJTC_query = "SELECT field, userfieldparams, userfieldtype, fieldtitle FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE fieldfor = " . absint($MJTC_fieldfor) . " AND isuserfield = 1 AND " . $MJTC_published;
         $MJTC_query .= $MJTC_inquery . " ORDER BY field ";
         
         // 5. Execute query
@@ -984,7 +985,7 @@ class MJTC_fieldorderingModel {
         } else {
             $MJTC_published = ' published = 0 ';
         }
-        $MJTC_query = "SELECT field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE fieldfor = " . esc_sql($MJTC_fieldfor) . " AND isuserfield = 1 AND " . $MJTC_published;
+        $MJTC_query = "SELECT field FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE fieldfor = " . absint($MJTC_fieldfor) . " AND isuserfield = 1 AND " . $MJTC_published;
         $MJTC_fields = majesticsupport::$_db->get_results($MJTC_query);
         return $MJTC_fields;
     }
@@ -1006,7 +1007,7 @@ class MJTC_fieldorderingModel {
         } elseif (isset($MJTC_formid) && $MJTC_formid != '') {
             $MJTC_inquery = " AND multiformid = ".intval($MJTC_formid);
         }
-        $MJTC_query = "SELECT field,fieldtitle FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE fieldfor = " . esc_sql($MJTC_fieldfor) . $MJTC_published;
+        $MJTC_query = "SELECT field,fieldtitle FROM `" . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering` WHERE fieldfor = " . absint($MJTC_fieldfor) . $MJTC_published;
         $MJTC_query .= $MJTC_inquery;
         $MJTC_fields = majesticsupport::$_db->get_results($MJTC_query);
         $MJTC_fielddata = array();
@@ -1020,7 +1021,7 @@ class MJTC_fieldorderingModel {
         if ($MJTC_id) {
             if (is_numeric($MJTC_id) == false)
                 return false;
-            $MJTC_query = "SELECT * FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE id = " . esc_sql($MJTC_id);
+            $MJTC_query = "SELECT * FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE id = " . absint($MJTC_id);
             majesticsupport::$_data[0]['userfield'] = majesticsupport::$_db->get_row($MJTC_query);
             $MJTC_params = majesticsupport::$_data[0]['userfield']->userfieldparams;
             $MJTC_visibleparams = majesticsupport::$_data[0]['userfield']->visibleparams;
@@ -1046,7 +1047,7 @@ class MJTC_fieldorderingModel {
         } elseif (isset($MJTC_formid) && $MJTC_formid != '') {
             $MJTC_inquery = " AND multiformid = ".intval($MJTC_formid);
         }
-        $MJTC_query = "SELECT field, showonlisting FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE showonlisting = 1 AND fieldfor =  " . esc_sql($MJTC_fieldfor) . esc_sql($MJTC_published);
+        $MJTC_query = "SELECT field, showonlisting FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE showonlisting = 1 AND fieldfor =  " . absint($MJTC_fieldfor) . $MJTC_published;
         $MJTC_query .= $MJTC_inquery;
         $MJTC_query .= " ORDER BY ordering";
         $MJTC_fields = majesticsupport::$_db->get_results($MJTC_query);
@@ -1138,7 +1139,7 @@ class MJTC_fieldorderingModel {
             die( 'Security check Failed' );
         }
         $MJTC_val = MJTC_request::MJTC_getVar('fvalue');
-        $MJTC_query = "SELECT userfieldparams,fieldtitle,depandant_field,field FROM `".majesticsupport::$_db->prefix."mjtc_support_fieldsordering` WHERE field = '".esc_sql($MJTC_childfield)."'";
+        $MJTC_query = "SELECT userfieldparams,fieldtitle,depandant_field,field FROM `".majesticsupport::$_db->prefix."mjtc_support_fieldsordering` WHERE field = '".sanitize_key($MJTC_childfield)."'";
         $MJTC_data = majesticsupport::$_db->get_row($MJTC_query);
         $MJTC_decoded_data = json_decode($MJTC_data->userfieldparams);
         $MJTC_comboOptions = array();
@@ -1172,10 +1173,13 @@ class MJTC_fieldorderingModel {
     }
 
     function MJTC_getDataForVisibleField($MJTC_field) {
-        $MJTC_field = esc_sql($MJTC_field);
-        $MJTC_field_array = MJTC_majesticsupportphplib::MJTC_str_replace(",", "','", $MJTC_field);
+        $MJTC_fields_input = array_filter(array_map('sanitize_key', MJTC_majesticsupportphplib::MJTC_explode(',', $MJTC_field)));
+        if (empty($MJTC_fields_input)) {
+            return array();
+        }
+        $MJTC_placeholders = implode(',', array_fill(0, count($MJTC_fields_input), '%s'));
 
-        $MJTC_query = "SELECT field, visibleparams FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE field IN ('" . $MJTC_field_array . "')";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT field, visibleparams FROM " . majesticsupport::$_db->prefix . "mjtc_support_fieldsordering WHERE field IN (" . $MJTC_placeholders . ")", $MJTC_fields_input);
         $MJTC_fields = majesticsupport::$_db->get_results($MJTC_query);
         $MJTC_data = array();
 
@@ -1217,10 +1221,10 @@ class MJTC_fieldorderingModel {
     }
 
     static function getChildForVisibleField($MJTC_field) {
-        $MJTC_field = esc_sql($MJTC_field);
+        $MJTC_field = sanitize_text_field($MJTC_field);
         $MJTC_oldField = MJTC_majesticsupportphplib::MJTC_explode(',',$MJTC_field);
-        $MJTC_newField = $MJTC_oldField[sizeof($MJTC_oldField) - 1];
-        $MJTC_query = "SELECT visible_field FROM ". majesticsupport::$_db->prefix ."mjtc_support_fieldsordering WHERE  field = '". $MJTC_newField ."'";
+        $MJTC_newField = sanitize_key($MJTC_oldField[sizeof($MJTC_oldField) - 1]);
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT visible_field FROM ". majesticsupport::$_db->prefix ."mjtc_support_fieldsordering WHERE field = %s", $MJTC_newField);
         $MJTC_queryRun = majesticsupport::$_db->get_var($MJTC_query);
         if (isset($MJTC_queryRun) && $MJTC_queryRun != '') {
             $MJTC_data = MJTC_majesticsupportphplib::MJTC_explode(',',$MJTC_queryRun);

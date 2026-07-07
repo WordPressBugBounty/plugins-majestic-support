@@ -25,7 +25,7 @@ class MJTC_replyModel {
                     LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user ON  replies.uid = user.id
                     LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS viewer ON  replies.viewed_by = viewer.id
                     ".majesticsupport::$_addon_query['join']."
-                    WHERE tickets.id = " . esc_sql($MJTC_id) . " ORDER By replies.id ".esc_sql($MJTC_ordering);
+                    WHERE tickets.id = " . absint($MJTC_id) . " ORDER BY replies.id " . $MJTC_ordering;
         majesticsupport::$_data[4] = majesticsupport::$_db->get_results($MJTC_query);
         do_action('MJTC_reset_addon_query');
         if (majesticsupport::$_db->last_error != null) {
@@ -65,7 +65,7 @@ class MJTC_replyModel {
             }
             // Execute the query if an update is required
             if ($MJTC_update_required) {
-                $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_replies` SET viewed_by = " . esc_sql($MJTC_viewed_by) . ", viewed_on = '" . esc_sql(date_i18n('Y-m-d H:i:s')) . "' WHERE id = " . esc_sql($MJTC_reply->replyid);
+                $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_replies` SET viewed_by = %d, viewed_on = %s WHERE id = %d", absint($MJTC_viewed_by), date_i18n('Y-m-d H:i:s'), absint($MJTC_reply->replyid));
                 majesticsupport::$_db->query($MJTC_query);
             }
         }
@@ -88,7 +88,7 @@ class MJTC_replyModel {
             $MJTC_query = "SELECT replies.*,tickets.id
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS replies
                         JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS tickets ON  replies.ticketid = tickets.id
-                        WHERE replies.id = " . esc_sql($MJTC_id);
+                        WHERE replies.id = " . absint($MJTC_id);
             majesticsupport::$_data[0] = majesticsupport::$_db->get_row($MJTC_query);
             if (majesticsupport::$_db->last_error != null) {
                 MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
@@ -111,8 +111,8 @@ class MJTC_replyModel {
         $MJTC_ticketid   = $MJTC_data['ticketrandomid'];
         $MJTC_internalid   = $MJTC_data['internalid'];
         $MJTC_hash       = $MJTC_data['hash'];
-        $MJTC_query = "SELECT id FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE ticketid='".esc_sql($MJTC_ticketid)."'
-        AND IF(`hash` is NULL,true,`hash`='".esc_sql($MJTC_hash)."') ";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT id FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE ticketid=%s
+        AND IF(`hash` is NULL,true,`hash`=%s) ", $MJTC_ticketid, $MJTC_hash);
         $MJTC_id = majesticsupport::$_db->get_var($MJTC_query);
         if($MJTC_id != $MJTC_data['ticketid']){
             return;
@@ -350,7 +350,7 @@ class MJTC_replyModel {
             } else {
                 MJTC_includer::MJTC_getModel('email')->sendMail(1, 5, $MJTC_ticketid); // Mailfor, Reply Ticket
             }
-            $MJTC_ticketreplyobject = majesticsupport::$_db->get_row("SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE id = " . esc_sql($MJTC_replyid));
+            $MJTC_ticketreplyobject = majesticsupport::$_db->get_row(majesticsupport::$_db->prepare("SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE id = %d", absint($MJTC_replyid)));
             do_action('MJTC_ticketreply', $MJTC_ticketreplyobject);
         }
         // if Close on reply is cheked
@@ -369,7 +369,7 @@ class MJTC_replyModel {
         if (isset($MJTC_data['ticketviaemail']) && $MJTC_data['ticketviaemail'] == 1) {
             $MJTC_inquery .= " AND ticketviaemail = 1";
         }
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid = '" . esc_sql($MJTC_data['ticketid']) . "' AND uid = '" . esc_sql($MJTC_data['uid']) . "' ORDER BY created DESC LIMIT 1";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid = %d AND uid = %d ORDER BY created DESC LIMIT 1", absint($MJTC_data['ticketid']), absint($MJTC_data['uid']));
         $MJTC_query .= $MJTC_inquery;
         $MJTC_datetime = majesticsupport::$_db->get_var($MJTC_query);
         if($MJTC_datetime){
@@ -384,7 +384,7 @@ class MJTC_replyModel {
     function getLastReply($MJTC_ticketid) {
         if (!is_numeric($MJTC_ticketid))
             return false;
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid =  " . esc_sql($MJTC_ticketid) . " ORDER BY created desc";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid = %d ORDER BY created DESC", absint($MJTC_ticketid));
         $MJTC_lastreply = majesticsupport::$_db->get_var($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
@@ -407,7 +407,7 @@ class MJTC_replyModel {
         if(!is_numeric($MJTC_replyid)) return false;
         $MJTC_query = "SELECT reply.id AS replyid, reply.message AS message
                     FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS reply
-                    WHERE reply.id =  " . esc_sql($MJTC_replyid) ;
+                    WHERE reply.id =  " . absint($MJTC_replyid) ;
         $MJTC_lastreply = majesticsupport::$_db->get_row($MJTC_query);
         $MJTC_lastreply->message = MJTC_majesticsupportphplib::MJTC_htmlentities(($MJTC_lastreply->message));
 
@@ -419,12 +419,12 @@ class MJTC_replyModel {
         $MJTC_inquery = '';
         //if not admin and agent
         if(!current_user_can('manage_options') && !(in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff())){
-            $MJTC_inquery = " AND ticket.internalid = '".esc_sql($MJTC_internalid)."'";
+            $MJTC_inquery = majesticsupport::$_db->prepare(" AND ticket.internalid = %s", $MJTC_internalid);
             
         }
         $MJTC_query = "SELECT attachment.filename , ticket.attachmentdir
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_attachments` AS attachment
-            JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket ON ticket.id = attachment.ticketid WHERE attachment.replyattachmentid = ".esc_sql($MJTC_id) ;
+            JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket ON ticket.id = attachment.ticketid WHERE attachment.replyattachmentid = ".absint($MJTC_id) ;
         $MJTC_query .= $MJTC_inquery;
         $MJTC_replyattachments = majesticsupport::$_db->get_results($MJTC_query);
         return $MJTC_replyattachments;
@@ -471,7 +471,7 @@ class MJTC_replyModel {
     function getTicketLastReplyById($MJTC_ticketid) {
         if (!is_numeric($MJTC_ticketid))
             return false;
-        $MJTC_query = "SELECT message FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid =  " . esc_sql($MJTC_ticketid) . " ORDER BY created desc LIMIT 1";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT message FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE ticketid = %d ORDER BY created DESC LIMIT 1", absint($MJTC_ticketid));
         $MJTC_lastreply = majesticsupport::$_db->get_var($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
@@ -485,7 +485,7 @@ class MJTC_replyModel {
         $MJTC_query = "SELECT user.* 
 			FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS reply
 			JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_users` AS user ON reply.uid = user.id
-			WHERE reply.id =  " . esc_sql($MJTC_replyid);
+			WHERE reply.id =  " . absint($MJTC_replyid);
         $MJTC_replyuser = majesticsupport::$_db->get_row($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError(); // if there is an error add it to system errorrs
@@ -517,7 +517,7 @@ class MJTC_replyModel {
         }
 
         $table = ($type === 'ticket') ? 'mjtc_support_tickets' : 'mjtc_support_replies';
-        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "$table` SET aireplymode = " . esc_sql($MJTC_status) . " WHERE id = " . esc_sql($MJTC_id);
+        $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "$table` SET aireplymode = %d WHERE id = %d", absint($MJTC_status), absint($MJTC_id));
 
         $MJTC_result = majesticsupport::$_db->query($MJTC_query);
 
@@ -567,7 +567,7 @@ class MJTC_replyModel {
         $MJTC_query = "
         SELECT r.*
             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS r
-            WHERE r.ticketid = " . esc_sql($MJTC_ticket_id) . "
+            WHERE r.ticketid = " . absint($MJTC_ticket_id) . "
             AND r.uid IN ($MJTC_uids_str)";
 
         $MJTC_query .= " ORDER BY r.created ASC LIMIT 50";

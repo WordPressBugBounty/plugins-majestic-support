@@ -37,6 +37,28 @@ class MJTC_majesticsupportphplib {
         return $MJTC_string;
     }
 
+    public static function MJTC_sql_string($MJTC_value) {
+        if (!isset(majesticsupport::$_db) || !is_object(majesticsupport::$_db)) {
+            return '';
+        }
+        $MJTC_prepared = majesticsupport::$_db->prepare('%s', sanitize_text_field($MJTC_value));
+        if (MJTC_majesticsupportphplib::MJTC_strlen($MJTC_prepared) >= 2) {
+            return MJTC_majesticsupportphplib::MJTC_substr($MJTC_prepared, 1, -1);
+        }
+        return '';
+    }
+
+    public static function MJTC_sql_like($MJTC_value) {
+        if (!isset(majesticsupport::$_db) || !is_object(majesticsupport::$_db)) {
+            return '';
+        }
+        $MJTC_prepared = majesticsupport::$_db->prepare('%s', '%' . majesticsupport::$_db->esc_like(sanitize_text_field($MJTC_value)) . '%');
+        if (MJTC_majesticsupportphplib::MJTC_strlen($MJTC_prepared) >= 2) {
+            return MJTC_majesticsupportphplib::MJTC_substr($MJTC_prepared, 1, -1);
+        }
+        return '';
+    }
+
 
     public static function MJTC_strstr($MJTC_haystack, $MJTC_needle) {
         if($MJTC_haystack == '' || $MJTC_needle == ''){

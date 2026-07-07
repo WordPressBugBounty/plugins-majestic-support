@@ -3,27 +3,637 @@ if (!defined('ABSPATH')) die('Restricted Access');
 
 class MJTC_zywrapModel {
 
+    /**
+     * Built-in workflow data lets Majestic Support ticket AI work without the
+     * Enterprise catalog SDK. Enterprise catalog sync remains available for the
+     * Playground; this pack is only a small support-focused fallback.
+     */
+    public function ensureOfflineWorkflowPack() {
+        return $this->installOfflineWorkflowPackInternal(false);
+    }
+
+    private function getOfflineWorkflowPackPath() {
+        return dirname(__FILE__) . '/data/majestic-support-workflows.json';
+    }
+
+    private function getOfflineWorkflowPack() {
+        static $pack = null;
+        if ($pack !== null) {
+            return $pack;
+        }
+
+        $file = $this->getOfflineWorkflowPackPath();
+        if (!file_exists($file) || !is_readable($file)) {
+            $pack = array();
+            return $pack;
+        }
+
+        $raw = file_get_contents($file);
+        $data = json_decode($raw, true);
+        $pack = is_array($data) ? $data : array();
+        return $pack;
+    }
+
+    private function getOfflineWrapperCodes() {
+        $pack = $this->getOfflineWorkflowPack();
+        $codes = array();
+        if (!empty($pack['wrappers']) && is_array($pack['wrappers'])) {
+            foreach ($pack['wrappers'] as $wrapper) {
+                if (!empty($wrapper['code'])) {
+                    $codes[] = sanitize_key($wrapper['code']);
+                }
+            }
+        }
+        return array_values(array_unique($codes));
+    }
+
+    private function isAllowedSupportWrapper($wrapper_code) {
+        $wrapper_code = sanitize_key($wrapper_code);
+        if (empty($wrapper_code)) {
+            return false;
+        }
+        return in_array($wrapper_code, $this->getOfflineWrapperCodes(), true);
+    }
+
+
+    private function sanitizeRuntimeModelCode($code) {
+        $code = trim((string) $code);
+        $code = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $code);
+        return substr($code, 0, 255);
+    }
+
+    private function getFallbackRuntimeModels() {
+        return array(
+            array('code' => 'openai-gpt-4o', 'name' => 'GPT-4o', 'ordering' => 10),
+            array('code' => 'openai-gpt-5-mini', 'name' => 'GPT-5 mini', 'ordering' => 11),
+            array('code' => 'openai-gpt-4o-mini', 'name' => 'GPT-4o mini', 'ordering' => 12),
+            array('code' => 'openai-gpt-4.1-mini', 'name' => 'GPT-4.1 Mini', 'ordering' => 13),
+            array('code' => 'openai-gpt-4-nano', 'name' => 'GPT-4.1 Nano', 'ordering' => 14),
+            array('code' => 'mistral-medium-latest', 'name' => 'Mistral Medium 3', 'ordering' => 15),
+            array('code' => 'deepseek-chat', 'name' => 'DeepSeek-V3.2', 'ordering' => 16),
+            array('code' => 'mistral-mixtral-8x22b', 'name' => 'Mixtral 8x22B', 'ordering' => 17),
+            array('code' => 'google-gemini-2.5-flash', 'name' => 'Gemini 2.5 Flash', 'ordering' => 18),
+            array('code' => 'google-gemini-2.5-pro', 'name' => 'Gemini 2.5 Pro', 'ordering' => 19),
+            array('code' => 'mistral-large-2', 'name' => 'Mistral Large v2', 'ordering' => 20),
+            array('code' => 'meta-llama-3.1-70b-instruct', 'name' => 'Llama 3.1 70B Instruct', 'ordering' => 21),
+            array('code' => 'meta-llama-3.1-405b-instruct', 'name' => 'Llama 3.1 405B Instruct', 'ordering' => 22),
+            array('code' => 'mistral-mixtral-8x7b', 'name' => 'Mixtral 8x7B', 'ordering' => 23),
+            array('code' => 'mistral-mistral-7b', 'name' => 'Mistral 7B', 'ordering' => 24),
+            array('code' => 'cohere-command-r', 'name' => 'Command R', 'ordering' => 25),
+            array('code' => 'cohere-command-r-plus', 'name' => 'Command R+', 'ordering' => 26),
+            array('code' => 'openai-gpt-5.2', 'name' => 'GPT-5.2', 'ordering' => 27),
+            array('code' => 'openai-gpt-5.1', 'name' => 'GPT-5.1', 'ordering' => 28),
+            array('code' => 'openai-gpt-5', 'name' => 'GPT-5', 'ordering' => 29),
+            array('code' => 'openai-gpt-4-1106-preview', 'name' => 'GPT-4.1', 'ordering' => 30),
+            array('code' => 'microsoft-phi-3.5-mini-instruct', 'name' => 'Phi-3.5 Mini Instruct', 'ordering' => 31),
+            array('code' => 'aws-titan-text-g1', 'name' => 'Titan Text G1', 'ordering' => 32),
+            array('code' => 'baidu-ernie-4.0', 'name' => 'ERNIE 4.0', 'ordering' => 33),
+            array('code' => 'perplexity-sonar-large-online', 'name' => 'Sonar Large Online', 'ordering' => 34),
+            array('code' => 'mistral-14b-2512', 'name' => 'Ministral 3 14B', 'ordering' => 35),
+            array('code' => 'mistral-8b-2512', 'name' => 'Ministral 3 8B', 'ordering' => 36),
+            array('code' => 'mistral-3b-2512', 'name' => 'Ministral 3 3B', 'ordering' => 37),
+            array('code' => 'ai21-jamba-1.1-instruct', 'name' => 'Jamba 1.1 Instruct', 'ordering' => 38),
+            array('code' => 'anthropic-claude-sonnet-4-5', 'name' => 'Claude 4.5 Sonnet', 'ordering' => 39),
+            array('code' => 'anthropic-claude-opus-4-1', 'name' => 'Claude 4.1 Opus', 'ordering' => 40),
+            array('code' => 'anthropic-claude-haiku-4-5', 'name' => 'Claude 4.5 Haiku', 'ordering' => 41),
+            array('code' => 'anthropic-claude-sonnet-4-0', 'name' => 'Claude 4 Sonnet', 'ordering' => 42),
+            array('code' => 'openai-gpt-5.4-nano', 'name' => 'GPT-5.4 nano', 'ordering' => 43),
+            array('code' => 'xai-grok-code-fast-1', 'name' => 'Grok Code Fast 1', 'ordering' => 44),
+            array('code' => 'xai-grok-4-1-fast-non-reasoning', 'name' => 'Grok 4.1 Fast (Non-Reasoning)', 'ordering' => 45),
+            array('code' => 'xai-grok-4-1-fast-reasoning', 'name' => 'Grok 4.1 Fast', 'ordering' => 46),
+            array('code' => 'xai-grok-4-0709', 'name' => 'Grok 4', 'ordering' => 47),
+            array('code' => 'alibaba-qwen-math-plus', 'name' => 'Qwen-Math', 'ordering' => 48),
+            array('code' => 'alibaba-qwen3-coder-plus', 'name' => 'Qwen-Coder', 'ordering' => 49),
+            array('code' => 'alibaba-qwen-turbo', 'name' => 'Qwen-Turbo', 'ordering' => 50),
+            array('code' => 'alibaba-qwen-flash', 'name' => 'Qwen-Flash', 'ordering' => 51),
+            array('code' => 'alibaba-qwen3.5-plus', 'name' => 'Qwen-Plus', 'ordering' => 52),
+            array('code' => 'alibaba-qwen3-max', 'name' => 'Qwen-Max', 'ordering' => 53),
+            array('code' => 'google-gemini-3.1-pro-preview', 'name' => 'Gemini 3.1 Pro', 'ordering' => 54),
+            array('code' => 'mistral-medium-2508', 'name' => 'Mistral Medium 3.1', 'ordering' => 55),
+            array('code' => 'mistral-large-2512', 'name' => 'Mistral Large 3', 'ordering' => 56),
+            array('code' => 'anthropic-claude-sonnet-4-6', 'name' => 'Claude Sonnet 4.6', 'ordering' => 57),
+            array('code' => 'anthropic-claude-opus-4-0', 'name' => 'Claude 4 Opus', 'ordering' => 58),
+            array('code' => 'anthropic-claude-opus-4-6', 'name' => 'Claude Opus 4.6', 'ordering' => 59),
+            array('code' => 'mistral-small-2506', 'name' => 'Mistral Small 3.2', 'ordering' => 60),
+            array('code' => 'openai-gpt-5.4-mini', 'name' => 'GPT-5.4 mini', 'ordering' => 61),
+            array('code' => 'deepseek-reasoner', 'name' => 'DeepSeek-V3.2 Thinking', 'ordering' => 62),
+            array('code' => 'openai-gpt-5.4', 'name' => 'GPT-5.4', 'ordering' => 63),
+            array('code' => 'openai-gpt-5.5', 'name' => 'GPT-5.5', 'ordering' => 64),
+            array('code' => 'anthropic-claude-opus-4-8', 'name' => 'Claude Opus 4.8', 'ordering' => 65),
+            array('code' => 'google-gemini-2.5-flash-lite', 'name' => 'Gemini 2.5 Flash-Lite', 'ordering' => 66),
+            array('code' => 'google-gemini-3.5-flash', 'name' => 'Gemini 3.5 Flash', 'ordering' => 67),
+            array('code' => 'mistral-medium-3-5', 'name' => 'Mistral Medium 3.5', 'ordering' => 68),
+            array('code' => 'alibaba-qwen3.6-plus', 'name' => 'Qwen3.6-Plus', 'ordering' => 69),
+            array('code' => 'alibaba-qwen3.7-plus', 'name' => 'Qwen3.7-Plus', 'ordering' => 70),
+            array('code' => 'alibaba-qwen3.7-max', 'name' => 'Qwen3.7-Max', 'ordering' => 71),
+            array('code' => 'xai-grok-4.3', 'name' => 'grok-4.3', 'ordering' => 72),
+            array('code' => 'deepseek-v4-flash', 'name' => 'DeepSeek-V4-Flash', 'ordering' => 73),
+            array('code' => 'deepseek-v4-pro', 'name' => 'DeepSeek-V4-Pro', 'ordering' => 74),
+        );
+    }
+
+    private function seedFallbackRuntimeModelsInternal($only_if_empty = true) {
+        $prefix = majesticsupport::$_db->prefix . "mjtc_support_";
+        if ($only_if_empty) {
+            $count = (int) majesticsupport::$_db->get_var("SELECT COUNT(*) FROM `" . $prefix . "zywrap_ai_models` WHERE status = 1");
+            if ($count > 0) {
+                return array('success' => true, 'message' => __('Runtime AI models already exist.', 'majestic-support'), 'seeded' => 0);
+            }
+        }
+
+        $seeded = 0;
+        foreach ($this->getFallbackRuntimeModels() as $m) {
+            if (empty($m['code'])) {
+                continue;
+            }
+            $model_code = $this->sanitizeRuntimeModelCode($m['code']);
+            if (empty($model_code)) {
+                continue;
+            }
+            $mjtc_query = majesticsupport::$_db->prepare(
+                "INSERT INTO `" . $prefix . "zywrap_ai_models` (`code`, `name`, `status`, `ordering`) VALUES (%s, %s, %d, %d) ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)",
+                $model_code,
+                sanitize_text_field($m['name']),
+                1,
+                (int) $m['ordering']
+            );
+            majesticsupport::$_db->query($mjtc_query);
+            $seeded++;
+        }
+
+        update_option('mjtc_zywrap_runtime_models_fallback_seeded', time());
+        return array(
+            'success' => true,
+            'message' => sprintf(
+                /* translators: %d: Number of seeded models. */
+                __( 'Fallback runtime AI models installed. Models: %d.', 'majestic-support' ),
+                $seeded
+            ),
+            'seeded' => $seeded,
+        );
+    }
+
+    public function syncRuntimeModelsCron() {
+        $api_key = get_option('mjtc_zywrap_api_key');
+        if (empty($api_key)) {
+            return false;
+        }
+
+        $result = $this->syncRuntimeModelsInternal($api_key, true);
+        if (empty($result['success']) && empty($result['auth_failed'])) {
+            $this->seedFallbackRuntimeModelsInternal(true);
+        }
+        return $result;
+    }
+
+    private function ensureRuntimeModelsAvailable() {
+        $prefix = majesticsupport::$_db->prefix . "mjtc_support_";
+        $count = (int) majesticsupport::$_db->get_var("SELECT COUNT(*) FROM `" . $prefix . "zywrap_ai_models` WHERE status = 1");
+        if ($count <= 0) {
+            $this->seedFallbackRuntimeModelsInternal(false);
+        }
+    }
+
+    private function getImportantSupportTones() {
+        return array(
+            array('code' => 'professional', 'name' => 'Professional', 'ordering' => 10),
+            array('code' => 'empathetic', 'name' => 'Empathetic', 'ordering' => 11),
+            array('code' => 'friendly', 'name' => 'Friendly', 'ordering' => 12),
+            array('code' => 'calm', 'name' => 'Calm', 'ordering' => 13),
+            array('code' => 'concise', 'name' => 'Concise', 'ordering' => 14),
+            array('code' => 'direct', 'name' => 'Direct', 'ordering' => 15),
+            array('code' => 'neutral', 'name' => 'Neutral', 'ordering' => 16),
+            array('code' => 'technical', 'name' => 'Technical', 'ordering' => 17),
+            array('code' => 'formal', 'name' => 'Formal', 'ordering' => 18),
+            array('code' => 'warm', 'name' => 'Warm', 'ordering' => 19),
+            array('code' => 'apologetic', 'name' => 'Apologetic', 'ordering' => 20),
+            array('code' => 'reassuring', 'name' => 'Reassuring', 'ordering' => 21),
+            array('code' => 'urgent', 'name' => 'Urgent', 'ordering' => 22),
+            array('code' => 'clear', 'name' => 'Clear', 'ordering' => 23),
+        );
+    }
+
+    private function currentUserCanUseTicketAi() {
+        if (current_user_can('manage_options') || current_user_can('ms_support_ticket')) {
+            return true;
+        }
+
+        if (in_array('agent', majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
+            $permission_model = MJTC_includer::MJTC_getModel('userpermissions');
+            if (is_object($permission_model) && method_exists($permission_model, 'MJTC_checkPermissionGrantedForTask')) {
+                return (bool) $permission_model->MJTC_checkPermissionGrantedForTask('Use AI Powered Reply Feature');
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    private function installOfflineWorkflowPackInternal($force = false) {
+        $pack = $this->getOfflineWorkflowPack();
+        if (empty($pack)) {
+            return array('success' => false, 'message' => __('Built-in Zywrap workflow pack is missing or invalid.', 'majestic-support'));
+        }
+
+        $version = isset($pack['version']) ? sanitize_text_field($pack['version']) : '';
+        $installed_version = get_option('mjtc_zywrap_offline_workflow_version', '');
+
+        if (!$force && !empty($version) && $installed_version === $version) {
+            $count = (int) majesticsupport::$_db->get_var("SELECT COUNT(*) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_wrappers`");
+            if ($count > 0) {
+                return array('success' => true, 'message' => __('Built-in Zywrap support workflows are already installed.', 'majestic-support'));
+            }
+        }
+
+        $this->process_offline_workflow_pack($pack);
+        if (!empty($version)) {
+            update_option('mjtc_zywrap_offline_workflow_version', $version);
+        }
+        update_option('mjtc_zywrap_offline_workflow_last_install', time());
+
+        return array(
+            'success' => true,
+            'message' => __('Built-in Zywrap support workflows installed.', 'majestic-support'),
+            'version' => $version,
+            'useCases' => isset($pack['useCases']) && is_array($pack['useCases']) ? count($pack['useCases']) : 0,
+            'wrappers' => isset($pack['wrappers']) && is_array($pack['wrappers']) ? count($pack['wrappers']) : 0,
+        );
+    }
+
+    private function process_offline_workflow_pack($data) {
+        $prefix = majesticsupport::$_db->prefix . "mjtc_support_";
+
+        if (!empty($data['categories']) && is_array($data['categories'])) {
+            foreach ($data['categories'] as $c) {
+                if (empty($c['code'])) continue;
+                $status = (!isset($c['status']) || $c['status']) ? 1 : 0;
+                $ordering = isset($c['ordering']) ? (int) $c['ordering'] : 9999;
+                $mjtc_query = majesticsupport::$_db->prepare(
+                    "INSERT INTO `" . $prefix . "zywrap_categories` (`code`, `name`, `status`, `ordering`) VALUES (%s, %s, %d, %d) ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)",
+                    sanitize_key($c['code']),
+                    sanitize_text_field(isset($c['name']) ? $c['name'] : $c['code']),
+                    (int) $status,
+                    (int) $ordering
+                );
+                majesticsupport::$_db->query($mjtc_query);
+            }
+        }
+
+        if (!empty($data['useCases']) && is_array($data['useCases'])) {
+            foreach ($data['useCases'] as $uc) {
+                if (empty($uc['code'])) continue;
+                $schema = isset($uc['schemaData']) ? $uc['schemaData'] : (isset($uc['inputSchema']) ? $uc['inputSchema'] : array());
+                $schema_json = wp_json_encode($schema);
+                $status = (!isset($uc['status']) || $uc['status']) ? 1 : 0;
+                $ordering = isset($uc['ordering']) ? (int) $uc['ordering'] : (isset($uc['displayOrder']) ? (int) $uc['displayOrder'] : 9999);
+                $mjtc_query = majesticsupport::$_db->prepare(
+                    "INSERT INTO `" . $prefix . "zywrap_use_cases` (`code`, `name`, `description`, `category_code`, `schema_data`, `status`, `ordering`) VALUES (%s, %s, %s, %s, %s, %d, %d) ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `description`=VALUES(`description`), `category_code`=VALUES(`category_code`), `schema_data`=VALUES(`schema_data`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)",
+                    sanitize_key($uc['code']),
+                    sanitize_text_field(isset($uc['name']) ? $uc['name'] : (isset($uc['title']) ? $uc['title'] : $uc['code'])),
+                    sanitize_textarea_field(isset($uc['description']) ? $uc['description'] : ''),
+                    sanitize_key(isset($uc['categoryCode']) ? $uc['categoryCode'] : ''),
+                    $schema_json,
+                    (int) $status,
+                    (int) $ordering
+                );
+                majesticsupport::$_db->query($mjtc_query);
+            }
+        }
+
+        if (!empty($data['wrappers']) && is_array($data['wrappers'])) {
+            foreach ($data['wrappers'] as $w) {
+                if (empty($w['code'])) continue;
+                $status = (!isset($w['status']) || $w['status']) ? 1 : 0;
+                $ordering = isset($w['ordering']) ? (int) $w['ordering'] : (isset($w['displayOrder']) ? (int) $w['displayOrder'] : 9999);
+                $featured = !empty($w['featured']) || !empty($w['isFeatured']) ? 1 : 0;
+                $base = !empty($w['base']) || !empty($w['isBaseWrapper']) ? 1 : 0;
+                $mjtc_query = majesticsupport::$_db->prepare(
+                    "INSERT INTO `" . $prefix . "zywrap_wrappers` (`code`, `name`, `description`, `use_case_code`, `featured`, `base`, `status`, `ordering`) VALUES (%s, %s, %s, %s, %d, %d, %d, %d) ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `description`=VALUES(`description`), `use_case_code`=VALUES(`use_case_code`), `featured`=VALUES(`featured`), `base`=VALUES(`base`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)",
+                    sanitize_key($w['code']),
+                    sanitize_text_field(isset($w['name']) ? $w['name'] : $w['code']),
+                    sanitize_textarea_field(isset($w['description']) ? $w['description'] : ''),
+                    sanitize_key(isset($w['useCaseCode']) ? $w['useCaseCode'] : (isset($w['usecase']) ? $w['usecase'] : '')),
+                    (int) $featured,
+                    (int) $base,
+                    (int) $status,
+                    (int) $ordering
+                );
+                majesticsupport::$_db->query($mjtc_query);
+            }
+        }
+
+        if (!empty($data['languages']) && is_array($data['languages'])) {
+            foreach ($data['languages'] as $l) {
+                if (empty($l['code'])) continue;
+                $status = (!isset($l['status']) || $l['status']) ? 1 : 0;
+                $ordering = isset($l['ordering']) ? (int) $l['ordering'] : 9999;
+                $mjtc_query = majesticsupport::$_db->prepare(
+                    "INSERT INTO `" . $prefix . "zywrap_languages` (`code`, `name`, `status`, `ordering`) VALUES (%s, %s, %d, %d) ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)",
+                    sanitize_key($l['code']),
+                    sanitize_text_field(isset($l['name']) ? $l['name'] : $l['code']),
+                    (int) $status,
+                    (int) $ordering
+                );
+                majesticsupport::$_db->query($mjtc_query);
+            }
+        }
+
+        if (!empty($data['blockTemplates']) && is_array($data['blockTemplates'])) {
+            foreach ($data['blockTemplates'] as $t) {
+                if (empty($t['type']) || empty($t['code'])) continue;
+                $status = (!isset($t['status']) || $t['status']) ? 1 : 0;
+                $name = isset($t['name']) ? $t['name'] : (isset($t['label']) ? $t['label'] : $t['code']);
+                $mjtc_query = majesticsupport::$_db->prepare(
+                    "INSERT INTO `" . $prefix . "zywrap_block_templates` (`type`, `code`, `name`, `status`) VALUES (%s, %s, %s, %d) ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `status`=VALUES(`status`)",
+                    sanitize_key($t['type']),
+                    sanitize_key($t['code']),
+                    sanitize_text_field($name),
+                    (int) $status
+                );
+                majesticsupport::$_db->query($mjtc_query);
+            }
+        }
+
+        if (majesticsupport::$_db->last_error != null) {
+            MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
+        }
+    }
+
+    public function syncRuntimeModels() {
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (!wp_verify_nonce($MJTC_nonce, 'sync_data_bundle')) {
+            wp_send_json_error(array('message' => __('Security check Failed', 'majestic-support')));
+        }
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error(array('message' => __('Security Error: Unauthorized access. Administrators only.', 'majestic-support')));
+        }
+        $api_key = get_option('mjtc_zywrap_api_key');
+        if (empty($api_key)) {
+            wp_send_json_error(array('message' => __('Please save your API key first.', 'majestic-support')));
+        }
+        $result = $this->syncRuntimeModelsInternal($api_key, false);
+        if (empty($result['success'])) {
+            if (!empty($result['auth_failed'])) {
+                wp_send_json_error(array('message' => $result['message']));
+            }
+            $fallback_result = $this->seedFallbackRuntimeModelsInternal(false);
+            wp_send_json_success(array(
+                'message' => __('Runtime model sync could not complete now, so fallback AI models were installed. Weekly sync will retry automatically.', 'majestic-support') . ' ' . sanitize_text_field($result['message']),
+                'models' => $fallback_result,
+                'model_sync_warning' => $result,
+            ));
+        }
+        wp_send_json_success(array('message' => $result['message']));
+    }
+
+    private function syncRuntimeModelsInternal($api_key = '', $quiet = true) {
+        $api_key = !empty($api_key) ? trim((string) $api_key) : get_option('mjtc_zywrap_api_key');
+        if (empty($api_key)) {
+            return array('success' => false, 'message' => __('Zywrap API key is missing.', 'majestic-support'));
+        }
+
+        $from_version = get_option('mjtc_zywrap_runtime_models_version', '');
+        $sync_url = 'https://api.zywrap.com/v1/sdk/runtime/models/sync';
+        if (!empty($from_version)) {
+            $sync_url = add_query_arg('fromVersion', rawurlencode($from_version), $sync_url);
+        }
+
+        $response = wp_remote_get($sync_url, array(
+            'timeout' => 120,
+            'sslverify' => true,
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $api_key,
+                'Accept' => 'application/json',
+            ),
+        ));
+
+        if (is_wp_error($response)) {
+            return array('success' => false, 'message' => $response->get_error_message());
+        }
+
+        $http_code = (int) wp_remote_retrieve_response_code($response);
+        if ($http_code === 401 || $http_code === 403) {
+            return array(
+                'success' => false,
+                'auth_failed' => true,
+                'http_code' => $http_code,
+                'message' => __('Zywrap API key was rejected. Please check the key and try again.', 'majestic-support'),
+            );
+        }
+
+        if ($http_code !== 200) {
+            return array(
+                'success' => false,
+                'http_code' => $http_code,
+                'message' => __('Runtime model sync failed. HTTP code:', 'majestic-support') . ' ' . $http_code,
+            );
+        }
+
+        $json = json_decode(wp_remote_retrieve_body($response), true);
+        if (!is_array($json)) {
+            return array('success' => false, 'message' => __('Runtime model sync returned invalid JSON.', 'majestic-support'));
+        }
+
+        $payload = array();
+        if (isset($json['aiModels'])) {
+            $payload = $json['aiModels'];
+        } elseif (isset($json['models'])) {
+            $payload = $json['models'];
+        } elseif (isset($json['data']['aiModels'])) {
+            $payload = $json['data']['aiModels'];
+        } elseif (isset($json['data']['models'])) {
+            $payload = $json['data']['models'];
+        }
+
+        $upserts = array();
+        $deletes = array();
+
+        if (is_array($payload) && isset($payload['upserts'])) {
+            $upserts = is_array($payload['upserts']) ? $payload['upserts'] : array();
+            $deletes = isset($payload['deletes']) && is_array($payload['deletes']) ? $payload['deletes'] : array();
+        } elseif (is_array($payload) && isset($payload['items'])) {
+            $upserts = is_array($payload['items']) ? $payload['items'] : array();
+        } elseif (is_array($payload) && isset($payload[0])) {
+            $upserts = $payload;
+        }
+
+        if (empty($upserts) && empty($deletes)) {
+            return array('success' => false, 'message' => __('Runtime model sync did not contain any model changes.', 'majestic-support'));
+        }
+
+        $prefix = majesticsupport::$_db->prefix . "mjtc_support_";
+
+        foreach ($upserts as $m) {
+            if (!is_array($m) || empty($m['code'])) {
+                continue;
+            }
+
+            $model_code = $this->sanitizeRuntimeModelCode($m['code']);
+            if (empty($model_code)) {
+                continue;
+            }
+
+            $available = true;
+            if (array_key_exists('available', $m)) {
+                $available = (bool) $m['available'];
+            }
+
+            $status = 1;
+            if (array_key_exists('status', $m)) {
+                $raw_status = $m['status'];
+                if ($raw_status === false || $raw_status === 0 || $raw_status === '0' || in_array(strtolower((string) $raw_status), array('inactive', 'disabled', 'deleted', 'archived'), true)) {
+                    $status = 0;
+                }
+            }
+
+            if (array_key_exists('providerStatus', $m)) {
+                $provider_status = $m['providerStatus'];
+                if ($provider_status === false || $provider_status === 0 || $provider_status === '0' || in_array(strtolower((string) $provider_status), array('inactive', 'disabled', 'down', 'unavailable'), true)) {
+                    $status = 0;
+                }
+            }
+
+            if (!$available) {
+                $status = 0;
+            }
+
+            $ordering = isset($m['ordering']) ? (int) $m['ordering'] : (isset($m['displayOrder']) ? (int) $m['displayOrder'] : 9999);
+            $model_name = isset($m['name']) ? $m['name'] : (isset($m['title']) ? $m['title'] : $model_code);
+
+            $mjtc_query = majesticsupport::$_db->prepare(
+                "INSERT INTO `" . $prefix . "zywrap_ai_models` (`code`, `name`, `status`, `ordering`) VALUES (%s, %s, %d, %d) ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)",
+                $model_code,
+                sanitize_text_field($model_name),
+                (int) $status,
+                (int) $ordering
+            );
+            majesticsupport::$_db->query($mjtc_query);
+        }
+
+        foreach ($deletes as $code) {
+            $model_code = is_array($code) && isset($code['code']) ? $code['code'] : $code;
+            $model_code = $this->sanitizeRuntimeModelCode($model_code);
+            if (empty($model_code)) {
+                continue;
+            }
+            $mjtc_query = majesticsupport::$_db->prepare("DELETE FROM `" . $prefix . "zywrap_ai_models` WHERE `code` = %s", $model_code);
+            majesticsupport::$_db->query($mjtc_query);
+        }
+
+        $new_version = '';
+        if (!empty($json['newVersion'])) {
+            $new_version = $json['newVersion'];
+        } elseif (!empty($json['version'])) {
+            $new_version = $json['version'];
+        } elseif (!empty($json['aiModels']['version'])) {
+            $new_version = $json['aiModels']['version'];
+        } elseif (!empty($json['data']['version'])) {
+            $new_version = $json['data']['version'];
+        }
+
+        if (!empty($new_version)) {
+            update_option('mjtc_zywrap_runtime_models_version', sanitize_text_field($new_version));
+        }
+        update_option('mjtc_zywrap_runtime_models_last_sync', time());
+
+        if (majesticsupport::$_db->last_error != null) {
+            MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
+            return array('success' => false, 'message' => __('Runtime model sync database update failed.', 'majestic-support'));
+        }
+
+        return array(
+            'success' => true,
+            'message' => sprintf(
+                /* translators: 1: Number of updated models, 2: Number of deleted models. */
+                __( 'Runtime AI models synced. Updated: %1$d, deleted: %2$d.', 'majestic-support' ),
+                count( $upserts ),
+                count( $deletes )
+            ),
+            'updated' => count($upserts),
+            'deleted' => count($deletes),
+        );
+    }
+
+
+    private function runOfflineWorkflowFallbackAndRespond($api_key, $reason = '') {
+        $offline_result = $this->installOfflineWorkflowPackInternal(false);
+        $model_result = $this->syncRuntimeModelsInternal($api_key, true);
+
+        if (empty($model_result['success'])) {
+            if (!empty($model_result['auth_failed'])) {
+                wp_send_json_error(array(
+                    'message' => $model_result['message'],
+                    'offline' => $offline_result,
+                ));
+            }
+
+            $fallback_result = $this->seedFallbackRuntimeModelsInternal(false);
+            update_option('mjtc_zywrap_last_sync', time());
+            update_option('mjtc_zywrap_last_sync_mode', 'offline_workflows_fallback_models');
+
+            wp_send_json_success(array(
+                'message' => __('Built-in support workflows installed. Runtime model sync could not complete now, so fallback AI models were installed and weekly sync will retry automatically.', 'majestic-support'),
+                'offline' => $offline_result,
+                'models' => $fallback_result,
+                'model_sync_warning' => $model_result,
+            ));
+        }
+
+        update_option('mjtc_zywrap_last_sync', time());
+        update_option('mjtc_zywrap_last_sync_mode', 'offline_workflows_runtime_models');
+
+        wp_send_json_success(array(
+            'message' => __('Built-in support workflows installed and runtime AI models synced. Enterprise catalog sync was not used for this API key.', 'majestic-support'),
+            'offline' => $offline_result,
+            'models' => $model_result,
+        ));
+    }
+
+
     function saveApiKey() {
         $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
         if (!wp_verify_nonce($MJTC_nonce, 'save_api_key')) {
             wp_send_json_error(array('message' => __('Security check Failed', 'majestic-support')));
         }
-        
-        // SECURITY: ONLY ADMINISTRATORS CAN ACCESS
+
         if (!current_user_can('manage_options')) {
             wp_send_json_error(array('message' => __('Security Error: Unauthorized access. Administrators only.', 'majestic-support')));
             return;
         }
 
-        $api_key = MJTC_request::MJTC_getVar('api_key');
-        
+        $api_key = trim((string) MJTC_request::MJTC_getVar('api_key'));
+
         if (empty($api_key)) {
             wp_send_json_error(array('message' => __('API Key cannot be empty', 'majestic-support')));
         }
 
         update_option('mjtc_zywrap_api_key', sanitize_text_field($api_key));
-        wp_send_json_success(array('message' => __('API Key saved successfully.', 'majestic-support')));
+
+        $offline_result = $this->installOfflineWorkflowPackInternal(false);
+        $model_result = $this->syncRuntimeModelsInternal($api_key, true);
+
+        if (!empty($model_result['auth_failed'])) {
+            delete_option('mjtc_zywrap_api_key');
+            wp_send_json_error(array('message' => $model_result['message']));
+        }
+
+        if (empty($model_result['success'])) {
+            $fallback_result = $this->seedFallbackRuntimeModelsInternal(false);
+            wp_send_json_success(array(
+                'message' => __('API Key saved. Runtime model sync could not complete now, so a built-in model list was installed and weekly sync will retry automatically.', 'majestic-support') . ' ' . sanitize_text_field($model_result['message']),
+                'offline' => $offline_result,
+                'models' => $fallback_result,
+                'model_sync_warning' => $model_result,
+            ));
+        }
+
+        wp_send_json_success(array(
+            'message' => __('API Key saved and runtime AI models synced successfully.', 'majestic-support'),
+            'offline' => $offline_result,
+            'models' => $model_result,
+        ));
     }
+
 
     
     function savePreferences() {
@@ -68,8 +678,6 @@ class MJTC_zywrapModel {
             wp_send_json_error(array('message' => __('Please save your API key first.', 'majestic-support')));
         }
 
-        @ini_set('memory_limit', '768M');
-        @set_time_limit(700);
 
         // Fetch the local version to see if we qualify for a Delta Update
         $local_version = get_option('mjtc_zywrap_data_version', '');
@@ -90,12 +698,12 @@ class MJTC_zywrapModel {
 
         $http_code = wp_remote_retrieve_response_code($response);
         if ($http_code !== 200) {
-            wp_send_json_error(array('message' => __('API Error: Invalid response code ', 'majestic-support') . $http_code));
+            $this->runOfflineWorkflowFallbackAndRespond($api_key, __('Enterprise catalog sync returned HTTP code', 'majestic-support') . ' ' . $http_code);
         }
 
         $json = json_decode(wp_remote_retrieve_body($response), true);
         if (!$json) {
-            wp_send_json_error(array('message' => __('Failed to parse Sync JSON data.', 'majestic-support')));
+            $this->runOfflineWorkflowFallbackAndRespond($api_key, __('Enterprise catalog sync returned invalid JSON.', 'majestic-support'));
         }
 
         $mode = isset($json['mode']) ? $json['mode'] : 'UNKNOWN';
@@ -186,10 +794,16 @@ class MJTC_zywrapModel {
              wp_send_json_error(array('message' => __('Unknown Sync Mode.', 'majestic-support')));
         }
 
+        $model_sync_result = $this->syncRuntimeModelsInternal($api_key, true);
         update_option('mjtc_zywrap_last_sync', time());
+        update_option('mjtc_zywrap_last_sync_mode', 'enterprise_catalog_' . sanitize_key($mode));
 
         $clean_mode = str_replace('_', ' ', $mode);
-        wp_send_json_success(array('message' => __('AI Data Synced Successfully!', 'majestic-support') . ' (' . __('Mode', 'majestic-support') . ': ' . $clean_mode . ')'));
+        $message = __('AI Data Synced Successfully!', 'majestic-support') . ' (' . __('Mode', 'majestic-support') . ': ' . $clean_mode . ')';
+        if (!empty($model_sync_result['success'])) {
+            $message .= ' ' . $model_sync_result['message'];
+        }
+        wp_send_json_success(array('message' => $message));
     }
 
     private function process_full_sync($data) {
@@ -203,11 +817,9 @@ class MJTC_zywrapModel {
         majesticsupport::$_db->query("TRUNCATE TABLE `" . $prefix . "zywrap_block_templates`");
 
         if (!empty($data['categories'])) {
-            $cats = $this->extract_tabular($data['categories']);
+            $cats = $this->extract_rows($data['categories']);
             foreach ($cats as $c) {
-                $mjtc_query = "INSERT INTO `" . $prefix . "zywrap_categories` (`code`, `name`, `ordering`) VALUES (
-                    '" . esc_sql($c['code']) . "', '" . esc_sql($c['name']) . "', " . (int)($c['ordering'] ?? 9999) . "
-                )";
+                $mjtc_query = majesticsupport::$_db->prepare("INSERT INTO `" . $prefix . "zywrap_categories` (`code`, `name`, `ordering`) VALUES (%s, %s, %d)", $c['code'], $c['name'], (int)($c['ordering'] ?? 9999));
                 majesticsupport::$_db->query($mjtc_query);
             }
         }
@@ -216,7 +828,7 @@ class MJTC_zywrapModel {
         // BATCH INSERT: USE CASES
         // ---------------------------------------------------------
         if (!empty($data['useCases'])) {
-            $ucs = $this->extract_tabular($data['useCases']);
+            $ucs = $this->extract_rows($data['useCases']);
             $chunk_size = 500; // Safe chunk size to respect MySQL max_allowed_packet
             $chunks = array_chunk($ucs, $chunk_size);
             
@@ -224,14 +836,7 @@ class MJTC_zywrapModel {
                 $values = array();
                 foreach ($chunk as $uc) {
                     $schemaJson = !empty($uc['schema']) ? wp_json_encode($uc['schema']) : null;
-                    $values[] = "(
-                        '" . esc_sql($uc['code']) . "', 
-                        '" . esc_sql($uc['name']) . "', 
-                        '" . esc_sql($uc['desc'] ?? '') . "', 
-                        '" . esc_sql($uc['cat'] ?? '') . "', 
-                        '" . esc_sql($schemaJson) . "', 
-                        " . (int)($uc['ordering'] ?? 9999) . "
-                    )";
+                    $values[] = majesticsupport::$_db->prepare("(%s, %s, %s, %s, %s, %d)", $uc['code'], $uc['name'], $uc['desc'] ?? '', $uc['cat'] ?? '', $schemaJson, (int)($uc['ordering'] ?? 9999));
                 }
                 
                 // Construct a single query with multiple values
@@ -244,22 +849,14 @@ class MJTC_zywrapModel {
         // BATCH INSERT: WRAPPERS (Massive Dataset Optimization)
         // ---------------------------------------------------------
         if (!empty($data['wrappers'])) {
-            $wrappers = $this->extract_tabular($data['wrappers']);
+            $wrappers = $this->extract_rows($data['wrappers']);
             $chunk_size = 1000; // Grouping 1000 wrappers per query
             $chunks = array_chunk($wrappers, $chunk_size);
             
             foreach ($chunks as $chunk) {
                 $values = array();
                 foreach ($chunk as $w) {
-                    $values[] = "(
-                        '" . esc_sql($w['code']) . "', 
-                        '" . esc_sql($w['name']) . "', 
-                        '" . esc_sql($w['desc'] ?? '') . "', 
-                        '" . esc_sql($w['usecase'] ?? '') . "', 
-                        " . (!empty($w['featured']) ? 1 : 0) . ", 
-                        " . (!empty($w['base']) ? 1 : 0) . ", 
-                        " . (int)($w['ordering'] ?? 9999) . "
-                    )";
+                    $values[] = majesticsupport::$_db->prepare("(%s, %s, %s, %s, %d, %d, %d)", $w['code'], $w['name'], $w['desc'] ?? '', $w['usecase'] ?? '', !empty($w['featured']) ? 1 : 0, !empty($w['base']) ? 1 : 0, (int)($w['ordering'] ?? 9999));
                 }
                 
                 // Construct a single query with 1000 rows
@@ -269,32 +866,26 @@ class MJTC_zywrapModel {
         }
 
         if (!empty($data['aiModels'])) {
-            $models = $this->extract_tabular($data['aiModels']);
+            $models = $this->extract_rows($data['aiModels']);
             foreach ($models as $m) {
-                $mjtc_query = "INSERT INTO `" . $prefix . "zywrap_ai_models` (`code`, `name`, `ordering`) VALUES (
-                    '" . esc_sql($m['code']) . "', '" . esc_sql($m['name']) . "', " . (int)($m['ordering'] ?? 9999) . "
-                )";
+                $mjtc_query = majesticsupport::$_db->prepare("INSERT INTO `" . $prefix . "zywrap_ai_models` (`code`, `name`, `ordering`) VALUES (%s, %s, %d)", $m['code'], $m['name'], (int)($m['ordering'] ?? 9999));
                 majesticsupport::$_db->query($mjtc_query);
             }
         }
 
         if (!empty($data['languages'])) {
-            $langs = $this->extract_tabular($data['languages']);
+            $langs = $this->extract_rows($data['languages']);
             foreach ($langs as $l) {
-                $mjtc_query = "INSERT INTO `" . $prefix . "zywrap_languages` (`code`, `name`, `ordering`) VALUES (
-                    '" . esc_sql($l['code']) . "', '" . esc_sql($l['name']) . "', " . (int)($l['ordering'] ?? 9999) . "
-                )";
+                $mjtc_query = majesticsupport::$_db->prepare("INSERT INTO `" . $prefix . "zywrap_languages` (`code`, `name`, `ordering`) VALUES (%s, %s, %d)", $l['code'], $l['name'], (int)($l['ordering'] ?? 9999));
                 majesticsupport::$_db->query($mjtc_query);
             }
         }
 
         if (!empty($data['templates'])) {
             foreach ($data['templates'] as $type => $tabular) {
-                $templates = $this->extract_tabular($tabular);
+                $templates = $this->extract_rows($tabular);
                 foreach ($templates as $t) {
-                    $mjtc_query = "INSERT INTO `" . $prefix . "zywrap_block_templates` (`type`, `code`, `name`) VALUES (
-                        '" . esc_sql($type) . "', '" . esc_sql($t['code']) . "', '" . esc_sql($t['name']) . "'
-                    )";
+                    $mjtc_query = majesticsupport::$_db->prepare("INSERT INTO `" . $prefix . "zywrap_block_templates` (`type`, `code`, `name`) VALUES (%s, %s, %s)", $type, $t['code'], $t['name']);
                     majesticsupport::$_db->query($mjtc_query);
                 }
             }
@@ -311,9 +902,9 @@ class MJTC_zywrapModel {
             foreach ($json['metadata']['categories'] as $r) {
                 $status = (!isset($r['status']) || $r['status']) ? 1 : 0;
                 $ordering = $r['position'] ?? $r['displayOrder'] ?? $r['ordering'] ?? 9999;
-                $mjtc_query = "INSERT INTO `" . $prefix . "zywrap_categories` (`code`, `name`, `status`, `ordering`) 
-                               VALUES ('" . esc_sql($r['code']) . "', '" . esc_sql($r['name']) . "', " . (int)$status . ", " . (int)$ordering . ") 
-                               ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)";
+                $mjtc_query = majesticsupport::$_db->prepare("INSERT INTO `" . $prefix . "zywrap_categories` (`code`, `name`, `status`, `ordering`) 
+                               VALUES (%s, %s, %d, %d) 
+                               ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)", $r['code'], $r['name'], (int)$status, (int)$ordering);
                 majesticsupport::$_db->query($mjtc_query);
             }
         }
@@ -322,9 +913,9 @@ class MJTC_zywrapModel {
             foreach ($json['metadata']['languages'] as $r) {
                 $status = (!isset($r['status']) || $r['status']) ? 1 : 0;
                 $ordering = $r['ordering'] ?? 9999;
-                $mjtc_query = "INSERT INTO `" . $prefix . "zywrap_languages` (`code`, `name`, `status`, `ordering`) 
-                               VALUES ('" . esc_sql($r['code']) . "', '" . esc_sql($r['name']) . "', " . (int)$status . ", " . (int)$ordering . ") 
-                               ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)";
+                $mjtc_query = majesticsupport::$_db->prepare("INSERT INTO `" . $prefix . "zywrap_languages` (`code`, `name`, `status`, `ordering`) 
+                               VALUES (%s, %s, %d, %d) 
+                               ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)", $r['code'], $r['name'], (int)$status, (int)$ordering);
                 majesticsupport::$_db->query($mjtc_query);
             }
         }
@@ -333,9 +924,9 @@ class MJTC_zywrapModel {
             foreach ($json['metadata']['aiModels'] as $r) {
                 $status = (!isset($r['status']) || $r['status']) ? 1 : 0;
                 $ordering = $r['displayOrder'] ?? $r['ordering'] ?? 9999;
-                $mjtc_query = "INSERT INTO `" . $prefix . "zywrap_ai_models` (`code`, `name`, `status`, `ordering`) 
-                               VALUES ('" . esc_sql($r['code']) . "', '" . esc_sql($r['name']) . "', " . (int)$status . ", " . (int)$ordering . ") 
-                               ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)";
+                $mjtc_query = majesticsupport::$_db->prepare("INSERT INTO `" . $prefix . "zywrap_ai_models` (`code`, `name`, `status`, `ordering`) 
+                               VALUES (%s, %s, %d, %d) 
+                               ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)", $r['code'], $r['name'], (int)$status, (int)$ordering);
                 majesticsupport::$_db->query($mjtc_query);
             }
         }
@@ -345,9 +936,9 @@ class MJTC_zywrapModel {
                 foreach ($items as $item) {
                     $status = (!isset($item['status']) || $item['status']) ? 1 : 0;
                     $name = $item['label'] ?? $item['name'] ?? '';
-                    $mjtc_query = "INSERT INTO `" . $prefix . "zywrap_block_templates` (`type`, `code`, `name`, `status`) 
-                                   VALUES ('" . esc_sql($type) . "', '" . esc_sql($item['code']) . "', '" . esc_sql($name) . "', " . (int)$status . ") 
-                                   ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `status`=VALUES(`status`)";
+                    $mjtc_query = majesticsupport::$_db->prepare("INSERT INTO `" . $prefix . "zywrap_block_templates` (`type`, `code`, `name`, `status`) 
+                                   VALUES (%s, %s, %s, %d) 
+                                   ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `status`=VALUES(`status`)", $type, $item['code'], $name, (int)$status);
                     majesticsupport::$_db->query($mjtc_query);
                 }
             }
@@ -358,16 +949,25 @@ class MJTC_zywrapModel {
                 $schemaJson = !empty($uc['schema']) ? wp_json_encode($uc['schema']) : null;
                 $status = (!isset($uc['status']) || $uc['status']) ? 1 : 0;
                 $ordering = $uc['displayOrder'] ?? $uc['ordering'] ?? 9999;
-                $mjtc_query = "INSERT INTO `" . $prefix . "zywrap_use_cases` (`code`, `name`, `description`, `category_code`, `schema_data`, `status`, `ordering`) 
-                               VALUES ('" . esc_sql($uc['code']) . "', '" . esc_sql($uc['name']) . "', '" . esc_sql($uc['description'] ?? '') . "', '" . esc_sql($uc['categoryCode'] ?? '') . "', '" . esc_sql($schemaJson) . "', " . (int)$status . ", " . (int)$ordering . ") 
-                               ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `description`=VALUES(`description`), `category_code`=VALUES(`category_code`), `schema_data`=VALUES(`schema_data`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)";
+                $mjtc_query = majesticsupport::$_db->prepare(
+                    "INSERT INTO `" . $prefix . "zywrap_use_cases` (`code`, `name`, `description`, `category_code`, `schema_data`, `status`, `ordering`) 
+                     VALUES (%s, %s, %s, %s, %s, %d, %d) 
+                     ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `description`=VALUES(`description`), `category_code`=VALUES(`category_code`), `schema_data`=VALUES(`schema_data`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)",
+                    $uc['code'],
+                    $uc['name'],
+                    $uc['description'] ?? '',
+                    $uc['categoryCode'] ?? '',
+                    $schemaJson,
+                    (int) $status,
+                    (int) $ordering
+                );
                 majesticsupport::$_db->query($mjtc_query);
             }
         }
 
         if (!empty($json['useCases']['deletes'])) {
             foreach ($json['useCases']['deletes'] as $code) {
-                $mjtc_query = "DELETE FROM `" . $prefix . "zywrap_use_cases` WHERE `code` = '" . esc_sql($code) . "'";
+                $mjtc_query = majesticsupport::$_db->prepare("DELETE FROM `" . $prefix . "zywrap_use_cases` WHERE `code` = %s", $code);
                 majesticsupport::$_db->query($mjtc_query);
             }
         }
@@ -378,16 +978,26 @@ class MJTC_zywrapModel {
                 $base = !empty($w['base'] ?? $w['isBaseWrapper']) ? 1 : 0;
                 $status = (!isset($w['status']) || $w['status']) ? 1 : 0;
                 $ordering = $w['displayOrder'] ?? $w['ordering'] ?? 9999;
-                $mjtc_query = "INSERT INTO `" . $prefix . "zywrap_wrappers` (`code`, `name`, `description`, `use_case_code`, `featured`, `base`, `status`, `ordering`) 
-                               VALUES ('" . esc_sql($w['code']) . "', '" . esc_sql($w['name']) . "', '" . esc_sql($w['description'] ?? '') . "', '" . esc_sql($w['useCaseCode'] ?? $w['categoryCode'] ?? '') . "', " . (int)$featured . ", " . (int)$base . ", " . (int)$status . ", " . (int)$ordering . ") 
-                               ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `description`=VALUES(`description`), `use_case_code`=VALUES(`use_case_code`), `featured`=VALUES(`featured`), `base`=VALUES(`base`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)";
+                $mjtc_query = majesticsupport::$_db->prepare(
+                    "INSERT INTO `" . $prefix . "zywrap_wrappers` (`code`, `name`, `description`, `use_case_code`, `featured`, `base`, `status`, `ordering`) 
+                     VALUES (%s, %s, %s, %s, %d, %d, %d, %d) 
+                     ON DUPLICATE KEY UPDATE `name`=VALUES(`name`), `description`=VALUES(`description`), `use_case_code`=VALUES(`use_case_code`), `featured`=VALUES(`featured`), `base`=VALUES(`base`), `status`=VALUES(`status`), `ordering`=VALUES(`ordering`)",
+                    $w['code'],
+                    $w['name'],
+                    $w['description'] ?? '',
+                    $w['useCaseCode'] ?? ($w['categoryCode'] ?? ''),
+                    (int) $featured,
+                    (int) $base,
+                    (int) $status,
+                    (int) $ordering
+                );
                 majesticsupport::$_db->query($mjtc_query);
             }
         }
 
         if (!empty($json['wrappers']['deletes'])) {
             foreach ($json['wrappers']['deletes'] as $code) {
-                $mjtc_query = "DELETE FROM `" . $prefix . "zywrap_wrappers` WHERE `code` = '" . esc_sql($code) . "'";
+                $mjtc_query = majesticsupport::$_db->prepare("DELETE FROM `" . $prefix . "zywrap_wrappers` WHERE `code` = %s", $code);
                 majesticsupport::$_db->query($mjtc_query);
             }
         }
@@ -405,6 +1015,12 @@ class MJTC_zywrapModel {
             $result[] = array_combine($cols, $row);
         }
         return $result;
+    }
+
+    private function extract_rows($data) {
+        if (empty($data) || !is_array($data)) return array();
+        if (isset($data['cols']) && isset($data['data'])) return $this->extract_tabular($data);
+        return $data;
     }
 
     private function log_usage($body_json, $wrapper_code, $latency_ms, $status = 'success', $error_message = null) {
@@ -438,6 +1054,7 @@ class MJTC_zywrapModel {
      * Fetch ONLY Use Cases for Customer Support
      */
     function getSupportUseCases() {
+        $this->ensureOfflineWorkflowPack();
         $prefix = majesticsupport::$_db->prefix . "mjtc_support_";
         $mjtc_query = "SELECT code, name FROM `" . $prefix . "zywrap_use_cases` 
                        WHERE category_code = 'customer_support_replies' AND status = 1 
@@ -454,10 +1071,11 @@ class MJTC_zywrapModel {
      * Fetch Wrappers (Base + 8 Variations) for a specific Use Case
      */
     function getWrappersByUseCase($use_case_code) {
+        $this->ensureOfflineWorkflowPack();
         $prefix = majesticsupport::$_db->prefix . "mjtc_support_";
-        $mjtc_query = "SELECT code, name, base FROM `" . $prefix . "zywrap_wrappers` 
-                       WHERE use_case_code = '" . esc_sql($use_case_code) . "' AND status = 1 
-                       ORDER BY base DESC, ordering ASC"; // Base wrapper shows first
+        $mjtc_query = majesticsupport::$_db->prepare("SELECT code, name, base FROM `" . $prefix . "zywrap_wrappers` 
+                       WHERE use_case_code = %s AND status = 1 
+                       ORDER BY base DESC, ordering ASC", $use_case_code); // Base wrapper shows first
                           
         $mjtc_results = majesticsupport::$_db->get_results($mjtc_query);
         if (majesticsupport::$_db->last_error != null) {
@@ -470,18 +1088,18 @@ class MJTC_zywrapModel {
      * Fetch all active Tones from Block Templates
      */
     function getDynamicTones() {
-        $prefix = majesticsupport::$_db->prefix . "mjtc_support_";
-        
-        $mjtc_query = "SELECT code, name FROM `" . $prefix . "zywrap_block_templates` 
-                  WHERE type = 'tones' AND status = 1 
-                  ORDER BY name ASC";
-                          
-        $mjtc_results = majesticsupport::$_db->get_results($mjtc_query);
-        if (majesticsupport::$_db->last_error != null) {
-            MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
+        // Co-Pilot should stay simple. Return only support-relevant tones
+        // instead of the full Zywrap tone catalog.
+        $rows = array();
+        foreach ($this->getImportantSupportTones() as $tone) {
+            $rows[] = (object) array(
+                'code' => $tone['code'],
+                'name' => $tone['name'],
+            );
         }
-        return $mjtc_results;
+        return $rows;
     }
+
 
     static function ajaxGetWrappers() {
         $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
@@ -489,41 +1107,25 @@ class MJTC_zywrapModel {
             wp_send_json_error(array('message' => __('Security check Failed', 'majestic-support')));
         }
 
-        // SECURITY: ONLY ADMINISTRATORS CAN ACCESS
-        if (!current_user_can('manage_options')) {
-            wp_send_json_error(array('message' => __('Security Error: Unauthorized access. Administrators only.', 'majestic-support')));
-            return;
-        }
-
-        /*
-        // SECURITY: ONLY ADMINS OR MJTC_ STAFF CAN ACCESS
-        $is_admin = current_user_can('manage_options');
-        $is_staff = false;
-        
-        // Check if the MJTC_ Agent add-on is active and the user is an agent
-        if (in_array('agent', majesticsupport::$_active_addons)) {
-            $is_staff = MJTC_includer::MJTC_getModel('agent')->isUserStaff();
-        }
-
-        if (!$is_admin && !$is_staff) {
-            wp_send_json_error(array('message' => 'Security Error: Unauthorized access. Staff members only.'));
-            return;
-        }
-        */
-
-        $use_case_code = MJTC_request::MJTC_getVar('use_case_code');
-        $ticket_id = MJTC_request::MJTC_getVar('ticket_id'); // We now receive the Ticket ID
+        $use_case_code = sanitize_key(MJTC_request::MJTC_getVar('use_case_code'));
+        $ticket_id = absint(MJTC_request::MJTC_getVar('ticket_id'));
 
         $model_instance = new self();
+        if (!$model_instance->currentUserCanUseTicketAi()) {
+            wp_send_json_error(array('message' => __('You are not allowed to use Zywrap AI on tickets.', 'majestic-support')), 403);
+        }
         $wrappers = $model_instance->getWrappersByUseCase($use_case_code);
 
         $prefix = majesticsupport::$_db->prefix . "mjtc_support_";
-        $mjtc_query = "SELECT schema_data FROM `" . $prefix . "zywrap_use_cases` WHERE code = '" . esc_sql($use_case_code) . "'";
+        $mjtc_query = majesticsupport::$_db->prepare("SELECT schema_data FROM `" . $prefix . "zywrap_use_cases` WHERE code = %s", $use_case_code);
         $schema_json = majesticsupport::$_db->get_var($mjtc_query);
         $schema = !empty($schema_json) ? json_decode($schema_json, true) : null;
 
         // Fetch Clean Ticket Data from PHP
         $ticketData = $model_instance->getTicketContext($ticket_id);
+        if (empty($ticket_id) || (empty($ticketData['subject']) && empty($ticketData['fullThread']))) {
+            wp_send_json_error(array('message' => __('Ticket context was not found. Please reopen Zywrap from a ticket detail page.', 'majestic-support')), 404);
+        }
 
         // Native WP JSON sender automatically sets secure headers (no parse errors)
         wp_send_json_success(array(
@@ -541,27 +1143,9 @@ class MJTC_zywrapModel {
             wp_send_json_error(array('message' => __('Security check Failed', 'majestic-support')));
         }
 
-        // SECURITY: ONLY ADMINISTRATORS CAN ACCESS
-        if (!current_user_can('manage_options')) {
-            wp_send_json_error(array('message' => __('Security Error: Unauthorized access. Administrators only.', 'majestic-support')));
-            return;
+        if (!$this->currentUserCanUseTicketAi()) {
+            wp_send_json_error(array('message' => __('You are not allowed to use Zywrap AI on tickets.', 'majestic-support')), 403);
         }
-
-        /*
-        // SECURITY: ONLY ADMINS OR MJTC_ STAFF CAN ACCESS
-        $is_admin = current_user_can('manage_options');
-        $is_staff = false;
-        
-        // Check if the MJTC_ Agent add-on is active and the user is an agent
-        if (in_array('agent', majesticsupport::$_active_addons)) {
-            $is_staff = MJTC_includer::MJTC_getModel('agent')->isUserStaff();
-        }
-
-        if (!$is_admin && !$is_staff) {
-            wp_send_json_error(array('message' => 'Security Error: Unauthorized access. Staff members only.'));
-            return;
-        }
-        */
 
         $api_key = get_option('mjtc_zywrap_api_key');
         if (empty($api_key)) {
@@ -577,6 +1161,9 @@ class MJTC_zywrapModel {
         
         if (empty($wrapper_code)) {
             wp_send_json_error(array('message' => __('Please select an AI action.', 'majestic-support')));
+        }
+        if (!$this->isAllowedSupportWrapper($wrapper_code)) {
+            wp_send_json_error(array('message' => __('Invalid support AI workflow.', 'majestic-support')));
         }
 
         // 3. Process Dynamic Variables securely
@@ -676,17 +1263,26 @@ class MJTC_zywrapModel {
      * Fetch all active AI Models
      */
     function getDynamicModels() {
+        $this->ensureOfflineWorkflowPack();
+        $this->ensureRuntimeModelsAvailable();
+
         $prefix = majesticsupport::$_db->prefix . "mjtc_support_";
-        $mjtc_query = "SELECT code, name FROM `" . $prefix . "zywrap_ai_models` 
-                       WHERE status = 1 
+        $mjtc_query = "SELECT code, name FROM `" . $prefix . "zywrap_ai_models`
+                       WHERE status = 1
                        ORDER BY ordering ASC, name ASC";
-                          
+
         $mjtc_results = majesticsupport::$_db->get_results($mjtc_query);
+        if (empty($mjtc_results)) {
+            $this->seedFallbackRuntimeModelsInternal(false);
+            $mjtc_results = majesticsupport::$_db->get_results($mjtc_query);
+        }
+
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
         return $mjtc_results;
     }
+
 
     // --- 1. NEW: Fetch pure ticket data directly from the DB ---
     // --- 1. NEW: Fetch pure ticket data directly from the DB ---
@@ -698,7 +1294,7 @@ class MJTC_zywrapModel {
         $prefix = majesticsupport::$_db->prefix . "mjtc_support_";
 
         // Fetch Main Ticket
-        $mjtc_query = "SELECT subject, message, uid FROM `{$prefix}tickets` WHERE id = " . (int)$ticket_id;
+        $mjtc_query = majesticsupport::$_db->prepare("SELECT subject, message, uid FROM `{$prefix}tickets` WHERE id = %d", absint($ticket_id));
         $ticket = majesticsupport::$_db->get_row($mjtc_query);
         if (!$ticket) {
             return array('subject' => '', 'initialMsg' => '', 'fullThread' => '', 'latestCustomerMsg' => '');
@@ -711,7 +1307,7 @@ class MJTC_zywrapModel {
         $history = "CUSTOMER (Initial Issue):\n" . $initialMsg . "\n\n";
 
         // The column name in mjtc_support_replies is 'message', not 'reply'
-        $mjtc_query = "SELECT message, uid FROM `{$prefix}replies` WHERE ticketid = " . (int)$ticket_id . " ORDER BY created ASC";
+        $mjtc_query = majesticsupport::$_db->prepare("SELECT message, uid FROM `{$prefix}replies` WHERE ticketid = %d ORDER BY created ASC", absint($ticket_id));
         $replies = majesticsupport::$_db->get_results($mjtc_query);
 
         if (!empty($replies)) {
@@ -761,6 +1357,17 @@ class MJTC_zywrapModel {
         update_option('mjtc_zywrap_default_model', $default_model);
         update_option('mjtc_zywrap_default_lang', $default_lang);
 
+        if (!empty($api_key)) {
+            $this->installOfflineWorkflowPackInternal(false);
+            $model_result = $this->syncRuntimeModelsInternal($api_key, true);
+            if (!empty($model_result['auth_failed'])) {
+                wp_send_json_error(array('message' => $model_result['message']));
+            }
+            if (empty($model_result['success'])) {
+                $this->seedFallbackRuntimeModelsInternal(true);
+            }
+        }
+
         wp_send_json_success(array('message' => __('Global AI Settings saved successfully.', 'majestic-support')));
     }
 
@@ -776,7 +1383,7 @@ class MJTC_zywrapModel {
         $mjtc_trace_id = majesticsupport::parseSpaces($mjtc_trace_id);
         $mjtc_inquery = "";
         if ($mjtc_trace_id != null) {
-            $mjtc_inquery .= " WHERE trace_id LIKE '%" . esc_sql($mjtc_trace_id) . "%'";
+            $mjtc_inquery .= majesticsupport::$_db->prepare(" WHERE trace_id LIKE %s", '%' . majesticsupport::$_db->esc_like($mjtc_trace_id) . '%');
         }
 
         majesticsupport::$_data['filter']['trace_id'] = $mjtc_trace_id;
@@ -846,10 +1453,10 @@ class MJTC_zywrapModel {
         majesticsupport::$_db->query($mjtc_query);
 
         if (majesticsupport::$_db->last_error == null) {
-            MJTC_message::setMessage(esc_html(__('Log deleted successfully.', 'majestic-support')), 'updated');
+            MJTC_message::MJTC_setMessage(esc_html(__('Log deleted successfully.', 'majestic-support')), 'updated');
         } else {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
-            MJTC_message::setMessage(esc_html(__('Failed to delete log.', 'majestic-support')), 'error');
+            MJTC_message::MJTC_setMessage(esc_html(__('Failed to delete log.', 'majestic-support')), 'error');
         }
         return;
     }
@@ -871,6 +1478,7 @@ class MJTC_zywrapModel {
     // =========================================================
 
     function pgGetCategories() {
+        $this->ensureOfflineWorkflowPack();
         $mjtc_query = "SELECT code, name FROM `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_categories` WHERE status = 1 ORDER BY ordering ASC";
         $mjtc_results = majesticsupport::$_db->get_results($mjtc_query);
         if (majesticsupport::$_db->last_error != null) {
@@ -880,8 +1488,9 @@ class MJTC_zywrapModel {
     }
 
     function pgGetUseCases() {
+        $this->ensureOfflineWorkflowPack();
         $cat = sanitize_text_field(MJTC_request::MJTC_getVar('category'));
-        $mjtc_query = "SELECT code, name FROM `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_use_cases` WHERE category_code = '" . esc_sql($cat) . "' AND status = 1 ORDER BY ordering ASC";
+        $mjtc_query = majesticsupport::$_db->prepare("SELECT code, name FROM `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_use_cases` WHERE category_code = %s AND status = 1 ORDER BY ordering ASC", $cat);
         $mjtc_results = majesticsupport::$_db->get_results($mjtc_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -890,8 +1499,9 @@ class MJTC_zywrapModel {
     }
 
     function pgGetWrappers() {
+        $this->ensureOfflineWorkflowPack();
         $uc = sanitize_text_field(MJTC_request::MJTC_getVar('usecase'));
-        $mjtc_query = "SELECT code, name, featured, base FROM `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_wrappers` WHERE use_case_code = '" . esc_sql($uc) . "' AND status = 1 ORDER BY ordering ASC";
+        $mjtc_query = majesticsupport::$_db->prepare("SELECT code, name, featured, base FROM `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_wrappers` WHERE use_case_code = %s AND status = 1 ORDER BY ordering ASC", $uc);
         $mjtc_results = majesticsupport::$_db->get_results($mjtc_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -900,8 +1510,9 @@ class MJTC_zywrapModel {
     }
 
     function pgGetSchema() {
+        $this->ensureOfflineWorkflowPack();
         $w = sanitize_text_field(MJTC_request::MJTC_getVar('wrapper'));
-        $mjtc_query = "SELECT uc.schema_data FROM `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_use_cases` uc JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_wrappers` w ON w.use_case_code = uc.code WHERE w.code = '" . esc_sql($w) . "'";
+        $mjtc_query = majesticsupport::$_db->prepare("SELECT uc.schema_data FROM `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_use_cases` uc JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_wrappers` w ON w.use_case_code = uc.code WHERE w.code = %s", $w);
         $res = majesticsupport::$_db->get_var($mjtc_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -910,6 +1521,7 @@ class MJTC_zywrapModel {
     }
 
     function pgGetLanguages() {
+        $this->ensureOfflineWorkflowPack();
         $mjtc_query = "SELECT code, name FROM `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_languages` WHERE status = 1 ORDER BY ordering ASC";
         $mjtc_results = majesticsupport::$_db->get_results($mjtc_query);
         if (majesticsupport::$_db->last_error != null) {
@@ -919,6 +1531,7 @@ class MJTC_zywrapModel {
     }
 
     function pgGetModels() {
+        $this->ensureOfflineWorkflowPack();
         $mjtc_query = "SELECT code, name FROM `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_ai_models` WHERE status = 1 ORDER BY ordering ASC";
         $mjtc_results = majesticsupport::$_db->get_results($mjtc_query);
         if (majesticsupport::$_db->last_error != null) {
@@ -928,6 +1541,7 @@ class MJTC_zywrapModel {
     }
 
     function pgGetBlockTemplates() {
+        $this->ensureOfflineWorkflowPack();
         $mjtc_query = "SELECT type, code, name FROM `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_block_templates` WHERE status = 1 ORDER BY type, name ASC";
         $res = majesticsupport::$_db->get_results($mjtc_query);
         if (majesticsupport::$_db->last_error != null) {
@@ -974,29 +1588,25 @@ class MJTC_zywrapModel {
         if (!empty($overrides)) $payloadData = array_merge($payloadData, $overrides);
 
         $startTime = microtime(true);
-        $ch = curl_init('https://api.zywrap.com/v1/proxy');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payloadData));
-        curl_setopt($ch, CURLOPT_TIMEOUT, 600);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Content-Type: application/json', 
-            'Authorization: Bearer ' . $apiKey
-        ]);
+        $MJTC_response = wp_remote_post('https://api.zywrap.com/v1/proxy', array(
+            'timeout'   => 600,
+            'sslverify' => true,
+            'headers'   => array(
+                'Content-Type'  => 'application/json',
+                'Authorization' => 'Bearer ' . $apiKey,
+                'Accept'        => 'application/json, text/event-stream',
+            ),
+            'body'      => wp_json_encode($payloadData),
+        ));
 
-        $rawResponse = curl_exec($ch);
-        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        $curlError = curl_error($ch);
-        curl_close($ch);
-        
         $latencyMs = round((microtime(true) - $startTime) * 1000);
 
-        // --- IMPROVED ERROR CATCHING & PARSING ---
-        if ($rawResponse === false) {
-            wp_send_json_error(['message' => __('Server Connection Error: ', 'majestic-support') . $curlError]);
+        if (is_wp_error($MJTC_response)) {
+            wp_send_json_error(array('message' => __('Server Connection Error: ', 'majestic-support') . $MJTC_response->get_error_message()));
         }
+
+        $rawResponse = wp_remote_retrieve_body($MJTC_response);
+        $httpCode = (int) wp_remote_retrieve_response_code($MJTC_response);
 
         $finalJson = null;
         $responseData = null;
@@ -1035,22 +1645,23 @@ class MJTC_zywrapModel {
 
         // --- LOG USAGE ---
         try {
-            $mjtc_query = "INSERT INTO `" . majesticsupport::$_db->prefix . "mjtc_support_zywrap_usage_logs` (
-                trace_id, wrapper_code, model_code, prompt_tokens, completion_tokens, total_tokens, credits_used, latency_ms, status, error_message, created_at
-            ) VALUES (
-                '" . esc_sql($responseData['id'] ?? null) . "', 
-                '" . esc_sql($wrapperCode) . "', 
-                '" . esc_sql($model ?: 'default') . "',
-                " . (int)($responseData['usage']['prompt_tokens'] ?? 0) . ", 
-                " . (int)($responseData['usage']['completion_tokens'] ?? 0) . ",
-                " . (int)($responseData['usage']['total_tokens'] ?? 0) . ", 
-                " . (float)($responseData['cost']['credits_used'] ?? 0) . ",
-                " . (int)$latencyMs . ", 
-                '" . esc_sql($status) . "', 
-                '" . esc_sql($errorMessage) . "', 
-                '" . current_time('mysql') . "'
-            )";
-            majesticsupport::$_db->query($mjtc_query);
+            majesticsupport::$_db->insert(
+                majesticsupport::$_db->prefix . "mjtc_support_zywrap_usage_logs",
+                array(
+                    'trace_id' => sanitize_text_field($responseData['id'] ?? ''),
+                    'wrapper_code' => sanitize_text_field($wrapperCode),
+                    'model_code' => sanitize_text_field($model ?: 'default'),
+                    'prompt_tokens' => (int)($responseData['usage']['prompt_tokens'] ?? 0),
+                    'completion_tokens' => (int)($responseData['usage']['completion_tokens'] ?? 0),
+                    'total_tokens' => (int)($responseData['usage']['total_tokens'] ?? 0),
+                    'credits_used' => (float)($responseData['cost']['credits_used'] ?? 0),
+                    'latency_ms' => (int)$latencyMs,
+                    'status' => sanitize_key($status),
+                    'error_message' => sanitize_text_field($errorMessage),
+                    'created_at' => current_time('mysql'),
+                ),
+                array('%s','%s','%s','%d','%d','%d','%f','%d','%s','%s','%s')
+            );
         } catch (Exception $e) {}
 
         // --- RESPOND TO FRONTEND ---
@@ -1176,6 +1787,9 @@ class MJTC_zywrapModel {
     }
 
     public function callZywrapEngine($api_key, $payload) {
+        if (empty($payload['wrapper_code']) || !$this->isAllowedSupportWrapper($payload['wrapper_code'])) {
+            return array('error' => __('Invalid support AI workflow.', 'majestic-support'));
+        }
         $api_url = 'https://api.zywrap.com/v1/proxy';
         $start_time = microtime(true); // Start timing
 
@@ -1224,7 +1838,11 @@ class MJTC_zywrapModel {
 
         // Handle API Structural Errors (e.g., Insufficient credits)
         if ($body_json && isset($body_json['error'])) {
-            $error_msg = sprintf(esc_html__('Zywrap Engine API Error: %s', 'majestic-support'), $body_json['error']);
+            $error_msg = sprintf(
+                /* translators: %s: The specific API error message. */
+                esc_html__( 'Zywrap Engine API Error: %s', 'majestic-support' ),
+                esc_html( $body_json['error'] )
+            );
             
             // Push the clean string trace message to your system error logs layout view
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError($error_msg);
@@ -1337,7 +1955,7 @@ class MJTC_zywrapModel {
         }
 
         // 2. Capabilities Check
-        if (!current_user_can('ms_support_ticket')) {
+        if (!current_user_can('manage_options') && !current_user_can('ms_support_ticket')) {
             wp_send_json_error(array('message' => __('Unauthorized access.', 'majestic-support')));
         }
 
@@ -1401,19 +2019,17 @@ class MJTC_zywrapModel {
         global $wpdb;
 
         $hours = max(1, absint($hours));
-        $tickets_table = $wpdb->prefix . 'mjtc_support_tickets';
-        $replies_table = $wpdb->prefix . 'mjtc_support_replies';
 
         return $wpdb->get_results(
             $wpdb->prepare(
                 "SELECT t.id, t.message
-                 FROM {$tickets_table} t
-                 LEFT JOIN {$replies_table} r ON r.ticketid = t.id
+                 FROM {$wpdb->prefix}mjtc_support_tickets t
+                 LEFT JOIN {$wpdb->prefix}mjtc_support_replies r ON r.ticketid = t.id
                  WHERE t.status IN (1, 2)
                  GROUP BY t.id
                  HAVING COALESCE(MAX(r.created), MAX(t.created)) < (NOW() - INTERVAL %d HOUR)
                  AND NOT EXISTS (
-                    SELECT 1 FROM {$replies_table} r2
+                    SELECT 1 FROM {$wpdb->prefix}mjtc_support_replies r2
                     WHERE r2.ticketid = t.id AND r2.is_ai_draft = 1
                  )",
                 $hours
@@ -1471,7 +2087,7 @@ class MJTC_zywrapModel {
             wp_send_json_error(array('message' => __('Security check Failed', 'majestic-support')), 403);
         }
 
-        if (!current_user_can('ms_support_ticket')) {
+        if (!current_user_can('manage_options') && !current_user_can('ms_support_ticket')) {
             wp_send_json_error(array('message' => __('Unauthorized access.', 'majestic-support')), 403);
         }
 

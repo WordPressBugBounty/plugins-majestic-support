@@ -4,6 +4,14 @@ MJTC_message::MJTC_getMessage();
 wp_enqueue_script('jquery-ui-tabs');
 ?>
 <?php
+$MJTC_public_cron_key = get_option('majesticsupport_public_cron_key');
+if (empty($MJTC_public_cron_key) && current_user_can('manage_options')) {
+    $MJTC_public_cron_key = wp_generate_password(32, false, false);
+    update_option('majesticsupport_public_cron_key', $MJTC_public_cron_key, false);
+}
+?>
+
+<?php
 $majesticsupport_js ="
 jQuery(document).ready(function ($) {
     jQuery('.tabs').tabs();
@@ -50,7 +58,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                             <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left"><?php echo esc_html(__('URL You Want To Execute','majestic-support')); ?></span>
                                 <span class="crown_text_right">
-                                    <?php echo esc_html(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid()))); ?>
+                                    <?php echo esc_html(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid(),'key'=>$MJTC_public_cron_key))); ?>
                                 </span>
                             </div>
                             <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
@@ -84,7 +92,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                             <span class="crown_text"><?php echo esc_html(__('Cron scheduling using wget','majestic-support')); ?></span>
                             <div id="cron_job_detail_wrapper" class="even">
                                 <span class="crown_text_right fullwidth">
-                                <?php echo esc_html('wget --max-redirect=10000 "') . esc_html(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid()))) .esc_html('" -O - 1>/dev/null 2>/dev/null '); ?>
+                                <?php echo esc_html('wget --max-redirect=10000 "') . esc_html(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid(),'key'=>$MJTC_public_cron_key))) .esc_html('" -O - 1>/dev/null 2>/dev/null '); ?>
                                 </span>
                             </div>
                         </div>
@@ -94,8 +102,8 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                             <span class="crown_text"><?php echo esc_html(__('Cron scheduling using Curl','majestic-support')); ?></span>
                             <div id="cron_job_detail_wrapper" class="even">
                                 <span class="crown_text_right fullwidth">
-                                <?php echo esc_html('curl "') . esc_html(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid()))).'"<br>' . esc_html(__('OR','majestic-support')) . '<br>'; ?>
-                                <?php echo esc_html('curl -L --max-redirs 1000 -v "') . esc_html(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid()))).esc_html('" 1>/dev/null 2>/dev/null '); ?>
+                                <?php echo esc_html('curl "') . esc_html(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid(),'key'=>$MJTC_public_cron_key))).'"<br>' . esc_html(__('OR','majestic-support')) . '<br>'; ?>
+                                <?php echo esc_html('curl -L --max-redirs 1000 -v "') . esc_html(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid(),'key'=>$MJTC_public_cron_key))).esc_html('" 1>/dev/null 2>/dev/null '); ?>
                                 </span>
                             </div>
                         </div>
@@ -109,7 +117,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                                 <span class="crown_text_right fullwidth">
                                     <?php
                                     echo wp_kses('  $MJTC_curl_handle=curl_init();<br>
-                                                curl_setopt($MJTC_curl_handle, CURLOPT_URL, \'' . esc_url(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid()))).'\');<br>
+                                                curl_setopt($MJTC_curl_handle, CURLOPT_URL, \'' . esc_url(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid(),'key'=>$MJTC_public_cron_key))).'\');<br>
                                                 curl_setopt($MJTC_curl_handle,CURLOPT_FOLLOWLOCATION, TRUE);<br>
                                                 curl_setopt($MJTC_curl_handle,CURLOPT_MAXREDIRS, 10000);<br>
                                                 curl_setopt($MJTC_curl_handle,CURLOPT_RETURNTRANSFER, 1);<br>
@@ -129,7 +137,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                         <div id="cron_job">
                             <span class="crown_text"><?php echo esc_html(__('URL for use with your own scripts and third-party scripts','majestic-support')); ?></span>
                             <div id="cron_job_detail_wrapper" class="even">
-                                <span class="crown_text_right fullwidth"><?php echo esc_html(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid()))); ?></span>
+                                <span class="crown_text_right fullwidth"><?php echo esc_html(majesticsupport::makeUrl(array('mscron'=>'ticketviaemail','mspageid'=>majesticsupport::getPageid(),'key'=>$MJTC_public_cron_key))); ?></span>
                             </div>
                         </div>
                     </div>
@@ -170,7 +178,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                             <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
                                 <span class="crown_text_left"><?php echo esc_html(__('URL You Want To Execute','majestic-support')); ?></span>
                                 <span class="crown_text_right">
-                                    <?php echo esc_html(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid()))); ?>
+                                    <?php echo esc_html(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid(),'key'=>$MJTC_public_cron_key))); ?>
                                 </span>
                             </div>
                             <div id="cron_job_detail_wrapper" class="<?php echo esc_attr($MJTC_array[$MJTC_k]);$MJTC_k = 1 - $MJTC_k; ?>">
@@ -204,7 +212,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                             <span class="crown_text"><?php echo esc_html(__('Cron scheduling using wget','majestic-support')); ?></span>
                             <div id="cron_job_detail_wrapper" class="even">
                                 <span class="crown_text_right fullwidth">
-                                <?php echo esc_html('wget --max-redirect=10000 "') . esc_html(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid()))) . esc_html('" -O - 1>/dev/null 2>/dev/null '); ?>
+                                <?php echo esc_html('wget --max-redirect=10000 "') . esc_html(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid(),'key'=>$MJTC_public_cron_key))) . esc_html('" -O - 1>/dev/null 2>/dev/null '); ?>
                                 </span>
                             </div>
                         </div>
@@ -214,8 +222,8 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                             <span class="crown_text"><?php echo esc_html(__('Cron scheduling using Curl','majestic-support')); ?></span>
                             <div id="cron_job_detail_wrapper" class="even">
                                 <span class="crown_text_right fullwidth">
-                                <?php echo esc_html('curl "') . esc_html(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid()))).'"<br>' . esc_html(__('OR','majestic-support')) . '<br>'; ?>
-                                <?php echo esc_html('curl -L --max-redirs 1000 -v "') . esc_html(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid()))). esc_html('" 1>/dev/null 2>/dev/null '); ?>
+                                <?php echo esc_html('curl "') . esc_html(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid(),'key'=>$MJTC_public_cron_key))).'"<br>' . esc_html(__('OR','majestic-support')) . '<br>'; ?>
+                                <?php echo esc_html('curl -L --max-redirs 1000 -v "') . esc_html(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid(),'key'=>$MJTC_public_cron_key))). esc_html('" 1>/dev/null 2>/dev/null '); ?>
                                 </span>
                             </div>
                         </div>
@@ -229,7 +237,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                                 <span class="crown_text_right fullwidth">
                                     <?php
                                     echo wp_kses('  $MJTC_curl_handle=curl_init();<br>
-                                                curl_setopt($MJTC_curl_handle, CURLOPT_URL, \'' . esc_url(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid()))).'\');<br>
+                                                curl_setopt($MJTC_curl_handle, CURLOPT_URL, \'' . esc_url(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid(),'key'=>$MJTC_public_cron_key))).'\');<br>
                                                 curl_setopt($MJTC_curl_handle,CURLOPT_FOLLOWLOCATION, TRUE);<br>
                                                 curl_setopt($MJTC_curl_handle,CURLOPT_MAXREDIRS, 10000);<br>
                                                 curl_setopt($MJTC_curl_handle,CURLOPT_RETURNTRANSFER, 1);<br>
@@ -249,7 +257,7 @@ wp_add_inline_script('majestic-support-cmain-js',$majesticsupport_js);
                         <div id="cron_job">
                             <span class="crown_text"><?php echo esc_html(__('URL for use with your own scripts and third-party scripts','majestic-support')); ?></span>
                             <div id="cron_job_detail_wrapper" class="even">
-                                <span class="crown_text_right fullwidth"><?php echo esc_html(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid()))); ?></span>
+                                <span class="crown_text_right fullwidth"><?php echo esc_html(majesticsupport::makeUrl(array('mscron'=>'updateticketstatus','mspageid'=>majesticsupport::getPageid(),'key'=>$MJTC_public_cron_key))); ?></span>
                             </div>
                         </div>
                     </div>

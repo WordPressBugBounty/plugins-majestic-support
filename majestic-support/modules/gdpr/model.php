@@ -23,8 +23,9 @@ class MJTC_gdprModel {
         $MJTC_email = majesticsupport::$_search['gdpr']['email'];
         $MJTC_email = majesticsupport::parseSpaces($MJTC_email);
         $MJTC_inquery = '';
-        if ($MJTC_email != null)
-            $MJTC_inquery .= " WHERE user.user_email LIKE '%".esc_sql($MJTC_email)."%'";
+        if ($MJTC_email != null) {
+            $MJTC_inquery .= majesticsupport::$_db->prepare(" WHERE user.user_email LIKE %s", '%' . majesticsupport::$_db->esc_like($MJTC_email) . '%');
+        }
 
         majesticsupport::$_data['filter']['email'] = $MJTC_email;
 
@@ -56,7 +57,7 @@ class MJTC_gdprModel {
         if($MJTC_uid == 0){
             return;
         }
-        $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_erasedatarequests` WHERE uid = ".esc_sql($MJTC_uid);
+        $MJTC_query = "SELECT * FROM `" . majesticsupport::$_db->prefix . "mjtc_support_erasedatarequests` WHERE uid = ".absint($MJTC_uid);
         majesticsupport::$_data[0] = majesticsupport::$_db->get_row($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -118,7 +119,7 @@ class MJTC_gdprModel {
         }
 
         $MJTC_uid = MJTC_includer::MJTC_getObjectClass('user')->MJTC_uid();
-        $MJTC_query = "SELECT uid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_erasedatarequests` WHERE id = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT uid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_erasedatarequests` WHERE id = ".absint($MJTC_id);
         $MJTC_db_uid = majesticsupport::$_db->get_var($MJTC_query);
         if( $MJTC_db_uid == $MJTC_uid){
             return true;
@@ -134,7 +135,7 @@ class MJTC_gdprModel {
             $MJTC_id = MJTC_request::MJTC_getVar('uid', 'get');
         }else{
             $MJTC_id = $MJTC_uid;
-            $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE uid = ".esc_sql($MJTC_id) ." ORDER BY created ASC LIMIT 1";
+            $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE uid = ".absint($MJTC_id) ." ORDER BY created ASC LIMIT 1";
             $MJTC_curdate = majesticsupport::$_db->get_var($MJTC_query);
 
             $MJTC_fromdate = date_i18n('Y-m-d h:i:s');
@@ -145,39 +146,45 @@ class MJTC_gdprModel {
         if(! is_numeric($MJTC_id))
             return null;
 
+        $MJTC_id = absint($MJTC_id);
+        $MJTC_curdate = sanitize_text_field($MJTC_curdate);
+        $MJTC_fromdate = sanitize_text_field($MJTC_fromdate);
+        $MJTC_curdate_sql = majesticsupport::$_db->prepare('%s', $MJTC_curdate);
+        $MJTC_fromdate_sql = majesticsupport::$_db->prepare('%s', $MJTC_fromdate);
+
         $MJTC_result['curdate'] = $MJTC_curdate;
         $MJTC_result['fromdate'] = $MJTC_fromdate;
         $MJTC_result['id'] = $MJTC_id;
 
         //Query to get Data
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00' OR lastreply = '') AND created >= '" . esc_sql($MJTC_curdate) . "' AND created <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND uid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00' OR lastreply = '') AND created >= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_curdate_sql) . "' AND created <= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_fromdate_sql) . "'";
+        if($MJTC_id) $MJTC_query .= " AND uid = ".absint($MJTC_id);
         $MJTC_result['openticket'] = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND created >= '" . esc_sql($MJTC_curdate) . "' AND created <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND uid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND created >= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_curdate_sql) . "' AND created <= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_fromdate_sql) . "'";
+        if($MJTC_id) $MJTC_query .= " AND uid = ".absint($MJTC_id);
         $MJTC_result['closeticket'] = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND created >= '" . esc_sql($MJTC_curdate) . "' AND created <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND uid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND created >= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_curdate_sql) . "' AND created <= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_fromdate_sql) . "'";
+        if($MJTC_id) $MJTC_query .= " AND uid = ".absint($MJTC_id);
         $MJTC_result['answeredticket'] = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND created >= '" . esc_sql($MJTC_curdate) . "' AND created <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND uid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND created >= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_curdate_sql) . "' AND created <= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_fromdate_sql) . "'";
+        if($MJTC_id) $MJTC_query .= " AND uid = ".absint($MJTC_id);
         $MJTC_result['overdueticket'] = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply IS NOT NULL AND lastreply != '0000-00-00 00:00:00' AND lastreply != '') AND created >= '" . esc_sql($MJTC_curdate) . "' AND created <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND uid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply IS NOT NULL AND lastreply != '0000-00-00 00:00:00' AND lastreply != '') AND created >= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_curdate_sql) . "' AND created <= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_fromdate_sql) . "'";
+        if($MJTC_id) $MJTC_query .= " AND uid = ".absint($MJTC_id);
         $MJTC_result['pendingticket'] = majesticsupport::$_db->get_results($MJTC_query);
         //user detail
         $MJTC_query = "SELECT user.display_name,user.user_email,user.user_nicename,user.id,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1  AND (lastreply = '0000-00-00 00:00:00' OR lastreply = '') AND created >= '" . esc_sql($MJTC_curdate) . "' AND created <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS openticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND created >= '" . esc_sql($MJTC_curdate) . "' AND created <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS closeticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND created >= '" . esc_sql($MJTC_curdate) . "' AND created <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS answeredticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND created >= '" . esc_sql($MJTC_curdate) . "' AND created <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS overdueticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND isoverdue = 1 AND (lastreply IS NOT NULL AND lastreply != '0000-00-00 00:00:00' AND lastreply != '') AND created >= '" . esc_sql($MJTC_curdate) . "' AND created <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS pendingticket
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1  AND (lastreply = '0000-00-00 00:00:00' OR lastreply = '') AND created >= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_curdate_sql) . "' AND created <= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_fromdate_sql) . "' AND uid = user.id) AS openticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND created >= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_curdate_sql) . "' AND created <= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_fromdate_sql) . "' AND uid = user.id) AS closeticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND created >= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_curdate_sql) . "' AND created <= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_fromdate_sql) . "' AND uid = user.id) AS answeredticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND created >= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_curdate_sql) . "' AND created <= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_fromdate_sql) . "' AND uid = user.id) AS overdueticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND isoverdue = 1 AND (lastreply IS NOT NULL AND lastreply != '0000-00-00 00:00:00' AND lastreply != '') AND created >= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_curdate_sql) . "' AND created <= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_fromdate_sql) . "' AND uid = user.id) AS pendingticket
                     FROM `".majesticsupport::$_wpprefixforuser."mjtc_support_users` AS user
-                    WHERE user.id = ".esc_sql($MJTC_id);
+                    WHERE user.id = ".absint($MJTC_id);
         $MJTC_user = majesticsupport::$_db->get_row($MJTC_query);
         $MJTC_result['users'] = $MJTC_user;
         //Tickets
@@ -187,7 +194,7 @@ class MJTC_gdprModel {
                     LEFT JOIN `".majesticsupport::$_db->prefix."mjtc_support_priorities` AS priority ON priority.id = ticket.priorityid
                     JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS status ON ticket.status = status.id
                     ". majesticsupport::$_addon_query['join'] . "
-                    WHERE uid = ".esc_sql($MJTC_id)." AND ticket.created >= '" . esc_sql($MJTC_curdate) . "' AND ticket.created <= '" . esc_sql($MJTC_fromdate) . "' ";
+                    WHERE uid = ".absint($MJTC_id)." AND ticket.created >= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_curdate_sql) . "' AND ticket.created <= '" . MJTC_majesticsupportphplib::MJTC_str_replace("'", "", $MJTC_fromdate_sql) . "' ";
 
         $MJTC_result['tickets'] = majesticsupport::$_db->get_results($MJTC_query);
 
@@ -355,7 +362,7 @@ class MJTC_gdprModel {
         $MJTC_wp_filesystem = $wp_filesystem;
         // --- END FILESYSTEM FIX ---
 
-        $MJTC_query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE uid = ".esc_sql($MJTC_uid);
+        $MJTC_query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE uid = ".absint($MJTC_uid);
         $MJTC_uids = majesticsupport::$_db->get_results($MJTC_query);
 
         foreach ($MJTC_uids as $MJTC_ticket) { // erase tickets data
@@ -366,7 +373,7 @@ class MJTC_gdprModel {
             // erase replies data
             $MJTC_query = "SELECT replies.id AS replyid
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` AS replies
-                        WHERE replies.ticketid = ".esc_sql($MJTC_ticket->id);
+                        WHERE replies.ticketid = ".absint($MJTC_ticket->id);
             $MJTC_replies = majesticsupport::$_db->get_results($MJTC_query);
             foreach ($MJTC_replies as $MJTC_reply) {
                 $MJTC_row = MJTC_includer::MJTC_getTable('replies');
@@ -377,7 +384,7 @@ class MJTC_gdprModel {
             if(in_array('note', majesticsupport::$_active_addons)){
                 $MJTC_query = "SELECT notes.id AS noteid
                             FROM `" . majesticsupport::$_db->prefix . "mjtc_support_notes` AS notes
-                            WHERE notes.ticketid = ".esc_sql($MJTC_ticket->id);
+                            WHERE notes.ticketid = ".absint($MJTC_ticket->id);
                 $MJTC_notes = majesticsupport::$_db->get_results($MJTC_query);
                 foreach ($MJTC_notes as $MJTC_note) {
                     $MJTC_row = MJTC_includer::MJTC_getTable('note');
@@ -388,7 +395,7 @@ class MJTC_gdprModel {
             if(in_array('tickethistory', majesticsupport::$_active_addons)){
                 $MJTC_query = "DELETE
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_activity_log`
-                        WHERE eventfor = 1 AND referenceid = ".esc_sql($MJTC_ticket->id);
+                        WHERE eventfor = 1 AND referenceid = ".absint($MJTC_ticket->id);
                 majesticsupport::$_db->query($MJTC_query);
 
             }
@@ -403,7 +410,7 @@ class MJTC_gdprModel {
             
             $MJTC_query = "SELECT ticket.attachmentdir
                         FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket
-                        WHERE ticket.id = ".esc_sql($MJTC_ticket->id);
+                        WHERE ticket.id = ".absint($MJTC_ticket->id);
             $MJTC_foldername = majesticsupport::$_db->get_var($MJTC_query);
             
             if(!empty($MJTC_foldername)){
@@ -415,10 +422,10 @@ class MJTC_gdprModel {
                     $MJTC_wp_filesystem->delete($MJTC_folder, true);
                 }
             }
-            $MJTC_query = "DELETE FROM `".majesticsupport::$_db->prefix."mjtc_support_attachments` WHERE ticketid = " . esc_sql($MJTC_ticket->id);
+            $MJTC_query = "DELETE FROM `".majesticsupport::$_db->prefix."mjtc_support_attachments` WHERE ticketid = " . absint($MJTC_ticket->id);
             majesticsupport::$_db->query($MJTC_query);
         }
-        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_erasedatarequests` SET status = 2 WHERE uid = ".esc_sql($MJTC_uid);
+        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_erasedatarequests` SET status = 2 WHERE uid = ".absint($MJTC_uid);
         majesticsupport::$_db->query($MJTC_query);
         
         MJTC_message::MJTC_setMessage(esc_html(__('User identifying data erased', 'majestic-support')), 'updated');
@@ -451,7 +458,7 @@ class MJTC_gdprModel {
         $MJTC_wp_filesystem = $wp_filesystem;
         // --- END FILESYSTEM FIX ---
 
-        $MJTC_query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE uid = ".esc_sql($MJTC_uid);
+        $MJTC_query = "SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE uid = ".absint($MJTC_uid);
         $MJTC_uids = majesticsupport::$_db->get_results($MJTC_query);
 
         foreach ($MJTC_uids as $MJTC_ticket) { // erase tickets data
@@ -478,7 +485,7 @@ class MJTC_gdprModel {
 
             $MJTC_query = "SELECT ticket.attachmentdir
                         FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket
-                        WHERE ticket.id = ".esc_sql($MJTC_ticket->id);
+                        WHERE ticket.id = ".absint($MJTC_ticket->id);
             $MJTC_foldername = majesticsupport::$_db->get_var($MJTC_query);
 
             if(!empty($MJTC_foldername)){
@@ -490,11 +497,11 @@ class MJTC_gdprModel {
                     $MJTC_wp_filesystem->delete($MJTC_folder, true);
                 }
             }
-            $MJTC_query = "DELETE FROM `".majesticsupport::$_db->prefix."mjtc_support_attachments` WHERE ticketid = ".esc_sql($MJTC_ticket->id);
+            $MJTC_query = "DELETE FROM `".majesticsupport::$_db->prefix."mjtc_support_attachments` WHERE ticketid = ".absint($MJTC_ticket->id);
             majesticsupport::$_db->query($MJTC_query);
         }
 
-        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_erasedatarequests` SET status = 3 WHERE uid = " . esc_sql($MJTC_uid);
+        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_erasedatarequests` SET status = 3 WHERE uid = " . absint($MJTC_uid);
         majesticsupport::$_db->query($MJTC_query);
 
         $MJTC_user_data = get_user_by('ID',$MJTC_uid);

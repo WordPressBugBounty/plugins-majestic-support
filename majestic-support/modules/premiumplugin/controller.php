@@ -328,20 +328,23 @@ class MJTC_premiumpluginController {
 
     function install_plugin( $MJTC_plugin_zip ) {
 
+        if (!current_user_can('install_plugins')) {
+            return false;
+        }
+
+        // escaping is creating issue with download url
+        // $MJTC_plugin_zip = esc_url_raw($MJTC_plugin_zip);
+        if (empty($MJTC_plugin_zip) || !wp_http_validate_url($MJTC_plugin_zip)) {
+            return false;
+        }
+
         do_action('majesticsupport_load_wp_admin_file');
         WP_Filesystem();
         $tmpfile = download_url( $MJTC_plugin_zip);
 
         if ( !is_wp_error( $tmpfile ) && $tmpfile ) {
-            $MJTC_plugin_path = WP_CONTENT_DIR;
-            $MJTC_plugin_path = $MJTC_plugin_path.'/plugins/';
-            $MJTC_path = MJTC_PLUGIN_PATH.'addon.zip';
-            copy( $tmpfile, $MJTC_path );
-            $MJTC_unzipfile = unzip_file( $MJTC_path, $MJTC_plugin_path);
-
-            if ( file_exists( $MJTC_path ) ) {
-                wp_delete_file( $MJTC_path ); // must unlink afterwards
-            }
+            $MJTC_plugin_path = trailingslashit(WP_PLUGIN_DIR);
+            $MJTC_unzipfile = unzip_file($tmpfile, $MJTC_plugin_path);
             if ( file_exists( $tmpfile ) ) {
                 wp_delete_file( $tmpfile ); // must unlink afterwards
             }

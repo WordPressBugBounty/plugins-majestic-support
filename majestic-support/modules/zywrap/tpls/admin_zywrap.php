@@ -73,7 +73,7 @@ MJTC_message::MJTC_getMessage();
                                                     </td>
                                                     <td>
                                                         <span class="mjtc-feed-action <?php echo $log->status === 'success' ? 'success' : 'error'; ?>">
-                                                            <?php echo strtoupper(esc_html($log->status)); ?>
+                                                            <?php echo esc_html( strtoupper( $log->status ) ); ?>
                                                         </span>
                                                     </td>
                                                 </tr>
@@ -150,7 +150,7 @@ MJTC_message::MJTC_getMessage();
                         <?php endif; ?>
                         
                         <div class="mjtc-sync-meta">
-                            <?php echo esc_html__('Last synchronization:', 'majestic-support'); ?> <?php echo empty($last_sync) ? esc_html__('Never', 'majestic-support') : wp_date('M j, Y - g:i A', $last_sync); ?>
+                            <?php echo esc_html__('Last synchronization:', 'majestic-support'); ?> <?php echo empty($last_sync) ? esc_html__('Never', 'majestic-support') : esc_html(wp_date('M j, Y - g:i A', $last_sync)); ?>
                         </div>
                     </div>
 

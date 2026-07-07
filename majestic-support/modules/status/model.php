@@ -12,7 +12,7 @@ class MJTC_statusModel {
         $MJTC_inquery = '';
 
         if ($MJTC_statustitle != null){
-            $MJTC_inquery .= " WHERE status.status LIKE '%".esc_sql($MJTC_statustitle)."%'";
+            $MJTC_inquery .= majesticsupport::$_db->prepare(" WHERE status.status LIKE %s", '%' . majesticsupport::$_db->esc_like($MJTC_statustitle) . '%');
         }
 
         majesticsupport::$_data['filter']['title'] = $MJTC_statustitle;
@@ -56,9 +56,9 @@ class MJTC_statusModel {
         if ($MJTC_id) {
             if (!is_numeric($MJTC_id))
                 return false;
-            $MJTC_query = "SELECT status.*
+            $MJTC_query = majesticsupport::$_db->prepare("SELECT status.*
 				FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS status
-				WHERE status.id = " . esc_sql($MJTC_id);
+				WHERE status.id = %d", absint($MJTC_id));
             $MJTC_result = majesticsupport::$_db->get_row($MJTC_query);
             if ($MJTC_result) {
                 $MJTC_customStatuses = [
@@ -119,14 +119,14 @@ class MJTC_statusModel {
         if ($MJTC_id) {
             if (!is_numeric($MJTC_id))
                 return false;
-            $MJTC_query = "SELECT status FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` WHERE id = " . esc_sql($MJTC_id);
+            $MJTC_query = majesticsupport::$_db->prepare("SELECT status FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` WHERE id = %d", absint($MJTC_id));
             $MJTC_result = majesticsupport::$_db->get_var($MJTC_query);
             if ($MJTC_result == $MJTC_status) {
                 return true;
             }
         }
 
-        $MJTC_query = 'SELECT COUNT(id) FROM `' . majesticsupport::$_db->prefix . 'mjtc_support_statuses` WHERE status = "' . esc_sql($MJTC_status) . '"';
+        $MJTC_query = majesticsupport::$_db->prepare('SELECT COUNT(id) FROM `' . majesticsupport::$_db->prefix . 'mjtc_support_statuses` WHERE status = %s', $MJTC_status);
         $MJTC_result = majesticsupport::$_db->get_var($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -175,11 +175,11 @@ class MJTC_statusModel {
             $MJTC_order = "<";
             $MJTC_direction = "DESC";
         }
-        $MJTC_query = "SELECT t.ordering,t.id,t2.ordering AS ordering2 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS t,`" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS t2 WHERE t.ordering $MJTC_order t2.ordering AND t2.id = ".esc_sql($MJTC_id)." ORDER BY t.ordering $MJTC_direction LIMIT 1";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT t.ordering,t.id,t2.ordering AS ordering2 FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS t,`" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS t2 WHERE t.ordering $MJTC_order t2.ordering AND t2.id = %d ORDER BY t.ordering $MJTC_direction LIMIT 1", absint($MJTC_id));
         $MJTC_result = majesticsupport::$_db->get_row($MJTC_query);
-        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` SET ordering = " . esc_sql($MJTC_result->ordering) . " WHERE id = " . esc_sql($MJTC_id);
+        $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` SET ordering = %d WHERE id = %d", absint($MJTC_result->ordering), absint($MJTC_id));
         majesticsupport::$_db->query($MJTC_query);
-        $MJTC_query = "UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` SET ordering = " . esc_sql($MJTC_result->ordering2) . " WHERE id = " . esc_sql($MJTC_result->id);
+        $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` SET ordering = %d WHERE id = %d", absint($MJTC_result->ordering2), absint($MJTC_result->id));
         majesticsupport::$_db->query($MJTC_query);
 
         $MJTC_row = MJTC_includer::MJTC_getTable('statuses');
@@ -195,9 +195,9 @@ class MJTC_statusModel {
     private function canRemoveStatus($MJTC_id) {
         if (!is_numeric($MJTC_id))
             return false;
-        $MJTC_query = "SELECT (
-					(SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = " . esc_sql($MJTC_id) . ")
-					) AS total";
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT (
+					(SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = %d)
+					) AS total", absint($MJTC_id));
         $MJTC_result = majesticsupport::$_db->get_var($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
@@ -211,7 +211,7 @@ class MJTC_statusModel {
     function getStatusById($MJTC_id) {
         if (!is_numeric($MJTC_id))
             return false;
-        $MJTC_query = "SELECT status FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` WHERE id = " . esc_sql($MJTC_id);
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT status FROM `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` WHERE id = %d", absint($MJTC_id));
         $MJTC_status = majesticsupport::$_db->get_var($MJTC_query);
         return $MJTC_status;
     }

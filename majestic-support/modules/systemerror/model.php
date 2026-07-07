@@ -84,7 +84,7 @@ class MJTC_systemerrorModel {
     function updateIsView($MJTC_id) {
         if (!is_numeric($MJTC_id))
             return false;
-        $MJTC_query = "UPDATE " . majesticsupport::$_db->prefix . "`mjtc_support_system_errors` set isview = 1 WHERE id = " . esc_sql($MJTC_id);
+        $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "mjtc_support_system_errors` SET isview = 1 WHERE id = %d", absint($MJTC_id));
         majesticsupport::$_db->Query($MJTC_query);
         if (majesticsupport::$_db->last_error != null) {
             $this->addSystemError();

@@ -5,7 +5,7 @@ Donate link: https://majesticsupport.com
 Tags:  customer support, helpdesk, support desk, support plugin, ticket system
 Requires at least: 5.5
 Tested up to: 7.0
-Stable tag: 1.1.9
+Stable tag: 1.2.0
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -250,6 +250,10 @@ If you activate certain features in this plugin, the user's personal data, inclu
 * google fcm ([Google](https://policies.google.com/?hl=en))
 
 == Changelog ==
+
+= 1.2.0 =
+* Security Updates
+
 = 1.1.9 =
 
 * AI Ticket Sentiment Analysis — Automatically analyzes new tickets and assigns a sentiment (Positive, Neutral, Negative) to gauge customer mood.

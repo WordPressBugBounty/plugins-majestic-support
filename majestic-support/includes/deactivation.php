@@ -9,6 +9,7 @@ class MJTC_deactivation {
         wp_clear_scheduled_hook('mjtc_process_transation_key_status');
         wp_clear_scheduled_hook('majesticsupport_updateticketstatus');
         wp_clear_scheduled_hook('majesticsupport_ticketviaemail');
+        wp_clear_scheduled_hook('mjtc_zywrap_runtime_model_sync');
         $MJTC_timestamp = wp_next_scheduled( 'ms_delete_expire_session_data' );
         wp_unschedule_event( $MJTC_timestamp, 'ms_delete_expire_session_data' );
         $MJTC_id = majesticsupport::getPageid();

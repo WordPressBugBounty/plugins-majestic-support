@@ -134,7 +134,7 @@ class MJTC_reportsModel {
         $MJTC_query = "SELECT dept.departmentname,(SELECT COUNT(id) FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE departmentid = dept.id ) AS totalticket
             FROM `".majesticsupport::$_db->prefix."mjtc_support_departments` AS dept
             JOIN `".majesticsupport::$_db->prefix."mjtc_support_acl_user_access_departments` AS acl ON acl.departmentid = dept.id
-            WHERE acl.staffid = ".esc_sql($MJTC_staffid)." AND dept.status=1";
+            WHERE acl.staffid = ".absint($MJTC_staffid)." AND dept.status=1";
 
         $MJTC_department = majesticsupport::$_db->get_results($MJTC_query);
         majesticsupport::$_data['pie3d_chart1'] = "";
@@ -152,7 +152,7 @@ class MJTC_reportsModel {
         $MJTC_query = "SELECT count(dept.id)
             FROM `".majesticsupport::$_db->prefix."mjtc_support_departments` AS dept
             JOIN `".majesticsupport::$_db->prefix."mjtc_support_acl_user_access_departments` AS acl ON acl.departmentid = dept.id
-            WHERE acl.staffid = ".esc_sql($MJTC_staffid)." AND dept.status=1";
+            WHERE acl.staffid = ".absint($MJTC_staffid)." AND dept.status=1";
         $total = majesticsupport::$_db->get_var($MJTC_query);
         majesticsupport::$_data['total'] = $total;
         majesticsupport::$_data[1] = MJTC_pagination::MJTC_getPagination($total);
@@ -165,7 +165,7 @@ class MJTC_reportsModel {
             (SELECT COUNT(id) FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND departmentid = dept.id) AS pendingticket
             FROM `".majesticsupport::$_db->prefix."mjtc_support_departments` AS dept
             JOIN `".majesticsupport::$_db->prefix."mjtc_support_acl_user_access_departments` AS acl ON acl.departmentid = dept.id
-            WHERE acl.staffid = ".esc_sql($MJTC_staffid)." AND dept.status=1";
+            WHERE acl.staffid = ".absint($MJTC_staffid)." AND dept.status=1";
         $MJTC_query .= " LIMIT " . MJTC_pagination::MJTC_getOffset() . ", " . MJTC_pagination::MJTC_getLimit();
         $MJTC_departments = majesticsupport::$_db->get_results($MJTC_query);
         majesticsupport::$_data['departments_report'] = $MJTC_departments;
@@ -211,27 +211,27 @@ class MJTC_reportsModel {
         $MJTC_nextdate = $MJTC_fromdate;
         //Query to get Data
         $MJTC_query = "SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` ";
-        if($MJTC_uid) $MJTC_query .= " WHERE staffid = ".esc_sql($MJTC_staffid);
+        if($MJTC_uid) $MJTC_query .= " WHERE staffid = ".absint($MJTC_staffid);
         $MJTC_allticket = majesticsupport::$_db->get_var($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_uid) $MJTC_query .= " AND staffid = ".esc_sql($MJTC_staffid);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_uid) $MJTC_query .= " AND staffid = ".absint($MJTC_staffid);
         $MJTC_openticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_uid) $MJTC_query .= " AND staffid = ".esc_sql($MJTC_staffid);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_uid) $MJTC_query .= " AND staffid = ".absint($MJTC_staffid);
         $MJTC_closeticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_uid) $MJTC_query .= " AND staffid = ".esc_sql($MJTC_staffid);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_uid) $MJTC_query .= " AND staffid = ".absint($MJTC_staffid);
         $MJTC_answeredticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_uid) $MJTC_query .= " AND staffid = ".esc_sql($MJTC_staffid);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_uid) $MJTC_query .= " AND staffid = ".absint($MJTC_staffid);
         $MJTC_overdueticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_uid) $MJTC_query .= " AND staffid = ".esc_sql($MJTC_staffid);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_uid) $MJTC_query .= " AND staffid = ".absint($MJTC_staffid);
         $MJTC_pendingticket = majesticsupport::$_db->get_results($MJTC_query);
 
         $MJTC_date_openticket = array();
@@ -309,24 +309,24 @@ class MJTC_reportsModel {
         $MJTC_query = "SELECT count(staff.id)
                     FROM `".majesticsupport::$_db->prefix."mjtc_support_staff` AS staff
                     JOIN `".majesticsupport::$_wpprefixforuser."mjtc_support_users` AS user ON user.id = staff.uid";
-        if($MJTC_uid) $MJTC_query .= ' WHERE staff.uid = '.esc_sql($MJTC_uid);
+        if($MJTC_uid) $MJTC_query .= ' WHERE staff.uid = '.absint($MJTC_uid);
         $total = majesticsupport::$_db->get_var($MJTC_query);
         majesticsupport::$_data['total'] = $total;
         majesticsupport::$_data[1] = MJTC_pagination::MJTC_getPagination($total , 'staffreports');
 
         $MJTC_query = "SELECT staff.photo,staff.id,staff.uid,staff.firstname,staff.lastname,staff.username,staff.email,user.display_name,user.user_email,user.user_nicename,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND staffid = staff.id) AS openticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND staffid = staff.id) AS closeticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND staffid = staff.id) AS answeredticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND staffid = staff.id) AS overdueticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND staffid = staff.id) AS pendingticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND staffid = staff.id) AS allticket  ";
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND staffid = staff.id) AS openticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND staffid = staff.id) AS closeticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND staffid = staff.id) AS answeredticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND staffid = staff.id) AS overdueticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND staffid = staff.id) AS pendingticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND staffid = staff.id) AS allticket  ";
                     if(in_array('feedback', majesticsupport::$_active_addons)){
-                        $MJTC_query .=    ",(SELECT AVG(feed.rating) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_feedbacks` AS feed JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket ON ticket.id= feed.ticketid WHERE date(feed.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(feed.created) <= '" . esc_sql($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS avragerating ";
+                        $MJTC_query .=    ",(SELECT AVG(feed.rating) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_feedbacks` AS feed JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket ON ticket.id= feed.ticketid WHERE date(feed.created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(feed.created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS avragerating ";
                     }
                     $MJTC_query .=  "FROM `".majesticsupport::$_db->prefix."mjtc_support_staff` AS staff
                     JOIN `".majesticsupport::$_wpprefixforuser."mjtc_support_users` AS user ON user.id = staff.uid";
-        if($MJTC_uid) $MJTC_query .= ' WHERE staff.uid = '.esc_sql($MJTC_uid);
+        if($MJTC_uid) $MJTC_query .= ' WHERE staff.uid = '.absint($MJTC_uid);
         $MJTC_query .= " LIMIT " . MJTC_pagination::MJTC_getOffset() . ", " . MJTC_pagination::MJTC_getLimit();
         $MJTC_agents = majesticsupport::$_db->get_results($MJTC_query);
         if(in_array('timetracking', majesticsupport::$_active_addons)){
@@ -364,19 +364,19 @@ class MJTC_reportsModel {
         $_SESSION['forexport']['fromdate'] = $MJTC_fromdate;
 
         $MJTC_nextdate = $MJTC_fromdate;
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
         $MJTC_openticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
         $MJTC_closeticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
         $MJTC_answeredticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
         $MJTC_overdueticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
         $MJTC_pendingticket = majesticsupport::$_db->get_results($MJTC_query);
 
         $MJTC_date_openticket = array();
@@ -459,11 +459,11 @@ class MJTC_reportsModel {
 
         $MJTC_query = "SELECT department.id,department.departmentname,email.email,
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE departmentid = department.id) AS allticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND departmentid = department.id) AS openticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND departmentid = department.id) AS closeticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND departmentid = department.id) AS answeredticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND departmentid = department.id) AS overdueticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND departmentid = department.id) AS pendingticket
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND departmentid = department.id) AS openticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND departmentid = department.id) AS closeticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND departmentid = department.id) AS answeredticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND departmentid = department.id) AS overdueticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND departmentid = department.id) AS pendingticket
                     FROM `".majesticsupport::$_db->prefix."mjtc_support_departments` AS department
                     JOIN `".majesticsupport::$_db->prefix."mjtc_support_email` AS email ON department.emailid = email.id";
         $MJTC_query .= " LIMIT " . MJTC_pagination::MJTC_getOffset() . ", " . MJTC_pagination::MJTC_getLimit();
@@ -505,7 +505,7 @@ class MJTC_reportsModel {
         majesticsupport::$_data['filter']['staffname'] = MJTC_includer::MJTC_getModel('agent')->getMyName($MJTC_staffid);
         $MJTC_nextdate = $MJTC_fromdate;
         // find my depats
-        $MJTC_query = "SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = " . esc_sql($MJTC_staffid);
+        $MJTC_query = "SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = " . absint($MJTC_staffid);
         $MJTC_data = majesticsupport::$_db->get_results($MJTC_query);
         $my_depts = '';
         foreach ($MJTC_data as $MJTC_key => $MJTC_value) {
@@ -515,27 +515,27 @@ class MJTC_reportsModel {
         }
         // get mytickets, or all tickets with my depatments
         if($my_depts)
-            $MJTC_dep_query = " AND (ticket.staffid = ".esc_sql($MJTC_staffid)." OR ticket.departmentid IN (".esc_sql($my_depts).")) ";
+            $MJTC_dep_query = " AND (ticket.staffid = ".absint($MJTC_staffid)." OR ticket.departmentid IN (".$my_depts.")) ";
         else
-            $MJTC_dep_query = " AND ( ticket.staffid = ".esc_sql($MJTC_staffid)." ) ";
+            $MJTC_dep_query = " AND ( ticket.staffid = ".absint($MJTC_staffid)." ) ";
         //Query to get Data
-        $MJTC_query = "SELECT ticket.created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.status = 1 AND (ticket.lastreply = '0000-00-00 00:00:00') AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "'";
+        $MJTC_query = "SELECT ticket.created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.status = 1 AND (ticket.lastreply = '0000-00-00 00:00:00') AND date(ticket.created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(ticket.created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
         $MJTC_query .= $MJTC_dep_query;
         $MJTC_openticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT ticket.created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.status = 5 AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "'";
+        $MJTC_query = "SELECT ticket.created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.status = 5 AND date(ticket.created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(ticket.created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
         $MJTC_query .= $MJTC_dep_query;
         $MJTC_closeticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT ticket.created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.isanswered = 1 AND ticket.status != 5 AND ticket.status != 1 AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "'";
+        $MJTC_query = "SELECT ticket.created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.isanswered = 1 AND ticket.status != 5 AND ticket.status != 1 AND date(ticket.created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(ticket.created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
         $MJTC_query .= $MJTC_dep_query;
         $MJTC_answeredticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT ticket.created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.isoverdue = 1 AND ticket.status != 5 AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "'";
+        $MJTC_query = "SELECT ticket.created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.isoverdue = 1 AND ticket.status != 5 AND date(ticket.created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(ticket.created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
         $MJTC_query .= $MJTC_dep_query;
         $MJTC_overdueticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT ticket.created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.isanswered != 1 AND ticket.status != 5 AND (ticket.lastreply != '0000-00-00 00:00:00') AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "'";
+        $MJTC_query = "SELECT ticket.created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.isanswered != 1 AND ticket.status != 5 AND (ticket.lastreply != '0000-00-00 00:00:00') AND date(ticket.created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(ticket.created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
         $MJTC_query .= $MJTC_dep_query;
         $MJTC_pendingticket = majesticsupport::$_db->get_results($MJTC_query);
 
@@ -614,21 +614,21 @@ class MJTC_reportsModel {
             FROM `".majesticsupport::$_db->prefix."mjtc_support_staff` AS staff
             JOIN `".majesticsupport::$_wpprefixforuser."mjtc_support_users` AS user ON user.id = staff.uid
             LEFT JOIN `".majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dep ON dep.staffid = staff.id ";
-        $MJTC_query .= " WHERE (staff.id = ".esc_sql($MJTC_staffid)." OR dep.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = ".esc_sql($MJTC_staffid)."))";
+        $MJTC_query .= " WHERE (staff.id = ".absint($MJTC_staffid)." OR dep.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = ".absint($MJTC_staffid)."))";
         $total = majesticsupport::$_db->get_var($MJTC_query);
         majesticsupport::$_data['total'] = $total;
         majesticsupport::$_data[1] = MJTC_pagination::MJTC_getPagination($total);
         // data
         $MJTC_query = "SELECT DISTINCT staff.photo,staff.id,staff.uid,staff.firstname,staff.lastname,staff.username,staff.email,user.display_name,user.user_email,user.user_nicename,
-            (SELECT COUNT(ticket.id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.status = 1 AND (ticket.lastreply = '0000-00-00 00:00:00') AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS openticket,
-            (SELECT COUNT(ticket.id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.status = 5 AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS closeticket,
-            (SELECT COUNT(ticket.id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.isanswered = 1 AND ticket.status != 5 AND ticket.status != 1 AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS answeredticket,
-            (SELECT COUNT(ticket.id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.isoverdue = 1 AND ticket.status != 5 AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS overdueticket,
-            (SELECT COUNT(ticket.id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.isanswered != 1 AND ticket.status != 5 AND (ticket.lastreply != '0000-00-00 00:00:00') AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS pendingticket
+            (SELECT COUNT(ticket.id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.status = 1 AND (ticket.lastreply = '0000-00-00 00:00:00') AND date(ticket.created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(ticket.created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS openticket,
+            (SELECT COUNT(ticket.id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.status = 5 AND date(ticket.created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(ticket.created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS closeticket,
+            (SELECT COUNT(ticket.id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.isanswered = 1 AND ticket.status != 5 AND ticket.status != 1 AND date(ticket.created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(ticket.created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS answeredticket,
+            (SELECT COUNT(ticket.id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.isoverdue = 1 AND ticket.status != 5 AND date(ticket.created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(ticket.created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS overdueticket,
+            (SELECT COUNT(ticket.id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket WHERE ticket.isanswered != 1 AND ticket.status != 5 AND (ticket.lastreply != '0000-00-00 00:00:00') AND date(ticket.created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(ticket.created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS pendingticket
             FROM `".majesticsupport::$_db->prefix."mjtc_support_staff` AS staff
             JOIN `".majesticsupport::$_wpprefixforuser."mjtc_support_users` AS user ON user.id = staff.uid
             LEFT JOIN `".majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dep ON dep.staffid = staff.id";
-        $MJTC_query .= " WHERE (staff.id = ".esc_sql($MJTC_staffid)." OR dep.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = ".esc_sql($MJTC_staffid)."))";
+        $MJTC_query .= " WHERE (staff.id = ".absint($MJTC_staffid)." OR dep.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = ".absint($MJTC_staffid)."))";
         $MJTC_query .= " LIMIT " . MJTC_pagination::MJTC_getOffset() . ", " . MJTC_pagination::MJTC_getLimit();
         $MJTC_agents = majesticsupport::$_db->get_results($MJTC_query);
         majesticsupport::$_data['staffs_report'] = $MJTC_agents;
@@ -650,7 +650,7 @@ class MJTC_reportsModel {
             FROM `".majesticsupport::$_db->prefix."mjtc_support_staff` AS staff
             JOIN `".majesticsupport::$_wpprefixforuser."mjtc_support_users` AS user ON user.id = staff.uid
             JOIN `".majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dep ON dep.staffid = staff.id ";
-        $MJTC_query .= " WHERE (dep.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = ".esc_sql($MJTC_id)."))";
+        $MJTC_query .= " WHERE (dep.departmentid IN (SELECT dept.departmentid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_acl_user_access_departments` AS dept WHERE dept.staffid = ".absint($MJTC_id)."))";
         $MJTC_result = majesticsupport::$_db->get_results($MJTC_query);
         foreach ($MJTC_result as $MJTC_agent) {
             if($MJTC_agent->staffid == $MJTC_staffid)
@@ -692,27 +692,27 @@ class MJTC_reportsModel {
         $MJTC_nextdate = $MJTC_fromdate;
         //Query to get Data
         $MJTC_query = "SELECT count(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` ";
-        if($MJTC_uid) $MJTC_query .= " WHERE  uid = ".esc_sql($MJTC_uid);
+        if($MJTC_uid) $MJTC_query .= " WHERE  uid = ".absint($MJTC_uid);
         $MJTC_allticket = majesticsupport::$_db->get_var($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1  AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_uid) $MJTC_query .= " AND uid = ".esc_sql($MJTC_uid);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1  AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_uid) $MJTC_query .= " AND uid = ".absint($MJTC_uid);
         $MJTC_openticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_uid) $MJTC_query .= " AND uid = ".esc_sql($MJTC_uid);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_uid) $MJTC_query .= " AND uid = ".absint($MJTC_uid);
         $MJTC_closeticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_uid) $MJTC_query .= " AND uid = ".esc_sql($MJTC_uid);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_uid) $MJTC_query .= " AND uid = ".absint($MJTC_uid);
         $MJTC_answeredticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_uid) $MJTC_query .= " AND uid = ". esc_sql($MJTC_uid);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_uid) $MJTC_query .= " AND uid = ". absint($MJTC_uid);
         $MJTC_overdueticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_uid) $MJTC_query .= " AND uid = ".esc_sql($MJTC_uid);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_uid) $MJTC_query .= " AND uid = ".absint($MJTC_uid);
         $MJTC_pendingticket = majesticsupport::$_db->get_results($MJTC_query);
 
         $MJTC_date_openticket = array();
@@ -790,25 +790,25 @@ class MJTC_reportsModel {
                         $MJTC_query .=" NOT EXISTS (SELECT id FROM `".majesticsupport::$_db->prefix."mjtc_support_staff` WHERE uid = user.id) AND  ";
                     }
                     $MJTC_query .=" NOT EXISTS (SELECT umeta_id FROM `".majesticsupport::$_wpprefixforuser."usermeta` WHERE user_id = user.id AND meta_value LIKE '%administrator%')";
-        if($MJTC_uid) $MJTC_query .= " AND user.id = ".esc_sql($MJTC_uid);
+        if($MJTC_uid) $MJTC_query .= " AND user.id = ".absint($MJTC_uid);
         $total = majesticsupport::$_db->get_var($MJTC_query);
         majesticsupport::$_data['total'] = $total;
         majesticsupport::$_data[1] = MJTC_pagination::MJTC_getPagination($total);
 
         $MJTC_query = "SELECT user.display_name,user.user_email,user.user_nicename,user.id,
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE uid = user.id) AS allticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS openticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS closeticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS answeredticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS overdueticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS pendingticket
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND uid = user.id) AS openticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND uid = user.id) AS closeticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND uid = user.id) AS answeredticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND uid = user.id) AS overdueticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND uid = user.id) AS pendingticket
                     FROM `".majesticsupport::$_wpprefixforuser."mjtc_support_users` AS user
                     WHERE user.wpuid != 0 AND ";
                     if(in_array('agent', majesticsupport::$_active_addons)){
                         $MJTC_query .=" NOT EXISTS (SELECT id FROM `".majesticsupport::$_db->prefix."mjtc_support_staff` WHERE uid = user.id) AND  ";
                     }
                     $MJTC_query .=" NOT EXISTS (SELECT umeta_id FROM `".majesticsupport::$_wpprefixforuser."usermeta` WHERE user_id = user.id AND meta_value LIKE '%administrator%')";
-        if($MJTC_uid) $MJTC_query .= " AND user.id = ".esc_sql($MJTC_uid);
+        if($MJTC_uid) $MJTC_query .= " AND user.id = ".absint($MJTC_uid);
         $MJTC_query .= " LIMIT " . MJTC_pagination::MJTC_getOffset() . ", " . MJTC_pagination::MJTC_getLimit();
         $MJTC_users = majesticsupport::$_db->get_results($MJTC_query);
         majesticsupport::$_data['users_report'] =$MJTC_users;
@@ -859,24 +859,24 @@ class MJTC_reportsModel {
         $MJTC_nextdate = $MJTC_fromdate;
 
         //Query to get Data
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND staffid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND staffid = ".absint($MJTC_id);
         $MJTC_openticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND staffid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND staffid = ".absint($MJTC_id);
         $MJTC_closeticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND staffid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND staffid = ".absint($MJTC_id);
         $MJTC_answeredticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND staffid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND staffid = ".absint($MJTC_id);
         $MJTC_overdueticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND staffid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND staffid = ".absint($MJTC_id);
         $MJTC_pendingticket = majesticsupport::$_db->get_results($MJTC_query);
 
         $MJTC_date_openticket = array();
@@ -940,18 +940,18 @@ class MJTC_reportsModel {
         majesticsupport::$_data['line_chart_json_array'] = $MJTC_json_array;
 
         $MJTC_query = "SELECT staff.photo,staff.id,staff.uid,staff.firstname,staff.lastname,staff.username,staff.email,user.display_name,user.user_email,user.user_nicename,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND staffid = staff.id) AS allticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND staffid = staff.id) AS openticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND staffid = staff.id) AS closeticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND staffid = staff.id) AS answeredticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND staffid = staff.id) AS overdueticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND staffid = staff.id) AS pendingticket   ";
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND staffid = staff.id) AS allticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND staffid = staff.id) AS openticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND staffid = staff.id) AS closeticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND staffid = staff.id) AS answeredticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND staffid = staff.id) AS overdueticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND staffid = staff.id) AS pendingticket   ";
                     if(in_array('feedback', majesticsupport::$_active_addons)){
-                        $MJTC_query .=    ",(SELECT AVG(feed.rating) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_feedbacks` AS feed JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket ON ticket.id= feed.ticketid WHERE date(feed.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(feed.created) <= '" . esc_sql($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS avragerating ";
+                        $MJTC_query .=    ",(SELECT AVG(feed.rating) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_feedbacks` AS feed JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket ON ticket.id= feed.ticketid WHERE date(feed.created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(feed.created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "' AND ticket.staffid = staff.id) AS avragerating ";
                     }
                     $MJTC_query .=  "FROM `".majesticsupport::$_db->prefix."mjtc_support_staff` AS staff
                     JOIN `".majesticsupport::$_wpprefixforuser."mjtc_support_users` AS user ON user.id = staff.uid
-                    WHERE staff.id = ".esc_sql($MJTC_id);
+                    WHERE staff.id = ".absint($MJTC_id);
 
         $MJTC_agent = majesticsupport::$_db->get_row($MJTC_query);
         if(!empty($MJTC_agent)){
@@ -966,26 +966,26 @@ class MJTC_reportsModel {
         if(in_array('timetracking', majesticsupport::$_active_addons)){
             $MJTC_query = "SELECT DISTINCT(ticketid) AS ticketid
                         FROM `".majesticsupport::$_db->prefix."mjtc_support_staff_time`
-                        WHERE staffid = ".esc_sql($MJTC_id);
+                        WHERE staffid = ".absint($MJTC_id);
             $MJTC_all_tickets = majesticsupport::$_db->get_results($MJTC_query);
             $MJTC_comma = '';
             foreach ($MJTC_all_tickets as $MJTC_ticket) {
-                $MJTC_ticketid_string .= $MJTC_comma.$MJTC_ticket->ticketid;
+                $MJTC_ticketid_string .= $MJTC_comma . absint($MJTC_ticket->ticketid);
                 $MJTC_comma = ', ';
             }
         }
 
         if($MJTC_ticketid_string == ''){
-            $MJTC_q_strig = "(staffid = ".esc_sql($MJTC_id).")";
+            $MJTC_q_strig = "(staffid = ".absint($MJTC_id).")";
         }else{
-            $MJTC_q_strig = "(staffid = ".esc_sql($MJTC_id)." OR ticket.id IN (".esc_sql($MJTC_ticketid_string)."))";
+            $MJTC_q_strig = "(staffid = ".absint($MJTC_id)." OR ticket.id IN (" . $MJTC_ticketid_string . "))";
         }
 
         // Pagination
         $MJTC_query = "SELECT COUNT(ticket.id)
                     FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket
                     LEFT JOIN `".majesticsupport::$_db->prefix."mjtc_support_priorities` AS priority ON priority.id = ticket.priorityid
-                    WHERE ".esc_sql($MJTC_q_strig)." AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "' ";
+                    WHERE " . $MJTC_q_strig . " AND date(ticket.created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(ticket.created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "' ";
         $total = majesticsupport::$_db->get_var($MJTC_query);
         majesticsupport::$_data['total'] = $total;
         majesticsupport::$_data[1] = MJTC_pagination::MJTC_getPagination($total,'staffdetailreport');
@@ -997,7 +997,7 @@ class MJTC_reportsModel {
                     LEFT JOIN `".majesticsupport::$_db->prefix."mjtc_support_priorities` AS priority ON priority.id = ticket.priorityid
                     JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS status ON ticket.status = status.id
                     ".majesticsupport::$_addon_query['join']."
-                    WHERE ".esc_sql($MJTC_q_strig)." AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "' ";
+                    WHERE " . $MJTC_q_strig . " AND date(ticket.created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(ticket.created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "' ";
         $MJTC_query .= " LIMIT " . MJTC_pagination::MJTC_getOffset() . ", " . MJTC_pagination::MJTC_getLimit();
         do_action('MJTC_reset_addon_query');
         majesticsupport::$_data['staff_tickets'] = majesticsupport::$_db->get_results($MJTC_query);
@@ -1040,24 +1040,24 @@ class MJTC_reportsModel {
         $MJTC_nextdate = $MJTC_fromdate;
 
         //Query to get Data
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND departmentid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND departmentid = ".absint($MJTC_id);
         $MJTC_openticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND departmentid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND departmentid = ".absint($MJTC_id);
         $MJTC_closeticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND departmentid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND departmentid = ".absint($MJTC_id);
         $MJTC_answeredticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND departmentid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND departmentid = ".absint($MJTC_id);
         $MJTC_overdueticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND departmentid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND departmentid = ".absint($MJTC_id);
         $MJTC_pendingticket = majesticsupport::$_db->get_results($MJTC_query);
 
         $MJTC_date_openticket = array();
@@ -1124,21 +1124,21 @@ class MJTC_reportsModel {
         // Pagination
         $MJTC_query = "SELECT count(ticket.id)
                     FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket
-                    JOIN `".majesticsupport::$_db->prefix."mjtc_support_departments` AS department ON department.id = ticket.departmentid WHERE department.id = ".esc_sql($MJTC_id)." AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "' ";
+                    JOIN `".majesticsupport::$_db->prefix."mjtc_support_departments` AS department ON department.id = ticket.departmentid WHERE department.id = ".absint($MJTC_id)." AND date(ticket.created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(ticket.created) <= '" . sanitize_text_field($MJTC_fromdate) . "' ";
         $total = majesticsupport::$_db->get_var($MJTC_query);
         majesticsupport::$_data['total'] = $total;
         majesticsupport::$_data[1] = MJTC_pagination::MJTC_getPagination($total);
 
         $MJTC_query = "SELECT department.id,department.departmentname,email.email,
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE departmentid = department.id) AS allticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND departmentid = department.id) AS openticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND departmentid = department.id) AS closeticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND departmentid = department.id) AS answeredticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND departmentid = department.id) AS overdueticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND departmentid = department.id) AS pendingticket
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND departmentid = department.id) AS openticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND departmentid = department.id) AS closeticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND departmentid = department.id) AS answeredticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND departmentid = department.id) AS overdueticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND departmentid = department.id) AS pendingticket
                     FROM `".majesticsupport::$_db->prefix."mjtc_support_departments` AS department
                     JOIN `".majesticsupport::$_db->prefix."mjtc_support_email` AS email ON department.emailid = email.id
-                    WHERE department.id = ".esc_sql($MJTC_id);
+                    WHERE department.id = ".absint($MJTC_id);
         $MJTC_depatments = majesticsupport::$_db->get_row($MJTC_query);
         majesticsupport::$_data['depatments_report'] =$MJTC_depatments;
 
@@ -1149,7 +1149,7 @@ class MJTC_reportsModel {
                     LEFT JOIN `".majesticsupport::$_db->prefix."mjtc_support_priorities` AS priority ON priority.id = ticket.priorityid
                     JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS status ON ticket.status = status.id
                     ".majesticsupport::$_addon_query['join']."
-                    WHERE departmentid = ".esc_sql($MJTC_id)." AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "' ";
+                    WHERE departmentid = ".absint($MJTC_id)." AND date(ticket.created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(ticket.created) <= '" . sanitize_text_field($MJTC_fromdate) . "' ";
         $MJTC_query .= " LIMIT " . MJTC_pagination::MJTC_getOffset() . ", " . MJTC_pagination::MJTC_getLimit();
         do_action('MJTC_reset_addon_query');
 
@@ -1193,24 +1193,24 @@ class MJTC_reportsModel {
 
 
         //Query to get Data
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND uid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1 AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND uid = ".absint($MJTC_id);
         $MJTC_openticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND uid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND uid = ".absint($MJTC_id);
         $MJTC_closeticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND uid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND uid = ".absint($MJTC_id);
         $MJTC_answeredticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND uid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND uid = ".absint($MJTC_id);
         $MJTC_overdueticket = majesticsupport::$_db->get_results($MJTC_query);
 
-        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "'";
-        if($MJTC_id) $MJTC_query .= " AND uid = ".esc_sql($MJTC_id);
+        $MJTC_query = "SELECT created FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_curdate) . "' AND date(created) <= '" . MJTC_majesticsupportphplib::MJTC_sql_string($MJTC_fromdate) . "'";
+        if($MJTC_id) $MJTC_query .= " AND uid = ".absint($MJTC_id);
         $MJTC_pendingticket = majesticsupport::$_db->get_results($MJTC_query);
 
         $MJTC_date_openticket = array();
@@ -1275,20 +1275,20 @@ class MJTC_reportsModel {
 
         $MJTC_query = "SELECT user.display_name,user.user_email,user.user_nicename,user.id,
                     (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE uid = user.id) AS allticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1  AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS openticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS closeticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS answeredticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS overdueticket,
-                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND isoverdue = 1 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . esc_sql($MJTC_curdate) . "' AND date(created) <= '" . esc_sql($MJTC_fromdate) . "' AND uid = user.id) AS pendingticket
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 1  AND (lastreply = '0000-00-00 00:00:00') AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND uid = user.id) AS openticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE status = 5 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND uid = user.id) AS closeticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered = 1 AND status != 5 AND status != 1 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND uid = user.id) AS answeredticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isoverdue = 1 AND status != 5 AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND uid = user.id) AS overdueticket,
+                    (SELECT COUNT(id) FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE isanswered != 1 AND status != 5 AND isoverdue = 1 AND (lastreply != '0000-00-00 00:00:00') AND date(created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(created) <= '" . sanitize_text_field($MJTC_fromdate) . "' AND uid = user.id) AS pendingticket
                     FROM `".majesticsupport::$_wpprefixforuser."mjtc_support_users` AS user
-                    WHERE user.id = ".esc_sql($MJTC_id);
+                    WHERE user.id = ".absint($MJTC_id);
         $MJTC_agent = majesticsupport::$_db->get_row($MJTC_query);
         majesticsupport::$_data['user_report'] =$MJTC_agent;
         // Pagination
         $MJTC_query = "SELECT COUNT(ticket.id)
                     FROM `".majesticsupport::$_db->prefix."mjtc_support_tickets` AS ticket
                     LEFT JOIN `".majesticsupport::$_db->prefix."mjtc_support_priorities` AS priority ON priority.id = ticket.priorityid
-                    WHERE uid = ".esc_sql($MJTC_id)." AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "' ";
+                    WHERE uid = ".absint($MJTC_id)." AND date(ticket.created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(ticket.created) <= '" . sanitize_text_field($MJTC_fromdate) . "' ";
         $total = majesticsupport::$_db->get_var($MJTC_query);
         majesticsupport::$_data['total'] = $total;
         majesticsupport::$_data[1] = MJTC_pagination::MJTC_getPagination($total);
@@ -1299,7 +1299,7 @@ class MJTC_reportsModel {
                     LEFT JOIN `".majesticsupport::$_db->prefix."mjtc_support_priorities` AS priority ON priority.id = ticket.priorityid
                     JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_statuses` AS status ON ticket.status = status.id
                     ".majesticsupport::$_addon_query['join']."
-                    WHERE uid = ".esc_sql($MJTC_id)." AND date(ticket.created) >= '" . esc_sql($MJTC_curdate) . "' AND date(ticket.created) <= '" . esc_sql($MJTC_fromdate) . "' ";
+                    WHERE uid = ".absint($MJTC_id)." AND date(ticket.created) >= '" . sanitize_text_field($MJTC_curdate) . "' AND date(ticket.created) <= '" . sanitize_text_field($MJTC_fromdate) . "' ";
         $MJTC_query .= " LIMIT " . MJTC_pagination::MJTC_getOffset() . ", " . MJTC_pagination::MJTC_getLimit();
         do_action('MJTC_reset_addon_query');
         majesticsupport::$_data['user_tickets'] = majesticsupport::$_db->get_results($MJTC_query);
@@ -1340,7 +1340,7 @@ class MJTC_reportsModel {
         //Query to get Data
         if(in_array('timetracking', majesticsupport::$_active_addons)){
             $MJTC_query = "SELECT created,usertime FROM `" . majesticsupport::$_db->prefix . "mjtc_support_staff_time` ";
-            $MJTC_query .= " WHERE staffid = ".esc_sql($MJTC_id);
+            $MJTC_query .= " WHERE staffid = ".absint($MJTC_id);
             $MJTC_openticket = majesticsupport::$_db->get_results($MJTC_query);
         }else{
             $MJTC_openticket = array();

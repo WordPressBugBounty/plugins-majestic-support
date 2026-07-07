@@ -387,39 +387,47 @@ class MJTC_premiumpluginModel {
             return wp_json_encode($MJTC_result);
         }
 
-        do_action('majesticsupport_load_wp_admin_file');
-        WP_Filesystem();
-        $tmpfile = download_url( $MJTC_plugin_zip);
-
-        if ( !is_wp_error( $tmpfile ) && $tmpfile ) {
-            $MJTC_plugin_path = WP_CONTENT_DIR;
-            $MJTC_plugin_path = $MJTC_plugin_path.'/plugins/';
-            $MJTC_path = MJTC_PLUGIN_PATH.'addon.zip';
-            copy( $tmpfile, $MJTC_path );
-
-            $MJTC_unzipfile = unzip_file( $MJTC_path, $MJTC_plugin_path);
-
-            if ( file_exists( $MJTC_path ) ) {
-                wp_delete_file( $MJTC_path ); // must unlink afterwards
-            }
-            if ( file_exists( $tmpfile ) ) {
-                wp_delete_file( $tmpfile ); // must unlink afterwards
-            }
-
-            if ( is_wp_error( $MJTC_unzipfile ) ) {
-                $MJTC_result['error'] = esc_html(__('Addon installation failed','majestic-support')).'.';
-                $MJTC_result['error'] .= " ".wp_kses(majesticsupport::MJTC_getVarValue($MJTC_unzipfile->get_error_message()), MJTC_ALLOWED_TAGS);
-                $MJTC_result = wp_json_encode($MJTC_result);
-                return $MJTC_result;
-            } else {
-                return true;
-            }
-        }else{
-            $MJTC_error_string = is_wp_error($tmpfile) ? $tmpfile->get_error_message() : esc_html__('Unknown download error', 'majestic-support');
-            $MJTC_result['error'] = esc_html(__('Addon Installation Failed, File download error','majestic-support')).'! '.esc_attr($MJTC_error_string);
-            $MJTC_result = wp_json_encode($MJTC_result);
-            return $MJTC_result;
+        $MJTC_plugin_zip = esc_url_raw($MJTC_plugin_zip);
+        if (empty($MJTC_plugin_zip) || !wp_http_validate_url($MJTC_plugin_zip)) {
+            $MJTC_result['error'] = esc_html(__('Invalid addon download URL.', 'majestic-support'));
+            return wp_json_encode($MJTC_result);
         }
+
+        if (!class_exists('Plugin_Upgrader')) {
+            require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+        }
+        if (!function_exists('request_filesystem_credentials')) {
+            require_once ABSPATH . 'wp-admin/includes/file.php';
+        }
+        if (!function_exists('plugins_api')) {
+            require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+        }
+
+        WP_Filesystem();
+
+        $MJTC_skin = new Automatic_Upgrader_Skin();
+        $MJTC_upgrader = new Plugin_Upgrader($MJTC_skin);
+        $MJTC_install_result = $MJTC_upgrader->install($MJTC_plugin_zip);
+
+        if (is_wp_error($MJTC_install_result)) {
+            $MJTC_result['error'] = esc_html(__('Addon installation failed','majestic-support')).'.';
+            $MJTC_result['error'] .= ' ' . wp_kses(majesticsupport::MJTC_getVarValue($MJTC_install_result->get_error_message()), MJTC_ALLOWED_TAGS);
+            return wp_json_encode($MJTC_result);
+        }
+
+        if ($MJTC_install_result !== true) {
+            $MJTC_feedback = '';
+            if (!empty($MJTC_skin->result) && is_wp_error($MJTC_skin->result)) {
+                $MJTC_feedback = $MJTC_skin->result->get_error_message();
+            }
+            $MJTC_result['error'] = esc_html(__('Addon installation failed','majestic-support')).'.';
+            if (!empty($MJTC_feedback)) {
+                $MJTC_result['error'] .= ' ' . wp_kses(majesticsupport::MJTC_getVarValue($MJTC_feedback), MJTC_ALLOWED_TAGS);
+            }
+            return wp_json_encode($MJTC_result);
+        }
+
+        return true;
     }
 
     function verifytransactionkey($MJTC_transactionkey, $MJTC_url){

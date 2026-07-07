@@ -1232,7 +1232,7 @@ if(file_exists($modal_path)) {
                             <?php /* --- Zywrap AI Badges for Detail Page --- */ ?>
                             <?php if (!empty(majesticsupport::$_data[0]->sentiment)) : 
                                 $sentiment_safe = strtolower(esc_attr(majesticsupport::$_data[0]->sentiment)); ?>
-                                <span class="mjtc-sprt-det-status mjtc-ai-sentiment-<?php echo $sentiment_safe; ?>" title="<?php echo esc_attr(__('AI Sentiment Analysis', 'majestic-support')); ?>">
+                                <span class="mjtc-sprt-det-status mjtc-ai-sentiment-<?php echo esc_attr($sentiment_safe); ?>" title="<?php echo esc_attr(__('AI Sentiment Analysis', 'majestic-support')); ?>">
                                     <?php echo esc_html(ucfirst(majesticsupport::$_data[0]->sentiment)); ?>
                                 </span>
                             <?php endif; ?>
@@ -1428,25 +1428,25 @@ if(file_exists($modal_path)) {
                                                 <?php if ($is_latest_check) : ?>
                                                     <button type="button" class="mjtc-zywrap-open-tab-btn mjtc-zywrap-btn-primary" data-tab="compose" data-active="<?php echo esc_attr($active_flag); ?>">
                                                         <span class="dashicons dashicons-edit"></span> 
-                                                        <?php echo esc_html(__('Reply with Co-Pilot', 'js-support-ticket')); ?>
+                                                        <?php echo esc_html(__('Reply with Co-Pilot', 'majestic-support')); ?>
                                                     </button>
                                                     
-                                                    <button type="button" class="mjtc-zywrap-open-tab-btn mjtc-zywrap-btn-icon" data-tab="ask_info" data-active="<?php echo esc_attr($active_flag); ?>" title="<?php echo esc_attr__('Ask for Info', 'js-support-ticket'); ?>">
+                                                    <button type="button" class="mjtc-zywrap-open-tab-btn mjtc-zywrap-btn-icon" data-tab="ask_info" data-active="<?php echo esc_attr($active_flag); ?>" title="<?php echo esc_attr__('Ask for Info', 'majestic-support'); ?>">
                                                         <span class="dashicons dashicons-format-chat"></span>
                                                     </button>
                                                     
                                                     <div class="mjtc-zywrap-divider"></div>
                                                 <?php endif; ?>
 
-                                                <button type="button" class="mjtc-zywrap-inline-ai-btn mjtc-zywrap-btn-icon" data-wrapper="ts_support_ticket_condensed_summary_base" data-active="<?php echo esc_attr($active_flag); ?>" title="<?php echo esc_attr__('Summarize', 'js-support-ticket'); ?>">
+                                                <button type="button" class="mjtc-zywrap-inline-ai-btn mjtc-zywrap-btn-icon" data-wrapper="ts_support_ticket_condensed_summary_base" data-active="<?php echo esc_attr($active_flag); ?>" title="<?php echo esc_attr__('Summarize', 'majestic-support'); ?>">
                                                     <span class="dashicons dashicons-text-page"></span>
                                                 </button>
                                                 
-                                                <button type="button" class="mjtc-zywrap-inline-ai-btn mjtc-zywrap-btn-icon" data-wrapper="ee_support_ticket_detail_extraction_base" data-active="<?php echo esc_attr($active_flag); ?>" title="<?php echo esc_attr__('Extract Details', 'js-support-ticket'); ?>">
+                                                <button type="button" class="mjtc-zywrap-inline-ai-btn mjtc-zywrap-btn-icon" data-wrapper="ee_support_ticket_detail_extraction_base" data-active="<?php echo esc_attr($active_flag); ?>" title="<?php echo esc_attr__('Extract Details', 'majestic-support'); ?>">
                                                     <span class="dashicons dashicons-search"></span>
                                                 </button>
                                                 
-                                                <button type="button" class="mjtc-zywrap-inline-ai-btn mjtc-zywrap-btn-icon" data-wrapper="tl_supp_tick_tran_loca_926d_base" data-lang="<?php echo esc_attr($zywrap_default_lang); ?>" data-active="<?php echo esc_attr($active_flag); ?>" title="<?php echo esc_attr__('Translate to', 'js-support-ticket'); ?> <?php echo esc_attr($zywrap_default_lang); ?>">
+                                                <button type="button" class="mjtc-zywrap-inline-ai-btn mjtc-zywrap-btn-icon" data-wrapper="tl_supp_tick_tran_loca_926d_base" data-lang="<?php echo esc_attr($zywrap_default_lang); ?>" data-active="<?php echo esc_attr($active_flag); ?>" title="<?php echo esc_attr__('Translate to', 'majestic-support'); ?> <?php echo esc_attr($zywrap_default_lang); ?>">
                                                     <span class="dashicons dashicons-translation"></span>
                                                 </button>
                                             </div>
@@ -1622,25 +1622,25 @@ if(file_exists($modal_path)) {
                                                     <?php if ($js_ticket_is_latest) : ?>
                                                         <button type="button" class="mjtc-zywrap-open-tab-btn mjtc-zywrap-btn-primary" data-tab="compose" data-active="<?php echo esc_attr($js_ticket_active_flag); ?>">
                                                             <span class="dashicons dashicons-edit"></span> 
-                                                            <?php echo esc_html(__('Reply with Co-Pilot', 'js-support-ticket')); ?>
+                                                            <?php echo esc_html(__('Reply with Co-Pilot', 'majestic-support')); ?>
                                                         </button>
                                                         
-                                                        <button type="button" class="mjtc-zywrap-open-tab-btn mjtc-zywrap-btn-icon" data-tab="ask_info" data-active="<?php echo esc_attr($js_ticket_active_flag); ?>" title="<?php echo esc_attr(__('Ask for Info', 'js-support-ticket')); ?>">
+                                                        <button type="button" class="mjtc-zywrap-open-tab-btn mjtc-zywrap-btn-icon" data-tab="ask_info" data-active="<?php echo esc_attr($js_ticket_active_flag); ?>" title="<?php echo esc_attr(__('Ask for Info', 'majestic-support')); ?>">
                                                             <span class="dashicons dashicons-format-chat"></span>
                                                         </button>
                                                         
                                                         <div class="mjtc-zywrap-divider"></div>
                                                     <?php endif; ?>
 
-                                                    <button type="button" class="mjtc-zywrap-inline-ai-btn mjtc-zywrap-btn-icon" data-wrapper="ts_support_ticket_condensed_summary_base" data-active="<?php echo esc_attr($js_ticket_active_flag); ?>" title="<?php echo esc_attr(__('Summarize', 'js-support-ticket')); ?>">
+                                                    <button type="button" class="mjtc-zywrap-inline-ai-btn mjtc-zywrap-btn-icon" data-wrapper="ts_support_ticket_condensed_summary_base" data-active="<?php echo esc_attr($js_ticket_active_flag); ?>" title="<?php echo esc_attr(__('Summarize', 'majestic-support')); ?>">
                                                         <span class="dashicons dashicons-text-page"></span>
                                                     </button>
                                                     
-                                                    <button type="button" class="mjtc-zywrap-inline-ai-btn mjtc-zywrap-btn-icon" data-wrapper="ee_support_ticket_detail_extraction_base" data-active="<?php echo esc_attr($js_ticket_active_flag); ?>" title="<?php echo esc_attr(__('Extract Details', 'js-support-ticket')); ?>">
+                                                    <button type="button" class="mjtc-zywrap-inline-ai-btn mjtc-zywrap-btn-icon" data-wrapper="ee_support_ticket_detail_extraction_base" data-active="<?php echo esc_attr($js_ticket_active_flag); ?>" title="<?php echo esc_attr(__('Extract Details', 'majestic-support')); ?>">
                                                         <span class="dashicons dashicons-search"></span>
                                                     </button>
                                                     
-                                                    <button type="button" class="mjtc-zywrap-inline-ai-btn mjtc-zywrap-btn-icon" data-wrapper="tl_supp_tick_tran_loca_926d_base" data-lang="<?php echo esc_attr($zywrap_default_lang); ?>" data-active="<?php echo esc_attr($js_ticket_active_flag); ?>" title="<?php echo esc_attr(__('Translate to', 'js-support-ticket')); ?> <?php echo esc_attr($zywrap_default_lang); ?>">
+                                                    <button type="button" class="mjtc-zywrap-inline-ai-btn mjtc-zywrap-btn-icon" data-wrapper="tl_supp_tick_tran_loca_926d_base" data-lang="<?php echo esc_attr($zywrap_default_lang); ?>" data-active="<?php echo esc_attr($js_ticket_active_flag); ?>" title="<?php echo esc_attr(__('Translate to', 'majestic-support')); ?> <?php echo esc_attr($zywrap_default_lang); ?>">
                                                         <span class="dashicons dashicons-translation"></span>
                                                     </button>
                                                 </div>
