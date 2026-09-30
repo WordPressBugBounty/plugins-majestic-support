@@ -11,7 +11,6 @@ class MJTC_themesController {
 
     function handleRequest() {
         $MJTC_layout = MJTC_request::MJTC_getLayout('mjslay', null, 'themes');
-        majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
         if (self::canaddfile($MJTC_layout)) {
             switch ($MJTC_layout) {
                 case 'admin_themes':
@@ -37,8 +36,11 @@ class MJTC_themesController {
     }
 
     function canaddfile($MJTC_layout) {
-        $MJTC_nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
-        if ( wp_verify_nonce( $MJTC_nonce_value, 'MJTC_nonce') ) {
+        // Decides only whether a layout is rendered: never while a task is being
+        // dispatched, never an admin_ layout on the front end. Who may see a layout
+        // is decided in handleRequest(). (The nonce once checked here was created
+        // by the same request, so it could not fail.)
+        {
             if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
             } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {

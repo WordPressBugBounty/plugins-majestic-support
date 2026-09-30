@@ -2068,7 +2068,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                                                 
                                                 $MJTC_active_count++; // Increment the active counter
 
-                                                $MJTC_path = majesticsupport::makeUrl(array('mjsmod'=>'ticket','task'=>'downloadbyid','action'=>'mstask','id'=> $MJTC_attachment->id ,'mspageid'=>get_the_ID()));
+                                                $MJTC_path = add_query_arg('_wpnonce', wp_create_nonce('download-attachment-' . $MJTC_attachment->id), majesticsupport::makeUrl(array('mjsmod'=>'ticket','task'=>'downloadbyid','action'=>'mstask','id'=> $MJTC_attachment->id ,'mspageid'=>get_the_ID())));
                                                 $MJTC_data = wp_check_filetype($MJTC_attachment->filename);
                                                 $type = $MJTC_data['type'];
                                                 
@@ -2274,7 +2274,7 @@ if (majesticsupport::$_config['offline'] == 2) {
                                                             
                                                             $MJTC_active_count++; // Increment our counter because this file is available
 
-                                                            $MJTC_path = majesticsupport::makeUrl(array('mjsmod'=>'ticket','task'=>'downloadbyid','action'=>'mstask','id'=> $MJTC_attachment->id ,'mspageid'=>get_the_ID()));
+                                                            $MJTC_path = add_query_arg('_wpnonce', wp_create_nonce('download-attachment-' . $MJTC_attachment->id), majesticsupport::makeUrl(array('mjsmod'=>'ticket','task'=>'downloadbyid','action'=>'mstask','id'=> $MJTC_attachment->id ,'mspageid'=>get_the_ID())));
                                                             $MJTC_data = wp_check_filetype($MJTC_attachment->filename);
                                                             $type = $MJTC_data['type'];
                                                             $MJTC_attachmentdata .= '

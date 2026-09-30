@@ -20,12 +20,12 @@ class MJTC_activation {
 			$MJTC_role->add_cap( 'ms_support_ticket' );
 			$MJTC_role->add_cap( 'ms_support_ticket_tickets' );
 		}
-		if($GLOBALS['wp_roles']->is_role( 'contributor' )){ // if role exists
-			$MJTC_role2 = get_role( 'contributor' );
-			$MJTC_role2->add_cap( 'ms_support_ticket_tickets' );
-		}
+		// Contributor is no longer given ms_support_ticket_tickets: that
+		// capability reads every ticket and customer e-mail address. Agents come
+		// from the agent role below or from the Agents add-on's staff list.
         $MJTC_capabilities = array("ms_support_ticket_tickets"=>true, "read"=> true);
         add_role("mjtc_support_ticket_admin_agent", "Majestic Support agent (admin)",$MJTC_capabilities);
+        MJTC_access::MJTC_reconcileRoles(true);
     }
 
     static private function MJTC_checkUpdates() {
@@ -183,8 +183,8 @@ class MJTC_activation {
                     ('tplink_tickets_user', '1', 'tplink', NULL),
                     ('show_breadcrumbs', '1', 'default', NULL),
                     ('productcode', 'mjsupport', 'default', NULL),
-                    ('versioncode', '1.2.0', 'default', NULL),
-                    ('productversion', '120', 'default', NULL),
+                    ('versioncode', '1.2.1', 'default', NULL),
+                    ('productversion', '121', 'default', NULL),
                     ('producttype', 'free', 'default', NULL),
                     ('tve_enabled', '2', 'default', NULL),
                     ('tve_mailreadtype', '3', 'default', NULL),

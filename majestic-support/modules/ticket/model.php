@@ -709,6 +709,10 @@ class MJTC_ticketModel {
         if ($MJTC_id) {
             if (!is_numeric($MJTC_id))
                 return false;
+            // Loading a ticket into the form is editing it: whoever calls this,
+            // only somebody who may edit this ticket gets its contents.
+            if (!MJTC_access::MJTC_canEditTicket($MJTC_id))
+                return false;
             $MJTC_query = "SELECT ticket.*,department.departmentname AS departmentname ,priority.priority AS priority,priority.prioritycolour AS prioritycolour,user.name AS user_login, product.product AS producttitle
                         FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` AS ticket
                         LEFT JOIN `" . majesticsupport::$_db->prefix . "mjtc_support_departments` AS department ON ticket.departmentid = department.id
@@ -1403,8 +1407,10 @@ class MJTC_ticketModel {
             $MJTC_data['notificationid'] = MJTC_majesticsupportphplib::MJTC_htmlspecialchars($_SESSION['majestic-support']['notificationid']); // MJTC_sanitizeData() function uses wordpress santize functions
         }
 
+        $MJTC_isnewticket = true;
         if(isset($MJTC_data['id']) && is_numeric($MJTC_data['id'])){
            $MJTC_data['uid'] = $MJTC_edituid;
+           $MJTC_isnewticket = false;
         }
         $MJTC_sendnotification = false;
         $MJTC_row = MJTC_includer::MJTC_getTable('tickets');
@@ -1434,6 +1440,11 @@ class MJTC_ticketModel {
 
             // Storing Attachments
             $MJTC_data['ticketid'] = $MJTC_ticketid;
+            // The ticket was created by this request, so its files belong to it.
+            // An edit is checked against the current user by the upload layer.
+            if ($MJTC_isnewticket) {
+                MJTC_access::MJTC_allowAttachmentsFor($MJTC_ticketid);
+            }
             if($MJTC_data['ticketviaemail'] != 1){ // since ticket via emial attacments are handled saprately
                MJTC_includer::MJTC_getModel('attachment')->storeAttachments($MJTC_data);
                MJTC_message::MJTC_setMessage(esc_html(__('Your ticket has been submitted successfully', 'majestic-support')), 'updated');

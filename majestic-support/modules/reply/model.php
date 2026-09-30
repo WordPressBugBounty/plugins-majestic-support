@@ -126,7 +126,10 @@ class MJTC_replyModel {
         }
         if ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
             $MJTC_allowed = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('Reply Ticket');
-            if ($MJTC_allowed != true) {
+            // The permission says the agent may reply; it does not say to which
+            // tickets. Hold them to the tickets they may open: their departments,
+            // their assignments, or all of them with "All Tickets".
+            if ($MJTC_allowed != true || !MJTC_access::MJTC_canServiceTicket($MJTC_id)) {
                 MJTC_message::MJTC_setMessage(esc_html(__('You are not allowed', 'majestic-support')), 'error');
                 return;
             }
@@ -231,6 +234,8 @@ class MJTC_replyModel {
             }
             //tickets attachments store
             $MJTC_data['replyattachmentid'] = $MJTC_replyid;
+            // The reply passed the checks above, so its files may go with it.
+            MJTC_access::MJTC_allowAttachmentsFor($MJTC_data['ticketid']);
             MJTC_includer::MJTC_getModel('attachment')->storeAttachments($MJTC_data);
             //reply stored change action
             if (is_admin()){
@@ -430,13 +435,34 @@ class MJTC_replyModel {
         return $MJTC_replyattachments;
     }
 
+    /* The ticket a reply belongs to, or 0. */
+    function getTicketIdByReplyId($MJTC_replyid) {
+        $MJTC_replyid = MJTC_access::MJTC_id($MJTC_replyid);
+        if (!$MJTC_replyid)
+            return 0;
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT ticketid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_replies` WHERE id = %d", $MJTC_replyid);
+        return (int) majesticsupport::$_db->get_var($MJTC_query);
+    }
+
     function editReply($MJTC_data) {
-        if (empty($MJTC_data))
+        if (empty($MJTC_data) || !isset($MJTC_data['reply-replyid'], $MJTC_data['reply-tikcetid'], $MJTC_data['mjsupport_replytext']))
             return false;
+        // Look the reply up rather than trusting the posted pair: it must belong
+        // to the posted ticket, and the current user must be allowed to rewrite
+        // replies on that ticket.
+        $MJTC_replyid = MJTC_access::MJTC_id($MJTC_data['reply-replyid']);
+        $MJTC_ticketid = MJTC_access::MJTC_id($MJTC_data['reply-tikcetid']);
+        if (!$MJTC_replyid || !$MJTC_ticketid || $this->getTicketIdByReplyId($MJTC_replyid) !== $MJTC_ticketid) {
+            return false;
+        }
+        if (!MJTC_access::MJTC_canEditReply($MJTC_ticketid)) {
+            MJTC_message::MJTC_setMessage(esc_html(__('You are not allowed to edit this reply', 'majestic-support')), 'error');
+            return false;
+        }
         $MJTC_desc = wpautop(wptexturize(MJTC_majesticsupportphplib::MJTC_stripslashes($MJTC_data['mjsupport_replytext']))); // use mjsupport_message to avoid conflict
 
         $MJTC_row = MJTC_includer::MJTC_getTable('replies');
-        if (!$MJTC_row->update(array('id' => $MJTC_data['reply-replyid'], 'message' => $MJTC_desc))) {
+        if (!$MJTC_row->update(array('id' => $MJTC_replyid, 'message' => $MJTC_desc))) {
             MJTC_includer::MJTC_getModel('systemerror')->addSystemError();
         }
         return;

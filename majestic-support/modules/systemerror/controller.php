@@ -11,7 +11,6 @@ class MJTC_systemerrorController {
 
     function handleRequest() {
         $MJTC_layout = MJTC_request::MJTC_getLayout('mjslay', null, 'systemerrors');
-        majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
         if (self::canaddfile($MJTC_layout)) {
             switch ($MJTC_layout) {
                 case 'admin_systemerrors':
@@ -33,8 +32,11 @@ class MJTC_systemerrorController {
     }
 
     function canaddfile($MJTC_layout) {
-        $MJTC_nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
-        if ( wp_verify_nonce( $MJTC_nonce_value, 'MJTC_nonce') ) {
+        // Decides only whether a layout is rendered: never while a task is being
+        // dispatched, never an admin_ layout on the front end. Who may see a layout
+        // is decided in handleRequest(). (The nonce once checked here was created
+        // by the same request, so it could not fail.)
+        {
             if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
             } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
@@ -49,6 +51,13 @@ class MJTC_systemerrorController {
     }
 
     static function savesystemerror() {
+        if (!current_user_can('manage_options')) {
+            MJTC_access::MJTC_deny();
+        }
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (! wp_verify_nonce( $MJTC_nonce, 'save-systemerror') ) {
+            die( 'Security check Failed' );
+        }
         $MJTC_data = MJTC_request::get('post');
         MJTC_includer::MJTC_getModel('systemerror')->storesystemerror($MJTC_data);
         if (is_admin()) {

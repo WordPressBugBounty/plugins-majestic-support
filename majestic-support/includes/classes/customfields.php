@@ -614,6 +614,7 @@ class MJTC_customfields {
                 } else {
                     $MJTC_path = majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'task'=>'downloadbyname','action'=>'mstask','id'=> majesticsupport::$_data['custom']['ticketid'] ,'name'=>$MJTC_fvalue ,'mspageid'=>get_the_ID()));
                 }
+                $MJTC_path = add_query_arg('_wpnonce', wp_create_nonce('download-attachment-name-' . majesticsupport::$_data['custom']['ticketid']), $MJTC_path);
                 $MJTC_html = '
                     <div class="mjtc_supportattachment">
                         ' .  wp_kses($MJTC_fvalue, MJTC_ALLOWED_TAGS) . '

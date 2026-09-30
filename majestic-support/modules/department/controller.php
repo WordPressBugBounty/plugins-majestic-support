@@ -11,15 +11,12 @@ class MJTC_departmentController {
 
     function handleRequest() {
         $MJTC_layout = MJTC_request::MJTC_getLayout('mjslay', null, 'departments');
-        majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
         if (self::canaddfile($MJTC_layout)) {
             switch ($MJTC_layout) {
                 case 'admin_departments':
                 case 'departments':
-                    majesticsupport::$_data['permission_granted'] = true;
-                    if ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
-                        majesticsupport::$_data['permission_granted'] = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask('View Department');
-                    }
+                    // Administrators, or add-on staff granted the task. Nobody else.
+                    majesticsupport::$_data['permission_granted'] = MJTC_access::MJTC_staffMay('View Department');
                     if (majesticsupport::$_data['permission_granted']) {
                         MJTC_includer::MJTC_getModel('department')->getDepartments();
                     }
@@ -27,11 +24,10 @@ class MJTC_departmentController {
                 case 'admin_adddepartment':
                 case 'adddepartment':
                     $MJTC_id = MJTC_request::MJTC_getVar('majesticsupportid');
-                    majesticsupport::$_data['permission_granted'] = true;
-                    if ( in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff()) {
-                        $MJTC_per_task = ($MJTC_id == null) ? 'Add Department' : 'Edit Department';
-                        majesticsupport::$_data['permission_granted'] = MJTC_includer::MJTC_getModel('userpermissions')->MJTC_checkPermissionGrantedForTask($MJTC_per_task);
-                    }
+                    // A department record carries its outgoing mail account:
+                    // administrators, or add-on staff granted the task.
+                    $MJTC_per_task = ($MJTC_id == null) ? 'Add Department' : 'Edit Department';
+                    majesticsupport::$_data['permission_granted'] = MJTC_access::MJTC_staffMay($MJTC_per_task);
                     if (majesticsupport::$_data['permission_granted'])
                         MJTC_includer::MJTC_getModel('department')->getDepartmentForForm($MJTC_id);
                     break;
@@ -46,8 +42,11 @@ class MJTC_departmentController {
     }
 
     function canaddfile($MJTC_layout) {
-        $MJTC_nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
-        if ( wp_verify_nonce( $MJTC_nonce_value, 'MJTC_nonce') ) {
+        // Decides only whether a layout is rendered: never while a task is being
+        // dispatched, never an admin_ layout on the front end. Who may see a layout
+        // is decided in handleRequest(). (The nonce once checked here was created
+        // by the same request, so it could not fail.)
+        {
             if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
             } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {

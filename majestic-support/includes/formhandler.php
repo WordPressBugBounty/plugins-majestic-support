@@ -5,9 +5,70 @@ if (!defined('ABSPATH'))
 
 class MJTC_formhandler {
 
+    /*
+     * The core tasks a customer or visitor may start from the help-desk pages.
+     * Each still verifies its own nonce and ownership; this list only decides
+     * who may reach it at all. Every other core task is help-desk work and
+     * needs a worker (see MJTC_access::MJTC_isWorker()).
+     */
+    private static $MJTC_customer_tasks = array(
+        'ticket' => array(
+            'saveticket',
+            'showticketstatus',
+            'closeticket',
+            'reopenticket',
+            'deleteticket',
+            'downloadbyid',
+            'downloadbyname',
+            'downloadall',
+            'downloadallforreply',
+        ),
+        'reply' => array(
+            'savereply',
+        ),
+        'gdpr' => array(
+            'saveusereraserequest',
+            'removeusereraserequest',
+            'exportusereraserequest',
+        ),
+    );
+
     function __construct() {
         add_action('init', array($this, 'MJTC_checkFormRequest'));
         add_action('init', array($this, 'MJTC_checkDeleteRequest'));
+    }
+
+    /*
+     * Is this module served by this plugin rather than by a Majestic Support
+     * add-on? Add-ons are separate plugins whose controllers carry their own
+     * checks; MJTC_includer loads them in preference to a core module of the
+     * same name, so the same test is applied here.
+     */
+    private function MJTC_isCoreModule($MJTC_module) {
+        if (in_array($MJTC_module, majesticsupport::$_active_addons)) {
+            return false;
+        }
+        return file_exists(MJTC_PLUGIN_PATH . 'modules/' . $MJTC_module . '/controller.php');
+    }
+
+    /*
+     * May the current user reach this task at all?
+     *
+     * In wp-admin, only help-desk administrators, as before. On the front end
+     * a core task is open to workers, and to everybody else only when it is on
+     * the customer list above.
+     */
+    private function MJTC_mayDispatch($MJTC_module, $MJTC_task) {
+        if (is_admin()) {
+            return current_user_can('ms_support_ticket') || current_user_can('manage_options');
+        }
+        if (!$this->MJTC_isCoreModule($MJTC_module)) {
+            return true;
+        }
+        if (isset(self::$MJTC_customer_tasks[$MJTC_module]) && in_array(strtolower($MJTC_task), self::$MJTC_customer_tasks[$MJTC_module], true)) {
+            return true;
+        }
+        return MJTC_access::MJTC_isWorker();
     }
 
     private function MJTC_dispatch_controller($MJTC_module, $MJTC_task) {
@@ -38,7 +99,7 @@ class MJTC_formhandler {
             return false;
         }
 
-        if (is_admin() && !current_user_can('ms_support_ticket') && !current_user_can('manage_options')) {
+        if (!$this->MJTC_mayDispatch($MJTC_module, $MJTC_task)) {
             wp_die(
                 esc_html__('You are not allowed to access this resource.', 'majestic-support'),
                 esc_html__('Access Denied', 'majestic-support'),

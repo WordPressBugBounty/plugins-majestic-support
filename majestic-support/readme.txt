@@ -5,7 +5,7 @@ Donate link: https://majesticsupport.com
 Tags:  customer support, helpdesk, support desk, support plugin, ticket system
 Requires at least: 5.5
 Tested up to: 7.0
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -250,6 +250,16 @@ If you activate certain features in this plugin, the user's personal data, inclu
 * google fcm ([Google](https://policies.google.com/?hl=en))
 
 == Changelog ==
+
+= 1.2.1 =
+* Security: attachments can only be added to a ticket by its owner or by staff who work it; uploads require a nonce and a login.
+* Security: a reply can only be edited by an administrator or an agent with the Edit Reply permission, and only on its own ticket.
+* Security: the ticket edit form, department and smart reply screens no longer load records for users who may not edit them.
+* Security: front-end tasks are limited to the ones customers use; every other task requires a support agent or administrator.
+* Security: attachment downloads, system error and sample data tasks now check a nonce and the user's permission.
+* Security: the Contributor role no longer receives ticket access, and the grant is removed from existing sites.
+* Security: agents can only reply to tickets in their departments or assigned to them, unless they have All Tickets.
+* Fix: attachment downloads failed on Windows servers.
 
 = 1.2.0 =
 * Security Updates

@@ -24,8 +24,12 @@ class MJTC_attachmentModel {
         $MJTC_base_path = trailingslashit($MJTC_maindir['basedir']) . $MJTC_datadirectory . '/attachmentdata/ticket/' . $MJTC_foldername;
         $MJTC_file = trailingslashit($MJTC_base_path) . $MJTC_filename;
 
+        // Normalised: on Windows realpath() returns backslashes, and the prefix
+        // test below would never match and every download would 404.
         $MJTC_real_base = realpath($MJTC_base_path);
         $MJTC_real_file = realpath($MJTC_file);
+        $MJTC_real_base = $MJTC_real_base ? wp_normalize_path($MJTC_real_base) : false;
+        $MJTC_real_file = $MJTC_real_file ? wp_normalize_path($MJTC_real_file) : false;
 
         if (!$MJTC_real_base || !$MJTC_real_file || strpos($MJTC_real_file, trailingslashit($MJTC_real_base)) !== 0 || !is_file($MJTC_real_file)) {
             return false;
@@ -56,6 +60,15 @@ class MJTC_attachmentModel {
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Binary file download output
         echo $MJTC_wp_filesystem->get_contents($MJTC_file);
         exit();
+    }
+
+    /* The ticket an attachment belongs to, or 0. */
+    function getTicketIdByAttachmentId($MJTC_id) {
+        $MJTC_id = MJTC_access::MJTC_id($MJTC_id);
+        if (!$MJTC_id)
+            return 0;
+        $MJTC_query = majesticsupport::$_db->prepare("SELECT ticketid FROM `" . majesticsupport::$_db->prefix . "mjtc_support_attachments` WHERE id = %d", $MJTC_id);
+        return (int) majesticsupport::$_db->get_var($MJTC_query);
     }
 
     function getAttachmentForForm($MJTC_id) {
@@ -94,7 +107,10 @@ class MJTC_attachmentModel {
     }
 
     function MJTC_storeTicketAttachment($MJTC_ticketid, $MJTC_replyattachmentid, $MJTC_filesize, $MJTC_filename) {
-        if (!is_numeric($MJTC_ticketid))
+        $MJTC_ticketid = MJTC_access::MJTC_id($MJTC_ticketid);
+        // Only a ticket the caller has authorised, or one the current user owns
+        // or works, may receive a file.
+        if (!$MJTC_ticketid || !MJTC_access::MJTC_mayAttachTo($MJTC_ticketid))
             return false;
         $MJTC_created = date_i18n('Y-m-d H:i:s');
         $MJTC_data = array('ticketid' => $MJTC_ticketid,

@@ -1480,7 +1480,7 @@ if(file_exists($modal_path)) {
                                                             $MJTC_attachmentdata .= '</div>';
                                                             echo wp_kses($MJTC_attachmentdata, MJTC_ALLOWED_TAGS);
                                                         } else {
-                                                            $MJTC_path = admin_url("?page=majesticsupport_ticket&action=mstask&task=downloadbyid&id=".esc_attr($MJTC_attachment->id));
+                                                            $MJTC_path = add_query_arg('_wpnonce', wp_create_nonce('download-attachment-' . $MJTC_attachment->id), admin_url("?page=majesticsupport_ticket&action=mstask&task=downloadbyid&id=".esc_attr($MJTC_attachment->id)));
                                                             echo wp_kses('
                                                             <div class="mjtc_supportattachment">
                                                                 <span class="mjtc_supportattachment_fname">
@@ -1670,7 +1670,7 @@ if(file_exists($modal_path)) {
                                                             $MJTC_data = wp_check_filetype($MJTC_attachment->filename);
                                                             $type = $MJTC_data['type'];
                                                             $MJTC_count = 0;
-                                                            $MJTC_path = esc_url(admin_url("?page=majesticsupport_ticket&action=mstask&task=downloadbyid&id=".esc_attr($MJTC_attachment->id)));
+                                                            $MJTC_path = esc_url(add_query_arg('_wpnonce', wp_create_nonce('download-attachment-' . $MJTC_attachment->id), admin_url("?page=majesticsupport_ticket&action=mstask&task=downloadbyid&id=".esc_attr($MJTC_attachment->id))));
                                                             $MJTC_tktdata = '
                                                             <div class="mjtc_supportattachment">
                                                                 <span class="mjtc_supportattachment_fname">

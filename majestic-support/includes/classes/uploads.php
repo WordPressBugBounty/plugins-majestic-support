@@ -73,7 +73,12 @@ class MJTC_uploads {
     }
 
     function MJTC_storeTicketAttachment($MJTC_data, $MJTC_caller){
-        $MJTC_ticketid = $MJTC_data['ticketid'];
+        // Callers are not trusted to have checked the ticket: re-check it here,
+        // before wp_handle_upload() puts anything on disk.
+        $MJTC_ticketid = MJTC_access::MJTC_id(isset($MJTC_data['ticketid']) ? $MJTC_data['ticketid'] : '');
+        if (!$MJTC_ticketid || !MJTC_access::MJTC_mayAttachTo($MJTC_ticketid)) {
+            return;
+        }
         $MJTC_filesize = majesticsupport::$_config['file_maximum_size'];
         if (!function_exists('wp_handle_upload')) {
             do_action('majesticsupport_load_wp_file');

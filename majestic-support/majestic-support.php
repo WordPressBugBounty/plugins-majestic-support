@@ -5,7 +5,7 @@
   Plugin URI: https://www.majesticsupport.com
   Description: Majestic Support is a trusted open source ticket system. Majestic Support is a simple, easy to use, web-based customer support system. User can create ticket from front-end. Majestic Support comes packed with lot features than most of the expensive(and complex) support ticket system on market. Majestic Support provide you best industry Majestic Support system.
   Author: Majestic Support
-  Version: 1.2.0
+  Version: 1.2.1
   License: GPLv3
   Text Domain: majestic-support
   Domain Path: /languages
@@ -62,7 +62,7 @@ class majesticsupport {
         self::$_data = array();
         self::$_search = array();
         self::$_captcha = array();
-        self::$_currentversion = '120';
+        self::$_currentversion = '121';
         self::$_addon_query = array('select'=>'','join'=>'','where'=>'');
         self::$_mjtcsession = MJTC_includer::MJTC_getObjectClass('wphdsession');
         global $wpdb;
@@ -91,6 +91,7 @@ class majesticsupport {
             add_action('template_redirect', array($this, 'printTicket'), 5); // Only for the print ticket in wordpress
         }
         add_action('admin_init', array($this, 'majesticsupport_activation_redirect'));
+        add_action('admin_init', array('MJTC_access', 'MJTC_reconcileRoles')); // upgrades never re-run activation
         add_action( 'wp_footer', array($this,'checkScreenTag') );
         add_action( 'MJTC_resetnotificationvalues', array($this, 'resetNotificationValues'));
         //for style sheets
@@ -883,6 +884,7 @@ class majesticsupport {
         include_once 'includes/layout.php';
         include_once 'includes/pagination.php';
         include_once 'includes/includer.php';
+        include_once 'includes/access.php';
         include_once 'includes/formfield.php';
         include_once 'includes/request.php';
         include_once 'includes/breadcrumbs.php';
@@ -1477,7 +1479,7 @@ function majesticsupport_upgrade_completed( $MJTC_upgrader_object, $MJTC_options
             if( $MJTC_plugin == $MJTC_our_plugin ) {
                 update_option('ms_currentversion', majesticsupport::$_currentversion);
                 include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-                MJTC_updates::MJTC_checkUpdates('120');
+                MJTC_updates::MJTC_checkUpdates('121');
                 MJTC_includer::MJTC_getModel('majesticsupport')->updateColorFile();
                 MJTC_includer::MJTC_getModel('majesticsupport')->mjtc_check_license_status();
                 MJTC_includer::MJTC_getModel('premiumplugin')->MSAddonsAutoUpdate();

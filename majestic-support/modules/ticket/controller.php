@@ -15,7 +15,6 @@ class MJTC_ticketController {
         } else
             $MJTC_defaultlayout = "myticket";
         $MJTC_layout = MJTC_request::MJTC_getLayout('mjslay', null, $MJTC_defaultlayout);
-        majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
         if (self::canaddfile($MJTC_layout)) {
             switch ($MJTC_layout) {
                 case 'admin_tickets':
@@ -43,7 +42,14 @@ class MJTC_ticketController {
                             $MJTC_id = NULL;
                         }
                     }
+                    // Anyone may open a blank form; loading an existing ticket
+                    // into it is editing, and only somebody who may edit that
+                    // ticket gets its contents. Everyone else gets a blank form.
                     majesticsupport::$_data['permission_granted'] = true;
+                    if ($MJTC_id != null && !MJTC_access::MJTC_canEditTicket($MJTC_id)) {
+                        $MJTC_id = null;
+                        MJTC_message::MJTC_setMessage(esc_html(__('You are not allowed to edit this ticket', 'majestic-support')), 'error');
+                    }
 
                     if (majesticsupport::$_data['permission_granted']) {
                         MJTC_includer::MJTC_getModel('ticket')->getTicketsForForm($MJTC_id,$MJTC_formid);
@@ -112,8 +118,11 @@ class MJTC_ticketController {
     }
 
     function canaddfile($MJTC_layout) {
-        $MJTC_nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
-        if ( wp_verify_nonce( $MJTC_nonce_value, 'MJTC_nonce') ) {
+        // Decides only whether a layout is rendered: never while a task is being
+        // dispatched, never an admin_ layout on the front end. Who may see a layout
+        // is decided in handleRequest(). (The nonce once checked here was created
+        // by the same request, so it could not fail.)
+        {
             if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
             } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
@@ -594,7 +603,11 @@ class MJTC_ticketController {
         if ($MJTC_token == null) { // in case it come from ticket status form
             $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
             if (! wp_verify_nonce( $MJTC_nonce, 'show-ticket-status') ) {
-                //die( 'Security check Failed' );
+                // Usually a cached copy of the form, not an attack: send the
+                // visitor back to a fresh one rather than a dead end.
+                MJTC_message::MJTC_setMessage(esc_html(__('Your session has expired. Please try again.', 'majestic-support')), 'error');
+                wp_safe_redirect(majesticsupport::makeUrl(array('mjsmod'=>'ticket', 'mjslay'=>'ticketstatus')));
+                exit;
             }
             $MJTC_emailaddress = MJTC_request::MJTC_getVar('email');
             $trackingid = MJTC_request::MJTC_getVar('ticketid');
@@ -678,14 +691,31 @@ class MJTC_ticketController {
     }
 
     function downloadbyid(){
-        $MJTC_id = MJTC_request::MJTC_getVar('id');
+        $MJTC_id = MJTC_access::MJTC_id(MJTC_request::MJTC_getVar('id'));
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (!$MJTC_id || !wp_verify_nonce($MJTC_nonce, 'download-attachment-' . $MJTC_id)) {
+            wp_die(esc_html__('Security check failed.', 'majestic-support'), esc_html__('Security Error', 'majestic-support'), array('response' => 403));
+        }
+        // The model checks again before it streams anything.
+        $MJTC_ticketid = MJTC_includer::MJTC_getModel('attachment')->getTicketIdByAttachmentId($MJTC_id);
+        if (!MJTC_access::MJTC_canReadTicket($MJTC_ticketid)) {
+            MJTC_access::MJTC_deny();
+        }
         MJTC_includer::MJTC_getModel('attachment')->getDownloadAttachmentById($MJTC_id);
     }
 
 
     function downloadbyname(){
         $MJTC_name = MJTC_request::MJTC_getVar('name');
-        $MJTC_id = MJTC_request::MJTC_getVar('id');
+        $MJTC_id = MJTC_access::MJTC_id(MJTC_request::MJTC_getVar('id'));
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
+        if (!$MJTC_id || !wp_verify_nonce($MJTC_nonce, 'download-attachment-name-' . $MJTC_id)) {
+            wp_die(esc_html__('Security check failed.', 'majestic-support'), esc_html__('Security Error', 'majestic-support'), array('response' => 403));
+        }
+        // Here the id is the ticket's; the model checks again before streaming.
+        if (!MJTC_access::MJTC_canReadTicket($MJTC_id)) {
+            MJTC_access::MJTC_deny();
+        }
         $MJTC_name = MJTC_majesticsupportphplib::MJTC_clean_file_path($MJTC_name);
         MJTC_includer::MJTC_getModel('attachment')->getDownloadAttachmentByName($MJTC_name,$MJTC_id);
     }

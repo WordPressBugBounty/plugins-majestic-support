@@ -12,7 +12,6 @@ class MJTC_replyController {
     function handleRequest() {
         $MJTC_layout = MJTC_request::MJTC_getLayout('mjslay', null, 'replies');
         $MJTC_task = MJTC_request::MJTC_getLayout('task', null, 'replies_replies');
-        majesticsupport::$_data['sanitized_args']['MJTC_nonce'] = esc_html(wp_create_nonce('MJTC_nonce'));
         if (self::canaddfile($MJTC_layout)) {
             $MJTC_module = (is_admin()) ? 'page' : 'mjsmod';
             $MJTC_module = MJTC_request::MJTC_getVar($MJTC_module, null, 'reply');
@@ -22,8 +21,11 @@ class MJTC_replyController {
     }
 
     function canaddfile($MJTC_layout) {
-        $MJTC_nonce_value = MJTC_request::MJTC_getVar('MJTC_nonce');
-        if ( wp_verify_nonce( $MJTC_nonce_value, 'MJTC_nonce') ) {
+        // Decides only whether a layout is rendered: never while a task is being
+        // dispatched, never an admin_ layout on the front end. Who may see a layout
+        // is decided in handleRequest(). (The nonce once checked here was created
+        // by the same request, so it could not fail.)
+        {
             if (isset($_POST['form_request']) && $_POST['form_request'] == 'majesticsupport') {
                 return false;
             } elseif (isset($_GET['action']) && $_GET['action'] == 'mstask') {
@@ -60,6 +62,16 @@ class MJTC_replyController {
         $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce');
         if (! wp_verify_nonce( $MJTC_nonce, 'save-edited-reply-'.$MJTC_reply_tikcetid) ) {
             die( 'Security check Failed' );
+        }
+        // The nonce is keyed on the ticket and is rendered for everybody who can
+        // open it, so it proves nothing about the reply. Check the reply belongs
+        // to that ticket and that this user may rewrite replies on it.
+        $MJTC_replyid = MJTC_access::MJTC_id(MJTC_request::MJTC_getVar('reply-replyid', 'post'));
+        $MJTC_ticketid = MJTC_access::MJTC_id($MJTC_reply_tikcetid);
+        if (!$MJTC_replyid || !$MJTC_ticketid
+            || MJTC_includer::MJTC_getModel('reply')->getTicketIdByReplyId($MJTC_replyid) !== $MJTC_ticketid
+            || !MJTC_access::MJTC_canEditReply($MJTC_ticketid)) {
+            MJTC_access::MJTC_deny();
         }
         $MJTC_data = MJTC_request::get('post');
         MJTC_includer::MJTC_getModel('reply')->editReply($MJTC_data);
