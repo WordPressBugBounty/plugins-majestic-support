@@ -421,6 +421,11 @@ class MJTC_replyModel {
 
     function getAttachmentByReplyId($MJTC_id ,$MJTC_internalid = ''){
         if(!is_numeric($MJTC_id)) return false;
+        // Many tickets share an empty internalid, so it cannot stand in for an
+        // ownership check: the reply's ticket must be one this user may read.
+        if (!MJTC_access::MJTC_canReadTicket($this->getTicketIdByReplyId($MJTC_id))) {
+            return array();
+        }
         $MJTC_inquery = '';
         //if not admin and agent
         if(!current_user_can('manage_options') && !(in_array('agent',majesticsupport::$_active_addons) && MJTC_includer::MJTC_getModel('agent')->isUserStaff())){
@@ -529,21 +534,38 @@ class MJTC_replyModel {
     }
 
     function markedAsAiPoweredReply() {
-        $MJTC_nonce  = MJTC_request::MJTC_getVar('_wpnonce');
-
-        if (!wp_verify_nonce($MJTC_nonce, 'ai-powered-reply')) {
+        // A setting for the people who work a ticket. Visitors never hold it,
+        // and a visitor nonce is shared by every logged-out requester.
+        if (!is_user_logged_in()) {
             wp_die('Security check failed');
         }
-        $MJTC_status = (int) MJTC_request::MJTC_getVar('status');
-        $type   = MJTC_request::MJTC_getVar('type');
-        $MJTC_id     = intval(MJTC_request::MJTC_getVar('id'));
+        $type        = MJTC_request::MJTC_getVar('type', 'post');
+        $MJTC_id     = MJTC_access::MJTC_id(MJTC_request::MJTC_getVar('id', 'post'));
+        $MJTC_status = MJTC_request::MJTC_getVar('status', 'post');
 
-        if ($MJTC_id <= 0 || !in_array($type, ['ticket', 'reply'])) {
+        if (!$MJTC_id || !in_array($type, array('ticket', 'reply'), true) || !in_array((string) $MJTC_status, array('0', '1', '2'), true)) {
             return false;
         }
 
+        // Resolve the ticket from the record itself, never from the request:
+        // the nonce, the permission and the update all follow that ticket.
+        $MJTC_ticketid = ($type === 'ticket')
+            ? (int) majesticsupport::$_db->get_var(majesticsupport::$_db->prepare("SELECT id FROM `" . majesticsupport::$_db->prefix . "mjtc_support_tickets` WHERE id = %d", $MJTC_id))
+            : $this->getTicketIdByReplyId($MJTC_id);
+        if (!$MJTC_ticketid) {
+            return false;
+        }
+
+        $MJTC_nonce = MJTC_request::MJTC_getVar('_wpnonce', 'post');
+        if (!wp_verify_nonce($MJTC_nonce, MJTC_access::MJTC_aiReplyModeNonceAction($MJTC_ticketid))) {
+            wp_die('Security check failed');
+        }
+        if (!MJTC_access::MJTC_canSetAiReplyMode($MJTC_ticketid, $type)) {
+            wp_die('Security check failed');
+        }
+
         $table = ($type === 'ticket') ? 'mjtc_support_tickets' : 'mjtc_support_replies';
-        $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "$table` SET aireplymode = %d WHERE id = %d", absint($MJTC_status), absint($MJTC_id));
+        $MJTC_query = majesticsupport::$_db->prepare("UPDATE `" . majesticsupport::$_db->prefix . "$table` SET aireplymode = %d WHERE id = %d", (int) $MJTC_status, $MJTC_id);
 
         $MJTC_result = majesticsupport::$_db->query($MJTC_query);
 

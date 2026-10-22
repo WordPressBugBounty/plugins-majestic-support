@@ -5,7 +5,7 @@
   Plugin URI: https://www.majesticsupport.com
   Description: Majestic Support is a trusted open source ticket system. Majestic Support is a simple, easy to use, web-based customer support system. User can create ticket from front-end. Majestic Support comes packed with lot features than most of the expensive(and complex) support ticket system on market. Majestic Support provide you best industry Majestic Support system.
   Author: Majestic Support
-  Version: 1.2.1
+  Version: 1.2.2
   License: GPLv3
   Text Domain: majestic-support
   Domain Path: /languages
@@ -62,7 +62,7 @@ class majesticsupport {
         self::$_data = array();
         self::$_search = array();
         self::$_captcha = array();
-        self::$_currentversion = '121';
+        self::$_currentversion = '122';
         self::$_addon_query = array('select'=>'','join'=>'','where'=>'');
         self::$_mjtcsession = MJTC_includer::MJTC_getObjectClass('wphdsession');
         global $wpdb;
@@ -1399,7 +1399,7 @@ if(!empty(majesticsupport::$_active_addons)){
 }
 
 if(is_file('includes/updater/updater.php')){
-    include_once 'includes/updater/updater.php';
+    
 }
 // file for admin review
 if(is_admin() && is_file('includes/classes/msadminreviewbox.php')){
@@ -1479,7 +1479,7 @@ function majesticsupport_upgrade_completed( $MJTC_upgrader_object, $MJTC_options
             if( $MJTC_plugin == $MJTC_our_plugin ) {
                 update_option('ms_currentversion', majesticsupport::$_currentversion);
                 include_once MJTC_PLUGIN_PATH . 'includes/updates/updates.php';
-                MJTC_updates::MJTC_checkUpdates('121');
+                MJTC_updates::MJTC_checkUpdates('122');
                 MJTC_includer::MJTC_getModel('majesticsupport')->updateColorFile();
                 MJTC_includer::MJTC_getModel('majesticsupport')->mjtc_check_license_status();
                 MJTC_includer::MJTC_getModel('premiumplugin')->MSAddonsAutoUpdate();

@@ -5,7 +5,7 @@ Donate link: https://majesticsupport.com
 Tags:  customer support, helpdesk, support desk, support plugin, ticket system
 Requires at least: 5.5
 Tested up to: 7.0
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -250,6 +250,11 @@ If you activate certain features in this plugin, the user's personal data, inclu
 * google fcm ([Google](https://policies.google.com/?hl=en))
 
 == Changelog ==
+
+= 1.2.2 =
+* Security: the AI-Powered Reply mode of a ticket or reply can only be changed by someone who works that ticket; the request nonce is now tied to the ticket and is no longer shown to customers or visitors.
+* Security: logged-out visitors can only reach the AJAX tasks the public help desk pages use.
+* Security: downloading all attachments of a reply now checks access to the reply's ticket.
 
 = 1.2.1 =
 * Security: attachments can only be added to a ticket by its owner or by staff who work it; uploads require a nonce and a login.

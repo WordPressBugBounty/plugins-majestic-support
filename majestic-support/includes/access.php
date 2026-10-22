@@ -138,6 +138,40 @@ class MJTC_access {
     }
 
     /*
+     * May the current user set the AI-Powered Reply mode on this ticket, or on
+     * one of its replies? Somebody who works the ticket; add-on staff only with
+     * the add-on's own "Set AI Reply Mode" permission for that kind of record.
+     */
+    static function MJTC_canSetAiReplyMode($MJTC_ticketid, $MJTC_type) {
+        if (!self::MJTC_canServiceTicket($MJTC_ticketid)) {
+            return false;
+        }
+        if (self::MJTC_isAdmin()) {
+            return true;
+        }
+        if (self::MJTC_isStaff()) {
+            return self::MJTC_staffMay($MJTC_type === 'ticket' ? 'Set AI Reply Mode for Ticket' : 'Set AI Reply Mode for Reply');
+        }
+        return current_user_can('ms_support_ticket_tickets');
+    }
+
+    /* Nonce action for the AI reply mode control, bound to one ticket. */
+    static function MJTC_aiReplyModeNonceAction($MJTC_ticketid) {
+        return 'ai-powered-reply-' . self::MJTC_id($MJTC_ticketid);
+    }
+
+    /*
+     * The nonce a ticket page hands to its AI reply mode control, or '' for
+     * a viewer who may not use the control (customers and visitors included).
+     */
+    static function MJTC_aiReplyModeNonce($MJTC_ticketid) {
+        if (!self::MJTC_canSetAiReplyMode($MJTC_ticketid, 'ticket') && !self::MJTC_canSetAiReplyMode($MJTC_ticketid, 'reply')) {
+            return '';
+        }
+        return wp_create_nonce(self::MJTC_aiReplyModeNonceAction($MJTC_ticketid));
+    }
+
+    /*
      * Record that the caller has already authorised uploads for this ticket:
      * a ticket it has just created, or a reply that passed its ownership check.
      * A visitor creating a ticket has no token cookie yet, so without this the

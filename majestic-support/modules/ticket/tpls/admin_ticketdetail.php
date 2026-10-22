@@ -490,7 +490,7 @@ $majesticsupport_js ="
             jQuery("#mjtc-support-ai-reply-status-hidden").val(selectedValue);
 
             // Perform the AJAX request using jQuery.ajax().
-            jQuery.post(ajaxurl, {action: "mjsupport_ajax", mjsmod: "reply", task: "markedAsAiPoweredReply", status:selectedValue, id: selectedId, type: actionType, "_wpnonce":"'.esc_attr(wp_create_nonce("ai-powered-reply")).'"}, function (data) {
+            jQuery.post(ajaxurl, {action: "mjsupport_ajax", mjsmod: "reply", task: "markedAsAiPoweredReply", status:selectedValue, id: selectedId, type: actionType, "_wpnonce":"'.esc_attr(isset(majesticsupport::$_data[0]->id) ? MJTC_access::MJTC_aiReplyModeNonce(majesticsupport::$_data[0]->id) : '').'"}, function (data) {
                 if (data) {
                     jQuery(".majesticsupport-review-box-popup").remove();
                     jQuery(".majesticsupport-premio-review-box").remove();
